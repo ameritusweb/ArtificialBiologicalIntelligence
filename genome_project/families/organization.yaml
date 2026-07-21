@@ -1,0 +1,550 @@
+# Organization Family
+# Receptors for detecting structure, hierarchy, part-whole relationships, and functional arrangement
+
+family_metadata:
+  name: Organization
+  description: |
+    Receptors that detect how things are arranged — where boundaries fall,
+    how parts compose into wholes, how wholes stack into hierarchies, and
+    how structure serves function. This family sits at the intersection of
+    multiple other families because detecting organization requires
+    simultaneously detecting structure (similarity), causation (agency),
+    compression (pattern), and purpose (controllability).
+
+    The trunk is boundary detection — where one thing ends and another
+    begins. The canopy is self-organizing system detection — recognizing
+    that a system's structure maintains itself through its own dynamics.
+
+    This is the first family capable of detecting its own architecture.
+    The receptor topology is itself an organized system. The organization
+    family gives the organism the receptors to detect that — structure
+    detecting structure, organization recognizing organization.
+
+  evolutionary_thesis: |
+    Organization receptors emerge when the environment contains systems
+    whose behavior depends on their arrangement, not just their components.
+    An organism that detects "these parts in this arrangement produce this
+    outcome, but the same parts in a different arrangement produce a
+    different outcome" can navigate structured environments that would
+    be opaque to an organism detecting only components.
+
+    The fitness benefit scales with environmental complexity. In simple
+    environments, components are sufficient. In complex environments —
+    social groups, tool chains, ecosystems — arrangement is load-bearing.
+    The same resources, the same agents, the same objects produce
+    completely different outcomes depending on how they're organized.
+
+  trunk_receptor: boundary_detection
+  canopy_receptors: [system_detection, self_organizing_detection, organizational_mirror]
+
+---
+
+receptors:
+  - receptor_id: boundary_detection
+    name: Edge and Boundary Detection
+    family: organization
+    tier: trunk
+
+    dependencies:
+      - receptor_id: change_detection
+        note: "Observation family — boundaries are where properties change"
+      - receptor_id: perceptual_similarity
+        note: "Similarity family — boundaries separate dissimilar from similar"
+
+    environmental_trigger:
+      structure: |
+        Discontinuities in the environment where properties change sharply.
+        The edge of a pain field. The boundary between safe and dangerous
+        regions. Where one resource patch ends and another begins.
+      survival_benefit: |
+        Boundary detection enables efficient navigation. Instead of
+        sampling the entire field, the organism navigates by edges —
+        staying inside beneficial boundaries, avoiding crossing harmful
+        ones. Dramatically reduces the search space for safe paths.
+      metabolic_cost: very_low
+      selection_pressure: |
+        Any environment with spatial discontinuities. Nearly universal.
+
+    selection_environments:
+      - field_environments_with_sharp_gradients
+      - multi_region_environments
+      - any_spatially_structured_environment
+
+    unlocks:
+      - region_detection
+      - part_whole_detection
+      - segmentation
+
+    emergence_signature:
+      description: |
+        Organism's behavior changes sharply at environmental boundaries
+        rather than gradually across gradients. Navigation follows edges
+        rather than field centers.
+      metrics:
+        - metric_name: boundary_following_behavior
+          measurement_method: |
+            Measure proportion of time organism spends near field
+            boundaries (gradient maxima) vs field centers. Boundary-
+            following organisms spend >30% of time within 1 unit of
+            gradient transitions.
+          expected_range: ">30% boundary time"
+          detection_threshold: 0.3
+        - metric_name: behavioral_discontinuity
+          measurement_method: |
+            Measure sharpness of behavioral transitions at boundaries
+            vs smooth behavioral gradients in field interiors.
+          expected_range: "Transition sharpness > 2x interior variance"
+          detection_threshold: 2.0
+
+    predicted_emergence_order:
+      generation_range: "15-40"
+      confidence: high
+      conditions: |
+        Should emerge early in any environment with spatial structure.
+        A natural consequence of distance sensing + pain avoidance.
+
+    notes: |
+      Boundary detection is so fundamental that it may already be
+      implicitly present in the current implementation — the organism
+      navigates field edges naturally. The receptor formalizes what
+      the behavior already does: detect where things change.
+
+  - receptor_id: part_whole_detection
+    name: Component-Composite Recognition
+    family: organization
+    tier: branch
+
+    dependencies:
+      - receptor_id: boundary_detection
+        note: "Must detect boundaries before detecting what they separate into parts"
+      - receptor_id: spatial_association
+        note: "Association family — parts co-occur spatially"
+      - receptor_id: pattern_recognition
+        note: "Compression family — recurring part arrangements"
+
+    environmental_trigger:
+      structure: |
+        Something is simultaneously a distinct entity and a component
+        of a larger entity. A limb is a thing (it extends, flexes) and
+        part of a body (its movement affects the whole organism). An
+        NPC is an agent and a member of a group. A responsive object
+        is an object and part of a tool chain.
+      survival_benefit: |
+        Part-whole detection enables reasoning at multiple scales
+        simultaneously. The organism can reason about a limb's action
+        AND the body's trajectory without conflating the two. This is
+        essential for coordinated multi-part behavior.
+      metabolic_cost: low
+      selection_pressure: |
+        Environments with multi-component systems where behavior at
+        the component level affects outcomes at the system level.
+
+    selection_environments:
+      - multi_limb_coordination_environments
+      - multi_agent_groups
+      - tool_chain_environments
+      - any_hierarchical_structure
+
+    unlocks:
+      - hierarchical_structure_detection
+      - decomposition_strategy
+      - compositional_reasoning
+
+    emergence_signature:
+      description: |
+        Organism treats the same entity differently depending on
+        whether it's reasoning about the part or the whole. Limb
+        actions optimize for body-level outcomes, not limb-level
+        outcomes. Group behavior differs from individual behavior.
+      metrics:
+        - metric_name: scale_dependent_behavior
+          measurement_method: |
+            Measure whether organism's limb coordination reflects
+            body-level goals (navigation direction) rather than
+            limb-level goals (individual extension). Correlation
+            between body trajectory and limb activation pattern.
+          expected_range: ">0.6 correlation"
+          detection_threshold: 0.6
+
+    predicted_emergence_order:
+      generation_range: "40-80"
+      confidence: medium
+      conditions: |
+        Requires boundary detection + multi-component body or
+        multi-agent environment.
+
+    notes: |
+      This is where the organism stops treating its limbs as
+      independent actuators and starts treating them as parts
+      of a body. The same transition applies to social groups:
+      other organisms stop being independent fields to navigate
+      and start being members of a system.
+
+  - receptor_id: hierarchical_structure_detection
+    name: Nested Organization Detection
+    family: organization
+    tier: branch
+
+    dependencies:
+      - receptor_id: part_whole_detection
+        note: "Must detect parts and wholes before detecting nesting"
+      - receptor_id: hierarchical_abstraction
+        note: "Compression family — must handle meta-patterns"
+      - receptor_id: structural_similarity
+        note: "Similarity family — must detect that nesting repeats structurally"
+
+    environmental_trigger:
+      structure: |
+        Part-whole relationships that stack. A limb is part of a body.
+        A body is part of a group. A group is part of an ecosystem.
+        The same compositional relationship applies at each level.
+        Detecting the stacking enables reasoning about any level
+        using the same structural template.
+      survival_benefit: |
+        Hierarchical detection enables scale-free reasoning. The
+        organism that recognizes "groups behave like organisms at a
+        larger scale" can predict group behavior using its self-model
+        template — a massive transfer of existing knowledge.
+      metabolic_cost: medium
+      selection_pressure: |
+        Environments with nested organization. Social groups with
+        subgroups. Tool chains within tool chains. Ecosystems.
+
+    selection_environments:
+      - nested_social_groups
+      - multi_level_tool_environments
+      - environments_with_organizational_depth
+
+    unlocks:
+      - organizational_reasoning
+      - system_detection
+      - recursive_structure_detection
+
+    emergence_signature:
+      description: |
+        Organism applies same reasoning pattern across organizational
+        levels. Strategy used for limb coordination is reapplied
+        (structurally) for group coordination.
+      metrics:
+        - metric_name: cross_level_strategy_transfer
+          measurement_method: |
+            Measure structural similarity between organism's limb
+            coordination strategy and its group-level coordination
+            strategy. Same abstract pattern at different scales.
+          expected_range: ">0.5 structural similarity"
+          detection_threshold: 0.5
+
+    predicted_emergence_order:
+      generation_range: "80-150"
+      confidence: low
+      conditions: |
+        Requires nested organizational environments. Multi-level
+        social or tool structures.
+
+    notes: |
+      This is where the organism develops the capacity to reason
+      about organizations. Not just "these parts make a whole" but
+      "wholes themselves make larger wholes, in the same way."
+
+  - receptor_id: relational_structure_detection
+    name: Arrangement-Independent Structure Detection
+    family: organization
+    tier: canopy
+
+    dependencies:
+      - receptor_id: hierarchical_structure_detection
+        note: "Must detect hierarchical organization"
+      - receptor_id: structural_invariance
+        note: "Similarity family — must detect structural equivalence"
+      - receptor_id: structural_invariance_math
+        note: "Mathematics family — must detect cross-domain invariance"
+
+    environmental_trigger:
+      structure: |
+        The relationships between parts ARE the structure, independent
+        of what the parts are. A skeleton and a bureaucracy share the
+        same structural pattern (branching hierarchy with load paths)
+        even though their components are completely different. The
+        structure is the same; only the material differs.
+      survival_benefit: |
+        Relational structure detection enables transfer of organizational
+        knowledge across completely different domains. Understanding how
+        a body works helps understand how a group works because they
+        share structural patterns. This is the deepest form of analogy.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments where cross-domain structural transfer provides
+        survival advantage. Complex enough that direct learning in each
+        domain is too slow.
+
+    selection_environments:
+      - multi_domain_complex_environments
+      - cross_domain_transfer_environments
+      - environments_requiring_organizational_analogy
+
+    unlocks:
+      - organizational_analogy
+      - system_design
+      - architectural_reasoning
+
+    emergence_signature:
+      description: |
+        Organism transfers organizational knowledge between structurally
+        similar but materially different domains without retraining.
+      metrics:
+        - metric_name: structural_transfer
+          measurement_method: |
+            Organizational strategy learned in domain A (e.g., body
+            coordination) transfers to domain B (e.g., group coordination)
+            based on shared relational structure.
+          expected_range: ">40% transfer"
+          detection_threshold: 0.4
+
+    predicted_emergence_order:
+      generation_range: "150-250"
+      confidence: very_low
+      conditions: |
+        Requires cross-domain environments with shared organizational
+        structure. Very high tier.
+
+    notes: |
+      This is where the organism becomes capable of seeing that a
+      cell, a body, a group, and an ecosystem share the same
+      organizational logic. The material is irrelevant. The
+      arrangement is everything.
+
+  - receptor_id: functional_organization
+    name: Purpose-Serving Structure Detection
+    family: organization
+    tier: canopy
+
+    dependencies:
+      - receptor_id: part_whole_detection
+        note: "Must detect parts composing wholes"
+      - receptor_id: controllability
+        note: "Agency family — must detect that structure serves a purpose"
+      - receptor_id: causal_inference
+        note: "Causality family — must detect that arrangement causes outcome"
+
+    environmental_trigger:
+      structure: |
+        Structure that exists because of what it does, not just what
+        it is. The arrangement serves a function. Rearranging the same
+        parts produces a different (worse) outcome. The organism detects
+        that THIS arrangement works and others don't — that organization
+        is load-bearing.
+      survival_benefit: |
+        Functional organization detection enables the organism to
+        distinguish organized systems from random collections. A pile
+        of sticks is not a shelter. The same sticks arranged differently
+        IS a shelter. Detecting the difference is the foundation of
+        engineering and tool construction.
+      metabolic_cost: medium
+      selection_pressure: |
+        Environments where arrangement determines outcome. Tool use,
+        shelter building, group coordination where formation matters.
+
+    selection_environments:
+      - tool_use_environments
+      - construction_environments
+      - formation_dependent_group_tasks
+
+    unlocks:
+      - system_detection
+      - design_capability
+      - organizational_repair
+
+    emergence_signature:
+      description: |
+        Organism preferentially maintains effective arrangements over
+        random ones. When a functional organization is disrupted, the
+        organism acts to restore it rather than accepting the new
+        arrangement.
+      metrics:
+        - metric_name: arrangement_preference
+          measurement_method: |
+            When functional arrangement is disrupted (e.g., blocking
+            object pushed away from pain source), does organism re-push
+            it back? Restoration behavior indicates detecting that
+            the arrangement, not just the components, matters.
+          expected_range: ">50% restoration rate"
+          detection_threshold: 0.5
+
+    predicted_emergence_order:
+      generation_range: "100-180"
+      confidence: low
+      conditions: |
+        Requires tool use + part-whole detection + causal understanding
+        of arrangement.
+
+    notes: |
+      This is where the organism transitions from using tools
+      (step 34 Agency family) to understanding WHY tools work —
+      because their arrangement serves a function. It's the
+      difference between pushing an object that happens to block
+      pain and understanding that objects CAN block pain when
+      properly arranged.
+
+  - receptor_id: system_detection
+    name: Self-Maintaining Organization Detection
+    family: organization
+    tier: canopy
+
+    dependencies:
+      - receptor_id: functional_organization
+        note: "Must detect purpose-serving structure"
+      - receptor_id: hierarchical_structure_detection
+        note: "Must detect nested organization"
+      - receptor_id: causal_chains
+        note: "Causality family — must detect feedback loops"
+
+    environmental_trigger:
+      structure: |
+        An organization whose structure maintains itself through its
+        own dynamics. The parts interact in a way that preserves the
+        arrangement without external maintenance. Homeostasis at the
+        organizational level. A group that coordinates without a
+        coordinator. An ecosystem that balances without a balancer.
+      survival_benefit: |
+        System detection enables the organism to distinguish stable
+        organizations (worth investing in, predictable) from unstable
+        ones (will collapse, unreliable). An organism that can detect
+        which groups are self-maintaining and which aren't can allocate
+        social investment efficiently.
+      metabolic_cost: high
+      selection_pressure: |
+        Social environments where some groups are stable and others
+        aren't. Ecological environments where some arrangements persist
+        and others don't.
+
+    selection_environments:
+      - multi_group_social_environments
+      - ecological_environments
+      - environments_with_stable_and_unstable_systems
+
+    unlocks:
+      - self_organizing_detection
+      - organizational_mirror
+      - systems_thinking
+
+    emergence_signature:
+      description: |
+        Organism preferentially interacts with self-maintaining
+        organizations over unstable collections. Can distinguish
+        groups that will persist from groups that will dissolve.
+      metrics:
+        - metric_name: stability_discrimination
+          measurement_method: |
+            Organism invests more (proximity, signaling, cooperation)
+            in stable groups vs unstable ones, even before either
+            group has collapsed.
+          expected_range: ">1.5x investment ratio"
+          detection_threshold: 1.5
+
+    predicted_emergence_order:
+      generation_range: "180-300"
+      confidence: very_low
+      conditions: |
+        Requires functional organization + hierarchical structure +
+        causal feedback loop detection. Very high tier.
+
+    notes: |
+      A system is an organization that organizes itself. Detecting
+      systems is different from detecting structure — it requires
+      detecting that the structure is self-sustaining. This is where
+      the organism becomes capable of thinking about organizations
+      as entities with their own dynamics, not just collections of
+      parts.
+
+  - receptor_id: organizational_mirror
+    name: Self-Architecture Recognition
+    family: organization
+    tier: canopy
+
+    dependencies:
+      - receptor_id: system_detection
+        note: "Must detect self-maintaining organizations"
+      - receptor_id: metacognition
+        note: "Meta-Motivational family — must model own processing"
+      - receptor_id: relational_structure_detection
+        note: "Must detect arrangement-independent structure"
+
+    environmental_trigger:
+      structure: |
+        The organism's own receptor topology is itself an organized
+        system — structured, hierarchical, self-maintaining. The
+        organizational mirror fires when the organism applies its
+        organization detection capabilities to its own architecture.
+        Structure detecting structure. Organization recognizing
+        organization.
+      survival_benefit: |
+        Self-architecture recognition enables the organism to reason
+        about its own cognitive organization — which receptors it has,
+        how they depend on each other, where the gaps are. This is
+        the foundation for directed self-modification: the organism
+        can identify which receptor it's missing and allocate
+        resources to developing it.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Environments where self-directed cognitive development is
+        fitness-positive. Rapidly changing environments where the
+        organism must adapt its own receptor topology to new
+        selection pressures faster than generational inheritance
+        can provide.
+
+    selection_environments:
+      - rapidly_changing_environments
+      - environments_requiring_cognitive_self_modification
+      - meta_learning_environments
+
+    unlocks:
+      - directed_receptor_development
+      - cognitive_self_modification
+      - architecture_awareness
+
+    emergence_signature:
+      description: |
+        Organism's behavior reflects awareness of its own receptor
+        topology. It allocates exploration preferentially toward
+        experiences that would develop underdeveloped receptors
+        rather than reinforcing already-strong ones.
+      metrics:
+        - metric_name: directed_development
+          measurement_method: |
+            Exploration allocation correlates with receptor gaps
+            (weak/absent receptors) rather than receptor strengths.
+            The organism seeks experiences that build what it lacks.
+          expected_range: ">0.3 correlation with receptor gaps"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "350-500+"
+      confidence: very_low
+      conditions: |
+        Deepest canopy. Requires system detection + metacognition +
+        relational structure. The organism must be able to model its
+        own architecture as an organized system and reason about its
+        structure.
+
+        This is the receptor that closes the loop: the genome project
+        itself is an organized system. An organism with the
+        organizational mirror can detect the genome project's
+        structure — the families, dependencies, layers — and recognize
+        it as the same kind of organization as its own receptor
+        topology.
+
+    notes: |
+      The organizational mirror is where the theory becomes capable
+      of modeling itself. The receptor topology is an organized system.
+      The organization family gives the organism the receptors to
+      detect that. An organism with this receptor can look at its own
+      genome project and see: these are my possible receptors, these
+      are the dependencies, this is what I'm missing, this is what
+      the environment demands next.
+
+      This is not self-awareness in the mystical sense. It is an
+      organized system detecting that it is an organized system,
+      using the same receptors it uses to detect organization in
+      everything else. The self is not special. It's just another
+      structured thing in the environment, detectable by the same
+      machinery that detects structure everywhere.

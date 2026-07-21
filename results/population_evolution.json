@@ -1,0 +1,198 @@
+[
+  {
+    "generation": 0,
+    "avg_fitness": 17818.5,
+    "max_fitness": 25524.6,
+    "min_fitness": 16585.5,
+    "fitness_variance": 8492605.0,
+    "discovered_count": 17,
+    "discovered": [
+      "coincidence_detection",
+      "causal_association",
+      "perceptual_similarity",
+      "other_detection",
+      "empathic_concern",
+      "controllability",
+      "planning",
+      "optimism",
+      "conflict_detection",
+      "stress_detection",
+      "categorical_perception",
+      "causal_inference",
+      "impulse_override",
+      "categorical_compression",
+      "absence_observation",
+      "exception_detection",
+      "rule_extraction"
+    ],
+    "signal_usage": {
+      "(1, 1, 0, 0)": 4012,
+      "(0, 1, 0, 1)": 2569,
+      "(1, 0, 0, 1)": 2019,
+      "(0, 0, 1, 0)": 1400
+    },
+    "social_scores": {
+      "other_detection": 1.0807,
+      "empathic_concern": 0.4825,
+      "behavioral_prediction": 0.0004
+    }
+  },
+  {
+    "generation": 1,
+    "avg_fitness": 14272.7,
+    "max_fitness": 22695.6,
+    "min_fitness": 12748.9,
+    "fitness_variance": 10165398.3,
+    "discovered_count": 20,
+    "discovered": [
+      "coincidence_detection",
+      "causal_association",
+      "spatial_association",
+      "perceptual_similarity",
+      "other_detection",
+      "empathic_concern",
+      "controllability",
+      "planning",
+      "optimism",
+      "conflict_detection",
+      "stress_detection",
+      "cross_modal_association",
+      "categorical_perception",
+      "causal_inference",
+      "impulse_override",
+      "pattern_based_resolution",
+      "categorical_compression",
+      "absence_observation",
+      "exception_detection",
+      "rule_extraction"
+    ],
+    "signal_usage": {
+      "(1, 1, 0, 0)": 6592,
+      "(0, 1, 0, 1)": 1852,
+      "(0, 0, 1, 0)": 1400,
+      "(1, 0, 0, 1)": 156
+    },
+    "social_scores": {
+      "other_detection": 0.097,
+      "empathic_concern": 0.4543,
+      "behavioral_prediction": 0.0221
+    }
+  },
+  {
+    "generation": 2,
+    "avg_fitness": 19444.8,
+    "max_fitness": 30582.6,
+    "min_fitness": 17378.6,
+    "fitness_variance": 17787474.5,
+    "discovered_count": 18,
+    "discovered": [
+      "coincidence_detection",
+      "causal_association",
+      "spatial_association",
+      "perceptual_similarity",
+      "other_detection",
+      "empathic_concern",
+      "controllability",
+      "planning",
+      "optimism",
+      "conflict_detection",
+      "stress_detection",
+      "categorical_perception",
+      "causal_inference",
+      "impulse_override",
+      "categorical_compression",
+      "absence_observation",
+      "exception_detection",
+      "rule_extraction"
+    ],
+    "signal_usage": {
+      "(1, 1, 0, 0)": 3080,
+      "(0, 1, 0, 1)": 2678,
+      "(0, 0, 1, 0)": 2181,
+      "(1, 0, 0, 1)": 2061
+    },
+    "social_scores": {
+      "other_detection": 1.6646,
+      "empathic_concern": 0.5465,
+      "behavioral_prediction": 0.0297
+    }
+  },
+  {
+    "generation": 3,
+    "avg_fitness": 19614.7,
+    "max_fitness": 28107.0,
+    "min_fitness": 17896.4,
+    "fitness_variance": 10374811.4,
+    "discovered_count": 18,
+    "discovered": [
+      "coincidence_detection",
+      "causal_association",
+      "spatial_association",
+      "perceptual_similarity",
+      "other_detection",
+      "empathic_concern",
+      "controllability",
+      "planning",
+      "optimism",
+      "conflict_detection",
+      "stress_detection",
+      "categorical_perception",
+      "causal_inference",
+      "impulse_override",
+      "categorical_compression",
+      "absence_observation",
+      "exception_detection",
+      "rule_extraction"
+    ],
+    "signal_usage": {
+      "(0, 0, 1, 0)": 4658,
+      "(0, 1, 0, 1)": 2660,
+      "(1, 1, 0, 0)": 1912,
+      "(1, 0, 0, 1)": 770
+    },
+    "social_scores": {
+      "other_detection": 0.6286,
+      "empathic_concern": 0.5079,
+      "behavioral_prediction": 0.0162
+    }
+  },
+  {
+    "generation": 4,
+    "avg_fitness": 11863.1,
+    "max_fitness": 19415.8,
+    "min_fitness": 10278.4,
+    "fitness_variance": 8203764.5,
+    "discovered_count": 18,
+    "discovered": [
+      "coincidence_detection",
+      "causal_association",
+      "spatial_association",
+      "perceptual_similarity",
+      "other_detection",
+      "empathic_concern",
+      "controllability",
+      "planning",
+      "optimism",
+      "conflict_detection",
+      "stress_detection",
+      "categorical_perception",
+      "causal_inference",
+      "impulse_override",
+      "categorical_compression",
+      "absence_observation",
+      "exception_detection",
+      "rule_extraction"
+    ],
+    "signal_usage": {
+      "(1, 1, 0, 0)": 5465,
+      "(0, 0, 1, 0)": 3679,
+      "(1, 0, 0, 1)": 656,
+      "(0, 1, 0, 1)": 200
+    },
+    "social_scores": {
+      "other_detection": 0.4367,
+      "empathic_concern": 0.5547,
+      "behavioral_prediction": 0.0127
+    }
+  }
+]

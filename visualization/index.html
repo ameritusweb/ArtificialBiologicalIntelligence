@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pain/Endorphin Receptor System</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0a0a1a; color: #ccddee; font-family: 'Consolas', 'Monaco', monospace; overflow: hidden; }
+#viewport { display: block; width: 100vw; height: 100vh; }
+
+.panel {
+  position: fixed;
+  background: rgba(10, 15, 30, 0.88);
+  border: 1px solid rgba(60, 80, 120, 0.5);
+  border-radius: 6px;
+  padding: 10px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+#panel-top {
+  top: 12px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 20px; align-items: center;
+  font-size: 13px;
+}
+#panel-top .label { color: #667788; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+#panel-top .value { font-size: 16px; font-weight: bold; }
+#panel-top .reward-pos { color: #44ccaa; }
+#panel-top .reward-neg { color: #ff5544; }
+.energy-bar-bg { width: 100px; height: 14px; background: #111122; border-radius: 3px; overflow: hidden; margin-top: 2px; }
+.energy-bar-fill { height: 100%; border-radius: 3px; transition: width 0.1s; }
+.energy-high { background: linear-gradient(90deg, #22aa44, #44cc66); }
+.energy-mid  { background: linear-gradient(90deg, #aaaa22, #cccc44); }
+.energy-low  { background: linear-gradient(90deg, #cc2211, #ff4422); }
+.pathway-indicator {
+  display: inline-block; padding: 2px 8px; border-radius: 3px;
+  font-size: 11px; font-weight: bold; letter-spacing: 1px;
+  min-width: 50px; text-align: center; margin-top: 2px;
+}
+.pathway-fast {
+  background: rgba(34, 170, 68, 0.3); color: #44dd66;
+  border: 1px solid rgba(34, 170, 68, 0.5); box-shadow: 0 0 6px rgba(34, 170, 68, 0.3);
+}
+.pathway-slow {
+  background: rgba(100, 68, 204, 0.3); color: #aa88ff;
+  border: 1px solid rgba(100, 68, 204, 0.5); box-shadow: 0 0 6px rgba(100, 68, 204, 0.3);
+}
+.gate-bar-bg, .conf-bar-bg {
+  width: 80px; height: 12px; background: #111122; border-radius: 3px; overflow: hidden; margin-top: 2px;
+}
+.gate-bar-fill { height: 100%; border-radius: 3px; transition: width 0.1s; background: linear-gradient(90deg, #22aa44, #6644cc); }
+.conf-bar-fill { height: 100%; border-radius: 3px; transition: width 0.1s; background: linear-gradient(90deg, #cc4422, #44ccaa); }
+.mm-bar-bg, .mm-cert-bar-bg { width: 80px; height: 12px; background: #111122; border-radius: 3px; overflow: hidden; margin-top: 2px; }
+.mm-bar-fill { height: 100%; border-radius: 3px; transition: width 0.1s; background: linear-gradient(90deg, #cc2222, #22cc44); }
+.mm-cert-bar-fill { height: 100%; border-radius: 3px; transition: width 0.1s; background: linear-gradient(90deg, #553300, #ffaa44); }
+
+#panel-left {
+  top: 50%; left: 12px; transform: translateY(-50%);
+  width: 180px;
+  max-height: 90vh; overflow-y: auto;
+}
+#panel-left h3 { font-size: 11px; color: #667788; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+
+.muscle-grid { display: flex; flex-direction: column; gap: 4px; }
+.muscle-row { display: flex; align-items: center; gap: 4px; }
+.muscle-row .limb-label { width: 32px; font-size: 10px; color: #556677; }
+.muscle-cell {
+  width: 36px; height: 20px; border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; font-weight: bold;
+  transition: background 0.08s, box-shadow 0.08s;
+}
+.muscle-cell.off { background: #1a1a2a; color: #334; }
+.muscle-cell.ext-on { background: #cc9922; color: #fff; box-shadow: 0 0 8px rgba(204, 153, 34, 0.5); }
+.muscle-cell.fl-on { background: #2288aa; color: #fff; box-shadow: 0 0 8px rgba(34, 136, 170, 0.5); }
+.muscle-cell.fr-on { background: #2266cc; color: #fff; box-shadow: 0 0 8px rgba(34, 102, 204, 0.5); }
+
+.binary-display, .sub-section {
+  margin-top: 10px; padding-top: 8px;
+  border-top: 1px solid rgba(60, 80, 120, 0.3);
+}
+.binary-display .label, .sub-section .label { font-size: 10px; color: #556677; margin-bottom: 4px; }
+.binary-bits { font-size: 13px; letter-spacing: 2px; font-weight: bold; word-break: break-all; line-height: 1.4; }
+.bit-1 { color: #44ddaa; }
+.bit-0 { color: #223344; }
+
+#panel-right {
+  top: 50%; right: 12px; transform: translateY(-50%);
+  width: 170px;
+  max-height: 90vh; overflow-y: auto;
+}
+#panel-right h3 { font-size: 11px; color: #667788; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+
+.receptor-group { margin-bottom: 8px; }
+.receptor-group .group-label { font-size: 10px; color: #556677; margin-bottom: 3px; }
+.receptor-bar-row { display: flex; align-items: center; gap: 4px; margin-bottom: 2px; }
+.receptor-bar-row .idx { width: 14px; font-size: 10px; color: #445566; text-align: right; }
+.receptor-bar-bg { flex: 1; height: 10px; background: #111122; border-radius: 2px; overflow: hidden; }
+.receptor-bar-fill { height: 100%; border-radius: 2px; transition: width 0.08s; }
+.pain-fill { background: linear-gradient(90deg, #882211, #ff4422); }
+.endo-fill { background: linear-gradient(90deg, #112288, #2288ff); }
+.temp-fill { background: linear-gradient(90deg, #886611, #ffaa22); }
+.chem-fill { background: linear-gradient(90deg, #117722, #22cc44); }
+.wall-fill { background: linear-gradient(90deg, #662288, #aa44dd); }
+.fatigue-fill { background: linear-gradient(90deg, #228833, #cc4411); }
+.temporal-fill { background: linear-gradient(90deg, #886600, #ffaa00); }
+.gain-fill { background: linear-gradient(90deg, #334488, #ff4444); }
+.pe-fill { background: linear-gradient(90deg, #885500, #ffcc00); }
+.mmctx-fill { background: linear-gradient(90deg, #553366, #aa66ff); }
+.lp-bar-bg { width: 80px; height: 12px; background: #111122; border-radius: 3px; overflow: hidden; margin-top: 2px; }
+.lp-bar-fill { height: 100%; border-radius: 3px; transition: width 0.1s; background: linear-gradient(90deg, #333366, #44ccff); }
+.probe-indicator { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 10px; font-weight: bold; background: rgba(255,170,0,0.3); color: #ffaa44; border: 1px solid rgba(255,170,0,0.5); }
+.signal-indicator { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 10px; font-weight: bold; min-width: 50px; text-align: center; }
+.signal-none { background: rgba(40,50,60,0.3); color: #556677; border: 1px solid rgba(60,80,120,0.3); }
+.signal-repel { background: rgba(68,100,204,0.3); color: #6688ff; border: 1px solid rgba(68,100,204,0.5); box-shadow: 0 0 6px rgba(68,100,204,0.3); }
+.signal-calm { background: rgba(34,170,100,0.3); color: #44cc88; border: 1px solid rgba(34,170,100,0.5); box-shadow: 0 0 6px rgba(34,170,100,0.3); }
+.pat-bar-bg { width: 80px; height: 12px; background: #111122; border-radius: 3px; overflow: hidden; margin-top: 2px; }
+.pat-bar-fill { height: 100%; border-radius: 3px; transition: width 0.1s; background: linear-gradient(90deg, #334433, #44ffaa); }
+.ctrl-fill { background: linear-gradient(90deg, #333355, #44aaff); }
+.ext-fill-bar { background: linear-gradient(90deg, #553322, #ff8844); }
+.plan-fill-bar { background: linear-gradient(90deg, #335533, #88ff44); }
+.agency-bar-bg { width: 80px; height: 12px; background: #111122; border-radius: 3px; overflow: hidden; margin-top: 2px; }
+.opt-bar-bg { width: 80px; height: 12px; background: #111122; border-radius: 3px; overflow: hidden; margin-top: 2px; }
+.opt-bar-fill { height: 100%; border-radius: 3px; transition: width 0.1s; background: linear-gradient(90deg, #115522, #44cc66); }
+.gp-bar-fill { height: 100%; border-radius: 3px; transition: width 0.1s; background: linear-gradient(90deg, #554400, #ffaa44); }
+.conflict-bar-bg { width: 80px; height: 12px; background: #111122; border-radius: 3px; overflow: hidden; margin-top: 2px; }
+.conflict-bar-fill { height: 100%; border-radius: 3px; transition: width 0.1s; background: linear-gradient(90deg, #552200, #ff4422); }
+.arb-bar-bg { width: 60px; height: 10px; background: #111122; border-radius: 2px; overflow: hidden; margin-top: 1px; }
+.arb-bar-fill { height: 100%; border-radius: 2px; transition: width 0.1s; }
+.arb-pain { background: #cc4444; } .arb-reward { background: #44cc66; }
+.arb-social { background: #4488cc; } .arb-goal { background: #ccaa44; } .arb-meta { background: #8844cc; }
+.proprio-fill { background: linear-gradient(90deg, #2266aa, #44aaff); }
+.speed-fill-bar { background: linear-gradient(90deg, #226644, #44ffaa); }
+.emission-bits { font-size: 14px; letter-spacing: 3px; font-weight: bold; margin-top: 4px; }
+.ebit-1 { color: #ff88ff; text-shadow: 0 0 6px rgba(255,136,255,0.5); }
+.ebit-0 { color: #2a1a2a; }
+.obj-fill { background: linear-gradient(90deg, #225577, #44aadd); }
+.dpain-fill { background: linear-gradient(90deg, #661111, #ff6644); }
+.dendo-fill { background: linear-gradient(90deg, #111166, #4488ff); }
+.receptor-bar-row .val { width: 30px; font-size: 9px; color: #778899; text-align: right; }
+
+.memory-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 2px; width: 100px; margin-top: 4px;
+}
+.memory-cell {
+  aspect-ratio: 1; border-radius: 2px;
+  background: #111122; transition: background 0.1s;
+}
+
+#panel-bottom {
+  bottom: 12px; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 12px;
+  padding: 8px 16px;
+}
+#panel-bottom button {
+  background: rgba(40, 50, 70, 0.8); border: 1px solid rgba(80, 100, 140, 0.5);
+  color: #ccddee; padding: 6px 12px; border-radius: 4px; cursor: pointer;
+  font-family: inherit; font-size: 12px;
+  transition: background 0.15s;
+}
+#panel-bottom button:hover { background: rgba(60, 70, 100, 0.9); }
+#panel-bottom button.active { background: rgba(34, 136, 170, 0.6); border-color: rgba(34, 136, 170, 0.8); }
+#panel-bottom select {
+  background: rgba(40, 50, 70, 0.8); border: 1px solid rgba(80, 100, 140, 0.5);
+  color: #ccddee; padding: 4px 8px; border-radius: 4px;
+  font-family: inherit; font-size: 12px;
+}
+#panel-bottom input[type=range] { width: 200px; accent-color: #2288aa; }
+#panel-bottom .frame-info { font-size: 12px; color: #778899; min-width: 90px; }
+#speed-label { font-size: 11px; color: #667788; }
+</style>
+</head>
+<body>
+<canvas id="viewport"></canvas>
+
+<div id="panel-top" class="panel">
+  <div><span class="label">Episode</span><br><select id="episode-select"></select></div>
+  <div><span class="label">Step</span><br><span id="step-display" class="value">0 / 0</span></div>
+  <div><span class="label">Step Reward</span><br><span id="step-reward" class="value">0.00</span></div>
+  <div><span class="label">Cumulative</span><br><span id="total-reward" class="value">0.00</span></div>
+  <div id="energy-section" style="display:none">
+    <span class="label">Energy</span>
+    <div class="energy-bar-bg"><div class="energy-bar-fill energy-high" id="energy-bar" style="width:100%"></div></div>
+  </div>
+  <div id="mm-section" style="display:none">
+    <span class="label">MM Quality</span>
+    <div class="mm-bar-bg"><div class="mm-bar-fill" id="mm-bar" style="width:0%"></div></div>
+  </div>
+  <div id="mm-count-section" style="display:none">
+    <span class="label">MM Retr</span><br>
+    <span class="value" id="mm-count-display">0</span>
+  </div>
+  <div id="mm-cert-section" style="display:none">
+    <span class="label">MM Cert</span>
+    <div class="mm-cert-bar-bg"><div class="mm-cert-bar-fill" id="mm-cert-bar" style="width:0%"></div></div>
+  </div>
+  <div id="lp-section" style="display:none">
+    <span class="label">Learning</span>
+    <div class="lp-bar-bg"><div class="lp-bar-fill" id="lp-bar" style="width:0%"></div></div>
+  </div>
+  <div id="ctrl-section" style="display:none">
+    <span class="label">Agency</span>
+    <div class="agency-bar-bg"><div class="receptor-bar-fill ctrl-fill" id="ctrl-bar" style="width:0%"></div></div>
+  </div>
+  <div id="plan-section" style="display:none">
+    <span class="label">Planning</span>
+    <div class="agency-bar-bg"><div class="receptor-bar-fill plan-fill-bar" id="plan-bar-v" style="width:0%"></div></div>
+  </div>
+  <div id="opt-section" style="display:none">
+    <span class="label">Optimism</span>
+    <div class="opt-bar-bg"><div class="opt-bar-fill" id="opt-bar" style="width:0%"></div></div>
+  </div>
+  <div id="gp-section" style="display:none">
+    <span class="label">Persist</span>
+    <div class="opt-bar-bg"><div class="gp-bar-fill" id="gp-bar" style="width:0%"></div></div>
+  </div>
+  <div id="conflict-section" style="display:none">
+    <span class="label">Conflict</span>
+    <div class="conflict-bar-bg"><div class="conflict-bar-fill" id="conflict-bar" style="width:0%"></div></div>
+  </div>
+  <div id="arb-section" style="display:none">
+    <span class="label" style="font-size:9px">Arbitration</span>
+    <div style="display:flex;gap:2px;flex-wrap:wrap">
+      <div><span style="font-size:8px;color:#cc4444">P</span><div class="arb-bar-bg"><div class="arb-bar-fill arb-pain" id="arb-0" style="width:67%"></div></div></div>
+      <div><span style="font-size:8px;color:#44cc66">R</span><div class="arb-bar-bg"><div class="arb-bar-fill arb-reward" id="arb-1" style="width:67%"></div></div></div>
+      <div><span style="font-size:8px;color:#4488cc">S</span><div class="arb-bar-bg"><div class="arb-bar-fill arb-social" id="arb-2" style="width:67%"></div></div></div>
+      <div><span style="font-size:8px;color:#ccaa44">G</span><div class="arb-bar-bg"><div class="arb-bar-fill arb-goal" id="arb-3" style="width:67%"></div></div></div>
+      <div><span style="font-size:8px;color:#8844cc">M</span><div class="arb-bar-bg"><div class="arb-bar-fill arb-meta" id="arb-4" style="width:67%"></div></div></div>
+    </div>
+  </div>
+  <div id="pat-section" style="display:none">
+    <span class="label">Pattern</span>
+    <div class="pat-bar-bg"><div class="pat-bar-fill" id="pat-bar" style="width:0%"></div></div>
+  </div>
+  <div id="probe-section" style="display:none">
+    <span class="probe-indicator" id="probe-label">PROBE</span>
+  </div>
+  <div id="logsize-section" style="display:none">
+    <span class="label">Log</span><br>
+    <span class="value" id="logsize-display">0</span>
+  </div>
+  <div id="pathway-section" style="display:none">
+    <span class="label">Pathway</span><br>
+    <span class="pathway-indicator pathway-fast" id="pathway-label">FAST</span>
+  </div>
+  <div id="gate-section" style="display:none">
+    <span class="label">Gate</span>
+    <div class="gate-bar-bg"><div class="gate-bar-fill" id="gate-bar" style="width:0%"></div></div>
+  </div>
+  <div id="conf-section" style="display:none">
+    <span class="label">Confidence</span>
+    <div class="conf-bar-bg"><div class="conf-bar-fill" id="conf-bar" style="width:0%"></div></div>
+  </div>
+  <div id="signal-section" style="display:none">
+    <span class="label">Signal</span><br>
+    <span class="signal-indicator signal-none" id="signal-label">NONE</span>
+  </div>
+</div>
+
+<div id="panel-left" class="panel">
+  <h3>Muscle Activations</h3>
+  <div class="muscle-grid" id="muscle-grid"></div>
+  <div class="binary-display">
+    <div class="label">Binary Output (22-bit)</div>
+    <div class="binary-bits" id="binary-bits"></div>
+    <div id="emission-display" style="display:none">
+      <div class="label" style="margin-top:6px">Emission (4-bit)</div>
+      <div class="emission-bits" id="emission-bits"></div>
+    </div>
+  </div>
+  <div class="sub-section" id="fatigue-section" style="display:none">
+    <div class="label">Limb Fatigue</div>
+    <div id="fatigue-bars"></div>
+  </div>
+  <div class="sub-section" id="memory-section" style="display:none">
+    <div class="label">Pain Memory (5x5)</div>
+    <div class="memory-grid" id="memory-grid"></div>
+  </div>
+</div>
+
+<div id="panel-right" class="panel">
+  <h3>Receptor Readings</h3>
+  <div class="receptor-group"><div class="group-label">Pain</div><div id="pain-bars"></div></div>
+  <div class="receptor-group"><div class="group-label">Endorphin</div><div id="endo-bars"></div></div>
+  <div class="receptor-group"><div class="group-label">Temperature</div><div id="temp-bars"></div></div>
+  <div class="receptor-group"><div class="group-label">Chemical</div><div id="chem-bars"></div></div>
+  <div class="receptor-group"><div class="group-label">Pressure</div><div id="wall-bars"></div></div>
+  <div class="receptor-group" id="temporal-section" style="display:none"><div class="group-label">Temporal Aversion</div><div id="temporal-bars"></div></div>
+  <div class="receptor-group" id="gain-section" style="display:none"><div class="group-label">Receptor Gain</div><div id="gain-bars"></div></div>
+  <div class="receptor-group" id="pe-section" style="display:none"><div class="group-label">Prediction Error</div><div id="pe-bars"></div></div>
+  <div class="receptor-group" id="mmctx-section" style="display:none"><div class="group-label">MM Context</div><div id="mmctx-bars"></div></div>
+  <div class="receptor-group" id="obj-section" style="display:none"><div class="group-label">Objects</div><div id="obj-bars"></div></div>
+  <div class="receptor-group" id="proprio-section" style="display:none"><div class="group-label">Proprioception</div><div id="proprio-bars"></div></div>
+  <div class="receptor-group" id="dpain-section" style="display:none"><div class="group-label">Dist Pain (8 rays)</div><div id="dpain-bars"></div></div>
+  <div class="receptor-group" id="dendo-section" style="display:none"><div class="group-label">Dist Endorphin (8 rays)</div><div id="dendo-bars"></div></div>
+</div>
+
+<div id="panel-bottom" class="panel">
+  <button id="btn-play">Play</button>
+  <button id="btn-reset">Reset</button>
+  <input type="range" id="scrubber" min="0" max="299" value="0">
+  <span class="frame-info" id="frame-info">0 / 300</span>
+  <span id="speed-label">1x</span>
+  <button id="btn-slower">-</button>
+  <button id="btn-faster">+</button>
+</div>
+
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+</script>
+<script type="module">
+import * as THREE from 'three';
+
+let replayData = null;
+let currentEpisode = 0;
+let currentFrame = 0;
+let playing = false;
+let playbackSpeed = 1.0;
+let frameAccumulator = 0;
+let cumulativeReward = 0;
+
+const canvas = document.getElementById('viewport');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setClearColor(0x0a0a1a);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+camera.position.set(10, 10, 28);
+camera.lookAt(10, 10, 0);
+
+scene.add(new THREE.AmbientLight(0x445566, 0.8));
+const dirLight = new THREE.DirectionalLight(0xffffff, 0.6);
+dirLight.position.set(10, 10, 20);
+scene.add(dirLight);
+
+// Ground heatmap
+const heatCanvas = document.createElement('canvas');
+heatCanvas.width = 256;
+heatCanvas.height = 256;
+const heatCtx = heatCanvas.getContext('2d');
+const heatTexture = new THREE.CanvasTexture(heatCanvas);
+heatTexture.minFilter = THREE.LinearFilter;
+heatTexture.magFilter = THREE.LinearFilter;
+
+const ground = new THREE.Mesh(
+  new THREE.PlaneGeometry(20, 20),
+  new THREE.MeshBasicMaterial({ map: heatTexture, transparent: true, opacity: 0.9 })
+);
+ground.position.set(10, 10, -0.1);
+scene.add(ground);
+
+// Memory overlay plane (Step 3)
+const memCanvas = document.createElement('canvas');
+memCanvas.width = 5;
+memCanvas.height = 5;
+const memCtx = memCanvas.getContext('2d');
+const memTexture = new THREE.CanvasTexture(memCanvas);
+memTexture.minFilter = THREE.NearestFilter;
+memTexture.magFilter = THREE.NearestFilter;
+const memOverlay = new THREE.Mesh(
+  new THREE.PlaneGeometry(20, 20),
+  new THREE.MeshBasicMaterial({ map: memTexture, transparent: true, opacity: 0.35, depthWrite: false })
+);
+memOverlay.position.set(10, 10, 0.02);
+memOverlay.visible = false;
+scene.add(memOverlay);
+
+const gridHelper = new THREE.GridHelper(20, 20, 0x1a2a3a, 0x0f1520);
+gridHelper.rotation.x = Math.PI / 2;
+gridHelper.position.set(10, 10, -0.05);
+scene.add(gridHelper);
+
+// Organism
+const organismGroup = new THREE.Group();
+scene.add(organismGroup);
+const bodyGeo = new THREE.CylinderGeometry(0.45, 0.45, 0.18, 32);
+const bodyMat = new THREE.MeshPhongMaterial({ color: 0x88cc88, emissive: 0x224422, shininess: 60 });
+const bodyMesh = new THREE.Mesh(bodyGeo, bodyMat);
+bodyMesh.rotation.x = Math.PI / 2;
+organismGroup.add(bodyMesh);
+
+const eyeMesh = new THREE.Mesh(
+  new THREE.SphereGeometry(0.08, 8, 8),
+  new THREE.MeshPhongMaterial({ color: 0xffffff, emissive: 0x888888 })
+);
+eyeMesh.position.set(0.25, 0, 0.1);
+organismGroup.add(eyeMesh);
+
+const thinkRingMat = new THREE.MeshBasicMaterial({
+  color: 0x6644cc, transparent: true, opacity: 0.0, side: THREE.DoubleSide
+});
+const thinkRing = new THREE.Mesh(new THREE.RingGeometry(0.55, 0.65, 32), thinkRingMat);
+thinkRing.position.z = 0.15;
+organismGroup.add(thinkRing);
+
+const limbMeshes = [], limbMats = [], tipMeshes = [], tipMats = [];
+for (let i = 0; i < 6; i++) {
+  const limbGeo = new THREE.CylinderGeometry(0.06, 0.04, 1.0, 8);
+  limbGeo.translate(0, 0.5, 0);
+  const limbMat = new THREE.MeshPhongMaterial({ color: 0x66aa66, emissive: 0x112211, shininess: 40 });
+  const limb = new THREE.Mesh(limbGeo, limbMat);
+  limbMeshes.push(limb); limbMats.push(limbMat);
+  organismGroup.add(limb);
+
+  const tipMat = new THREE.MeshPhongMaterial({ color: 0xaaccaa, emissive: 0x224422, shininess: 80 });
+  const tip = new THREE.Mesh(new THREE.SphereGeometry(0.1, 12, 12), tipMat);
+  tipMeshes.push(tip); tipMats.push(tipMat);
+  organismGroup.add(tip);
+}
+
+// NPC organism (red/orange)
+const npcGroup = new THREE.Group();
+npcGroup.visible = false;
+scene.add(npcGroup);
+const npcBodyMat = new THREE.MeshPhongMaterial({ color: 0xcc6633, emissive: 0x442211, shininess: 60 });
+const npcBody = new THREE.Mesh(new THREE.CylinderGeometry(0.45, 0.45, 0.18, 32), npcBodyMat);
+npcBody.rotation.x = Math.PI / 2;
+npcGroup.add(npcBody);
+npcGroup.add(new THREE.Mesh(new THREE.SphereGeometry(0.08, 8, 8),
+  new THREE.MeshPhongMaterial({ color: 0xff4444, emissive: 0x882222 })));
+const npcLimbs = [];
+for (let i = 0; i < 6; i++) {
+  const lg = new THREE.CylinderGeometry(0.06, 0.04, 0.8, 8);
+  lg.translate(0, 0.4, 0);
+  const lm = new THREE.Mesh(lg, new THREE.MeshPhongMaterial({ color: 0xaa5533, emissive: 0x221100 }));
+  const angle = i * Math.PI / 3;
+  lm.rotation.set(0, 0, angle - Math.PI / 2);
+  npcLimbs.push(lm);
+  npcGroup.add(lm);
+}
+npcGroup.add(new THREE.Mesh(new THREE.RingGeometry(1.4, 1.6, 32),
+  new THREE.MeshBasicMaterial({ color: 0xff4422, transparent: true, opacity: 0.12, side: THREE.DoubleSide, depthWrite: false })));
+const npcSignalRingMat = new THREE.MeshBasicMaterial({ color: 0x4466cc, transparent: true, opacity: 0.0, side: THREE.DoubleSide, depthWrite: false });
+const npcSignalRing = new THREE.Mesh(new THREE.RingGeometry(1.8, 2.2, 32), npcSignalRingMat);
+npcGroup.add(npcSignalRing);
+
+// Responsive object markers
+const OBJ_COLORS = [0x2288ff, 0xffaa22, 0x00ccff];
+const objMarkers = [], objMats = [];
+for (let i = 0; i < 3; i++) {
+  const geo = new THREE.OctahedronGeometry(0.4, 0);
+  const mat = new THREE.MeshPhongMaterial({
+    color: OBJ_COLORS[i], emissive: OBJ_COLORS[i], emissiveIntensity: 0.2,
+    transparent: true, opacity: 0.7
+  });
+  const mesh = new THREE.Mesh(geo, mat);
+  mesh.position.z = 0.15;
+  objMarkers.push(mesh);
+  objMats.push(mat);
+  scene.add(mesh);
+}
+
+// Distance sensing rays
+const NUM_DIST_RAYS = 8, SENSE_DIST = 3.0;
+const rayLines = [], rayTipMeshes = [], rayTipMats = [];
+for (let i = 0; i < NUM_DIST_RAYS; i++) {
+  const rayGeo = new THREE.BufferGeometry();
+  rayGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(6), 3));
+  const rayMat = new THREE.LineBasicMaterial({ color: 0x667788, transparent: true, opacity: 0.2, depthWrite: false });
+  const rayLine = new THREE.Line(rayGeo, rayMat);
+  rayLine.position.z = 0.03;
+  rayLines.push(rayLine);
+  organismGroup.add(rayLine);
+
+  const rtMat = new THREE.MeshBasicMaterial({ color: 0x667788, transparent: true, opacity: 0.5 });
+  const rtMesh = new THREE.Mesh(new THREE.SphereGeometry(0.06, 8, 8), rtMat);
+  rayTipMeshes.push(rtMesh);
+  rayTipMats.push(rtMat);
+  organismGroup.add(rtMesh);
+}
+
+// Source markers — all types
+const sourceMarkers = { pain: [], endorphin: [], heat: [], cold: [], chemical: [] };
+const MARKER_COLORS = {
+  pain: 0xff3322, endorphin: 0x2288ff,
+  heat: 0xff8800, cold: 0x00ccff, chemical: 0x22cc44
+};
+function makeMarkers(type, count) {
+  sourceMarkers[type].forEach(m => scene.remove(m));
+  sourceMarkers[type] = [];
+  for (let i = 0; i < count; i++) {
+    const mat = new THREE.MeshBasicMaterial({
+      color: MARKER_COLORS[type], transparent: true, opacity: 0.5, side: THREE.DoubleSide
+    });
+    const mesh = new THREE.Mesh(new THREE.RingGeometry(0.3, 0.5, 24), mat);
+    mesh.position.z = 0.01;
+    sourceMarkers[type].push(mesh);
+    scene.add(mesh);
+  }
+}
+function createAllMarkers(frame) {
+  makeMarkers('pain', frame.sp.length);
+  makeMarkers('endorphin', frame.se.length);
+  makeMarkers('heat', (frame.sh || []).length);
+  makeMarkers('cold', (frame.sk || []).length);
+  makeMarkers('chemical', (frame.sc || []).length);
+}
+
+// Particles
+const PARTICLE_COUNT = 400;
+const particlePositions = new Float32Array(PARTICLE_COUNT * 3);
+const particleVelocities = [];
+for (let i = 0; i < PARTICLE_COUNT; i++) {
+  particlePositions[i * 3] = Math.random() * 20;
+  particlePositions[i * 3 + 1] = Math.random() * 20;
+  particlePositions[i * 3 + 2] = -0.08;
+  particleVelocities.push({ vx: (Math.random() - 0.5) * 0.015, vy: (Math.random() - 0.5) * 0.015 });
+}
+const particleGeo = new THREE.BufferGeometry();
+particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+scene.add(new THREE.Points(particleGeo, new THREE.PointsMaterial({
+  color: 0x4466aa, size: 0.06, transparent: true, opacity: 0.25,
+  blending: THREE.AdditiveBlending, depthWrite: false,
+})));
+
+// --- Heatmap ---
+function updateHeatmap(frame, env) {
+  const data = heatCtx.createImageData(256, 256);
+  const px = data.data;
+  const ps2 = 2 * ((env.pain_sigma || 2.5) ** 2);
+  const es2 = 2 * ((env.endorphin_sigma || 3.0) ** 2);
+  const hs2 = 2 * ((env.heat_sigma || 3.0) ** 2);
+  const cs2 = 2 * ((env.cold_sigma || 3.0) ** 2);
+  const chs2 = 2 * ((env.chemical_sigma || 3.0) ** 2);
+  const sh = frame.sh || [], sk = frame.sk || [], sc = frame.sc || [];
+
+  for (let py = 0; py < 256; py++) {
+    for (let pxx = 0; pxx < 256; pxx++) {
+      const wx = (pxx / 256) * 20, wy = (1 - py / 256) * 20;
+      let painI = 0, endoI = 0, heatI = 0, coldI = 0, chemI = 0;
+
+      for (const s of frame.sp) { const dx = wx-s[0], dy = wy-s[1]; painI += Math.exp(-(dx*dx+dy*dy)/ps2); }
+      for (const s of frame.se) { const dx = wx-s[0], dy = wy-s[1]; endoI += Math.exp(-(dx*dx+dy*dy)/es2); }
+      for (const s of sh) { const dx = wx-s[0], dy = wy-s[1]; heatI += Math.exp(-(dx*dx+dy*dy)/hs2); }
+      for (const s of sk) { const dx = wx-s[0], dy = wy-s[1]; coldI += Math.exp(-(dx*dx+dy*dy)/cs2); }
+      for (const s of sc) { const dx = wx-s[0], dy = wy-s[1]; chemI += Math.exp(-(dx*dx+dy*dy)/chs2); }
+
+      painI = Math.min(painI, 1.2); endoI = Math.min(endoI, 1.2);
+      heatI = Math.min(heatI, 1.0); coldI = Math.min(coldI, 1.0);
+      chemI = Math.min(chemI, 1.0);
+
+      const idx = (py * 256 + pxx) * 4;
+      px[idx]     = Math.min(255, Math.floor(220*painI + 120*heatI));
+      px[idx + 1] = Math.min(255, Math.floor(50*painI + 64*endoI + 160*chemI));
+      px[idx + 2] = Math.min(255, Math.floor(220*endoI + 120*coldI));
+      px[idx + 3] = Math.floor(30 + 180*Math.max(painI, endoI, heatI*0.6, coldI*0.6, chemI*0.6));
+    }
+  }
+  heatCtx.putImageData(data, 0, 0);
+  heatTexture.needsUpdate = true;
+}
+
+function updateMemoryOverlay(frame) {
+  if (!frame.pm) { memOverlay.visible = false; return; }
+  memOverlay.visible = true;
+  const data = memCtx.createImageData(5, 5);
+  for (let i = 0; i < 25; i++) {
+    const val = Math.min(frame.pm[i] / 3.0, 1.0);
+    const row = Math.floor(i / 5), col = i % 5;
+    const ci = ((4 - row) * 5 + col) * 4;
+    data.data[ci] = Math.floor(255 * val);
+    data.data[ci+1] = Math.floor(40 * val);
+    data.data[ci+2] = Math.floor(20 * val);
+    data.data[ci+3] = Math.floor(180 * val);
+  }
+  memCtx.putImageData(data, 0, 0);
+  memTexture.needsUpdate = true;
+}
+
+// --- Organism ---
+function updateOrganism(frame) {
+  organismGroup.position.set(frame.bx, frame.by, 0);
+  organismGroup.rotation.z = frame.bh;
+
+  const energyLevel = frame.en !== undefined ? frame.en : 1.0;
+  const gv = frame.gv !== undefined ? frame.gv : 0;
+  const g = 1 - gv;
+  bodyMat.color.setRGB(0.53*g + 0.35*gv, 0.80*g + 0.40*gv, 0.53*g + 0.65*gv);
+  bodyMat.emissive.setRGB(
+    (0.13*g + 0.15*gv) * energyLevel,
+    (0.27*g + 0.08*gv) * energyLevel,
+    (0.13*g + 0.35*gv) * energyLevel
+  );
+  thinkRingMat.opacity = gv > 0.1 ? gv * 0.5 + 0.1 * Math.sin(Date.now() * 0.005) : 0.0;
+
+  for (let i = 0; i < 6; i++) {
+    const angle = frame.la[i], extended = frame.le[i];
+    const length = extended ? 1.5 : 0.8;
+
+    limbMeshes[i].rotation.set(0, 0, angle - Math.PI / 2);
+    limbMeshes[i].scale.y = length;
+    limbMeshes[i].position.set(0, 0, 0);
+
+    const extOn = frame.ma[i*3], flOn = frame.ma[i*3+1], frOn = frame.ma[i*3+2];
+    const fatigueDim = frame.fa ? (1.0 - frame.fa[i] * 0.5) : 1.0;
+
+    if (extOn) {
+      limbMats[i].color.setRGB(0.87*fatigueDim, 0.67*fatigueDim, 0.2*fatigueDim);
+      limbMats[i].emissive.setHex(0x553300);
+    } else if (flOn || frOn) {
+      limbMats[i].color.setRGB(0.2*fatigueDim, 0.67*fatigueDim, 0.8*fatigueDim);
+      limbMats[i].emissive.setHex(0x003344);
+    } else {
+      limbMats[i].color.setRGB(0.4*fatigueDim, 0.67*fatigueDim, 0.4*fatigueDim);
+      limbMats[i].emissive.setHex(0x112211);
+    }
+
+    tipMeshes[i].position.set(length * Math.cos(angle), length * Math.sin(angle), 0.05);
+    const pain = frame.pr[i], endo = frame.er[i];
+    const ta = (frame.ta && frame.ta[i]) || 0;
+    tipMats[i].color.setRGB(0.3+0.7*Math.min(pain,1)+0.3*ta, 0.3+0.5*Math.min(endo,1)+0.2*ta, 0.3+0.7*Math.min(endo,1));
+    tipMats[i].emissive.setRGB(pain*0.5+ta*0.3, ta*0.2, endo*0.5);
+  }
+
+  // Distance sensing rays
+  if (frame.dp && frame.de) {
+    for (let i = 0; i < NUM_DIST_RAYS; i++) {
+      const rayAngle = i * Math.PI / 4;
+      const tipX = SENSE_DIST * Math.cos(rayAngle);
+      const tipY = SENSE_DIST * Math.sin(rayAngle);
+      const pos = rayLines[i].geometry.attributes.position.array;
+      pos[0] = 0; pos[1] = 0; pos[2] = 0;
+      pos[3] = tipX; pos[4] = tipY; pos[5] = 0;
+      rayLines[i].geometry.attributes.position.needsUpdate = true;
+      rayTipMeshes[i].position.set(tipX, tipY, 0.05);
+      const dp = frame.dp[i], de = frame.de[i];
+      const mx = Math.max(dp, de, 0.01);
+      rayTipMats[i].color.setRGB(0.3+0.7*Math.min(dp/mx,1), 0.3*Math.min(de/mx,1), 0.3+0.7*Math.min(de/mx,1));
+      rayTipMats[i].opacity = 0.3 + 0.5 * Math.min(mx, 1.0);
+      const lm = rayLines[i].material;
+      if (dp > de && dp > 0.05) { lm.color.setRGB(0.8,0.3,0.2); lm.opacity = 0.2+0.4*Math.min(dp,1); }
+      else if (de > dp && de > 0.05) { lm.color.setRGB(0.2,0.4,0.8); lm.opacity = 0.2+0.4*Math.min(de,1); }
+      else { lm.color.setRGB(0.4,0.47,0.53); lm.opacity = 0.15; }
+    }
+  }
+}
+
+function updateSourceMarkers(frame) {
+  const pairs = [['pain','sp'],['endorphin','se'],['heat','sh'],['cold','sk'],['chemical','sc']];
+  for (const [type, key] of pairs) {
+    const positions = frame[key] || [];
+    for (let i = 0; i < positions.length && i < sourceMarkers[type].length; i++) {
+      sourceMarkers[type][i].position.set(positions[i][0], positions[i][1], 0.01);
+    }
+  }
+}
+
+function updateParticles() {
+  const pos = particleGeo.attributes.position.array;
+  for (let i = 0; i < PARTICLE_COUNT; i++) {
+    pos[i*3] += particleVelocities[i].vx;
+    pos[i*3+1] += particleVelocities[i].vy;
+    if (pos[i*3] < 0) pos[i*3] += 20; if (pos[i*3] > 20) pos[i*3] -= 20;
+    if (pos[i*3+1] < 0) pos[i*3+1] += 20; if (pos[i*3+1] > 20) pos[i*3+1] -= 20;
+  }
+  particleGeo.attributes.position.needsUpdate = true;
+}
+
+// --- UI build ---
+function makeBars(containerId, fillClass, prefix, count) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = '';
+  for (let i = 0; i < count; i++) {
+    el.innerHTML += `<div class="receptor-bar-row"><span class="idx">${i}</span><div class="receptor-bar-bg"><div class="receptor-bar-fill ${fillClass}" id="${prefix}b-${i}" style="width:0%"></div></div><span class="val" id="${prefix}v-${i}">0.00</span></div>`;
+  }
+}
+
+function buildUI() {
+  // Muscle grid
+  const grid = document.getElementById('muscle-grid');
+  grid.innerHTML = '';
+  const labels = ['EXT', 'FL', 'FR'];
+  const headerRow = document.createElement('div');
+  headerRow.className = 'muscle-row';
+  headerRow.innerHTML = '<span class="limb-label"></span>' +
+    labels.map(l => `<div class="muscle-cell off" style="font-size:8px;background:none;color:#556677">${l}</div>`).join('');
+  grid.appendChild(headerRow);
+  for (let i = 0; i < 6; i++) {
+    const row = document.createElement('div');
+    row.className = 'muscle-row';
+    row.innerHTML = `<span class="limb-label">L${i}</span>` +
+      labels.map((_, j) => `<div class="muscle-cell off" id="mc-${i}-${j}">0</div>`).join('');
+    grid.appendChild(row);
+  }
+
+  // Receptor bars
+  makeBars('pain-bars', 'pain-fill', 'p', 6);
+  makeBars('endo-bars', 'endo-fill', 'e', 6);
+  makeBars('temp-bars', 'temp-fill', 't', 6);
+  makeBars('chem-bars', 'chem-fill', 'c', 6);
+  makeBars('wall-bars', 'wall-fill', 'w', 6);
+
+  // Fatigue bars
+  makeBars('fatigue-bars', 'fatigue-fill', 'f', 6);
+  makeBars('temporal-bars', 'temporal-fill', 'ta', 6);
+  makeBars('gain-bars', 'gain-fill', 'rg', 6);
+  makeBars('pe-bars', 'pe-fill', 'pe', 6);
+
+  const objEl = document.getElementById('obj-bars');
+  objEl.innerHTML = '';
+  ['A:Endo', 'B:Move', 'C:Cool'].forEach((label, i) => {
+    objEl.innerHTML += `<div class="receptor-bar-row"><span class="idx" style="width:36px;font-size:9px">${label}</span><div class="receptor-bar-bg"><div class="receptor-bar-fill obj-fill" id="obj-bar-${i}" style="width:0%"></div></div><span class="val" id="obj-val-${i}">0.00</span></div>`;
+  });
+
+  const mmCtxEl = document.getElementById('mmctx-bars');
+  mmCtxEl.innerHTML = '';
+  ['Famil', 'Quality'].forEach((label, i) => {
+    mmCtxEl.innerHTML += `<div class="receptor-bar-row"><span class="idx" style="width:36px;font-size:9px">${label}</span><div class="receptor-bar-bg"><div class="receptor-bar-fill mmctx-fill" id="mxb-${i}" style="width:0%"></div></div><span class="val" id="mxv-${i}">0.00</span></div>`;
+  });
+  // Proprioception bars
+  const proprioEl = document.getElementById('proprio-bars');
+  proprioEl.innerHTML = '';
+  proprioEl.innerHTML += `<div class="receptor-bar-row"><span class="idx" style="width:36px;font-size:9px">Speed</span><div class="receptor-bar-bg"><div class="receptor-bar-fill speed-fill-bar" id="proprio-spd" style="width:0%"></div></div><span class="val" id="proprio-spd-v">0.00</span></div>`;
+  proprioEl.innerHTML += `<div class="receptor-bar-row"><span class="idx" style="width:36px;font-size:9px">Omega</span><div class="receptor-bar-bg"><div class="receptor-bar-fill proprio-fill" id="proprio-omega" style="width:0%"></div></div><span class="val" id="proprio-omega-v">0.00</span></div>`;
+  for (let i = 0; i < 6; i++) {
+    proprioEl.innerHTML += `<div class="receptor-bar-row"><span class="idx">L${i}</span><div class="receptor-bar-bg"><div class="receptor-bar-fill proprio-fill" id="proprio-ld-${i}" style="width:0%"></div></div><span class="val" id="proprio-ld-v-${i}">0.00</span></div>`;
+  }
+
+  makeBars('dpain-bars', 'dpain-fill', 'dp', 8);
+  makeBars('dendo-bars', 'dendo-fill', 'de', 8);
+
+  // Memory grid
+  const memGrid = document.getElementById('memory-grid');
+  memGrid.innerHTML = '';
+  for (let i = 0; i < 25; i++) {
+    const cell = document.createElement('div');
+    cell.className = 'memory-cell';
+    cell.id = `mem-${i}`;
+    memGrid.appendChild(cell);
+  }
+}
+
+function updateBars(prefix, values) {
+  if (!values) return;
+  for (let i = 0; i < values.length; i++) {
+    const v = values[i];
+    const bar = document.getElementById(`${prefix}b-${i}`);
+    const val = document.getElementById(`${prefix}v-${i}`);
+    if (bar) bar.style.width = `${Math.min(v * 100, 100)}%`;
+    if (val) val.textContent = v.toFixed(2);
+  }
+}
+
+function updateUI(frame, frameIdx, totalFrames) {
+  const classes = ['ext-on', 'fl-on', 'fr-on'];
+  for (let i = 0; i < 6; i++) {
+    for (let j = 0; j < 3; j++) {
+      const cell = document.getElementById(`mc-${i}-${j}`);
+      const on = frame.ma[i*3+j];
+      cell.textContent = on;
+      cell.className = 'muscle-cell ' + (on ? classes[j] : 'off');
+    }
+  }
+
+  document.getElementById('binary-bits').innerHTML =
+    frame.ma.map(b => `<span class="bit-${b}">${b}</span>`).join('');
+
+  updateBars('p', frame.pr);
+  updateBars('e', frame.er);
+  updateBars('t', frame.tr);
+  updateBars('c', frame.cr);
+  updateBars('w', frame.wr);
+
+  // Fatigue (Step 2)
+  if (frame.fa) {
+    document.getElementById('fatigue-section').style.display = '';
+    updateBars('f', frame.fa);
+  }
+
+  // Energy (Step 2)
+  if (frame.en !== undefined) {
+    document.getElementById('energy-section').style.display = '';
+    const eBar = document.getElementById('energy-bar');
+    eBar.style.width = `${frame.en * 100}%`;
+    eBar.className = 'energy-bar-fill ' +
+      (frame.en > 0.5 ? 'energy-high' : frame.en > 0.3 ? 'energy-mid' : 'energy-low');
+  }
+
+  // Memory grid (Step 3)
+  if (frame.pm) {
+    document.getElementById('memory-section').style.display = '';
+    for (let i = 0; i < 25; i++) {
+      const val = Math.min(frame.pm[i] / 3.0, 1.0);
+      const cell = document.getElementById(`mem-${i}`);
+      const r = Math.floor(180 * val), g = Math.floor(30 * val), b = Math.floor(20 * val);
+      cell.style.background = `rgb(${17+r},${17+g},${17+b})`;
+      cell.style.boxShadow = val > 0.3 ? `0 0 ${4*val}px rgba(255,50,30,${val*0.5})` : 'none';
+    }
+  }
+
+  // Temporal aversion (Step 5)
+  if (frame.ta) {
+    document.getElementById('temporal-section').style.display = '';
+    updateBars('ta', frame.ta);
+  }
+
+  // Receptor gain (Step 7 - habituation/sensitization)
+  if (frame.rg) {
+    document.getElementById('gain-section').style.display = '';
+    for (let i = 0; i < 6; i++) {
+      const g = frame.rg[i];
+      const bar = document.getElementById(`rgb-${i}`);
+      const val = document.getElementById(`rgv-${i}`);
+      if (bar) bar.style.width = `${Math.min(g / 2.0 * 100, 100)}%`;
+      if (val) val.textContent = g.toFixed(2);
+    }
+  }
+
+  // Prediction error (Step 10.2)
+  if (frame.pe) {
+    document.getElementById('pe-section').style.display = '';
+    updateBars('pe', frame.pe);
+  }
+
+  // MM context (Step 10.7)
+  if (frame.mf !== undefined) {
+    document.getElementById('mmctx-section').style.display = '';
+    const vals = [frame.mf, frame.mq];
+    for (let i = 0; i < 2; i++) {
+      const bar = document.getElementById(`mxb-${i}`);
+      const val = document.getElementById(`mxv-${i}`);
+      if (bar) bar.style.width = `${Math.min(vals[i] * 100, 100)}%`;
+      if (val) val.textContent = vals[i].toFixed(2);
+    }
+  }
+
+  // Distance sensing (Step 8)
+  if (frame.dp) {
+    document.getElementById('dpain-section').style.display = '';
+    updateBars('dp', frame.dp);
+  }
+  if (frame.de) {
+    document.getElementById('dendo-section').style.display = '';
+    updateBars('de', frame.de);
+  }
+
+  // Mental model (Step 10.4-10.5)
+  if (frame.mm_mse !== undefined) {
+    document.getElementById('mm-section').style.display = '';
+    document.getElementById('mm-count-section').style.display = '';
+    document.getElementById('mm-cert-section').style.display = '';
+    const quality = Math.max(0, Math.min(1, 1.0 - frame.mm_mse * 100));
+    document.getElementById('mm-bar').style.width = `${quality * 100}%`;
+    document.getElementById('mm-count-display').textContent = frame.mm_retrieved || 0;
+    document.getElementById('mm-cert-bar').style.width = `${(frame.mm_certainty || 0) * 100}%`;
+  }
+
+  // NPC (Step 20) + Signal (Step 23) + Shared signals (Step 24)
+  if (frame.npc) {
+    npcGroup.visible = true;
+    npcGroup.position.set(frame.npc.x, frame.npc.y, 0);
+    npcGroup.rotation.z = frame.npc.heading;
+    document.getElementById('signal-section').style.display = '';
+    const sigLabel = document.getElementById('signal-label');
+    const npcEm = frame.npc.emission || [0,0,0,0];
+    const emSum = npcEm.reduce((a,b) => a+b, 0);
+    if (frame.npc.signal === 'repel') {
+      npcSignalRingMat.color.setHex(0x4466cc);
+      npcSignalRingMat.opacity = 0.4;
+      sigLabel.textContent = 'REPEL';
+      sigLabel.className = 'signal-indicator signal-repel';
+    } else if (frame.npc.signal === 'calm') {
+      npcSignalRingMat.color.setHex(0x22aa66);
+      npcSignalRingMat.opacity = 0.4;
+      sigLabel.textContent = 'CALM';
+      sigLabel.className = 'signal-indicator signal-calm';
+    } else if (emSum > 0) {
+      const isDanger = npcEm[0]===1 && npcEm[1]===1 && npcEm[2]===0 && npcEm[3]===0;
+      npcSignalRingMat.color.setHex(isDanger ? 0xff4444 : 0x44cc88);
+      npcSignalRingMat.opacity = 0.25;
+      sigLabel.textContent = isDanger ? 'NPC:DANGER' : 'NPC:RESOURCE';
+      sigLabel.className = 'signal-indicator ' + (isDanger ? 'signal-repel' : 'signal-calm');
+    } else {
+      npcSignalRingMat.opacity = 0.0;
+      sigLabel.textContent = 'NONE';
+      sigLabel.className = 'signal-indicator signal-none';
+    }
+  } else {
+    npcGroup.visible = false;
+    npcSignalRingMat.opacity = 0.0;
+  }
+
+  // Responsive objects (Step 19)
+  if (frame.ro) {
+    document.getElementById('obj-section').style.display = '';
+    for (let i = 0; i < frame.ro.length && i < 3; i++) {
+      const obj = frame.ro[i];
+      objMarkers[i].position.set(obj.x, obj.y, 0.15);
+      objMats[i].emissiveIntensity = obj.responding ? 0.8 : 0.2;
+      objMats[i].opacity = obj.responding ? 1.0 : 0.5;
+      const bar = document.getElementById(`obj-bar-${i}`);
+      const val = document.getElementById(`obj-val-${i}`);
+      const dist = Math.sqrt((frame.bx-obj.x)**2 + (frame.by-obj.y)**2);
+      const prox = Math.max(0, 1 - dist/10);
+      if (bar) bar.style.width = `${prox * 100}%`;
+      if (val) val.textContent = obj.responding ? 'ON' : prox.toFixed(2);
+    }
+  }
+  if (frame.em) {
+    document.getElementById('emission-display').style.display = '';
+    document.getElementById('emission-bits').innerHTML =
+      frame.em.map(b => `<span class="ebit-${b}">${b}</span>`).join('');
+  }
+
+  // Optimism + Goal Persistence (Step 25)
+  if (frame.opt !== undefined) {
+    document.getElementById('opt-section').style.display = '';
+    document.getElementById('opt-bar').style.width = `${Math.min(frame.opt * 100, 100)}%`;
+  }
+  if (frame.gp !== undefined) {
+    document.getElementById('gp-section').style.display = '';
+    document.getElementById('gp-bar').style.width = `${Math.min(frame.gp * 100, 100)}%`;
+  }
+
+  // Arbitration (Step 27)
+  if (frame.arb) {
+    document.getElementById('arb-section').style.display = '';
+    for (let g = 0; g < 5; g++) {
+      const w = frame.arb[g] || 1.0;
+      document.getElementById(`arb-${g}`).style.width = `${((w - 0.5) / 1.0) * 100}%`;
+    }
+  }
+
+  // Conflict + Internal conflict model (Steps 26, 28)
+  if (frame.rc !== undefined) {
+    document.getElementById('conflict-section').style.display = '';
+    document.getElementById('conflict-bar').style.width = `${Math.min(frame.rc * 100, 100)}%`;
+  }
+
+  // Agency + Planning (Steps 17-18)
+  if (frame.ct !== undefined) {
+    document.getElementById('ctrl-section').style.display = '';
+    document.getElementById('ctrl-bar').style.width = `${Math.min(frame.ct * 100, 100)}%`;
+  }
+  if (frame.pv !== undefined) {
+    document.getElementById('plan-section').style.display = '';
+    document.getElementById('plan-bar-v').style.width = `${Math.min(frame.pv * 100, 100)}%`;
+  }
+
+  // Proprioception (Step 14)
+  if (frame.spd !== undefined) {
+    document.getElementById('proprio-section').style.display = '';
+    document.getElementById('proprio-spd').style.width = `${frame.spd * 100}%`;
+    document.getElementById('proprio-spd-v').textContent = frame.spd.toFixed(2);
+    const av = Math.abs(frame.av);
+    document.getElementById('proprio-omega').style.width = `${av * 50}%`;
+    document.getElementById('proprio-omega-v').textContent = frame.av.toFixed(2);
+    for (let i = 0; i < 6; i++) {
+      const ld = Math.abs(frame.ld[i]);
+      document.getElementById(`proprio-ld-${i}`).style.width = `${ld * 50}%`;
+      document.getElementById(`proprio-ld-v-${i}`).textContent = frame.ld[i].toFixed(2);
+    }
+  }
+
+  // Pattern (Step 12)
+  if (frame.pa !== undefined) {
+    document.getElementById('pat-section').style.display = '';
+    document.getElementById('pat-bar').style.width = `${Math.min(frame.pa * 100, 100)}%`;
+  }
+
+  // Learning progress + probe (Step 11)
+  if (frame.lp !== undefined) {
+    document.getElementById('lp-section').style.display = '';
+    document.getElementById('lp-bar').style.width = `${Math.min(frame.lp * 100, 100)}%`;
+  }
+  if (frame.is_probe !== undefined) {
+    document.getElementById('probe-section').style.display = '';
+    document.getElementById('probe-label').style.display = frame.is_probe ? '' : 'none';
+  }
+
+  // Log size (Step 10.1)
+  if (frame.ls !== undefined) {
+    document.getElementById('logsize-section').style.display = '';
+    document.getElementById('logsize-display').textContent = frame.ls;
+  }
+
+  // Pathway indicator (Step 4 - Hierarchical NS)
+  if (frame.pw !== undefined) {
+    document.getElementById('pathway-section').style.display = '';
+    document.getElementById('gate-section').style.display = '';
+    document.getElementById('conf-section').style.display = '';
+    const pwLabel = document.getElementById('pathway-label');
+    const gateVal = frame.gv || 0;
+    if (gateVal >= 0.4) {
+      pwLabel.textContent = 'SLOW';
+      pwLabel.className = 'pathway-indicator pathway-slow';
+    } else if (gateVal >= 0.15) {
+      pwLabel.textContent = 'BLEND';
+      pwLabel.className = 'pathway-indicator pathway-slow';
+    } else {
+      pwLabel.textContent = 'FAST';
+      pwLabel.className = 'pathway-indicator pathway-fast';
+    }
+    document.getElementById('gate-bar').style.width = `${(frame.gv || 0) * 100}%`;
+    document.getElementById('conf-bar').style.width = `${(frame.cf || 0) * 100}%`;
+  }
+
+  document.getElementById('step-display').textContent = `${frameIdx + 1} / ${totalFrames}`;
+  const stepRewardEl = document.getElementById('step-reward');
+  stepRewardEl.textContent = frame.r.toFixed(2);
+  stepRewardEl.className = 'value ' + (frame.r >= 0 ? 'reward-pos' : 'reward-neg');
+  const totalEl = document.getElementById('total-reward');
+  totalEl.textContent = cumulativeReward.toFixed(1);
+  totalEl.className = 'value ' + (cumulativeReward >= 0 ? 'reward-pos' : 'reward-neg');
+  document.getElementById('scrubber').value = frameIdx;
+  document.getElementById('frame-info').textContent = `${frameIdx + 1} / ${totalFrames}`;
+}
+
+// --- Controls ---
+function setupControls() {
+  document.getElementById('btn-play').addEventListener('click', () => {
+    playing = !playing;
+    document.getElementById('btn-play').textContent = playing ? 'Pause' : 'Play';
+    document.getElementById('btn-play').classList.toggle('active', playing);
+  });
+  document.getElementById('btn-reset').addEventListener('click', () => {
+    currentFrame = 0; cumulativeReward = 0; frameAccumulator = 0; playing = false;
+    document.getElementById('btn-play').textContent = 'Play';
+    document.getElementById('btn-play').classList.remove('active');
+  });
+  document.getElementById('scrubber').addEventListener('input', (e) => {
+    const target = parseInt(e.target.value);
+    recalcCumulative(target); currentFrame = target; frameAccumulator = 0;
+  });
+  document.getElementById('btn-slower').addEventListener('click', () => {
+    playbackSpeed = Math.max(0.25, playbackSpeed / 2);
+    document.getElementById('speed-label').textContent = playbackSpeed + 'x';
+  });
+  document.getElementById('btn-faster').addEventListener('click', () => {
+    playbackSpeed = Math.min(8, playbackSpeed * 2);
+    document.getElementById('speed-label').textContent = playbackSpeed + 'x';
+  });
+  document.getElementById('episode-select').addEventListener('change', (e) => {
+    currentEpisode = parseInt(e.target.value);
+    currentFrame = 0; cumulativeReward = 0; frameAccumulator = 0;
+    const ep = replayData.episodes[currentEpisode];
+    createAllMarkers(ep.frames[0]);
+    document.getElementById('scrubber').max = ep.frames.length - 1;
+  });
+}
+
+function recalcCumulative(upToFrame) {
+  const frames = replayData.episodes[currentEpisode].frames;
+  cumulativeReward = 0;
+  for (let i = 0; i <= Math.min(upToFrame, frames.length - 1); i++) cumulativeReward += frames[i].r;
+}
+
+// --- Main ---
+async function loadData() {
+  const resp = await fetch('data/replay.json');
+  replayData = await resp.json();
+  const select = document.getElementById('episode-select');
+  replayData.episodes.forEach((ep, i) => {
+    const opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = `Ep ${i} (reward: ${ep.total_reward})`;
+    select.appendChild(opt);
+  });
+  const ep = replayData.episodes[0];
+  document.getElementById('scrubber').max = ep.frames.length - 1;
+  createAllMarkers(ep.frames[0]);
+}
+
+function resize() {
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+  if (!replayData) return;
+
+  const ep = replayData.episodes[currentEpisode];
+  const totalFrames = ep.frames.length;
+
+  if (playing) {
+    frameAccumulator += playbackSpeed;
+    while (frameAccumulator >= 1.0) {
+      cumulativeReward += ep.frames[Math.min(currentFrame, totalFrames - 1)].r;
+      currentFrame++;
+      frameAccumulator -= 1.0;
+      if (currentFrame >= totalFrames) {
+        currentFrame = totalFrames - 1; playing = false;
+        document.getElementById('btn-play').textContent = 'Play';
+        document.getElementById('btn-play').classList.remove('active');
+        break;
+      }
+    }
+  }
+
+  const frame = ep.frames[Math.min(currentFrame, totalFrames - 1)];
+  updateHeatmap(frame, ep.environment);
+  updateMemoryOverlay(frame);
+  updateOrganism(frame);
+  updateSourceMarkers(frame);
+  updateParticles();
+  updateUI(frame, currentFrame, totalFrames);
+  renderer.render(scene, camera);
+}
+
+buildUI();
+setupControls();
+window.addEventListener('resize', resize);
+resize();
+loadData().then(() => requestAnimationFrame(animate));
+</script>
+</body>
+</html>

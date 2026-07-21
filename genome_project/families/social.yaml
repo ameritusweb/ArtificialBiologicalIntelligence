@@ -1,0 +1,721 @@
+# Social Family
+# Receptors for modeling other agents, understanding minds, and navigating social complexity
+
+family_metadata:
+  name: Social
+  description: |
+    Receptors that enable organisms to understand and interact with other agents.
+    From detecting "that thing behaves differently than rocks" to sophisticated
+    nested theory of mind and cultural transmission.
+
+    The trunk is recognizing that other entities are agents like self. The canopy
+    is modeling others' beliefs about your beliefs about their beliefs — recursive
+    social reasoning that enables cooperation, deception, and culture.
+
+    This family is critical because many canopy receptors in other families
+    (Agency, Meta-Motivational, Regulatory) depend on theory of mind. Social
+    cognition is an integration bottleneck in the evolutionary graph.
+
+  evolutionary_thesis: |
+    Social receptors emerge when other organisms become important features of
+    the environment. Initially they're just fields to navigate (Step 20). Then
+    they become predictable agents. Then they become minds to model. Finally
+    they become mirrors that reflect your own cognition back at you.
+
+    The progression parallels self-model development: proprioception → efference
+    copy → controllability → planning. But applied to others, with the key
+    insight that the self-model template can be reused for other-modeling.
+
+  trunk_receptor: other_detection
+  canopy_receptors: [nested_theory_of_mind, cultural_transmission, moral_reasoning]
+
+---
+
+receptors:
+  - receptor_id: other_detection
+    name: Agent vs Environment Discrimination
+    family: social
+    tier: trunk
+
+    dependencies:
+      - receptor_id: dynamic_repetition
+        note: "Repetition family - same entity across positions"
+      - receptor_id: predictability_mismatch
+        note: "Something that moves but not like field dynamics"
+
+    environmental_trigger:
+      structure: |
+        Entities in environment that move in ways not explained by field
+        gradients or simple physics. Autonomous agents.
+      survival_benefit: |
+        Distinguish agents (unpredictable, responsive) from environment
+        (predictable, rule-governed). Enables specialized processing for agents.
+      metabolic_cost: low
+      selection_pressure: |
+        Multi-organism environments where treating agents like static features
+        produces poor outcomes.
+
+    selection_environments:
+      - multi_organism_environments
+      - predator_prey_scenarios
+      - any_social_environment
+
+    unlocks:
+      - agent_tracking
+      - behavioral_prediction
+      - social_attention
+
+    emergence_signature:
+      description: |
+        Mental model develops separate category for entities whose behavior
+        doesn't follow field gradients. Different action selection near agents
+        vs non-agents.
+      metrics:
+        - metric_name: agent_category_discrimination
+          measurement_method: |
+            Does organism treat other organisms differently from obstacles/fields?
+            Measure action diversity or approach/avoidance patterns.
+          expected_range: ">0.4 difference in action patterns"
+          detection_threshold: 0.4
+
+    predicted_emergence_order:
+      generation_range: "30-60"
+      confidence: high
+      conditions: |
+        Step 20 from roadmap. Multi-organism environment already present.
+
+    notes: |
+      FOUNDATION RECEPTOR - Step 20 establishes multi-organism environment.
+      This receptor is implicit in treating NPC differently from fields.
+
+  - receptor_id: behavioral_prediction
+    name: Other-Agent Action Forecasting
+    family: social
+    tier: trunk
+
+    dependencies:
+      - receptor_id: other_detection
+        minimum_certainty: 0.6
+      - receptor_id: temporal_association
+        minimum_certainty: 0.7
+
+    environmental_trigger:
+      structure: |
+        Other agents have predictable behavior patterns. Organism can anticipate
+        what they'll do next based on current state/trajectory.
+      survival_benefit: |
+        Predict collision, pursuit, or resource competition. React before
+        agent acts, not after.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments where agent actions have significant consequences and
+        prediction enables avoidance or exploitation.
+
+    selection_environments:
+      - predator_prey
+      - resource_competition
+      - collision_avoidance
+
+    unlocks:
+      - collision_prediction
+      - pursuit_evasion
+      - self_model_applied_to_others
+
+    emergence_signature:
+      description: |
+        Mental model learns mappings: other_agent_state → next_action.
+        Organism acts anticipatorily (moves before agent arrives, not after).
+      metrics:
+        - metric_name: anticipatory_agent_avoidance
+          measurement_method: |
+            Does organism move away from predicted agent position rather than
+            current agent position?
+          expected_range: ">50% anticipatory when agent trajectory clear"
+          detection_threshold: 0.5
+
+    predicted_emergence_order:
+      generation_range: "40-80"
+      confidence: high
+      conditions: |
+        Current sim has NPC with predictable behavior. Should emerge naturally.
+
+    notes: |
+      This is just temporal association applied to agents. The mental model
+      should learn NPC movement patterns automatically.
+
+  - receptor_id: self_model_applied_to_others
+    name: Theory of Mind (Basic)
+    family: social
+    tier: branch
+
+    dependencies:
+      - receptor_id: behavioral_prediction
+        minimum_certainty: 0.7
+      - receptor_id: self_model
+        minimum_certainty: 0.8
+        note: "Steps 14-18 - must have proprioception → planning"
+
+    environmental_trigger:
+      structure: |
+        Other agents are like self — they have goals, percepts, actions. The
+        self-model template applies to them: predict their behavior by simulating
+        what you would do in their state.
+      survival_benefit: |
+        Better prediction via analogy. "What would I do if I were there?" is
+        cheaper than learning each agent independently.
+      metabolic_cost: high
+      selection_pressure: |
+        Multi-agent environments where agents are similar enough that self-model
+        generalization works. Especially valuable when agents are same species.
+
+    selection_environments:
+      - same_species_interactions
+      - competitive_resource_gathering
+      - social_coordination_opportunities
+
+    unlocks:
+      - empathy_prediction
+      - intention_recognition
+      - perspective_taking
+      - social_learning
+
+    emergence_signature:
+      description: |
+        Organism's predictions about others improve when self-model develops.
+        Agent predictions use same mental model queries as self-predictions,
+        just with different initial states.
+      metrics:
+        - metric_name: self_other_model_correlation
+          measurement_method: |
+            Correlation between self-action patterns and predicted other-actions
+            in similar contexts.
+          expected_range: "r > 0.6 when contexts similar"
+          detection_threshold: 0.6
+
+    predicted_emergence_order:
+      generation_range: "80-150"
+      confidence: medium
+      conditions: |
+        Requires full self-model (Steps 14-18) and multi-agent environment
+        with similar agents.
+
+    failure_modes:
+      - mode: self_projection_bias
+        signature: |
+          Organism assumes others will do exactly what it would do, fails when
+          agents have different capabilities or goals.
+
+    notes: |
+      This is THE key receptor for social cognition. Once you can apply your
+      self-model to others, most other social receptors become possible.
+
+      "Theory of mind" isn't a mysterious faculty — it's just the self-model
+      template applied to another agent variable.
+
+  - receptor_id: intention_recognition
+    name: Goal Attribution to Others
+    family: social
+    tier: branch
+
+    dependencies:
+      - receptor_id: self_model_applied_to_others
+        minimum_certainty: 0.7
+      - receptor_id: planning
+        minimum_certainty: 0.7
+
+    environmental_trigger:
+      structure: |
+        Other agents act toward goals. Organism can infer what they're trying
+        to achieve from their behavior pattern.
+      survival_benefit: |
+        Predict agent behavior at goal level, not just action level. Enables
+        cooperation (aligned goals) and competition (conflicting goals).
+      metabolic_cost: high
+      selection_pressure: |
+        Social environments where understanding goals enables better responses
+        than just predicting actions.
+
+    selection_environments:
+      - cooperative_tasks
+      - competitive_resource_scenarios
+      - social_coordination
+
+    unlocks:
+      - goal_alignment_detection
+      - cooperation_opportunities
+      - competitive_strategy
+
+    emergence_signature:
+      description: |
+        Organism infers goals from action sequences. Predictions improve when
+        goal is inferred vs just extrapolating actions.
+      metrics:
+        - metric_name: goal_level_prediction_gain
+          measurement_method: |
+            Prediction accuracy when modeling at goal level vs action level.
+          expected_range: "1.3-2.0x improvement"
+          detection_threshold: 1.3
+
+    predicted_emergence_order:
+      generation_range: "100-180"
+      confidence: low
+      conditions: |
+        Requires agents with clear goals and planning capability in focal organism.
+
+    notes: |
+      This is planning (Step 18) applied to other agents. "What is that agent
+      trying to achieve?" becomes modelable once you have theory of mind.
+
+  - receptor_id: belief_attribution
+    name: False Belief Understanding
+    family: social
+    tier: branch
+
+    dependencies:
+      - receptor_id: self_model_applied_to_others
+        minimum_certainty: 0.8
+      - receptor_id: prediction_accuracy
+        note: "Understanding that predictions can be wrong"
+
+    environmental_trigger:
+      structure: |
+        Other agents can have beliefs about the world that differ from reality
+        (and from focal organism's beliefs). They act on their beliefs, not
+        on ground truth.
+      survival_benefit: |
+        Predict behavior even when other agent is misinformed. Critical for
+        deception, cooperation in asymmetric information scenarios.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Social environments with information asymmetry where false beliefs
+        are common and consequential.
+
+    selection_environments:
+      - hidden_information_scenarios
+      - deception_opportunities
+      - communication_with_noise
+
+    unlocks:
+      - deception_capability
+      - deception_detection
+      - information_hiding
+      - teaching
+
+    emergence_signature:
+      description: |
+        Organism predicts others' actions based on what THEY perceive, not what
+        focal organism perceives. Classic false belief test: agent acts toward
+        where resource WAS, not where it IS now.
+      metrics:
+        - metric_name: false_belief_prediction
+          measurement_method: |
+            Does organism correctly predict agent's action when agent has outdated
+            information?
+          expected_range: ">70% correct on false belief scenarios"
+          detection_threshold: 0.7
+
+    predicted_emergence_order:
+      generation_range: "150-250"
+      confidence: low
+      conditions: |
+        Requires environment with information asymmetry. Not present in current sim.
+
+    notes: |
+      This is the famous developmental milestone in humans (~4 years old).
+      It's computationally expensive — model world, model other's perception
+      of world, predict action based on their model not your model.
+
+  - receptor_id: empathy
+    name: Receptor Propagation (Emotional)
+    family: social
+    tier: branch
+
+    dependencies:
+      - receptor_id: other_detection
+        minimum_certainty: 0.6
+      - receptor_id: behavioral_prediction
+        note: "Must detect other's state"
+
+    environmental_trigger:
+      structure: |
+        Other organism's distress or positive state affects focal organism's
+        own receptor state. One agent's pain → other's pain receptors fire.
+      survival_benefit: |
+        Early warning (others fleeing → danger present). Social bonding.
+        Coordination (group responds to threats together).
+      metabolic_cost: moderate
+      selection_pressure: |
+        Social environments where others' states are informative about
+        environmental threats or opportunities.
+
+    selection_environments:
+      - group_living
+      - shared_threats
+      - cooperative_environments
+
+    unlocks:
+      - social_bonding
+      - group_coordination
+      - altruism_foundations
+      - emotional_contagion
+
+    emergence_signature:
+      description: |
+        Focal organism's receptor states (pain, stress, endorphin) change in
+        response to other organism's observable state (erraticism, fleeing,
+        approach), even without direct environmental cause.
+      metrics:
+        - metric_name: empathic_receptor_correlation
+          measurement_method: |
+            Correlation between other's distress signals and focal organism's
+            stress/pain increase.
+          expected_range: "r > 0.5"
+          detection_threshold: 0.5
+
+    predicted_emergence_order:
+      generation_range: "60-100"
+      confidence: very_high
+      conditions: |
+        Step 22 from roadmap. Already implemented.
+
+    notes: |
+      FOUNDATION RECEPTOR - Step 22 implements this as empathic aversion.
+      "Pain receptors for others' pain is just empathy, stated mechanistically."
+
+  - receptor_id: perspective_taking
+    name: Viewpoint Simulation
+    family: social
+    tier: branch
+
+    dependencies:
+      - receptor_id: self_model_applied_to_others
+        minimum_certainty: 0.8
+      - receptor_id: spatial_reasoning
+        note: "Understanding positions differ"
+
+    environmental_trigger:
+      structure: |
+        What other agent perceives depends on their position/orientation.
+        Organism simulates "what would I see from there?"
+      survival_benefit: |
+        Better predictions when perceptual perspective matters. Enables hiding,
+        coordination, teaching (showing something from their perspective).
+      metabolic_cost: high
+      selection_pressure: |
+        Environments where spatial perspective affects behavior significantly.
+
+    selection_environments:
+      - hiding_opportunities
+      - line_of_sight_matters
+      - spatial_coordination_tasks
+
+    unlocks:
+      - visual_perspective_taking
+      - hiding_from_view
+      - showing_to_view
+
+    emergence_signature:
+      description: |
+        Organism's predictions about others account for their spatial perspective.
+        Hides behind obstacles that block other's view, not own view.
+      metrics:
+        - metric_name: perspective_dependent_prediction
+          measurement_method: |
+            Does prediction change based on other's position vs focal position?
+          expected_range: "Different predictions when perspectives differ"
+          detection_threshold: 0.6
+
+    predicted_emergence_order:
+      generation_range: "120-200"
+      confidence: very_low
+      conditions: |
+        Requires spatial perspective to matter behaviorally. Far future.
+
+    notes: |
+      This is more sophisticated than basic theory of mind because it requires
+      spatial reasoning integrated with other-modeling.
+
+  - receptor_id: nested_theory_of_mind
+    name: Recursive Belief Attribution
+    family: social
+    tier: canopy
+
+    dependencies:
+      - receptor_id: belief_attribution
+        minimum_certainty: 0.8
+      - receptor_id: self_model_applied_to_others
+        minimum_certainty: 0.9
+
+    environmental_trigger:
+      structure: |
+        "I know that you know that I know" — recursive depth in modeling.
+        Organism models others' models of focal organism.
+      survival_benefit: |
+        Strategic social reasoning. Deception, cooperation, signaling games
+        all require recursive depth. "They think I think they'll do X, so
+        I'll do Y."
+      metabolic_cost: very_high
+      selection_pressure: |
+        Complex social environments with strategic interaction, especially
+        competitive or deceptive scenarios.
+
+    selection_environments:
+      - strategic_deception
+      - signaling_games
+      - cooperative_dilemmas
+
+    unlocks:
+      - strategic_social_reasoning
+      - sophisticated_deception
+      - recursive_cooperation
+
+    emergence_signature:
+      description: |
+        Organism's behavior shows evidence of modeling others' models of self.
+        Classic: "I'll feint left (they predict right based on my pattern),
+        then go right."
+      metrics:
+        - metric_name: recursive_depth
+          measurement_method: |
+            How many levels of "I know you know I know" are observable in
+            strategic behavior?
+          expected_range: "2-3 levels"
+          detection_threshold: 2
+
+    predicted_emergence_order:
+      generation_range: "250-400"
+      confidence: very_low
+      conditions: |
+        Requires sophisticated strategic environment. Very far future.
+
+    notes: |
+      This is deep canopy. Most humans struggle beyond 3-4 levels of recursion.
+      Emergence would indicate very sophisticated social reasoning.
+
+  - receptor_id: social_learning
+    name: Learning by Observation
+    family: social
+    tier: canopy
+
+    dependencies:
+      - receptor_id: self_model_applied_to_others
+        minimum_certainty: 0.7
+      - receptor_id: intention_recognition
+        minimum_certainty: 0.6
+
+    environmental_trigger:
+      structure: |
+        Organism can update its own mental model by observing others' actions
+        and outcomes, without executing those actions itself.
+      survival_benefit: |
+        Learn without cost of exploration. If other discovers dangerous/
+        beneficial outcome, observer learns it too.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Social environments where observation is cheaper or safer than
+        individual trial-and-error.
+
+    selection_environments:
+      - dangerous_exploration
+      - costly_mistakes
+      - transparent_social_learning
+
+    unlocks:
+      - observational_learning
+      - imitation
+      - cultural_transmission
+
+    emergence_signature:
+      description: |
+        Organism's mental model updates based on others' action-outcome
+        observations, not just own experience. Learns faster in social context.
+      metrics:
+        - metric_name: observational_learning_rate
+          measurement_method: |
+            Does certainty increase for actions organism observed others perform,
+            even if not executed by self?
+          expected_range: "Certainty shifts >0.2 for observed actions"
+          detection_threshold: 0.2
+
+    predicted_emergence_order:
+      generation_range: "150-250"
+      confidence: low
+      conditions: |
+        Requires observable others and significant exploration cost.
+
+    notes: |
+      This is where culture becomes possible. If organisms can learn from
+      observation, knowledge accumulates across the group, not just individuals.
+
+  - receptor_id: cultural_transmission
+    name: Knowledge Passed Between Organisms
+    family: social
+    tier: canopy
+
+    dependencies:
+      - receptor_id: social_learning
+        minimum_certainty: 0.8
+      - receptor_id: intentional_signaling
+        note: "Step 23"
+      - receptor_id: pattern_recognition
+        note: "Compression family - patterns as transmissible units"
+
+    environmental_trigger:
+      structure: |
+        Organisms deliberately share knowledge — not just through observation
+        but through intentional teaching/demonstration. Knowledge persists
+        across generations.
+      survival_benefit: |
+        Offspring inherit learned knowledge, not just receptor topology.
+        Cultural evolution becomes possible alongside biological evolution.
+      metabolic_cost: high
+      selection_pressure: |
+        Stable social groups where knowledge transmission provides faster
+        adaptation than biological evolution.
+
+    selection_environments:
+      - stable_social_groups
+      - multi_generation_persistence
+      - teachable_skills
+
+    unlocks:
+      - teaching
+      - cultural_evolution
+      - cumulative_culture
+
+    emergence_signature:
+      description: |
+        Organisms deliberately demonstrate behaviors to others. Offspring
+        show knowledge of patterns they never discovered individually.
+      metrics:
+        - metric_name: cross_generation_knowledge
+          measurement_method: |
+            Do offspring show certainty for actions their parents discovered
+            but that they never explored individually?
+          expected_range: ">50% knowledge transfer"
+          detection_threshold: 0.5
+
+    predicted_emergence_order:
+      generation_range: "300-500"
+      confidence: very_low
+      conditions: |
+        Requires stable multi-generation groups with teachable skills. Very far future.
+
+    notes: |
+      This is the apex of social cognition. Culture as non-genetic inheritance.
+      Organisms can transmit mental model entries directly, not just topology bias.
+
+  - receptor_id: deception_detection
+    name: Intentional False Signaling Recognition
+    family: social
+    tier: canopy
+
+    dependencies:
+      - receptor_id: belief_attribution
+        minimum_certainty: 0.8
+      - receptor_id: intention_recognition
+        minimum_certainty: 0.7
+      - receptor_id: intentional_signaling
+        note: "Step 23"
+
+    environmental_trigger:
+      structure: |
+        Other agents sometimes signal false information intentionally. Organism
+        detects mismatch between signal and likely true state.
+      survival_benefit: |
+        Avoid being exploited by deceptive signals. Counter-deception in
+        competitive scenarios.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Social environments where deception is common and costly to fall for.
+
+    selection_environments:
+      - competitive_signaling
+      - deceptive_agents
+      - trust_verification_scenarios
+
+    unlocks:
+      - skepticism
+      - trust_evaluation
+      - counter_deception
+
+    emergence_signature:
+      description: |
+        Organism ignores or counter-acts signals from agents whose past signals
+        mismatched outcomes. Trust tracking.
+      metrics:
+        - metric_name: deception_detection_accuracy
+          measurement_method: |
+            Does organism reduce belief updating from agents who previously
+            signaled falsely?
+          expected_range: ">60% reduction in trust after deception"
+          detection_threshold: 0.6
+
+    predicted_emergence_order:
+      generation_range: "200-350"
+      confidence: very_low
+      conditions: |
+        Requires environment with deceptive agents. Very far future.
+
+    notes: |
+      This requires modeling "they KNOW the truth but are signaling something
+      else" — intention + false belief attribution + signaling all together.
+
+  - receptor_id: moral_reasoning
+    name: Social Norm Enforcement
+    family: social
+    tier: canopy
+
+    dependencies:
+      - receptor_id: empathy
+        minimum_certainty: 0.8
+      - receptor_id: value_hierarchy
+        note: "Meta-Motivational - stable priorities"
+      - receptor_id: social_learning
+        minimum_certainty: 0.7
+
+    environmental_trigger:
+      structure: |
+        Group develops shared behavioral norms. Violations are detected and
+        responded to (punishment, avoidance, reputation tracking).
+      survival_benefit: |
+        Stable cooperation in groups. Defectors are punished, cooperators
+        are rewarded. Group-level selection for norm-following behavior.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Large stable groups where cooperation is valuable and defection is
+        costly to detect without norms.
+
+    selection_environments:
+      - large_social_groups
+      - cooperation_dilemmas
+      - reputation_tracking_possible
+
+    unlocks:
+      - norm_enforcement
+      - punishment
+      - reputation
+      - morality
+
+    emergence_signature:
+      description: |
+        Organisms respond negatively to norm violations even when not directly
+        affected. Third-party punishment. Reputation tracking affects cooperation.
+      metrics:
+        - metric_name: third_party_punishment
+          measurement_method: |
+            Does organism punish (avoid, signal negatively) agents who violated
+            norms in interactions with third parties?
+          expected_range: ">40% punishment when violation observed"
+          detection_threshold: 0.4
+
+    predicted_emergence_order:
+      generation_range: "400-600"
+      confidence: very_low
+      conditions: |
+        Requires large stable groups with reputation tracking. Extremely far future.
+
+    notes: |
+      This is where values become social. Moral reasoning is value hierarchy
+      + empathy + social learning, producing group-level behavioral norms.
+      The foundation of human morality stated mechanistically.

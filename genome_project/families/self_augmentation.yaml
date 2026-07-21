@@ -1,0 +1,379 @@
+# Self-Augmentation Family
+# Receptors for detecting and managing changes to the self — growth, metamorphosis,
+# capability transformation, developmental trajectory
+
+family_metadata:
+  name: Self-Augmentation
+  description: |
+    Receptors that detect internal transformation — changes to the organism's own
+    capabilities that aren't caused by acting on the world but by developmental
+    processes intrinsic to the organism. Growth, metamorphosis, skill formation,
+    receptor topology changes.
+
+    This family is orthogonal to both exploration (world model changes) and
+    interaction (world state changes). Self-augmentation is the self changing.
+    The organism becomes different without the environment doing anything to it.
+
+    The trunk is detecting that one's own capabilities have changed. The canopy
+    is modeling one's own developmental trajectory — predicting what you will
+    be able to do in the future that you cannot do now.
+
+    Three orthogonal relationships to the world:
+    - Self-augmentation: the self changes (internal developmental process)
+    - Exploration: the self moves through the world (model updates, world unchanged)
+    - Interaction: the self acts on the world (both change state)
+
+    These are not dependent — self-augmentation can happen in isolation, without
+    interaction. Animals grow up. Caterpillars become butterflies. Cell division
+    creates two from one. These are transformations of the instrument, not
+    the instrument acting on the world.
+
+  evolutionary_thesis: |
+    Self-augmentation receptors emerge when the organism's own developmental
+    state affects survival outcomes. An organism that can detect its own
+    growth, maturation, or capability changes can plan around them — allocating
+    effort differently when it knows its future capabilities will differ from
+    its current ones.
+
+    The deepest implication: self-augmentation over deep time is how you get
+    from pain avoidance to theorem proving. The organism that can augment
+    itself — modify the instrument that does the navigating and modifying —
+    eventually develops the receptor topology for mathematics, proof,
+    formal composition. The ceiling on intelligence is set by the ceiling
+    on self-augmentation.
+
+  trunk_receptor: capability_change_detection
+  canopy_receptors: [developmental_trajectory, identity_continuity, metamorphic_planning]
+
+---
+
+receptors:
+  - receptor_id: capability_change_detection
+    name: Self-Capability Change Detection
+    family: self_augmentation
+    tier: trunk
+
+    dependencies:
+      - receptor_id: controllability
+        note: "Agency family — must model own capabilities before detecting changes in them"
+      - receptor_id: change_detection
+        note: "Observation family — must detect change in general"
+
+    environmental_trigger:
+      structure: |
+        The organism's own action repertoire or sensory capabilities change
+        over time. Actions that previously failed now succeed. Sensory channels
+        that were inactive become active. The organism is different from what
+        it was.
+      survival_benefit: |
+        Detecting capability change enables recalibration. An organism that
+        doesn't detect its own growth continues using juvenile strategies
+        with an adult body. An organism that detects capability change
+        can exploit new capabilities immediately.
+      metabolic_cost: low
+      selection_pressure: |
+        Any environment where the organism's capabilities change during its
+        lifetime — growth, learning, receptor discovery, injury recovery.
+
+    selection_environments:
+      - developmental_environments
+      - learning_environments
+      - any_environment_with_capability_change
+
+    unlocks:
+      - growth_detection
+      - skill_formation_detection
+      - recalibration
+
+    emergence_signature:
+      description: |
+        Organism adjusts behavior after capability changes without explicit
+        retraining. When a new receptor comes online or action effectiveness
+        changes, the organism exploits the change within a few steps rather
+        than many episodes.
+      metrics:
+        - metric_name: recalibration_speed
+          measurement_method: |
+            After a capability change (new receptor, changed action effectiveness),
+            measure steps to behavioral adaptation. Fast recalibration (< 10 steps)
+            indicates capability change detection.
+          expected_range: "< 10 steps"
+          detection_threshold: 10
+
+    predicted_emergence_order:
+      generation_range: "30-60"
+      confidence: medium
+      conditions: |
+        Requires controllability + change detection. Emerges when the organism's
+        own state changes during its lifetime.
+
+  - receptor_id: growth_tracking
+    name: Developmental State Monitoring
+    family: self_augmentation
+    tier: branch
+
+    dependencies:
+      - receptor_id: capability_change_detection
+        note: "Must detect changes before tracking them over time"
+      - receptor_id: temporal_association
+        note: "Association family — must track state across time"
+
+    environmental_trigger:
+      structure: |
+        The organism's capabilities change in a predictable trajectory —
+        growth follows a curve, skills accumulate monotonically, receptor
+        density increases over time. The trajectory is detectable as a
+        trend, not just individual changes.
+      survival_benefit: |
+        Trajectory detection enables anticipation. An organism that knows
+        it is growing can plan for future capabilities. "I cannot reach
+        that now, but I will be able to soon" is a planning advantage
+        over "I cannot reach that."
+      metabolic_cost: low
+      selection_pressure: |
+        Environments where developmental timing matters — resources that
+        become accessible at maturity, dangers that are only escapable
+        at full size.
+
+    selection_environments:
+      - growth_dependent_environments
+      - maturation_gated_resources
+
+    unlocks:
+      - developmental_trajectory
+      - anticipatory_growth_planning
+
+    emergence_signature:
+      description: |
+        Organism's behavior anticipates future capabilities — approaches
+        challenges it cannot yet solve if it is on a growth trajectory
+        that will make them solvable.
+      metrics:
+        - metric_name: anticipatory_approach
+          measurement_method: |
+            Organism approaches currently-unsolvable challenges when on
+            a growth trajectory vs avoids them when not growing.
+          expected_range: ">1.5x approach rate during growth"
+          detection_threshold: 1.5
+
+    predicted_emergence_order:
+      generation_range: "50-100"
+      confidence: low
+      conditions: |
+        Requires environments where growth trajectory predicts future
+        capability.
+
+  - receptor_id: developmental_trajectory
+    name: Future-Self Modeling
+    family: self_augmentation
+    tier: canopy
+
+    dependencies:
+      - receptor_id: growth_tracking
+        note: "Must track developmental state"
+      - receptor_id: planning
+        note: "Agency family — must simulate future states"
+      - receptor_id: self_model_applied_to_others
+        note: "Social family — must model agents across time (applied to self)"
+
+    environmental_trigger:
+      structure: |
+        The organism models what it WILL be able to do, not just what it
+        CAN do now. "I will be able to do this later that I cannot do now"
+        is a prediction about the self's future state.
+      survival_benefit: |
+        Developmental trajectory modeling enables long-range planning that
+        accounts for self-change. "I should prepare resources now for a
+        capability I will have later" — planting seeds before you can
+        harvest. This is fundamentally different from planning that
+        assumes fixed capabilities.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments with long developmental timelines where early
+        preparation for later capabilities is fitness-positive.
+
+    selection_environments:
+      - long_developmental_environments
+      - preparation_reward_environments
+
+    unlocks:
+      - metamorphic_planning
+      - deliberate_self_development
+
+    emergence_signature:
+      description: |
+        Organism takes actions whose only payoff is preparing for
+        capabilities it does not yet have. Current-cost, future-benefit
+        actions that are specific to predicted developmental changes.
+      metrics:
+        - metric_name: preparatory_behavior
+          measurement_method: |
+            Actions that have zero immediate reward but position the
+            organism to exploit a future capability change. Frequency
+            correlates with growth trajectory prediction accuracy.
+          expected_range: ">10% of actions are preparatory"
+          detection_threshold: 0.1
+
+    predicted_emergence_order:
+      generation_range: "150-300"
+      confidence: very_low
+      conditions: |
+        Requires growth_tracking + planning + long developmental environments.
+        The organism must model its own future self as a different agent
+        with different capabilities.
+
+  - receptor_id: identity_continuity
+    name: Self-Persistence Across Transformation
+    family: self_augmentation
+    tier: canopy
+
+    dependencies:
+      - receptor_id: developmental_trajectory
+        note: "Must model self changing over time"
+      - receptor_id: structural_invariance
+        note: "Similarity family — must detect what persists through change"
+      - receptor_id: part_whole_detection
+        note: "Organization family — must detect parts composing a whole"
+
+    environmental_trigger:
+      structure: |
+        The organism undergoes transformations that change its components
+        but not its identity. Cell division: one becomes two but the
+        system remains one. Metamorphosis: the body changes entirely but
+        the organism is the same agent. The receptor detects what persists
+        through transformation — what makes the butterfly the same organism
+        as the caterpillar.
+      survival_benefit: |
+        Identity continuity enables long-term planning across transformations.
+        An organism that loses identity at metamorphosis restarts planning
+        from scratch. One that maintains identity carries plans across
+        the transformation boundary.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments where the organism undergoes significant structural
+        transformation and plans must carry across the boundary.
+
+    selection_environments:
+      - metamorphic_environments
+      - division_environments
+      - radical_transformation_scenarios
+
+    unlocks:
+      - trans_transformation_planning
+      - distributed_identity
+      - cellular_coordination
+
+    emergence_signature:
+      description: |
+        After major capability transformation, the organism's behavior
+        retains strategic continuity — it pursues the same goals with
+        new capabilities rather than starting fresh.
+      metrics:
+        - metric_name: strategic_continuity
+          measurement_method: |
+            Goal persistence across capability transformations. Does
+            the organism pursue pre-transformation goals using
+            post-transformation capabilities?
+          expected_range: ">50% goal retention"
+          detection_threshold: 0.5
+
+    predicted_emergence_order:
+      generation_range: "300-500+"
+      confidence: very_low
+      conditions: |
+        Deepest canopy. Requires environments with radical self-transformation.
+        The caterpillar-to-butterfly problem: maintain planning continuity
+        across body plan changes.
+
+    notes: |
+      This is where identity becomes computationally interesting. Identity
+      is not a metaphysical property — it is a receptor that detects
+      invariance through transformation. What persists when everything
+      else changes? The organism that can answer that question can plan
+      across any transformation. The organism that can't must restart.
+
+      Cell division staying mentally one entity is the hardest case:
+      physical bifurcation with identity continuity. The receptor must
+      maintain a model of "self" that spans two separate physical systems.
+      This is the receptor for distributed cognition — and potentially
+      for understanding how a brain made of individual neurons maintains
+      unified experience.
+
+  - receptor_id: metamorphic_planning
+    name: Transformation-Aware Strategy
+    family: self_augmentation
+    tier: canopy
+
+    dependencies:
+      - receptor_id: identity_continuity
+        note: "Must maintain identity across transformations"
+      - receptor_id: developmental_trajectory
+        note: "Must predict future capability state"
+      - receptor_id: intervention_planning
+        note: "Causality family — must plan multi-step interventions"
+
+    environmental_trigger:
+      structure: |
+        The organism can influence its own developmental trajectory through
+        its actions. Not just detecting growth but steering it. Choosing
+        which capabilities to develop. Allocating resources to skill
+        formation over immediate survival. Deliberate self-modification.
+      survival_benefit: |
+        Metamorphic planning is the ultimate form of agency: the organism
+        is both the agent and the thing being modified. This enables
+        directed evolution within a lifetime — not random mutation but
+        strategic self-development.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Environments where self-directed development produces better
+        outcomes than random development. Where choosing what to become
+        is the key survival decision.
+
+    selection_environments:
+      - self_directed_development_environments
+      - capability_choice_environments
+      - environments_where_becoming_matters_more_than_being
+
+    unlocks:
+      - deliberate_receptor_development
+      - directed_evolution
+      - self_design
+
+    emergence_signature:
+      description: |
+        Organism selectively develops capabilities relevant to predicted
+        future environmental demands rather than developing capabilities
+        that address current demands.
+      metrics:
+        - metric_name: forward_looking_development
+          measurement_method: |
+            Correlation between capabilities the organism develops and
+            future (not current) environmental demands. Requires
+            environments with predictable change.
+          expected_range: ">0.3 correlation"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "400-600+"
+      confidence: very_low
+      conditions: |
+        The deepest canopy of the deepest family. Requires identity
+        continuity + developmental trajectory + intervention planning.
+        The organism must be able to model itself as a system it can
+        intentionally modify. This is where the organism becomes its
+        own engineer.
+
+    notes: |
+      Metamorphic planning closes the ultimate loop in the receptor
+      topology. The organism started as a blob avoiding pain. Through
+      selection pressure across deep time, it developed receptors for
+      predicting, planning, communicating, abstracting, and proving.
+      Metamorphic planning is the receptor that lets it direct that
+      development deliberately — choosing which receptors to develop
+      next based on what the environment will demand.
+
+      This is the organizational mirror (Organization family) applied
+      to the developmental trajectory (Self-Augmentation family). The
+      organism sees its own receptor topology as an organized system
+      that it can intentionally modify. Self-design through
+      self-augmentation, guided by self-knowledge.

@@ -1,0 +1,572 @@
+# Association Family
+# Receptors for learning relationships between events, objects, and states
+
+family_metadata:
+  name: Association
+  description: |
+    Receptors that detect relationships between distinct events or states —
+    from "A and B appear together" to "A's structure predicts B's structure
+    in an abstract relational way."
+
+    The trunk is detecting co-occurrence. The canopy is understanding abstract
+    relational mappings that generalize across domains.
+
+    This family is foundational because any environment with causal structure
+    creates opportunities for associative learning. The fitness benefit scales
+    with the predictability and importance of the relationships.
+
+  evolutionary_thesis: |
+    Association reduces uncertainty. An organism that learns "A predicts B"
+    can prepare for B when it observes A, gaining reaction time or positioning
+    advantage. The metabolic cost is memory for the association; the benefit
+    is the value of early action.
+
+  trunk_receptor: spatial_association
+  canopy_receptors: [abstract_association, relational_analogy]
+
+---
+
+receptors:
+  - receptor_id: spatial_association
+    name: Spatial Co-occurrence Detection
+    family: association
+    tier: trunk
+
+    dependencies:
+      - receptor_id: static_repetition
+        minimum_certainty: 0.4
+        note: "Must recognize that contexts recur"
+      - receptor_id: basic_sensorimotor_loop
+        note: "Steps 1-4 foundation"
+
+    environmental_trigger:
+      structure: "Two stimuli consistently appear near each other in space"
+      survival_benefit: |
+        Detecting one stimulus provides information about the likely presence
+        of the other. Reduces search cost for resources, early warning for
+        danger zones that correlate with specific features.
+      metabolic_cost: low
+      selection_pressure: |
+        Any environment with spatial structure — pain sources near specific
+        features, endorphin sources clustered, obstacles that co-locate.
+
+    selection_environments:
+      - clustered_resources
+      - danger_zones_with_markers
+      - composite_field_structures
+      - object_proximity_patterns
+
+    unlocks:
+      - spatial_prediction
+      - landmark_navigation
+      - cross_modal_association
+
+    emergence_signature:
+      description: |
+        Mental model learns that presence of A in context predicts presence of B
+        nearby. Certainty for B-related mappings increases when A is detected.
+        Navigation shows approach/avoidance based on associated features.
+      metrics:
+        - metric_name: conditional_certainty_boost
+          measurement_method: |
+            Compare mental model certainty for stimulus B when stimulus A is
+            present vs when A is absent. Ratio should exceed 1.3.
+          expected_range: "1.3 - 2.5"
+          detection_threshold: 1.3
+        - metric_name: associative_navigation
+          measurement_method: |
+            When organism detects A, does it adjust trajectory toward/away from
+            predicted location of B before B is directly sensed?
+          expected_range: "40-70% of cases show anticipatory adjustment"
+          detection_threshold: 0.4
+      statistical_test: |
+        Logistic regression: P(organism adjusts trajectory | A detected) vs
+        P(adjust | A not detected), p < 0.01.
+
+    predicted_emergence_order:
+      generation_range: "20-40"
+      confidence: high
+      conditions: |
+        Any environment with stable spatial relationships. Current sim likely
+        already has this implicitly in pain/endorphin field clustering.
+
+    failure_modes:
+      - mode: spurious_correlation
+        signature: |
+          Organism learns associations between spatially co-located features
+          that have no causal relationship. False positives in association.
+      - mode: association_extinction_failure
+        signature: |
+          Association persists even when spatial relationship changes.
+          Organism fails to unlearn when environment shifts.
+
+    falsification_criteria: |
+      If spatial association does NOT emerge in environments with clear
+      spatial structure by generation 60, the mental model's context encoding
+      is failing to represent spatial relationships.
+
+    notes: |
+      This is likely already present implicitly in the current mental model
+      through the contrastive encoder. The position dimensions in the context
+      should enable this. Can verify by testing whether certainty varies
+      with spatial proximity to associated features.
+
+  - receptor_id: temporal_association
+    name: Temporal Precedence Detection
+    family: association
+    tier: trunk
+
+    dependencies:
+      - receptor_id: basic_sensorimotor_loop
+
+    environmental_trigger:
+      structure: "Event A consistently precedes event B with a time delay"
+      survival_benefit: |
+        Organism can prepare for B when A occurs, gaining reaction time.
+        Critical for pain avoidance (respond to precursor, not pain itself).
+      metabolic_cost: low
+      selection_pressure: |
+        Any environment with temporal causal structure. Especially valuable
+        when B is harmful and time to respond is limited.
+
+    selection_environments:
+      - any  # universal benefit in structured environments
+
+    unlocks:
+      - anticipatory_avoidance
+      - causal_inference
+      - rhythm
+
+    emergence_signature:
+      description: |
+        Mental model learns delay distributions. Actions triggered by A that
+        are appropriate for B. Reaction time to B decreases when A precedes it.
+      metrics:
+        - metric_name: temporal_prediction_accuracy
+          measurement_method: |
+            MSE of predicted time delays for A→B vs actual delays.
+          expected_range: "<20% of interval duration"
+          detection_threshold: 0.2
+        - metric_name: anticipatory_response_rate
+          measurement_method: |
+            Proportion of cases where organism responds to A with B-appropriate
+            action before B appears.
+          expected_range: "50-80%"
+          detection_threshold: 0.5
+
+    predicted_emergence_order:
+      generation_range: "5-15"
+      confidence: very_high
+      conditions: |
+        This is Step 5 from the roadmap. Already implemented.
+
+    failure_modes:
+      - mode: temporal_overfitting
+        signature: |
+          Organism learns exact delays but fails to generalize to slightly
+          varying intervals.
+
+    falsification_criteria: |
+      This is already implemented and validated (Step 5). Included for
+      completeness as foundation for temporal rhythm and causal inference.
+
+    notes: |
+      FOUNDATION RECEPTOR - already exists in roadmap Step 5.
+      Kept in library because it's the trunk of temporal association branch.
+
+  - receptor_id: causal_association
+    name: Causal Inference
+    family: association
+    tier: branch
+
+    dependencies:
+      - receptor_id: temporal_association
+        minimum_certainty: 0.7
+      - receptor_id: controllability
+        minimum_certainty: 0.5
+        note: "Step 17 - must understand self-caused vs external change"
+
+    environmental_trigger:
+      structure: "A not only precedes B, but A *causes* B to occur"
+      survival_benefit: |
+        Distinguishes correlation from causation. Enables intentional action —
+        organism can produce desired outcomes by causing their prerequisites.
+        Critical for tool use and environmental manipulation.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments where acting on A reliably produces B, and producing B
+        has survival value. Especially important in responsive environments
+        (Step 19 - objects that respond to signals).
+
+    selection_environments:
+      - responsive_objects  # Step 19
+      - manipulable_obstacles
+      - tool_use_scenarios
+      - signal_triggered_environments
+
+    unlocks:
+      - intentional_causation
+      - tool_use
+      - causal_chains
+      - counterfactual_reasoning
+
+    emergence_signature:
+      description: |
+        Mental model distinguishes "A causes B" from "A precedes B." Organism
+        deliberately produces A to get B. Controllability signal is high for
+        causal relationships, low for mere correlations.
+      metrics:
+        - metric_name: intentional_causation_rate
+          measurement_method: |
+            Proportion of cases where organism produces A specifically to get B,
+            vs producing A for other reasons when B happens to follow.
+          expected_range: ">60% when B is valuable"
+          detection_threshold: 0.6
+        - metric_name: causal_vs_correlational_discrimination
+          measurement_method: |
+            Test whether organism distinguishes A→B (causal) from A,B (correlated).
+            Does organism try to produce A when B is desired?
+          expected_range: ">70% correct discrimination"
+          detection_threshold: 0.7
+      statistical_test: |
+        Intervention test: Remove causal link A→B. Does organism stop producing
+        A when B is desired? p < 0.05 for behavior change.
+
+    predicted_emergence_order:
+      generation_range: "30-60"
+      confidence: medium
+      conditions: |
+        Requires responsive environment (Step 19 already implemented).
+        Should emerge naturally when organism learns emission→object response
+        mappings.
+
+    failure_modes:
+      - mode: correlation_conflation
+        signature: |
+          Organism treats all temporal associations as causal. Tries to produce
+          correlated events that it cannot actually cause.
+      - mode: causal_reversal_error
+        signature: |
+          Organism confuses cause and effect direction. Tries to produce B
+          to get A when actually A causes B.
+
+    falsification_criteria: |
+      If causal inference does NOT emerge in responsive object environment
+      (Step 19) by generation 80, controllability signal (Step 17) is
+      insufficient to distinguish causation from correlation.
+
+    notes: |
+      This is testable NOW in the current sim. The responsive objects in
+      Step 19 provide clear causal relationships (emission→response).
+      The mental model should show that these mappings have high controllability
+      compared to mere correlational patterns.
+
+  - receptor_id: cross_modal_association
+    name: Cross-Domain Association
+    family: association
+    tier: branch
+
+    dependencies:
+      - receptor_id: spatial_association
+        minimum_certainty: 0.6
+      - receptor_id: multiple_sensor_modalities
+        note: "Must have distinct sensory channels (pain, endorphin, temp, chemical, etc.)"
+
+    environmental_trigger:
+      structure: "Event in domain A predicts event in domain B"
+      survival_benefit: |
+        Information from one sensory channel improves predictions in another.
+        E.g., temperature patterns predict pain sources, chemical signals
+        predict endorphin availability.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments where sensory modalities provide complementary information.
+        Especially valuable when one modality has longer range or earlier signal.
+
+    selection_environments:
+      - multi_modal_field_structures
+      - temperature_pain_correlations
+      - chemical_endorphin_correlations
+      - distant_sensing_plus_contact
+
+    unlocks:
+      - sensory_fusion
+      - abstract_pattern_recognition
+      - synesthesia_like_mapping
+
+    emergence_signature:
+      description: |
+        Mental model learns mappings between sensory domains. Certainty for
+        domain B increases when domain A signal is detected.
+      metrics:
+        - metric_name: cross_modal_prediction_gain
+          measurement_method: |
+            Prediction accuracy for domain B when domain A information is
+            available vs when it's not.
+          expected_range: "20-50% accuracy improvement"
+          detection_threshold: 0.2
+        - metric_name: attention_shifting
+          measurement_method: |
+            When domain A signal appears, does organism attend to domain B
+            more rapidly than baseline?
+          expected_range: "30-60% faster attention shift"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "40-80"
+      confidence: medium
+      conditions: |
+        Requires environment with meaningful cross-modal relationships.
+        Current sim has multiple channels but relationships may be weak.
+
+    failure_modes:
+      - mode: modality_independence
+        signature: |
+          Each sensory channel learned independently. No cross-modal transfer.
+
+    falsification_criteria: |
+      If cross-modal association emerges in environments with NO actual
+      cross-modal relationships, it's spurious correlation.
+
+    notes: |
+      Current sim has 5 receptor types (pain, endorphin, temp, chemical, pressure).
+      If cross-modal association doesn't emerge, it suggests these channels
+      are treated independently by the contrastive encoder.
+
+  - receptor_id: causal_chains
+    name: Multi-Step Causal Chain Learning
+    family: association
+    tier: canopy
+
+    dependencies:
+      - receptor_id: causal_association
+        minimum_certainty: 0.7
+      - receptor_id: planning
+        note: "Step 18 - must be able to chain actions"
+
+    environmental_trigger:
+      structure: "A causes B causes C — transitive causation"
+      survival_benefit: |
+        Enables multi-step planning. Organism can reason "to get C, I must
+        first produce A which will cause B which will cause C."
+      metabolic_cost: high
+      selection_pressure: |
+        Environments where desired outcomes require multi-step causal sequences.
+        Tool use, complex navigation, social manipulation.
+
+    selection_environments:
+      - multi_step_tool_use
+      - indirect_resource_access
+      - complex_social_environments
+
+    unlocks:
+      - long_term_planning
+      - instrumental_reasoning
+      - social_manipulation
+
+    emergence_signature:
+      description: |
+        Mental model chains causal mappings. Organism executes A→B→C sequences
+        to reach C even when C is not directly achievable.
+      metrics:
+        - metric_name: chain_length
+          measurement_method: |
+            Average length of causal chains in successful goal achievement.
+          expected_range: "2-4 steps"
+          detection_threshold: 2
+        - metric_name: indirect_goal_achievement
+          measurement_method: |
+            Proportion of goals achieved via multi-step causal chains vs
+            direct single-step actions.
+          expected_range: "30-60%"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "80-150"
+      confidence: low
+      conditions: |
+        Requires environment deliberately designed with multi-step causal
+        structure. Not present in current sim.
+
+    notes: |
+      This is canopy-tier and requires explicit environment design.
+      Planning (Step 18) provides the foundation, but current environment
+      doesn't require chaining beyond 1-2 steps.
+
+  - receptor_id: counterfactual_reasoning
+    name: Counterfactual Reasoning
+    family: association
+    tier: canopy
+
+    dependencies:
+      - receptor_id: causal_association
+        minimum_certainty: 0.7
+      - receptor_id: planning
+        minimum_certainty: 0.6
+        note: "Step 18 - must be able to simulate alternative actions"
+
+    environmental_trigger:
+      structure: "Ability to reason about what would have happened under alternative actions"
+      survival_benefit: |
+        Learning from near-misses and avoided outcomes. Enables credit assignment
+        for prevention (I avoided pain by NOT acting) and regret (I could have
+        gotten reward if I'd acted differently).
+      metabolic_cost: very_high
+      selection_pressure: |
+        Environments where missed opportunities have significant cost, or where
+        avoiding action is as important as taking action.
+
+    selection_environments:
+      - high_opportunity_cost_environments
+      - predator_environments  # avoiding detection
+      - resource_competition  # acting vs waiting
+
+    unlocks:
+      - regret
+      - opportunity_cost_evaluation
+      - strategic_planning
+
+    emergence_signature:
+      description: |
+        Mental model evaluates "what if I had done X instead?" Updates based
+        on simulated counterfactual outcomes, not just actual outcomes.
+      metrics:
+        - metric_name: counterfactual_credit_assignment
+          measurement_method: |
+            Does organism learn from paths not taken? Test by measuring
+            certainty updates for actions that were considered but not executed.
+          expected_range: "Certainty shifts >0.1 for counterfactual paths"
+          detection_threshold: 0.1
+        - metric_name: prevention_learning
+          measurement_method: |
+            Does organism learn that NOT acting prevented bad outcome?
+          expected_range: ">50% learning rate for preventions"
+          detection_threshold: 0.5
+
+    predicted_emergence_order:
+      generation_range: "120-200"
+      confidence: very_low
+      conditions: |
+        Requires sophisticated environment with clear opportunity costs.
+        Far future.
+
+    notes: |
+      Deep canopy. This is where causal reasoning becomes fully abstract —
+      reasoning about states that didn't happen. Requires strong self-model
+      and planning capability.
+
+  - receptor_id: abstract_association
+    name: Abstract Relational Mapping
+    family: association
+    tier: canopy
+
+    dependencies:
+      - receptor_id: causal_association
+        minimum_certainty: 0.6
+      - receptor_id: pattern_recognition
+        minimum_certainty: 0.7
+        note: "Step 12 - must recognize patterns"
+      - receptor_id: analogical_similarity
+        note: "From similarity family - must recognize structural similarity"
+
+    environmental_trigger:
+      structure: |
+        Relationship between A and B is structurally similar to relationship
+        between C and D, even when A,B,C,D are perceptually different.
+      survival_benefit: |
+        Transfer knowledge across domains. "Predator-prey relationship"
+        recognized in multiple contexts even with different actors.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Complex environments with recurring relational structures across
+        different domains. Especially important for social reasoning.
+
+    selection_environments:
+      - multi_agent_social_structures
+      - recurring_game_theoretic_situations
+      - abstract_pattern_environments
+
+    unlocks:
+      - relational_generalization
+      - abstract_concept_formation
+      - metaphorical_reasoning
+
+    emergence_signature:
+      description: |
+        Mental model learns that relationship R applies to multiple entity-pairs.
+        Transfer learning from (A,B,R) to (C,D,R) exceeds baseline.
+      metrics:
+        - metric_name: relational_transfer_accuracy
+          measurement_method: |
+            Learn relationship in domain 1, test transfer to domain 2 with
+            no retraining. Accuracy should exceed chance.
+          expected_range: ">60% vs 50% chance"
+          detection_threshold: 0.6
+
+    predicted_emergence_order:
+      generation_range: "200-400"
+      confidence: very_low
+      conditions: |
+        Requires sophisticated multi-agent social environment with recurring
+        relational structures. Very far future.
+
+    notes: |
+      This is the deepest receptor in the association family. Represents
+      fully abstract relational reasoning — the foundation for language
+      semantics and conceptual metaphor.
+
+  - receptor_id: relational_analogy
+    name: Relational Analogy
+    family: association
+    tier: canopy
+
+    dependencies:
+      - receptor_id: abstract_association
+        minimum_certainty: 0.7
+      - receptor_id: analogical_similarity
+        minimum_certainty: 0.7
+
+    environmental_trigger:
+      structure: |
+        A is to B as C is to D — explicit analogical reasoning across
+        relationships.
+      survival_benefit: |
+        Solve novel problems by analogy to known solutions. Maximal knowledge
+        transfer across domains.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Environments where novel problems regularly arise that are structurally
+        similar to solved problems in other domains.
+
+    selection_environments:
+      - tool_use_by_analogy
+      - social_strategy_transfer
+      - novel_problem_solving
+
+    unlocks:
+      - analogical_problem_solving
+      - creative_transfer
+      - metaphorical_reasoning
+
+    emergence_signature:
+      description: |
+        Organism solves novel problem in domain X by recognizing structural
+        similarity to solved problem in domain Y and transferring solution.
+      metrics:
+        - metric_name: analogical_transfer_success
+          measurement_method: |
+            Present novel problem structurally similar to known problem in
+            different domain. Success rate vs random baseline.
+          expected_range: ">70% vs <20% random"
+          detection_threshold: 0.7
+
+    predicted_emergence_order:
+      generation_range: "300-500"
+      confidence: very_low
+      conditions: |
+        Requires mature social and tool-use environment. Extremely far future.
+
+    notes: |
+      This represents the apex of associative reasoning. This is where
+      "learning" becomes "insight" — solving problems you've never seen by
+      recognizing their relational structure matches something you do know.

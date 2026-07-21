@@ -1,0 +1,137 @@
+# Schema for Receptor Entries in the Genome Project
+
+receptor_schema:
+  receptor_id:
+    type: string
+    format: snake_case
+    description: "Unique identifier for this receptor"
+    required: true
+
+  name:
+    type: string
+    description: "Human-readable name"
+    required: true
+
+  family:
+    type: string
+    enum: [repetition, association, similarity, causality, social, compression, meta_motivational, foundation]
+    description: "Which receptor family this belongs to"
+    required: true
+
+  tier:
+    type: string
+    enum: [trunk, branch, canopy]
+    description: |
+      Position in family hierarchy:
+      - trunk: foundational, low dependency, evolves early
+      - branch: intermediate, requires trunk receptors
+      - canopy: sophisticated, requires multiple branch receptors
+    required: true
+
+  dependencies:
+    type: array
+    items:
+      receptor_id: string
+      minimum_certainty: float  # optional - how reliable the dependency must be
+    description: |
+      Other receptors that must exist before this one can evolve.
+      Can reference receptors from other families.
+    required: true
+
+  environmental_trigger:
+    type: object
+    properties:
+      structure:
+        type: string
+        description: "What environmental structure this receptor detects"
+        required: true
+      survival_benefit:
+        type: string
+        description: "Why detecting this structure improves survival"
+        required: true
+      metabolic_cost:
+        type: string
+        enum: [very_low, low, moderate, high, very_high]
+        description: "Energy cost of maintaining this receptor"
+        required: true
+      selection_pressure:
+        type: string
+        description: "What environmental condition makes this receptor fitness-positive"
+        required: true
+
+  selection_environments:
+    type: array
+    items: string
+    description: |
+      Types of environments where this receptor becomes fitness-positive.
+      Used to generate test environments.
+    examples:
+      - stable_field_sources
+      - periodic_obstacles
+      - volatile_danger_regions
+      - multi_agent_competitive
+
+  unlocks:
+    type: array
+    items: string
+    description: "Receptor IDs that become possible once this receptor exists"
+
+  emergence_signature:
+    type: object
+    properties:
+      description:
+        type: string
+        description: "What to measure to detect this receptor's emergence"
+      metrics:
+        type: array
+        items:
+          metric_name: string
+          measurement_method: string
+          expected_range: string
+          detection_threshold: float
+      statistical_test:
+        type: string
+        description: "How to confirm emergence vs random fluctuation"
+    description: |
+      Observable signatures that indicate this receptor has evolved.
+      Must be measurable from organism behavior or mental model state.
+
+  predicted_emergence_order:
+    type: object
+    properties:
+      generation_range:
+        type: string
+        description: "When this receptor is predicted to emerge (e.g., '20-40')"
+      confidence:
+        type: string
+        enum: [high, medium, low]
+        description: "Confidence in this prediction"
+      conditions:
+        type: string
+        description: "Environmental conditions assumed for this prediction"
+
+  failure_modes:
+    type: array
+    items:
+      mode: string
+      signature: string
+    description: |
+      How this receptor can fail or degrade.
+      What wrong looks like observably.
+
+  falsification_criteria:
+    type: string
+    description: |
+      What would prove this receptor definition wrong.
+      Specific predictions that, if violated, require revising the entry.
+
+  notes:
+    type: string
+    description: "Additional context, open questions, research notes"
+
+  references:
+    type: array
+    items:
+      source: string
+      relevance: string
+    description: "Biological or computational precedents"

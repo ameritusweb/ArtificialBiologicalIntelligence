@@ -1,0 +1,589 @@
+# Causality Family
+# Receptors for understanding cause-effect relationships and causal reasoning
+
+family_metadata:
+  name: Causality
+  description: |
+    Receptors that detect and reason about causal relationships — from noticing
+    that two events happen together, to understanding transitive causation,
+    to reasoning about counterfactuals and interventions.
+
+    The trunk is detecting co-occurrence. The canopy is understanding causal
+    graphs with hidden confounders and planning interventions to test causal
+    hypotheses.
+
+    This family overlaps significantly with Association (temporal_association
+    and causal_association are shared), but extends into causal *reasoning* —
+    not just "A causes B" but "what if I intervene on A?" and "did C cause D
+    or was it confounded by E?"
+
+  evolutionary_thesis: |
+    Causal understanding enables intentional action. An organism that knows
+    "doing A causes B" can produce desired outcomes by acting on their causes.
+    The fitness benefit scales with the organism's ability to manipulate its
+    environment and the value of the outcomes it can produce.
+
+  trunk_receptor: coincidence_detection
+  canopy_receptors: [causal_graph_reasoning, intervention_planning, hidden_confounder_detection]
+
+---
+
+receptors:
+  - receptor_id: coincidence_detection
+    name: Co-occurrence Detection
+    family: causality
+    tier: trunk
+
+    dependencies:
+      - receptor_id: temporal_association
+        minimum_certainty: 0.4
+      - receptor_id: spatial_association
+        minimum_certainty: 0.4
+
+    environmental_trigger:
+      structure: "Events A and B occur together more often than chance"
+      survival_benefit: |
+        First step in causal inference. Noticing that things co-occur is
+        prerequisite to understanding why they co-occur.
+      metabolic_cost: very_low
+      selection_pressure: |
+        Any environment with structure. Co-occurrence is a necessary (but not
+        sufficient) condition for causation.
+
+    selection_environments:
+      - any_structured_environment
+
+    unlocks:
+      - correlation_detection
+      - precedence_detection
+
+    emergence_signature:
+      description: |
+        Mental model learns joint probabilities. Certainty for B increases
+        when A is present even if temporal or causal relationship isn't
+        understood yet.
+      metrics:
+        - metric_name: conditional_probability_learning
+          measurement_method: |
+            P(B|A) vs P(B) — should show difference when A and B co-occur.
+          expected_range: "Ratio > 1.3"
+          detection_threshold: 1.3
+
+    predicted_emergence_order:
+      generation_range: "5-15"
+      confidence: very_high
+      conditions: |
+        Should emerge immediately with basic association learning.
+
+    notes: |
+      This is implicit in association learning. Included for completeness
+      as foundation of causality family.
+
+  - receptor_id: precedence_detection
+    name: Temporal Precedence Detection
+    family: causality
+    tier: trunk
+
+    dependencies:
+      - receptor_id: temporal_association
+        note: "This IS temporal association - included for family completeness"
+
+    environmental_trigger:
+      structure: "Event A consistently precedes event B"
+      survival_benefit: |
+        Distinguishes forward causation (A causes B) from mere correlation.
+        Temporal order is key signal for causal direction.
+      metabolic_cost: low
+      selection_pressure: |
+        Any environment with temporal causal structure.
+
+    selection_environments:
+      - any_causal_environment
+
+    unlocks:
+      - causal_inference
+      - direction_discrimination
+
+    emergence_signature:
+      description: |
+        Mental model learns directional time delays. A→B represented
+        differently from B→A.
+      metrics:
+        - metric_name: temporal_order_discrimination
+          measurement_method: |
+            Can organism distinguish A→B from B→A when both co-occur?
+          expected_range: ">80% correct discrimination"
+          detection_threshold: 0.8
+
+    predicted_emergence_order:
+      generation_range: "5-15"
+      confidence: very_high
+      conditions: |
+        Step 5 from roadmap. Already implemented.
+
+    notes: |
+      FOUNDATION RECEPTOR - same as temporal_association from association
+      family. Kept here for causal reasoning context.
+
+  - receptor_id: causal_inference
+    name: Causation Detection
+    family: causality
+    tier: branch
+
+    dependencies:
+      - receptor_id: precedence_detection
+        minimum_certainty: 0.6
+      - receptor_id: controllability
+        minimum_certainty: 0.5
+        note: "Step 17 - self-caused vs external"
+      - receptor_id: coincidence_detection
+        minimum_certainty: 0.5
+
+    environmental_trigger:
+      structure: "A not only precedes and co-occurs with B, but A *causes* B"
+      survival_benefit: |
+        Distinguish causation from correlation. Enables intentional production
+        of desired outcomes. Critical for tool use and environmental manipulation.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments where interventions produce reliable outcomes. Tool use,
+        responsive objects, manipulable features.
+
+    selection_environments:
+      - responsive_objects  # Step 19
+      - manipulable_environment
+      - tool_use_scenarios
+
+    unlocks:
+      - intentional_causation
+      - intervention_reasoning
+      - causal_chains
+
+    emergence_signature:
+      description: |
+        Mental model distinguishes causal from correlational mappings.
+        Controllability signal high for causal, low for correlational.
+        Organism acts on causes to produce desired effects.
+      metrics:
+        - metric_name: causal_discrimination
+          measurement_method: |
+            Test whether organism treats A→B (causal) differently from
+            A,B (correlated). Does it try to produce A when B is desired?
+          expected_range: ">70% correct causal interventions"
+          detection_threshold: 0.7
+        - metric_name: intervention_success_rate
+          measurement_method: |
+            When organism intentionally produces A to get B, does B follow?
+          expected_range: ">80% when relationship is truly causal"
+          detection_threshold: 0.8
+
+    predicted_emergence_order:
+      generation_range: "30-60"
+      confidence: high
+      conditions: |
+        Current sim has responsive objects (Step 19). Should emerge naturally
+        as organism learns emission→object response is controllable.
+
+    failure_modes:
+      - mode: correlation_conflation
+        signature: |
+          Organism treats all correlations as causal. Tries to produce
+          correlated events it can't actually cause.
+      - mode: superstitious_behavior
+        signature: |
+          Organism develops spurious causal beliefs from coincidental outcomes.
+
+    falsification_criteria: |
+      If causal inference does NOT emerge with responsive objects by
+      generation 80, controllability signal is insufficient.
+
+    notes: |
+      This is testable NOW. Responsive objects provide clear causal structure.
+      Mental model should show high controllability for emission→response
+      mappings.
+
+  - receptor_id: intervention_planning
+    name: Causal Intervention Planning
+    family: causality
+    tier: branch
+
+    dependencies:
+      - receptor_id: causal_inference
+        minimum_certainty: 0.7
+      - receptor_id: planning
+        minimum_certainty: 0.6
+        note: "Step 18"
+
+    environmental_trigger:
+      structure: |
+        Organism can plan interventions to test or exploit causal relationships.
+        "If I do A, B will follow, which will enable C."
+      survival_benefit: |
+        Multi-step goal achievement through causal chains. Enables tool use
+        and complex problem solving.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments where desired outcomes require multi-step causal sequences.
+
+    selection_environments:
+      - multi_step_tool_use
+      - complex_goal_achievement
+      - environmental_manipulation
+
+    unlocks:
+      - instrumental_reasoning
+      - multi_step_causation
+      - strategic_intervention
+
+    emergence_signature:
+      description: |
+        Organism plans action sequences based on causal chains. Executes
+        A to cause B to enable C even when C is not directly achievable.
+      metrics:
+        - metric_name: causal_chain_planning
+          measurement_method: |
+            Length and success rate of planned causal chains.
+          expected_range: "2-4 step chains with >60% success"
+          detection_threshold: 2
+
+    predicted_emergence_order:
+      generation_range: "60-120"
+      confidence: medium
+      conditions: |
+        Requires environment with multi-step causal structure. Not present
+        in current sim beyond 1-2 steps.
+
+    notes: |
+      This is where planning (Step 18) meets causation. The mental model's
+      chain evaluation is exactly this receptor.
+
+  - receptor_id: counterfactual_reasoning
+    name: Counterfactual Causal Reasoning
+    family: causality
+    tier: canopy
+
+    dependencies:
+      - receptor_id: causal_inference
+        minimum_certainty: 0.7
+      - receptor_id: planning
+        minimum_certainty: 0.6
+      - receptor_id: self_model
+        note: "Must be able to simulate alternative actions"
+
+    environmental_trigger:
+      structure: |
+        Ability to reason about "what would have happened if I'd done X instead?"
+      survival_benefit: |
+        Learning from near-misses and avoided outcomes. Credit assignment
+        for prevention. Enables regret and opportunity cost evaluation.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Environments where missed opportunities have significant cost, or
+        where prevention is as important as action.
+
+    selection_environments:
+      - high_opportunity_cost
+      - prevention_critical_environments
+      - competitive_resource_environments
+
+    unlocks:
+      - regret
+      - opportunity_cost_reasoning
+      - preventive_action_learning
+
+    emergence_signature:
+      description: |
+        Mental model updates based on counterfactual simulations, not just
+        actual outcomes. Learns from paths not taken.
+      metrics:
+        - metric_name: counterfactual_learning_rate
+          measurement_method: |
+            Does certainty update for actions not taken based on simulated
+            counterfactual outcomes?
+          expected_range: "Certainty shifts >0.1 for counterfactuals"
+          detection_threshold: 0.1
+
+    predicted_emergence_order:
+      generation_range: "100-200"
+      confidence: low
+      conditions: |
+        Requires environment with clear opportunity costs. Far future.
+
+    notes: |
+      Deep canopy. This is where causal reasoning becomes fully hypothetical.
+
+  - receptor_id: causal_chains
+    name: Transitive Causation
+    family: causality
+    tier: branch
+
+    dependencies:
+      - receptor_id: causal_inference
+        minimum_certainty: 0.7
+      - receptor_id: planning
+        minimum_certainty: 0.6
+
+    environmental_trigger:
+      structure: "A causes B causes C — multi-step causal chains"
+      survival_benefit: |
+        Understanding indirect causation. Enables reasoning about outcomes
+        multiple steps removed from actions.
+      metabolic_cost: high
+      selection_pressure: |
+        Complex environments with multi-step causal structure.
+
+    selection_environments:
+      - tool_use_chains
+      - indirect_goal_achievement
+      - ecosystem_dynamics
+
+    unlocks:
+      - multi_step_planning
+      - indirect_causation
+      - causal_graph_reasoning
+
+    emergence_signature:
+      description: |
+        Mental model chains causal mappings. Recognizes that acting on A
+        affects C through B even without direct A→C link.
+      metrics:
+        - metric_name: chain_length
+          measurement_method: |
+            Length of causal chains in successful reasoning.
+          expected_range: "2-4 steps"
+          detection_threshold: 2
+
+    predicted_emergence_order:
+      generation_range: "80-150"
+      confidence: low
+      conditions: |
+        Requires multi-step causal environment. Not present in current sim.
+
+    notes: |
+      This overlaps with causal_chains from association family. Same receptor,
+      relevant to both families.
+
+  - receptor_id: common_cause_detection
+    name: Common Cause Recognition
+    family: causality
+    tier: canopy
+
+    dependencies:
+      - receptor_id: causal_inference
+        minimum_certainty: 0.7
+      - receptor_id: multiple_hypotheses
+        minimum_certainty: 0.6
+        note: "Step 13 - must maintain alternative explanations"
+
+    environmental_trigger:
+      structure: |
+        Events A and B correlate not because A→B or B→A but because both
+        are caused by hidden variable C.
+      survival_benefit: |
+        Avoid spurious causal inference. Recognize when correlation doesn't
+        imply causation because of confounding.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Complex environments with hidden variables. Especially important
+        in social environments (behavior caused by unobserved internal states).
+
+    selection_environments:
+      - confounded_correlations
+      - social_environments_with_hidden_states
+      - multi_causal_systems
+
+    unlocks:
+      - confounder_reasoning
+      - spurious_correlation_rejection
+      - hidden_variable_inference
+
+    emergence_signature:
+      description: |
+        Organism recognizes that A and B correlate but neither intervention
+        on A nor B affects the other. Infers hidden common cause.
+      metrics:
+        - metric_name: confounding_detection
+          measurement_method: |
+            Test whether organism distinguishes A←C→B from A→B. Does it
+            stop treating A as causal intervention for B when link is indirect?
+          expected_range: ">60% correct discrimination"
+          detection_threshold: 0.6
+
+    predicted_emergence_order:
+      generation_range: "150-300"
+      confidence: very_low
+      conditions: |
+        Requires sophisticated causal environment with confounders. Very far future.
+
+    notes: |
+      This is deep canopy. Represents understanding that the causal graph
+      has hidden nodes. Critical for scientific reasoning.
+
+  - receptor_id: causal_graph_reasoning
+    name: Causal Graph Understanding
+    family: causality
+    tier: canopy
+
+    dependencies:
+      - receptor_id: causal_chains
+        minimum_certainty: 0.7
+      - receptor_id: common_cause_detection
+        minimum_certainty: 0.6
+      - receptor_id: intervention_planning
+        minimum_certainty: 0.7
+
+    environmental_trigger:
+      structure: |
+        Full causal graph with multiple paths, confounders, mediators.
+        Organism reasons about complex causal structures.
+      survival_benefit: |
+        Optimal intervention planning in complex systems. Understanding
+        of causal dependencies enables prediction of intervention effects.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Highly complex environments with intricate causal dependencies.
+        Ecosystems, social systems, tool-use chains.
+
+    selection_environments:
+      - complex_ecosystem_dynamics
+      - multi_agent_causal_networks
+      - tool_use_with_side_effects
+
+    unlocks:
+      - optimal_intervention_selection
+      - side_effect_prediction
+      - causal_explanation
+
+    emergence_signature:
+      description: |
+        Organism maintains mental model of causal graph. Plans interventions
+        considering indirect effects and confounders.
+      metrics:
+        - metric_name: causal_graph_accuracy
+          measurement_method: |
+            Correctness of organism's causal model compared to true graph.
+            Measured via intervention predictions.
+          expected_range: ">70% edge accuracy"
+          detection_threshold: 0.7
+
+    predicted_emergence_order:
+      generation_range: "300-500"
+      confidence: very_low
+      conditions: |
+        Requires extremely sophisticated environment. Extremely far future.
+
+    notes: |
+      This is the apex of causal reasoning. Represents full understanding
+      of causal structure in complex systems. Foundation for scientific
+      thinking and explanation.
+
+  - receptor_id: hidden_confounder_detection
+    name: Hidden Variable Inference
+    family: causality
+    tier: canopy
+
+    dependencies:
+      - receptor_id: common_cause_detection
+        minimum_certainty: 0.7
+      - receptor_id: multiple_hypotheses
+        minimum_certainty: 0.7
+
+    environmental_trigger:
+      structure: |
+        Observable correlations that can't be explained by direct causation
+        require positing unobserved variables.
+      survival_benefit: |
+        Avoid false causal beliefs. Enables reasoning about hidden states
+        (internal states of other agents, latent environmental variables).
+      metabolic_cost: very_high
+      selection_pressure: |
+        Environments where important causal variables are not directly observable.
+        Social environments (theory of mind), ecosystems with hidden dynamics.
+
+    selection_environments:
+      - social_environments  # internal states of others
+      - hidden_state_dynamics
+      - latent_variable_systems
+
+    unlocks:
+      - theory_of_mind_causal_basis
+      - latent_state_inference
+      - hidden_cause_reasoning
+
+    emergence_signature:
+      description: |
+        Organism posits hidden variables to explain otherwise inexplicable
+        correlations or behaviors. Mental model includes unobserved states.
+      metrics:
+        - metric_name: hidden_variable_positing
+          measurement_method: |
+            Does organism's mental model include states it hasn't directly
+            observed but infers from behavior?
+          expected_range: "Present when needed for explanation"
+          detection_threshold: binary
+
+    predicted_emergence_order:
+      generation_range: "200-400"
+      confidence: very_low
+      conditions: |
+        Requires social environment or hidden-state dynamics. Very far future.
+
+    notes: |
+      This is where causality meets theory of mind. Understanding that
+      other agents have hidden internal states that cause behavior is a
+      special case of hidden variable inference.
+
+  - receptor_id: probabilistic_causation
+    name: Probabilistic Causal Reasoning
+    family: causality
+    tier: canopy
+
+    dependencies:
+      - receptor_id: causal_inference
+        minimum_certainty: 0.7
+      - receptor_id: multiple_hypotheses
+        minimum_certainty: 0.6
+
+    environmental_trigger:
+      structure: |
+        Causal relationships are probabilistic, not deterministic. A causes
+        B with probability p, not certainty.
+      survival_benefit: |
+        Accurate causal reasoning in stochastic environments. Avoids
+        over-certainty and enables risk assessment.
+      metabolic_cost: high
+      selection_pressure: |
+        Noisy environments where causal relationships are reliable but not
+        deterministic. Real-world complexity.
+
+    selection_environments:
+      - stochastic_causal_systems
+      - noisy_environments
+      - probabilistic_outcomes
+
+    unlocks:
+      - risk_assessment
+      - confidence_calibrated_causation
+      - statistical_reasoning
+
+    emergence_signature:
+      description: |
+        Mental model represents causal strength probabilistically. Certainty
+        values reflect true probabilistic nature of relationships.
+      metrics:
+        - metric_name: causal_strength_calibration
+          measurement_method: |
+            Correlation between mental model certainty and true P(B|do(A)).
+          expected_range: "r > 0.7"
+          detection_threshold: 0.7
+
+    predicted_emergence_order:
+      generation_range: "80-180"
+      confidence: medium
+      conditions: |
+        Current mental model already has probabilistic certainty (Step 10).
+        This receptor may already be present implicitly.
+
+    notes: |
+      The mental model's certainty values ARE probabilistic causal strengths.
+      This receptor is likely already present in the architecture.

@@ -1,0 +1,13 @@
+{
+  "receptor_groups": 24,
+  "signal_vocabulary_size": 5,
+  "grounded_concepts": 50,
+  "grounding_chains": 8,
+  "stable_concepts": 1013,
+  "cultural_transmission": {
+    "with_mental_model": 211.4,
+    "without_mental_model": -171.8,
+    "improvement": 383.2,
+    "improvement_pct": 223.1
+  }
+}

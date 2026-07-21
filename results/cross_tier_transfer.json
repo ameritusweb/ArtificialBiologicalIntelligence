@@ -1,0 +1,248 @@
+{
+  "matrix": {
+    "T0->T0": {
+      "reward": 709.0,
+      "baseline": 1175.1,
+      "ratio": 0.603
+    },
+    "T0->T1": {
+      "reward": -2.6,
+      "baseline": 424.3,
+      "ratio": -0.006
+    },
+    "T0->T2": {
+      "reward": -325.9,
+      "baseline": -27.8,
+      "ratio": 11.726
+    },
+    "T0->T3": {
+      "reward": -494.9,
+      "baseline": 141.5,
+      "ratio": -3.496
+    },
+    "T0->T4": {
+      "reward": -1103.7,
+      "baseline": -645.0,
+      "ratio": 1.711
+    },
+    "T1->T0": {
+      "reward": 634.1,
+      "baseline": 1175.1,
+      "ratio": 0.54
+    },
+    "T1->T1": {
+      "reward": -153.3,
+      "baseline": 424.3,
+      "ratio": -0.361
+    },
+    "T1->T2": {
+      "reward": -552.9,
+      "baseline": -27.8,
+      "ratio": 19.893
+    },
+    "T1->T3": {
+      "reward": -381.1,
+      "baseline": 141.5,
+      "ratio": -2.693
+    },
+    "T1->T4": {
+      "reward": -1069.4,
+      "baseline": -645.0,
+      "ratio": 1.658
+    },
+    "T2->T0": {
+      "reward": 517.1,
+      "baseline": 1175.1,
+      "ratio": 0.44
+    },
+    "T2->T1": {
+      "reward": -314.3,
+      "baseline": 424.3,
+      "ratio": -0.741
+    },
+    "T2->T2": {
+      "reward": -718.5,
+      "baseline": -27.8,
+      "ratio": 25.849
+    },
+    "T2->T3": {
+      "reward": -391.4,
+      "baseline": 141.5,
+      "ratio": -2.765
+    },
+    "T2->T4": {
+      "reward": -1143.4,
+      "baseline": -645.0,
+      "ratio": 1.773
+    },
+    "T3->T0": {
+      "reward": 488.7,
+      "baseline": 1175.1,
+      "ratio": 0.416
+    },
+    "T3->T1": {
+      "reward": -246.6,
+      "baseline": 424.3,
+      "ratio": -0.581
+    },
+    "T3->T2": {
+      "reward": -694.1,
+      "baseline": -27.8,
+      "ratio": 24.974
+    },
+    "T3->T3": {
+      "reward": -339.1,
+      "baseline": 141.5,
+      "ratio": -2.396
+    },
+    "T3->T4": {
+      "reward": -1440.1,
+      "baseline": -645.0,
+      "ratio": 2.233
+    },
+    "T4->T0": {
+      "reward": 365.8,
+      "baseline": 1175.1,
+      "ratio": 0.311
+    },
+    "T4->T1": {
+      "reward": -156.5,
+      "baseline": 424.3,
+      "ratio": -0.369
+    },
+    "T4->T2": {
+      "reward": -508.1,
+      "baseline": -27.8,
+      "ratio": 18.28
+    },
+    "T4->T3": {
+      "reward": -554.8,
+      "baseline": 141.5,
+      "ratio": -3.92
+    },
+    "T4->T4": {
+      "reward": -1294.6,
+      "baseline": -645.0,
+      "ratio": 2.007
+    }
+  },
+  "baselines": {
+    "T0": 1175.1126405683542,
+    "T1": 424.2960415036554,
+    "T2": -27.794214547020793,
+    "T3": 141.5406221757346,
+    "T4": -644.9630942322524
+  },
+  "trained_discoveries": {
+    "T0": [
+      "rhythm",
+      "coincidence_detection",
+      "spatial_association",
+      "temporal_association",
+      "perceptual_similarity",
+      "pattern_recognition",
+      "compression_gain",
+      "other_detection",
+      "empathic_concern",
+      "controllability",
+      "planning",
+      "optimism",
+      "conflict_detection",
+      "stress_detection",
+      "causal_inference",
+      "impulse_override",
+      "pattern_based_resolution",
+      "concept_formation",
+      "categorical_compression",
+      "compression_receptor",
+      "absence_observation",
+      "exception_detection"
+    ],
+    "T1": [
+      "rhythm",
+      "coincidence_detection",
+      "spatial_association",
+      "perceptual_similarity",
+      "compression_gain",
+      "other_detection",
+      "empathic_concern",
+      "controllability",
+      "planning",
+      "optimism",
+      "conflict_detection",
+      "stress_detection",
+      "categorical_perception",
+      "causal_inference",
+      "impulse_override",
+      "pattern_based_resolution",
+      "concept_formation",
+      "chunking",
+      "absence_observation",
+      "exception_detection"
+    ],
+    "T2": [
+      "coincidence_detection",
+      "spatial_association",
+      "perceptual_similarity",
+      "pattern_recognition",
+      "compression_gain",
+      "other_detection",
+      "empathic_concern",
+      "controllability",
+      "planning",
+      "optimism",
+      "conflict_detection",
+      "stress_detection",
+      "change_detection",
+      "cross_modal_association",
+      "categorical_perception",
+      "causal_inference",
+      "impulse_override",
+      "behavioral_prediction",
+      "concept_formation",
+      "absence_observation",
+      "exception_detection"
+    ],
+    "T3": [
+      "coincidence_detection",
+      "spatial_association",
+      "perceptual_similarity",
+      "compression_gain",
+      "other_detection",
+      "empathic_concern",
+      "controllability",
+      "planning",
+      "optimism",
+      "conflict_detection",
+      "stress_detection",
+      "change_detection",
+      "categorical_perception",
+      "causal_inference",
+      "impulse_override",
+      "behavioral_prediction",
+      "concept_formation",
+      "chunking",
+      "absence_observation"
+    ],
+    "T4": [
+      "coincidence_detection",
+      "spatial_association",
+      "perceptual_similarity",
+      "compression_gain",
+      "other_detection",
+      "empathic_concern",
+      "controllability",
+      "planning",
+      "optimism",
+      "conflict_detection",
+      "stress_detection",
+      "change_detection",
+      "categorical_perception",
+      "causal_inference",
+      "impulse_override",
+      "concept_formation",
+      "chunking",
+      "absence_observation"
+    ]
+  }
+}

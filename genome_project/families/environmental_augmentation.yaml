@@ -1,0 +1,391 @@
+# Environmental Augmentation Family
+# Receptors for deliberately modifying the environment's complexity to drive
+# self-development, and for detecting environmental change over time
+
+family_metadata:
+  name: Environmental Augmentation
+  description: |
+    Receptors that close the full loop between the organism and its environment.
+    Not just navigating the world (exploration), not just changing the world's
+    state (interaction), but deliberately increasing the world's complexity to
+    create selection pressure on the organism itself.
+
+    This family has two branches:
+
+    The observation branch detects environmental change — noticing that the
+    world is different from what it was, whether the organism caused the
+    change or not. This is prerequisite for everything else: you can't
+    deliberately modify the environment if you can't detect modification.
+
+    The augmentation branch deliberately increases environmental complexity
+    to develop capabilities the organism couldn't develop in the current
+    environment. This is self-augmentation through world-building rather
+    than internal development. The organism engineers the conditions that
+    will force it to grow.
+
+    The full picture:
+    - The organism changes -> self-augmentation
+    - The organism changes the world -> interaction
+    - The organism changes the world to change itself -> environmental augmentation
+    - The organism notices the world has changed -> environmental observation
+
+    Environmental augmentation is the deepest form of agency: the organism
+    is both the student and the curriculum designer.
+
+  evolutionary_thesis: |
+    Environmental augmentation receptors emerge when the organism's development
+    is bottlenecked by environmental complexity — when the current environment
+    is too simple to select for capabilities the organism's genome could
+    produce. An organism that can increase environmental complexity creates
+    its own selection pressure, driving its own evolution.
+
+    This is what civilization does. Humans build environments (cities, institutions,
+    technologies, economies) that are more complex than the environments that
+    produced them, and those constructed environments create new selection
+    pressure that drives further cognitive development. The organism that
+    builds a school is engineering its own developmental environment.
+
+    The receptor for this closes the loop between the genome project and the
+    environment tiers: the organism doesn't just evolve TO MATCH the environment,
+    it evolves the environment TO MATCH what it could become.
+
+  trunk_receptor: environmental_change_detection
+  canopy_receptors: [deliberate_complexification, developmental_environment_engineering]
+
+---
+
+receptors:
+  - receptor_id: environmental_change_detection
+    name: World-State Drift Detection
+    family: environmental_augmentation
+    tier: trunk
+
+    dependencies:
+      - receptor_id: change_detection
+        note: "Observation family — must detect change in general"
+      - receptor_id: spatial_memory
+        note: "Must remember what the world was to detect it's different"
+
+    environmental_trigger:
+      structure: |
+        The environment's structure is different from what it was. Pain
+        sources have moved. Resource distributions have shifted. New objects
+        have appeared. The world has changed independently of the organism's
+        actions, or as a result of them — the receptor detects the change
+        regardless of cause.
+      survival_benefit: |
+        Environmental change detection prevents stale strategies. An
+        organism that doesn't detect environmental change continues using
+        strategies optimized for a world that no longer exists. Detection
+        triggers recalibration of the world model.
+      metabolic_cost: low
+      selection_pressure: |
+        Any volatile environment. The more the environment changes, the
+        stronger the selection for detecting change.
+
+    selection_environments:
+      - volatile_environments
+      - any_environment_with_drift
+      - tier_4_plus_hidden_variables
+
+    unlocks:
+      - environmental_trend_detection
+      - world_model_recalibration
+      - modification_attribution
+
+    emergence_signature:
+      description: |
+        Organism recalibrates behavior after environmental changes faster
+        than an organism without the receptor. Behavioral adjustment
+        latency correlates with magnitude of environmental change.
+      metrics:
+        - metric_name: recalibration_latency
+          measurement_method: |
+            Steps between environmental change and behavioral adjustment.
+            Shorter latency = stronger change detection.
+          expected_range: "< 15 steps"
+          detection_threshold: 15
+        - metric_name: change_magnitude_sensitivity
+          measurement_method: |
+            Recalibration speed correlates with change magnitude. Large
+            changes produce faster recalibration than small changes.
+          expected_range: ">0.3 correlation"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "20-50"
+      confidence: high
+      conditions: |
+        Should emerge early in any volatile environment. Nearly as
+        fundamental as pain avoidance in changing worlds.
+
+  - receptor_id: modification_attribution
+    name: Self-Caused vs External Environmental Change
+    family: environmental_augmentation
+    tier: branch
+
+    dependencies:
+      - receptor_id: environmental_change_detection
+        note: "Must detect environmental change before attributing its cause"
+      - receptor_id: controllability
+        note: "Agency — must decompose self-caused vs external change"
+
+    environmental_trigger:
+      structure: |
+        The world changed — but did I cause the change or did it happen
+        independently? Pushing an object changes the world (self-caused).
+        A field source drifting changes the world (external). The receptor
+        distinguishes between the two, which is essential for learning
+        which of the organism's actions have environmental effects.
+      survival_benefit: |
+        Modification attribution enables learning from environmental
+        interaction. Without it, the organism can't distinguish "I moved
+        that" from "it moved on its own," which makes tool learning
+        impossible.
+      metabolic_cost: low
+      selection_pressure: |
+        Environments where both self-caused and external changes occur
+        and the organism needs to learn from the self-caused ones.
+
+    selection_environments:
+      - mixed_change_environments
+      - tool_environments
+      - tier_3_plus
+
+    unlocks:
+      - environmental_trend_detection
+      - deliberate_modification
+
+    emergence_signature:
+      description: |
+        Organism responds differently to self-caused vs external
+        environmental changes. Repeats actions that produced beneficial
+        changes, avoids actions that produced harmful changes, ignores
+        external changes it didn't cause.
+      metrics:
+        - metric_name: attribution_accuracy
+          measurement_method: |
+            After self-caused change: organism repeats the action.
+            After external change: organism doesn't credit its own action.
+            Ratio of correct attributions.
+          expected_range: ">60%"
+          detection_threshold: 0.6
+
+    predicted_emergence_order:
+      generation_range: "50-90"
+      confidence: medium
+
+  - receptor_id: environmental_trend_detection
+    name: Complexity Trajectory Detection
+    family: environmental_augmentation
+    tier: branch
+
+    dependencies:
+      - receptor_id: environmental_change_detection
+        note: "Must detect individual changes before detecting trends"
+      - receptor_id: temporal_association
+        note: "Association — must track state across time"
+      - receptor_id: growth_tracking
+        note: "Self-Augmentation — must detect trajectories"
+
+    environmental_trigger:
+      structure: |
+        The environment isn't just different — it's trending. Complexity
+        is increasing (more sources, more agents, more causal structure).
+        Or decreasing (resources depleting, structure simplifying). The
+        receptor detects the direction of environmental change, not just
+        individual changes.
+      survival_benefit: |
+        Trend detection enables anticipatory environmental strategy.
+        "The environment is getting harder" triggers preemptive capability
+        development. "The environment is getting simpler" triggers
+        metabolic conservation.
+      metabolic_cost: medium
+      selection_pressure: |
+        Environments with systematic complexity changes — seasonal
+        variation, ecological succession, escalating challenges.
+
+    selection_environments:
+      - trending_complexity_environments
+      - seasonal_environments
+      - escalating_challenge_environments
+
+    unlocks:
+      - anticipatory_development
+      - deliberate_complexification
+
+    emergence_signature:
+      description: |
+        Organism's developmental strategy correlates with environmental
+        complexity trend. Invests in capability growth during complexity
+        increase, conserves during complexity decrease.
+      metrics:
+        - metric_name: trend_response
+          measurement_method: |
+            Correlation between environmental complexity trend and
+            organism's exploration/development investment.
+          expected_range: ">0.3 correlation"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "80-150"
+      confidence: low
+
+  - receptor_id: deliberate_complexification
+    name: Intentional Environmental Complexity Increase
+    family: environmental_augmentation
+    tier: canopy
+
+    dependencies:
+      - receptor_id: modification_attribution
+        note: "Must know own actions change the environment"
+      - receptor_id: environmental_trend_detection
+        note: "Must detect complexity trends"
+      - receptor_id: developmental_trajectory
+        note: "Self-Augmentation — must model own future capabilities"
+      - receptor_id: metamorphic_planning
+        note: "Self-Augmentation — must plan own development"
+
+    environmental_trigger:
+      structure: |
+        The organism deliberately makes the environment more complex to
+        create selection pressure on itself. Not solving a current problem
+        but engineering the conditions that will force it to develop new
+        capabilities. Building obstacles to learn to overcome them.
+        Creating challenges to grow from them.
+      survival_benefit: |
+        Deliberate complexification is how an organism breaks through
+        developmental plateaus. When the current environment is too simple
+        to select for needed capabilities, the organism that can increase
+        complexity creates its own curriculum.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Environments where developmental plateaus exist and self-directed
+        complexity increase is the only way past them. This is extremely
+        high-tier — the organism must be sophisticated enough to recognize
+        its own developmental ceiling and engineer a way past it.
+
+    selection_environments:
+      - plateau_environments
+      - self_directed_curriculum_environments
+
+    unlocks:
+      - developmental_environment_engineering
+      - self_directed_evolution
+
+    emergence_signature:
+      description: |
+        Organism takes actions that make the environment harder for
+        itself, and subsequent performance improves beyond what was
+        possible before the complexification. Short-term cost for
+        long-term capability gain.
+      metrics:
+        - metric_name: productive_difficulty
+          measurement_method: |
+            After organism increases environmental complexity: short-term
+            reward drops, long-term reward exceeds pre-complexification
+            ceiling. The difficulty was productive.
+          expected_range: "Long-term > pre-complexification by >10%"
+          detection_threshold: 0.1
+
+    predicted_emergence_order:
+      generation_range: "300-500"
+      confidence: very_low
+      conditions: |
+        Requires developmental trajectory + metamorphic planning +
+        environmental modification capability. The organism must be able
+        to model: "I need capability X. My current environment won't
+        select for X. If I make the environment harder in way Y, it
+        will select for X. I should make it harder."
+
+    notes: |
+      This is what humans do when they build educational institutions,
+      design training programs, or create challenging games. The
+      environment is deliberately made harder to drive development.
+      The organism is both the student and the curriculum designer.
+
+      The evolutionary prediction: deliberate complexification emerges
+      only in organisms that have already developed metamorphic planning
+      (modeling own developmental trajectory) AND environmental modification
+      capability (interaction family). Without both, the organism can't
+      execute the strategy even if it could conceive it.
+
+  - receptor_id: developmental_environment_engineering
+    name: Full Curriculum Self-Design
+    family: environmental_augmentation
+    tier: canopy
+
+    dependencies:
+      - receptor_id: deliberate_complexification
+        note: "Must be able to increase complexity"
+      - receptor_id: organizational_mirror
+        note: "Organization — must model own receptor topology"
+      - receptor_id: identity_continuity
+        note: "Self-Augmentation — must maintain identity through transformation"
+
+    environmental_trigger:
+      structure: |
+        The organism designs a sequence of environments of increasing
+        complexity, each building on the capabilities the previous
+        environment developed. Not just one complexification but a
+        curriculum — a planned developmental trajectory implemented
+        through environmental engineering.
+      survival_benefit: |
+        Full curriculum design is the most efficient path from current
+        capabilities to target capabilities. Random environmental
+        variation wastes time on irrelevant challenges. Designed
+        curriculum targets exactly the gaps in the organism's receptor
+        topology.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Environments where directed development outperforms random
+        development by enough to justify the planning cost.
+
+    selection_environments:
+      - self_directed_education_environments
+      - civilization_building_environments
+
+    unlocks:
+      - civilization
+      - directed_evolution
+      - recursive_self_improvement
+
+    emergence_signature:
+      description: |
+        Organism constructs environmental sequences where each stage
+        develops capabilities needed for the next stage. Performance
+        trajectory follows a planned curve rather than random walk.
+      metrics:
+        - metric_name: curriculum_efficiency
+          measurement_method: |
+            Developmental rate under self-designed curriculum vs random
+            environmental variation. Designed should exceed random.
+          expected_range: ">1.5x developmental rate"
+          detection_threshold: 1.5
+
+    predicted_emergence_order:
+      generation_range: "500+"
+      confidence: very_low
+      conditions: |
+        The deepest canopy across the entire genome project. Requires
+        deliberate complexification + organizational mirror + identity
+        continuity. The organism must see its own receptor topology,
+        identify what's missing, design an environment that will
+        select for what's missing, and maintain identity through the
+        resulting transformation.
+
+        This is civilization stated mechanistically. The organism builds
+        the world that builds the organism that builds the next world.
+
+    notes: |
+      Developmental environment engineering closes the ultimate loop.
+      The genome project specifies what receptors COULD evolve. The
+      environment tiers specify what environments SELECT for them.
+      This receptor is the organism discovering both — recognizing
+      its own genome's potential, designing the environment that
+      activates it, and growing into what the designed environment
+      demands.
+
+      The organism that has this receptor doesn't need a designer
+      to build its curriculum. It IS the designer. The tortoise
+      builds its own track.

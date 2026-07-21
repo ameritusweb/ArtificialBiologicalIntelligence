@@ -1,0 +1,1078 @@
+{
+  "receptor_groups": {
+    "pain": {
+      "obs_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dimensionality": 6,
+      "description": "Nociceptive - tissue damage",
+      "grounded_in": "direct receptor state"
+    },
+    "endorphin": {
+      "obs_indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "dimensionality": 6,
+      "description": "Reward - beneficial conditions",
+      "grounded_in": "direct receptor state"
+    },
+    "temperature": {
+      "obs_indices": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "dimensionality": 6,
+      "description": "Thermoception - heat/cold",
+      "grounded_in": "direct receptor state"
+    },
+    "chemical": {
+      "obs_indices": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "dimensionality": 6,
+      "description": "Chemoreception - nutrients",
+      "grounded_in": "direct receptor state"
+    },
+    "pressure": {
+      "obs_indices": [
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "dimensionality": 6,
+      "description": "Mechanoreception - walls/contact",
+      "grounded_in": "direct receptor state"
+    },
+    "fatigue": {
+      "obs_indices": [
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "dimensionality": 6,
+      "description": "Metabolic load - muscle exhaustion",
+      "grounded_in": "direct receptor state"
+    },
+    "energy": {
+      "obs_indices": [
+        36
+      ],
+      "dimensionality": 1,
+      "description": "Metabolic reserve",
+      "grounded_in": "direct receptor state"
+    },
+    "temporal_aversion": {
+      "obs_indices": [
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "dimensionality": 6,
+      "description": "Pain memory - recent harm",
+      "grounded_in": "direct receptor state"
+    },
+    "receptor_gain": {
+      "obs_indices": [
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "dimensionality": 6,
+      "description": "Sensitization/habituation",
+      "grounded_in": "direct receptor state"
+    },
+    "spatial_memory": {
+      "obs_indices": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73
+      ],
+      "dimensionality": 25,
+      "description": "Pain memory grid - where harm was",
+      "grounded_in": "direct receptor state"
+    },
+    "distant_pain": {
+      "obs_indices": [
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81
+      ],
+      "dimensionality": 8,
+      "description": "Anticipatory - pain ahead",
+      "grounded_in": "direct receptor state"
+    },
+    "distant_endorphin": {
+      "obs_indices": [
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "dimensionality": 8,
+      "description": "Anticipatory - reward ahead",
+      "grounded_in": "direct receptor state"
+    },
+    "prediction_error": {
+      "obs_indices": [
+        90,
+        91,
+        92,
+        93,
+        94,
+        95
+      ],
+      "dimensionality": 6,
+      "description": "Surprise - model was wrong",
+      "grounded_in": "direct receptor state"
+    },
+    "world_model": {
+      "obs_indices": [
+        96,
+        97,
+        98,
+        99
+      ],
+      "dimensionality": 4,
+      "description": "Causal model quality",
+      "grounded_in": "derived computation"
+    },
+    "patterns": {
+      "obs_indices": [
+        100,
+        101
+      ],
+      "dimensionality": 2,
+      "description": "Compressed abstractions",
+      "grounded_in": "derived computation"
+    },
+    "proprioception": {
+      "obs_indices": [
+        102,
+        103
+      ],
+      "dimensionality": 2,
+      "description": "Body state awareness",
+      "grounded_in": "derived computation"
+    },
+    "body_config": {
+      "obs_indices": [
+        104,
+        105,
+        106,
+        107,
+        108,
+        109
+      ],
+      "dimensionality": 6,
+      "description": "Limb configuration",
+      "grounded_in": "derived computation"
+    },
+    "efference": {
+      "obs_indices": [
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131
+      ],
+      "dimensionality": 22,
+      "description": "Motor command copy",
+      "grounded_in": "derived computation"
+    },
+    "agency": {
+      "obs_indices": [
+        132,
+        133,
+        134
+      ],
+      "dimensionality": 3,
+      "description": "Self vs environment causation",
+      "grounded_in": "derived computation"
+    },
+    "objects": {
+      "obs_indices": [
+        135,
+        136,
+        137,
+        138,
+        139,
+        140
+      ],
+      "dimensionality": 6,
+      "description": "Responsive environment",
+      "grounded_in": "derived computation"
+    },
+    "other": {
+      "obs_indices": [
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152
+      ],
+      "dimensionality": 12,
+      "description": "Social - NPC state + signals",
+      "grounded_in": "derived computation"
+    },
+    "optimism": {
+      "obs_indices": [
+        153,
+        154
+      ],
+      "dimensionality": 2,
+      "description": "Goal pursuit - future better than present",
+      "grounded_in": "derived computation"
+    },
+    "conflict": {
+      "obs_indices": [
+        155,
+        156,
+        157
+      ],
+      "dimensionality": 3,
+      "description": "Motivational tension + prediction",
+      "grounded_in": "derived computation"
+    },
+    "concepts": {
+      "obs_indices": [
+        158,
+        159
+      ],
+      "dimensionality": 2,
+      "description": "Abstract pattern recognition",
+      "grounded_in": "derived computation"
+    }
+  },
+  "signal_vocabulary": {
+    "danger": {
+      "emission_code": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "grounded_in": "causal relationship: emitting [1, 1, 0, 0] reliably produces danger-related outcomes",
+      "shared": true,
+      "contexts": [
+        "organism -> NPC: repel signal (step 23)",
+        "NPC -> organism: danger warning near pain (step 24)"
+      ]
+    },
+    "resource": {
+      "emission_code": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "grounded_in": "causal relationship: emitting [0, 0, 1, 0] reliably produces resource-related outcomes",
+      "shared": true,
+      "contexts": [
+        "organism -> object: trigger endorphin (step 19)",
+        "NPC -> organism: resource announcement near endorphin (step 24)"
+      ]
+    },
+    "calm": {
+      "emission_code": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "grounded_in": "causal relationship: emitting [1, 0, 1, 0] reliably produces calm-related outcomes",
+      "shared": true,
+      "contexts": []
+    },
+    "approach": {
+      "emission_code": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "grounded_in": "causal relationship: emitting [0, 1, 0, 1] reliably produces approach-related outcomes",
+      "shared": true,
+      "contexts": []
+    },
+    "cool": {
+      "emission_code": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "grounded_in": "causal relationship: emitting [1, 0, 0, 1] reliably produces cool-related outcomes",
+      "shared": true,
+      "contexts": []
+    }
+  },
+  "concepts": [
+    {
+      "rank": 0,
+      "label": "frequent_pattern",
+      "score": 141.0631,
+      "certainty": 0.6809,
+      "count": 567,
+      "compression_gain": 0.3654,
+      "motif_actions": [
+        148628,
+        140436
+      ]
+    },
+    {
+      "rank": 1,
+      "label": "reliable_concept",
+      "score": 138.9578,
+      "certainty": 0.785,
+      "count": 403,
+      "compression_gain": 0.4392,
+      "motif_actions": [
+        147604,
+        147604
+      ]
+    },
+    {
+      "rank": 2,
+      "label": "reliable_concept",
+      "score": 138.7459,
+      "certainty": 0.7946,
+      "count": 419,
+      "compression_gain": 0.4167,
+      "motif_actions": [
+        9508,
+        9508
+      ]
+    },
+    {
+      "rank": 3,
+      "label": "frequent_pattern",
+      "score": 136.5395,
+      "certainty": 0.681,
+      "count": 555,
+      "compression_gain": 0.3613,
+      "motif_actions": [
+        140436,
+        148628
+      ]
+    },
+    {
+      "rank": 4,
+      "label": "reliable_concept",
+      "score": 116.6492,
+      "certainty": 0.713,
+      "count": 455,
+      "compression_gain": 0.3595,
+      "motif_actions": [
+        149652,
+        148628
+      ]
+    },
+    {
+      "rank": 5,
+      "label": "reliable_concept",
+      "score": 110.0069,
+      "certainty": 0.7045,
+      "count": 472,
+      "compression_gain": 0.3308,
+      "motif_actions": [
+        148628,
+        149652
+      ]
+    },
+    {
+      "rank": 6,
+      "label": "reliable_concept",
+      "score": 108.8704,
+      "certainty": 0.7061,
+      "count": 461,
+      "compression_gain": 0.3344,
+      "motif_actions": [
+        76066,
+        76050
+      ]
+    },
+    {
+      "rank": 7,
+      "label": "reliable_concept",
+      "score": 108.4699,
+      "certainty": 0.7151,
+      "count": 442,
+      "compression_gain": 0.3432,
+      "motif_actions": [
+        76050,
+        76066
+      ]
+    },
+    {
+      "rank": 8,
+      "label": "frequent_pattern",
+      "score": 96.9556,
+      "certainty": 0.707,
+      "count": 474,
+      "compression_gain": 0.2893,
+      "motif_actions": [
+        84242,
+        84114
+      ]
+    },
+    {
+      "rank": 9,
+      "label": "reliable_concept",
+      "score": 96.5692,
+      "certainty": 0.7093,
+      "count": 435,
+      "compression_gain": 0.313,
+      "motif_actions": [
+        76066,
+        76068
+      ]
+    },
+    {
+      "rank": 10,
+      "label": "frequent_pattern",
+      "score": 94.4904,
+      "certainty": 0.662,
+      "count": 492,
+      "compression_gain": 0.2901,
+      "motif_actions": [
+        76050,
+        76066
+      ]
+    },
+    {
+      "rank": 11,
+      "label": "reliable_concept",
+      "score": 92.2238,
+      "certainty": 0.728,
+      "count": 344,
+      "compression_gain": 0.3682,
+      "motif_actions": [
+        149522,
+        149522
+      ]
+    },
+    {
+      "rank": 12,
+      "label": "frequent_pattern",
+      "score": 92.1181,
+      "certainty": 0.6978,
+      "count": 441,
+      "compression_gain": 0.2993,
+      "motif_actions": [
+        76068,
+        76066
+      ]
+    },
+    {
+      "rank": 13,
+      "label": "frequent_pattern",
+      "score": 91.6485,
+      "certainty": 0.6761,
+      "count": 477,
+      "compression_gain": 0.2842,
+      "motif_actions": [
+        84114,
+        84242
+      ]
+    },
+    {
+      "rank": 14,
+      "label": "frequent_pattern",
+      "score": 90.847,
+      "certainty": 0.6927,
+      "count": 433,
+      "compression_gain": 0.3029,
+      "motif_actions": [
+        148628,
+        148628
+      ]
+    },
+    {
+      "rank": 15,
+      "label": "frequent_pattern",
+      "score": 89.2227,
+      "certainty": 0.6578,
+      "count": 474,
+      "compression_gain": 0.2861,
+      "motif_actions": [
+        76066,
+        76050
+      ]
+    },
+    {
+      "rank": 16,
+      "label": "reliable_concept",
+      "score": 87.2176,
+      "certainty": 0.7452,
+      "count": 354,
+      "compression_gain": 0.3306,
+      "motif_actions": [
+        76066,
+        76066
+      ]
+    },
+    {
+      "rank": 17,
+      "label": "frequent_pattern",
+      "score": 84.6243,
+      "certainty": 0.6816,
+      "count": 471,
+      "compression_gain": 0.2636,
+      "motif_actions": [
+        132260,
+        1188
+      ]
+    },
+    {
+      "rank": 18,
+      "label": "frequent_pattern",
+      "score": 84.0049,
+      "certainty": 0.6393,
+      "count": 440,
+      "compression_gain": 0.2986,
+      "motif_actions": [
+        148644,
+        140452
+      ]
+    },
+    {
+      "rank": 19,
+      "label": "frequent_pattern",
+      "score": 82.6318,
+      "certainty": 0.6612,
+      "count": 419,
+      "compression_gain": 0.2983,
+      "motif_actions": [
+        140452,
+        148644
+      ]
+    },
+    {
+      "rank": 20,
+      "label": "reliable_concept",
+      "score": 80.8313,
+      "certainty": 0.7908,
+      "count": 281,
+      "compression_gain": 0.3637,
+      "motif_actions": [
+        76064,
+        76064
+      ]
+    },
+    {
+      "rank": 21,
+      "label": "frequent_pattern",
+      "score": 80.0787,
+      "certainty": 0.6949,
+      "count": 324,
+      "compression_gain": 0.3557,
+      "motif_actions": [
+        132244,
+        132244
+      ]
+    },
+    {
+      "rank": 22,
+      "label": "frequent_pattern",
+      "score": 78.1858,
+      "certainty": 0.6955,
+      "count": 309,
+      "compression_gain": 0.3638,
+      "motif_actions": [
+        9380,
+        132260
+      ]
+    },
+    {
+      "rank": 23,
+      "label": "frequent_pattern",
+      "score": 75.0661,
+      "certainty": 0.6947,
+      "count": 461,
+      "compression_gain": 0.2344,
+      "motif_actions": [
+        84258,
+        84242
+      ]
+    },
+    {
+      "rank": 24,
+      "label": "frequent_pattern",
+      "score": 74.466,
+      "certainty": 0.7847,
+      "count": 408,
+      "compression_gain": 0.2326,
+      "motif_actions": [
+        84226,
+        84226
+      ]
+    },
+    {
+      "rank": 25,
+      "label": "frequent_pattern",
+      "score": 74.0379,
+      "certainty": 0.6884,
+      "count": 333,
+      "compression_gain": 0.323,
+      "motif_actions": [
+        149650,
+        149778
+      ]
+    },
+    {
+      "rank": 26,
+      "label": "frequent_pattern",
+      "score": 72.3405,
+      "certainty": 0.6683,
+      "count": 464,
+      "compression_gain": 0.2333,
+      "motif_actions": [
+        75042,
+        75044
+      ]
+    },
+    {
+      "rank": 27,
+      "label": "frequent_pattern",
+      "score": 71.921,
+      "certainty": 0.6869,
+      "count": 462,
+      "compression_gain": 0.2266,
+      "motif_actions": [
+        84242,
+        84258
+      ]
+    },
+    {
+      "rank": 28,
+      "label": "frequent_pattern",
+      "score": 69.7547,
+      "certainty": 0.6717,
+      "count": 359,
+      "compression_gain": 0.2893,
+      "motif_actions": [
+        132260,
+        132260
+      ]
+    },
+    {
+      "rank": 29,
+      "label": "frequent_pattern",
+      "score": 69.4939,
+      "certainty": 0.7509,
+      "count": 342,
+      "compression_gain": 0.2706,
+      "motif_actions": [
+        76034,
+        76032
+      ]
+    },
+    {
+      "rank": 30,
+      "label": "frequent_pattern",
+      "score": 69.251,
+      "certainty": 0.6187,
+      "count": 442,
+      "compression_gain": 0.2532,
+      "motif_actions": [
+        149650,
+        149778
+      ]
+    },
+    {
+      "rank": 31,
+      "label": "reliable_concept",
+      "score": 69.1962,
+      "certainty": 0.7053,
+      "count": 324,
+      "compression_gain": 0.3028,
+      "motif_actions": [
+        149522,
+        147474
+      ]
+    },
+    {
+      "rank": 32,
+      "label": "emerging_concept",
+      "score": 68.5071,
+      "certainty": 0.5672,
+      "count": 480,
+      "compression_gain": 0.2516,
+      "motif_actions": [
+        148628,
+        140436
+      ]
+    },
+    {
+      "rank": 33,
+      "label": "frequent_pattern",
+      "score": 68.3408,
+      "certainty": 0.6687,
+      "count": 477,
+      "compression_gain": 0.2143,
+      "motif_actions": [
+        75044,
+        140580
+      ]
+    },
+    {
+      "rank": 34,
+      "label": "frequent_pattern",
+      "score": 67.5089,
+      "certainty": 0.608,
+      "count": 386,
+      "compression_gain": 0.2877,
+      "motif_actions": [
+        149650,
+        148626
+      ]
+    },
+    {
+      "rank": 35,
+      "label": "reliable_concept",
+      "score": 67.1859,
+      "certainty": 0.7231,
+      "count": 307,
+      "compression_gain": 0.3027,
+      "motif_actions": [
+        132244,
+        131220
+      ]
+    },
+    {
+      "rank": 36,
+      "label": "frequent_pattern",
+      "score": 67.0899,
+      "certainty": 0.6546,
+      "count": 391,
+      "compression_gain": 0.2621,
+      "motif_actions": [
+        9504,
+        9508
+      ]
+    },
+    {
+      "rank": 37,
+      "label": "frequent_pattern",
+      "score": 66.7693,
+      "certainty": 0.6707,
+      "count": 387,
+      "compression_gain": 0.2572,
+      "motif_actions": [
+        9504,
+        9504
+      ]
+    },
+    {
+      "rank": 38,
+      "label": "frequent_pattern",
+      "score": 65.6857,
+      "certainty": 0.6695,
+      "count": 281,
+      "compression_gain": 0.3492,
+      "motif_actions": [
+        149650,
+        148626
+      ]
+    },
+    {
+      "rank": 39,
+      "label": "frequent_pattern",
+      "score": 65.0694,
+      "certainty": 0.6159,
+      "count": 525,
+      "compression_gain": 0.2012,
+      "motif_actions": [
+        76066,
+        76066
+      ]
+    },
+    {
+      "rank": 40,
+      "label": "frequent_pattern",
+      "score": 65.0031,
+      "certainty": 0.6945,
+      "count": 339,
+      "compression_gain": 0.2761,
+      "motif_actions": [
+        131220,
+        147604
+      ]
+    },
+    {
+      "rank": 41,
+      "label": "frequent_pattern",
+      "score": 64.9909,
+      "certainty": 0.6459,
+      "count": 446,
+      "compression_gain": 0.2256,
+      "motif_actions": [
+        75044,
+        75042
+      ]
+    },
+    {
+      "rank": 42,
+      "label": "reliable_concept",
+      "score": 64.4254,
+      "certainty": 0.7025,
+      "count": 268,
+      "compression_gain": 0.3422,
+      "motif_actions": [
+        148626,
+        149650
+      ]
+    },
+    {
+      "rank": 43,
+      "label": "frequent_pattern",
+      "score": 63.1298,
+      "certainty": 0.6675,
+      "count": 451,
+      "compression_gain": 0.2097,
+      "motif_actions": [
+        75044,
+        75044
+      ]
+    },
+    {
+      "rank": 44,
+      "label": "reliable_concept",
+      "score": 62.9988,
+      "certainty": 0.8074,
+      "count": 158,
+      "compression_gain": 0.4938,
+      "motif_actions": [
+        9380,
+        9380
+      ]
+    },
+    {
+      "rank": 45,
+      "label": "emerging_concept",
+      "score": 62.4161,
+      "certainty": 0.569,
+      "count": 440,
+      "compression_gain": 0.2493,
+      "motif_actions": [
+        140436,
+        148628
+      ]
+    },
+    {
+      "rank": 46,
+      "label": "frequent_pattern",
+      "score": 62.2093,
+      "certainty": 0.695,
+      "count": 353,
+      "compression_gain": 0.2536,
+      "motif_actions": [
+        83986,
+        83986
+      ]
+    },
+    {
+      "rank": 47,
+      "label": "reliable_concept",
+      "score": 61.9248,
+      "certainty": 0.7268,
+      "count": 284,
+      "compression_gain": 0.3,
+      "motif_actions": [
+        147604,
+        131220
+      ]
+    },
+    {
+      "rank": 48,
+      "label": "frequent_pattern",
+      "score": 61.2285,
+      "certainty": 0.6832,
+      "count": 329,
+      "compression_gain": 0.2724,
+      "motif_actions": [
+        131220,
+        132244
+      ]
+    },
+    {
+      "rank": 49,
+      "label": "strong_abstraction",
+      "score": 61.0513,
+      "certainty": 0.946,
+      "count": 81,
+      "compression_gain": 0.7967,
+      "motif_actions": [
+        46893,
+        46893
+      ]
+    }
+  ],
+  "grounding_chains": [
+    {
+      "word": "pain",
+      "chain": [
+        "obs[0:6] (nociceptive input)",
+        "-> temporal_aversion[37:43]",
+        "-> pain_memory[49:74]",
+        "-> prediction_error[90:96]"
+      ],
+      "receptor_origin": "direct tissue damage signal"
+    },
+    {
+      "word": "danger",
+      "chain": [
+        "distant_pain[74:82] (anticipatory)",
+        "-> optimism drops",
+        "-> emission (1,1,0,0)",
+        "-> NPC flees OR NPC warns"
+      ],
+      "receptor_origin": "predicted future pain from distance sensing"
+    },
+    {
+      "word": "relief",
+      "chain": [
+        "endorphin[6:12] (reward input)",
+        "-> energy recovery",
+        "-> temporal_aversion decays",
+        "-> optimism rises"
+      ],
+      "receptor_origin": "endorphin field activation"
+    },
+    {
+      "word": "self",
+      "chain": [
+        "proprioception[102:104] (body state)",
+        "-> efference[110:132] (motor commands)",
+        "-> agency[132:135] (controllability vs external)",
+        "-> planning_value (action vs inaction)"
+      ],
+      "receptor_origin": "self-model: controllability decomposition"
+    },
+    {
+      "word": "other",
+      "chain": [
+        "npc_obs[141:153] (distance, bearing, speed, accel, omega, erratic, emission)",
+        "-> empathic_aversion (receptor propagation)",
+        "-> signal interpretation (danger/resource)"
+      ],
+      "receptor_origin": "social sensing: behavioral cues from NPC"
+    },
+    {
+      "word": "will",
+      "chain": [
+        "optimism[153] (future > present)",
+        "-> goal_persistence[154] (EMA commitment)",
+        "-> gradient modulation (persist through pain)",
+        "-> action despite current cost"
+      ],
+      "receptor_origin": "optimism receptor: predicted reward exceeds current pain"
+    },
+    {
+      "word": "uncertainty",
+      "chain": [
+        "prediction_error[90:96] (model wrong)",
+        "-> mm_certainty[98] (low)",
+        "-> predicted_conflict[156] (amplified by uncertainty)",
+        "-> slow pathway recruitment (deliberation)"
+      ],
+      "receptor_origin": "prediction accuracy gap"
+    },
+    {
+      "word": "conflict",
+      "chain": [
+        "receptor_conflict[155] (competing demands)",
+        "-> predicted_conflict[156] (metacognitive forecast)",
+        "-> conflict_trend[157] (resolving or worsening)",
+        "-> arbitration weights shift (context-conditioned)"
+      ],
+      "receptor_origin": "simultaneous incompatible receptor activations"
+    }
+  ]
+}

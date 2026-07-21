@@ -1,0 +1,558 @@
+# Mathematics Family
+# Receptors for detecting invariant quantitative and structural relationships
+
+family_metadata:
+  name: Mathematics
+  description: |
+    Receptors that detect invariant structure across instances — relationships
+    that hold regardless of what fills the variables. From detecting more/less
+    to recognizing ratios to detecting structural invariance to sensing
+    necessity (couldn't be otherwise).
+
+    The trunk is quantity detection — more, less, same. The canopy is
+    necessity detection — recognizing that a relationship MUST hold, not
+    merely that it does. The gap between those two levels is the gap
+    between counting and proving.
+
+    Mathematics is not a cultural invention. It is a receptor topology that
+    fires on structure the environment already contains. Three apples and
+    three days and three steps share something that isn't apples or days
+    or steps. The organism that detects this invariant can transfer
+    knowledge across domains that share quantitative structure — a massive
+    survival advantage in any environment complex enough to contain it.
+
+  evolutionary_thesis: |
+    Mathematical receptors emerge when quantitative invariants in the
+    environment are load-bearing for survival. An organism that detects
+    "the ratio of predator speed to prey speed determines escape success"
+    survives better than one that treats each encounter as novel. The
+    abstraction pays for itself by compressing an infinite set of instances
+    into one reusable relationship.
+
+    The progression parallels the compression family but applies specifically
+    to quantitative and structural relationships rather than general pattern
+    compression. Mathematics IS compression, but of a specific kind — the
+    kind where the compressed representation is provably complete (nothing
+    was lost that matters).
+
+    This family converges across cultures and across independent thinkers
+    because the structure it detects is in the environment, not in any
+    particular mind. The concepts are latent in the problem space, waiting
+    to be distilled by any receptor topology adequate to detect them.
+
+  trunk_receptor: quantity_detection
+  canopy_receptors: [necessity_detection, proof_structure, formal_composition]
+
+---
+
+receptors:
+  - receptor_id: quantity_detection
+    name: More/Less/Same Discrimination
+    family: mathematics
+    tier: trunk
+
+    dependencies:
+      - receptor_id: perceptual_similarity
+        note: "Similarity family — must detect same/different"
+      - receptor_id: static_repetition
+        note: "Repetition family — must detect recurrence"
+
+    environmental_trigger:
+      structure: |
+        Resources, threats, or opportunities that vary in quantity.
+        More food vs less food. More predators vs fewer. Same distance
+        vs different distance.
+      survival_benefit: |
+        Quantity discrimination enables resource comparison without
+        direct enumeration. "This patch has more than that patch"
+        is cheaper to compute than counting both patches.
+      metabolic_cost: very_low
+      selection_pressure: |
+        Any environment with variable resources. Nearly universal.
+
+    selection_environments:
+      - variable_resource_environments
+      - multi_patch_foraging
+      - any_comparative_scenario
+
+    unlocks:
+      - ratio_detection
+      - ordinal_ranking
+      - approximate_number_sense
+
+    emergence_signature:
+      description: |
+        Organism preferentially approaches resource patches with more
+        reward, even without direct experience of each patch. Transfers
+        "more is better" across resource types.
+      metrics:
+        - metric_name: quantity_discrimination
+          measurement_method: |
+            Compare organism's approach probability for high-quantity
+            vs low-quantity resource patches. Ratio should exceed chance.
+          expected_range: ">1.5 preference ratio"
+          detection_threshold: 1.5
+        - metric_name: cross_type_transfer
+          measurement_method: |
+            Does quantity preference learned for endorphin transfer to
+            chemical sources without retraining?
+          expected_range: ">60% transfer"
+          detection_threshold: 0.6
+
+    predicted_emergence_order:
+      generation_range: "10-30"
+      confidence: high
+      conditions: |
+        Should emerge early in any environment with variable resource density.
+        Nearly as fundamental as pain avoidance.
+
+    notes: |
+      This is present in almost all animals — even insects show quantity
+      discrimination. It's the lowest-metabolic-cost mathematical capability
+      and the foundation everything else builds on.
+
+  - receptor_id: ratio_detection
+    name: Stable Relationship Detection
+    family: mathematics
+    tier: branch
+
+    dependencies:
+      - receptor_id: quantity_detection
+        note: "Must detect quantities before detecting relationships between them"
+      - receptor_id: causal_association
+        note: "Causality family — must link A to B before detecting A/B is stable"
+
+    environmental_trigger:
+      structure: |
+        The relationship between two quantities is stable even when the
+        quantities themselves change. Speed = distance / time holds whether
+        the distance is 10 or 100. The ratio of predator speed to prey
+        speed determines escape outcome regardless of absolute speeds.
+      survival_benefit: |
+        Ratio detection compresses an infinite set of (A, B) pairs into
+        one reusable relationship. The organism that detects "twice as
+        fast is always enough to escape" doesn't need to relearn escape
+        for every new predator speed.
+      metabolic_cost: low
+      selection_pressure: |
+        Environments where the same quantitative relationship governs
+        outcomes across different absolute magnitudes.
+
+    selection_environments:
+      - predator_prey_with_variable_speeds
+      - resource_effort_tradeoff_environments
+      - proportional_reward_environments
+
+    unlocks:
+      - proportional_reasoning
+      - scaling_prediction
+      - mathematical_modeling
+
+    emergence_signature:
+      description: |
+        Organism generalizes across magnitudes. A ratio learned at small
+        scale transfers to large scale without retraining.
+      metrics:
+        - metric_name: ratio_generalization
+          measurement_method: |
+            Train organism in environment with ratio R governing outcomes
+            at scale S1. Test at scale S2. Should maintain performance
+            without retraining.
+          expected_range: ">70% performance retention"
+          detection_threshold: 0.7
+
+    predicted_emergence_order:
+      generation_range: "30-60"
+      confidence: medium
+      conditions: |
+        Requires environments where proportional relationships are
+        fitness-relevant across scales.
+
+    notes: |
+      This is where counting becomes arithmetic. The organism stops
+      tracking absolute quantities and starts tracking relationships.
+
+  - receptor_id: structural_invariance_math
+    name: Cross-Domain Invariant Detection
+    family: mathematics
+    tier: branch
+
+    dependencies:
+      - receptor_id: ratio_detection
+        note: "Must detect quantitative relationships before detecting they're domain-independent"
+      - receptor_id: structural_similarity
+        note: "Similarity family — must detect structural equivalence"
+      - receptor_id: pattern_recognition
+        note: "Compression family — must compress instances into patterns"
+
+    environmental_trigger:
+      structure: |
+        The same quantitative pattern holds across completely different
+        domains. Three apples, three days, three steps — the "threeness"
+        is invariant across what's being counted. The relationship
+        "A + B = C" holds whether A, B, C are distances, durations,
+        or quantities.
+      survival_benefit: |
+        Cross-domain invariance enables massive transfer. Knowledge
+        learned about spatial relationships applies to temporal
+        relationships if they share mathematical structure. One
+        learning event serves many domains.
+      metabolic_cost: medium
+      selection_pressure: |
+        Environments with multiple domains sharing quantitative structure
+        where cross-domain transfer is fitness-positive.
+
+    selection_environments:
+      - multi_domain_environments
+      - transfer_test_environments
+      - environments_with_isomorphic_structure
+
+    unlocks:
+      - abstract_mathematics
+      - formal_reasoning
+      - necessity_detection
+
+    emergence_signature:
+      description: |
+        Organism applies quantitative knowledge from domain A to domain B
+        without retraining, based on shared mathematical structure.
+      metrics:
+        - metric_name: cross_domain_transfer
+          measurement_method: |
+            Quantitative relationship learned in spatial domain (distance
+            ratios) transfers to temporal domain (timing ratios).
+          expected_range: ">50% transfer accuracy"
+          detection_threshold: 0.5
+
+    predicted_emergence_order:
+      generation_range: "60-120"
+      confidence: medium
+      conditions: |
+        Requires environments where multiple domains share quantitative
+        structure and cross-domain transfer is rewarded.
+
+    notes: |
+      This is where arithmetic becomes mathematics. The organism stops
+      thinking about numbers of things and starts thinking about
+      relationships between relationships. "Threeness" as an invariant
+      independent of what's being counted.
+
+  - receptor_id: exhaustive_search
+    name: Search Space Completion Detection
+    family: mathematics
+    tier: canopy
+
+    dependencies:
+      - receptor_id: multiple_hypotheses
+        note: "Foundation Step 13 — must hold multiple possibilities"
+      - receptor_id: counterfactual_reasoning
+        note: "Causality family — must simulate alternatives"
+      - receptor_id: completion
+        note: "Compression family — must detect when search is done"
+
+    environmental_trigger:
+      structure: |
+        A bounded set of alternatives where each must be evaluated and
+        eliminated before the remaining option can be trusted. The
+        organism must recognize that it has checked ALL possibilities,
+        not just the most salient ones.
+      survival_benefit: |
+        Exhaustive search prevents premature commitment based on
+        incomplete elimination. The organism that checks all escape
+        routes before concluding "trapped" takes different action than
+        the one that checked two of five.
+      metabolic_cost: high
+      selection_pressure: |
+        High-stakes environments where missing one alternative is
+        catastrophic. Predator evasion with multiple escape routes.
+        Resource discovery with finite search space.
+
+    selection_environments:
+      - bounded_search_environments
+      - high_stakes_decision_environments
+      - puzzle_environments_with_finite_solutions
+
+    unlocks:
+      - necessity_detection
+      - proof_by_elimination
+      - complete_enumeration
+
+    emergence_signature:
+      description: |
+        Organism systematically evaluates alternatives before committing,
+        and the number of alternatives checked correlates with the actual
+        number available (not a fixed sample).
+      metrics:
+        - metric_name: systematic_coverage
+          measurement_method: |
+            In environments with N alternatives, measure whether the
+            organism's search covers all N before committing, scaling
+            with N.
+          expected_range: ">80% coverage"
+          detection_threshold: 0.8
+
+    predicted_emergence_order:
+      generation_range: "120-200"
+      confidence: low
+      conditions: |
+        Requires completion receptor + counterfactual reasoning + bounded
+        environments where exhaustiveness matters.
+
+    notes: |
+      Exhaustive search is the behavioral prerequisite for proof. You
+      can't know something MUST be true until you've established that
+      nothing else CAN be true. This receptor bridges the gap between
+      empirical observation (sampling) and mathematical certainty
+      (exhaustion).
+
+  - receptor_id: necessity_detection
+    name: Must-Be-True Detection
+    family: mathematics
+    tier: canopy
+
+    dependencies:
+      - receptor_id: structural_invariance_math
+        note: "Must detect that the relationship holds across instances"
+      - receptor_id: exhaustive_search
+        note: "Must verify all alternatives are eliminated"
+      - receptor_id: counterfactual_reasoning
+        note: "Must simulate 'what if otherwise' and find it impossible"
+      - receptor_id: completion
+        note: "Must detect that the search is genuinely complete"
+
+    environmental_trigger:
+      structure: |
+        A relationship that holds not just in every observed case but in
+        every POSSIBLE case — where the alternative is not merely unseen
+        but impossible. The structure of the problem itself precludes
+        the relationship failing.
+      survival_benefit: |
+        Necessity detection enables building on conclusions that cannot
+        be undermined by future evidence. An organism that knows "this
+        MUST be true" can invest irreversibly — build a bridge, commit
+        to a plan — with confidence that the foundation won't shift.
+        An organism limited to "this has always been true so far" must
+        hedge every commitment.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments where irreversible commitments based on structural
+        truths outperform hedged commitments based on empirical regularity.
+        Engineering. Architecture. Multi-step plans where each step
+        depends on the previous step holding necessarily.
+
+    selection_environments:
+      - engineering_environments
+      - irreversible_commitment_environments
+      - multi_step_dependent_plans
+      - environments_where_contingent_beliefs_fail
+
+    unlocks:
+      - proof_structure
+      - deductive_reasoning
+      - mathematical_certainty
+      - formal_composition
+
+    emergence_signature:
+      description: |
+        Organism distinguishes between "always observed" and "must be true."
+        Behavioral marker: willingness to commit irreversibly based on
+        structural reasoning versus hedging based on empirical frequency.
+        Commits more strongly to necessary truths than to merely frequent
+        ones, even when both have identical observational histories.
+      metrics:
+        - metric_name: necessity_vs_frequency_discrimination
+          measurement_method: |
+            Present two regularities with identical observational frequency:
+            one structurally necessary, one contingent. Measure commitment
+            strength (irreversible action, resource investment). Should
+            commit more to the necessary one.
+          expected_range: ">1.5x commitment ratio"
+          detection_threshold: 1.5
+        - metric_name: counterfactual_impossibility_detection
+          measurement_method: |
+            When probing "what if this were false," the organism should
+            detect structural impossibility (contradiction) rather than
+            merely low probability. Behavioral marker: stops searching
+            for alternatives (completion fires) rather than continuing
+            to sample.
+          expected_range: "Search terminates in <5 steps for necessary truths"
+          detection_threshold: 5
+
+    predicted_emergence_order:
+      generation_range: "200-350"
+      confidence: very_low
+      conditions: |
+        Layer 3+ receptor. Requires structural_invariance + exhaustive_search +
+        counterfactual_reasoning + completion. Emerges only in environments
+        where acting on contingent beliefs is systematically fatal and only
+        necessary truths are safe to build on. Very high tier environment.
+
+    notes: |
+      This is the apex of the mathematics family. The distinction between
+      "is true" and "must be true" is the distinction between empirical
+      science and mathematics. Both are grounded — both distill structure
+      from the environment. But necessity detection distills a deeper
+      level: not what the environment happens to do, but what it cannot
+      fail to do.
+
+      The dependency chain tells the evolutionary story: you can't detect
+      necessity until you can detect structural invariance (the relationship
+      holds everywhere you look), verify exhaustive search (you've looked
+      everywhere), reason counterfactually (there's no possible alternative),
+      and detect completion (the search is done). Four prerequisites, each
+      from a different family. Layer 3 composition at minimum.
+
+      This predicts formal mathematics emerged late in human history not
+      because it's culturally constructed but because the environmental
+      pressure that makes necessity-detection fitness-positive — engineering,
+      architecture, multi-step planning where each step depends on the
+      previous — arrived late. The receptor topology was latent. The
+      selection pressure activated it.
+
+      Mathematics converges across cultures because mathematical structure
+      is in the environment, not in any particular mathematician's head.
+      The necessity receptor fires for everyone who probes the same
+      structural relationships deeply enough. The path varies. The
+      destination doesn't.
+
+  - receptor_id: proof_structure
+    name: Logical Chain Verification
+    family: mathematics
+    tier: canopy
+
+    dependencies:
+      - receptor_id: necessity_detection
+        note: "Must detect necessary truths before chaining them"
+      - receptor_id: causal_chains
+        note: "Causality family — must chain A->B->C"
+      - receptor_id: pattern_recognition
+        note: "Compression family — must recognize valid inference patterns"
+
+    environmental_trigger:
+      structure: |
+        A sequence of necessary steps where each follows from the
+        previous. If A must be true, and A implies B, then B must be
+        true. The organism detects that the chain of reasoning is
+        itself necessary — not just that each step is plausible but
+        that the conclusion cannot fail given the premises.
+      survival_benefit: |
+        Proof structure enables reasoning about situations never
+        directly experienced. "I have never been to that cliff edge,
+        but I know I would fall" is a proof from gravity, height,
+        and body mass — all known, combined necessarily.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Environments where novel situations require reliable conclusions
+        without trial and error. The cost of trial is death.
+
+    selection_environments:
+      - novel_high_stakes_environments
+      - environments_requiring_extrapolation
+      - cumulative_technology_environments
+
+    unlocks:
+      - formal_composition
+      - deductive_reasoning
+      - theorem_proving
+
+    emergence_signature:
+      description: |
+        Organism chains necessary truths into conclusions about situations
+        it has never encountered, and acts on those conclusions with high
+        commitment. Performance in novel situations predicted by chain
+        reasoning exceeds performance predicted by empirical generalization.
+      metrics:
+        - metric_name: novel_situation_accuracy
+          measurement_method: |
+            Organism encounters a situation never directly experienced
+            but deducible from known necessary relationships. Performance
+            should approach optimal rather than random.
+          expected_range: ">70% optimal"
+          detection_threshold: 0.7
+
+    predicted_emergence_order:
+      generation_range: "300-500"
+      confidence: very_low
+      conditions: |
+        Requires necessity_detection + causal_chains + very high tier
+        environments. Extremely far future.
+
+    notes: |
+      This is formal reasoning — the ability to prove things. The organism
+      doesn't just detect necessary truths individually; it chains them.
+      This is what makes mathematics cumulative: each theorem builds on
+      previous theorems, and the chain never breaks because each link
+      is necessary.
+
+  - receptor_id: formal_composition
+    name: Abstract Structure Combination
+    family: mathematics
+    tier: canopy
+
+    dependencies:
+      - receptor_id: proof_structure
+        note: "Must chain necessary truths"
+      - receptor_id: hierarchical_abstraction
+        note: "Compression family — must build meta-patterns"
+      - receptor_id: structural_invariance_math
+        note: "Must detect cross-domain invariance"
+
+    environmental_trigger:
+      structure: |
+        Combining proven structures into new structures that are themselves
+        provably valid. Algebra: taking arithmetic relationships and
+        abstracting over the numbers themselves. Functions: taking
+        relationships and abstracting over the relationships.
+      survival_benefit: |
+        Formal composition enables reasoning about structures that don't
+        exist yet. The organism can evaluate a plan, a design, or a
+        hypothesis purely in structural terms before committing resources.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Environments where planning novel solutions from proven components
+        is the only viable strategy — where the solution space is too large
+        for trial and error.
+
+    selection_environments:
+      - engineering_design_environments
+      - novel_combination_environments
+      - cumulative_innovation_environments
+
+    unlocks:
+      - mathematical_creativity
+      - engineering_reasoning
+      - theoretical_science
+
+    emergence_signature:
+      description: |
+        Organism creates novel combinations of proven relationships and
+        correctly predicts their consequences without empirical testing.
+      metrics:
+        - metric_name: compositional_prediction
+          measurement_method: |
+            Organism combines two known structural relationships into
+            a novel composite and predicts the outcome. Accuracy exceeds
+            random.
+          expected_range: ">60% accuracy"
+          detection_threshold: 0.6
+
+    predicted_emergence_order:
+      generation_range: "400-600+"
+      confidence: very_low
+      conditions: |
+        Deepest canopy. Requires proof_structure + hierarchical_abstraction +
+        cross-domain invariance. The farthest horizon in the genome project.
+
+    notes: |
+      This is mathematics as a creative enterprise — not just detecting
+      structure but composing it. The receptor fires when a new combination
+      of proven components is recognized as valid before being tested.
+      This is why mathematicians describe their work as discovery, not
+      invention: the structures were always there, latent in the space
+      of possible combinations. The receptor detects them.
+
+      The evolutionary prediction: formal composition emerges only in
+      environments where cumulative technology is fitness-positive —
+      where each generation builds tools from the previous generation's
+      proven components. The environment must reward composition of
+      verified structures. That environment is civilization.

@@ -1,0 +1,50 @@
+{
+  "segments": [
+    {
+      "num_limbs": 6,
+      "num_segments": 1,
+      "dims": 2,
+      "obs_dim": 156,
+      "num_actions": 22,
+      "baseline_reward": 158.7,
+      "model_reward": -116.8,
+      "mappings": 5583,
+      "action_entropy": -0.0
+    },
+    {
+      "num_limbs": 6,
+      "num_segments": 2,
+      "dims": 2,
+      "obs_dim": 238,
+      "num_actions": 42,
+      "baseline_reward": 462.6,
+      "model_reward": -529.9,
+      "mappings": 14065,
+      "action_entropy": -0.0
+    }
+  ],
+  "3d": [
+    {
+      "num_limbs": 6,
+      "num_segments": 1,
+      "dims": 2,
+      "obs_dim": 156,
+      "num_actions": 22,
+      "baseline_reward": 158.7,
+      "model_reward": -256.2,
+      "mappings": 5887,
+      "action_entropy": -0.0
+    },
+    {
+      "num_limbs": 6,
+      "num_segments": 1,
+      "dims": 3,
+      "obs_dim": 158,
+      "num_actions": 22,
+      "baseline_reward": 158.7,
+      "model_reward": -554.9,
+      "mappings": 5445,
+      "action_entropy": -0.0
+    }
+  ]
+}

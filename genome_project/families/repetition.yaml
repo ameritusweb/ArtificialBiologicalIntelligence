@@ -1,0 +1,456 @@
+# Repetition Family
+# Receptors for detecting and exploiting recurring patterns in space and time
+
+family_metadata:
+  name: Repetition
+  description: |
+    Receptors that detect recurring structure — from the same stimulus appearing
+    in the same place, to complex nested rhythms with causal relationships.
+
+    The trunk is recognizing that "this has happened before." The canopy is
+    predicting that "this pattern of patterns will recurse in this specific way."
+
+    This family is foundational because nearly any structured environment
+    demonstrates some form of repetition, making these receptors fitness-positive
+    early and across diverse conditions.
+
+  evolutionary_thesis: |
+    Repetition detection reduces prediction cost. An organism that recognizes
+    recurrence can cache prior outcomes rather than treating each instance as novel.
+    The metabolic savings scale with environment stability and pattern complexity.
+
+  trunk_receptor: static_repetition
+  canopy_receptors: [nested_rhythm, causal_rhythm]
+
+---
+
+receptors:
+  - receptor_id: static_repetition
+    name: Static Repetition Detection
+    family: repetition
+    tier: trunk
+
+    dependencies:
+      - receptor_id: temporal_association
+        minimum_certainty: 0.4
+        note: "Step 5 from roadmap - must be able to associate states across time"
+      - receptor_id: basic_sensorimotor_loop
+        note: "Steps 1-4 foundation - must have receptor input and action output"
+
+    environmental_trigger:
+      structure: "Same stimulus appears in same location repeatedly"
+      survival_benefit: |
+        Prediction cost reduced by recognizing recurrence. Mental model certainty
+        converges faster for repeated contexts. Exploration cost reduced in
+        familiar regions.
+      metabolic_cost: low
+      selection_pressure: |
+        Any structured environment with stable features. Field sources that don't
+        move, obstacles that persist, resource patches that remain in place.
+
+    selection_environments:
+      - stable_field_sources
+      - static_obstacles
+      - persistent_resource_patches
+      - low_volatility_general
+
+    unlocks:
+      - dynamic_repetition
+      - spatial_pattern_recognition
+      - familiarity_preference
+
+    emergence_signature:
+      description: |
+        Mental model certainty increases faster for recurring contexts compared
+        to novel ones. Action selection time decreases in familiar regions.
+        Exploration rate decreases where repetition is high.
+      metrics:
+        - metric_name: certainty_convergence_rate
+          measurement_method: |
+            Compare mental model certainty growth for contexts seen N times vs
+            contexts seen once. Ratio should exceed 1.5 for N >= 5.
+          expected_range: "1.5 - 3.0"
+          detection_threshold: 1.5
+        - metric_name: exploration_reduction
+          measurement_method: |
+            Measure proportion of random/exploratory actions in high-repetition
+            regions vs low-repetition regions.
+          expected_range: "0.3 - 0.6 reduction"
+          detection_threshold: 0.3
+        - metric_name: prediction_accuracy_delta
+          measurement_method: |
+            Prediction MSE in repeated contexts vs novel contexts.
+          expected_range: "40-70% lower in repeated"
+          detection_threshold: 0.4
+      statistical_test: |
+        Paired t-test on certainty growth rates, repeated vs novel contexts,
+        p < 0.01 required for emergence claim.
+
+    predicted_emergence_order:
+      generation_range: "15-30"
+      confidence: high
+      conditions: |
+        Any environment with at least 30% spatial stability (field sources or
+        obstacles that don't change position more than 20% per episode).
+
+    failure_modes:
+      - mode: overgeneralization
+        signature: |
+          Certainty increases even when context actually differs subtly.
+          False positives in "sameness" detection.
+      - mode: undergeneralization
+        signature: |
+          Certainty remains low despite many observations of same context.
+          Failure to recognize recurrence due to encoder noise.
+
+    falsification_criteria: |
+      If this receptor does NOT emerge in stable environments by generation 50,
+      or if certainty convergence shows no difference between repeated and novel
+      contexts, the definition is wrong.
+
+    notes: |
+      This is the simplest receptor in the family and should emerge first in
+      nearly any structured environment. If it doesn't, something is broken in
+      the mental model's context encoding or certainty update mechanism.
+
+    references:
+      - source: "Habituation in sea slugs (Aplysia)"
+        relevance: "Biological precedent for repetition reducing response"
+      - source: "Mental model certainty update (mental_model_framework_v2.md)"
+        relevance: "Certainty increases with consistent outcomes"
+
+  - receptor_id: dynamic_repetition
+    name: Dynamic Repetition Detection
+    family: repetition
+    tier: branch
+
+    dependencies:
+      - receptor_id: static_repetition
+        minimum_certainty: 0.6
+      - receptor_id: spatial_association
+        note: "Must be able to associate stimulus identity across positions"
+
+    environmental_trigger:
+      structure: "Same stimulus appears repeatedly but position varies"
+      survival_benefit: |
+        Recognize that a field source, predator, or resource is the SAME entity
+        even when it moves. Enables tracking and prediction of mobile features.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments with moving field sources, mobile obstacles, or agents that
+        exhibit consistent behavior across positions.
+
+    selection_environments:
+      - sinusoidal_field_sources
+      - mobile_predators
+      - moving_resource_patches
+      - multi_agent_environments
+
+    unlocks:
+      - object_permanence
+      - trajectory_prediction
+      - rhythm
+
+    emergence_signature:
+      description: |
+        Mental model maintains identity of stimulus across positions. Certainty
+        for "this source" doesn't reset when position changes. Prediction accuracy
+        for mobile features exceeds static model baseline.
+      metrics:
+        - metric_name: cross_position_certainty
+          measurement_method: |
+            Track mental model certainty for a stimulus as it moves. Should remain
+            elevated vs certainty for genuinely novel stimuli at new positions.
+          expected_range: "60-85% of peak certainty maintained across positions"
+          detection_threshold: 0.6
+        - metric_name: trajectory_prediction_accuracy
+          measurement_method: |
+            Predict next position of mobile stimulus. Accuracy should exceed
+            random baseline by >50%.
+          expected_range: "50-80% improvement vs random"
+          detection_threshold: 0.5
+      statistical_test: |
+        Cross-validated prediction accuracy on held-out trajectory segments,
+        p < 0.05 vs null model (no object permanence).
+
+    predicted_emergence_order:
+      generation_range: "40-70"
+      confidence: medium
+      conditions: |
+        Environment must have mobile features with at least 60% position variance
+        but consistent identity (e.g., sinusoidal field sources as in current sim).
+
+    failure_modes:
+      - mode: position_dependent_identity
+        signature: |
+          Organism treats same stimulus at different positions as distinct entities.
+          Certainty resets on position change.
+      - mode: trajectory_overfitting
+        signature: |
+          Organism predicts trajectory perfectly for training paths but fails
+          on novel paths of same stimulus.
+
+    falsification_criteria: |
+      If this receptor emerges in static environments (where it provides no benefit),
+      or fails to emerge in highly mobile environments by generation 100, revise.
+
+    notes: |
+      This is the first receptor where the "sameness" relation has to abstract
+      over spatial variation. Requires context encoding that separates stimulus
+      identity from stimulus position.
+
+  - receptor_id: rhythm
+    name: Temporal Rhythm Detection
+    family: repetition
+    tier: branch
+
+    dependencies:
+      - receptor_id: static_repetition
+        minimum_certainty: 0.5
+      - receptor_id: temporal_association
+        minimum_certainty: 0.6
+        note: "Must already have reliable temporal prediction"
+
+    environmental_trigger:
+      structure: "Stimulus repeats with regular temporal interval"
+      survival_benefit: |
+        Predict WHEN a stimulus will recur, not just THAT it will recur.
+        Enables anticipatory action (move before pain arrives, position for
+        resource before it appears).
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments with periodic events — oscillating field sources, day/night
+        cycles, tidal patterns, periodic resource availability.
+
+    selection_environments:
+      - sinusoidal_field_sources  # already present in current sim
+      - periodic_danger_zones
+      - rhythmic_resource_availability
+      - tidal_environments
+
+    unlocks:
+      - anticipatory_positioning
+      - rhythmic_pattern
+      - entrainment
+
+    emergence_signature:
+      description: |
+        Mental model learns temporal delay distributions that peak at the
+        recurrence interval. Action selection shows anticipatory bias —
+        moves before stimulus arrives based on predicted timing.
+      metrics:
+        - metric_name: temporal_delay_clustering
+          measurement_method: |
+            Histogram of learned time delays for recurring stimulus. Should show
+            peak at interval T, not uniform distribution.
+          expected_range: "70-90% of mass within ±20% of true interval"
+          detection_threshold: 0.7
+        - metric_name: anticipatory_action_rate
+          measurement_method: |
+            Proportion of actions that occur 0.5-1.5 intervals BEFORE stimulus,
+            vs actions that occur in response AFTER stimulus appears.
+          expected_range: "30-60% anticipatory"
+          detection_threshold: 0.3
+      statistical_test: |
+        Chi-square test on temporal delay distribution vs uniform null,
+        p < 0.01 for emergence.
+
+    predicted_emergence_order:
+      generation_range: "50-90"
+      confidence: high
+      conditions: |
+        Current simulation already has sinusoidal field sources, so rhythm
+        detection should emerge naturally if temporal association (Step 5)
+        is working correctly.
+
+    failure_modes:
+      - mode: reactive_only
+        signature: |
+          Organism responds to stimulus when present but shows no anticipatory
+          positioning. Temporal delays learned but not used for prediction.
+      - mode: interval_drift
+        signature: |
+          Learned interval drifts over time instead of converging to true period.
+          Indicates temporal association is unstable.
+
+    falsification_criteria: |
+      If rhythm does NOT emerge in current sim with sinusoidal sources by
+      generation 120, temporal association (Step 5) is broken or anticipatory
+      action is not being rewarded by the oracle.
+
+    notes: |
+      This receptor is directly testable in the current implementation.
+      The sinusoidal field sources provide perfect rhythmic structure.
+      If rhythm detection doesn't emerge, it's a falsification signal
+      about the architecture.
+
+    references:
+      - source: "Circadian rhythms in biology"
+        relevance: "Universal presence of rhythm detection in living systems"
+      - source: "Temporal difference learning"
+        relevance: "Computational mechanism for learning temporal predictions"
+
+  - receptor_id: rhythmic_pattern
+    name: Structured Rhythm Detection
+    family: repetition
+    tier: canopy
+
+    dependencies:
+      - receptor_id: rhythm
+        minimum_certainty: 0.6
+      - receptor_id: pattern_recognition
+        minimum_certainty: 0.5
+        note: "Step 12 from roadmap - must recognize patterns in general"
+
+    environmental_trigger:
+      structure: "Rhythm that itself has internal structure (every Nth pulse differs)"
+      survival_benefit: |
+        Predict not just timing but variation within rhythm. Enables discrimination
+        between similar-period rhythms and anticipation of rhythm-breaking events.
+      metabolic_cost: high
+      selection_pressure: |
+        Complex environments where simple rhythm detection is insufficient —
+        rhythms with accents, syncopation, or periodic exceptions.
+
+    selection_environments:
+      - multi_frequency_oscillators
+      - rhythms_with_accents
+      - compound_periodic_events
+
+    unlocks:
+      - nested_rhythm
+      - rhythm_composition
+
+    emergence_signature:
+      description: |
+        Mental model learns patterns OVER rhythmic intervals. Can distinguish
+        [A-A-B] rhythm from [A-B-A] rhythm even when period is same.
+      metrics:
+        - metric_name: pattern_within_rhythm_accuracy
+          measurement_method: |
+            Test whether organism predicts variation within rhythm correctly.
+            Present [A-A-B-A-A-B] pattern, measure if third-step prediction differs.
+          expected_range: "60-85% accuracy on structured vs simple rhythm"
+          detection_threshold: 0.6
+      statistical_test: |
+        Accuracy on structured rhythm prediction vs simple rhythm baseline,
+        paired t-test p < 0.05.
+
+    predicted_emergence_order:
+      generation_range: "100-150"
+      confidence: low
+      conditions: |
+        Requires environment explicitly designed with rhythmic patterns.
+        Unlikely to emerge spontaneously in current sim.
+
+    falsification_criteria: |
+      If this receptor emerges in simple rhythmic environments (where it has
+      no selection advantage), the definition is too loose.
+
+    notes: |
+      This is canopy-tier and requires deliberate environment design to test.
+      Good candidate for later ERTI environmental sweep experiments.
+
+  - receptor_id: nested_rhythm
+    name: Nested Rhythm Detection
+    family: repetition
+    tier: canopy
+
+    dependencies:
+      - receptor_id: rhythmic_pattern
+        minimum_certainty: 0.6
+      - receptor_id: hierarchical_abstraction
+        note: "Must be able to represent hierarchy"
+
+    environmental_trigger:
+      structure: "Rhythms at multiple timescales nested within each other"
+      survival_benefit: |
+        Predict events that occur at intersection of multiple periods.
+        E.g., resource that appears every 3rd pulse of a 5-pulse rhythm.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Natural environments often have nested periodicities (lunar/solar cycles,
+        seasonal/daily patterns). Critical for long-term planning.
+
+    selection_environments:
+      - lunar_solar_cycles
+      - seasonal_daily_patterns
+      - hierarchical_periodic_resources
+
+    unlocks:
+      - long_term_anticipation
+      - calendar_like_prediction
+
+    emergence_signature:
+      description: |
+        Mental model maintains multiple periodic predictions simultaneously and
+        correctly predicts their conjunctions.
+      metrics:
+        - metric_name: multi_scale_prediction_accuracy
+          measurement_method: |
+            Accuracy of predicting events that occur at LCM of two rhythms.
+          expected_range: ">70% for 2-level nesting"
+          detection_threshold: 0.7
+
+    predicted_emergence_order:
+      generation_range: "200-300"
+      confidence: very_low
+      conditions: |
+        Requires multi-timescale environment design. Very far future.
+
+    notes: |
+      This is deep canopy. Included for completeness but not near-term priority.
+
+  - receptor_id: causal_rhythm
+    name: Causally Related Rhythms
+    family: repetition
+    tier: canopy
+
+    dependencies:
+      - receptor_id: rhythm
+        minimum_certainty: 0.7
+      - receptor_id: causal_association
+        minimum_certainty: 0.6
+        note: "Must understand that one rhythm CAUSES another"
+
+    environmental_trigger:
+      structure: "One periodic event reliably causes another with offset"
+      survival_benefit: |
+        Predict secondary rhythms from primary rhythms. Enables longer-range
+        prediction chains (A causes B causes C, all periodic).
+      metabolic_cost: high
+      selection_pressure: |
+        Environments where rhythmic events have causal relationships —
+        predator follows prey in periodic patterns, resource availability
+        triggers agent migration rhythms.
+
+    selection_environments:
+      - predator_prey_oscillations
+      - resource_triggered_migration
+      - cascading_periodic_events
+
+    unlocks:
+      - ecosystem_rhythm_prediction
+      - multi_agent_rhythm_coordination
+
+    emergence_signature:
+      description: |
+        Mental model learns that rhythm B's phase is predicted by rhythm A's phase.
+        Adjusts B-prediction when A-pattern changes.
+      metrics:
+        - metric_name: causal_rhythm_transfer
+          measurement_method: |
+            When rhythm A shifts phase, does prediction of rhythm B shift
+            accordingly within few cycles?
+          expected_range: "Adjustment within 3-5 cycles"
+          detection_threshold: 5
+
+    predicted_emergence_order:
+      generation_range: "150-250"
+      confidence: very_low
+      conditions: |
+        Requires multi-agent environment with rhythmic interactions. Far future.
+
+    notes: |
+      This is the deepest canopy receptor in the family. Represents full
+      understanding of temporal causality in periodic systems.

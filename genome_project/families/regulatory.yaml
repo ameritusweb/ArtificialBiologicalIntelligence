@@ -1,0 +1,566 @@
+# Regulatory Family
+# Receptors for maintaining internal state homeostasis via learned patterns
+
+family_metadata:
+  name: Regulatory
+  description: |
+    Receptors that detect and resolve internal state imbalances — from basic
+    metabolic stress to sophisticated emotional regulation via stored patterns.
+
+    The trunk is detecting that an internal state needs resolution (stress,
+    fatigue, arousal mismatch). The canopy is using learned patterns —
+    rhythms, movements, social synchronization — as automatic regulatory tools.
+
+    This family is distinct because it's about HOMEOSTASIS via LEARNED PATTERNS.
+    Not just "maintain energy" (metabolic, foundation) but "retrieve the song
+    that previously reduced stress and replay it internally."
+
+    The key insight: The same mental model that stores "action X → endorphin"
+    also stores "pattern Y → stress reduction." Emotional regulation isn't a
+    separate system — it's the receptor loop applied to internal states.
+
+  evolutionary_thesis: |
+    Regulatory receptors emerge when internal state management becomes complex
+    enough that simple reflexes are insufficient. Once the organism has pattern
+    recognition and a mental model, stored patterns naturally become regulatory
+    tools — retrieved automatically when states need resolution.
+
+    The progression: detect imbalance → try random actions → discover some
+    actions resolve it → store as pattern → automatically retrieve when state
+    recurs. This is identical to motor learning, just applied to internal states.
+
+  trunk_receptor: stress_detection
+  canopy_receptors: [social_coregulation, ritual_formation, emotional_intelligence]
+
+---
+
+receptors:
+  - receptor_id: stress_detection
+    name: Metabolic/Threat State Detection
+    family: regulatory
+    tier: trunk
+
+    dependencies:
+      - receptor_id: pain
+        note: "Step 1 - basic aversive signal"
+      - receptor_id: fatigue
+        note: "Step 3 - metabolic state"
+      - receptor_id: temporal_association
+        note: "Stress persists across time, not momentary"
+
+    environmental_trigger:
+      structure: |
+        Sustained elevated pain, low energy, or threat-indicating patterns
+        that persist beyond immediate stimulus.
+      survival_benefit: |
+        Distinguish acute threat (flee now) from chronic stress (needs sustained
+        response). Enables different regulatory strategies for different timescales.
+      metabolic_cost: low
+      selection_pressure: |
+        Environments with both acute dangers and sustained challenges where
+        different responses are optimal.
+
+    selection_environments:
+      - sustained_threat_regions
+      - chronic_resource_scarcity
+      - multi_timescale_challenges
+
+    unlocks:
+      - arousal_regulation
+      - pattern_based_resolution
+      - stress_response_differentiation
+
+    emergence_signature:
+      description: |
+        Organism distinguishes sustained elevated state (stress) from momentary
+        spike (acute threat). Different action patterns for each.
+      metrics:
+        - metric_name: temporal_stress_integration
+          measurement_method: |
+            Does organism compute running average or integral of pain/threat
+            over time window, treating it differently from peak pain?
+          expected_range: "Distinct actions when integral high vs peak high"
+          detection_threshold: 0.6
+
+    predicted_emergence_order:
+      generation_range: "15-35"
+      confidence: high
+      conditions: |
+        Environments with both acute and chronic stressors.
+
+    notes: |
+      This is the foundation of the regulatory family. Detecting that internal
+      state needs sustained management, not just immediate escape response.
+
+  - receptor_id: arousal_regulation
+    name: Arousal Level Optimization
+    family: regulatory
+    tier: trunk
+
+    dependencies:
+      - receptor_id: stress_detection
+        minimum_certainty: 0.5
+      - receptor_id: fatigue
+        note: "Step 3"
+
+    environmental_trigger:
+      structure: |
+        Different tasks/contexts require different arousal levels. Too low
+        (fatigue) → poor performance. Too high (panic) → poor performance.
+        Optimal is context-dependent.
+      survival_benefit: |
+        Match arousal to task demands. High arousal for escape, moderate for
+        exploration, low for rest. Mismatch is costly.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments with varied task demands where arousal-task mismatch
+        produces poor outcomes.
+
+    selection_environments:
+      - variable_danger_levels
+      - exploration_exploitation_tradeoffs
+      - energy_management_critical
+
+    unlocks:
+      - self_soothing
+      - arousal_modulation
+      - context_appropriate_activation
+
+    emergence_signature:
+      description: |
+        Organism modulates arousal (observable via action rate, exploration,
+        risk-taking) to match context demands. Low in safe regions, high near
+        danger, moderate in exploration.
+      metrics:
+        - metric_name: arousal_context_match
+          measurement_method: |
+            Correlation between environmental danger/complexity and organism's
+            action diversity/rate.
+          expected_range: "r > 0.5"
+          detection_threshold: 0.5
+
+    predicted_emergence_order:
+      generation_range: "40-80"
+      confidence: medium
+      conditions: |
+        Requires environment with clear arousal optima per context.
+
+    notes: |
+      This is the trunk receptor for all higher emotional regulation. Before
+      you can regulate via patterns, you need to detect arousal mismatch.
+
+  - receptor_id: pattern_based_resolution
+    name: Stored Patterns as Regulatory Tools
+    family: regulatory
+    tier: branch
+
+    dependencies:
+      - receptor_id: stress_detection
+        minimum_certainty: 0.6
+      - receptor_id: pattern_recognition
+        minimum_certainty: 0.7
+        note: "Step 12 - must recognize recurring patterns"
+      - receptor_id: rhythm
+        note: "Repetition family - rhythmic patterns especially effective"
+
+    environmental_trigger:
+      structure: |
+        Organism discovers that certain actions or internal simulations
+        (rhythmic patterns, stored sequences) reliably reduce stress or
+        normalize arousal when executed or mentally replayed.
+      survival_benefit: |
+        Automatic stress reduction via cached patterns. No need to discover
+        solution each time — retrieve what worked before. Metabolically cheaper
+        than exploration.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments with recurring stress conditions where pattern-based
+        resolution is faster/cheaper than problem-solving each time.
+
+    selection_environments:
+      - recurring_stress_scenarios
+      - predictable_challenges
+      - social_regulation_opportunities
+
+    unlocks:
+      - self_soothing
+      - song_replay_phenomenon
+      - ritual_formation
+      - emotional_regulation
+
+    emergence_signature:
+      description: |
+        Mental model stores mappings: pattern X → stress reduction. When stress
+        recurs, organism retrieves and executes/simulates patterns that previously
+        worked. Observable as repeated actions or "internal replay" (measurable
+        via action sequence predictions that don't execute).
+      metrics:
+        - metric_name: pattern_stress_correlation
+          measurement_method: |
+            Does organism show increased pattern retrieval/execution when stress
+            is moderate (high enough to need regulation, low enough for non-escape
+            responses)?
+          expected_range: ">50% pattern use when stress in 0.3-0.7 range"
+          detection_threshold: 0.5
+        - metric_name: regulatory_pattern_efficacy
+          measurement_method: |
+            Do retrieved patterns actually reduce stress? Measure stress delta
+            after pattern execution vs random action.
+          expected_range: "Pattern execution reduces stress 1.5-3x vs random"
+          detection_threshold: 1.5
+
+    predicted_emergence_order:
+      generation_range: "60-120"
+      confidence: medium
+      conditions: |
+        Requires Step 12 (pattern recognition) to be operational and environment
+        with recurring stress patterns.
+
+    failure_modes:
+      - mode: maladaptive_pattern_fixation
+        signature: |
+          Organism retrieves patterns that previously worked but no longer do
+          (environment changed). Pattern persists despite inefficacy.
+      - mode: pattern_overgeneralization
+        signature: |
+          Organism applies same regulatory pattern to all stress states, even
+          when different patterns would be more effective for different types.
+
+    falsification_criteria: |
+      If pattern-based resolution does NOT emerge in environments where stress
+      is recurring and patterns are available, then either pattern recognition
+      (Step 12) is not connecting to regulatory pathways or stress detection
+      is not recruiting mental model retrieval.
+
+    notes: |
+      THIS IS THE KEY RECEPTOR FROM USER OBSERVATION.
+      Explains song replay in humans: stress receptor fires → mental model
+      retrieves song that previously reduced stress → song replays internally
+      (simulated action) → predicted stress reduction.
+
+      Testable in current sim by measuring whether organisms develop "comfort
+      actions" — specific action sequences that get repeated when stress is
+      moderate but escape isn't immediately needed.
+
+  - receptor_id: rhythm_entrainment
+    name: External Rhythm Synchronization
+    family: regulatory
+    tier: branch
+
+    dependencies:
+      - receptor_id: rhythm
+        minimum_certainty: 0.7
+        note: "Repetition family"
+      - receptor_id: arousal_regulation
+        minimum_certainty: 0.6
+
+    environmental_trigger:
+      structure: |
+        External rhythmic patterns (environmental oscillations, other organisms'
+        rhythmic actions) that the organism can synchronize with.
+      survival_benefit: |
+        External rhythms can entrain internal state. Synchronizing with optimal
+        rhythm regulates arousal without internal computation cost.
+      metabolic_cost: low
+      selection_pressure: |
+        Environments with reliable rhythmic structure where entrainment produces
+        better arousal regulation than self-generated patterns.
+
+    selection_environments:
+      - strong_environmental_rhythms
+      - social_rhythmic_behavior
+      - cyclical_environmental_dynamics
+
+    unlocks:
+      - circadian_synchronization
+      - social_synchrony
+      - group_coordination
+
+    emergence_signature:
+      description: |
+        Organism's action patterns synchronize with external rhythms. Arousal
+        stabilizes when synchronized, destabilizes when out of phase.
+      metrics:
+        - metric_name: rhythm_synchronization
+          measurement_method: |
+            Phase-locking between organism's actions and external rhythm.
+          expected_range: "Phase coherence > 0.6"
+          detection_threshold: 0.6
+
+    predicted_emergence_order:
+      generation_range: "70-130"
+      confidence: low
+      conditions: |
+        Requires environment with clear rhythmic structure and measurable
+        benefit from synchronization.
+
+    notes: |
+      This is the foundation for circadian rhythms and social synchronization.
+      External rhythm as regulatory scaffold.
+
+  - receptor_id: self_soothing
+    name: Internally-Generated Regulatory Patterns
+    family: regulatory
+    tier: branch
+
+    dependencies:
+      - receptor_id: pattern_based_resolution
+        minimum_certainty: 0.7
+      - receptor_id: arousal_regulation
+        minimum_certainty: 0.6
+
+    environmental_trigger:
+      structure: |
+        Organism generates patterns internally (not triggered by external stimulus)
+        specifically for regulatory purposes. Self-directed calming.
+      survival_benefit: |
+        Regulate stress/arousal in absence of external regulatory scaffolds.
+        Independent emotional regulation.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments where stress occurs but external regulatory resources
+        (rhythms, social support) are absent or unreliable.
+
+    selection_environments:
+      - isolated_environments
+      - unpredictable_social_support
+      - high_stress_low_support
+
+    unlocks:
+      - independent_regulation
+      - meditation_like_behavior
+      - self_comfort
+
+    emergence_signature:
+      description: |
+        Organism performs regulatory patterns (rhythmic actions, stored sequences)
+        in absence of external stimulus, specifically when stress is elevated.
+        Distinguishable from exploration or goal-directed action.
+      metrics:
+        - metric_name: spontaneous_regulatory_action
+          measurement_method: |
+            Proportion of actions that match regulatory patterns (previously
+            associated with stress reduction) when no external goal is present
+            but stress is elevated.
+          expected_range: ">30% when stress moderate, <10% when stress low"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "100-180"
+      confidence: low
+      conditions: |
+        Requires isolation or unreliable external support and recurring stress.
+
+    notes: |
+      This is where regulation becomes self-directed. The organism learns
+      "I can soothe myself by doing X" and does so proactively.
+
+  - receptor_id: social_coregulation
+    name: Mutual State Regulation
+    family: regulatory
+    tier: canopy
+
+    dependencies:
+      - receptor_id: receptor_propagation
+        note: "Step 22 - empathy, one-directional"
+      - receptor_id: pattern_based_resolution
+        minimum_certainty: 0.7
+      - receptor_id: intentional_signaling
+        note: "Step 23"
+
+    environmental_trigger:
+      structure: |
+        Another organism's regulatory patterns (rhythm, movement, vocalization)
+        affect focal organism's stress/arousal. Mutual synchronization reduces
+        both organisms' dysregulation.
+      survival_benefit: |
+        Shared regulation is cheaper than independent. Group synchronization
+        (dancing, chanting, rhythmic movement) regulates all participants
+        simultaneously. Social bonds strengthened through coregulation.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Social environments where group regulation is more effective than
+        solitary regulation. Especially valuable under shared stress.
+
+    selection_environments:
+      - multi_organism_social_groups
+      - shared_threat_scenarios
+      - cooperative_environments
+
+    unlocks:
+      - group_synchronization
+      - social_bonding_via_rhythm
+      - emotional_contagion_bidirectional
+      - communal_rituals
+
+    emergence_signature:
+      description: |
+        Organism's stress reduces when exposed to another organism performing
+        regulatory patterns. Synchronization emerges spontaneously when both
+        organisms stressed. Observable as phase-locked rhythmic actions across
+        organisms.
+      metrics:
+        - metric_name: mutual_stress_reduction
+          measurement_method: |
+            Does stress decrease faster when both organisms engage in synchronized
+            patterns vs solitary regulation?
+          expected_range: "1.5-3x faster reduction with synchronization"
+          detection_threshold: 1.5
+        - metric_name: spontaneous_synchronization
+          measurement_method: |
+            When two stressed organisms are proximate, do they spontaneously
+            synchronize rhythmic actions?
+          expected_range: ">60% synchronization when both stressed"
+          detection_threshold: 0.6
+
+    predicted_emergence_order:
+      generation_range: "150-250"
+      confidence: low
+      conditions: |
+        Requires multi-organism environment with shared stress and observable
+        regulatory patterns.
+
+    failure_modes:
+      - mode: contagion_without_regulation
+        signature: |
+          Organisms synchronize but stress propagates rather than reduces.
+          Mutual amplification instead of mutual soothing.
+
+    falsification_criteria: |
+      If social coregulation does NOT emerge in social environments with shared
+      stress, then either empathy (Step 22) is insufficient for bidirectional
+      influence or pattern_based_resolution doesn't generalize to social context.
+
+    notes: |
+      THIS EXPLAINS UNIVERSAL HUMAN BEHAVIORS:
+      - Why music is social (shared regulation scaffold)
+      - Why dancing synchronizes groups (mutual entrainment)
+      - Why chanting, marching, rituals are universal (group regulatory tools)
+      - Why isolation is stressful (loss of coregulation pathway)
+      - Why mother's heartbeat soothes infant (rhythm entrainment)
+
+      Biological precedent: synchronized breathing in mother-infant pairs,
+      group drumming across all cultures, synchronized movement in flocking/
+      schooling animals (though those may be simpler mechanisms).
+
+  - receptor_id: ritual_formation
+    name: Pattern Stabilization as Ritual
+    family: regulatory
+    tier: canopy
+
+    dependencies:
+      - receptor_id: pattern_based_resolution
+        minimum_certainty: 0.8
+      - receptor_id: social_coregulation
+        minimum_certainty: 0.6
+      - receptor_id: value_hierarchy
+        note: "Meta-Motivational - stable priorities"
+
+    environmental_trigger:
+      structure: |
+        Regulatory patterns that work reliably become standardized, repeated
+        precisely, and socially shared. "This specific sequence in this specific
+        way" becomes a ritual.
+      survival_benefit: |
+        Ritualization ensures regulatory efficacy (exact pattern that worked
+        before). Social transmission of effective rituals accelerates regulatory
+        capability across group.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Social environments where ritual precision matters for efficacy and
+        where cultural transmission of regulatory tools is possible.
+
+    selection_environments:
+      - stable_social_groups
+      - cultural_transmission_capable
+      - recurring_shared_stressors
+
+    unlocks:
+      - cultural_regulatory_practices
+      - tradition_formation
+      - sacred_behavior
+
+    emergence_signature:
+      description: |
+        Regulatory patterns become stereotyped (low variance). Same sequence
+        repeated precisely across contexts and organisms. Deviations corrected
+        socially.
+      metrics:
+        - metric_name: pattern_stereotypy
+          measurement_method: |
+            Variance in regulatory pattern execution over time. Low variance =
+            ritualization.
+          expected_range: "σ < 0.15 for ritualized vs σ > 0.4 for non-ritual"
+          detection_threshold: 0.15
+
+    predicted_emergence_order:
+      generation_range: "250-400"
+      confidence: very_low
+      conditions: |
+        Requires stable social groups with cultural transmission. Very far future.
+
+    notes: |
+      This is where regulatory patterns become rituals. The transition from
+      "this pattern helps" to "this exact pattern performed this exact way
+      is sacred/essential."
+
+  - receptor_id: emotional_intelligence
+    name: Model of Others' Regulatory States
+    family: regulatory
+    tier: canopy
+
+    dependencies:
+      - receptor_id: theory_of_mind
+        note: "Social family"
+      - receptor_id: social_coregulation
+        minimum_certainty: 0.7
+      - receptor_id: pattern_based_resolution
+        minimum_certainty: 0.7
+
+    environmental_trigger:
+      structure: |
+        Organism models not just what other organisms will do (theory of mind)
+        but what regulatory state they're in and what patterns would help
+        regulate them.
+      survival_benefit: |
+        Can provide appropriate regulatory support to others. Strengthens
+        cooperation, enables caregiving, improves group cohesion.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Social environments where helping others regulate produces reciprocal
+        benefits or offspring survival advantages.
+
+    selection_environments:
+      - cooperative_groups
+      - parental_care_scenarios
+      - reciprocal_support_networks
+
+    unlocks:
+      - empathic_regulation
+      - caregiving
+      - emotional_support
+
+    emergence_signature:
+      description: |
+        Organism adjusts its own regulatory patterns based on another organism's
+        state, even when own state is regulated. Provides regulatory support
+        (calming, energizing) context-appropriately.
+      metrics:
+        - metric_name: other_directed_regulation
+          measurement_method: |
+            Does organism perform regulatory patterns when another is stressed
+            but self is not?
+          expected_range: ">40% when other stressed, self calm"
+          detection_threshold: 0.4
+
+    predicted_emergence_order:
+      generation_range: "300-500"
+      confidence: very_low
+      conditions: |
+        Requires theory of mind, stable social groups, reciprocal support
+        benefits. Extremely far future.
+
+    notes: |
+      This is the apex of the regulatory family. Not just regulating self,
+      not just mutual regulation, but deliberately regulating others' states.
+      The foundation of emotional caregiving and support.

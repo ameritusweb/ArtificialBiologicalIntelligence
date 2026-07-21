@@ -1,0 +1,491 @@
+# Similarity Family
+# Receptors for detecting equivalence and resemblance across perceptual and abstract dimensions
+
+family_metadata:
+  name: Similarity
+  description: |
+    Receptors that detect when two things are "the same" or "alike" across
+    various dimensions — from perceptual feature matching to deep structural
+    equivalence despite surface differences.
+
+    The trunk is noticing that two stimuli share features. The canopy is
+    recognizing that two relationships have the same structure even when
+    the entities involved are completely different.
+
+    This family is foundational because categorization, generalization, and
+    transfer learning all depend on similarity detection. The metabolic benefit
+    is compression — treat similar things similarly, reducing the memory and
+    computation load.
+
+  evolutionary_thesis: |
+    Similarity detection enables generalization. An organism that recognizes
+    "this is like that" can apply prior learning to novel situations, reducing
+    the cost of learning from scratch. The compression receptor fires when
+    similarity is detected because similar things can be represented more
+    efficiently than treating each as unique.
+
+  trunk_receptor: perceptual_similarity
+  canopy_receptors: [analogical_similarity, structural_invariance]
+
+---
+
+receptors:
+  - receptor_id: perceptual_similarity
+    name: Feature-Based Similarity Detection
+    family: similarity
+    tier: trunk
+
+    dependencies:
+      - receptor_id: static_repetition
+        minimum_certainty: 0.4
+        note: "Must recognize that things recur"
+      - receptor_id: basic_sensorimotor_loop
+
+    environmental_trigger:
+      structure: "Two stimuli share perceptual features (location, intensity, shape)"
+      survival_benefit: |
+        Generalization from one instance to similar instances. If stimulus A
+        caused pain, stimuli similar to A are also likely dangerous. Reduces
+        learning cost by transferring knowledge.
+      metabolic_cost: low
+      selection_pressure: |
+        Any environment with feature-based structure. Stimuli that look/feel
+        similar tend to have similar consequences.
+
+    selection_environments:
+      - feature_correlated_outcomes
+      - clustered_similar_sources
+      - intensity_gradient_fields
+
+    unlocks:
+      - generalization
+      - categorical_perception
+      - functional_similarity
+
+    emergence_signature:
+      description: |
+        Mental model certainty transfers from observed stimulus to similar
+        unobserved stimuli. Action selection treats similar contexts similarly.
+        Contrastive encoder learns metric where similar outcomes → similar embeddings.
+      metrics:
+        - metric_name: certainty_transfer
+          measurement_method: |
+            Measure certainty for stimulus B after experiencing similar stimulus A.
+            Should exceed baseline certainty for unrelated stimulus C.
+          expected_range: "1.5-3.0x higher than unrelated baseline"
+          detection_threshold: 1.5
+        - metric_name: generalization_accuracy
+          measurement_method: |
+            Test organism on stimuli similar to training set but not identical.
+            Accuracy should remain high (>70% of training accuracy).
+          expected_range: ">70% of training accuracy"
+          detection_threshold: 0.7
+      statistical_test: |
+        Paired t-test: certainty for similar vs dissimilar novel stimuli,
+        p < 0.01.
+
+    predicted_emergence_order:
+      generation_range: "10-25"
+      confidence: very_high
+      conditions: |
+        Should emerge immediately once contrastive encoder (Step 10) is
+        functioning. The encoder's entire purpose is learning perceptual
+        similarity in outcome-relevant ways.
+
+    failure_modes:
+      - mode: overgeneralization
+        signature: |
+          Organism treats dissimilar things as similar. False positive similarity
+          detection leading to incorrect predictions.
+      - mode: undergeneralization
+        signature: |
+          Organism fails to transfer learning to genuinely similar contexts.
+          Learns each instance independently despite shared features.
+
+    falsification_criteria: |
+      If perceptual similarity does NOT emerge once contrastive encoder is
+      trained, the encoder is fundamentally broken — it should learn similarity
+      by construction.
+
+    notes: |
+      This is ALREADY PRESENT in the current implementation. The contrastive
+      encoder in Step 10 explicitly learns similarity — contexts with similar
+      outcomes are pulled together in embedding space. This receptor is
+      implicit in the architecture.
+
+  - receptor_id: functional_similarity
+    name: Outcome-Based Similarity Detection
+    family: similarity
+    tier: branch
+
+    dependencies:
+      - receptor_id: perceptual_similarity
+        minimum_certainty: 0.6
+      - receptor_id: causal_association
+        minimum_certainty: 0.5
+        note: "Must understand action→outcome relationships"
+
+    environmental_trigger:
+      structure: |
+        Two stimuli that look different but produce similar outcomes when
+        acted upon.
+      survival_benefit: |
+        Recognize functional equivalence despite surface differences. Multiple
+        paths to same goal. Enables flexible problem-solving and alternative
+        strategies.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments where multiple distinct stimuli afford similar actions.
+        Different food sources with same nutritional value, different escape
+        routes with same safety outcome.
+
+    selection_environments:
+      - multiple_equivalent_resources
+      - redundant_escape_routes
+      - functionally_similar_objects
+
+    unlocks:
+      - functional_categorization
+      - alternative_strategy_selection
+      - structural_similarity
+
+    emergence_signature:
+      description: |
+        Mental model clusters actions by outcome similarity even when the
+        stimuli differ perceptually. Action family discovery (Step 10) groups
+        perceptually different actions that produce similar receptor deltas.
+      metrics:
+        - metric_name: functional_clustering
+          measurement_method: |
+            Action families in mental model should cluster by outcome profile,
+            not by action bit-pattern similarity.
+          expected_range: "Outcome-based clustering > 0.7 correlation"
+          detection_threshold: 0.7
+        - metric_name: alternative_strategy_rate
+          measurement_method: |
+            When preferred action is blocked, does organism switch to
+            functionally similar alternative vs unrelated action?
+          expected_range: ">60% functional alternatives chosen"
+          detection_threshold: 0.6
+
+    predicted_emergence_order:
+      generation_range: "40-70"
+      confidence: medium
+      conditions: |
+        Action family discovery (Step 10) provides foundation. Should emerge
+        when environment has multiple paths to same outcome.
+
+    failure_modes:
+      - mode: perceptual_dominance
+        signature: |
+          Organism groups by perceptual similarity even when outcomes differ.
+          Fails to recognize functional equivalence across surface differences.
+
+    falsification_criteria: |
+      If functional similarity emerges before perceptual similarity, the
+      definition is wrong — functional grouping requires prior ability to
+      distinguish features.
+
+    notes: |
+      Action family discovery in Step 10 is exactly this receptor. Actions
+      are grouped by outcome profile, not by bit-pattern. This receptor is
+      already implicitly present in the current architecture.
+
+  - receptor_id: structural_similarity
+    name: Relational Structure Matching
+    family: similarity
+    tier: branch
+
+    dependencies:
+      - receptor_id: functional_similarity
+        minimum_certainty: 0.6
+      - receptor_id: pattern_recognition
+        minimum_certainty: 0.6
+        note: "Step 12 - must recognize patterns"
+
+    environmental_trigger:
+      structure: |
+        Two situations have the same relational structure even though the
+        entities involved are different. E.g., "A larger than B" pattern
+        recognized across different A's and B's.
+      survival_benefit: |
+        Transfer knowledge about relationships. Recognize strategic situations
+        (dominance, cooperation, conflict) across different actors and contexts.
+      metabolic_cost: high
+      selection_pressure: |
+        Complex environments with recurring relational patterns. Especially
+        important for social reasoning (power dynamics, alliances) and
+        multi-entity navigation.
+
+    selection_environments:
+      - multi_agent_relational_dynamics
+      - hierarchical_spatial_structures
+      - game_theoretic_situations
+
+    unlocks:
+      - relational_generalization
+      - strategy_transfer
+      - analogical_similarity
+
+    emergence_signature:
+      description: |
+        Mental model recognizes that patterns of relationships (not just
+        patterns of features) recur. Transfers relationship-based predictions
+        across different entity sets.
+      metrics:
+        - metric_name: relational_transfer_accuracy
+          measurement_method: |
+            Learn relational pattern with entities {A,B}. Test transfer to
+            entities {C,D} where relationship is same but entities are different.
+          expected_range: ">60% transfer accuracy"
+          detection_threshold: 0.6
+
+    predicted_emergence_order:
+      generation_range: "80-150"
+      confidence: low
+      conditions: |
+        Requires environment with explicit relational structure. Current sim
+        doesn't have this unless multi-agent interactions create it.
+
+    notes: |
+      This is where similarity becomes abstract. Not "these things look alike"
+      but "these relationships have the same structure." Probably requires
+      multi-agent environment to test properly.
+
+  - receptor_id: analogical_similarity
+    name: Analogical Mapping
+    family: similarity
+    tier: canopy
+
+    dependencies:
+      - receptor_id: structural_similarity
+        minimum_certainty: 0.7
+      - receptor_id: abstract_association
+        note: "From association family"
+
+    environmental_trigger:
+      structure: |
+        Deep structural equivalence: A is to B as C is to D, even when
+        A,B,C,D share no perceptual features.
+      survival_benefit: |
+        Maximal knowledge transfer. Solve problems in domain X by recognizing
+        they're structurally identical to solved problems in domain Y.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Environments where novel problems regularly arise that are structurally
+        similar to known problems in distant domains.
+
+    selection_environments:
+      - cross_domain_problem_transfer
+      - tool_use_by_analogy
+      - social_strategy_by_analogy
+
+    unlocks:
+      - analogical_reasoning
+      - metaphorical_thinking
+      - creative_problem_solving
+
+    emergence_signature:
+      description: |
+        Organism solves novel problem by mapping its structure onto known
+        problem in different domain and transferring solution.
+      metrics:
+        - metric_name: cross_domain_transfer
+          measurement_method: |
+            Success rate on novel problems structurally similar to solved
+            problems in perceptually distant domain.
+          expected_range: ">70% vs <20% random"
+          detection_threshold: 0.7
+
+    predicted_emergence_order:
+      generation_range: "200-400"
+      confidence: very_low
+      conditions: |
+        Requires sophisticated multi-domain environment. Very far future.
+
+    notes: |
+      This is the apex of similarity detection. This is where "similar" becomes
+      entirely abstract — structural isomorphism independent of any shared
+      features. Foundation for metaphorical reasoning and creative transfer.
+
+  - receptor_id: categorical_perception
+    name: Category-Based Perceptual Warping
+    family: similarity
+    tier: branch
+
+    dependencies:
+      - receptor_id: perceptual_similarity
+        minimum_certainty: 0.6
+      - receptor_id: pattern_recognition
+        minimum_certainty: 0.5
+
+    environmental_trigger:
+      structure: |
+        Stimuli cluster into natural categories with graded membership.
+        Within-category differences are compressed, between-category
+        differences are exaggerated.
+      survival_benefit: |
+        Fast categorization. Treat category members as equivalent for rapid
+        decision-making. Sharpen boundaries between important categories
+        (safe vs dangerous, food vs non-food).
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments with clear category structure where fine distinctions
+        within categories don't matter but between-category distinctions
+        are critical.
+
+    selection_environments:
+      - discrete_stimulus_classes
+      - predator_prey_categorization
+      - resource_type_categorization
+
+    unlocks:
+      - rapid_categorization
+      - prototype_formation
+      - category_based_inference
+
+    emergence_signature:
+      description: |
+        Contrastive encoder exaggerates distances between clusters, compresses
+        distances within clusters. Action selection shows discrete category
+        boundaries even when stimulus space is continuous.
+      metrics:
+        - metric_name: within_vs_between_category_distance
+          measurement_method: |
+            Ratio of embedding distance between-category to within-category.
+            Should exceed distance ratio in raw stimulus space.
+          expected_range: "1.5-3.0x exaggeration"
+          detection_threshold: 1.5
+        - metric_name: boundary_sharpness
+          measurement_method: |
+            Measure action selection discontinuity at category boundaries.
+          expected_range: ">70% change across boundary"
+          detection_threshold: 0.7
+
+    predicted_emergence_order:
+      generation_range: "50-100"
+      confidence: medium
+      conditions: |
+        Requires environment with clear category structure. May emerge naturally
+        if pain vs endorphin sources form distinct clusters.
+
+    failure_modes:
+      - mode: oversharpening
+        signature: |
+          Category boundaries become too rigid. Organism fails to respond to
+          graded differences within categories that actually matter.
+
+    notes: |
+      This is the perceptual consequence of compression (Step 12). Categories
+      are compressed patterns. The same receptor that rewards pattern discovery
+      should drive categorical perception.
+
+  - receptor_id: prototype_formation
+    name: Prototype Abstraction
+    family: similarity
+    tier: canopy
+
+    dependencies:
+      - receptor_id: categorical_perception
+        minimum_certainty: 0.7
+      - receptor_id: pattern_recognition
+        minimum_certainty: 0.7
+
+    environmental_trigger:
+      structure: |
+        Category has a central tendency (prototype) with members varying
+        in distance from prototype.
+      survival_benefit: |
+        Efficient category representation. Store prototype rather than all
+        exemplars. Fast categorization by distance to prototype.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments with graded category structure where prototype captures
+        most important category information.
+
+    selection_environments:
+      - graded_category_environments
+      - prototype_based_generalization
+
+    unlocks:
+      - prototype_based_reasoning
+      - typicality_judgments
+      - concept_abstraction
+
+    emergence_signature:
+      description: |
+        Mental model learns category prototypes. Novel stimuli categorized
+        by similarity to prototype. Typical exemplars processed faster than
+        atypical ones.
+      metrics:
+        - metric_name: prototype_preference
+          measurement_method: |
+            Certainty and reaction time for typical vs atypical category members.
+          expected_range: "Typical 20-40% faster/higher certainty"
+          detection_threshold: 0.2
+
+    predicted_emergence_order:
+      generation_range: "100-180"
+      confidence: low
+      conditions: |
+        Requires graded category structure in environment. Far future.
+
+    notes: |
+      This is deep canopy. Represents abstract concept formation — storing
+      the essence of a category independent of specific exemplars.
+
+  - receptor_id: structural_invariance
+    name: Invariance Detection
+    family: similarity
+    tier: canopy
+
+    dependencies:
+      - receptor_id: structural_similarity
+        minimum_certainty: 0.7
+      - receptor_id: dynamic_repetition
+        note: "From repetition family"
+
+    environmental_trigger:
+      structure: |
+        Some property remains invariant across transformations. E.g., an object's
+        identity persists across position, rotation, scale changes.
+      survival_benefit: |
+        Object recognition under transformation. Track entities across changes
+        in appearance. Critical for navigation and predator/prey tracking.
+      metabolic_cost: high
+      selection_pressure: |
+        Dynamic environments where important features transform but maintain
+        identity. Moving objects, changing lighting, varying perspectives.
+
+    selection_environments:
+      - moving_objects_with_identity
+      - transformation_invariant_features
+      - multi_perspective_environments
+
+    unlocks:
+      - object_permanence_under_transformation
+      - perspective_invariance
+      - abstract_feature_detection
+
+    emergence_signature:
+      description: |
+        Mental model recognizes same entity across transformations. Certainty
+        transfers from observed transformation to predicted transformations.
+      metrics:
+        - metric_name: transformation_invariance
+          measurement_method: |
+            Recognition accuracy for objects under novel transformations
+            (position, scale, rotation).
+          expected_range: ">75% accuracy"
+          detection_threshold: 0.75
+
+    predicted_emergence_order:
+      generation_range: "150-250"
+      confidence: very_low
+      conditions: |
+        Requires environment with transformations. Very far future.
+
+    notes: |
+      This is the deepest receptor in the similarity family. Represents
+      understanding of abstract invariants — what stays the same when
+      everything else changes. Foundation for object-oriented cognition.

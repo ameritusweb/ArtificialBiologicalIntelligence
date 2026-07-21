@@ -1,0 +1,449 @@
+# Agency Family
+# Receptors for exercising control, manipulating environment, and extending causal reach
+
+family_metadata:
+  name: Agency
+  description: |
+    Receptors that enable organisms to actively shape their world rather than
+    merely navigate it. From recognizing "I caused that change" to deliberately
+    engineering environments that favor future survival.
+
+    The trunk is detecting controllability. The canopy is niche construction —
+    changing the environment in ways that change what you become.
+
+    This family is distinct from Causality (understanding cause-effect) because
+    it's about EXERCISING agency, not just understanding it. The difference
+    between knowing "A causes B" and being motivated to produce A to get B.
+
+  evolutionary_thesis: |
+    Agency emerges when organisms can reshape their environment and when
+    reshaping produces greater survival benefit than navigating existing
+    structure. The metabolic cost is the effort of manipulation. The benefit
+    is persistent environmental improvement.
+
+    This family requires certain prerequisites (self-model, causal reasoning)
+    but represents a qualitatively different cognitive capability: transforming
+    the world rather than adapting to it.
+
+  trunk_receptor: controllability
+  canopy_receptors: [niche_construction, distributed_agency]
+
+---
+
+receptors:
+  - receptor_id: controllability
+    name: Self-Caused vs External Discrimination
+    family: agency
+    tier: trunk
+
+    dependencies:
+      - receptor_id: temporal_association
+        minimum_certainty: 0.6
+      - receptor_id: self_model
+        note: "Step 17 from roadmap - efference copy + proprioception"
+
+    environmental_trigger:
+      structure: |
+        Organism's actions produce observable changes distinct from
+        environmental dynamics.
+      survival_benefit: |
+        Distinguish self-caused changes from external events. Enables credit
+        assignment and learning which actions produce which outcomes.
+      metabolic_cost: low
+      selection_pressure: |
+        Any environment where organism's actions have consequences. Required
+        for intentional behavior.
+
+    selection_environments:
+      - any_actionable_environment
+
+    unlocks:
+      - intentional_action
+      - agency_salience
+      - environmental_manipulation
+
+    emergence_signature:
+      description: |
+        Mental model separates predicted self-caused delta from actual delta.
+        Controllability metric = ||self_caused|| / ||actual||. High when organism
+        dominates dynamics, low when environment dominates.
+      metrics:
+        - metric_name: causal_decomposition_accuracy
+          measurement_method: |
+            Compare predicted self-caused change to actual change. Organism
+            should accurately decompose observed change into self vs external.
+          expected_range: "0.6-0.9 correlation"
+          detection_threshold: 0.6
+
+    predicted_emergence_order:
+      generation_range: "25-50"
+      confidence: very_high
+      conditions: |
+        Step 17 from roadmap. Already implemented.
+
+    notes: |
+      FOUNDATION RECEPTOR - Step 17 from roadmap.
+      Included in Agency family as trunk because all higher agency receptors
+      build on this primitive.
+
+  - receptor_id: agency_salience
+    name: Motivated Control
+    family: agency
+    tier: branch
+
+    dependencies:
+      - receptor_id: controllability
+        minimum_certainty: 0.6
+      - receptor_id: planning
+        minimum_certainty: 0.5
+        note: "Step 18"
+
+    environmental_trigger:
+      structure: |
+        Situations where high controllability contexts produce better outcomes
+        than low controllability contexts.
+      survival_benefit: |
+        Motivates action when control is possible and valuable. Reduces wasted
+        effort when control is low. "I have agency here" becomes a drive, not
+        just a measurement.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments with mixed controllability. Some regions/situations highly
+        responsive to actions, others not. Organisms that focus effort on
+        controllable contexts outperform those that don't.
+
+    selection_environments:
+      - mixed_controllability_regions
+      - tool_use_opportunities
+      - manipulable_obstacles
+
+    unlocks:
+      - selective_intervention
+      - learned_helplessness_avoidance
+      - tool_seeking
+
+    emergence_signature:
+      description: |
+        Organism increases exploration and action selection in high-controllability
+        contexts. Reduces effort in low-controllability contexts. Action rate
+        correlates with controllability metric.
+      metrics:
+        - metric_name: action_controllability_correlation
+          measurement_method: |
+            Correlation between controllability score and action diversity/rate.
+          expected_range: "r > 0.5"
+          detection_threshold: 0.5
+        - metric_name: controllable_context_preference
+          measurement_method: |
+            Does organism preferentially navigate to high-controllability regions?
+          expected_range: ">60% time in high-controllability when available"
+          detection_threshold: 0.6
+
+    predicted_emergence_order:
+      generation_range: "50-100"
+      confidence: medium
+      conditions: |
+        Requires environment with variation in controllability. Current sim
+        may have uniform controllability (all regions equally responsive).
+
+    failure_modes:
+      - mode: learned_helplessness
+        signature: |
+          Organism exposed to prolonged low-controllability contexts stops
+          attempting action even when controllability increases.
+      - mode: control_seeking_bias
+        signature: |
+          Organism overvalues controllability, pursuing control even when
+          outcomes are not valuable.
+
+    notes: |
+      This is the motivational complement to controllability. Controllability
+      measures "did I cause that?" Agency salience makes you WANT to cause things
+      when you can.
+
+  - receptor_id: tool_use
+    name: Instrumental Causation
+    family: agency
+    tier: branch
+
+    dependencies:
+      - receptor_id: controllability
+        minimum_certainty: 0.7
+      - receptor_id: causal_chains
+        note: "From causality family - multi-step causation"
+
+    environmental_trigger:
+      structure: |
+        Objects in environment can be manipulated to extend causal reach.
+        Organism acts on tool, tool acts on target.
+      survival_benefit: |
+        Achieve outcomes otherwise impossible through direct action. Access
+        distant resources, overcome obstacles, amplify force.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments where direct action is insufficient but indirect action
+        via tools is effective. Distant resources, protected food sources,
+        obstacles blocking paths.
+
+    selection_environments:
+      - tool_use_scenarios
+      - indirect_resource_access
+      - lever_based_tasks
+
+    unlocks:
+      - instrumental_reasoning
+      - tool_construction
+      - technology_recursion
+
+    emergence_signature:
+      description: |
+        Mental model learns three-way causal chains: my_action → tool_state →
+        environment_change. Organism uses objects to affect distant targets.
+      metrics:
+        - metric_name: tool_mediated_causation
+          measurement_method: |
+            Proportion of goals achieved via object manipulation vs direct action.
+          expected_range: ">40% when tools available"
+          detection_threshold: 0.4
+
+    predicted_emergence_order:
+      generation_range: "80-150"
+      confidence: low
+      conditions: |
+        Requires environment explicitly designed with tools. Not present in
+        current sim.
+
+    notes: |
+      Tool use is where agency becomes instrumental. Not just "I cause changes"
+      but "I cause X to cause Y to achieve Z."
+
+  - receptor_id: environmental_manipulation
+    name: Persistent Environmental Modification
+    family: agency
+    tier: branch
+
+    dependencies:
+      - receptor_id: tool_use
+        minimum_certainty: 0.6
+      - receptor_id: planning
+        minimum_certainty: 0.7
+      - receptor_id: causal_inference
+
+    environmental_trigger:
+      structure: |
+        Organisms can persistently reshape environmental structure (move
+        obstacles, create paths, modify field sources, build shelters).
+      survival_benefit: |
+        One-time manipulation effort produces persistent benefit. Future
+        navigation easier, resources more accessible, dangers reduced.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Environments where manipulation cost < cumulative benefit over time.
+        Reused paths, persistent obstacles, modifiable structures.
+
+    selection_environments:
+      - modifiable_terrain
+      - persistent_obstacles
+      - buildable_structures
+      - resource_caching
+
+    unlocks:
+      - construction
+      - environmental_engineering
+      - niche_construction
+
+    emergence_signature:
+      description: |
+        Organism takes actions that modify environment state, then exploits
+        those modifications in future episodes. Mental model represents
+        "environment after I change it."
+      metrics:
+        - metric_name: modification_reuse
+          measurement_method: |
+            Does organism return to and benefit from prior modifications?
+          expected_range: ">70% of modifications get reused"
+          detection_threshold: 0.7
+
+    predicted_emergence_order:
+      generation_range: "100-200"
+      confidence: very_low
+      conditions: |
+        Requires persistent modifiable environment. Very far future.
+
+    notes: |
+      This is where agency becomes cumulative. Changes to the world persist
+      and compound over time.
+
+  - receptor_id: niche_construction
+    name: Deliberate Selection Pressure Shaping
+    family: agency
+    tier: canopy
+
+    dependencies:
+      - receptor_id: environmental_manipulation
+        minimum_certainty: 0.7
+      - receptor_id: long_term_planning
+      - receptor_id: theory_of_mind
+        note: "Understanding that environment shapes offspring"
+
+    environmental_trigger:
+      structure: |
+        Organisms can modify environment in ways that change selection
+        pressures for themselves and offspring. Positive feedback: shape
+        world → world shapes you → you shape world better.
+      survival_benefit: |
+        Engineer environment to favor your receptor topology. Create niches
+        where your specific capabilities are fitness-positive.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Environments plastic enough to be reshaped but stable enough for
+        modifications to persist across generations.
+
+    selection_environments:
+      - multi_generation_modifiable
+      - culture_capable_environments
+      - technology_accumulation
+
+    unlocks:
+      - cultural_evolution
+      - technology_transmission
+      - environmental_legacy
+
+    emergence_signature:
+      description: |
+        Organism modifies environment AND those modifications affect what
+        receptors become fitness-positive in future generations. Inheritance
+        of constructed niches, not just receptor topology.
+      metrics:
+        - metric_name: niche_inheritance
+          measurement_method: |
+            Do offspring benefit from parental environmental modifications?
+          expected_range: ">60% fitness gain from inherited niche"
+          detection_threshold: 0.6
+
+    predicted_emergence_order:
+      generation_range: "300-500"
+      confidence: very_low
+      conditions: |
+        Requires multi-generation persistent environment and cultural
+        transmission. Extremely far future.
+
+    notes: |
+      This is the apex of agency. The organism becomes a force shaping its
+      own evolutionary trajectory by reshaping the selection pressures it
+      faces. This is where biology meets culture.
+
+  - receptor_id: distributed_agency
+    name: Control via Other Agents
+    family: agency
+    tier: canopy
+
+    dependencies:
+      - receptor_id: tool_use
+        minimum_certainty: 0.7
+      - receptor_id: theory_of_mind
+        note: "Social family - understanding other agents have goals"
+      - receptor_id: intentional_signaling
+        note: "Step 23 - communication"
+
+    environmental_trigger:
+      structure: |
+        Other agents can be influenced to act in ways that serve focal
+        organism's goals. Social manipulation, cooperation, delegation.
+      survival_benefit: |
+        Extend causal reach through other agents. Achieve goals via others'
+        actions without direct effort.
+      metabolic_cost: high
+      selection_pressure: |
+        Social environments where coordination or manipulation produces
+        greater outcomes than solitary action.
+
+    selection_environments:
+      - cooperative_tasks
+      - social_manipulation_opportunities
+      - division_of_labor
+
+    unlocks:
+      - social_manipulation
+      - cooperation_engineering
+      - leadership
+
+    emergence_signature:
+      description: |
+        Organism achieves goals by causing other agents to take specific
+        actions. Mental model includes "if I signal X, agent Y will do Z,
+        which produces outcome W for me."
+      metrics:
+        - metric_name: other_agent_instrumentalization
+          measurement_method: |
+            Proportion of goals achieved via influencing others vs direct action.
+          expected_range: ">30% when social options available"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "200-400"
+      confidence: very_low
+      conditions: |
+        Requires multi-agent environment with influenceable others. Far future.
+
+    notes: |
+      This is agency applied to social domain. Other organisms become tools
+      for extending your causal reach. Foundation for cooperation, leadership,
+      and social engineering.
+
+  - receptor_id: long_range_causation
+    name: Delayed/Distant Effect Planning
+    family: agency
+    tier: canopy
+
+    dependencies:
+      - receptor_id: planning
+        minimum_certainty: 0.8
+      - receptor_id: causal_chains
+        minimum_certainty: 0.7
+      - receptor_id: environmental_manipulation
+
+    environmental_trigger:
+      structure: |
+        Actions have effects separated by significant time or distance.
+        Organism must reason about causation across these gaps.
+      survival_benefit: |
+        Plan interventions whose benefits appear much later or far away.
+        Seasonal preparation, migration, delayed gratification at scale.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Environments with long-term dynamics or distant resources that require
+        advance planning.
+
+    selection_environments:
+      - seasonal_environments
+      - migration_patterns
+      - delayed_benefit_tasks
+
+    unlocks:
+      - seasonal_planning
+      - future_orientation
+      - legacy_building
+
+    emergence_signature:
+      description: |
+        Mental model chains causal mappings across long delays or distances.
+        Actions taken now for benefits appearing much later/farther.
+      metrics:
+        - metric_name: temporal_planning_horizon
+          measurement_method: |
+            Maximum delay between action and expected benefit that organism
+            still plans for.
+          expected_range: ">100 time steps"
+          detection_threshold: 100
+
+    predicted_emergence_order:
+      generation_range: "150-300"
+      confidence: very_low
+      conditions: |
+        Requires environment with long-term structure. Far future.
+
+    notes: |
+      This is where agency becomes temporally extended. Acting now for
+      effects that appear far in the future. Foundation for civilization-scale
+      planning and environmental stewardship.

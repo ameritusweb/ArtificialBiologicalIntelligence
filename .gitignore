@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+src/data/
+*.zip
+*.pdf
+.claude/

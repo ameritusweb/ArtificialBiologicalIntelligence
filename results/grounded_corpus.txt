@@ -1,0 +1,192 @@
+# Grounded Corpus
+# Generated from the organism's mental model — every statement traces to a receptor state
+
+## Receptor Groups
+
+The organism has 6 pain receptor channel(s) at obs[0:6]. Nociceptive - tissue damage.
+The organism has 6 endorphin receptor channel(s) at obs[6:12]. Reward - beneficial conditions.
+The organism has 6 temperature receptor channel(s) at obs[12:18]. Thermoception - heat/cold.
+The organism has 6 chemical receptor channel(s) at obs[18:24]. Chemoreception - nutrients.
+The organism has 6 pressure receptor channel(s) at obs[24:30]. Mechanoreception - walls/contact.
+The organism has 6 fatigue receptor channel(s) at obs[30:36]. Metabolic load - muscle exhaustion.
+The organism has 1 energy receptor channel(s) at obs[36:37]. Metabolic reserve.
+The organism has 6 temporal_aversion receptor channel(s) at obs[37:43]. Pain memory - recent harm.
+The organism has 6 receptor_gain receptor channel(s) at obs[43:49]. Sensitization/habituation.
+The organism has 25 spatial_memory receptor channel(s) at obs[49:74]. Pain memory grid - where harm was.
+The organism has 8 distant_pain receptor channel(s) at obs[74:82]. Anticipatory - pain ahead.
+The organism has 8 distant_endorphin receptor channel(s) at obs[82:90]. Anticipatory - reward ahead.
+The organism has 6 prediction_error receptor channel(s) at obs[90:96]. Surprise - model was wrong.
+The organism has 4 world_model receptor channel(s) at obs[96:100]. Causal model quality.
+The organism has 2 patterns receptor channel(s) at obs[100:102]. Compressed abstractions.
+The organism has 2 proprioception receptor channel(s) at obs[102:104]. Body state awareness.
+The organism has 6 body_config receptor channel(s) at obs[104:110]. Limb configuration.
+The organism has 22 efference receptor channel(s) at obs[110:132]. Motor command copy.
+The organism has 3 agency receptor channel(s) at obs[132:135]. Self vs environment causation.
+The organism has 6 objects receptor channel(s) at obs[135:141]. Responsive environment.
+The organism has 12 other receptor channel(s) at obs[141:153]. Social - NPC state + signals.
+The organism has 2 optimism receptor channel(s) at obs[153:155]. Goal pursuit - future better than present.
+The organism has 3 conflict receptor channel(s) at obs[155:158]. Motivational tension + prediction.
+The organism has 2 concepts receptor channel(s) at obs[158:160]. Abstract pattern recognition.
+
+## Grounded Terms
+
+### PAIN
+Receptor group: pain (obs[0-5])
+Pain is the activation of nociceptive receptor channels obs[0:5], one per limb tip, firing when limb tips contact pain field sources. It causes temporal_aversion[37:42] to accumulate (recent harm memory), pain_memory[49:73] to deposit spatial records (where harm was), prediction_error[90:95] to spike (surprise when pain was not predicted), and triggers avoidance behavior through the oracle gradient. Pain is not a label. It is the receptor state that changes what the organism does next.
+
+### DANGER
+Receptor group: distant_pain (obs[74-81])
+Danger is predicted future pain. distant_pain[74:81] reads pain field intensity at 8 points ahead of the organism (distance sensing rays). When distant pain exceeds current pain, the organism is moving toward harm it has not yet contacted. Danger triggers emission of signal (1,1,0,0) to warn nearby organisms. The mental model predicts: action X in context Y leads to pain increase. Danger is not the pain itself. It is the causal prediction that pain is coming.
+
+### RELIEF
+Receptor group: endorphin (obs[6-11])
+Relief is the activation of endorphin receptor channels obs[6:11] when limb tips enter endorphin field regions. It causes energy recovery (metabolic reserve increases), temporal_aversion decay (recent harm memory fades), and optimism increase (future looks better than present). Relief is the receptor state that permits the organism to stop fleeing and begin approach. It is what reward means, stated mechanistically.
+
+### SELF
+Receptor group: agency (obs[132-134])
+Self is the controllability decomposition: obs[132] measures how much of the observed change was caused by the organism's own actions (self-caused delta) versus imposed by the environment (external delta). obs[133] is external change. obs[134] is planning value — how much better the chosen action is versus doing nothing. Self is not an entity. It is the causal attribution: some future receptor states are conditional on this controller's output. Agency = controllability > 0.5.
+
+### OTHER
+Receptor group: other (obs[141-152])
+Other is the NPC observation vector: distance[141], bearing[142:143], speed[144], acceleration[145], angular velocity[146], erraticism[147], empathic_aversion[148], and emission bits[149:152]. The organism senses another agent through its behavioral cues — how it moves, how erratically, what signals it emits. Other is not a concept applied to an entity. It is the receptor channels that fire when an autonomous agent is nearby.
+
+### WILL
+Receptor group: optimism (obs[153-154])
+Will is the optimism receptor predicting that future reward exceeds current cost. obs[153] = optimism = clip(best_distant_endorphin - avg_current_pain, 0, 1). obs[154] = goal_persistence = EMA of optimism with 0.95 decay. When goal_persistence > 0.2, the oracle boosts gradient strength by up to 30% and dampens temporal aversion. The organism persists through pain toward predicted reward. Will is not a mysterious faculty. It is the receptor state that makes current cost tolerable because predicted future benefit exceeds it.
+
+### UNCERTAINTY
+Receptor group: prediction_error (obs[90-95])
+Uncertainty is the gap between predicted and actual receptor states. prediction_error[90:95] = |actual_pain - predicted_pain| per limb. When mm_certainty[98] is low, the mental model's predictions are unreliable. predicted_conflict[156] amplifies: conflict * (1 + 0.5 * (1 - certainty)). Uncertainty recruits the slow pathway (deliberation) through the conflict-gated router. Uncertainty is not an abstract epistemic state. It is the receptor reading that says the world model was wrong, which changes how the next cycle processes information.
+
+### CONFLICT
+Receptor group: conflict (obs[155-157])
+Conflict is the simultaneous activation of incompatible receptor pathways. receptor_conflict[155] = min(pain_pressure, reward_pull) + 0.5*(persistence*pain) + 0.3*(empathy*(1-pain)). Three sources: pain vs reward (stay or leave?), optimism vs current pain (persist or retreat?), empathy vs safety (care or flee?). predicted_conflict[156] forecasts whether conflict will worsen. conflict_trend[157] tracks resolution direction. Conflict is not indecision. It is the receptor state where multiple motivations demand incompatible actions simultaneously.
+
+### EMPATHY
+Receptor group: other (obs[148])
+Empathy is empathic_aversion[148] = EMPATHY_WEIGHT * proximity_factor * npc_erraticism. When the NPC is nearby and in distress (high erraticism from rapid turning), the organism's own pain channels are elevated by empathic_aversion * 0.2. The NPC's suffering becomes the organism's pain — not metaphorically but through direct receptor propagation. The organism is motivated to move away from a distressed NPC because the NPC's distress elevates the organism's own nociceptive state.
+
+### OPTIMISM
+Receptor group: optimism (obs[153])
+Optimism is the receptor that fires when predicted future reward exceeds current cost. optimism[153] = clip(max(distant_endorphin) - mean(current_pain), 0, 1). Positive only when the best thing ahead is better than the average pain now. Optimism modulates the oracle: when high, the organism boosts its navigation gradient and dampens pain avoidance. Optimism is not hope. It is the receptor comparison between what the distance sensors read ahead and what the contact sensors read now.
+
+### COMPRESSION
+Receptor group: concepts (obs[158-159])
+Compression is the pattern store producing stable concepts — recurring causal chains that predict more accurately than their individual components. concept_match[158] measures how strongly the current situation matches a known concept. concept_quality[159] measures the compression gain — how much better the compressed prediction is than the uncompressed chain. 1,013 stable concepts emerged from the organism's experience. Compression is the same receptor whether it produces useful abstractions or harmful bias. What gets discarded determines which.
+
+## Signal Vocabulary (Grounded Words)
+
+### danger_signal
+Emission code: [1, 1, 0, 0]
+The emission (1,1,0,0) means "danger/repel." When the organism emits it toward the NPC, the NPC adds a repulsive gradient away from the organism for 15 steps. When the NPC emits it near a pain source, the organism adds repulsive gradient from the NPC's direction. Same code, same meaning, regardless of who emits it. This is a grounded word: it points to the causal relationship "this signal causes the receiver to move away from the sender's location."
+
+### resource_signal
+Emission code: [0, 0, 1, 0]
+The emission (0,0,1,0) means "resource/endorphin." When the organism emits it near a responsive object, the object releases endorphin. When the NPC emits it near an endorphin source, the organism adds attractive gradient toward the NPC. Same code across three contexts: organism->object, organism->NPC, NPC->organism. The word is grounded in the same causal relationship in every context.
+
+## Causal Chains
+
+### 'pain'
+Receptor origin: direct tissue damage signal
+Chain: obs[0:6] (nociceptive input) -> -> temporal_aversion[37:43] -> -> pain_memory[49:74] -> -> prediction_error[90:96]
+
+### 'danger'
+Receptor origin: predicted future pain from distance sensing
+Chain: distant_pain[74:82] (anticipatory) -> -> optimism drops -> -> emission (1,1,0,0) -> -> NPC flees OR NPC warns
+
+### 'relief'
+Receptor origin: endorphin field activation
+Chain: endorphin[6:12] (reward input) -> -> energy recovery -> -> temporal_aversion decays -> -> optimism rises
+
+### 'self'
+Receptor origin: self-model: controllability decomposition
+Chain: proprioception[102:104] (body state) -> -> efference[110:132] (motor commands) -> -> agency[132:135] (controllability vs external) -> -> planning_value (action vs inaction)
+
+### 'other'
+Receptor origin: social sensing: behavioral cues from NPC
+Chain: npc_obs[141:153] (distance, bearing, speed, accel, omega, erratic, emission) -> -> empathic_aversion (receptor propagation) -> -> signal interpretation (danger/resource)
+
+### 'will'
+Receptor origin: optimism receptor: predicted reward exceeds current pain
+Chain: optimism[153] (future > present) -> -> goal_persistence[154] (EMA commitment) -> -> gradient modulation (persist through pain) -> -> action despite current cost
+
+### 'uncertainty'
+Receptor origin: prediction accuracy gap
+Chain: prediction_error[90:96] (model wrong) -> -> mm_certainty[98] (low) -> -> predicted_conflict[156] (amplified by uncertainty) -> -> slow pathway recruitment (deliberation)
+
+### 'conflict'
+Receptor origin: simultaneous incompatible receptor activations
+Chain: receptor_conflict[155] (competing demands) -> -> predicted_conflict[156] (metacognitive forecast) -> -> conflict_trend[157] (resolving or worsening) -> -> arbitration weights shift (context-conditioned)
+
+## Concepts (Top 20)
+
+Concept #0: frequent_pattern (certainty=0.681, compression_gain=0.365, count=567)
+  This concept compresses a recurring 2-step action sequence into a single prediction that is 37% more accurate than chaining the individual steps.
+
+Concept #1: reliable_concept (certainty=0.785, compression_gain=0.439, count=403)
+  This concept compresses a recurring 2-step action sequence into a single prediction that is 44% more accurate than chaining the individual steps.
+
+Concept #2: reliable_concept (certainty=0.795, compression_gain=0.417, count=419)
+  This concept compresses a recurring 2-step action sequence into a single prediction that is 42% more accurate than chaining the individual steps.
+
+Concept #3: frequent_pattern (certainty=0.681, compression_gain=0.361, count=555)
+  This concept compresses a recurring 2-step action sequence into a single prediction that is 36% more accurate than chaining the individual steps.
+
+Concept #4: reliable_concept (certainty=0.713, compression_gain=0.359, count=455)
+  This concept compresses a recurring 2-step action sequence into a single prediction that is 36% more accurate than chaining the individual steps.
+
+Concept #5: reliable_concept (certainty=0.705, compression_gain=0.331, count=472)
+  This concept compresses a recurring 2-step action sequence into a single prediction that is 33% more accurate than chaining the individual steps.
+
+Concept #6: reliable_concept (certainty=0.706, compression_gain=0.334, count=461)
+  This concept compresses a recurring 2-step action sequence into a single prediction that is 33% more accurate than chaining the individual steps.
+
+Concept #7: reliable_concept (certainty=0.715, compression_gain=0.343, count=442)
+  This concept compresses a recurring 2-step action sequence into a single prediction that is 34% more accurate than chaining the individual steps.
+
+Concept #8: frequent_pattern (certainty=0.707, compression_gain=0.289, count=474)
+  This concept compresses a recurring 2-step action sequence into a single prediction that is 29% more accurate than chaining the individual steps.
+
+Concept #9: reliable_concept (certainty=0.709, compression_gain=0.313, count=435)
+  This concept compresses a recurring 2-step action sequence into a single prediction that is 31% more accurate than chaining the individual steps.
+
+Concept #10: frequent_pattern (certainty=0.662, compression_gain=0.290, count=492)
+  This concept compresses a recurring 2-step action sequence into a single prediction that is 29% more accurate than chaining the individual steps.
+
+Concept #11: reliable_concept (certainty=0.728, compression_gain=0.368, count=344)
+  This concept compresses a recurring 2-step action sequence into a single prediction that is 37% more accurate than chaining the individual steps.
+
+Concept #12: frequent_pattern (certainty=0.698, compression_gain=0.299, count=441)
+  This concept compresses a recurring 2-step action sequence into a single prediction that is 30% more accurate than chaining the individual steps.
+
+Concept #13: frequent_pattern (certainty=0.676, compression_gain=0.284, count=477)
+  This concept compresses a recurring 2-step action sequence into a single prediction that is 28% more accurate than chaining the individual steps.
+
+Concept #14: frequent_pattern (certainty=0.693, compression_gain=0.303, count=433)
+  This concept compresses a recurring 2-step action sequence into a single prediction that is 30% more accurate than chaining the individual steps.
+
+Concept #15: frequent_pattern (certainty=0.658, compression_gain=0.286, count=474)
+  This concept compresses a recurring 2-step action sequence into a single prediction that is 29% more accurate than chaining the individual steps.
+
+Concept #16: reliable_concept (certainty=0.745, compression_gain=0.331, count=354)
+  This concept compresses a recurring 2-step action sequence into a single prediction that is 33% more accurate than chaining the individual steps.
+
+Concept #17: frequent_pattern (certainty=0.682, compression_gain=0.264, count=471)
+  This concept compresses a recurring 2-step action sequence into a single prediction that is 26% more accurate than chaining the individual steps.
+
+Concept #18: frequent_pattern (certainty=0.639, compression_gain=0.299, count=440)
+  This concept compresses a recurring 2-step action sequence into a single prediction that is 30% more accurate than chaining the individual steps.
+
+Concept #19: frequent_pattern (certainty=0.661, compression_gain=0.298, count=419)
+  This concept compresses a recurring 2-step action sequence into a single prediction that is 30% more accurate than chaining the individual steps.
+
+## The Grounding Guarantee
+
+Every term in this corpus traces to a specific receptor state the organism 
+actually experienced. 'Pain' is not defined by other words. It is defined by 
+obs[0:5] firing when limb tips contact pain field sources. The definition IS 
+the receptor state. The word IS the causal chain. There is no gap between the 
+signifier and the signified because the signified is a measurement, not a concept.
+
+This is what grounded language means: same transformer architecture, different corpus. 
+The corpus is a body.

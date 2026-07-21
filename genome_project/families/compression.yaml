@@ -1,0 +1,724 @@
+# Compression Family
+# Receptors for reducing complexity, forming abstractions, and building concepts
+
+family_metadata:
+  name: Compression
+  description: |
+    Receptors that detect when simpler representations capture the same predictive
+    structure as complex ones. From recognizing recurring patterns to building
+    hierarchical abstractions to grounding concepts in receptor states.
+
+    The trunk is pattern recognition — noticing that subsequences recur. The
+    canopy is concept grounding — understanding that words and abstractions
+    point to actual sensorimotor and receptor structures, not just statistics.
+
+    This family is critical because compression is how knowledge becomes
+    transmissible, reusable, and efficient. It's also where bias emerges —
+    compression by definition discards information, and what gets discarded
+    matters.
+
+  evolutionary_thesis: |
+    Compression receptors emerge when storing and using simplified representations
+    is cheaper than storing full details, AND when the simplification preserves
+    predictive accuracy. The compression receptor fires when "this simpler
+    thing still predicts correctly."
+
+    The same mechanism produces both useful abstractions (concepts, categories)
+    and harmful bias (overgeneralization, stereotypes). Same receptor. Same
+    operation. Different stakes.
+
+  trunk_receptor: pattern_recognition
+  canopy_receptors: [concept_grounding, hierarchical_abstraction, language_grounding, completion]
+
+---
+
+receptors:
+  - receptor_id: pattern_recognition
+    name: Recurring Subsequence Detection
+    family: compression
+    tier: trunk
+
+    dependencies:
+      - receptor_id: temporal_association
+        minimum_certainty: 0.7
+      - receptor_id: static_repetition
+        minimum_certainty: 0.6
+
+    environmental_trigger:
+      structure: |
+        Action sequences that recur across different contexts. A→B→C appears
+        multiple times, possibly leading to similar outcomes.
+      survival_benefit: |
+        Store the pattern once rather than each instance. Recognize "this
+        situation is like that one" enables transfer learning.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments with recurring patterns where compression saves memory
+        and speeds retrieval vs storing each instance independently.
+
+    selection_environments:
+      - recurring_challenges
+      - similar_situations
+      - transferable_solutions
+
+    unlocks:
+      - abstraction
+      - generalization
+      - chunking
+      - compression_receptor_firing
+
+    emergence_signature:
+      description: |
+        Mental model stores patterns (Level 3) in addition to primitives.
+        Patterns have higher certainty than component primitives. Compression
+        gain measurable.
+      metrics:
+        - metric_name: pattern_certainty_boost
+          measurement_method: |
+            Are stored patterns more certain than primitives that compose them?
+          expected_range: "1.3-2.0x higher certainty"
+          detection_threshold: 1.3
+        - metric_name: compression_gain
+          measurement_method: |
+            Storage efficiency: pattern certainty / primitive certainty.
+          expected_range: ">0.3 average compression gain"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "50-90"
+      confidence: very_high
+      conditions: |
+        Step 12 from roadmap. Already implemented.
+
+    notes: |
+      FOUNDATION RECEPTOR - Step 12 implements this as Level 3 of mental model.
+      Patterns are recurring causal subsequences. Already validated in current
+      implementation: 3,603 patterns with avg certainty 0.799 vs primitives 0.511.
+
+  - receptor_id: chunking
+    name: Sequence Compression into Units
+    family: compression
+    tier: branch
+
+    dependencies:
+      - receptor_id: pattern_recognition
+        minimum_certainty: 0.7
+
+    environmental_trigger:
+      structure: |
+        Frequently-used sequences become single retrievable units. A→B→C
+        becomes "ABC" as one chunk.
+      survival_benefit: |
+        Faster retrieval, lower working memory load. Complex actions executable
+        as single units.
+      metabolic_cost: low
+      selection_pressure: |
+        Environments with frequently-repeated sequences where chunking speeds
+        execution.
+
+    selection_environments:
+      - skill_learning
+      - routine_behaviors
+      - complex_action_sequences
+
+    unlocks:
+      - skill_automation
+      - hierarchical_action
+      - expertise
+
+    emergence_signature:
+      description: |
+        Patterns execute as single mental model queries rather than step-by-step
+        retrieval. Execution time decreases for chunked sequences.
+      metrics:
+        - metric_name: execution_speedup
+          measurement_method: |
+            Time to execute chunked pattern vs executing primitives sequentially.
+          expected_range: "1.5-3x faster"
+          detection_threshold: 1.5
+
+    predicted_emergence_order:
+      generation_range: "80-150"
+      confidence: medium
+      conditions: |
+        Requires patterns (Step 12) to be well-established and frequently reused.
+
+    notes: |
+      This is how skills become automatic. The pattern that was once deliberate
+      becomes a single chunk executed as one unit.
+
+  - receptor_id: categorical_compression
+    name: Grouping by Shared Features
+    family: compression
+    tier: branch
+
+    dependencies:
+      - receptor_id: pattern_recognition
+        minimum_certainty: 0.7
+      - receptor_id: perceptual_similarity
+        minimum_certainty: 0.6
+
+    environmental_trigger:
+      structure: |
+        Multiple distinct stimuli share features and have similar consequences.
+        Grouping them as category reduces storage and enables generalization.
+      survival_benefit: |
+        Treat category members similarly. Faster learning (generalize from
+        one instance to all). Memory efficiency.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments with natural categories where within-category generalization
+        is valid and between-category discrimination matters.
+
+    selection_environments:
+      - predator_prey_categories
+      - food_types
+      - danger_sources
+
+    unlocks:
+      - categorization
+      - generalization
+      - bias_emergence
+
+    emergence_signature:
+      description: |
+        Mental model groups similar contexts. Actions selected for category,
+        not individual instances. Observable as generalization across category
+        members.
+      metrics:
+        - metric_name: category_generalization
+          measurement_method: |
+            Does learning from one category member transfer to others without
+            additional training?
+          expected_range: ">70% transfer accuracy"
+          detection_threshold: 0.7
+
+    predicted_emergence_order:
+      generation_range: "70-130"
+      confidence: medium
+      conditions: |
+        Requires environment with clear category structure.
+
+    notes: |
+      This is where abstraction becomes categorization. And where bias emerges —
+      compression discards within-category variance. If that variance matters,
+      the category is harmful. Same mechanism, different stakes.
+
+  - receptor_id: hierarchical_abstraction
+    name: Patterns of Patterns
+    family: compression
+    tier: canopy
+
+    dependencies:
+      - receptor_id: pattern_recognition
+        minimum_certainty: 0.8
+      - receptor_id: chunking
+        minimum_certainty: 0.7
+
+    environmental_trigger:
+      structure: |
+        Patterns themselves have patterns. Meta-patterns that describe
+        relationships between lower-level patterns.
+      survival_benefit: |
+        Even greater compression. Abstract principles that apply across many
+        specific patterns. Enables transfer across domains.
+      metabolic_cost: high
+      selection_pressure: |
+        Complex environments where meta-patterns exist and recognizing them
+        enables broad transfer learning.
+
+    selection_environments:
+      - abstract_structure
+      - cross_domain_transfer_opportunities
+      - complex_relational_environments
+
+    unlocks:
+      - abstract_reasoning
+      - principles
+      - cross_domain_transfer
+
+    emergence_signature:
+      description: |
+        Mental model stores meta-patterns (patterns over patterns). Transfer
+        learning across domains that share meta-pattern but not surface features.
+      metrics:
+        - metric_name: meta_pattern_transfer
+          measurement_method: |
+            Does learning in domain A transfer to domain B when meta-pattern
+            is shared despite different surface features?
+          expected_range: ">50% transfer vs <10% random"
+          detection_threshold: 0.5
+
+    predicted_emergence_order:
+      generation_range: "150-300"
+      confidence: low
+      conditions: |
+        Requires sophisticated environment with hierarchical structure. Far future.
+
+    notes: |
+      This is where abstraction becomes truly abstract. Not just "these things
+      are similar" but "these relationships have the same structure."
+
+  - receptor_id: concept_formation
+    name: Stable Abstraction with Grounding
+    family: compression
+    tier: branch
+
+    dependencies:
+      - receptor_id: categorical_compression
+        minimum_certainty: 0.7
+      - receptor_id: pattern_recognition
+        minimum_certainty: 0.8
+
+    environmental_trigger:
+      structure: |
+        Abstractions that recur and prove useful across contexts. Not just
+        "this pattern" but "this KIND of pattern."
+      survival_benefit: |
+        Reusable concepts enable rapid reasoning about new situations. "This
+        is a predator-type situation" triggers whole action repertoire.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Complex environments where concepts significantly speed decision-making
+        and transfer learning.
+
+    selection_environments:
+      - conceptually_structured_worlds
+      - transfer_learning_valuable
+      - abstract_reasoning_rewarded
+
+    unlocks:
+      - conceptual_reasoning
+      - concept_grounding
+      - language_readiness
+
+    emergence_signature:
+      description: |
+        Mental model contains abstractions that group patterns by function or
+        structure, not just surface features. Concepts are more than categories —
+        they're stable, named, and compositional.
+      metrics:
+        - metric_name: concept_stability
+          measurement_method: |
+            Do same abstractions recur across contexts? Low variance in concept
+            definition over time.
+          expected_range: "σ < 0.2 for stable concepts"
+          detection_threshold: 0.2
+
+    predicted_emergence_order:
+      generation_range: "120-220"
+      confidence: low
+      conditions: |
+        Requires environment where concepts are useful and stable.
+
+    notes: |
+      This is the bridge to language. Once you have stable concepts, you can
+      name them. Words point to concepts, concepts point to patterns, patterns
+      point to receptor states. That's grounding.
+
+  - receptor_id: concept_grounding
+    name: Concepts Traced to Receptor States
+    family: compression
+    tier: canopy
+
+    dependencies:
+      - receptor_id: concept_formation
+        minimum_certainty: 0.8
+      - receptor_id: mental_model
+        note: "All chains terminate in receptor states"
+
+    environmental_trigger:
+      structure: |
+        Every concept, however abstract, traces through the mental model's
+        causal chains back to actual receptor states the organism experienced.
+      survival_benefit: |
+        Concepts remain grounded in reality. Prevents free-floating abstractions
+        that don't connect to actual outcomes. Enables concept verification.
+      metabolic_cost: low
+      selection_pressure: |
+        Environments where ungrounded concepts lead to poor decisions. Where
+        "abstract reasoning" must map back to concrete outcomes.
+
+    selection_environments:
+      - reality_checking_required
+      - consequences_for_abstraction_errors
+
+    unlocks:
+      - grounded_language
+      - concept_testing
+      - referent_verification
+
+    emergence_signature:
+      description: |
+        Every concept in mental model can be traced through chains to receptor
+        states. No concept exists without receptor grounding path.
+      metrics:
+        - metric_name: concept_grounding_completeness
+          measurement_method: |
+            Proportion of concepts that have complete causal chain to receptor
+            states in mental model.
+          expected_range: "100% by construction"
+          detection_threshold: 1.0
+
+    predicted_emergence_order:
+      generation_range: "N/A - architectural property"
+      confidence: very_high
+      conditions: |
+        This is guaranteed by mental model architecture (Step 10). All chains
+        terminate in receptor states by design.
+
+    notes: |
+      This isn't a receptor that emerges — it's a PROPERTY of the architecture.
+      Included because it's critical for grounded language (Step 30).
+
+      "Every chain of reasoning, however long or abstract, must eventually
+      cash out in a receptor state. There is no free-floating cognition.
+      The tether is always there." — Mental Model Framework v2
+
+  - receptor_id: compression_receptor
+    name: Compression Reward Signal
+    family: compression
+    tier: trunk
+
+    dependencies:
+      - receptor_id: pattern_recognition
+        minimum_certainty: 0.7
+      - receptor_id: prediction_accuracy
+        note: "Compression must preserve accuracy"
+
+    environmental_trigger:
+      structure: |
+        Organism finds simpler representation that still predicts accurately.
+        The compression receptor FIRES on successful compression.
+      survival_benefit: |
+        Makes compression intrinsically rewarding. Organism is motivated to
+        find simpler explanations, form concepts, build abstractions.
+      metabolic_cost: low
+      selection_pressure: |
+        Environments where compression saves metabolic resources (memory, retrieval
+        time) and where simpler models are actually better (Occam's razor).
+
+    selection_environments:
+      - complex_but_structured_environments
+      - memory_constrained_scenarios
+      - concept_formation_valuable
+
+    unlocks:
+      - intrinsic_motivation_for_abstraction
+      - scientific_thinking_foundation
+      - bias_risk
+
+    emergence_signature:
+      description: |
+        Organism shows preference for simpler explanations when accuracy is
+        equivalent. Exploration biased toward discovering patterns and
+        compressions, not just maximizing immediate reward.
+      metrics:
+        - metric_name: compression_seeking
+          measurement_method: |
+            Does organism explore situations where compression gain is likely
+            even when immediate reward is lower?
+          expected_range: ">30% exploration toward compression opportunities"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "60-120"
+      confidence: medium
+      conditions: |
+        Should emerge alongside pattern recognition (Step 12) if compression
+        provides measurable metabolic benefit.
+
+    failure_modes:
+      - mode: over_compression
+        signature: |
+          Organism compresses too aggressively, losing predictive accuracy for
+          sake of simplicity. Bias overwhelms accuracy.
+
+    notes: |
+      THIS IS THE META-RECEPTOR FOR COMPRESSION FAMILY.
+
+      The compression receptor firing is what makes you WANT to find patterns,
+      form concepts, build theories. It's the intrinsic reward for "aha!" moments.
+
+      But it also produces bias — compression rewards simplicity regardless of
+      what variance gets discarded. If the discarded variance matters, the
+      compression is harmful. Same receptor. Same operation.
+
+  - receptor_id: language_grounding
+    name: Words Mapped to Grounded Concepts
+    family: compression
+    tier: canopy
+
+    dependencies:
+      - receptor_id: concept_grounding
+        note: "Concepts must trace to receptors"
+      - receptor_id: intentional_signaling
+        note: "Step 23 - communication exists"
+      - receptor_id: simplified_shared_signals
+        note: "Step 24 - stable conventions"
+
+    environmental_trigger:
+      structure: |
+        Shared signals (words) point to concepts, concepts point to patterns,
+        patterns point to receptor states. Full grounding chain from language
+        to embodied experience.
+      survival_benefit: |
+        Language that actually refers to things in the world. Communication
+        that conveys meaning, not just statistical patterns.
+      metabolic_cost: high
+      selection_pressure: |
+        Social environments where communication must be grounded for coordination
+        to work. Where ungrounded language produces failures.
+
+    selection_environments:
+      - cooperative_communication
+      - teaching_scenarios
+      - shared_understanding_required
+
+    unlocks:
+      - grounded_language
+      - meaningful_communication
+      - cultural_knowledge_transmission
+
+    emergence_signature:
+      description: |
+        Organism's use of signals (words) correlates with specific concepts in
+        mental model, which trace to receptor states. Same word used consistently
+        for same grounded concept across contexts.
+      metrics:
+        - metric_name: word_concept_consistency
+          measurement_method: |
+            Do signals map consistently to concepts across contexts?
+          expected_range: ">80% consistency"
+          detection_threshold: 0.8
+
+    predicted_emergence_order:
+      generation_range: "N/A - Step 30 endpoint"
+      confidence: very_high
+      conditions: |
+        This is the culmination of the roadmap (Step 30). Language model sits
+        on top of full stack with grounding guaranteed by architecture.
+
+    notes: |
+      This is Step 30 from the roadmap. The language model is the roof, not
+      the foundation. Words like "pain," "danger," "relief," "self," "other"
+      refer to stable internal and sensorimotor structures, not just statistical
+      relationships among tokens.
+
+      "Current language models predict text about pain, borrowed from beings
+      who had it. This architecture predicts receptor states from a history
+      of actually having them. Same transformer architecture. Grounded corpus."
+
+  - receptor_id: bias_as_compression
+    name: Overgeneralization Detection
+    family: compression
+    tier: branch
+
+    dependencies:
+      - receptor_id: categorical_compression
+        minimum_certainty: 0.7
+      - receptor_id: compression_receptor
+        minimum_certainty: 0.6
+
+    environmental_trigger:
+      structure: |
+        Compression that discards consequential variance. Category treats
+        members as identical when differences matter.
+      survival_benefit: |
+        NEGATIVE — this is a failure mode, not an adaptation. Detecting when
+        compression has gone too far enables correction.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments where overgeneralization is costly. Where within-category
+        variance matters for outcomes.
+
+    selection_environments:
+      - high_within_category_variance
+      - false_equivalence_costly
+      - precision_required
+
+    unlocks:
+      - bias_detection
+      - debiasing
+      - precision_over_simplicity
+
+    emergence_signature:
+      description: |
+        Organism's predictions degrade when using category vs individual instances.
+        Detectable as higher error rate for compressed representations in certain
+        contexts.
+      metrics:
+        - metric_name: compression_induced_error
+          measurement_method: |
+            Prediction error increase when using category vs individual models.
+          expected_range: ">0.2 error increase indicates harmful compression"
+          detection_threshold: 0.2
+
+    predicted_emergence_order:
+      generation_range: "100-180"
+      confidence: low
+      conditions: |
+        Requires environment where compression errors have measurable cost.
+
+    notes: |
+      This is the receptor for detecting that compression has become bias.
+
+      "Abstraction and bias are the same operation at different scales with
+      different stakes. The difference between the concept 'fruit' (useful
+      compression) and 'those people' (harmful compression) is whether the
+      discarded information is consequential. Same receptor. Same operation."
+
+      Detecting this requires meta-cognition: "my simplification is wrong in
+      this case." Very hard to evolve because the compression receptor REWARDS
+      simplification. Bias detection fights against intrinsic reward.
+
+  - receptor_id: analogy
+    name: Structural Mapping Across Domains
+    family: compression
+    tier: canopy
+
+    dependencies:
+      - receptor_id: hierarchical_abstraction
+        minimum_certainty: 0.8
+      - receptor_id: structural_similarity
+        note: "Similarity family"
+
+    environmental_trigger:
+      structure: |
+        Different domains share abstract structure. "A is to B as C is to D"
+        despite A,B,C,D being perceptually different.
+      survival_benefit: |
+        Maximal knowledge transfer. Solve problems in new domain by recognizing
+        structural similarity to solved problems in familiar domain.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Complex environments where analogical transfer frequently succeeds and
+        provides significant advantage over trial-and-error.
+
+    selection_environments:
+      - cross_domain_problems
+      - structural_recurrence
+      - transfer_learning_high_value
+
+    unlocks:
+      - analogical_reasoning
+      - metaphorical_thinking
+      - creative_problem_solving
+
+    emergence_signature:
+      description: |
+        Organism solves novel problem by mapping its structure onto known problem
+        in different domain and transferring solution.
+      metrics:
+        - metric_name: analogical_transfer_success
+          measurement_method: |
+            Success rate on novel problems that are structurally similar to
+            solved problems in different domains.
+          expected_range: ">70% vs <20% random"
+          detection_threshold: 0.7
+
+    predicted_emergence_order:
+      generation_range: "250-400"
+      confidence: very_low
+      conditions: |
+        Requires sophisticated multi-domain environment. Very far future.
+
+    notes: |
+      This is the apex of compression. Recognizing that two completely different
+      situations have the same abstract structure and transferring knowledge
+      between them. Foundation for metaphor, creativity, insight.
+
+  - receptor_id: completion
+    name: Gestalt Completion Detection
+    family: compression
+    tier: canopy
+
+    dependencies:
+      - receptor_id: pattern_recognition
+        note: "Compression family — must recognize the shape"
+      - receptor_id: conflict_detection
+        note: "Meta-Motivational family — must detect when conflict resolves"
+      - receptor_id: absence_observation
+        note: "Observation family — must detect when nothing is missing"
+
+    environmental_trigger:
+      structure: |
+        A recognized pattern transitions from incomplete to complete. The gap
+        between what is expected and what is present closes to zero. The
+        completion receptor fires when: (1) a pattern is recognized, AND
+        (2) the conflict signal associated with that pattern resolves, AND
+        (3) the absence signal goes silent — nothing is missing.
+      survival_benefit: |
+        Efficient effort allocation. An organism without completion detection
+        wastes energy on solved problems (keeps working after resolution) or
+        abandons unsolved ones (stops before genuine completion). The organism
+        with completion knows when to stop, and stopping redirects curiosity
+        to the next open pattern. This makes the entire receptor economy more
+        efficient — attention shifts from resolved to unresolved.
+      metabolic_cost: low
+      selection_pressure: |
+        Environments with multiple concurrent problems where time spent on
+        a solved problem is time not spent on an unsolved one. The opportunity
+        cost of misallocated attention is the selection pressure.
+
+    selection_environments:
+      - multi_problem_environments
+      - time_constrained_resource_gathering
+      - sequential_challenge_environments
+      - any_environment_with_concurrent_goals
+
+    unlocks:
+      - efficient_attention_reallocation
+      - task_switching
+      - satisfaction_signal
+      - recursive_self_reference
+
+    emergence_signature:
+      description: |
+        The organism exhibits distinct behavioral transitions when a problem
+        is solved: conflict drops, exploration redirects, action patterns
+        shift from the solved domain to an unsolved one. The transition is
+        sharp (not gradual) and correlates with the actual resolution of the
+        environmental challenge, not just reduction in difficulty.
+      metrics:
+        - metric_name: completion_transition_sharpness
+          measurement_method: |
+            Measure the rate of change of conflict signal at moments when
+            environmental challenges are objectively resolved (e.g., pain
+            source successfully avoided, resource secured). A completion
+            receptor produces a sharp drop (within 1-3 steps) rather than
+            gradual decay.
+          expected_range: "Conflict drop rate > 0.3 per step at completion"
+          detection_threshold: 0.3
+        - metric_name: attention_redirection_latency
+          measurement_method: |
+            After a problem is resolved, how many steps before the organism
+            redirects behavior to a different challenge? Low latency =
+            completion is detected and attention shifts. High latency =
+            no completion signal, organism lingers.
+          expected_range: "< 10 steps"
+          detection_threshold: 10
+
+    predicted_emergence_order:
+      generation_range: "80-150"
+      confidence: medium
+      conditions: |
+        Requires pattern_recognition, conflict_detection, and absence_observation
+        to all be present. Emerges when the organism faces multiple concurrent
+        challenges and misspent attention on solved problems creates measurable
+        fitness cost. Three-family composition (Layer 2).
+
+    notes: |
+      The completion receptor is self-referential in an interesting way: the
+      theory that predicts it was itself recognized as complete when the receptor
+      was identified. The receptor fires on its own emergence in the theory.
+
+      It bridges compression (pattern recognized as complete) and meta-motivational
+      (drive to continue resolves). Pattern recognition says "this is a known
+      shape." Completion says "this shape is finished — nothing is missing." The
+      gap between those two signals IS the drive to continue.
+
+      The forward-feedback loop: completion fires -> conflict drops -> curiosity
+      redirects to next open pattern -> the cycle continues. Completion is not
+      a terminal state. It is a receptor state that changes what the next cycle
+      attends to.

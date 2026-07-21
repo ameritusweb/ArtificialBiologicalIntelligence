@@ -1,0 +1,589 @@
+# Formalization Family
+# The ability to extract, bound, test, and compose patterns from observations
+#
+# KEY INSIGHT: Formalization is how observations become reusable knowledge.
+# Raw observation: "this happened"
+# Formalized: "this ALWAYS happens when X" or "this is an instance of category Y"
+#
+# Many receptors here already exist in Compression and Causality families.
+# New receptors: exception_detection, boundary_detection (as explicit receptor), rule_revision
+
+formalization_family:
+  family_name: "Formalization"
+  description: "Receptors governing pattern extraction, boundary formation, and rule composition"
+
+  core_thesis: |
+    Observations become knowledge through formalization — extracting what generalizes
+    from what's idiosyncratic.
+
+    Early: Detect repeated patterns
+    Middle: Define category boundaries, detect exceptions
+    Late: Compose rules, revise based on violations
+
+    Formalization enables compression (fewer bits to store regularities) and prediction
+    (generalize beyond observed cases).
+
+  evolutionary_progression: |
+    Trunk → Branch → Canopy represents increasing abstraction:
+
+    Trunk: Pattern extraction from repetition
+    Branch: Boundaries, exceptions, categories
+    Canopy: Rule composition, revision, meta-rules
+
+  cross_family_role: |
+    Formalization feeds back into observation — what gets formalized shapes what gets
+    observed next time.
+
+    Also feeds causality (causal rules are formalized patterns), compression (patterns
+    as compact representations), and meta-motivational (rules about rules).
+
+receptors:
+  # TRUNK: Pattern extraction from observation
+
+  - receptor_id: "form_001"
+    name: "pattern_recognition"
+    family: "Formalization"
+    tier: "trunk"
+
+    description: |
+      Detect when a configuration has occurred multiple times.
+
+      CROSS-REFERENCE: This is compression:pattern_recognition (Step 12).
+      Formalization lens: how observations become patterns.
+      Compression lens: how patterns reduce storage.
+
+      Same receptor, different analytical perspective.
+
+    dependencies:
+      within_family: []
+      cross_family:
+        - receptor: "pattern_recognition"
+          family: "Compression"
+          relationship: "Identical receptor"
+        - receptor: "static_repetition"
+          family: "Repetition"
+          relationship: "Repetition detection feeds pattern extraction"
+
+    environmental_trigger:
+      selection_environments:
+        - "Environments with recurring structure"
+      selection_pressure: |
+        Patterns predict future states. Organisms that recognize patterns respond
+        faster than organisms learning each instance independently.
+
+    emergence_signature:
+      behavioral: "Responds to novel instances of familiar patterns"
+      neural_correlate: "Mental model certainty high for pattern-matching contexts"
+      mental_model: "Similar contexts retrieve same action families"
+
+    predicted_emergence_order:
+      roadmap_step: "Step 12 (pattern recognition)"
+      generation_range: [50, 80]
+      prerequisites: "Mental model with sufficient experience"
+
+    metabolic_cost: "Moderate"
+
+    falsification_criteria: |
+      If organisms don't generalize across pattern instances (treat each as novel),
+      pattern recognition is not operational.
+
+  - receptor_id: "form_002"
+    name: "categorical_compression"
+    family: "Formalization"
+    tier: "trunk"
+
+    description: |
+      Group observations into discrete categories based on outcome similarity.
+
+      CROSS-REFERENCE: compression:categorical_compression from Compression family.
+
+      Formalization lens: creating boundaries between categories.
+      Compression lens: storing category membership instead of full observations.
+
+    dependencies:
+      within_family:
+        - "pattern_recognition"
+      cross_family:
+        - receptor: "categorical_compression"
+          family: "Compression"
+          relationship: "Identical receptor"
+        - receptor: "functional_similarity"
+          family: "Similarity"
+          relationship: "Categories form around functional similarity"
+
+    environmental_trigger:
+      selection_environments:
+        - "Environments with discrete outcome clusters"
+      selection_pressure: |
+        Category membership predicts outcomes. "Edible vs poisonous" is more useful
+        than remembering every plant individually.
+
+    emergence_signature:
+      behavioral: "Treats within-category instances as interchangeable"
+      neural_correlate: "Action families (Step 10) are categorical boundaries"
+      mental_model: "Actions within a family retrieve similar contexts"
+
+    predicted_emergence_order:
+      roadmap_step: "Step 10 (action families via hash clustering)"
+      generation_range: [40, 70]
+      prerequisites: "Sufficient experience to cluster outcomes"
+
+    metabolic_cost: "Moderate"
+
+    falsification_criteria: |
+      If organisms don't generalize across category members (treat each instance as
+      unique), categorical compression is absent.
+
+  - receptor_id: "form_003"
+    name: "boundary_detection"
+    family: "Formalization"
+    tier: "branch"
+
+    description: |
+      Identify where one category ends and another begins.
+
+      "These observations belong to category A; these to category B."
+
+      NEW RECEPTOR — making explicit what categorical_compression assumes.
+
+      This is not just "categories exist" but "I can identify the boundary between them."
+
+    dependencies:
+      within_family:
+        - "categorical_compression"
+      cross_family:
+        - receptor: "perceptual_similarity"
+          family: "Similarity"
+          relationship: "Boundaries are where similarity drops"
+        - receptor: "concept_formation"
+          family: "Compression"
+          relationship: "Concepts have boundaries"
+
+    environmental_trigger:
+      selection_environments:
+        - "Environments with ambiguous boundary cases"
+        - "E.g., twilight between day/night; juvenile vs adult"
+      selection_pressure: |
+        Organisms that can identify boundaries make fewer categorization errors.
+        Treating twilight as "day" or "night" risks predator exposure or missed foraging.
+
+    emergence_signature:
+      behavioral: "Treats boundary cases differently from prototypes"
+      neural_correlate: "Mental model certainty drops near category boundaries"
+      mental_model: "Contexts near boundaries have higher variance in outcomes"
+
+    predicted_emergence_order:
+      roadmap_step: "After Step 10 (categorical compression operational)"
+      generation_range: [70, 120]
+      prerequisites: "Categories with graded structure"
+
+    metabolic_cost: "Moderate"
+
+    falsification_criteria: |
+      If organisms treat boundary cases identically to prototypes (no uncertainty increase),
+      boundary detection is not operational.
+
+  # BRANCH: Exception detection and rule testing
+
+  - receptor_id: "form_004"
+    name: "exception_detection"
+    family: "Formalization"
+    tier: "branch"
+
+    description: |
+      Notice when an observation violates an extracted pattern.
+
+      "This should be category A (based on features) but behaves like category B."
+
+      NEW RECEPTOR — not explicitly covered in existing families.
+
+      Related to surprise (Meta-Motivational) but distinct: surprise is affective,
+      exception detection is structural.
+
+    dependencies:
+      within_family:
+        - "pattern_recognition"
+        - "boundary_detection"
+      cross_family:
+        - receptor: "surprise"
+          family: "Meta-Motivational"
+          relationship: "Exceptions generate surprise signal"
+        - receptor: "mental_model"
+          family: "Foundation"
+          relationship: "Exceptions are prediction failures"
+
+    environmental_trigger:
+      selection_environments:
+        - "Environments with mimicry, camouflage, or deceptive patterns"
+        - "E.g., edible mimic of poisonous species"
+      selection_pressure: |
+        Organisms that detect exceptions avoid costly errors (eating the mimic when
+        the rule is "this pattern = poisonous").
+
+    emergence_signature:
+      behavioral: "Responds cautiously to pattern-violating instances"
+      neural_correlate: "Mental model certainty drops when prediction fails"
+      mental_model: "High-certainty predictions followed by unexpected outcomes"
+
+    predicted_emergence_order:
+      roadmap_step: "After Step 12 (pattern recognition operational)"
+      generation_range: [80, 130]
+      prerequisites: "Pattern recognition + prediction"
+
+    metabolic_cost: "Moderate"
+
+    falsification_criteria: |
+      If organisms don't adjust behavior after pattern violations (treat exceptions
+      as noise), exception detection is absent.
+
+  - receptor_id: "form_005"
+    name: "rule_extraction"
+    family: "Formalization"
+    tier: "branch"
+
+    description: |
+      Extract explicit IF-THEN rule from repeated pattern.
+
+      "IF context matches X, THEN action Y produces outcome Z."
+
+      CROSS-REFERENCE: This is what mental model mappings ARE (Step 10).
+
+      Formalization lens: making implicit associations explicit.
+
+    dependencies:
+      within_family:
+        - "pattern_recognition"
+      cross_family:
+        - receptor: "mental_model"
+          family: "Foundation"
+          relationship: "Mental model IS rule extraction mechanism"
+        - receptor: "causal_inference"
+          family: "Causality"
+          relationship: "Causal rules are subset of all rules"
+
+    environmental_trigger:
+      selection_environments:
+        - "Environments with reliable action-outcome mappings"
+      selection_pressure: |
+        Explicit rules generalize better than instance-based memory.
+
+    emergence_signature:
+      behavioral: "Applies learned rules to novel contexts"
+      neural_correlate: "Mental model retrieval based on context similarity"
+      mental_model: "High certainty mappings are extracted rules"
+
+    predicted_emergence_order:
+      roadmap_step: "Step 10 (mental model)"
+      generation_range: [40, 70]
+      prerequisites: "Mental model operational"
+
+    metabolic_cost: "Moderate"
+
+    falsification_criteria: |
+      If organisms don't generalize rules beyond training contexts, rule extraction
+      is not operational.
+
+  - receptor_id: "form_006"
+    name: "rule_generalization"
+    family: "Formalization"
+    tier: "branch"
+
+    description: |
+      Apply extracted rule beyond the cases that generated it.
+
+      "This rule worked in context A, B, C; should work in context D too."
+
+      CROSS-REFERENCE: Overlaps with concept_grounding (Compression) and causal_inference (Causality).
+
+    dependencies:
+      within_family:
+        - "rule_extraction"
+      cross_family:
+        - receptor: "structural_invariance"
+          family: "Similarity"
+          relationship: "Generalization requires detecting invariant structure"
+        - receptor: "analogical_similarity"
+          family: "Similarity"
+          relationship: "Analogies enable generalization"
+
+    environmental_trigger:
+      selection_environments:
+        - "Environments where deep structure generalizes across surface differences"
+      selection_pressure: |
+        Organisms that generalize learn faster than organisms re-learning each context.
+
+    emergence_signature:
+      behavioral: "Applies rules to contexts outside training distribution"
+      neural_correlate: "Mental model certainty remains high in novel contexts with similar structure"
+      mental_model: "Context encoder preserves structure across surface variation"
+
+    predicted_emergence_order:
+      roadmap_step: "After Step 10 (context encoding operational)"
+      generation_range: [80, 130]
+      prerequisites: "Rule extraction + structural similarity"
+
+    metabolic_cost: "High"
+
+    falsification_criteria: |
+      If organisms can't apply rules to structurally similar but superficially different
+      contexts, rule generalization is absent.
+
+  # CANOPY: Rule composition and meta-rules
+
+  - receptor_id: "form_007"
+    name: "rule_composition"
+    family: "Formalization"
+    tier: "canopy"
+
+    description: |
+      Combine two rules to generate a third.
+
+      "Rule A: IF X THEN Y. Rule B: IF Y THEN Z. Composed: IF X THEN Z."
+
+      CROSS-REFERENCE: causal_chain (Causality family) is instance of this.
+
+    dependencies:
+      within_family:
+        - "rule_extraction"
+        - "rule_generalization"
+      cross_family:
+        - receptor: "causal_chain"
+          family: "Causality"
+          relationship: "Causal chains are composed rules"
+        - receptor: "planning"
+          family: "Foundation"
+          relationship: "Planning composes action rules into sequences"
+
+    environmental_trigger:
+      selection_environments:
+        - "Environments requiring multi-step inference"
+      selection_pressure: |
+        Organisms that compose rules can plan longer chains without direct experience.
+
+    emergence_signature:
+      behavioral: "Plans multi-step sequences without training on full sequence"
+      neural_correlate: "Mental model chains across multiple mappings"
+      mental_model: "Certainty propagates across chained rules"
+
+    predicted_emergence_order:
+      roadmap_step: "Step 19 (causal chains operational)"
+      generation_range: [100, 160]
+      prerequisites: "Causal inference + planning"
+
+    metabolic_cost: "High"
+
+    falsification_criteria: |
+      If organisms can't chain rules (only execute single-step mappings), rule
+      composition is absent.
+
+  - receptor_id: "form_008"
+    name: "rule_revision"
+    family: "Formalization"
+    tier: "canopy"
+
+    description: |
+      Update extracted rule when exceptions accumulate.
+
+      "Rule was: IF X THEN Y. But exceptions show: IF X AND Z THEN Y, ELSE W."
+
+      NEW RECEPTOR — making belief revision explicit.
+
+    dependencies:
+      within_family:
+        - "exception_detection"
+        - "rule_extraction"
+      cross_family:
+        - receptor: "mental_model_update"
+          family: "Foundation"
+          relationship: "Mental model certainty updates are rule revisions"
+        - receptor: "hidden_confounder_detection"
+          family: "Causality"
+          relationship: "Confounders force rule revision"
+
+    environmental_trigger:
+      selection_environments:
+        - "Non-stationary environments where rules break over time"
+      selection_pressure: |
+        Organisms that revise rules adapt faster than organisms re-learning from scratch.
+
+    emergence_signature:
+      behavioral: "Updates strategy after rule violations without catastrophic forgetting"
+      neural_correlate: "Mental model certainty decreases, then re-converges with refined rule"
+      mental_model: "Context encoding becomes more specific after exceptions"
+
+    predicted_emergence_order:
+      roadmap_step: "After exception detection (generation ~80-130)"
+      generation_range: [120, 180]
+      prerequisites: "Exception detection + rule extraction"
+
+    metabolic_cost: "High"
+
+    falsification_criteria: |
+      If organisms abandon rules entirely after violations (instead of refining them),
+      rule revision is absent.
+
+  - receptor_id: "form_009"
+    name: "hierarchical_abstraction"
+    family: "Formalization"
+    tier: "canopy"
+
+    description: |
+      Extract meta-rule governing multiple lower-level rules.
+
+      "Rules A, B, C all have structure: IF context_type THEN action_family."
+
+      CROSS-REFERENCE: compression:hierarchical_abstraction
+
+      Formalization lens: rules about rules
+      Compression lens: compressing rule storage
+
+    dependencies:
+      within_family:
+        - "rule_composition"
+        - "rule_generalization"
+      cross_family:
+        - receptor: "hierarchical_abstraction"
+          family: "Compression"
+          relationship: "Identical receptor"
+        - receptor: "metacognition"
+          family: "Meta-Motivational"
+          relationship: "Meta-rules are metacognitive"
+
+    environmental_trigger:
+      selection_environments:
+        - "Complex environments with nested structure"
+      selection_pressure: |
+        Meta-rules generalize better than flat collections of specific rules.
+
+    emergence_signature:
+      behavioral: "Transfers learning across domains sharing abstract structure"
+      neural_correlate: "Mental model context encoding preserves hierarchical structure"
+      mental_model: "High-level rules guide retrieval of specific rules"
+
+    predicted_emergence_order:
+      roadmap_step: "After rule composition operational"
+      generation_range: [140, 200]
+      prerequisites: "Rule composition + metacognition"
+
+    metabolic_cost: "Very high"
+
+    falsification_criteria: |
+      If organisms can't transfer abstract structure across domains, hierarchical
+      abstraction is absent.
+
+  - receptor_id: "form_010"
+    name: "theory_formation"
+    family: "Formalization"
+    tier: "canopy"
+
+    description: |
+      Organize multiple rules into coherent explanatory framework.
+
+      Beyond individual rules — a THEORY explains why the rules hold.
+
+      "Objects fall because gravity pulls them down" (theory) vs "dropped things fall" (rule).
+
+      NEW RECEPTOR — highest level of formalization.
+
+    dependencies:
+      within_family:
+        - "hierarchical_abstraction"
+        - "rule_composition"
+        - "rule_revision"
+      cross_family:
+        - receptor: "causal_graph_reasoning"
+          family: "Causality"
+          relationship: "Causal graphs are theories"
+        - receptor: "metacognition"
+          family: "Meta-Motivational"
+          relationship: "Theories are metacognitive structures"
+
+    environmental_trigger:
+      selection_environments:
+        - "Environments where unobservable causes govern observable patterns"
+      selection_pressure: |
+        Theories generate predictions beyond observed cases. Organisms with theories
+        navigate novel situations better than organisms with rule collections.
+
+    emergence_signature:
+      behavioral: "Makes correct predictions in novel situations via theoretical reasoning"
+      neural_correlate: "Mental model includes unobservable causal variables"
+      mental_model: "Can reason about hidden states and latent causes"
+
+    predicted_emergence_order:
+      roadmap_step: "After causal graph reasoning"
+      generation_range: [180, 250]
+      prerequisites: "Causal graphs + hierarchical abstraction + metacognition"
+
+    metabolic_cost: "Very high"
+
+    falsification_criteria: |
+      If organisms can't reason about unobservable causes or generate predictions
+      beyond observed patterns, theory formation is absent.
+
+cross_family_dependencies:
+  provides_to:
+    - family: "Compression"
+      mechanism: "Formalization enables compression (patterns reduce storage)"
+
+    - family: "Causality"
+      mechanism: "Causal rules are formalized patterns"
+
+    - family: "Meta-Motivational"
+      mechanism: "Meta-rules are formalized metacognition"
+
+  requires_from:
+    - family: "Observation"
+      receptors: ["pattern_recognition", "exception_detection"]
+      mechanism: "Formalization acts on observations"
+
+    - family: "Similarity"
+      receptors: ["structural_invariance"]
+      mechanism: "Generalization requires detecting invariant structure"
+
+    - family: "Causality"
+      receptors: ["causal_inference", "causal_chain"]
+      mechanism: "Causal rules are subset of formalized patterns"
+
+feedback_loop:
+  observation_to_formalization: |
+    Repeated observations → pattern extraction → rules
+
+  formalization_to_observation: |
+    Rules shape future observation (selective attention to rule-relevant features)
+
+  co_evolution: |
+    What gets formalized depends on what was observed.
+    What gets observed next depends on what's been formalized.
+
+    This creates a spiral:
+    Early: Observe repetitions → formalize simple patterns → attend to patterns
+    Later: Observe exceptions → revise rules → attend to boundary cases
+    Canopy: Observe rule failures → form theories → attend to hidden causes
+
+notes: |
+  This family has MASSIVE overlap with existing families:
+
+  CROSS-REFERENCES (same receptor, different lens):
+  - pattern_recognition → Compression
+  - categorical_compression → Compression
+  - rule_extraction → Foundation (mental model)
+  - rule_composition → Causality (causal chains)
+  - hierarchical_abstraction → Compression
+
+  GENUINELY NEW RECEPTORS:
+  - boundary_detection (explicit boundary awareness)
+  - exception_detection (structural, not just affective surprise)
+  - rule_revision (belief updating formalized)
+  - theory_formation (explanatory frameworks)
+
+  The value of this family is NOT adding new receptors — it's showing how
+  observation and formalization form a FEEDBACK LOOP that drives cognitive development.
+
+  Observation without formalization: organism sees everything, learns nothing.
+  Formalization without observation: organism has rules with no data.
+
+  Together: observation generates patterns, formalization generalizes them, generalization
+  shapes future observation.
+
+  This is the evolutionary engine for increasingly abstract cognition.

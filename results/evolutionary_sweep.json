@@ -1,0 +1,826 @@
+{
+  "sweep_results": {
+    "tier_0": [
+      {
+        "generation": 0,
+        "accuracy": 0.9376,
+        "discovered": [
+          "coincidence_detection",
+          "spatial_association",
+          "temporal_association",
+          "perceptual_similarity",
+          "pattern_recognition",
+          "compression_gain",
+          "other_detection",
+          "empathic_concern",
+          "controllability",
+          "planning",
+          "optimism",
+          "conflict_detection",
+          "stress_detection"
+        ],
+        "discovered_count": 13,
+        "scores": {
+          "static_repetition": 0.0,
+          "rhythm": 0.2853,
+          "coincidence_detection": 0.8283,
+          "precedence_detection": 0.2632,
+          "causal_association": 0.2929,
+          "spatial_association": 7.0,
+          "temporal_association": 0.6031,
+          "perceptual_similarity": 0.8699,
+          "pattern_recognition": 231.0,
+          "compression_gain": 0.4011,
+          "other_detection": 0.1454,
+          "empathic_concern": 0.4115,
+          "controllability": 1.0,
+          "planning": 1.0,
+          "curiosity": 0.0,
+          "optimism": 0.4123,
+          "conflict_detection": 0.5075,
+          "stress_detection": 0.2632,
+          "change_detection": 0.5758
+        }
+      },
+      {
+        "generation": 1,
+        "accuracy": 0.9532,
+        "discovered": [
+          "rhythm",
+          "coincidence_detection",
+          "spatial_association",
+          "temporal_association",
+          "perceptual_similarity",
+          "pattern_recognition",
+          "compression_gain",
+          "other_detection",
+          "empathic_concern",
+          "controllability",
+          "planning",
+          "optimism",
+          "conflict_detection",
+          "stress_detection"
+        ],
+        "discovered_count": 14,
+        "scores": {
+          "static_repetition": 0.0,
+          "rhythm": 0.4682,
+          "coincidence_detection": 0.9477,
+          "precedence_detection": 0.4444,
+          "causal_association": 0.2778,
+          "spatial_association": 8.0,
+          "temporal_association": 0.6508,
+          "perceptual_similarity": 0.9166,
+          "pattern_recognition": 250.0,
+          "compression_gain": 0.4276,
+          "other_detection": 0.2718,
+          "empathic_concern": 0.4278,
+          "controllability": 1.0,
+          "planning": 1.0,
+          "curiosity": 0.0,
+          "optimism": 0.4229,
+          "conflict_detection": 0.5193,
+          "stress_detection": 0.2944,
+          "change_detection": 0.4848
+        }
+      },
+      {
+        "generation": 2,
+        "accuracy": 0.9625,
+        "discovered": [
+          "rhythm",
+          "coincidence_detection",
+          "spatial_association",
+          "temporal_association",
+          "perceptual_similarity",
+          "pattern_recognition",
+          "compression_gain",
+          "other_detection",
+          "empathic_concern",
+          "controllability",
+          "planning",
+          "optimism",
+          "conflict_detection",
+          "stress_detection"
+        ],
+        "discovered_count": 14,
+        "scores": {
+          "static_repetition": 0.0,
+          "rhythm": 0.4483,
+          "coincidence_detection": 0.9735,
+          "precedence_detection": 0.5385,
+          "causal_association": 0.2827,
+          "spatial_association": 8.0,
+          "temporal_association": 0.6263,
+          "perceptual_similarity": 0.8948,
+          "pattern_recognition": 252.0,
+          "compression_gain": 0.413,
+          "other_detection": 0.1422,
+          "empathic_concern": 0.4684,
+          "controllability": 1.0,
+          "planning": 1.0,
+          "curiosity": 0.0,
+          "optimism": 0.4435,
+          "conflict_detection": 0.5612,
+          "stress_detection": 0.3312,
+          "change_detection": 0.5758
+        }
+      }
+    ],
+    "tier_1": [
+      {
+        "generation": 0,
+        "accuracy": 0.9341,
+        "discovered": [
+          "rhythm",
+          "coincidence_detection",
+          "spatial_association",
+          "perceptual_similarity",
+          "pattern_recognition",
+          "compression_gain",
+          "other_detection",
+          "empathic_concern",
+          "controllability",
+          "planning",
+          "optimism",
+          "conflict_detection",
+          "stress_detection"
+        ],
+        "discovered_count": 13,
+        "scores": {
+          "static_repetition": 0.0,
+          "rhythm": 0.3604,
+          "coincidence_detection": 0.9472,
+          "precedence_detection": 0.8,
+          "causal_association": 0.2784,
+          "spatial_association": 8.0,
+          "temporal_association": 0.4039,
+          "perceptual_similarity": 0.8421,
+          "pattern_recognition": 78.0,
+          "compression_gain": 0.3571,
+          "other_detection": 3.0728,
+          "empathic_concern": 0.6018,
+          "controllability": 1.0,
+          "planning": 1.0,
+          "curiosity": 0.0,
+          "optimism": 0.5576,
+          "conflict_detection": 0.6629,
+          "stress_detection": 0.4306,
+          "change_detection": 2.6667
+        }
+      },
+      {
+        "generation": 1,
+        "accuracy": 0.9482,
+        "discovered": [
+          "rhythm",
+          "coincidence_detection",
+          "spatial_association",
+          "temporal_association",
+          "perceptual_similarity",
+          "pattern_recognition",
+          "compression_gain",
+          "other_detection",
+          "empathic_concern",
+          "controllability",
+          "planning",
+          "optimism",
+          "conflict_detection",
+          "stress_detection"
+        ],
+        "discovered_count": 14,
+        "scores": {
+          "static_repetition": 0.0,
+          "rhythm": 0.4099,
+          "coincidence_detection": 0.9439,
+          "precedence_detection": 0.8148,
+          "causal_association": 0.2484,
+          "spatial_association": 7.0,
+          "temporal_association": 0.5475,
+          "perceptual_similarity": 0.8552,
+          "pattern_recognition": 90.0,
+          "compression_gain": 0.3724,
+          "other_detection": 1.2442,
+          "empathic_concern": 0.6112,
+          "controllability": 1.0,
+          "planning": 1.0,
+          "curiosity": 0.0,
+          "optimism": 0.4939,
+          "conflict_detection": 0.6049,
+          "stress_detection": 0.3731,
+          "change_detection": 1.8788
+        }
+      },
+      {
+        "generation": 2,
+        "accuracy": 0.9582,
+        "discovered": [
+          "rhythm",
+          "coincidence_detection",
+          "spatial_association",
+          "temporal_association",
+          "perceptual_similarity",
+          "pattern_recognition",
+          "compression_gain",
+          "other_detection",
+          "empathic_concern",
+          "controllability",
+          "planning",
+          "optimism",
+          "conflict_detection",
+          "stress_detection"
+        ],
+        "discovered_count": 14,
+        "scores": {
+          "static_repetition": 0.0,
+          "rhythm": 0.3031,
+          "coincidence_detection": 0.95,
+          "precedence_detection": 1.5,
+          "causal_association": 0.24,
+          "spatial_association": 6.0,
+          "temporal_association": 0.4575,
+          "perceptual_similarity": 0.8222,
+          "pattern_recognition": 45.0,
+          "compression_gain": 0.3735,
+          "other_detection": 0.676,
+          "empathic_concern": 0.529,
+          "controllability": 1.0,
+          "planning": 1.0,
+          "curiosity": 0.0,
+          "optimism": 0.5291,
+          "conflict_detection": 0.6307,
+          "stress_detection": 0.3863,
+          "change_detection": 1.0
+        }
+      }
+    ],
+    "tier_2": [
+      {
+        "generation": 0,
+        "accuracy": 0.9306,
+        "discovered": [
+          "rhythm",
+          "coincidence_detection",
+          "spatial_association",
+          "perceptual_similarity",
+          "pattern_recognition",
+          "compression_gain",
+          "other_detection",
+          "empathic_concern",
+          "controllability",
+          "planning",
+          "optimism",
+          "conflict_detection",
+          "stress_detection",
+          "change_detection"
+        ],
+        "discovered_count": 14,
+        "scores": {
+          "static_repetition": 0.0,
+          "rhythm": 0.4367,
+          "coincidence_detection": 0.9365,
+          "precedence_detection": 0.8462,
+          "causal_association": 0.2186,
+          "spatial_association": 7.0,
+          "temporal_association": 0.3759,
+          "perceptual_similarity": 0.7713,
+          "pattern_recognition": 56.0,
+          "compression_gain": 0.3785,
+          "other_detection": 1.4754,
+          "empathic_concern": 0.3754,
+          "controllability": 1.0,
+          "planning": 1.0,
+          "curiosity": 0.0,
+          "optimism": 0.6203,
+          "conflict_detection": 0.7211,
+          "stress_detection": 0.4563,
+          "change_detection": 15.3636
+        }
+      },
+      {
+        "generation": 1,
+        "accuracy": 0.9409,
+        "discovered": [
+          "rhythm",
+          "coincidence_detection",
+          "spatial_association",
+          "perceptual_similarity",
+          "pattern_recognition",
+          "compression_gain",
+          "other_detection",
+          "empathic_concern",
+          "controllability",
+          "planning",
+          "optimism",
+          "conflict_detection",
+          "stress_detection",
+          "change_detection"
+        ],
+        "discovered_count": 14,
+        "scores": {
+          "static_repetition": 0.0,
+          "rhythm": 0.3817,
+          "coincidence_detection": 1.0252,
+          "precedence_detection": 0.4583,
+          "causal_association": 0.244,
+          "spatial_association": 6.0,
+          "temporal_association": 0.3557,
+          "perceptual_similarity": 0.8974,
+          "pattern_recognition": 114.0,
+          "compression_gain": 0.3901,
+          "other_detection": 1.4625,
+          "empathic_concern": 0.5568,
+          "controllability": 1.0,
+          "planning": 1.0,
+          "curiosity": 0.0,
+          "optimism": 0.5772,
+          "conflict_detection": 0.684,
+          "stress_detection": 0.4112,
+          "change_detection": 18.0303
+        }
+      },
+      {
+        "generation": 2,
+        "accuracy": 0.9552,
+        "discovered": [
+          "rhythm",
+          "coincidence_detection",
+          "spatial_association",
+          "perceptual_similarity",
+          "pattern_recognition",
+          "compression_gain",
+          "other_detection",
+          "empathic_concern",
+          "controllability",
+          "planning",
+          "optimism",
+          "conflict_detection",
+          "stress_detection",
+          "change_detection"
+        ],
+        "discovered_count": 14,
+        "scores": {
+          "static_repetition": 0.0,
+          "rhythm": 0.2863,
+          "coincidence_detection": 0.9963,
+          "precedence_detection": 1.0526,
+          "causal_association": 0.2084,
+          "spatial_association": 6.0,
+          "temporal_association": 0.3326,
+          "perceptual_similarity": 0.7565,
+          "pattern_recognition": 67.0,
+          "compression_gain": 0.3476,
+          "other_detection": 0.9926,
+          "empathic_concern": 0.494,
+          "controllability": 1.0,
+          "planning": 1.0,
+          "curiosity": 0.0,
+          "optimism": 0.7103,
+          "conflict_detection": 0.8002,
+          "stress_detection": 0.5543,
+          "change_detection": 15.1212
+        }
+      }
+    ],
+    "tier_3": [
+      {
+        "generation": 0,
+        "accuracy": 0.9292,
+        "discovered": [
+          "coincidence_detection",
+          "spatial_association",
+          "perceptual_similarity",
+          "pattern_recognition",
+          "compression_gain",
+          "other_detection",
+          "empathic_concern",
+          "controllability",
+          "planning",
+          "optimism",
+          "conflict_detection",
+          "stress_detection",
+          "change_detection"
+        ],
+        "discovered_count": 13,
+        "scores": {
+          "static_repetition": 0.0,
+          "rhythm": 0.2865,
+          "coincidence_detection": 0.9811,
+          "precedence_detection": 0.4242,
+          "causal_association": 0.2079,
+          "spatial_association": 5.0,
+          "temporal_association": 0.3326,
+          "perceptual_similarity": 0.8671,
+          "pattern_recognition": 52.0,
+          "compression_gain": 0.3785,
+          "other_detection": 1.1941,
+          "empathic_concern": 0.6026,
+          "controllability": 1.0,
+          "planning": 1.0,
+          "curiosity": 0.0,
+          "optimism": 0.5773,
+          "conflict_detection": 0.6655,
+          "stress_detection": 0.4151,
+          "change_detection": 16.303
+        }
+      },
+      {
+        "generation": 1,
+        "accuracy": 0.9391,
+        "discovered": [
+          "coincidence_detection",
+          "spatial_association",
+          "perceptual_similarity",
+          "pattern_recognition",
+          "compression_gain",
+          "other_detection",
+          "empathic_concern",
+          "controllability",
+          "planning",
+          "optimism",
+          "conflict_detection",
+          "stress_detection",
+          "change_detection"
+        ],
+        "discovered_count": 13,
+        "scores": {
+          "static_repetition": 0.0,
+          "rhythm": 0.2338,
+          "coincidence_detection": 0.9623,
+          "precedence_detection": 0.4615,
+          "causal_association": 0.2119,
+          "spatial_association": 7.0,
+          "temporal_association": 0.404,
+          "perceptual_similarity": 0.8386,
+          "pattern_recognition": 73.0,
+          "compression_gain": 0.376,
+          "other_detection": 0.408,
+          "empathic_concern": 0.488,
+          "controllability": 1.0,
+          "planning": 1.0,
+          "curiosity": 0.0,
+          "optimism": 0.5638,
+          "conflict_detection": 0.6599,
+          "stress_detection": 0.4282,
+          "change_detection": 15.8485
+        }
+      },
+      {
+        "generation": 2,
+        "accuracy": 0.9539,
+        "discovered": [
+          "coincidence_detection",
+          "spatial_association",
+          "perceptual_similarity",
+          "pattern_recognition",
+          "compression_gain",
+          "other_detection",
+          "empathic_concern",
+          "controllability",
+          "planning",
+          "optimism",
+          "conflict_detection",
+          "stress_detection",
+          "change_detection"
+        ],
+        "discovered_count": 13,
+        "scores": {
+          "static_repetition": 0.0,
+          "rhythm": 0.217,
+          "coincidence_detection": 0.8683,
+          "precedence_detection": 0.2941,
+          "causal_association": 0.2006,
+          "spatial_association": 7.0,
+          "temporal_association": 0.4207,
+          "perceptual_similarity": 0.8543,
+          "pattern_recognition": 52.0,
+          "compression_gain": 0.3706,
+          "other_detection": 5.0754,
+          "empathic_concern": 0.4579,
+          "controllability": 1.0,
+          "planning": 1.0,
+          "curiosity": 0.0,
+          "optimism": 0.5187,
+          "conflict_detection": 0.6216,
+          "stress_detection": 0.4167,
+          "change_detection": 16.1515
+        }
+      }
+    ],
+    "tier_4": [
+      {
+        "generation": 0,
+        "accuracy": 0.9308,
+        "discovered": [
+          "coincidence_detection",
+          "spatial_association",
+          "perceptual_similarity",
+          "pattern_recognition",
+          "compression_gain",
+          "other_detection",
+          "empathic_concern",
+          "controllability",
+          "planning",
+          "optimism",
+          "conflict_detection",
+          "stress_detection",
+          "change_detection"
+        ],
+        "discovered_count": 13,
+        "scores": {
+          "static_repetition": 0.0,
+          "rhythm": 0.2231,
+          "coincidence_detection": 0.9616,
+          "precedence_detection": 0.8125,
+          "causal_association": 0.2136,
+          "spatial_association": 6.0,
+          "temporal_association": 0.3685,
+          "perceptual_similarity": 0.8929,
+          "pattern_recognition": 75.0,
+          "compression_gain": 0.3885,
+          "other_detection": 2.0641,
+          "empathic_concern": 0.5047,
+          "controllability": 1.0,
+          "planning": 1.0,
+          "curiosity": 0.0,
+          "optimism": 0.5784,
+          "conflict_detection": 0.6881,
+          "stress_detection": 0.4461,
+          "change_detection": 17.9697
+        }
+      },
+      {
+        "generation": 1,
+        "accuracy": 0.9421,
+        "discovered": [
+          "coincidence_detection",
+          "spatial_association",
+          "perceptual_similarity",
+          "pattern_recognition",
+          "compression_gain",
+          "other_detection",
+          "empathic_concern",
+          "controllability",
+          "planning",
+          "optimism",
+          "conflict_detection",
+          "stress_detection",
+          "change_detection"
+        ],
+        "discovered_count": 13,
+        "scores": {
+          "static_repetition": 0.0,
+          "rhythm": 0.1909,
+          "coincidence_detection": 0.9272,
+          "precedence_detection": 0.3462,
+          "causal_association": 0.1969,
+          "spatial_association": 6.0,
+          "temporal_association": 0.393,
+          "perceptual_similarity": 0.9155,
+          "pattern_recognition": 57.0,
+          "compression_gain": 0.3743,
+          "other_detection": 0.755,
+          "empathic_concern": 0.3581,
+          "controllability": 1.0,
+          "planning": 1.0,
+          "curiosity": 0.0,
+          "optimism": 0.5447,
+          "conflict_detection": 0.6501,
+          "stress_detection": 0.4401,
+          "change_detection": 16.4848
+        }
+      },
+      {
+        "generation": 2,
+        "accuracy": 0.9541,
+        "discovered": [
+          "coincidence_detection",
+          "spatial_association",
+          "perceptual_similarity",
+          "compression_gain",
+          "other_detection",
+          "empathic_concern",
+          "controllability",
+          "planning",
+          "optimism",
+          "conflict_detection",
+          "stress_detection",
+          "change_detection"
+        ],
+        "discovered_count": 12,
+        "scores": {
+          "static_repetition": 0.0,
+          "rhythm": 0.1972,
+          "coincidence_detection": 0.9396,
+          "precedence_detection": 0.619,
+          "causal_association": 0.2074,
+          "spatial_association": 6.0,
+          "temporal_association": 0.3324,
+          "perceptual_similarity": 0.8741,
+          "pattern_recognition": 26.0,
+          "compression_gain": 0.3424,
+          "other_detection": 0.9801,
+          "empathic_concern": 0.4472,
+          "controllability": 1.0,
+          "planning": 1.0,
+          "curiosity": 0.0,
+          "optimism": 0.6209,
+          "conflict_detection": 0.6879,
+          "stress_detection": 0.447,
+          "change_detection": 18.0909
+        }
+      }
+    ]
+  },
+  "emergence_matrix": {
+    "static_repetition": {
+      "tier_0": null,
+      "tier_1": null,
+      "tier_2": null,
+      "tier_3": null,
+      "tier_4": null
+    },
+    "rhythm": {
+      "tier_0": 1,
+      "tier_1": 0,
+      "tier_2": 0,
+      "tier_3": null,
+      "tier_4": null
+    },
+    "coincidence_detection": {
+      "tier_0": 0,
+      "tier_1": 0,
+      "tier_2": 0,
+      "tier_3": 0,
+      "tier_4": 0
+    },
+    "precedence_detection": {
+      "tier_0": null,
+      "tier_1": null,
+      "tier_2": null,
+      "tier_3": null,
+      "tier_4": null
+    },
+    "causal_association": {
+      "tier_0": null,
+      "tier_1": null,
+      "tier_2": null,
+      "tier_3": null,
+      "tier_4": null
+    },
+    "spatial_association": {
+      "tier_0": 0,
+      "tier_1": 0,
+      "tier_2": 0,
+      "tier_3": 0,
+      "tier_4": 0
+    },
+    "temporal_association": {
+      "tier_0": 0,
+      "tier_1": 1,
+      "tier_2": null,
+      "tier_3": null,
+      "tier_4": null
+    },
+    "perceptual_similarity": {
+      "tier_0": 0,
+      "tier_1": 0,
+      "tier_2": 0,
+      "tier_3": 0,
+      "tier_4": 0
+    },
+    "pattern_recognition": {
+      "tier_0": 0,
+      "tier_1": 0,
+      "tier_2": 0,
+      "tier_3": 0,
+      "tier_4": 0
+    },
+    "compression_gain": {
+      "tier_0": 0,
+      "tier_1": 0,
+      "tier_2": 0,
+      "tier_3": 0,
+      "tier_4": 0
+    },
+    "other_detection": {
+      "tier_0": 0,
+      "tier_1": 0,
+      "tier_2": 0,
+      "tier_3": 0,
+      "tier_4": 0
+    },
+    "empathic_concern": {
+      "tier_0": 0,
+      "tier_1": 0,
+      "tier_2": 0,
+      "tier_3": 0,
+      "tier_4": 0
+    },
+    "controllability": {
+      "tier_0": 0,
+      "tier_1": 0,
+      "tier_2": 0,
+      "tier_3": 0,
+      "tier_4": 0
+    },
+    "planning": {
+      "tier_0": 0,
+      "tier_1": 0,
+      "tier_2": 0,
+      "tier_3": 0,
+      "tier_4": 0
+    },
+    "curiosity": {
+      "tier_0": null,
+      "tier_1": null,
+      "tier_2": null,
+      "tier_3": null,
+      "tier_4": null
+    },
+    "optimism": {
+      "tier_0": 0,
+      "tier_1": 0,
+      "tier_2": 0,
+      "tier_3": 0,
+      "tier_4": 0
+    },
+    "conflict_detection": {
+      "tier_0": 0,
+      "tier_1": 0,
+      "tier_2": 0,
+      "tier_3": 0,
+      "tier_4": 0
+    },
+    "stress_detection": {
+      "tier_0": 0,
+      "tier_1": 0,
+      "tier_2": 0,
+      "tier_3": 0,
+      "tier_4": 0
+    },
+    "change_detection": {
+      "tier_0": null,
+      "tier_1": null,
+      "tier_2": 0,
+      "tier_3": 0,
+      "tier_4": 0
+    }
+  },
+  "tier_invariant": [
+    "coincidence_detection",
+    "spatial_association",
+    "perceptual_similarity",
+    "pattern_recognition",
+    "compression_gain",
+    "other_detection",
+    "empathic_concern",
+    "controllability",
+    "planning",
+    "optimism",
+    "conflict_detection",
+    "stress_detection"
+  ],
+  "tier_specific": {
+    "rhythm": {
+      "present": [
+        0,
+        1,
+        2
+      ],
+      "absent": [
+        3,
+        4
+      ]
+    },
+    "temporal_association": {
+      "present": [
+        0,
+        1
+      ],
+      "absent": [
+        2,
+        3,
+        4
+      ]
+    },
+    "change_detection": {
+      "present": [
+        2,
+        3,
+        4
+      ],
+      "absent": [
+        0,
+        1
+      ]
+    }
+  },
+  "counts_by_tier": {
+    "0": 14,
+    "1": 14,
+    "2": 14,
+    "3": 13,
+    "4": 12
+  }
+}

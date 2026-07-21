@@ -1,0 +1,309 @@
+# Interaction Family
+# Receptors for acting on the world and detecting the world's response —
+# manipulation, affordance detection, and persistent environmental modification
+
+family_metadata:
+  name: Interaction
+  description: |
+    Receptors that detect the organism's ability to change the world's state,
+    not just navigate through it. From detecting that objects respond to force,
+    to recognizing affordances (what CAN be done to this object), to modeling
+    complex multi-step manipulations.
+
+    The three orthogonal relationships to the world:
+    - Exploration: the self moves through the world (model updates, world unchanged)
+    - Interaction: the self acts on the world (both change state)
+    - Self-augmentation: the self changes (internal developmental process)
+
+    Interaction bridges agency (controllability, tool_use) and causality
+    (causal_chains, intervention_planning) but adds the specific receptor
+    for manipulability — detecting WHAT can be changed and HOW.
+
+  evolutionary_thesis: |
+    Interaction receptors emerge when the environment contains objects whose
+    state can be changed by the organism's actions, and changing those states
+    is load-bearing for survival. Pushing, pulling, grabbing, bending, twisting
+    are all interaction modalities — each requires detecting a different kind
+    of affordance in the object.
+
+    The key transition: navigation says "the world has structure, move through
+    it." Interaction says "the world has structure, and I can change that
+    structure." That's a qualitatively different relationship.
+
+  trunk_receptor: contact_response_detection
+  canopy_receptors: [composite_affordance, affordance_transfer, persistent_modification_detection]
+
+---
+
+receptors:
+  - receptor_id: contact_response_detection
+    name: Object Responds To Contact
+    family: interaction
+    tier: trunk
+
+    dependencies:
+      - receptor_id: controllability
+        note: "Agency — must model own actions before detecting their effects on objects"
+      - receptor_id: change_detection
+        note: "Observation — must detect state changes"
+
+    environmental_trigger:
+      structure: |
+        When the organism contacts an object, the object changes state.
+        Push -> object moves. Contact -> object responds. The world is
+        not passive — it reacts to the organism's physical actions.
+      survival_benefit: |
+        Contact response detection is the foundation of all manipulation.
+        Without it, objects are just obstacles. With it, objects become
+        potential tools.
+      metabolic_cost: very_low
+      selection_pressure: |
+        Any environment with movable or responsive objects.
+
+    selection_environments:
+      - environments_with_movable_objects
+      - responsive_object_environments
+      - tier_3_plus
+
+    unlocks:
+      - push_affordance
+      - grip_affordance
+      - object_manipulation
+
+    emergence_signature:
+      description: |
+        Organism intentionally contacts objects and observes the response
+        rather than avoiding all contact. Exploratory object interaction.
+      metrics:
+        - metric_name: deliberate_contact
+          measurement_method: |
+            Frequency of object contact that is followed by behavioral
+            adjustment (not random collision). Contact -> observation ->
+            changed strategy.
+          expected_range: ">20% of contacts"
+          detection_threshold: 0.2
+
+    predicted_emergence_order:
+      generation_range: "40-80"
+      confidence: medium
+
+  - receptor_id: push_affordance
+    name: Pushability Detection
+    family: interaction
+    tier: branch
+
+    dependencies:
+      - receptor_id: contact_response_detection
+        note: "Must detect that objects respond to contact"
+      - receptor_id: causal_inference
+        note: "Causality — must understand push causes movement"
+
+    environmental_trigger:
+      structure: "Objects that move when force is applied in their direction"
+      survival_benefit: |
+        Detecting pushability enables using objects as tools — push
+        an object to block a pain source, clear a path, create shelter.
+      metabolic_cost: low
+      selection_pressure: "Environments with objects that can be repositioned for survival benefit"
+
+    selection_environments:
+      - tier_3_tool_environments
+
+    unlocks:
+      - object_positioning
+      - barrier_construction
+
+    emergence_signature:
+      description: "Organism pushes objects toward beneficial positions"
+      metrics:
+        - metric_name: directed_pushing
+          measurement_method: "Objects are pushed toward pain sources (blocking) more than random directions"
+          expected_range: ">1.5x directional bias"
+          detection_threshold: 1.5
+
+    predicted_emergence_order:
+      generation_range: "60-100"
+      confidence: medium
+
+  - receptor_id: grip_affordance
+    name: Holdability Detection
+    family: interaction
+    tier: branch
+
+    dependencies:
+      - receptor_id: push_affordance
+        note: "Must detect pushability before gripping"
+      - receptor_id: proprioception
+        note: "Foundation — must model own body configuration"
+
+    environmental_trigger:
+      structure: |
+        Objects that can be held — maintained in contact with the organism
+        while the organism moves. Requires limb configuration that wraps
+        around the object. Different from pushing because the object stays
+        with the organism rather than moving away.
+      survival_benefit: |
+        Gripping enables carrying — transporting objects from where they
+        are to where they're needed. This extends tool use from "push
+        nearby object" to "bring distant object to where it's needed."
+      metabolic_cost: medium
+      selection_pressure: |
+        Environments where objects must be transported, not just repositioned.
+
+    selection_environments:
+      - transport_environments
+      - construction_environments
+
+    unlocks:
+      - carrying
+      - tool_transport
+      - lever_affordance
+
+    emergence_signature:
+      description: |
+        Organism maintains contact with object across multiple movement
+        steps rather than single-step pushes.
+      metrics:
+        - metric_name: sustained_contact
+          measurement_method: "Object proximity maintained for >5 consecutive steps during organism movement"
+          expected_range: ">10% of object interactions"
+          detection_threshold: 0.1
+
+    predicted_emergence_order:
+      generation_range: "80-150"
+      confidence: low
+      conditions: "Requires limb configuration capable of wrapping/clamping"
+
+  - receptor_id: lever_affordance
+    name: Force Transmission Detection
+    family: interaction
+    tier: canopy
+
+    dependencies:
+      - receptor_id: grip_affordance
+        note: "Must be able to hold objects"
+      - receptor_id: causal_chains
+        note: "Causality — must model multi-step force transmission"
+
+    environmental_trigger:
+      structure: |
+        Objects that transmit force differently depending on how they're
+        held and where force is applied. A lever amplifies force. A wedge
+        redirects it. Bending and twisting are force applications that
+        change the object's shape rather than its position.
+      survival_benefit: |
+        Force transmission enables solving problems the organism's body
+        can't solve directly — moving things too heavy to push, reaching
+        things too far to touch, applying force at angles the body can't
+        achieve.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments with challenges that require force amplification
+        or redirection. Objects too heavy, gaps too wide, angles too
+        extreme for direct body action.
+
+    selection_environments:
+      - force_amplification_environments
+      - complex_tool_environments
+
+    unlocks:
+      - compound_tool_use
+      - mechanical_reasoning
+
+    emergence_signature:
+      description: "Organism uses objects to apply force it cannot generate directly"
+      metrics:
+        - metric_name: force_amplification
+          measurement_method: "Outcomes achieved via tool exceed what direct body action produces"
+          expected_range: ">1.5x effectiveness"
+          detection_threshold: 1.5
+
+    predicted_emergence_order:
+      generation_range: "150-250"
+      confidence: low
+
+  - receptor_id: composite_affordance
+    name: Combination Effect Detection
+    family: interaction
+    tier: canopy
+
+    dependencies:
+      - receptor_id: push_affordance
+        note: "Must manipulate individual objects"
+      - receptor_id: causal_chains
+        note: "Causality — multi-step combination"
+      - receptor_id: pattern_recognition
+        note: "Compression — must recognize that A+B produces novel effect"
+
+    environmental_trigger:
+      structure: |
+        Two objects that individually do nothing special but together
+        produce an effect neither creates alone. The combination is the
+        innovation. This is the foundation of technology.
+      survival_benefit: |
+        Composite affordance detection enables invention — creating
+        capabilities that don't exist in any single object by combining
+        objects. This is where the environment goes from containing
+        tools to containing raw materials.
+      metabolic_cost: high
+      selection_pressure: "Environments with compound tool chains (tier 6+)"
+
+    selection_environments:
+      - compound_effect_environments
+      - tier_6_cumulative
+
+    unlocks:
+      - invention
+      - technology_development
+      - creative_engineering
+
+    emergence_signature:
+      description: "Organism combines objects for effects neither produces alone"
+      metrics:
+        - metric_name: novel_combination
+          measurement_method: "Object pairings that produce effects unexplained by either object individually"
+          expected_range: ">1 novel combination per 100 episodes"
+          detection_threshold: 0.01
+
+    predicted_emergence_order:
+      generation_range: "200-350"
+      confidence: very_low
+
+  - receptor_id: affordance_transfer
+    name: Cross-Object Affordance Generalization
+    family: interaction
+    tier: canopy
+
+    dependencies:
+      - receptor_id: composite_affordance
+        note: "Must detect affordances before transferring them"
+      - receptor_id: analogical_similarity
+        note: "Similarity — must detect structural equivalence across objects"
+
+    environmental_trigger:
+      structure: |
+        If this object can be pushed, that similarly-shaped object
+        probably can too. Affordance transfer across objects based on
+        structural similarity. One learning event serves many objects.
+      survival_benefit: "Reduces exploration cost for new objects by transferring known affordances"
+      metabolic_cost: medium
+      selection_pressure: "Environments with many diverse objects sharing affordance categories"
+
+    selection_environments:
+      - diverse_object_environments
+
+    unlocks:
+      - generalized_tool_reasoning
+      - object_category_formation
+
+    emergence_signature:
+      description: "Organism applies learned manipulation strategy to novel objects without retraining"
+      metrics:
+        - metric_name: zero_shot_affordance
+          measurement_method: "Success rate on novel objects with same affordance as trained objects"
+          expected_range: ">50%"
+          detection_threshold: 0.5
+
+    predicted_emergence_order:
+      generation_range: "250-400"
+      confidence: very_low

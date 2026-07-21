@@ -1,0 +1,457 @@
+# Observation Family
+# The ability to register, attend to, and structure incoming information
+#
+# KEY INSIGHT: What gets observed is not neutral — it's shaped by current receptor state.
+# Stress → observe regulatory patterns. Curiosity → observe novel stimuli.
+# The organism doesn't observe "everything" — observation is already filtered by topology.
+#
+# Many receptors here are ALREADY PRESENT in other families (cross-references shown).
+# New receptors: comparative_observation, absence_observation, meta_observation
+
+observation_family:
+  family_name: "Observation"
+  description: "Receptors governing what gets registered, attended to, and compared"
+
+  core_thesis: |
+    Observation is not passive sensory input. It's an active filtering and structuring
+    process shaped by current receptor topology. The organism observes what its current
+    state makes relevant.
+
+    Early: Raw sensory input → detect changes
+    Middle: Selective attention → compare current to expected
+    Late: Notice absences → observe own observation process
+
+    This family cross-cuts all others — every receptor both USES observation and SHAPES
+    what gets observed.
+
+  evolutionary_progression: |
+    Trunk → Branch → Canopy represents increasing sophistication in WHAT can be observed:
+
+    Trunk: Changes, differences, co-occurrences (reactive)
+    Branch: Relationships, comparisons, violations (active)
+    Canopy: Absences, own processes, meta-patterns (reflective)
+
+  cross_family_role: |
+    Universal foundation: All families require observation mechanisms.
+
+    But observation is NOT neutral infrastructure — curiosity shapes attention, stress
+    shapes salience, controllability shapes what differences matter.
+
+    Feedback loop: Observation enables formalization → formalization shapes future observation.
+
+receptors:
+  # TRUNK: Foundational observation mechanisms
+
+  - receptor_id: "obs_001"
+    name: "change_detection"
+    family: "Observation"
+    tier: "trunk"
+
+    description: |
+      Register when sensory input differs from previous timestep.
+      Most primitive form of observation — something happened vs nothing happened.
+
+    dependencies:
+      within_family: []
+      cross_family:
+        - receptor: "Assumed foundational (sensory input exists)"
+          family: "Foundation"
+          relationship: "Requires minimal sensory apparatus"
+
+    environmental_trigger:
+      selection_environments:
+        - "Any environment with temporal variation"
+      selection_pressure: |
+        Organisms that detect changes respond faster than organisms blind to change.
+        Even bacteria show chemotaxis (change in chemical gradient).
+
+    emergence_signature:
+      behavioral: "Organism responds differently to changing vs static stimuli"
+      neural_correlate: "Spike when state[t] != state[t-1] on any dimension"
+      mental_model: "Not applicable (pre-mental-model)"
+
+    predicted_emergence_order:
+      roadmap_step: "Pre-Step 1 (assumed foundational)"
+      generation_range: [1, 10]
+      prerequisites: "Sensory input only"
+
+    metabolic_cost: "Very low"
+
+    falsification_criteria: |
+      If organisms show no differential response to changing vs static stimuli,
+      this receptor is absent.
+
+  - receptor_id: "obs_002"
+    name: "coincidence_detection"
+    family: "Observation"
+    tier: "trunk"
+
+    description: |
+      Register when two events occur together in time.
+      Foundation for all association learning.
+
+      CROSS-REFERENCE: This is causality:coincidence_detection from Causality family.
+      Observation provides the mechanism, Causality interprets it causally.
+
+    dependencies:
+      within_family:
+        - "change_detection"
+      cross_family:
+        - receptor: "coincidence_detection"
+          family: "Causality"
+          relationship: "Same receptor, different analytical lens"
+
+    environmental_trigger:
+      selection_environments:
+        - "Environments with reliable temporal structure"
+      selection_pressure: |
+        Co-occurring events often causally related. Organisms that notice coincidence
+        can learn faster than organisms that don't.
+
+    emergence_signature:
+      behavioral: "Learns temporal associations faster than spatial"
+      neural_correlate: "Mental model time_delay values cluster near 0"
+      mental_model: "High certainty for near-simultaneous action-outcome pairs"
+
+    predicted_emergence_order:
+      roadmap_step: "Step 5 (temporal association)"
+      generation_range: [20, 40]
+      prerequisites: "Mental model (Step 10)"
+
+    metabolic_cost: "Low"
+
+    falsification_criteria: |
+      If organisms don't learn temporal associations faster than arbitrary pairings,
+      coincidence detection is not operational.
+
+  - receptor_id: "obs_003"
+    name: "relational_observation"
+    family: "Observation"
+    tier: "trunk"
+
+    description: |
+      Observe the RELATIONSHIP between two entities, not just the entities themselves.
+
+      E.g., "A is larger than B" vs just "A exists, B exists"
+
+      CROSS-REFERENCE: Implemented via spatial_association, perceptual_similarity.
+      This receptor is the abstraction over those mechanisms.
+
+    dependencies:
+      within_family:
+        - "change_detection"
+      cross_family:
+        - receptor: "spatial_association"
+          family: "Association"
+          relationship: "Spatial relationships are subset of relational observation"
+        - receptor: "perceptual_similarity"
+          family: "Similarity"
+          relationship: "Similarity is a relationship"
+
+    environmental_trigger:
+      selection_environments:
+        - "Environments where relationships predict outcomes better than absolutes"
+        - "E.g., 'avoid larger predators' generalizes better than 'avoid predator type X'"
+      selection_pressure: |
+        Relational reasoning generalizes across instances. Absolute features don't.
+
+    emergence_signature:
+      behavioral: "Responds to same relationship across different objects"
+      neural_correlate: "Mental model context encoding preserves relational structure"
+      mental_model: "Similar contexts share relational patterns even when objects differ"
+
+    predicted_emergence_order:
+      roadmap_step: "Step 10 (context encoding in mental model)"
+      generation_range: [40, 70]
+      prerequisites: "Contrastive encoder operational"
+
+    metabolic_cost: "Moderate"
+
+    falsification_criteria: |
+      If organisms can't generalize "bigger is dangerous" across object types,
+      relational observation is not present.
+
+  # BRANCH: Active comparison and selective attention
+
+  - receptor_id: "obs_004"
+    name: "selective_observation"
+    family: "Observation"
+    tier: "branch"
+
+    description: |
+      Attend to some stimuli preferentially over others based on current receptor state.
+
+      E.g., stress → notice regulatory patterns; curiosity → notice novel stimuli.
+
+      This is NOT the same as curiosity. Curiosity is one DRIVER of selective observation.
+      This receptor is the general mechanism.
+
+    dependencies:
+      within_family:
+        - "change_detection"
+        - "relational_observation"
+      cross_family:
+        - receptor: "curiosity"
+          family: "Meta-Motivational"
+          relationship: "Curiosity shapes WHAT gets selected"
+        - receptor: "stress_detection"
+          family: "Regulatory"
+          relationship: "Stress shapes salience"
+        - receptor: "controllability"
+          family: "Agency"
+          relationship: "Controllable features get attended preferentially"
+
+    environmental_trigger:
+      selection_environments:
+        - "High-dimensional sensory environments (can't process everything)"
+      selection_pressure: |
+        Attending to relevant features (food when hungry, threats when vulnerable)
+        increases fitness over uniform attention.
+
+    emergence_signature:
+      behavioral: "Exploration patterns change based on internal state"
+      neural_correlate: "Action selection biased toward high-uncertainty regions when curious"
+      mental_model: "Query patterns differ when different receptors are active"
+
+    predicted_emergence_order:
+      roadmap_step: "Step 11 (curiosity), Step 25 (optimism affects planning)"
+      generation_range: [50, 90]
+      prerequisites: "Multiple receptors competing for action selection"
+
+    metabolic_cost: "Moderate"
+
+    falsification_criteria: |
+      If organism's attention doesn't shift with internal state (explores identically
+      when stressed vs curious vs satisfied), selective observation is absent.
+
+  - receptor_id: "obs_005"
+    name: "comparative_observation"
+    family: "Observation"
+    tier: "branch"
+
+    description: |
+      Explicitly compare current state to a prior state or expected state.
+
+      Different from change_detection (which is automatic). This is deliberate comparison:
+      "How does now compare to then?"
+
+      NEW RECEPTOR — not covered by existing families.
+
+    dependencies:
+      within_family:
+        - "change_detection"
+        - "relational_observation"
+      cross_family:
+        - receptor: "episodic_memory"
+          family: "Foundation"
+          relationship: "Requires retrieving prior states for comparison"
+        - receptor: "self_model"
+          family: "Foundation"
+          relationship: "Comparing self[t] to self[t-k]"
+
+    environmental_trigger:
+      selection_environments:
+        - "Environments with trends (getting better/worse over time)"
+        - "Volatile environments where current-vs-prior matters"
+      selection_pressure: |
+        Organisms that track "am I improving?" can adjust strategies.
+        Organisms without comparison can't detect trends.
+
+    emergence_signature:
+      behavioral: "Adjusts strategy based on performance trajectory, not just current success"
+      neural_correlate: "Retrieval of past states when making decisions"
+      mental_model: "Planning queries include 'what was my state last time I was here?'"
+
+    predicted_emergence_order:
+      roadmap_step: "After Step 18 (self-model operational)"
+      generation_range: [90, 140]
+      prerequisites: "Self-model + episodic retrieval"
+
+    metabolic_cost: "Moderate"
+
+    falsification_criteria: |
+      If organism doesn't adjust behavior based on performance trends (only responds
+      to current state), comparative observation is absent.
+
+  - receptor_id: "obs_006"
+    name: "absence_observation"
+    family: "Observation"
+    tier: "branch"
+
+    description: |
+      Notice when something EXPECTED is missing.
+
+      "The food that was here yesterday isn't here now."
+      "The pattern I expected to see didn't occur."
+
+      Requires: expectation formation + expectation violation detection.
+
+      NEW RECEPTOR — genuinely novel, not covered by existing families.
+
+    dependencies:
+      within_family:
+        - "comparative_observation"
+      cross_family:
+        - receptor: "prediction"
+          family: "Foundation"
+          relationship: "Mental model generates expectations"
+        - receptor: "surprise"
+          family: "Meta-Motivational"
+          relationship: "Absence violations generate surprise signal"
+
+    environmental_trigger:
+      selection_environments:
+        - "Environments with reliable patterns that occasionally break"
+        - "Cached resource locations that get depleted"
+      selection_pressure: |
+        Organisms that notice absence can update cached beliefs faster than organisms
+        that only notice presence.
+
+    emergence_signature:
+      behavioral: "Responds to ABSENCE of expected stimulus (not just presence of unexpected)"
+      neural_correlate: "Mental model certainty drops when prediction fails"
+      mental_model: "High-certainty predictions that don't pan out trigger belief revision"
+
+    predicted_emergence_order:
+      roadmap_step: "After Step 10 (mental model with certainty values)"
+      generation_range: [70, 120]
+      prerequisites: "Mental model predictions operational"
+
+    metabolic_cost: "Moderate"
+
+    falsification_criteria: |
+      If organisms don't respond differently to "expected thing absent" vs "unexpected
+      thing present", absence observation is not operational.
+
+  # CANOPY: Reflective and meta-observation
+
+  - receptor_id: "obs_007"
+    name: "cross_modal_observation"
+    family: "Observation"
+    tier: "canopy"
+
+    description: |
+      Observe relationships ACROSS sensory modalities.
+
+      E.g., "that visual object makes this sound"
+
+      CROSS-REFERENCE: cross_modal_association from Association family.
+      Same receptor, observational lens.
+
+    dependencies:
+      within_family:
+        - "relational_observation"
+      cross_family:
+        - receptor: "cross_modal_association"
+          family: "Association"
+          relationship: "Same receptor"
+
+    environmental_trigger:
+      selection_environments:
+        - "Multi-modal sensory environments"
+      selection_pressure: |
+        Objects have consistent cross-modal signatures. Integrating them improves
+        object recognition and prediction.
+
+    emergence_signature:
+      behavioral: "Learns audio-visual pairings faster than arbitrary pairings"
+      neural_correlate: "Mental model context includes multi-modal state"
+      mental_model: "Actions predicted from visual OR auditory cues once association formed"
+
+    predicted_emergence_order:
+      roadmap_step: "Step 10+ (context encoding spans modalities)"
+      generation_range: [60, 110]
+      prerequisites: "Multi-modal sensory input"
+
+    metabolic_cost: "Moderate"
+
+    falsification_criteria: |
+      If organisms don't integrate across modalities (treat vision and sound as
+      independent), cross-modal observation is absent.
+
+  - receptor_id: "obs_008"
+    name: "meta_observation"
+    family: "Observation"
+    tier: "canopy"
+
+    description: |
+      Observe own observation process.
+
+      "I am currently attending to X because Y."
+      "I notice that I notice rhythms more when stressed."
+
+      This is observation of observation — requires self-model applied to attentional state.
+
+      NEW RECEPTOR — not covered elsewhere.
+
+    dependencies:
+      within_family:
+        - "selective_observation"
+        - "comparative_observation"
+      cross_family:
+        - receptor: "metacognition"
+          family: "Meta-Motivational"
+          relationship: "Metacognition includes meta-observation as subset"
+        - receptor: "self_model"
+          family: "Foundation"
+          relationship: "Observing self requires self-model"
+
+    environmental_trigger:
+      selection_environments:
+        - "Complex environments where attentional strategy matters"
+        - "Social environments where explaining own focus is useful"
+      selection_pressure: |
+        Organisms that can reflect on what they're attending to can debug bad strategies.
+        "I keep focusing on threats and missing opportunities."
+
+    emergence_signature:
+      behavioral: "Adjusts attentional strategy based on reflection, not just outcomes"
+      neural_correlate: "Self-model includes attentional state as observable"
+      mental_model: "Can predict 'what will I attend to in state X?'"
+
+    predicted_emergence_order:
+      roadmap_step: "After Step 18 (self-model) + metacognition"
+      generation_range: [150, 220]
+      prerequisites: "Self-model + metacognition"
+
+    metabolic_cost: "High"
+
+    falsification_criteria: |
+      If organism can't report or adjust what it's attending to (only what it observes),
+      meta-observation is absent.
+
+cross_family_dependencies:
+  provides_to:
+    - family: "All families"
+      mechanism: "Observation is the input stage for all receptors"
+
+  requires_from:
+    - family: "Meta-Motivational"
+      receptors: ["curiosity", "surprise"]
+      mechanism: "These receptors shape what gets observed"
+
+    - family: "Regulatory"
+      receptors: ["stress_detection"]
+      mechanism: "Stress shapes salience and selective observation"
+
+    - family: "Agency"
+      receptors: ["controllability"]
+      mechanism: "Controllable features get attended preferentially"
+
+notes: |
+  This family is BOTH foundational AND integrative.
+
+  Foundational: change_detection is pre-Step 1
+  Integrative: meta_observation requires metacognition (late canopy)
+
+  Most receptors here are CROSS-REFERENCES to existing receptors in other families.
+  The genuinely new receptors are:
+  1. comparative_observation (explicit now-vs-then comparison)
+  2. absence_observation (noticing what's missing)
+  3. meta_observation (observing own observation)
+
+  The rest are observational mechanisms already present but distributed across families.
+
+  KEY ARCHITECTURAL INSIGHT:
+  Observation is shaped by receptor topology. There is no "neutral observation" —
+  what gets noticed depends on which receptors are currently active.

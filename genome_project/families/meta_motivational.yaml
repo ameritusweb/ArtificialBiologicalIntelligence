@@ -1,0 +1,648 @@
+# Meta-Motivational Family
+# Receptors about receptors - managing, regulating, and orchestrating the receptor economy
+
+family_metadata:
+  name: Meta-Motivational
+  description: |
+    Receptors that fire based on the states of other receptors. From curiosity
+    (firing when predictions fail) to self-regulation (deliberately modulating
+    which receptors dominate).
+
+    The trunk is meta-detection: noticing properties of your own receptor
+    states (conflict, uncertainty, learning progress). The canopy is meta-control:
+    strategically managing your receptor economy to achieve better outcomes.
+
+    This family is fundamentally different because these receptors take OTHER
+    RECEPTORS as input. They're the organism's internal monitoring and control
+    system for its own motivational structure.
+
+  evolutionary_thesis: |
+    Meta-motivational receptors emerge when managing the receptor economy
+    produces better outcomes than simple receptor competition. When curiosity
+    pays off, curiosity becomes a drive. When delaying gratification works,
+    impulse override becomes valuable. When receptor conflict is costly,
+    arbitration becomes fitness-positive.
+
+    These receptors are expensive (monitoring other receptors costs resources)
+    but valuable in complex environments where simple reward-seeking fails.
+
+  trunk_receptor: curiosity
+  canopy_receptors: [self_regulation, meta_planning, value_hierarchy]
+
+---
+
+receptors:
+  - receptor_id: curiosity
+    name: Learning Progress Salience
+    family: meta_motivational
+    tier: trunk
+
+    dependencies:
+      - receptor_id: prediction_accuracy
+        note: "Step 10 - mental model with certainty"
+      - receptor_id: pattern_recognition
+        note: "Step 12"
+
+    environmental_trigger:
+      structure: |
+        Situations where the mental model is updated (predictions fail,
+        new patterns discovered, uncertainty reduced).
+      survival_benefit: |
+        Motivates exploration and learning. Organism seeks situations where
+        it can improve its world model, not just where current rewards are high.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments with learnable structure where exploration cost < value
+        of improved predictions. Especially volatile environments where
+        updating is critical.
+
+    selection_environments:
+      - volatile_environments
+      - novel_structures
+      - learnable_patterns
+
+    unlocks:
+      - exploration_drive
+      - novelty_seeking
+      - scientific_curiosity
+
+    emergence_signature:
+      description: |
+        Mental model computes learning progress (MSE reduction). Curiosity
+        receptor fires when progress > threshold. Action selection shows
+        exploration bias toward high-uncertainty regions.
+      metrics:
+        - metric_name: exploration_in_uncertain_contexts
+          measurement_method: |
+            Proportion of actions in low-certainty regions vs high-certainty.
+          expected_range: "20-40% in low-certainty (vs <10% random)"
+          detection_threshold: 0.2
+        - metric_name: learning_progress_correlation
+          measurement_method: |
+            Does organism visit contexts in order of potential learning gain?
+          expected_range: "r > 0.4"
+          detection_threshold: 0.4
+
+    predicted_emergence_order:
+      generation_range: "35-65"
+      confidence: very_high
+      conditions: |
+        Step 11 from roadmap. May already be implemented.
+
+    notes: |
+      FOUNDATION RECEPTOR - Step 11 from roadmap.
+      Curiosity is the first meta-motivational receptor because it's relatively
+      simple: fire when mental model updates. More sophisticated meta-receptors
+      build on this.
+
+  - receptor_id: optimism
+    name: Positive Future State Salience
+    family: meta_motivational
+    tier: trunk
+
+    dependencies:
+      - receptor_id: planning
+        minimum_certainty: 0.6
+        note: "Step 18 - forward simulation"
+      - receptor_id: prediction_accuracy
+        minimum_certainty: 0.5
+
+    environmental_trigger:
+      structure: |
+        Organism can simulate future states where predicted receptor outcomes
+        are better than current state.
+      survival_benefit: |
+        Motivates navigation toward predicted better states, not just away
+        from current pain. Enables goal-directed behavior and delayed
+        gratification.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments where valuable states are separated from current position
+        by neutral or mildly negative regions. Organisms that persist toward
+        predicted rewards outperform purely reactive ones.
+
+    selection_environments:
+      - delayed_reward_structures
+      - goal_requiring_persistence
+      - resources_beyond_immediate_gradient
+
+    unlocks:
+      - goal_persistence
+      - delayed_gratification
+      - hope
+
+    emergence_signature:
+      description: |
+        Organism computes best predicted future receptor state. Optimism =
+        max(future_endorphin - current_pain). Action selection shows persistence
+        through temporary pain when optimism is high.
+      metrics:
+        - metric_name: persistence_through_pain
+          measurement_method: |
+            Does organism continue toward predicted reward despite encountering
+            moderate pain on route?
+          expected_range: ">60% when predicted benefit is 2x cost"
+          detection_threshold: 0.6
+
+    predicted_emergence_order:
+      generation_range: "60-100"
+      confidence: high
+      conditions: |
+        Step 25 from roadmap. Already implemented.
+
+    notes: |
+      FOUNDATION RECEPTOR - Step 25 from roadmap.
+      Optimism fires based on predicted FUTURE receptor states, not current
+      ones. This is meta because it's monitoring the organism's own forward
+      simulations.
+
+  - receptor_id: conflict
+    name: Receptor Competition Detection
+    family: meta_motivational
+    tier: trunk
+
+    dependencies:
+      - receptor_id: multiple_receptor_types
+        note: "Must have pain, endorphin, curiosity, etc."
+      - receptor_id: planning
+        note: "Conflict emerges when different receptors prefer different actions"
+
+    environmental_trigger:
+      structure: |
+        Situations where strongly-activated receptors demand incompatible
+        actions. Pain says flee, curiosity says approach, optimism says persist.
+      survival_benefit: |
+        Detecting conflict signals that simple receptor competition won't
+        resolve the situation. Recruits slow pathway for deliberation.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Complex environments with competing objectives where simple dominance
+        leads to poor outcomes.
+
+    selection_environments:
+      - approach_avoidance_conflicts
+      - exploration_exploitation_tradeoffs
+      - multi_objective_optimization
+
+    unlocks:
+      - deliberation_recruitment
+      - context_conditioned_arbitration
+      - impulse_override
+
+    emergence_signature:
+      description: |
+        Conflict receptor fires when variance among candidate actions is high
+        or when strong receptors prefer opposing actions. Slow pathway
+        recruitment increases with conflict.
+      metrics:
+        - metric_name: slow_pathway_conflict_correlation
+          measurement_method: |
+            Correlation between conflict receptor value and slow pathway activation.
+          expected_range: "r > 0.5"
+          detection_threshold: 0.5
+
+    predicted_emergence_order:
+      generation_range: "70-120"
+      confidence: medium
+      conditions: |
+        Step 26 from roadmap. Partially implemented (signal exists).
+        Open question whether it should be built or detected emergent.
+
+    notes: |
+      FOUNDATION RECEPTOR - Step 26 from roadmap.
+      Conflict is meta because it monitors the state of the receptor ECONOMY,
+      not any individual receptor. It's a second-order signal.
+
+  - receptor_id: impulse_override
+    name: Immediate Gratification Resistance
+    family: meta_motivational
+    tier: branch
+
+    dependencies:
+      - receptor_id: conflict
+        minimum_certainty: 0.6
+      - receptor_id: optimism
+        minimum_certainty: 0.7
+      - receptor_id: planning
+        minimum_certainty: 0.7
+
+    environmental_trigger:
+      structure: |
+        Situations where immediate receptor firing (grab small reward now,
+        flee mild pain now) conflicts with predicted better future state
+        (wait for larger reward, persist through pain to reach goal).
+      survival_benefit: |
+        Delay gratification when waiting produces better outcomes. Enables
+        long-term goal pursuit despite short-term costs.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments with temporal tradeoffs where immediate actions lock out
+        better delayed outcomes. Marshmallow test dynamics.
+
+    selection_environments:
+      - delayed_larger_rewards
+      - temporary_pain_for_permanent_gain
+      - opportunity_cost_environments
+
+    unlocks:
+      - self_control
+      - willpower
+      - temptation_resistance
+
+    emergence_signature:
+      description: |
+        Organism chooses actions that reduce immediate receptor firing if
+        predicted future state is sufficiently better. Conflict fires high,
+        but action goes against immediate gradient.
+      metrics:
+        - metric_name: delayed_gratification_rate
+          measurement_method: |
+            Proportion of trials where organism waits for larger delayed reward
+            vs taking smaller immediate reward.
+          expected_range: ">60% when future benefit is 2x immediate"
+          detection_threshold: 0.6
+        - metric_name: pain_persistence
+          measurement_method: |
+            Does organism continue through moderate pain zones when predicted
+            reward on far side is large enough?
+          expected_range: ">50% when reward/pain ratio > 3"
+          detection_threshold: 0.5
+
+    predicted_emergence_order:
+      generation_range: "100-180"
+      confidence: medium
+      conditions: |
+        Requires environment with clear delayed gratification opportunities.
+        Current sim may not have strong enough temporal tradeoffs.
+
+    failure_modes:
+      - mode: impulsivity
+        signature: |
+          Organism always takes immediate reward despite having optimism and
+          planning capability. Impulse override never develops.
+      - mode: over_delay
+        signature: |
+          Organism delays gratification even when immediate action is optimal.
+          Overgeneralized self-control.
+
+    notes: |
+      This is where meta-motivation becomes self-control. The organism
+      deliberately acts against its immediate receptor gradient based on
+      predicted future receptor states.
+
+  - receptor_id: attention_control
+    name: Selective Receptor Amplification
+    family: meta_motivational
+    tier: branch
+
+    dependencies:
+      - receptor_id: conflict
+        minimum_certainty: 0.6
+      - receptor_id: context_conditioned_arbitration
+        note: "Step 27 - learning which receptors to trust when"
+
+    environmental_trigger:
+      structure: |
+        Situations where actively suppressing some receptor signals and
+        amplifying others produces better outcomes than default receptor
+        competition.
+      survival_benefit: |
+        Direct own processing. Focus on relevant receptors for current context,
+        ignore distracting ones. Like voluntary attention but for internal
+        motivational signals.
+      metabolic_cost: high
+      selection_pressure: |
+        Complex multi-objective environments where wrong receptor dominating
+        has high cost. Requires learning which signals matter when.
+
+    selection_environments:
+      - context_switching_tasks
+      - distraction_heavy_environments
+      - competing_priorities
+
+    unlocks:
+      - focus
+      - distraction_resistance
+      - priority_management
+
+    emergence_signature:
+      description: |
+        Organism modulates receptor gain based on context. Same receptor
+        signal produces different action influence depending on learned
+        context-relevance.
+      metrics:
+        - metric_name: context_dependent_gain
+          measurement_method: |
+            Does same receptor firing produce different action weights in
+            different contexts in predictable ways?
+          expected_range: "Gain variance by context >0.3"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "120-200"
+      confidence: low
+      conditions: |
+        Requires rich context structure and competing objectives. Not present
+        in current sim.
+
+    notes: |
+      This is meta-control of receptor salience. The organism learns "in
+      context X, amplify curiosity and dampen pain sensitivity; in context Y,
+      do the opposite."
+
+  - receptor_id: self_regulation
+    name: Strategic Self-Modification
+    family: meta_motivational
+    tier: canopy
+
+    dependencies:
+      - receptor_id: impulse_override
+        minimum_certainty: 0.7
+      - receptor_id: attention_control
+        minimum_certainty: 0.6
+      - receptor_id: internal_conflict_model
+        note: "Step 28 - metacognition"
+
+    environmental_trigger:
+      structure: |
+        Environments where managing one's own receptor economy strategically
+        (not just in-the-moment override but planning how to put oneself in
+        the right state) produces better outcomes.
+      survival_benefit: |
+        Meta-planning: "I know I'll be tempted by X, so I'll avoid situations
+        where X appears" or "I know fear will dominate, so I'll deliberately
+        prime curiosity receptor before entering."
+      metabolic_cost: very_high
+      selection_pressure: |
+        Highly complex environments with predictable self-control failures
+        where advance planning about own mental state is valuable.
+
+    selection_environments:
+      - temptation_avoidance_opportunities
+      - mental_state_preparation_tasks
+      - self_binding_scenarios
+
+    unlocks:
+      - precommitment
+      - temptation_avoidance
+      - mental_state_engineering
+
+    emergence_signature:
+      description: |
+        Organism takes actions that modify its own future receptor states.
+        Not just "resist temptation now" but "arrange things so I won't face
+        temptation." Planning over own mental states, not just world states.
+      metrics:
+        - metric_name: precommitment_rate
+          measurement_method: |
+            Does organism take costly actions to prevent future self-control
+            failures (e.g., avoiding tempting regions)?
+          expected_range: ">40% when cost < expected failure cost"
+          detection_threshold: 0.4
+
+    predicted_emergence_order:
+      generation_range: "200-350"
+      confidence: very_low
+      conditions: |
+        Requires sophisticated environment with self-control challenges and
+        precommitment opportunities. Very far future.
+
+    notes: |
+      This is the apex of meta-motivation. The organism becomes strategic
+      about its own mental state, not just its world state. This is where
+      "know thyself" becomes "engineer thyself."
+
+  - receptor_id: meta_planning
+    name: Planning Over Mental States
+    family: meta_motivational
+    tier: canopy
+
+    dependencies:
+      - receptor_id: self_regulation
+        minimum_certainty: 0.7
+      - receptor_id: internal_conflict_model
+        minimum_certainty: 0.7
+      - receptor_id: planning
+        minimum_certainty: 0.8
+
+    environmental_trigger:
+      structure: |
+        Complex goal achievement requires not just planning actions but planning
+        which mental states to be in during which phases of execution.
+      survival_benefit: |
+        Optimize own cognitive state for task at hand. "First get curious to
+        learn, then get focused to execute, then get optimistic to persist."
+      metabolic_cost: very_high
+      selection_pressure: |
+        Multi-phase tasks where different mental states are optimal for
+        different phases.
+
+    selection_environments:
+      - multi_phase_tasks
+      - learning_then_executing
+      - mental_state_optimization
+
+    unlocks:
+      - cognitive_strategy
+      - mental_state_sequencing
+      - executive_function
+
+    emergence_signature:
+      description: |
+        Mental model includes plans over receptor states, not just world states.
+        "Step 1: activate curiosity. Step 2: once learned, activate focus.
+        Step 3: activate persistence."
+      metrics:
+        - metric_name: mental_state_trajectory_planning
+          measurement_method: |
+            Does organism show different receptor profiles in predictable
+            sequence across task phases?
+          expected_range: "Distinct profiles per phase, >0.6 consistency"
+          detection_threshold: 0.6
+
+    predicted_emergence_order:
+      generation_range: "250-400"
+      confidence: very_low
+      conditions: |
+        Requires multi-phase tasks with different optimal mental states. Very far future.
+
+    notes: |
+      This is where planning recurses on itself. Not just "what should I do?"
+      but "what mental state should I be in to best decide what to do?"
+
+  - receptor_id: value_hierarchy
+    name: Stable Receptor Priority Ordering
+    family: meta_motivational
+    tier: canopy
+
+    dependencies:
+      - receptor_id: context_conditioned_arbitration
+        minimum_certainty: 0.8
+      - receptor_id: self_regulation
+        minimum_certainty: 0.7
+      - receptor_id: long_term_planning
+
+    environmental_trigger:
+      structure: |
+        Environments where committing to stable receptor priorities produces
+        better long-term outcomes than constant re-evaluation.
+      survival_benefit: |
+        Consistency in decision-making. Predictable behavior that others can
+        cooperate with. Reduced cognitive load from constant priority conflicts.
+      metabolic_cost: high
+      selection_pressure: |
+        Social environments where consistent values enable cooperation, or
+        long-term goal environments where priority stability prevents being
+        distracted by ephemeral opportunities.
+
+    selection_environments:
+      - social_cooperation_requiring_consistency
+      - long_term_goals_requiring_commitment
+      - value_based_decision_making
+
+    unlocks:
+      - moral_consistency
+      - identity
+      - principles
+
+    emergence_signature:
+      description: |
+        Organism maintains stable weights in receptor arbitration across
+        contexts. Same receptor conflicts resolved same way consistently.
+        Enables predictions like "this organism always prioritizes X over Y."
+      metrics:
+        - metric_name: priority_stability
+          measurement_method: |
+            Variance in receptor arbitration weights over time for same
+            conflict types.
+          expected_range: "Low variance (σ < 0.2)"
+          detection_threshold: 0.2
+
+    predicted_emergence_order:
+      generation_range: "300-500"
+      confidence: very_low
+      conditions: |
+        Requires social or long-term environments where value consistency
+        is fitness-positive. Extremely far future.
+
+    notes: |
+      This is where meta-motivation becomes values. A stable receptor hierarchy
+      IS a value system. "I consistently prioritize curiosity over comfort"
+      is a value, implemented as a stable meta-motivational parameter.
+
+  - receptor_id: regret
+    name: Counterfactual Outcome Aversion
+    family: meta_motivational
+    tier: branch
+
+    dependencies:
+      - receptor_id: counterfactual_reasoning
+        note: "Causality family"
+      - receptor_id: optimism
+        minimum_certainty: 0.6
+
+    environmental_trigger:
+      structure: |
+        Organism can simulate "what would have happened if I'd chosen
+        differently" and that counterfactual outcome is better than actual.
+      survival_benefit: |
+        Learning from missed opportunities. Motivates better decision-making
+        by making poor choices aversive even when absolute outcome is positive.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments with opportunity costs where foregone alternatives have
+        significant value.
+
+    selection_environments:
+      - high_opportunity_cost
+      - competing_choices
+      - learning_from_near_misses
+
+    unlocks:
+      - opportunity_cost_sensitivity
+      - decision_quality_improvement
+      - hindsight_learning
+
+    emergence_signature:
+      description: |
+        Mental model updates based on counterfactual simulations. Certainty
+        shifts for unchosen actions based on how good their predicted outcomes
+        were vs actual chosen outcome.
+      metrics:
+        - metric_name: counterfactual_learning
+          measurement_method: |
+            Do unchosen alternatives get certainty updates based on simulated
+            outcomes?
+          expected_range: "Certainty shift >0.1 for better alternatives"
+          detection_threshold: 0.1
+
+    predicted_emergence_order:
+      generation_range: "150-250"
+      confidence: low
+      conditions: |
+        Requires environment with clear opportunity costs and choice points.
+
+    notes: |
+      Regret is a meta-motivational receptor because it fires based on the
+      organism's own counterfactual simulations, not on actual world state.
+      "What I could have had" becomes aversive.
+
+  - receptor_id: metacognition
+    name: Modeling Own Cognitive Process
+    family: meta_motivational
+    tier: canopy
+
+    dependencies:
+      - receptor_id: internal_conflict_model
+        note: "Step 28"
+      - receptor_id: self_regulation
+        minimum_certainty: 0.6
+      - receptor_id: theory_of_mind
+        note: "Social family - apply self-model template to self"
+
+    environmental_trigger:
+      structure: |
+        Organism models not just what it will do but WHY it will do it —
+        which receptors will fire, which conflicts will arise, which
+        arbitration will occur.
+      survival_benefit: |
+        Predict own decision-making to avoid systematic errors. "I know I'll
+        overvalue immediate rewards in that context, so I'll compensate."
+      metabolic_cost: very_high
+      selection_pressure: |
+        Complex environments where self-modeling prevents predictable
+        decision-making failures.
+
+    selection_environments:
+      - systematic_bias_exploitation
+      - self_knowledge_advantage
+      - predictable_failure_patterns
+
+    unlocks:
+      - self_awareness
+      - bias_correction
+      - cognitive_strategy_optimization
+
+    emergence_signature:
+      description: |
+        Mental model includes model of own receptor economy. Can simulate
+        "which of my receptors will fire in context X" and plan accordingly.
+      metrics:
+        - metric_name: self_prediction_accuracy
+          measurement_method: |
+            Can organism predict its own future receptor conflicts and
+            decisions?
+          expected_range: ">70% accuracy vs actual"
+          detection_threshold: 0.7
+
+    predicted_emergence_order:
+      generation_range: "250-450"
+      confidence: very_low
+      conditions: |
+        Requires sophisticated self-model and environments where self-knowledge
+        is valuable. Very far future.
+
+    notes: |
+      This is the deepest meta-motivational receptor. The receptor economy
+      models itself. Consciousness-adjacent — the system's representation
+      of its own motivational processes.
