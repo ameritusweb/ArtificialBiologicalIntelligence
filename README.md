@@ -2,7 +2,7 @@
 
 **Intelligence whose shape is determined by the evolutionary history of its receptor topology. Not designed. Grown.**
 
-ABI starts where evolution started — a simple organism in a liquid environment with pain receptors and muscles — and builds upward through 46 steps to grounded language, evolutionary receptor topology discovery, and a laboratory for the dynamics of intelligence itself.
+ABI starts where evolution started — a simple organism in a liquid environment with endorphin/pain receptors and muscles — and builds upward through 46 steps to grounded language, evolutionary receptor topology discovery, and a laboratory for the dynamics of intelligence itself.
 
 Current AI starts where evolution finished (language) and tries to work downward toward grounding it may never reach. ABI starts at the bottom and builds up. Slower. But the foundations are actually there when you need them.
 
