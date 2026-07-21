@@ -1,0 +1,488 @@
+# Perception Family
+# Receptors for staged sensory processing, sequential prediction within
+# a single percept, and meta-receptors for processing efficiency
+
+family_metadata:
+  name: Perception
+  description: |
+    Receptors that govern HOW sensory input is processed, not just WHAT is
+    sensed. The key insight: sensory processing is sequential on purpose.
+    The staging exists to create prediction opportunities — each stage
+    generates a prediction about what the next stage will reveal, and the
+    mismatch between prediction and actual drives learning within a
+    single percept.
+
+    This family also includes meta-receptors that read the cost and speed
+    of processing itself. Processing speed is information: fast processing
+    means the current model fits the input well. Slow processing means
+    the model is struggling. The speed differential is a receptor for
+    model-environment fit.
+
+    The trunk is staged processing — breaking input into sequential phases.
+    The canopy is processing efficiency awareness — detecting and modulating
+    how well your receptor topology handles the current demands.
+
+  evolutionary_thesis: |
+    Sequential perception emerged because it maximizes prediction
+    opportunities per sensory input. The brain processes black and white
+    before color not because grayscale is cheaper to compute, but because
+    processing it first gives the accuracy and curiosity receptors
+    something to fire on BEFORE color arrives. The mismatch between
+    predicted color and actual color is informative — a red object
+    where grey was predicted is more salient than a red object processed
+    alongside everything else.
+
+    More stages = more prediction cycles = more receptor firings = richer
+    internal state changes per input. Sequential staging is a receptor
+    topology optimization, not a computational bottleneck.
+
+    Meta-receptors for processing speed emerged when the organism's own
+    processing cost became a useful signal. An organism that detects
+    "I'm processing this slowly" allocates more resources. An organism
+    that detects "I'm processing this fast" conserves energy. The speed
+    IS the information about model-environment fit.
+
+  trunk_receptor: staged_processing
+  canopy_receptors: [processing_speed_receptor, adaptive_depth, predictive_staging]
+
+---
+
+receptors:
+  - receptor_id: staged_processing
+    name: Sequential Sensory Pipeline
+    family: perception
+    tier: trunk
+
+    dependencies:
+      - receptor_id: prediction
+        note: "Foundation Step 10 — must predict before staging creates prediction opportunities"
+      - receptor_id: change_detection
+        note: "Observation — must detect change between stages"
+
+    environmental_trigger:
+      structure: |
+        Sensory input that contains multiple layers of information —
+        coarse structure and fine detail, or spatial layout and surface
+        properties. Processing coarse first and fine second creates a
+        prediction opportunity: the coarse structure predicts the fine
+        detail, and mismatch is informative.
+      survival_benefit: |
+        Sequential staging generates prediction errors within a single
+        percept that parallel processing would miss. A predator camouflaged
+        against a background is detected by the mismatch between
+        predicted texture (from shape processing) and actual texture
+        (from detail processing). Parallel processing sees everything
+        at once and misses the salience of the mismatch.
+      metabolic_cost: low
+      selection_pressure: |
+        Environments where fine-grained distinctions within a single
+        sensory input matter for survival. Camouflage, hidden features,
+        context-dependent details.
+
+    selection_environments:
+      - multi_feature_environments
+      - camouflage_environments
+      - detail_dependent_survival
+
+    unlocks:
+      - prediction_within_percept
+      - salience_from_staging
+      - intermediate_prediction_error
+
+    emergence_signature:
+      description: |
+        Organism processes sensory input in stages, generating intermediate
+        predictions. Navigation accuracy is higher with staged processing
+        than with parallel processing of the same information.
+      metrics:
+        - metric_name: staging_accuracy_gain
+          measurement_method: |
+            Compare navigation accuracy with multi-stage sensory pipeline
+            (process pain intensity first, then chemical composition second)
+            versus single-stage parallel processing of the same data.
+          expected_range: ">5% accuracy improvement"
+          detection_threshold: 0.05
+        - metric_name: intermediate_prediction_errors
+          measurement_method: |
+            Count prediction error signals generated between processing
+            stages within a single timestep. More errors = more prediction
+            opportunities exploited.
+          expected_range: ">1 intermediate prediction per input"
+          detection_threshold: 1.0
+
+    predicted_emergence_order:
+      generation_range: "40-80"
+      confidence: medium
+      conditions: |
+        Requires prediction + environments where sensory input has
+        exploitable multi-layer structure.
+
+    notes: |
+      This receptor reframes a classic neuroscience puzzle. The retina
+      captures everything at once — why does the brain process it in
+      stages? The standard answer is computational efficiency. The
+      receptor topology answer is: staging exists to CREATE prediction
+      opportunities. Each stage is an output that changes internal
+      state, which becomes the next stage's receptor input.
+
+      The forward-feedback loop applied within a single percept, not
+      just across timesteps.
+
+  - receptor_id: prediction_branching
+    name: Error-Dependent Processing Path
+    family: perception
+    tier: branch
+
+    dependencies:
+      - receptor_id: staged_processing
+        note: "Must process in stages before branching between them"
+      - receptor_id: conflict_detection
+        note: "Meta-Motivational — must detect when predictions fail"
+
+    environmental_trigger:
+      structure: |
+        After stage 1 processing, prediction error determines which
+        processing path stage 2 takes. High error (surprising input)
+        recruits the slow pathway — more resources, deeper analysis.
+        Low error (expected input) stays on the fast pathway — less
+        resources, faster response. The branching is within a single
+        percept, not across timesteps.
+      survival_benefit: |
+        Resource allocation within perception. Surprising input gets
+        more processing. Expected input gets less. The organism doesn't
+        spend the same resources on everything it sees — it spends
+        more where prediction failed, which is where new information is.
+      metabolic_cost: medium
+      selection_pressure: |
+        Environments with mixed familiar and novel stimuli where
+        processing resources are limited and must be allocated wisely.
+
+    selection_environments:
+      - mixed_familiarity_environments
+      - resource_limited_processing
+
+    unlocks:
+      - attention_within_percept
+      - salience_driven_processing
+      - adaptive_depth
+
+    emergence_signature:
+      description: |
+        Processing time varies within a single input depending on
+        prediction error at the intermediate stage. High-error regions
+        get more processing time than low-error regions.
+      metrics:
+        - metric_name: processing_time_variance
+          measurement_method: |
+            Measure processing time (or resource allocation) as a
+            function of intermediate prediction error. Should correlate
+            positively — more error = more processing.
+          expected_range: ">0.3 correlation"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "60-120"
+      confidence: low
+
+    notes: |
+      This is the hierarchical nervous system (fast/slow pathways from
+      step 4) applied within perception rather than across action steps.
+      The same architectural principle — route simple through fast,
+      complex through slow — operates at the sensory level.
+
+  - receptor_id: processing_speed_receptor
+    name: Model-Environment Fit Detection
+    family: perception
+    tier: canopy
+
+    dependencies:
+      - receptor_id: metacognition
+        note: "Meta-Motivational — must model own processing"
+      - receptor_id: arousal_regulation
+        note: "Regulatory — must modulate processing resources"
+      - receptor_id: stress_detection
+        note: "Regulatory — must detect processing cost"
+      - receptor_id: staged_processing
+        note: "Must have staged processing to measure its speed"
+
+    environmental_trigger:
+      structure: |
+        The organism's own processing speed varies depending on input.
+        Fast processing = high certainty, low prediction error, mental
+        model barely updating. The content matches expectations.
+        Slow processing = low certainty, high prediction error, mental
+        model constantly revising. Every input forces model updates.
+
+        The speed differential IS information. It reads the gap between
+        the organism's current receptor topology and the demands of
+        what it's encountering. Fast = good fit. Slow = poor fit.
+      survival_benefit: |
+        Processing speed as a receptor enables meta-level resource
+        allocation. Detect "I'm processing slowly" → allocate more
+        energy, recruit slow pathway, narrow attention. Detect "I'm
+        processing fast" → conserve energy, broaden attention, explore.
+
+        Without this receptor, the organism allocates resources uniformly.
+        With it, resources flow to where the model struggles — which is
+        where the organism is most vulnerable to surprise.
+      metabolic_cost: medium
+      selection_pressure: |
+        Environments where processing resource allocation matters —
+        where spending too much energy on familiar input wastes energy
+        needed for novel threats, and spending too little on novel
+        input causes fatal misses.
+
+    selection_environments:
+      - mixed_complexity_environments
+      - resource_constrained_processing
+      - environments_with_variable_novelty
+
+    unlocks:
+      - adaptive_resource_allocation
+      - model_fit_awareness
+      - cognitive_load_detection
+      - reading_speed_modulation
+
+    emergence_signature:
+      description: |
+        Organism allocates energy differently in familiar versus novel
+        environments without being told which is which. The processing
+        speed itself is the signal. Energy conservation in familiar
+        contexts, energy investment in novel contexts.
+      metrics:
+        - metric_name: speed_energy_correlation
+          measurement_method: |
+            Correlate processing speed (inverse of prediction error
+            rate) with metabolic allocation. Fast processing should
+            correlate with energy conservation. Slow processing should
+            correlate with energy investment.
+          expected_range: ">0.3 correlation"
+          detection_threshold: 0.3
+        - metric_name: fit_discrimination
+          measurement_method: |
+            Place organism in familiar then novel environment. Measure
+            whether metabolic allocation shifts before reward signals
+            change. The speed receptor should detect poor fit before
+            outcomes confirm it.
+          expected_range: "Detection within 5 steps of environment change"
+          detection_threshold: 5
+
+    predicted_emergence_order:
+      generation_range: "120-200"
+      confidence: low
+      conditions: |
+        Layer 2+ receptor. Requires metacognition + arousal_regulation +
+        stress_detection + staged processing. The organism must model
+        its own processing cost and use that as a signal.
+
+    notes: |
+      This is genuinely meta — it doesn't read the world, doesn't read
+      the consequences of processing, reads the COST of processing itself.
+
+      Processing speed is a receptor for model-environment fit. Not for
+      the content. For how well your current receptor topology matches
+      the structure of what you're encountering.
+
+      It's self-referential like the organizational mirror but applied
+      to temporal dynamics rather than structural topology. The
+      organizational mirror detects WHAT your receptor topology is.
+      The processing speed receptor detects HOW WELL your receptor
+      topology is performing right now.
+
+      Observable in humans: reading familiar text is fast and effortless.
+      Reading dense unfamiliar text is slow and draining. The speed
+      difference isn't just a side effect — it's information the brain
+      uses to allocate attention and energy. The meta-receptor is firing.
+
+  - receptor_id: adaptive_depth
+    name: Dynamic Processing Depth Control
+    family: perception
+    tier: canopy
+
+    dependencies:
+      - receptor_id: processing_speed_receptor
+        note: "Must detect processing speed before adapting depth"
+      - receptor_id: prediction_branching
+        note: "Must have branching before controlling depth"
+
+    environmental_trigger:
+      structure: |
+        The number of processing stages is not fixed — it adapts to
+        the input. Simple inputs get fewer stages (1-2). Complex inputs
+        get more stages (3-5+). Each additional stage costs energy but
+        generates additional prediction opportunities. The organism
+        optimizes the depth-cost tradeoff dynamically.
+      survival_benefit: |
+        Adaptive depth means the organism never overspends on simple
+        inputs or underspends on complex ones. Processing resources
+        match input complexity automatically.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments with high variance in input complexity where
+        fixed-depth processing is wasteful.
+
+    selection_environments:
+      - high_variance_complexity_environments
+
+    unlocks:
+      - optimal_processing_allocation
+      - complexity_matched_cognition
+
+    emergence_signature:
+      description: |
+        Number of processing stages used per input correlates with
+        input complexity. Simple inputs processed in fewer stages
+        than complex inputs.
+      metrics:
+        - metric_name: depth_complexity_correlation
+          measurement_method: |
+            Measure processing stages used per input as a function
+            of input complexity (prediction error rate). Should
+            correlate positively.
+          expected_range: ">0.4 correlation"
+          detection_threshold: 0.4
+
+    predicted_emergence_order:
+      generation_range: "200-350"
+      confidence: very_low
+      conditions: |
+        Requires processing speed receptor + prediction branching +
+        environments with high complexity variance.
+
+    notes: |
+      This is the ultimate processing optimization: the organism
+      doesn't just detect how hard it's working (processing speed
+      receptor) — it adjusts how deeply it processes based on that
+      detection. Shallow for familiar, deep for novel. The meta-receptor
+      modulates the processing it's measuring.
+
+  - receptor_id: response_loop_detection
+    name: Corrective Response Amplification Detection
+    family: perception
+    tier: canopy
+
+    dependencies:
+      - receptor_id: processing_speed_receptor
+        note: "Must detect processing cost before detecting that the response to processing cost is making it worse"
+      - receptor_id: metacognition
+        note: "Meta-Motivational — must model own processing states"
+      - receptor_id: arousal_regulation
+        note: "Regulatory — must detect arousal levels"
+      - receptor_id: conflict_detection
+        note: "Meta-Motivational — must detect competing demands"
+
+    environmental_trigger:
+      structure: |
+        The organism's corrective response to a signal is amplifying
+        the signal rather than reducing it. The loop: uncertainty fires →
+        prediction error stays high → processing slows → stress receptor
+        fires → arousal increases → heightened arousal makes predictions
+        worse → prediction error stays high → the loop feeds itself.
+
+        The response_loop_detection receptor fires when the organism
+        detects that its own response to a problem IS the problem.
+        Not just that predictions are bad — that the attempt to fix
+        bad predictions is making them worse.
+      survival_benefit: |
+        Without this receptor, any feedback loop where the corrective
+        response amplifies the signal will escalate until metabolic
+        exhaustion or external damping intervenes. The organism is
+        trapped in its own correction cycle.
+
+        With this receptor, the organism can self-damp: detect that
+        arousal is counterproductive, reduce the gain on the stress
+        response, let the prediction error settle before re-engaging.
+        The organism breaks its own amplification loop.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments with intermittent unpredictability where sustained
+        high arousal is metabolically fatal. The organism must survive
+        periods of poor model-environment fit without burning all its
+        energy on escalating stress responses.
+
+    selection_environments:
+      - intermittently_unpredictable_environments
+      - sustained_threat_environments
+      - high_metabolic_cost_arousal_environments
+
+    unlocks:
+      - self_damping
+      - loop_breaking
+      - cognitive_self_regulation
+      - meta_meta_cognition
+
+    emergence_signature:
+      description: |
+        The organism detects when its stress/arousal response is making
+        its predictions worse and autonomously reduces arousal rather
+        than escalating. Behavioral marker: after a period of escalating
+        arousal + deteriorating prediction accuracy, the organism's
+        arousal drops WITHOUT the environment becoming less threatening.
+        The de-escalation is self-initiated.
+      metrics:
+        - metric_name: self_initiated_damping
+          measurement_method: |
+            Count instances where arousal decreases while environmental
+            threat remains constant or increases. Self-damping = arousal
+            down + threat stable. External damping = arousal down +
+            threat down. The receptor produces self-damping.
+          expected_range: ">20% of arousal decreases are self-initiated"
+          detection_threshold: 0.2
+        - metric_name: loop_detection_latency
+          measurement_method: |
+            After an amplification loop begins (arousal rising + prediction
+            accuracy falling for 5+ consecutive steps), how many steps
+            before the organism self-damps? Shorter latency = stronger
+            loop detection.
+          expected_range: "<15 steps"
+          detection_threshold: 15
+        - metric_name: post_damping_recovery
+          measurement_method: |
+            After self-damping, does prediction accuracy recover faster
+            than without damping? The loop-break should improve
+            subsequent processing.
+          expected_range: ">30% faster recovery"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "250-400"
+      confidence: very_low
+      conditions: |
+        Deep canopy. Requires processing_speed_receptor + metacognition +
+        arousal_regulation + conflict_detection. The organism must be
+        able to detect that its own corrective response is the problem —
+        a genuinely meta-meta-cognitive operation.
+
+        This is what cognitive behavioral therapy trains in humans:
+        the receptor for detecting that your anxiety response is itself
+        the problem. CBT doesn't fix the model-environment fit. It
+        develops the receptor that detects the amplification loop and
+        self-damps.
+
+    notes: |
+      Anxiety is not a malfunction. It's the receptor loop working
+      correctly in a situation where the correct response is itself
+      destabilizing. The organism genuinely has poor model-environment
+      fit. The stress receptor is reading a real signal. The problem
+      is that the response (arousal increase) makes the signal worse.
+
+      Lorazepam dampens the arousal receptor externally — breaks the
+      loop by reducing gain on the stress signal. The predictions are
+      still bad, but the system stops escalating its response.
+
+      This receptor is the internal lorazepam. The organism detects
+      "my arousal is making my predictions worse" and reduces its own
+      gain. No external intervention. No medication. The receptor
+      topology includes the damper.
+
+      The dependency chain tells the evolutionary story: you can't
+      detect that your response is the problem until you can model
+      your own processing (metacognition), detect processing cost
+      (processing_speed_receptor), detect arousal level (arousal_regulation),
+      and detect competing demands (conflict_detection — the conflict
+      between "respond to threat" and "calm down to think clearly").
+
+      This is Layer 3+ — four-family composition (Perception +
+      Meta-Motivational + Regulatory + Meta-Motivational). The deepest
+      kind of self-knowledge: knowing that what you're doing about the
+      problem IS the problem.

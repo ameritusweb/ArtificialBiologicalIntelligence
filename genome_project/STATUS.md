@@ -28,8 +28,9 @@
 ✅ **Self-Augmentation family** — 5 receptors (capability_change_detection → metamorphic_planning)
 ✅ **Interaction family** — 6 receptors (contact_response_detection → affordance_transfer)
 ✅ **Environmental Augmentation family** — 5 receptors (environmental_change_detection → developmental_environment_engineering)
+✅ **Perception family** — 5 receptors (staged_processing → response_loop_detection)
 
-**Total receptors specified:** 138 (with cross-references; ~125 genuinely unique)
+**Total receptors specified:** 143 (with cross-references; ~130 genuinely unique)
 
 ### Documentation
 ✅ Overview document (thesis, families, usage)  

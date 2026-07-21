@@ -133,6 +133,8 @@ Single-family dependencies or no dependencies beyond foundation.
 - `necessity_detection` (Mathematics + Causality + Compression + Observation) — the apex of mathematical reasoning
 - `functional_organization` (Organization + Agency + Causality) — structure that serves a purpose
 - `organizational_mirror` (Organization + Meta-Motivational + Similarity) — structure detecting itself
+- `processing_speed_receptor` (Perception + Meta-Motivational + Regulatory) — processing cost as model-environment fit signal
+- `response_loop_detection` (Perception + Meta-Motivational + Regulatory + Meta-Motivational) — detecting that the corrective response IS the problem; internal self-damping
 
 ---
 
