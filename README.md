@@ -6,6 +6,9 @@ ABI starts where evolution started — a simple organism in a liquid environment
 
 Current AI starts where evolution finished (language) and tries to work downward toward grounding it may never reach. ABI starts at the bottom and builds up. Slower. But the foundations are actually there when you need them.
 
+![ABI 1](abi-1.png)
+![ABI 2](abi-2.png)
+
 ---
 
 ## The Core Idea
