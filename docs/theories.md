@@ -233,9 +233,35 @@ Evidence status key:
 
 ---
 
-## XVII. The Novel Synthesis Claim
+## XVII. Rationalization, Read Policy, and Annealing
 
-**T53. No existing research program unifies grounded cognition, active inference, and evolutionary receptor topology into a single generative mechanism.** ABI is a novel synthesis across Barsalou, Friston, Gibson, and developmental/evolutionary perspectives.
+**T54. Rationalization is read policy corruption, not memory corruption.** An organism with a pristine append-only experience log can still rationalize at the read layer — downweighting conflict-flagged entries before they are structurally resolved. The three-way separation (transformer / mental model / experience log) provides auditability of rationalization, not immunity.
+*Status: The architectural claim (auditability, not immunity) stands. The prescriptive claim — that protecting conflict entries from certainty decay accelerates resolution — is directionally wrong (see T55). Argued: T54_implementation_brief.md.*
+
+**T55. Organisms with read-shielded conflict records discover structural resolutions at a higher rate.** Rationalization (premature diff-collapse) destroys the information where resolution lives.
+*Status: **Directionally falsified.** Tested in closed-loop T54 v2 experiment (organisms acting, certainty feeding observation vector, correspondence criterion). Across 6 seeds (2 runs × 3 seeds), the ordering was corrupted > unconstrained > shielded on every seed. Shielded organisms found the fewest resolutions in every run. The shield preserved certainty (0.39 vs 0.37 vs 0.33) but this hindered rather than helped resolution. High certainty on conflict entries = confidently wrong = exactly what needs to be released. The read-shielding prescription was protecting the wrong thing.*
+
+**T57. Certainty release as annealing accelerates conflict resolution.** Loosening commitment to stuck predictions (reducing certainty on conflict entries) frees exploration and produces more correspondence-verified resolutions than either unconstrained or shielded read policies.
+*Status: **Supported** (6 seeds, consistent direction, ~6% effect over shielded). Pre-registered as rival to T55. The ordering corrupted (1555.7) > unconstrained (1484.0) > shielded (1465.7) held across all seeds and both runs (pre-fix and post-fix for LP/pain-prediction corrections, confirming the result is not an artifact of either metric). This is the framework's first genuine structural discovery about itself: conflict resolution works by releasing commitment, not by protecting it. Compatible with Friston's prediction-error-minimization (updating the model requires releasing confident predictions that keep generating error), with the ABI-specific addition that this operates at the receptor level through a certainty mechanism.*
+
+---
+
+## XVIII. Epistemic Receptors
+
+**T58. Belief and doubt are distinct receptors, not just certainty values.** Belief fires when certainty is high AND well-calibrated (predictions confirm). Doubt fires when certainty is high AND poorly calibrated (predictions keep surprising). The distinction is between certainty-as-infrastructure and certainty-as-detected-state. Without the receptor, belief/doubt are implicit weightings; with it, they become objects the organism can reason about.
+*Status: Proposed. Predicted by the T57 annealing result — the organism had no receptor for the state it was in during annealing. Argued: genome_project/families/epistemic.yaml.*
+
+**T59. Counterfactual salience is a receptor that fires when a non-actual state becomes motivationally loaded** — when "this could happen" becomes "this matters." Distinct from prediction (forward projection), memory (retrieval), and planning (action selection). The firing condition: S is not currently true, S is causally reachable, and the organism is evaluating S against its pain/endorphin model.
+*Status: Proposed. Connects to conflict tolerance (Einstein holding Maxwell/Newton), to the annealing result (releasing certainty opens counterfactual space), and to serialization (counterfactual processing is serialization applied to possibility space). Argued: genome_project/families/epistemic.yaml.*
+
+**T60. Epistemic strategy — deliberate management of belief, doubt, and counterfactual states — is the receptor-level mechanism for scientific reasoning (T50).** An organism that can choose when to commit and when to explore navigates the explore/exploit tradeoff at the epistemic level.
+*Status: Proposed. The deepest canopy receptor in the Epistemic family. Argued: genome_project/families/epistemic.yaml.*
+
+---
+
+## XIX. The Novel Synthesis Claim
+
+**T61. No existing research program unifies grounded cognition, active inference, and evolutionary receptor topology into a single generative mechanism.** ABI is a novel synthesis across Barsalou, Friston, Gibson, and developmental/evolutionary perspectives.
 *Status: Proposed. Argued: whitepaper Section 10.*
 
 ---
@@ -244,14 +270,14 @@ Evidence status key:
 
 | Status | Count |
 |---|---|
-| Proposed | 37 |
+| Proposed | 42 |
 | Partially tested | 10 |
-| Supported | 5 |
+| Supported | 6 |
 | Revised | 1 |
-| Falsified | 0 |
-| **Total** | **53** |
+| Falsified | 1 |
+| **Total** | **60** |
 
-Six claims have direct experimental support from ERTI (T27-T31 on evolutionary dynamics, T26 revised after decomposition). The remaining 47 are theoretically specified with falsification criteria but await testing.
+Seven claims have direct experimental support from ERTI: T27-T31 (evolutionary dynamics), T26 (revised after decomposition), and T57 (annealing — the framework's first structural self-discovery). One claim directionally falsified: T55 (read-shielding accelerates resolution — the opposite was found across 6 seeds). The Epistemic family (T58-T60) is the first family whose existence was predicted by a falsification rather than by theoretical deduction alone.
 
 ---
 

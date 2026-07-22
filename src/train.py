@@ -16,7 +16,11 @@ ALPHA = 0.3
 BETA = 0.5
 GAMMA = 0.1
 DELTA = 0.2
+EPSILON = 0.15
 PROBE_RATE_FLOOR = 0.02
+
+
+EXPLORE_RATE = 0.07
 
 
 def generate_training_data(num_episodes=500, steps_per_episode=300, seed=0):
@@ -41,8 +45,15 @@ def generate_training_data(num_episodes=500, steps_per_episode=300, seed=0):
             window = org.get_observation_window()
             all_windows.append(window.copy())
             all_targets.append(optimal.copy())
-            obs, reward = org.step(optimal, env, step, npc=npc)
-            npc.receive_signal(optimal[org.NUM_LIMBS * 3:], org.x, org.y)
+            r = rng.random()
+            if r < 0.02:
+                executed = np.zeros(org.NUM_ACTIONS, dtype=np.int32)
+            elif r < EXPLORE_RATE:
+                executed = rng.randint(0, 2, size=org.NUM_ACTIONS).astype(np.int32)
+            else:
+                executed = optimal
+            obs, reward = org.step(executed, env, step, npc=npc)
+            npc.receive_signal(executed[org.NUM_LIMBS * 3:], org.x, org.y)
             episode_pain.append(obs[0:6].copy())
 
         for i in range(steps_per_episode):
@@ -64,40 +75,66 @@ def generate_training_data(num_episodes=500, steps_per_episode=300, seed=0):
     return X, Y, Z, global_log
 
 
+def _scatter_to_windows(X, ep_features, steps_per_episode, start_col, num_episodes):
+    """Write per-step feature arrays into observation windows with correct lag.
+
+    All feature arrays are pre-lagged by 1: ep_features[s] contains the feature
+    value observable at decision time for step s (i.e., computed from step s-1's
+    outcome). Step 0 gets zeros (no prior observation to compute from).
+
+    This is the single place where the lag convention is enforced. All augmentation
+    functions must pre-lag their features before calling this.
+    """
+    num_cols = len(ep_features)
+    for ep in range(num_episodes):
+        ep_start = ep * steps_per_episode
+        for s in range(steps_per_episode):
+            window_idx = ep_start + s
+            history_len = min(s + 1, 32)
+            offset = 32 - history_len
+            first_step = s - history_len + 1
+            for c, feat in enumerate(ep_features):
+                X[window_idx, offset:32, start_col + c] = feat[ep_start + first_step:ep_start + s + 1]
+
+
 def augment_with_mental_model(X, global_log, engine, steps_per_episode=300,
                               core_obs_dim=96, mm_start=96):
     N = X.shape[0]
     all_obs = np.array([e['obs_after'][:core_obs_dim] for e in global_log], dtype=np.float32)
     all_actions = [e['action'] for e in global_log]
     print(f"    Computing MM features for {len(all_obs):,} observations...")
-    mm_fam, mm_qual = engine.get_context_features_batch(all_obs)
+    mm_fam_raw, mm_qual_raw = engine.get_context_features_batch(all_obs)
 
     print(f"    Computing MM certainty for {len(all_obs):,} observations...")
-    mm_cert = np.zeros(N, dtype=np.float32)
-    mm_lp = np.zeros(N, dtype=np.float32)
+    mm_cert_raw = np.zeros(N, dtype=np.float32)
+    mm_lp_raw = np.zeros(N, dtype=np.float32)
     for i in range(N):
-        _, cert, n_ret = engine.predict_delta(all_obs[i], all_actions[i])
-        mm_cert[i] = cert
-        mm_lp[i] = (1.0 - cert) if n_ret > 0 else 1.0
+        predicted, cert, n_ret = engine.predict_delta(all_obs[i], all_actions[i])
+        mm_cert_raw[i] = cert
+        if n_ret > 0 and i > 0 and (i % steps_per_episode) != 0:
+            actual_delta = all_obs[i] - all_obs[i - 1]
+            mse = float(np.mean((predicted - actual_delta[:len(predicted)]) ** 2))
+            mm_lp_raw[i] = float(np.clip(mse / (mse + 0.01), 0.0, 1.0))
+        else:
+            mm_lp_raw[i] = 1.0
         if (i + 1) % 50000 == 0:
             print(f"      Processed {i+1:,}/{N:,}")
 
     num_episodes = N // steps_per_episode
+    mm_fam = np.zeros(N, dtype=np.float32)
+    mm_qual = np.zeros(N, dtype=np.float32)
+    mm_cert = np.zeros(N, dtype=np.float32)
+    mm_lp = np.zeros(N, dtype=np.float32)
     for ep in range(num_episodes):
-        ep_start = ep * steps_per_episode
-        ep_fam = mm_fam[ep_start:ep_start + steps_per_episode]
-        ep_qual = mm_qual[ep_start:ep_start + steps_per_episode]
-        ep_cert = mm_cert[ep_start:ep_start + steps_per_episode]
-        ep_lp = mm_lp[ep_start:ep_start + steps_per_episode]
-        for s in range(steps_per_episode):
-            window_idx = ep_start + s
-            history_len = min(s + 1, 32)
-            offset = 32 - history_len
-            first_step = s - history_len + 1
-            X[window_idx, offset:32, mm_start] = ep_fam[first_step:s + 1]
-            X[window_idx, offset:32, mm_start+1] = ep_qual[first_step:s + 1]
-            X[window_idx, offset:32, mm_start+2] = ep_cert[first_step:s + 1]
-            X[window_idx, offset:32, mm_start+3] = ep_lp[first_step:s + 1]
+        s = ep * steps_per_episode
+        e = s + steps_per_episode
+        mm_fam[s + 1:e] = mm_fam_raw[s:e - 1]
+        mm_qual[s + 1:e] = mm_qual_raw[s:e - 1]
+        mm_cert[s + 1:e] = mm_cert_raw[s:e - 1]
+        mm_lp[s + 1:e] = mm_lp_raw[s:e - 1]
+
+    _scatter_to_windows(X, [mm_fam, mm_qual, mm_cert, mm_lp],
+                        steps_per_episode, mm_start, num_episodes)
     return X
 
 
@@ -117,21 +154,12 @@ def augment_with_patterns(X, global_log, engine, steps_per_episode=300,
         for s in range(1, steps_per_episode):
             idx = ep_start + s
             prev_hash = all_hashes[idx - 1]
-            pa, pc = engine.query_pattern(prev_hash, all_obs[idx])
+            pa, pc = engine.query_pattern(prev_hash, all_obs[idx - 1])
             pat_avail[idx] = pa
             pat_cert[idx] = pc
 
-    for ep in range(num_episodes):
-        ep_start = ep * steps_per_episode
-        ep_pa = pat_avail[ep_start:ep_start + steps_per_episode]
-        ep_pc = pat_cert[ep_start:ep_start + steps_per_episode]
-        for s in range(steps_per_episode):
-            window_idx = ep_start + s
-            history_len = min(s + 1, 32)
-            offset = 32 - history_len
-            first_step = s - history_len + 1
-            X[window_idx, offset:32, pattern_start] = ep_pa[first_step:s + 1]
-            X[window_idx, offset:32, pattern_start+1] = ep_pc[first_step:s + 1]
+    _scatter_to_windows(X, [pat_avail, pat_cert],
+                        steps_per_episode, pattern_start, num_episodes)
     return X
 
 
@@ -150,21 +178,12 @@ def augment_with_concepts(X, global_log, engine, steps_per_episode=300,
         ep_start = ep * steps_per_episode
         for s in range(1, steps_per_episode):
             idx = ep_start + s
-            match, quality = engine.query_concept(all_hashes[idx - 1], all_obs[idx])
+            match, quality = engine.query_concept(all_hashes[idx - 1], all_obs[idx - 1])
             cm[idx] = match
             cq[idx] = quality
 
-    for ep in range(num_episodes):
-        ep_start = ep * steps_per_episode
-        ep_cm = cm[ep_start:ep_start + steps_per_episode]
-        ep_cq = cq[ep_start:ep_start + steps_per_episode]
-        for s in range(steps_per_episode):
-            window_idx = ep_start + s
-            history_len = min(s + 1, 32)
-            offset = 32 - history_len
-            first_step = s - history_len + 1
-            X[window_idx, offset:32, concept_start] = ep_cm[first_step:s + 1]
-            X[window_idx, offset:32, concept_start+1] = ep_cq[first_step:s + 1]
+    _scatter_to_windows(X, [cm, cq],
+                        steps_per_episode, concept_start, num_episodes)
     return X
 
 
@@ -176,77 +195,265 @@ def augment_with_agency(X, global_log, engine, steps_per_episode=300,
     all_actions = [e['action'] for e in global_log]
 
     print(f"    Computing agency features for {N:,} observations...")
-    ag_ctrl = np.zeros(N, dtype=np.float32)
-    ag_ext = np.zeros(N, dtype=np.float32)
-    ag_plan = np.zeros(N, dtype=np.float32)
+    ag_ctrl_raw = np.zeros(N, dtype=np.float32)
+    ag_ext_raw = np.zeros(N, dtype=np.float32)
+    ag_plan_raw = np.zeros(N, dtype=np.float32)
 
     for i in range(N):
         ctrl, ext, plan = engine.compute_agency_features(all_obs_b[i], all_actions[i], all_obs_a[i])
-        ag_ctrl[i] = ctrl
-        ag_ext[i] = ext
-        ag_plan[i] = plan
+        ag_ctrl_raw[i] = ctrl
+        ag_ext_raw[i] = ext
+        ag_plan_raw[i] = plan
         if (i + 1) % 50000 == 0:
             print(f"      Processed {i+1:,}/{N:,}")
 
     num_episodes = N // steps_per_episode
+    ag_ctrl = np.zeros(N, dtype=np.float32)
+    ag_ext = np.zeros(N, dtype=np.float32)
+    ag_plan = np.zeros(N, dtype=np.float32)
     for ep in range(num_episodes):
-        ep_start = ep * steps_per_episode
-        ep_ctrl = np.zeros(steps_per_episode, dtype=np.float32)
-        ep_ext = np.zeros(steps_per_episode, dtype=np.float32)
-        ep_plan = np.zeros(steps_per_episode, dtype=np.float32)
-        ep_ctrl[1:] = ag_ctrl[ep_start:ep_start + steps_per_episode - 1]
-        ep_ext[1:] = ag_ext[ep_start:ep_start + steps_per_episode - 1]
-        ep_plan[1:] = ag_plan[ep_start:ep_start + steps_per_episode - 1]
-        for s in range(steps_per_episode):
-            window_idx = ep_start + s
-            history_len = min(s + 1, 32)
-            offset = 32 - history_len
-            first_step = s - history_len + 1
-            X[window_idx, offset:32, agency_start] = ep_ctrl[first_step:s + 1]
-            X[window_idx, offset:32, agency_start+1] = ep_ext[first_step:s + 1]
-            X[window_idx, offset:32, agency_start+2] = ep_plan[first_step:s + 1]
+        s = ep * steps_per_episode
+        e = s + steps_per_episode
+        ag_ctrl[s + 1:e] = ag_ctrl_raw[s:e - 1]
+        ag_ext[s + 1:e] = ag_ext_raw[s:e - 1]
+        ag_plan[s + 1:e] = ag_plan_raw[s:e - 1]
+
+    _scatter_to_windows(X, [ag_ctrl, ag_ext, ag_plan],
+                        steps_per_episode, agency_start, num_episodes)
     return X
 
 
+def _mixed_action_loss(logits, targets, num_continuous, bce_fn):
+    if num_continuous > 0:
+        cont_loss = F.mse_loss(logits[:, :num_continuous], targets[:, :num_continuous])
+        bin_loss = bce_fn(logits[:, num_continuous:], targets[:, num_continuous:])
+        return cont_loss + bin_loss
+    return bce_fn(logits, targets)
+
+
+def generate_training_data_closed_loop(num_bootstrap=100, num_online=400,
+                                       steps_per_episode=300, seed=0):
+    """Generate training data with mental model online during episodes.
+
+    Phase 1 (bootstrap): collect data with no mental model (same as before).
+    Phase 2 (online): build mental model from bootstrap, then run episodes
+    with mm_features/pattern/agency/concepts computed live and the mental
+    model updating after each step. This closes the loop: the organism's
+    observation vector reflects the mental model's current state, and the
+    mental model learns from the organism's actions.
+
+    The augmentation functions become unnecessary — features are computed
+    inline at the correct lag (obs_before, prev_* variables).
+    """
+    from mental_model import build_mental_model, action_to_hash
+
+    rng = np.random.RandomState(seed)
+    all_windows = []
+    all_targets = []
+    all_next_pain = []
+    global_log = []
+
+    total_episodes = num_bootstrap + num_online
+
+    for ep in range(num_bootstrap):
+        env = Environment(seed=rng.randint(0, 100000))
+        org = Organism()
+        org.reset(rng)
+        npc = NPC()
+        npc.reset(rng)
+        episode_pain = []
+
+        for step in range(steps_per_episode):
+            npc.step(env, step)
+            optimal = org.compute_optimal_actions(env, step, npc=npc)
+            window = org.get_observation_window()
+            all_windows.append(window.copy())
+            all_targets.append(optimal.copy())
+            r = rng.random()
+            if r < 0.02:
+                executed = np.zeros(org.NUM_ACTIONS, dtype=np.int32)
+            elif r < EXPLORE_RATE:
+                executed = rng.randint(0, 2, size=org.NUM_ACTIONS).astype(np.int32)
+            else:
+                executed = optimal
+            obs, reward = org.step(executed, env, step, npc=npc)
+            npc.receive_signal(executed[org.NUM_LIMBS * 3:], org.x, org.y)
+            episode_pain.append(obs[0:6].copy())
+
+        for i in range(steps_per_episode):
+            if i + 1 < steps_per_episode:
+                all_next_pain.append(episode_pain[i + 1])
+            else:
+                all_next_pain.append(episode_pain[i])
+        global_log.extend(org.experience_log)
+
+        if (ep + 1) % 100 == 0:
+            print(f"  Bootstrap: {ep + 1}/{num_bootstrap} episodes")
+
+    print(f"  Bootstrap complete: {len(global_log)} log entries")
+    print("  Building mental model from bootstrap...")
+    engine = build_mental_model(global_log)
+    print(f"  Store: {engine.store.total_count} mappings")
+
+    for ep in range(num_online):
+        env = Environment(seed=rng.randint(0, 100000))
+        org = Organism()
+        org.reset(rng)
+        npc = NPC()
+        npc.reset(rng)
+        episode_pain = []
+
+        prev_predicted_pain = None
+        prev_mm_certainty = 0.0
+        prev_learning_progress = 0.0
+        prev_action_hash = 0
+        prev_controllability = 0.0
+        prev_external_change = 0.0
+        prev_planning_value = 0.0
+
+        for step in range(steps_per_episode):
+            npc.step(env, step)
+            obs_before = org.history[-1].copy() if len(org.history) > 0 else np.zeros(org.OBS_DIM)
+
+            mm_fam, mm_qual = engine.get_context_features(obs_before)
+            mm_features = (mm_fam, mm_qual, prev_mm_certainty, prev_learning_progress)
+
+            pattern_features = None
+            if engine.pattern_store is not None:
+                pa, pc = engine.query_pattern(prev_action_hash, obs_before)
+                pattern_features = (pa, pc)
+
+            cm, cq = engine.query_concept(prev_action_hash, obs_before)
+            org.concept_match = cm
+            org.concept_quality = cq
+
+            optimal = org.compute_optimal_actions(env, step, npc=npc)
+            window = org.get_observation_window()
+            all_windows.append(window.copy())
+            all_targets.append(optimal.copy())
+
+            r = rng.random()
+            if r < 0.02:
+                executed = np.zeros(org.NUM_ACTIONS, dtype=np.int32)
+            elif r < EXPLORE_RATE:
+                executed = rng.randint(0, 2, size=org.NUM_ACTIONS).astype(np.int32)
+            else:
+                executed = optimal
+
+            obs, reward = org.step(
+                executed, env, step,
+                predicted_pain=prev_predicted_pain,
+                mm_features=mm_features,
+                pattern_features=pattern_features,
+                agency_features=(prev_controllability, prev_external_change, prev_planning_value),
+                npc=npc,
+            )
+            npc.receive_signal(executed[org.NUM_LIMBS * 3:], org.x, org.y)
+            episode_pain.append(obs[0:6].copy())
+
+            ctrl, ext_ch, plan_v = engine.compute_agency_features(obs_before, executed, obs)
+            prev_controllability = ctrl
+            prev_external_change = ext_ch
+            prev_planning_value = plan_v
+
+            pred, cert, _ = engine.predict_delta(obs_before, executed)
+            lp, cert_after = engine.compute_learning_progress(obs_before, executed, obs, reward)
+            prev_mm_certainty = cert_after
+            prev_learning_progress = lp
+
+            prev_predicted_pain = obs_before[:6] + pred[:6] if len(pred) >= 6 else obs_before[:6].copy()
+            prev_action_hash = action_to_hash(executed)
+
+        for i in range(steps_per_episode):
+            if i + 1 < steps_per_episode:
+                all_next_pain.append(episode_pain[i + 1])
+            else:
+                all_next_pain.append(episode_pain[i])
+        global_log.extend(org.experience_log)
+
+        if (ep + 1) % 100 == 0:
+            print(f"  Online: {ep + 1}/{num_online} episodes "
+                  f"(store: {engine.store.total_count} mappings)")
+            if engine.pattern_store is not None:
+                print("  Rebuilding pattern store...")
+                engine.pattern_store.build_from_log(
+                    global_log, engine.encoder, engine.store,
+                    steps_per_episode=steps_per_episode)
+                ps = engine.pattern_store.get_stats()
+                print(f"    Patterns: {ps['total_patterns']}, "
+                      f"avg_gain: {ps['avg_compression_gain']:.3f}")
+
+    X = np.array(all_windows, dtype=np.float32)
+    Y = np.array(all_targets, dtype=np.float32)
+    Z = np.array(all_next_pain, dtype=np.float32)
+    return X, Y, Z, global_log, engine
+
+
 def train_model(X, Y, Z, epochs=30, batch_size=256, lr=1e-3, num_limbs=6,
-                num_segments=1, dims=2):
-    idx = compute_obs_indices(num_limbs, num_segments, dims)
+                num_segments=1, dims=2, staged=False,
+                steps_per_episode=300, val_fraction=0.15, continuous_actions=False):
+    idx = compute_obs_indices(num_limbs, num_segments, dims, continuous_actions=continuous_actions)
     num_pain = Z.shape[1] if Z.ndim > 1 else 6
-    total_limbs = idx.get('total_limbs', num_limbs)
+    nc = idx.get('num_continuous', 0)
     model = HierarchicalPolicy(
         obs_dim=idx['obs_dim'], num_actions=idx['num_actions'],
         energy_obs_index=idx['energy'], conflict_obs_index=idx['conflict'],
-        num_pain_channels=num_pain, num_limbs=total_limbs
+        num_pain_channels=num_pain, num_limbs=num_limbs,
+        staged=staged, num_segments=num_segments, dims=dims,
+        num_continuous=nc
     ).to(DEVICE)
     optimizer = optim.Adam(model.parameters(), lr=lr)
     scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=epochs, eta_min=lr / 10)
     bce = nn.BCEWithLogitsLoss()
 
     N = X.shape[0]
-    indices = np.arange(N)
-    best_loss = float('inf')
+    num_episodes = N // steps_per_episode
+    num_val_eps = max(1, int(num_episodes * val_fraction))
+    ep_order = np.arange(num_episodes)
+    np.random.RandomState(0).shuffle(ep_order)
+    val_eps = set(ep_order[:num_val_eps].tolist())
+
+    train_mask = np.ones(N, dtype=bool)
+    val_mask = np.zeros(N, dtype=bool)
+    for ep in val_eps:
+        s = ep * steps_per_episode
+        e = s + steps_per_episode
+        train_mask[s:e] = False
+        val_mask[s:e] = True
+
+    train_idx = np.where(train_mask)[0]
+    val_idx = np.where(val_mask)[0]
+    print(f"    Train: {len(train_idx):,} samples ({num_episodes - num_val_eps} episodes)  "
+          f"Val: {len(val_idx):,} samples ({num_val_eps} episodes)")
+
+    best_val_loss = float('inf')
 
     for epoch in range(epochs):
-        np.random.shuffle(indices)
+        np.random.shuffle(train_idx)
         model.train()
-        totals = {'loss': 0, 'acc': 0, 'gate': 0, 'conf': 0, 'fast_acc': 0, 'pred_mse': 0}
+        totals = {'loss': 0, 'acc': 0, 'gate': 0, 'conf': 0, 'fast_acc': 0, 'pred_mse': 0,
+                  'stage_mse': 0}
         n_batches = 0
 
-        for start in range(0, N, batch_size):
-            batch_idx = indices[start:start + batch_size]
+        for start in range(0, len(train_idx), batch_size):
+            batch_idx = train_idx[start:start + batch_size]
             x_batch = torch.FloatTensor(X[batch_idx]).to(DEVICE)
             y_batch = torch.FloatTensor(Y[batch_idx]).to(DEVICE)
             z_batch = torch.FloatTensor(Z[batch_idx]).to(DEVICE)
 
             result = model(x_batch)
 
-            blend_loss = bce(result['blended'], y_batch)
-            fast_loss = bce(result['fast_logits'], y_batch)
-            slow_loss = bce(result['slow_logits'], y_batch)
+            blend_loss = _mixed_action_loss(result['blended'], y_batch, nc, bce)
+            fast_loss = _mixed_action_loss(result['fast_logits'], y_batch, nc, bce)
+            slow_loss = _mixed_action_loss(result['slow_logits'], y_batch, nc, bce)
 
             with torch.no_grad():
-                fast_preds = (torch.sigmoid(result['fast_logits']) > 0.5).float()
-                fast_accuracy = (fast_preds == y_batch).float().mean(dim=1, keepdim=True)
+                if nc > 0:
+                    fast_bin_preds = (torch.sigmoid(result['fast_logits'][:, nc:]) > 0.5).float()
+                    fast_accuracy = (fast_bin_preds == y_batch[:, nc:]).float().mean(dim=1, keepdim=True)
+                else:
+                    fast_preds = (torch.sigmoid(result['fast_logits']) > 0.5).float()
+                    fast_accuracy = (fast_preds == y_batch).float().mean(dim=1, keepdim=True)
             conf_loss = F.mse_loss(result['confidence'], fast_accuracy)
 
             energy = x_batch[:, -1, idx['energy']:idx['energy'] + 1]
@@ -255,11 +462,18 @@ def train_model(X, Y, Z, epochs=30, batch_size=256, lr=1e-3, num_limbs=6,
 
             pred_loss = F.mse_loss(result['predicted_next_pain'], z_batch)
 
+            inter_stage_loss = torch.tensor(0.0, device=DEVICE)
+            if 'stage_predictions' in result:
+                for pred, actual in result['stage_predictions']:
+                    inter_stage_loss = inter_stage_loss + F.mse_loss(pred, actual)
+                inter_stage_loss = inter_stage_loss / len(result['stage_predictions'])
+
             total_loss = (blend_loss
                           + ALPHA * (fast_loss + slow_loss)
                           + BETA * conf_loss
                           + GAMMA * metabolic_loss
-                          + DELTA * pred_loss)
+                          + DELTA * pred_loss
+                          + EPSILON * inter_stage_loss)
 
             optimizer.zero_grad()
             total_loss.backward()
@@ -267,8 +481,12 @@ def train_model(X, Y, Z, epochs=30, batch_size=256, lr=1e-3, num_limbs=6,
             optimizer.step()
 
             with torch.no_grad():
-                preds = (torch.sigmoid(result['blended']) > 0.5).float()
-                acc = (preds == y_batch).float().mean().item()
+                if nc > 0:
+                    bin_preds = (torch.sigmoid(result['blended'][:, nc:]) > 0.5).float()
+                    acc = (bin_preds == y_batch[:, nc:]).float().mean().item()
+                else:
+                    preds = (torch.sigmoid(result['blended']) > 0.5).float()
+                    acc = (preds == y_batch).float().mean().item()
 
             totals['loss'] += total_loss.item()
             totals['acc'] += acc
@@ -276,19 +494,43 @@ def train_model(X, Y, Z, epochs=30, batch_size=256, lr=1e-3, num_limbs=6,
             totals['conf'] += result['confidence'].mean().item()
             totals['fast_acc'] += fast_accuracy.mean().item()
             totals['pred_mse'] += pred_loss.item()
+            totals['stage_mse'] += inter_stage_loss.item()
             n_batches += 1
 
         scheduler.step()
         avg = {k: v / n_batches for k, v in totals.items()}
 
-        if avg['loss'] < best_loss:
-            best_loss = avg['loss']
+        model.eval()
+        with torch.no_grad():
+            val_loss = 0.0
+            val_acc = 0.0
+            val_n = 0
+            for vs in range(0, len(val_idx), batch_size):
+                vi = val_idx[vs:vs + batch_size]
+                xv = torch.FloatTensor(X[vi]).to(DEVICE)
+                yv = torch.FloatTensor(Y[vi]).to(DEVICE)
+                zv = torch.FloatTensor(Z[vi]).to(DEVICE)
+                rv = model(xv)
+                vl = _mixed_action_loss(rv['blended'], yv, nc, bce).item()
+                if nc > 0:
+                    va = ((torch.sigmoid(rv['blended'][:, nc:]) > 0.5).float() == yv[:, nc:]).float().mean().item()
+                else:
+                    va = ((torch.sigmoid(rv['blended']) > 0.5).float() == yv).float().mean().item()
+                val_loss += vl
+                val_acc += va
+                val_n += 1
+            val_loss /= max(val_n, 1)
+            val_acc /= max(val_n, 1)
+
+        if val_loss < best_val_loss:
+            best_val_loss = val_loss
             torch.save(model.state_dict(), os.path.join(DATA_DIR, 'best_model.pt'))
 
+        stage_str = f"  stage_mse={avg['stage_mse']:.4f}" if avg['stage_mse'] > 0 else ""
         print(f"  Epoch {epoch + 1:2d}/{epochs}  loss={avg['loss']:.4f}  "
-              f"acc={avg['acc']:.3f}  gate={avg['gate']:.3f}  "
-              f"conf={avg['conf']:.3f}  fast_acc={avg['fast_acc']:.3f}  "
-              f"pred_mse={avg['pred_mse']:.4f}  "
+              f"acc={avg['acc']:.3f}  val_acc={val_acc:.3f}  "
+              f"gate={avg['gate']:.3f}  "
+              f"pred_mse={avg['pred_mse']:.4f}{stage_str}  "
               f"lr={scheduler.get_last_lr()[0]:.6f}")
 
     model.load_state_dict(torch.load(os.path.join(DATA_DIR, 'best_model.pt'), weights_only=True))
@@ -318,13 +560,9 @@ def run_inference_episode(model, env, steps=300, rng=None, mental_model=None,
         obs_before = org.history[-1].copy() if len(org.history) > 0 else np.zeros(org.OBS_DIM)
 
         is_probe = inference_rng.random() < PROBE_RATE_FLOOR
+        actions, pathway_info = model.predict(window)
         if is_probe:
             actions = inference_rng.randint(0, 2, size=org.NUM_ACTIONS).astype(np.int32)
-            pathway_info = {'gate_value': 0.0, 'confidence': 0.0,
-                            'used_slow': False,
-                            'predicted_next_pain': [0.0] * org.NUM_LIMBS}
-        else:
-            actions, pathway_info = model.predict(window)
 
         mm_features = None
         pattern_features = None
@@ -486,7 +724,7 @@ if __name__ == '__main__':
     print(f"  External change:      [{X[:, -1, ag+1].min():.3f}, {X[:, -1, ag+1].max():.3f}]")
     print(f"  Planning value:       [{X[:, -1, ag+2].min():.3f}, {X[:, -1, ag+2].max():.3f}]")
 
-    cs = idx['obs_dim'] - 2
+    cs = idx['concept_start']
     print("\n=== Augmenting with concept features ===")
     X = augment_with_concepts(X, global_log, engine,
                               core_obs_dim=idx['core_obs_dim'], concept_start=cs)

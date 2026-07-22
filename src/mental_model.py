@@ -29,6 +29,7 @@ class PatternEntry:
     count: int
     compression_gain: float
     m2: np.ndarray = None
+    representative_obs: np.ndarray = None
 
 
 class ContrastiveEncoder(nn.Module):
@@ -85,12 +86,13 @@ class ActionFamilyManager:
         for fam_id in self.families:
             self.family_weights[fam_id] = np.ones(self.embed_dim, dtype=np.float32)
 
-    def learn_weights(self, global_log, encoder, store):
+    def learn_weights(self, global_log, encoder, store, seed=0):
         cdim = getattr(encoder, 'obs_dim', CORE_OBS_DIM)
         family_data = defaultdict(lambda: {'embs': [], 'errors': []})
+        rng = np.random.RandomState(seed)
 
         sample_size = min(20000, len(global_log))
-        indices = np.random.choice(len(global_log), sample_size, replace=False)
+        indices = rng.choice(len(global_log), sample_size, replace=False)
 
         for idx in indices:
             entry = global_log[idx]
@@ -106,8 +108,11 @@ class ActionFamilyManager:
             if not results:
                 continue
 
-            scores = np.array([s for _, s in results])
-            weights = scores / (scores.sum() + 1e-8)
+            scores = np.maximum(np.array([s for _, s in results]), 0.0)
+            total = scores.sum()
+            if total < 1e-8:
+                continue
+            weights = scores / total
             predicted = sum(w * e.delta for (e, _), w in zip(results, weights))
             error = float(np.mean((predicted - actual_delta) ** 2))
 
@@ -165,11 +170,12 @@ def action_to_hash(action):
 
 def train_contrastive_encoder(global_log, obs_dim=96, embed_dim=32,
                               epochs=10, batch_size=256, lr=1e-3,
-                              temperature=0.1, max_samples=30000):
+                              temperature=0.1, max_samples=30000, seed=0):
+    rng = np.random.RandomState(seed)
     encoder = ContrastiveEncoder(obs_dim, embed_dim)
     optimizer = torch.optim.Adam(encoder.parameters(), lr=lr)
 
-    sample_indices = np.random.choice(len(global_log), min(max_samples, len(global_log)), replace=False)
+    sample_indices = rng.choice(len(global_log), min(max_samples, len(global_log)), replace=False)
     sampled = [global_log[i] for i in sample_indices]
 
     action_groups = defaultdict(list)
@@ -208,12 +214,12 @@ def train_contrastive_encoder(global_log, obs_dim=96, embed_dim=32,
             neg_indices = []
 
             for _ in range(batch_size):
-                gk = group_keys[np.random.randint(len(group_keys))]
+                gk = group_keys[rng.randint(len(group_keys))]
                 g_idx, g_norm_deltas = valid_groups[gk]
                 if len(g_idx) < 4:
                     continue
 
-                a_pos = np.random.randint(len(g_idx))
+                a_pos = rng.randint(len(g_idx))
                 a_delta = g_norm_deltas[a_pos]
                 sims = g_norm_deltas @ a_delta
                 sorted_pos = np.argsort(-sims)
@@ -222,8 +228,8 @@ def train_contrastive_encoder(global_log, obs_dim=96, embed_dim=32,
                 if len(sorted_pos) < 2:
                     continue
 
-                p_pos = sorted_pos[np.random.randint(min(3, len(sorted_pos)))]
-                n_pos = sorted_pos[-(np.random.randint(min(3, len(sorted_pos))) + 1)]
+                p_pos = sorted_pos[rng.randint(min(3, len(sorted_pos)))]
+                n_pos = sorted_pos[-(rng.randint(min(3, len(sorted_pos))) + 1)]
 
                 anchor_indices.append(g_idx[a_pos])
                 pos_indices.append(g_idx[p_pos])
@@ -267,6 +273,9 @@ class CausalMappingStore:
     def __init__(self):
         self.mappings = defaultdict(list)
         self.total_count = 0
+        self._emb_cache = None
+        self._reward_cache = None
+        self._cache_dirty = True
 
     def add_mapping(self, action_hash, context_embedding, delta, reward):
         entries = self.mappings[action_hash]
@@ -274,12 +283,12 @@ class CausalMappingStore:
             sim = float(np.dot(context_embedding, entry.context_embedding))
             if sim > self.MERGE_THRESHOLD:
                 n = entry.count
-                entry.delta = (entry.delta * n + delta) / (n + 1)
-                entry.reward = (entry.reward * n + reward) / (n + 1)
-                alpha = 1.0 / (n + 1)
                 delta_diff = np.linalg.norm(entry.delta - delta)
                 delta_norm = np.linalg.norm(delta) + 1e-8
                 outcome_match = max(0.0, 1.0 - min(1.0, delta_diff / delta_norm))
+                entry.delta = (entry.delta * n + delta) / (n + 1)
+                entry.reward = (entry.reward * n + reward) / (n + 1)
+                alpha = 1.0 / (n + 1)
                 entry.certainty = entry.certainty * (1 - alpha) + outcome_match * alpha
                 entry.certainty = float(np.clip(entry.certainty, 0.05, 0.99))
                 entry.count += 1
@@ -293,6 +302,24 @@ class CausalMappingStore:
             reward=float(reward),
         ))
         self.total_count += 1
+        self._cache_dirty = True
+
+    def get_cached_embeddings(self):
+        if self._cache_dirty or self._emb_cache is None:
+            all_embs = []
+            all_rewards = []
+            for entries in self.mappings.values():
+                for entry in entries:
+                    all_embs.append(entry.context_embedding)
+                    all_rewards.append(entry.reward)
+            if all_embs:
+                self._emb_cache = np.array(all_embs, dtype=np.float32)
+                self._reward_cache = np.array(all_rewards, dtype=np.float32)
+            else:
+                self._emb_cache = np.zeros((0, 32), dtype=np.float32)
+                self._reward_cache = np.zeros(0, dtype=np.float32)
+            self._cache_dirty = False
+        return self._emb_cache, self._reward_cache
 
     def query(self, action_hash, context_embedding, top_k=10, family_manager=None):
         entries = self.mappings.get(action_hash, [])
@@ -400,20 +427,20 @@ class PatternStore:
                 idx = ep_start + s
                 motif = (all_hashes[idx], all_hashes[idx + 1])
                 cum_delta = all_obs_after[idx + 1] - all_obs[idx]
-                motif_data[motif].append((all_embeddings[idx], cum_delta))
+                motif_data[motif].append((all_embeddings[idx], cum_delta, all_obs[idx]))
 
         for motif, entries in motif_data.items():
             if len(entries) < self.MIN_COUNT:
                 continue
-            for emb, delta in entries:
-                self._add_pattern_obs(motif, emb, delta)
+            for emb, delta, obs in entries:
+                self._add_pattern_obs(motif, emb, delta, obs)
 
         self._prune_and_index(causal_store, encoder)
 
         if self.total_count > 0 and (num_episodes % 100 == 0 or num_episodes == n // steps_per_episode):
             pass
 
-    def _add_pattern_obs(self, motif, embedding, delta):
+    def _add_pattern_obs(self, motif, embedding, delta, obs=None):
         for pat in self.patterns[motif]:
             sim = float(np.dot(embedding, pat.context_embedding))
             if sim > self.MERGE_THRESHOLD:
@@ -429,6 +456,8 @@ class PatternStore:
                 norm = np.linalg.norm(pat.context_embedding)
                 if norm > 1e-8:
                     pat.context_embedding /= norm
+                if obs is not None:
+                    pat.representative_obs = obs.copy()
                 pat.count += 1
                 return
 
@@ -440,6 +469,7 @@ class PatternStore:
             count=1,
             compression_gain=0.0,
             m2=np.zeros_like(delta),
+            representative_obs=obs.copy() if obs is not None else None,
         ))
 
     def _prune_and_index(self, causal_store, encoder):
@@ -457,17 +487,21 @@ class PatternStore:
                 else:
                     pat.certainty = 0.5
 
-                a1_action = np.zeros(22, dtype=int)
-                for bit in range(22):
+                num_actions = getattr(encoder, 'num_actions', 22)
+                a1_action = np.zeros(num_actions, dtype=int)
+                for bit in range(num_actions):
                     if motif[0] & (1 << bit):
                         a1_action[bit] = 1
-                a2_action = np.zeros(22, dtype=int)
-                for bit in range(22):
+                a2_action = np.zeros(num_actions, dtype=int)
+                for bit in range(num_actions):
                     if motif[1] & (1 << bit):
                         a2_action[bit] = 1
 
-                dummy_obs = np.zeros(getattr(encoder, 'obs_dim', CORE_OBS_DIM))
-                _, chain_cert = engine_temp.chain([a1_action, a2_action], dummy_obs)
+                if pat.representative_obs is not None:
+                    chain_obs = pat.representative_obs
+                else:
+                    chain_obs = np.zeros(getattr(encoder, 'obs_dim', CORE_OBS_DIM))
+                _, chain_cert = engine_temp.chain([a1_action, a2_action], chain_obs)
                 pat.compression_gain = pat.certainty - chain_cert
 
                 if pat.compression_gain > 0:
@@ -551,8 +585,11 @@ class MentalModelEngine:
         if not results:
             return np.zeros_like(obs_before), 0.0, 0
 
-        scores = np.array([s for _, s in results])
-        weights = scores / (scores.sum() + 1e-8)
+        scores = np.maximum(np.array([s for _, s in results]), 0.0)
+        total = scores.sum()
+        if total < 1e-8:
+            return np.zeros_like(obs_before), 0.0, 0
+        weights = scores / total
         predicted = sum(w * e.delta for (e, _), w in zip(results, weights))
         avg_cert = float(np.mean([e.certainty for e, _ in results]))
         return predicted, avg_cert, len(results)
@@ -633,7 +670,7 @@ class MentalModelEngine:
         if count == 0 or actual_norm < 1e-6:
             controllability = 0.0
         else:
-            controllability = float(np.clip(predicted_norm / (actual_norm + 1e-6), 0.0, 1.0))
+            controllability = float(np.clip(1.0 - external_norm / (actual_norm + 1e-6), 0.0, 1.0))
 
         external_change = float(np.clip(external_norm / (external_norm + 1.0), 0.0, 1.0))
 
@@ -651,18 +688,12 @@ class MentalModelEngine:
         observations = self._core_obs(observations)
         embeddings = self.encoder.embed_batch(observations)
 
-        all_embs, all_rewards = [], []
-        for entries in self.store.mappings.values():
-            for entry in entries:
-                all_embs.append(entry.context_embedding)
-                all_rewards.append(entry.reward)
+        stored_embs, stored_rewards = self.store.get_cached_embeddings()
 
         N = len(observations)
-        if not all_embs:
+        if len(stored_embs) == 0:
             return np.zeros(N, dtype=np.float32), np.full(N, 0.5, dtype=np.float32)
 
-        stored_embs = np.array(all_embs, dtype=np.float32)
-        stored_rewards = np.array(all_rewards, dtype=np.float32)
         sims = embeddings @ stored_embs.T
 
         mm_familiarity = np.clip(np.max(sims, axis=1), 0.0, 1.0)

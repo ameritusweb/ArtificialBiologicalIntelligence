@@ -369,6 +369,29 @@ Single-family dependencies only.
 
 ---
 
+## Epistemic Family Cross-Dependencies
+
+### Epistemic + Meta-Motivational + Causality
+
+**Doubt Detection** (`doubt_detection`, Epistemic family)
+- Dependencies: `belief_detection` (Epistemic) + `conflict_detection` (Meta-Motivational)
+- Why both: detecting commitment-performance mismatch requires both epistemic self-awareness (belief detection) and conflict signaling
+- This is the conscious version of the T57 annealing mechanism
+
+**Counterfactual Salience** (`counterfactual_salience`, Epistemic family)
+- Dependencies: `doubt_detection` (Epistemic) + `counterfactual_reasoning` (Causality) + `optimism` (Meta-Motivational)
+- Why all three: a possibility becomes salient when doubt opens the space (doubt), the possibility is causally reachable (counterfactual reasoning), and it has motivational weight (optimism evaluates it against the organism's model of consequences)
+- The receptor that keeps Einstein's "what if light speed is invariant" alive as a live possibility
+
+**Epistemic Strategy** (`epistemic_strategy`, Epistemic family)
+- Dependencies: `counterfactual_salience` (Epistemic) + `self_regulation` (Meta-Motivational) + `pipeline_optimization` (Sequential Processing)
+- Layer 3+ receptor: the organism deliberately manages when to believe, doubt, and explore
+- Mechanism for T50 (science as receptor phenomenon): scientific reasoning is epistemic strategy applied systematically
+
+**Pattern discovered:** The Epistemic family depends on the T57 annealing result for its evolutionary thesis — it is the first family whose existence was predicted by a falsification (T55) rather than by theoretical deduction alone.
+
+---
+
 ## The Song Replay Cross-Family Path
 
 **Specific mechanism for involuntary mental song replay:**

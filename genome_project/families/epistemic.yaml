@@ -1,0 +1,382 @@
+# Epistemic Family
+# Receptors that detect the organism's own epistemic states as objects of processing
+
+family_metadata:
+  name: Epistemic
+  description: |
+    Receptors that fire when the organism's own relationship to a thought
+    becomes motivationally significant. Not the thought itself, not
+    its certainty value, but the organism's detection of what kind of
+    epistemic state it is in: believing, doubting, or entertaining a
+    counterfactual possibility.
+
+    The critical distinction: the mental model already tracks certainty
+    as a value. These receptors fire when that value, or the mismatch
+    between that value and prediction performance, becomes an object
+    the organism can reason about. Certainty-as-value is infrastructure.
+    Certainty-as-detected-state is a receptor.
+
+    This family emerged from the T57 annealing result: releasing
+    certainty on conflict entries produced more resolutions than
+    protecting it. But the organism in that experiment had no receptor
+    for the state it was in during annealing — no way to detect
+    "I am currently doubting" and treat that as motivationally
+    significant. These receptors close that gap.
+
+  evolutionary_thesis: |
+    Epistemic receptors emerge when the organism's own confidence
+    state has survival consequences that differ from the consequences
+    of the thought content itself. An organism that can detect "I
+    believe this strongly but it keeps generating surprises" can
+    choose to explore alternatives. An organism that cannot detect
+    its own doubt state can only endure uncertainty or resolve it
+    prematurely.
+
+    The selection pressure: environments where premature commitment
+    is fatal and sustained doubt is adaptive — where the organism
+    must hold open possibilities long enough for the right one to
+    emerge, and where detecting the difference between productive
+    and unproductive doubt determines whether attention stays
+    allocated.
+
+  trunk_receptor: belief_detection
+  canopy_receptors: [counterfactual_salience, epistemic_strategy]
+
+---
+
+receptors:
+  - receptor_id: belief_detection
+    name: Own-Belief State Detection
+    family: epistemic
+    tier: trunk
+
+    dependencies:
+      - receptor_id: metacognition
+        note: "Must model own processing before detecting belief as a state"
+      - receptor_id: causal_inference
+        note: "Must understand prediction-outcome relationships"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that a currently active thought has high
+        certainty that is well-calibrated — predictions it generates
+        keep confirming. Not just high certainty (which could be
+        unjustified), but certainty that has been earned through
+        repeated prediction success in the experience log.
+      survival_benefit: |
+        Belief-as-detected-state enables the organism to reason about
+        what it believes, compare beliefs, detect belief conflict,
+        and choose to act on beliefs with appropriate confidence.
+        Without this receptor, belief is implicit weighting; with it,
+        belief becomes an object of thought — the prerequisite for
+        the epistemic canopy.
+      metabolic_cost: low
+      selection_pressure: |
+        Environments where distinguishing justified from unjustified
+        confidence matters — where acting on unjustified confidence
+        is costly and detecting the difference is adaptive.
+
+    selection_environments:
+      - variable_reliability_environments
+      - environments_requiring_calibrated_confidence
+      - multi_source_information_environments
+
+    unlocks:
+      - doubt_detection
+      - belief_comparison
+      - epistemic_self_awareness
+
+    emergence_signature:
+      description: |
+        The organism allocates different resources to high-certainty
+        well-calibrated thoughts versus high-certainty poorly-calibrated
+        thoughts. Behavioral marker: treats confident predictions that
+        keep confirming differently from confident predictions that
+        keep surprising — not in the content of the response, but in
+        the metabolic/attentional investment.
+      metrics:
+        - metric_name: calibration_sensitivity
+          measurement_method: |
+            Compare organism behavior on high-certainty + low-error
+            contexts versus high-certainty + high-error contexts.
+            Belief detection = differential response to calibration,
+            not just to certainty level.
+          expected_range: ">0.2 behavioral difference"
+          detection_threshold: 0.2
+
+    predicted_emergence_order:
+      generation_range: "80-150"
+      confidence: medium
+
+    notes: |
+      The mental model already computes certainty and prediction
+      error separately. The receptor fires on their combination:
+      high certainty + low error = belief. High certainty + high
+      error = doubt (see doubt_detection). The receptor makes the
+      implicit distinction explicit and actionable.
+
+  - receptor_id: doubt_detection
+    name: Commitment-Performance Mismatch Detection
+    family: epistemic
+    tier: branch
+
+    dependencies:
+      - receptor_id: belief_detection
+        note: "Must detect belief before detecting its failure mode"
+      - receptor_id: conflict_detection
+        note: "Must detect competing demands"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that a currently active thought has
+        high certainty that is poorly calibrated — the organism
+        believes something strongly but it keeps generating prediction
+        errors. This is distinct from low certainty (which might mean
+        insufficient experience) and from surprise (which is a single
+        event). Doubt is specifically: sustained high commitment with
+        sustained poor performance.
+      survival_benefit: |
+        Doubt-as-detected-state enables the annealing mechanism to
+        become conscious rather than mechanical. The T57 result showed
+        certainty release producing more resolutions — but without a
+        doubt receptor, the organism cannot detect "I am in a state
+        that would benefit from releasing commitment" and must rely
+        on external certainty decay. With the receptor, the organism
+        can choose to anneal — to deliberately lower its confidence
+        on a stuck prediction — which is the difference between
+        experiencing doubt and acting on it.
+      metabolic_cost: medium
+      selection_pressure: |
+        Environments where sustained confident wrongness is costly
+        and detecting the mismatch enables corrective exploration.
+        The selection pressure is the same one that produced the T57
+        result: releasing certainty helps, and detecting when to
+        release it helps more.
+
+    selection_environments:
+      - environments_with_sustained_misleading_signals
+      - environments_where_confident_wrongness_is_costly
+      - environments_requiring_belief_revision
+
+    unlocks:
+      - deliberate_annealing
+      - belief_revision
+      - epistemic_humility
+
+    emergence_signature:
+      description: |
+        The organism detects high-commitment + poor-performance states
+        and reduces its certainty deliberately, rather than waiting for
+        the natural certainty decay from update_certainty. Behavioral
+        marker: after detecting doubt, the organism explores alternatives
+        more quickly than organisms without the receptor.
+      metrics:
+        - metric_name: doubt_triggered_exploration
+          measurement_method: |
+            After a period of high certainty + high prediction error
+            (>10 consecutive steps), measure how quickly the organism
+            shifts to exploratory behavior. Doubt detection = faster
+            shift than organisms relying on natural certainty decay.
+          expected_range: ">30% faster exploration onset"
+          detection_threshold: 0.3
+        - metric_name: annealing_rate
+          measurement_method: |
+            Compare certainty decay rate on conflict entries between
+            organisms with and without doubt detection. Organisms with
+            doubt should show faster, more targeted certainty reduction
+            on specifically poorly-performing entries.
+          expected_range: ">20% faster targeted certainty reduction"
+          detection_threshold: 0.2
+
+    predicted_emergence_order:
+      generation_range: "120-200"
+      confidence: medium
+
+    notes: |
+      This receptor is the conscious version of the T57 annealing
+      mechanism. T57 showed that mechanical certainty reduction helps.
+      The doubt receptor detects when mechanical reduction should
+      happen, making it targeted rather than uniform. An organism
+      with doubt detection anneals on the right entries; an organism
+      without it anneals everywhere or nowhere.
+
+      The connection to the anxiety derivation (T21): anxiety is a
+      correctly-functioning amplification loop. Doubt is a correctly-
+      functioning detection of when commitment should be released.
+      Both are meta-receptors that read the system's own processing
+      state, and both become pathological when they can't self-regulate
+      — chronic doubt is the epistemic analog of chronic anxiety.
+
+  - receptor_id: counterfactual_salience
+    name: Motivationally-Loaded Possibility Detection
+    family: epistemic
+    tier: canopy
+
+    dependencies:
+      - receptor_id: doubt_detection
+        note: "Must detect doubt before non-actual possibilities become salient"
+      - receptor_id: counterfactual_reasoning
+        note: "Must simulate counterfactuals before detecting their salience"
+      - receptor_id: optimism
+        note: "Must project positive future states"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that a non-actual state S has become
+        motivationally loaded — the organism is not just simulating
+        what could happen, but caring about a possibility. The
+        firing condition: S is not currently true, S is causally
+        reachable from some variation of the current situation, and
+        the organism is evaluating S against its pain/endorphin model.
+
+        This is the moment "this could happen" becomes "this matters."
+        It's distinct from prediction (forward projection from present
+        state), memory (retrieval of actual states), and planning
+        (action selection toward a goal). Counterfactual salience is
+        the detection that a branch point in possibility space has
+        become worth attending to.
+      survival_benefit: |
+        Counterfactual salience enables sustained investigation of
+        possibilities that are not yet confirmed. Einstein holding
+        the Maxwell/Newton tension was sustained counterfactual
+        processing: "what would be true if light speed were invariant"
+        held as an active motivationally-loaded possibility before
+        evidence confirmed it. Without the receptor, possibilities
+        are either acted on immediately or discarded. With it,
+        possibilities can be held open, explored, and evaluated
+        against the organism's full model of consequences.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments where important outcomes depend on possibilities
+        that require sustained investigation before commitment —
+        where premature commitment to the first plausible option is
+        costly and sustained exploration of the possibility space
+        is adaptive.
+
+    selection_environments:
+      - multi_strategy_environments
+      - environments_with_delayed_confirmation
+      - environments_requiring_innovation
+
+    unlocks:
+      - sustained_investigation
+      - possibility_space_navigation
+      - epistemic_strategy
+
+    emergence_signature:
+      description: |
+        The organism holds non-actual possibilities open and allocates
+        attention to them based on their predicted consequences, not
+        just on their certainty or novelty. Behavioral marker: the
+        organism returns to investigate a possibility that was not
+        immediately rewarding, driven by the predicted consequences
+        of that possibility being true.
+      metrics:
+        - metric_name: counterfactual_revisitation
+          measurement_method: |
+            Track contexts where the organism considered a non-actual
+            possibility and returned to investigate it later, despite
+            no immediate reward signal. Counterfactual salience =
+            revisitation rate for high-predicted-consequence
+            possibilities exceeds revisitation for low-predicted-
+            consequence ones.
+          expected_range: ">2x revisitation rate for high vs low consequence"
+          detection_threshold: 2.0
+
+    predicted_emergence_order:
+      generation_range: "200-350"
+      confidence: low
+
+    notes: |
+      This receptor connects directly to the conflict tolerance
+      result and the annealing discovery. Releasing certainty
+      (T57) opens a counterfactual space — "maybe the other horn
+      is right." Without a receptor that fires on that open
+      possibility, the organism has no way to treat the
+      counterfactual as worth exploring rather than just as
+      uncertainty to be reduced.
+
+      The receptor also connects to the serialization thesis:
+      a counterfactual that becomes salient is a prediction about
+      a non-actual state — which is a prediction surface that
+      simultaneous processing of the actual state alone cannot
+      generate. Counterfactual salience is serialization applied
+      to possibility space rather than to sensory processing.
+
+  - receptor_id: epistemic_strategy
+    name: Deliberate Epistemic State Management
+    family: epistemic
+    tier: canopy
+
+    dependencies:
+      - receptor_id: counterfactual_salience
+        note: "Must detect salient possibilities before managing them"
+      - receptor_id: self_regulation
+        note: "Must regulate own processing states"
+      - receptor_id: pipeline_optimization
+        note: "Must optimize own processing architecture"
+
+    environmental_trigger:
+      structure: |
+        The organism deliberately manages its own epistemic state —
+        choosing when to believe, when to doubt, and when to hold
+        open counterfactuals. Not just detecting these states (the
+        earlier receptors) but actively modulating them based on
+        predicted consequences.
+
+        This is the organism as its own epistemic engineer: "I should
+        doubt this more," "I should commit to this now," "I should
+        hold this possibility open longer." The management is
+        deliberate, not reactive.
+      survival_benefit: |
+        Epistemic strategy enables the organism to allocate its
+        cognitive resources optimally across the belief/doubt/
+        counterfactual space. An organism that can choose when to
+        commit and when to explore navigates the explore/exploit
+        tradeoff at the epistemic level, not just the behavioral one.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Environments where the optimal epistemic strategy varies —
+        sometimes fast commitment is adaptive, sometimes sustained
+        doubt, sometimes holding open many counterfactuals. The
+        organism must detect which strategy fits the current
+        environment and switch accordingly.
+
+    selection_environments:
+      - variable_strategy_environments
+      - environments_requiring_epistemic_flexibility
+
+    unlocks:
+      - deliberate_belief_management
+      - epistemic_flexibility
+      - scientific_reasoning
+
+    emergence_signature:
+      description: |
+        The organism's epistemic strategy varies with environmental
+        context — committing quickly in stable environments, holding
+        open counterfactuals in novel ones, and switching between
+        strategies based on detected environmental features.
+      metrics:
+        - metric_name: strategy_environment_correlation
+          measurement_method: |
+            Measure time-to-commitment as a function of environmental
+            predictability. Organisms with epistemic strategy should
+            commit faster in stable environments and slower in
+            volatile ones — and the switch should precede evidence
+            of which strategy is correct.
+          expected_range: ">0.4 correlation"
+          detection_threshold: 0.4
+
+    predicted_emergence_order:
+      generation_range: "350-500+"
+      confidence: very_low
+
+    notes: |
+      This is where T50 (science is not a cultural invention) gets
+      its receptor-level mechanism. Scientific reasoning is epistemic
+      strategy applied systematically: doubt what generates prediction
+      errors, hold open counterfactuals that predict well, commit
+      when the evidence structure warrants it. The epistemic strategy
+      receptor is the individual-level prerequisite for what becomes
+      scientific method at the cultural level.
