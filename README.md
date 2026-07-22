@@ -28,6 +28,8 @@ The architecture has three components that current AI conflates into one:
 
 This separation dissolves grounding, compartmentalization, legibility, unlearning, and safe failure as problems.
 
+[Theoretical Foundations](docs/THEORY.md)
+
 ---
 
 ## Key Terminology
