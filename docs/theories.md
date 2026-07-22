@@ -1,0 +1,258 @@
+# Theories
+
+## Index of theoretical claims in this research program
+
+Each entry states the claim as a proposition, its evidence status, and where the full argument lives. Claims are grouped by theme but numbered globally for reference.
+
+Evidence status key:
+- **Proposed** — stated and falsifiable but untested
+- **Partially tested** — some evidence, not conclusive
+- **Supported** — experimentally demonstrated in ERTI
+- **Revised** — tested and corrected
+- **Falsified** — tested and rejected
+
+---
+
+## I. The Starting-Point Critique
+
+**T1. Current AI inverts phylogeny.** Language sits atop hundreds of millions of years of sensorimotor infrastructure. LLMs learn words from beings who had the underlying states without having the states themselves. Starting from language rather than sensation is a fundamental limitation, not a training gap.
+*Status: Proposed. Argued: whitepaper Section 1, ERTI_roadmap.*
+
+**T2. Grounding failure is architectural.** The inability to ground LLM concepts is not a data, training, or scaling problem — it is a starting-point problem. You cannot ground a concept that was learned statistically.
+*Status: Proposed. Argued: whitepaper Section 1.*
+
+---
+
+## II. The Receptor Topology Thesis
+
+**T3. Capability without receptor is latent.** A capability that has no receptor to trigger it never gets used. The receptor is why the capability exists. Motivation and cognition are the same operation viewed from different angles.
+*Status: Proposed. Argued: whitepaper Section 4, genome overview.*
+
+**T4. Intelligence is adequacy to environmental complexity.** Intelligence is not designed; it is selected. The environment decides what's worth sensing; the organism discovers how.
+*Status: Proposed. Argued: genome overview, whitepaper Section 1.*
+
+**T5. The input structure itself should evolve.** Rather than specifying what to sense (pixels, tokens), organisms should develop receptors for environmental structure that pays for itself. Topology is the unit of evolution.
+*Status: Partially tested. 32/46 receptors discovered; topology inheritance accelerates convergence 15-to-0 epochs. Argued: genome overview, whitepaper Section 11.*
+
+**T6. A receptor is any selected internal state whose activation changes behavior and whose consequences affect whether that state persists.** This definition encompasses pain, curiosity, compression, and conflict without claiming biological identity.
+*Status: Proposed (definitional). Argued: ERTI_roadmap.*
+
+**T7. Agency is a continuous variable** determined by receptor, effector, and processing complexity — not a mysterious binary property.
+*Status: Proposed. Argued: whitepaper Section 4.*
+
+---
+
+## III. The Serialization Thesis
+
+**T8. Sequential processing is an optimization, not a bottleneck.** Temporal decomposition of simultaneously-available information creates prediction opportunities that parallel processing destroys. Each stage generates an expectation about what the next stage will reveal; the delta is where learning happens.
+*Status: Partially tested. ERTI fast/slow pathway is an instance. Argued: serialization_thesis.md Sections 1, 3.*
+
+**T9. Prediction surface scales with stage count.** An n-stage processor generates n expectation-outcome pairs per input. A single-stage parallel processor generates one.
+*Status: Proposed. Argued: serialization_thesis.md Section 3.1.*
+
+**T10. Serialization ratchets complexity.** Environmental complexity selects for prediction machinery, which creates more prediction surfaces, which supports richer receptor topologies, which exploits more complex environments.
+*Status: Proposed. Argued: serialization_thesis.md Section 3.3.*
+
+**T11. Organisms manufacture prediction error.** They do not just minimize the prediction errors they receive — they engineer their processing architecture to generate more of them. This is the strongest departure from Friston.
+*Status: Proposed. Argued: serialization_thesis.md Section 7.*
+
+---
+
+## IV. The Gibson/Enactivism Fork
+
+**T12. Reaction does not require internal models. Prediction does.** Gibson and enactivism correctly describe embodied sensorimotor coupling but cannot explain anticipation, surprise, or learning from expectation violation. These require models that generate expectations before signals arrive.
+*Status: Proposed. Argued: serialization_thesis.md Section 2.*
+
+**T13. Affordances are present-tense.** Direct perception tells you what is the case, not what will be. Sensorimotor coupling is a reactive conditional, not a generative prediction. Prediction requires the temporal gap that staging provides.
+*Status: Proposed. Argued: serialization_thesis.md Section 2.3.*
+
+---
+
+## V. Per-Receptor Pipeline Architecture
+
+**T14. Every receptor family has its own evolved temporal decomposition strategy.** Pain processes coarse-to-fine-to-contextual. Curiosity processes novelty-to-relevance-to-strategy. The pipeline structure is optimized for each domain's specific prediction structure.
+*Status: Proposed. Argued: serialization_thesis.md Section 4, sequential_processing.yaml, perception.yaml.*
+
+**T15. Prediction error minimization is domain-specific, not global.** Contra Friston's single variational objective, prediction operates through heterogeneous temporal decomposition strategies evolved under different selection pressures.
+*Status: Proposed. Argued: serialization_thesis.md Section 7.*
+
+**T16. Processing latency should correlate with prediction depth, not computational complexity.** A receptor with 5-stage prediction structure should process more slowly than one with 2 stages, regardless of computational demand. This distinguishes the serialization account from the bottleneck account.
+*Status: Proposed (falsifiable). Argued: serialization_thesis.md Section 4.3.*
+
+**T17. The brain's "inefficiencies" are prediction infrastructure.** Slow/fast pathways, distributed processing, hierarchical organization, loops, recurrence — every apparent inefficiency is a prediction opportunity.
+*Status: Proposed. Argued: sequential_processing.yaml, perception.yaml.*
+
+---
+
+## VI. Cross-Pipeline Prediction and Binding
+
+**T18. Binding is mutual prediction, not convergence.** Each receptor pipeline generates lateral predictions about what other pipelines will find. The web of mutual prediction IS the integration. No central convergence zone required.
+*Status: Proposed. Argued: serialization_thesis.md Section 5.*
+
+**T19. Binding is the absence of cross-pipeline prediction error.** When all pipelines' lateral predictions confirm each other, the percept is unified. When they fail, attention fractures to the violated prediction.
+*Status: Proposed. Argued: serialization_thesis.md Section 5.2.*
+
+**T20. Consciousness is recursive mutual prediction between pipelines.** "What it is like" to perceive something is the specific pattern of cross-pipeline predictions — confirmed and violated — generated by that percept.
+*Status: Proposed (speculative, three falsification criteria in serialization_thesis.md Section 5.3).*
+
+---
+
+## VII. The Anxiety Derivation
+
+**T21. Anxiety is mechanically predicted by the architecture.** Any system with sequential prediction, a processing-speed receptor, arousal as a response to poor model fit, and arousal's effect on prediction accuracy will exhibit a self-amplifying loop. This is derived, not accommodated post-hoc.
+*Status: Proposed. Argued: serialization_thesis.md Section 6.*
+
+**T22. Anxiety is not a malfunction.** Every receptor in the loop reads a real signal and produces the correct response. The pathology is in the loop structure, not in any individual receptor.
+*Status: Proposed. Argued: serialization_thesis.md Section 6.1, perception.yaml.*
+
+**T23. Self-damping requires a four-family dependency chain:** metacognition + processing-speed + arousal regulation + conflict detection. CBT trains this receptor. Anxiolytics achieve it pharmacologically.
+*Status: Proposed (falsifiable: if self-damping emerges from simpler architecture, the dependency is wrong). Argued: serialization_thesis.md Section 6.2, perception.yaml.*
+
+---
+
+## VIII. Grounding and Architecture
+
+**T24. Grounding is structural, not trained.** In a system where all mental model chains terminate in receptor states, grounding is guaranteed architecturally. No free-floating cognition is possible.
+*Status: Partially tested. Grounding dictionary correctly returns false for ungrounded concepts. Argued: whitepaper Section 9.*
+
+**T25. The three-way separation (transformer / mental model / experience log) dissolves grounding, compartmentalization, legibility, unlearning, and safe failure as problems.** These are structural properties of the architecture, not capabilities that need to be trained.
+*Status: Partially tested. Argued: whitepaper Section 5.*
+
+**T26. The mental model's value is at training time, not inference time.** The mm_features channels are redundant with what the policy internalized, slightly degrading inference performance. The +223% cultural transmission claim was retracted.
+*Status: **Revised** (supported by three controlled decomposition experiments). Argued: FINDINGS.md Section 8.*
+
+---
+
+## IX. Evolutionary Dynamics
+
+**T27. Complexity reshapes topology; it does not expand it.** The number of discovered receptors is roughly constant across tiers (~31-35), but which receptors emerge changes.
+*Status: **Supported** (measured across 8 tiers). Argued: FINDINGS.md Section 1.*
+
+**T28. 29 trunk receptors are invariant across all environments.**
+*Status: **Supported** (measured). Argued: FINDINGS.md Section 2.*
+
+**T29. Social environments universally benefit from transfer (11-25x); instrumental environments resist it.** Transfer is asymmetric: upward works, downward doesn't.
+*Status: **Supported** (5x5 transfer matrix). Argued: FINDINGS.md Section 3.*
+
+**T30. Topology inheritance accelerates convergence and surfaces novel receptors** that unbiased discovery misses.
+*Status: **Supported** (5-generation experiment). Argued: FINDINGS.md Section 5.*
+
+**T31. Behavioral prediction emerges in social arms races but not in static environments.** Multi-organism competition creates prediction pressure that single-organism training cannot.
+*Status: **Supported** (population evolution experiment). Argued: FINDINGS.md Section 4.*
+
+**T32. An organism's receptor topology is a fossil record of its ancestral environment.** The topology's shape — which families are well-developed — is informative about selection history.
+*Status: Partially tested. Tier-specific receptors reveal environment-specific selection. Argued: whitepaper Section 7.*
+
+**T33. Cross-family receptors are most vulnerable to canalization.** If any dependency is incorrectly entrenched, the composite receptor inherits and amplifies the error.
+*Status: Partially tested (no canalization detected over 5 generations). Argued: cross_family_dependencies.md.*
+
+---
+
+## X. Dependency Structure of Cognition
+
+**T34. Cognitive receptor evolution follows a DAG with dependency layers.** Trunk receptors (single-family) emerge first; cross-family compositions emerge later; deep canopy receptors (4+ family) emerge last.
+*Status: Partially tested. Argued: cross_family_dependencies.md.*
+
+**T35. Social cognition is the integration bottleneck.** Many canopy receptors across multiple families require theory of mind as a prerequisite. Social cognition emergence should trigger a cascade of canopy emergence.
+*Status: Proposed. Argued: cross_family_dependencies.md, COMPLETE.md.*
+
+**T36. Regulatory is the most cross-cutting family.** Homeostasis uses whatever works — creating dependency paths into every other family.
+*Status: Proposed. Argued: cross_family_dependencies.md.*
+
+**T37. Emergence generation correlates with dependency depth, cross-family breadth, and required environmental complexity.**
+*Status: Partially tested (metabolic cost correlates with depth and breadth). Argued: cross_family_dependencies.md, STATUS.md.*
+
+---
+
+## XI. Compression, Concepts, and Language
+
+**T38. Abstraction and bias are the same operation.** The compression receptor rewards simplification regardless of what was discarded. "Fruit" (useful) and "those people" (harmful) differ only in whether discarded information was consequential.
+*Status: Proposed. Argued: ERTI_roadmap Step 11.*
+
+**T39. Words are socially stabilized compressions of embodied models.** A concept is a compression that is sufficiently accurate and shared. A word is a concept transmissible via communication receptors. Language both enables precise thought and systematically distorts it.
+*Status: Partially tested (1,013 stable concepts measured). Argued: ERTI_roadmap Steps 22, 27.*
+
+**T40. Concepts exist in the world's causal structure, not in the organism's head.** The organism distills them; it does not generate them from nothing.
+*Status: Proposed. Argued: whitepaper Section 3.*
+
+---
+
+## XII. Social Cognition
+
+**T41. Theory of mind is the self-model applied to others.** "What would I do in their state?" Once you can model yourself, modeling others is cheap.
+*Status: Proposed. Argued: ERTI_roadmap Step 17, COMPLETE.md.*
+
+**T42. Empathy is receptor propagation.** Another organism's distress behavior activates the observer's own pain receptors. Information cost is low; survival benefit is enormous.
+*Status: Partially tested (empathy trends upward 0.482-0.555 across 5 generations). Argued: ERTI_roadmap Step 20, FINDINGS.md.*
+
+---
+
+## XIII. The Song Replay Hypothesis
+
+**T43. Earworms are pattern-based homeostatic regulation.** Involuntary song replay is not random memory activation but a regulatory receptor mechanism: stored rhythmic patterns are retrieved to correct internal state.
+*Status: Proposed. Argued: song_replay_hypothesis.md.*
+
+**T44. The replayed song correlates with the dysregulated state,** not random: stress triggers slow-rhythm calming songs; low arousal triggers fast-rhythm energizing songs.
+*Status: Proposed (falsifiable). Argued: song_replay_hypothesis.md.*
+
+**T45. Song replay peaks at moderate dysregulation** (0.3-0.7 stress range), not at baseline or crisis.
+*Status: Proposed (falsifiable, with numerical range). Argued: song_replay_hypothesis.md.*
+
+**T46. Emotional regulation is not a separate module.** It is the standard receptor-retrieval-action loop applied to internal states.
+*Status: Proposed. Argued: song_replay_hypothesis.md, COMPLETE.md.*
+
+---
+
+## XIV. Processing Speed as Information
+
+**T47. Processing speed is itself a receptor.** Fast processing = good model-environment fit. Slow processing = poor fit. The speed differential is information about how well your receptor topology handles the current demands.
+*Status: Proposed. Argued: perception.yaml, serialization_thesis.md Section 6.1.*
+
+---
+
+## XV. Optimism, Will, and Science
+
+**T48. Optimism is a receptor for a hypothetical world model weighted toward positive receptor states.** Without it, the organism can only navigate away from pain, not toward goals.
+*Status: Proposed. Argued: ERTI_roadmap Step 23.*
+
+**T49. Will is optimism plus self-model.** Not reacting to the current field but acting to make a specific imagined future real.
+*Status: Proposed. Argued: ERTI_roadmap Step 23.*
+
+**T50. Science is not a cultural invention.** It is what happens when multiple-hypothesis-maintenance becomes fitness-positive under environments where premature commitment is fatal.
+*Status: Proposed. Argued: ERTI_roadmap Step 12.*
+
+---
+
+## XVI. Natural Emergence of Serialization
+
+**T51. Physical heterogeneity in processing speed creates timing differences that get exploited as prediction windows.** The magno/parvocellular split and fast/slow pain fibers are instances — evolution inherited timing differences and built prediction machinery around them.
+*Status: Partially tested (consistent with known neuroscience). Argued: serialization_thesis.md Section 11.1.*
+
+**T52. In artificial systems, heritable processing schedules over observation channel groups can produce the same outcome.** In time-critical environments, organisms should evolve serialized processing (k=1 to k=3-5) over 50-200 generations. In non-time-critical environments, serialization should not emerge.
+*Status: Proposed (experiment designed but not in roadmap). Argued: serialization_thesis.md Section 11.3.*
+
+---
+
+## XVII. The Novel Synthesis Claim
+
+**T53. No existing research program unifies grounded cognition, active inference, and evolutionary receptor topology into a single generative mechanism.** ABI is a novel synthesis across Barsalou, Friston, Gibson, and developmental/evolutionary perspectives.
+*Status: Proposed. Argued: whitepaper Section 10.*
+
+---
+
+## Summary
+
+| Status | Count |
+|---|---|
+| Proposed | 37 |
+| Partially tested | 10 |
+| Supported | 5 |
+| Revised | 1 |
+| Falsified | 0 |
+| **Total** | **53** |
+
+Six claims have direct experimental support from ERTI (T27-T31 on evolutionary dynamics, T26 revised after decomposition). The remaining 47 are theoretically specified with falsification criteria but await testing.
+
+---
+
+*The theories listed here are intended to be falsifiable. When predictions fail, the theory is revised or rejected — not defended. Falsification is the goal, not confirmation.*
