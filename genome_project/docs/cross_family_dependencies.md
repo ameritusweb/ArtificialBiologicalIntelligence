@@ -133,6 +133,9 @@ Single-family dependencies or no dependencies beyond foundation.
 - `necessity_detection` (Mathematics + Causality + Compression + Observation) — the apex of mathematical reasoning
 - `functional_organization` (Organization + Agency + Causality) — structure that serves a purpose
 - `organizational_mirror` (Organization + Meta-Motivational + Similarity) — structure detecting itself
+- `cross_pipeline_prediction` (Sequential Processing + Association + Compression) — receptor pipelines predicting each other's states; the mechanism for integrated cognition
+- `analogy_receptor` (Compression + Similarity + Sequential Processing) — meta-receptor operating on receptor firing patterns, not environmental input
+- `prediction_architecture_awareness` (Sequential Processing + Organization + Self-Augmentation) — organism aware of its own processing pipeline structure
 - `processing_speed_receptor` (Perception + Meta-Motivational + Regulatory) — processing cost as model-environment fit signal
 - `response_loop_detection` (Perception + Meta-Motivational + Regulatory + Meta-Motivational) — detecting that the corrective response IS the problem; internal self-damping
 

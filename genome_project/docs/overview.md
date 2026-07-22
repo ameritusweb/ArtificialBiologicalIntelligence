@@ -97,6 +97,8 @@ Receptors cluster into families by the kind of structure they detect:
 
 **Environmental Augmentation** — Environmental change detection → modification attribution → complexity trend detection → deliberate complexification → developmental environment engineering
 
+**Sequential Processing** — Stage prediction → pipeline detection → cross-pipeline prediction → pipeline optimization → prediction architecture awareness
+
 **Perception** — Staged processing → prediction branching → processing speed receptor → adaptive depth. Sequential perception maximizes prediction opportunities per input; meta-receptors read the cost and speed of processing itself
 
 **Observation** — Change detection → selective attention → absence detection → meta-observation

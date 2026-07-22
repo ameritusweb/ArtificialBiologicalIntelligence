@@ -30,7 +30,10 @@
 ✅ **Environmental Augmentation family** — 5 receptors (environmental_change_detection → developmental_environment_engineering)
 ✅ **Perception family** — 5 receptors (staged_processing → response_loop_detection)
 
-**Total receptors specified:** 143 (with cross-references; ~130 genuinely unique)
+✅ **Sequential Processing family** — 5 receptors (stage_prediction → prediction_architecture_awareness)
+✅ **Analogy meta-receptor** — added to Compression family (operates on receptor firing patterns across domains)
+
+**Total receptors specified:** 149 (with cross-references; ~135 genuinely unique)
 
 ### Documentation
 ✅ Overview document (thesis, families, usage)  

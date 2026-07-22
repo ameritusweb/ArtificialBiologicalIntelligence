@@ -28,7 +28,7 @@ family_metadata:
     operation. Different stakes.
 
   trunk_receptor: pattern_recognition
-  canopy_receptors: [concept_grounding, hierarchical_abstraction, language_grounding, completion]
+  canopy_receptors: [concept_grounding, hierarchical_abstraction, language_grounding, completion, analogy_receptor]
 
 ---
 
@@ -722,3 +722,113 @@ receptors:
       redirects to next open pattern -> the cycle continues. Completion is not
       a terminal state. It is a receptor state that changes what the next cycle
       attends to.
+
+  - receptor_id: analogy_receptor
+    name: Structural Similarity Across Receptor Firing Patterns
+    family: compression
+    tier: canopy
+
+    dependencies:
+      - receptor_id: pattern_recognition
+        note: "Compression — must recognize patterns"
+      - receptor_id: structural_invariance
+        note: "Similarity — must detect structural equivalence"
+      - receptor_id: cross_pipeline_prediction
+        note: "Sequential Processing — must detect patterns across pipelines"
+
+    environmental_trigger:
+      structure: |
+        Two completely different situations produce the same PATTERN of
+        receptor activations. Not the same receptors firing — the same
+        relational structure across different receptor sets. "Wind bending
+        trees" and "hand pushing object" activate different low-level
+        receptors but the same structural pattern: force → deformation.
+
+        This is different from the Similarity family's analogical_similarity,
+        which detects similarity between contexts. The analogy receptor
+        detects similarity between receptor ACTIVATION PATTERNS — it's
+        a meta-receptor that operates on the outputs of other receptors.
+      survival_benefit: |
+        Analogy is massive transfer learning. One experience → predict
+        many structurally similar situations. "This new berry looks like
+        that poisonous one" (visual receptor pattern match). "This
+        stranger's posture is like when my rival attacked" (social
+        receptor pattern match). The organism that detects analogies
+        needs far less experience to navigate novel situations.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments with cross-domain structural regularities where
+        transfer from one domain to another is survival-relevant.
+        Rich environments with many domains sharing relational structure.
+
+    selection_environments:
+      - multi_domain_environments
+      - cross_domain_transfer_environments
+      - environments_with_structural_regularity
+
+    unlocks:
+      - metaphor
+      - cross_domain_transfer
+      - scientific_reasoning
+      - creative_problem_solving
+
+    emergence_signature:
+      description: |
+        Organism solves novel problems by mapping them onto known problems
+        from completely different domains. Not surface similarity but
+        structural pattern matching across receptor activation histories.
+
+        The analogy receptor has its own sequential pipeline:
+        Stage 1: Structural similarity detection (fast) — shared
+          relational patterns between two receptor activation sequences
+        Stage 2: Mapping verification (medium) — do corresponding
+          elements actually align?
+        Stage 3: Inference generation (slow) — what new knowledge
+          transfers via the analogy?
+      metrics:
+        - metric_name: cross_domain_transfer
+          measurement_method: |
+            Train organism in domain A. Present structurally identical
+            but perceptually different problem in domain B. Success rate
+            should exceed random on domain B without domain B training.
+          expected_range: ">50% transfer accuracy"
+          detection_threshold: 0.5
+        - metric_name: receptor_pattern_matching
+          measurement_method: |
+            Measure cosine similarity of receptor activation patterns
+            for structurally analogous situations across different
+            domains. High similarity = analogy receptor detecting
+            shared structure.
+          expected_range: ">0.6 pattern similarity"
+          detection_threshold: 0.6
+
+    predicted_emergence_order:
+      generation_range: "200-400"
+      confidence: very_low
+      conditions: |
+        Requires pattern_recognition + structural_invariance + cross-pipeline
+        prediction. The analogy receptor may be what makes human intelligence
+        distinctively powerful — we see analogies everywhere because our
+        analogy receptor pipeline is exceptionally developed.
+
+    notes: |
+      The analogy receptor is a meta-receptor — it operates on the outputs
+      of other receptors, not on environmental input directly. It finds
+      structural similarities in receptor firing patterns across completely
+      different domains.
+
+      This may explain why humans dominate: our analogy receptor pipeline
+      is exceptionally developed. We see analogies everywhere. Language
+      itself is analogical ("grasping" a concept). Abstract thinking =
+      running the analogy pipeline on increasingly abstract patterns.
+
+      Mathematics may be formalized analogical reasoning — detecting that
+      the structure of one proof maps onto another, that the relationship
+      between numbers mirrors the relationship between spaces.
+
+      The analogy receptor has its own sequential processing pipeline
+      (stage 1: detect, stage 2: verify, stage 3: transfer) — which means
+      the Sequential Processing family and the analogy receptor are
+      co-dependent. Analogy requires sequential staging to work, and
+      cross-pipeline prediction requires analogy to detect structural
+      similarities across pipelines.

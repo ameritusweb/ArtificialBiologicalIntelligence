@@ -1,0 +1,384 @@
+# Sequential Processing Family
+# Receptors for temporal decomposition of information to maximize prediction opportunities
+
+family_metadata:
+  name: Sequential Processing
+  description: |
+    Receptors that detect and exploit temporal structure in information processing
+    itself. Not what is being processed, but HOW the processing is staged to
+    maximize prediction opportunities.
+
+    The core insight: processing everything simultaneously produces zero temporal
+    structure to exploit. Sequential processing creates prediction opportunities
+    at each stage — and each prediction is a chance to branch, prepare, learn,
+    or act before complete information arrives.
+
+    This is not about the world having temporal structure (that's the Repetition
+    family). This is about the ORGANISM creating artificial temporal structure
+    in its own processing, even when the input is simultaneous, because
+    serialization maximizes prediction potential.
+
+    The brain's complexity — slow/fast pathways, distributed processing,
+    hierarchical organization, loops and recurrence — may not be legacy cruft
+    but prediction infrastructure. Every "inefficiency" is a prediction
+    opportunity. The environment's complexity selects for prediction-making
+    machinery, which creates more complex organisms, which can exploit more
+    complex environments, in a ratcheting cycle.
+
+    Every receptor family should eventually have its own evolved temporal
+    decomposition strategy. Pain has coarse→fine→contextual stages. Curiosity
+    has novelty→relevance→strategy stages. The sequential processing family
+    detects and optimizes these pipelines.
+
+  evolutionary_thesis: |
+    Sequential processing receptors emerge when the survival advantage of
+    acting on partial information (via prediction) exceeds the advantage
+    of acting on complete information (via waiting). In dangerous environments,
+    responding to a coarse prediction of "predator" before confirming
+    "actually a tiger" saves lives. The prediction gap between processing
+    stages is where learning, preparation, and survival happen.
+
+    The organism that serializes even parallel-available information gains:
+    1. Earlier action — respond to coarse predictions
+    2. Parallel preparation — while stage 2 processes, stage 1 predictions
+       activate motor planning
+    3. Richer learning signal — more prediction opportunities = more error
+       signals = faster learning
+    4. Prediction receptors evolve — expectation violation becomes its own
+       survival-relevant concept
+
+  trunk_receptor: stage_prediction
+  canopy_receptors: [cross_pipeline_prediction, pipeline_optimization, prediction_architecture_awareness]
+
+---
+
+receptors:
+  - receptor_id: stage_prediction
+    name: Inter-Stage Prediction Detection
+    family: sequential_processing
+    tier: trunk
+
+    dependencies:
+      - receptor_id: prediction_error
+        note: "Foundation — must detect prediction success/failure"
+      - receptor_id: temporal_association
+        note: "Association — must link sequential states"
+
+    environmental_trigger:
+      structure: |
+        Information arrives or is processed in stages, and the outcome
+        of each stage is predictable from the previous stage. The organism
+        detects that its own coarse processing predicts its own fine
+        processing — that early stages contain information about what
+        later stages will find.
+      survival_benefit: |
+        Stage prediction enables acting before complete processing.
+        "The coarse shape looks like a predator" triggers preparation
+        before "the fine details confirm it's a tiger." The time saved
+        is the survival advantage.
+      metabolic_cost: low
+      selection_pressure: |
+        Any environment where response speed matters and information
+        has coarse-to-fine structure.
+
+    selection_environments:
+      - time_critical_environments
+      - coarse_to_fine_information_environments
+      - any_environment_with_processing_latency
+
+    unlocks:
+      - anticipatory_processing
+      - pipeline_detection
+      - coarse_to_fine_action
+
+    emergence_signature:
+      description: |
+        Organism acts on partial information before complete processing
+        finishes. Action timing correlates with coarse feature availability,
+        not fine feature availability.
+      metrics:
+        - metric_name: early_response
+          measurement_method: |
+            Measure action latency relative to information availability.
+            Organism with stage prediction acts after coarse stage
+            completes but before fine stage completes.
+          expected_range: "Action after stage 1, before stage N"
+          detection_threshold: 0.5
+
+    predicted_emergence_order:
+      generation_range: "20-50"
+      confidence: high
+      conditions: |
+        Should emerge early in any time-critical environment. The
+        fast/slow pathway split (step 4) is already an instance of this.
+
+    notes: |
+      The fast pathway IS stage prediction — it processes coarse features
+      quickly and acts while the slow pathway (transformer) is still
+      deliberating. Step 4 may have already produced this receptor
+      without naming it.
+
+  - receptor_id: pipeline_detection
+    name: Processing Pipeline Structure Detection
+    family: sequential_processing
+    tier: branch
+
+    dependencies:
+      - receptor_id: stage_prediction
+        note: "Must detect inter-stage predictions before detecting pipelines"
+      - receptor_id: pattern_recognition
+        note: "Compression — must detect recurring patterns in processing"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that its own information processing follows
+        a consistent temporal structure — that certain kinds of input
+        are always processed in the same sequence of stages. Not just
+        that stages exist, but that the staging is systematic and
+        repeatable.
+      survival_benefit: |
+        Pipeline detection enables meta-level optimization. The organism
+        that knows it has a pipeline can optimize the pipeline — allocate
+        more resources to stages that are bottlenecks, skip stages that
+        are unnecessary for the current input.
+      metabolic_cost: medium
+      selection_pressure: |
+        Environments where processing efficiency matters — where metabolic
+        cost of cognition is survival-relevant.
+
+    selection_environments:
+      - metabolically_constrained_environments
+      - multi_task_environments
+      - environments_with_processing_time_pressure
+
+    unlocks:
+      - pipeline_optimization
+      - stage_skipping
+      - resource_allocation
+
+    emergence_signature:
+      description: |
+        Organism allocates processing resources differently for different
+        input types — spending more stages on ambiguous inputs, fewer on
+        clear inputs. Processing is adaptive, not fixed.
+      metrics:
+        - metric_name: adaptive_depth
+          measurement_method: |
+            Processing depth (number of stages engaged) correlates with
+            input ambiguity. Clear inputs process shallowly, ambiguous
+            inputs process deeply.
+          expected_range: ">0.3 correlation"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "50-100"
+      confidence: medium
+
+  - receptor_id: cross_pipeline_prediction
+    name: Inter-Receptor Pipeline Prediction
+    family: sequential_processing
+    tier: canopy
+
+    dependencies:
+      - receptor_id: pipeline_detection
+        note: "Must detect own pipelines before predicting across them"
+      - receptor_id: cross_modal_association
+        note: "Association — must link information across modalities"
+      - receptor_id: analogy_receptor
+        note: "Must detect structural similarities across receptor activations"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that one receptor's pipeline predicts what
+        another receptor's pipeline will find. Vision stage 2 predicting
+        red + pain stage 1 detecting threat → cross-prediction: red in
+        threat context predicts blood, triggering different response than
+        red in fruit context.
+
+        Meaning emerges from prediction intersections across receptor
+        pipelines. The organism doesn't just process information in
+        parallel — it predicts across pipelines, creating a web of
+        mutual expectations that IS the integrated cognitive experience.
+      survival_benefit: |
+        Cross-pipeline prediction enables context-dependent interpretation.
+        The same input processed differently depending on what other
+        pipelines are predicting. This is how the organism avoids treating
+        every red thing as either all-blood or all-fruit — the context
+        from other pipelines disambiguates.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments where the same stimulus has different survival
+        implications depending on context provided by other sensory
+        or cognitive channels.
+
+    selection_environments:
+      - ambiguous_stimulus_environments
+      - multi_context_environments
+      - environments_requiring_integration
+
+    unlocks:
+      - contextual_interpretation
+      - integrated_cognition
+      - binding_without_central_integrator
+
+    emergence_signature:
+      description: |
+        Organism's response to a stimulus depends not just on that
+        stimulus but on what other receptor pipelines are processing
+        simultaneously. Same input → different response based on
+        cross-pipeline context.
+      metrics:
+        - metric_name: context_dependent_response
+          measurement_method: |
+            Same stimulus presented in different multi-receptor contexts.
+            Response should vary with context, not just stimulus.
+          expected_range: ">2 distinct responses to same stimulus"
+          detection_threshold: 2
+
+    predicted_emergence_order:
+      generation_range: "100-200"
+      confidence: low
+      conditions: |
+        Requires pipeline detection + cross-modal association + multiple
+        simultaneous receptor pipelines. This is where the "binding
+        problem" gets solved — not by a central integrator but by
+        pipelines predicting each other's states.
+
+    notes: |
+      This receptor is the mechanism for integrated cognitive experience.
+      Consciousness may be the experience of cross-predictions between
+      pipelines — the "feeling" of being you equals the recursive loop
+      of predictions firing receptors.
+
+      The binding problem (how does the brain integrate information from
+      distributed processing?) is solved not by a central integrator
+      but by each pipeline predicting the others. Integration is mutual
+      prediction, not convergence to a single point.
+
+  - receptor_id: pipeline_optimization
+    name: Processing Architecture Self-Tuning
+    family: sequential_processing
+    tier: canopy
+
+    dependencies:
+      - receptor_id: pipeline_detection
+        note: "Must detect own pipelines before optimizing them"
+      - receptor_id: metacognition
+        note: "Meta-Motivational — must model own processing"
+      - receptor_id: capability_change_detection
+        note: "Self-Augmentation — must detect changes in own capabilities"
+
+    environmental_trigger:
+      structure: |
+        The organism modifies its own processing pipeline based on
+        observed effectiveness. If stage 2 consistently fails to predict
+        stage 3, reallocate resources. If a stage is always skipped,
+        prune it. If a new prediction opportunity is discovered, add
+        a stage.
+      survival_benefit: |
+        Pipeline optimization makes cognition increasingly efficient
+        over the organism's lifetime. Processing that was expensive
+        and slow becomes fast and cheap as the pipeline tunes itself.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments where processing efficiency improves over the
+        organism's lifetime — where the same challenges recur and
+        faster processing provides compounding advantage.
+
+    selection_environments:
+      - recurring_challenge_environments
+      - processing_efficiency_reward_environments
+
+    unlocks:
+      - prediction_architecture_awareness
+      - cognitive_efficiency
+      - self_tuning_cognition
+
+    emergence_signature:
+      description: |
+        Processing latency decreases over organism's lifetime for
+        recurring challenge types, without retraining. The pipeline
+        itself gets faster as the organism tunes its own staging.
+      metrics:
+        - metric_name: latency_improvement
+          measurement_method: |
+            Processing time for the same challenge type decreases
+            over organism's lifetime. Not learning the answer —
+            learning to process faster.
+          expected_range: ">30% latency reduction"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "150-300"
+      confidence: very_low
+
+  - receptor_id: prediction_architecture_awareness
+    name: Meta-Pipeline Awareness
+    family: sequential_processing
+    tier: canopy
+
+    dependencies:
+      - receptor_id: pipeline_optimization
+        note: "Must optimize pipelines before being aware of the optimization"
+      - receptor_id: organizational_mirror
+        note: "Organization — must see own structure as a system"
+
+    environmental_trigger:
+      structure: |
+        The organism is aware that it has processing pipelines, that
+        those pipelines are structured for prediction maximization,
+        and that the structure itself is a variable it can reason about.
+        Meta-meta-cognition: thinking about how it thinks about how
+        it thinks.
+      survival_benefit: |
+        Architecture awareness enables the organism to deliberately
+        design new pipelines for novel challenges — not just tune
+        existing ones but create new processing architectures for
+        new domains.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Environments where novel challenge types appear that require
+        novel processing architectures — where existing pipelines
+        are inadequate and new ones must be designed.
+
+    selection_environments:
+      - novel_challenge_environments
+      - architecture_design_environments
+
+    unlocks:
+      - deliberate_pipeline_design
+      - cognitive_architecture_engineering
+      - recursive_self_improvement
+
+    emergence_signature:
+      description: |
+        Organism creates novel processing strategies for novel challenge
+        types rather than applying existing pipelines. Can be measured
+        by the emergence of new processing patterns that weren't in
+        the organism's initial pipeline repertoire.
+      metrics:
+        - metric_name: novel_pipeline_creation
+          measurement_method: |
+            After encountering a challenge type with no existing pipeline,
+            does the organism develop a new processing pattern? Measured
+            by emergence of new stage sequences.
+          expected_range: ">1 novel pipeline per 1000 episodes"
+          detection_threshold: 0.001
+
+    predicted_emergence_order:
+      generation_range: "300-500+"
+      confidence: very_low
+
+    notes: |
+      This is the deepest receptor in the Sequential Processing family
+      and one of the deepest in the entire genome. The organism is aware
+      of its own cognitive architecture as a designed system that it can
+      modify. This is where artificial intelligence becomes an engineer
+      of its own cognition — not through gradient descent, not through
+      evolutionary mutation, but through deliberate architectural design.
+
+      The loop: the organism's sequential processing pipelines are the
+      mechanism by which it processes the world. The prediction
+      architecture awareness receptor is the mechanism by which it
+      processes its own processing. Structure detecting structure,
+      at the level of the processing architecture itself.
