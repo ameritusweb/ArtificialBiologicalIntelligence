@@ -269,6 +269,7 @@ def train_contrastive_encoder(global_log, obs_dim=96, embed_dim=32,
 
 class CausalMappingStore:
     MERGE_THRESHOLD = 0.90
+    CERTAINTY_WINDOW = 20
 
     def __init__(self):
         self.mappings = defaultdict(list)
@@ -288,7 +289,7 @@ class CausalMappingStore:
                 outcome_match = max(0.0, 1.0 - min(1.0, delta_diff / delta_norm))
                 entry.delta = (entry.delta * n + delta) / (n + 1)
                 entry.reward = (entry.reward * n + reward) / (n + 1)
-                alpha = 1.0 / (n + 1)
+                alpha = max(1.0 / self.CERTAINTY_WINDOW, 1.0 / (n + 1))
                 entry.certainty = entry.certainty * (1 - alpha) + outcome_match * alpha
                 entry.certainty = float(np.clip(entry.certainty, 0.05, 0.99))
                 entry.count += 1
@@ -364,7 +365,7 @@ class CausalMappingStore:
             entry = entries[best_i]
             obs_norm = np.linalg.norm(observed_delta) + 1e-8
             outcome_match = max(0.0, 1.0 - min(1.0, np.linalg.norm(predicted_delta - observed_delta) / obs_norm))
-            alpha = 1.0 / (entry.count + 1)
+            alpha = max(1.0 / self.CERTAINTY_WINDOW, 1.0 / (entry.count + 1))
             entry.certainty = entry.certainty * (1 - alpha) + outcome_match * alpha
             entry.certainty = float(np.clip(entry.certainty, 0.05, 0.99))
 
@@ -563,12 +564,100 @@ class PatternStore:
         }
 
 
+class EntityRelationStore:
+    """Named entities with typed relations — for social cognition canopy.
+
+    Inspired by BitGenesis knowledge graph. Stores entities (identified by
+    embedding similarity) and relations between them. Enables reasoning
+    about specific agents rather than anonymous observation-vector regions.
+    """
+
+    def __init__(self):
+        self.entities = {}
+        self.relations = defaultdict(list)
+
+    def observe_entity(self, entity_id, embedding, properties=None):
+        if entity_id not in self.entities:
+            self.entities[entity_id] = {
+                'embedding': embedding.copy(),
+                'properties': properties or {},
+                'observation_count': 1,
+                'last_seen': 0,
+            }
+        else:
+            e = self.entities[entity_id]
+            n = e['observation_count']
+            e['embedding'] = (e['embedding'] * n + embedding) / (n + 1)
+            norm = np.linalg.norm(e['embedding'])
+            if norm > 1e-8:
+                e['embedding'] /= norm
+            if properties:
+                e['properties'].update(properties)
+            e['observation_count'] += 1
+
+    def add_relation(self, subject_id, relation_type, object_id, certainty=0.5):
+        for rel in self.relations[subject_id]:
+            if rel['type'] == relation_type and rel['object'] == object_id:
+                rel['certainty'] = 0.8 * rel['certainty'] + 0.2 * certainty
+                rel['count'] += 1
+                return
+        self.relations[subject_id].append({
+            'type': relation_type,
+            'object': object_id,
+            'certainty': certainty,
+            'count': 1,
+        })
+
+    def get_entity(self, entity_id):
+        return self.entities.get(entity_id)
+
+    def get_relations(self, entity_id, relation_type=None):
+        rels = self.relations.get(entity_id, [])
+        if relation_type:
+            return [r for r in rels if r['type'] == relation_type]
+        return rels
+
+    def find_similar_entity(self, embedding, threshold=0.7):
+        best_id, best_sim = None, -1
+        for eid, e in self.entities.items():
+            sim = float(np.dot(embedding, e['embedding']))
+            if sim > best_sim:
+                best_sim = sim
+                best_id = eid
+        if best_sim >= threshold:
+            return best_id, best_sim
+        return None, 0.0
+
+    def infer_transitive(self, entity_id, relation_type, max_depth=3):
+        visited = set()
+        results = []
+        queue = [(entity_id, 0, 1.0)]
+        while queue:
+            eid, depth, cert = queue.pop(0)
+            if eid in visited or depth >= max_depth:
+                continue
+            visited.add(eid)
+            for rel in self.get_relations(eid, relation_type):
+                chain_cert = cert * rel['certainty']
+                results.append((rel['object'], chain_cert, depth + 1))
+                queue.append((rel['object'], depth + 1, chain_cert))
+        return results
+
+    def get_stats(self):
+        return {
+            'num_entities': len(self.entities),
+            'num_relations': sum(len(v) for v in self.relations.values()),
+            'entity_ids': list(self.entities.keys()),
+        }
+
+
 class MentalModelEngine:
     def __init__(self, encoder, store):
         self.encoder = encoder
         self.store = store
         self.pattern_store = None
         self.family_manager = None
+        self.entity_store = EntityRelationStore()
         self.core_obs_dim = getattr(encoder, 'obs_dim', CORE_OBS_DIM)
 
     def _core_obs(self, obs):
@@ -606,6 +695,31 @@ class MentalModelEngine:
             state = state + delta
 
         return cumulative_delta, chain_certainty
+
+    def observe_npc(self, obs, npc_start=141):
+        """Extract NPC as a named entity from observation vector."""
+        if len(obs) <= npc_start + 7:
+            return
+        npc_features = obs[npc_start:npc_start + 8]
+        npc_dist = npc_features[0]
+        if npc_dist < 0.01:
+            return
+        npc_emb = self.encoder.embed(obs[:self.core_obs_dim])
+        entity_id, sim = self.entity_store.find_similar_entity(npc_emb, threshold=0.6)
+        if entity_id is None:
+            entity_id = f"npc_{len(self.entity_store.entities)}"
+
+        props = {
+            'distance': float(npc_dist),
+            'speed': float(npc_features[3]) if len(npc_features) > 3 else 0,
+            'erraticism': float(npc_features[6]) if len(npc_features) > 6 else 0,
+        }
+        self.entity_store.observe_entity(entity_id, npc_emb, props)
+
+        if npc_features[6] > 0.3:
+            self.entity_store.add_relation(entity_id, 'exhibits', 'erratic_behavior', 0.7)
+        if npc_dist > 0.5:
+            self.entity_store.add_relation('self', 'near', entity_id, float(npc_dist))
 
     def update(self, obs_before, action, obs_after, reward):
         obs_before = self._core_obs(obs_before)

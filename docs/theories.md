@@ -279,7 +279,29 @@ Evidence status key:
 
 ---
 
-## XXI. The Novel Synthesis Claim
+## XXI. Language Receptors and Semantic Relations
+
+**T67. Naming is a receptor, not a convention.** Concept stabilization via persistent labeling — giving a compressed causal chain a handle that survives across contexts — is a receptor that fires when a concept becomes stable enough to warrant a label. Without naming, concepts blur; with it, they become retrievable, comparable, and composable.
+*Status: Proposed. Argued: genome_project/families/language.yaml.*
+
+**T68. Self-talk is the serialization thesis applied to symbolic reasoning.** Internal deliberation works by activating named concepts in sequence, creating prediction opportunities between them. The organism talks to itself to think — not because words are necessary for thought, but because named concepts are more stable anchors for serial deliberation than unnamed ones.
+*Status: Proposed. Argued: genome_project/families/language.yaml.*
+
+**T69. Referential grounding is a receptor that detects whether a symbolic connection terminates in actual receptor states.** This is T2 (grounding failure is architectural) stated as a specific receptor: the receptor exists, but in an LLM its inputs are missing. Grounding failure occurs when the referential grounding receptor has no receptor states to terminate in.
+*Status: Proposed. Argued: genome_project/families/language.yaml.*
+
+**T70. Semantic relations ("has a", "is a", "causes", "precedes") are the trunk of the Logic family.** You can't build valid inference without first detecting what kind of relationship each link represents. Transitivity holds for "is a" but not always for "has a." The semantic relation receptor tells the logic receptors which inference rules apply.
+*Status: Proposed. Argued: genome_project/families/logic.yaml.*
+
+**T71. There are two levels of meaning: semantic relations (what kind of connection) and referential grounding (does the connection terminate in something real).** Both are receptors. Both are necessary. An organism can have semantic relations without referential grounding (structural understanding without experiential verification) or referential grounding without semantic relations (knowing something is real but not what kind of thing it is).
+*Status: Proposed. Connects T69 and T70.*
+
+**T72. Translation is a receptor that fires when an unknown symbol maps to a known consequence.** Not learning a new concept, but discovering that something familiar is being referred to through an unfamiliar code. Requires the environment to respond meaningfully to symbol codes (objects that jump when they hear "jump"). Second languages are learned faster than first because the grounded concepts already exist — translation maps new labels onto existing referents rather than building grounding from scratch. Metaphor is translation across domains rather than across vocabularies.
+*Status: Proposed. Argued: genome_project/families/language.yaml.*
+
+---
+
+## XXII. The Novel Synthesis Claim
 
 **T63. No existing research program unifies grounded cognition, active inference, and evolutionary receptor topology into a single generative mechanism.** ABI is a novel synthesis across Barsalou, Friston, Gibson, and developmental/evolutionary perspectives.
 *Status: Proposed. Argued: whitepaper Section 10.*
@@ -290,12 +312,12 @@ Evidence status key:
 
 | Status | Count |
 |---|---|
-| Proposed | 47 |
+| Proposed | 53 |
 | Partially tested | 10 |
 | Supported | 6 |
 | Revised | 1 |
 | Falsified | 1 |
-| **Total** | **65** |
+| **Total** | **71** |
 
 Seven claims have direct experimental support from ERTI: T27-T31 (evolutionary dynamics), T26 (revised after decomposition), and T57 (annealing — the framework's first structural self-discovery). One claim directionally falsified: T55 (read-shielding accelerates resolution — the opposite was found across 6 seeds). The Epistemic family (T58-T60) is the first family whose existence was predicted by a falsification rather than by theoretical deduction alone.
 

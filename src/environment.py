@@ -555,7 +555,7 @@ class Organism:
         num_joints = num_segments - 1
         self.NUM_ACTIONS = self.NUM_LIMBS * 3 + num_joints * 2 + self.EMISSION_BITS
         extra_dims = dims - 2
-        self.OBS_DIM = 13 * self.NUM_LIMBS + 4 * num_joints + 82 + extra_dims * 2
+        self.OBS_DIM = 13 * self.NUM_LIMBS + 4 * num_joints + 82 + extra_dims * 2 + self.NUM_LIMBS + 3
         self.ENERGY_OBS_INDEX = 6 * self.NUM_LIMBS
         self.CORE_OBS_DIM = 9 * self.NUM_LIMBS + 42
         self.x = 10.0
@@ -594,8 +594,16 @@ class Organism:
         self.predicted_conflict = 0.0
         self.conflict_trend = 0.0
         self.prev_conflict = 0.0
+        self.rupture_threshold = 0.5
+        self.misalignment_memory = 0.0
+        self.rupture_count = 0
         self.concept_match = 0.0
         self.concept_quality = 0.0
+        self.physics_mode = False
+        self.grip_state = [0] * self.NUM_LIMBS
+        self.carried_mass = 0.0
+        self.contact_count = 0.0
+        self.contact_force = 0.0
         self.experience_log = []
 
     def reset(self, rng=None):
@@ -635,8 +643,15 @@ class Organism:
         self.predicted_conflict = 0.0
         self.conflict_trend = 0.0
         self.prev_conflict = 0.0
+        self.rupture_threshold = 0.5
+        self.misalignment_memory = 0.0
+        self.rupture_count = 0
         self.concept_match = 0.0
         self.concept_quality = 0.0
+        self.grip_state = [0] * self.NUM_LIMBS
+        self.carried_mass = 0.0
+        self.contact_count = 0.0
+        self.contact_force = 0.0
         self.experience_log = []
 
     def _update_pain_memory(self, tips, pain_values):
@@ -657,6 +672,29 @@ class Organism:
             sx += self.SEGMENT_DIST * math.cos(cum_heading)
             sy += self.SEGMENT_DIST * math.sin(cum_heading)
         return sx, sy, cum_heading + math.pi
+
+    def _apply_collapse_response(self):
+        """Post-rupture response — four strategies (Epacog taxonomy).
+
+        The organism selects a response based on accumulated misalignment:
+          Low misalignment: decay (gentle certainty reduction)
+          Medium: adopt (shift toward recent observations)
+          High: reset (large certainty drop on conflicted channels)
+          Very high: noise (random exploration burst)
+        """
+        m = self.misalignment_memory
+        if m < 0.1:
+            for i in range(self.NUM_LIMBS):
+                self.receptor_gain[i] *= 0.98
+        elif m < 0.3:
+            self.goal_persistence = max(0.0, self.goal_persistence - 0.1)
+        elif m < 0.6:
+            self.receptor_conflict *= 0.5
+            self.predicted_conflict *= 0.5
+        else:
+            for i in range(self.NUM_LIMBS):
+                self.receptor_gain[i] = self.GAIN_MIN + (
+                    self.GAIN_MAX - self.GAIN_MIN) * np.random.random()
 
     def get_limb_tips(self):
         tips = []
@@ -723,7 +761,6 @@ class Organism:
                                        min(self.JOINT_MAX_DEV, self.joint_angles[j]))
 
         active_count = 0
-        total_fx, total_fy, total_torque = 0.0, 0.0, 0.0
         for i in range(self.NUM_LIMBS):
             extend, flex_l, flex_r = int(acts[i, 0]), int(acts[i, 1]), int(acts[i, 2])
             any_active = extend or flex_l or flex_r
@@ -743,59 +780,62 @@ class Organism:
             dev = self.limb_angles[i] - self.BASE_ANGLES[i]
             dev = max(-self.FLEX_MAX_DEV, min(self.FLEX_MAX_DEV, dev))
             self.limb_angles[i] = self.BASE_ANGLES[i] + dev
-
             self.limb_extended[i] = bool(extend)
-            seg = i // self.limbs_per_segment
-            _, _, seg_heading = self.get_segment_pos(seg)
-            local_idx = i % self.limbs_per_segment
-            world_angle = seg_heading + self.SEGMENT_BASE_ANGLES[local_idx] + \
-                (self.limb_angles[i] - self.BASE_ANGLES[i])
 
-            if self.limb_extended[i]:
-                fatigue_factor = 1.0 - self.fatigue[i] * 0.8
-                energy_factor = 0.3 + 0.7 * self.energy
-                thrust = self.THRUST_FORCE * fatigue_factor * energy_factor
-                total_fx += -thrust * math.cos(world_angle)
-                total_fy += -thrust * math.sin(world_angle)
+        if not self.physics_mode:
+            total_fx, total_fy, total_torque = 0.0, 0.0, 0.0
+            for i in range(self.NUM_LIMBS):
+                seg = i // self.limbs_per_segment
+                _, _, seg_heading = self.get_segment_pos(seg)
+                local_idx = i % self.limbs_per_segment
+                world_angle = seg_heading + self.SEGMENT_BASE_ANGLES[local_idx] + \
+                    (self.limb_angles[i] - self.BASE_ANGLES[i])
 
-            if flex_l:
-                total_torque += 0.2
-            if flex_r:
-                total_torque -= 0.2
+                if self.limb_extended[i]:
+                    fatigue_factor = 1.0 - self.fatigue[i] * 0.8
+                    energy_factor = 0.3 + 0.7 * self.energy
+                    thrust = self.THRUST_FORCE * fatigue_factor * energy_factor
+                    total_fx += -thrust * math.cos(world_angle)
+                    total_fy += -thrust * math.sin(world_angle)
 
-        total_fx -= self.DRAG * self.vx
-        total_fy -= self.DRAG * self.vy
-        total_torque -= self.ANG_DRAG * self.omega
+                if int(acts[i, 1]):
+                    total_torque += 0.2
+                if int(acts[i, 2]):
+                    total_torque -= 0.2
 
-        for wall_pos, axis, sign in [
-            (0, 'x', 1), (self.WIDTH, 'x', -1),
-            (0, 'y', 1), (self.HEIGHT, 'y', -1),
-        ]:
-            coord = self.x if axis == 'x' else self.y
-            dist = abs(coord - wall_pos)
-            if dist < self.WALL_DIST:
-                force = self.WALL_FORCE * (1 - dist / self.WALL_DIST) ** 2
-                if axis == 'x':
-                    total_fx += force * sign
-                else:
-                    total_fy += force * sign
+            total_fx -= self.DRAG * self.vx
+            total_fy -= self.DRAG * self.vy
+            total_torque -= self.ANG_DRAG * self.omega
 
-        self.vx += (total_fx / self.MASS) * self.DT
-        self.vy += (total_fy / self.MASS) * self.DT
-        self.omega += (total_torque / self.MOI) * self.DT
+            for wall_pos, axis, sign in [
+                (0, 'x', 1), (self.WIDTH, 'x', -1),
+                (0, 'y', 1), (self.HEIGHT, 'y', -1),
+            ]:
+                coord = self.x if axis == 'x' else self.y
+                dist = abs(coord - wall_pos)
+                if dist < self.WALL_DIST:
+                    force = self.WALL_FORCE * (1 - dist / self.WALL_DIST) ** 2
+                    if axis == 'x':
+                        total_fx += force * sign
+                    else:
+                        total_fy += force * sign
 
-        speed = math.sqrt(self.vx ** 2 + self.vy ** 2)
-        if speed > self.MAX_SPEED:
-            self.vx = self.vx / speed * self.MAX_SPEED
-            self.vy = self.vy / speed * self.MAX_SPEED
-        self.omega = max(-self.MAX_ANG_SPEED, min(self.MAX_ANG_SPEED, self.omega))
+            self.vx += (total_fx / self.MASS) * self.DT
+            self.vy += (total_fy / self.MASS) * self.DT
+            self.omega += (total_torque / self.MOI) * self.DT
 
-        self.x += self.vx * self.DT
-        self.y += self.vy * self.DT
-        self.heading += self.omega * self.DT
+            speed = math.sqrt(self.vx ** 2 + self.vy ** 2)
+            if speed > self.MAX_SPEED:
+                self.vx = self.vx / speed * self.MAX_SPEED
+                self.vy = self.vy / speed * self.MAX_SPEED
+            self.omega = max(-self.MAX_ANG_SPEED, min(self.MAX_ANG_SPEED, self.omega))
 
-        self.x = max(0.5, min(19.5, self.x))
-        self.y = max(0.5, min(19.5, self.y))
+            self.x += self.vx * self.DT
+            self.y += self.vy * self.DT
+            self.heading += self.omega * self.DT
+
+            self.x = max(0.5, min(19.5, self.x))
+            self.y = max(0.5, min(19.5, self.y))
 
         self.energy = max(0.0, self.energy - self.ENERGY_COST * active_count)
         self.energy = max(0.0, self.energy - self.SLOW_PATHWAY_COST * gate_value)
@@ -905,6 +945,19 @@ class Organism:
         self.prev_conflict = self.receptor_conflict
 
         if predicted_pain is not None:
+            pe_mag = float(np.mean(np.abs(pain - np.array(predicted_pain))))
+        else:
+            pe_mag = 0.0
+        self.misalignment_memory = 0.95 * self.misalignment_memory + 0.05 * pe_mag
+
+        if self.receptor_conflict > self.rupture_threshold:
+            self.rupture_count += 1
+            self.rupture_threshold = min(1.0, self.rupture_threshold + 0.02)
+            self._apply_collapse_response()
+        else:
+            self.rupture_threshold = max(0.2, self.rupture_threshold - 0.005)
+
+        if predicted_pain is not None:
             prediction_error = np.abs(pain - np.array(predicted_pain))
         else:
             prediction_error = np.abs(pain - self.prev_pain)
@@ -956,6 +1009,8 @@ class Organism:
             np.array([self.z / self.DEPTH] if self.dims == 3 else []),
             np.array([self.receptor_conflict, self.predicted_conflict, self.conflict_trend]),
             np.array([self.concept_match, self.concept_quality]),
+            np.array(self.grip_state, dtype=np.float64),
+            np.array([self.carried_mass, self.contact_count, self.contact_force]),
         ])
         self.history.append(obs)
 
@@ -1060,10 +1115,25 @@ class Organism:
             'ls': len(self.experience_log),
         }
 
-    def compute_optimal_actions(self, environment, time_step, npc=None):
+    def compute_optimal_actions(self, environment, time_step, npc=None,
+                                 zone_targets=None):
         tips = self.get_limb_tips()
         actions = np.zeros(self.NUM_ACTIONS, dtype=int)
         pain_raw, _ = environment.get_field_values(tips, time_step)
+
+        zone_gx, zone_gy = 0.0, 0.0
+        if zone_targets:
+            best_dist = float('inf')
+            best_zx, best_zy = 0.0, 0.0
+            for zx, zy in zone_targets:
+                d = math.sqrt((zx - self.x)**2 + (zy - self.y)**2)
+                if d < best_dist:
+                    best_dist = d
+                    best_zx, best_zy = zx, zy
+            if best_dist > 0.5:
+                strength = 3.0 + 2.0 / (best_dist + 0.1)
+                zone_gx = (best_zx - self.x) / best_dist * strength
+                zone_gy = (best_zy - self.y) / best_dist * strength
 
         dist_points = self.get_distance_sample_points()
         dist_pain, dist_endo = environment.get_field_values(dist_points, time_step)
@@ -1081,8 +1151,8 @@ class Organism:
         for i in range(self.NUM_LIMBS):
             tx, ty = tips[i]
             gx, gy = environment.get_combined_gradient(tx, ty, time_step)
-            gx += dist_gx
-            gy += dist_gy
+            gx += dist_gx + zone_gx
+            gy += dist_gy + zone_gy
 
             if self.goal_persistence > 0.2:
                 gx *= (1.0 + 0.3 * self.goal_persistence)
@@ -1244,6 +1314,86 @@ class Organism:
 
         return actions
 
+    def compute_optimal_actions_continuous(self, environment, time_step, npc=None,
+                                            zone_targets=None):
+        """Return continuous force/torque per limb + binary grip + emission.
+
+        Action layout: [force_0, torque_0, ..., force_N, torque_N,
+                        grip_0, ..., grip_N, joint_actions..., emission_bits...]
+        Continuous dims: NUM_LIMBS * 2
+        Binary dims: NUM_LIMBS + (num_segments-1)*2 + 4
+        """
+        binary = self.compute_optimal_actions(environment, time_step, npc=npc,
+                                               zone_targets=zone_targets)
+        tips = self.get_limb_tips()
+        num_continuous = self.NUM_LIMBS * 2
+        num_binary = self.NUM_LIMBS + (self.num_segments - 1) * 2 + 4
+        actions = np.zeros(num_continuous + num_binary, dtype=np.float64)
+
+        dist_points = self.get_distance_sample_points()
+        dist_pain, dist_endo = environment.get_field_values(dist_points, time_step)
+        dist_gx, dist_gy = 0.0, 0.0
+        for k in range(self.NUM_DISTANCE_RAYS):
+            ray_angle = self.heading + self.RAY_ANGLES[k]
+            signal = dist_endo[k] - dist_pain[k]
+            dist_gx += signal * math.cos(ray_angle)
+            dist_gy += signal * math.sin(ray_angle)
+        dist_gx *= self.DIST_GRADIENT_WEIGHT
+        dist_gy *= self.DIST_GRADIENT_WEIGHT
+
+        zone_gx, zone_gy = 0.0, 0.0
+        if zone_targets:
+            best_dist = float('inf')
+            best_zx, best_zy = 0.0, 0.0
+            for zx, zy in zone_targets:
+                d = math.sqrt((zx - self.x)**2 + (zy - self.y)**2)
+                if d < best_dist:
+                    best_dist = d
+                    best_zx, best_zy = zx, zy
+            if best_dist > 0.5:
+                strength = 3.0 + 2.0 / (best_dist + 0.1)
+                zone_gx = (best_zx - self.x) / best_dist * strength
+                zone_gy = (best_zy - self.y) / best_dist * strength
+
+        for i in range(self.NUM_LIMBS):
+            tx, ty = tips[i]
+            gx, gy = environment.get_combined_gradient(tx, ty, time_step)
+            gx += dist_gx + zone_gx
+            gy += dist_gy + zone_gy
+
+            grad_mag = math.sqrt(gx * gx + gy * gy)
+            if grad_mag < 1e-6:
+                continue
+
+            desired_dir = math.atan2(gy, gx)
+            seg = i // self.limbs_per_segment
+            _, _, seg_h = self.get_segment_pos(seg)
+            local_idx = i % self.limbs_per_segment
+            world_angle = seg_h + self.SEGMENT_BASE_ANGLES[local_idx] + \
+                (self.limb_angles[i] - self.BASE_ANGLES[i])
+
+            dot = math.cos(desired_dir - (world_angle + math.pi))
+            fatigue_factor = 1.0 - self.fatigue[i] * 0.8
+            energy_factor = 0.3 + 0.7 * self.energy
+            force = float(np.clip(grad_mag * dot * fatigue_factor * energy_factor, -1.0, 1.0))
+            actions[i * 2] = force
+
+            angle_diff = desired_dir - (world_angle + math.pi)
+            angle_diff = math.atan2(math.sin(angle_diff), math.cos(angle_diff))
+            torque = float(np.clip(angle_diff * 2.0, -1.0, 1.0))
+            actions[i * 2 + 1] = torque
+
+        grip_start = num_continuous
+        for i in range(self.NUM_LIMBS):
+            actions[grip_start + i] = binary[i * 3]
+
+        em_binary_start = self.NUM_LIMBS * 3 + (self.num_segments - 1) * 2
+        em_out_start = grip_start + self.NUM_LIMBS + (self.num_segments - 1) * 2
+        for k in range(4):
+            actions[em_out_start + k] = binary[em_binary_start + k]
+
+        return actions
+
     def to_dict(self):
         return {
             'num_limbs': self.NUM_LIMBS,
@@ -1255,7 +1405,7 @@ class Organism:
 
 
 def _run_test(num_limbs=6, steps=100):
-    expected_obs = 13 * num_limbs + 82
+    expected_obs = 13 * num_limbs + 82 + num_limbs + 3
     expected_actions = 3 * num_limbs + 4
     print(f"\n=== Testing {num_limbs}-limbed organism (obs={expected_obs}, actions={expected_actions}) ===")
     env = Environment(seed=42)

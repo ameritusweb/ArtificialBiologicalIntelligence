@@ -1,6 +1,6 @@
 # Receptor Index
 
-159 receptors across 19 families. T=trunk, B=branch, C=canopy.
+166 receptors across 20 families. T=trunk, B=branch, C=canopy.
 
 ---
 
@@ -197,16 +197,23 @@
 
 ---
 
-## Logic (5)
-- [T] **transitivity** — Chain inference (A->B, B->C, therefore A->C)
+## Logic (6)
+- [T] **semantic_relation** — Relationship type detection ("has a" vs "is a" vs "causes" vs "precedes")
+- [B] **transitivity** — Chain inference (A->B, B->C, therefore A->C)
 - [B] **conjunction** — Joint-premise inference (A and B together necessitate C)
 - [B] **quantifier** — Universal-to-particular (Everyone has X, I'm in Everyone, I have X)
 - [C] **contradiction** — Mutual exclusion detection (A and B can't both be true)
 - [C] **it_follows** — General valid inference detection (the conclusion follows, regardless of type)
 
+## Language (4)
+- [T] **naming** — Concept stabilization via persistent labeling
+- [B] **self_talk** — Internal deliberation via serial named-concept activation
+- [C] **referential_grounding** — Symbol-to-receptor termination detection (does this refer to something real?)
+- [C] **translation** — Cross-code concept mapping (unknown symbol -> known consequence -> existing concept)
+
 ---
 
-**Totals:** 43 trunk, 46 branch, 70 canopy = 159 receptors
+**Totals:** 45 trunk, 48 branch, 73 canopy = 166 receptors
 
 **Dependency layers:**
 - Layer 0 (single-family): ~40 receptors, emerge early

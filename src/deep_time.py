@@ -22,7 +22,7 @@ from collections import defaultdict
 from environment import Environment, Organism, NPC
 from physics_world import PhysicsWorld
 from mental_model import build_mental_model, action_to_hash
-from receptor_discovery import discover, build_tests
+from receptor_discovery import discover, build_tests, calibrate_null_thresholds
 from model import compute_obs_indices
 
 RESULTS_DIR = os.path.join(os.path.dirname(__file__), 'data')
@@ -118,13 +118,19 @@ def run_generation(organisms, env_seed, world_state=None,
     return final_world_state
 
 
-def discover_receptors_for_organism(evo_org):
+def discover_receptors_for_organism(evo_org, null_thresh=None):
     """Run receptor discovery on an organism's accumulated experience."""
     if len(evo_org.experience_log) < 100:
         return [], {}
 
     engine = build_mental_model(evo_org.experience_log)
-    results = discover(evo_org.experience_log, engine, log_provenance='oracle')
+
+    if null_thresh is None:
+        null_thresh = calibrate_null_thresholds(
+            evo_org.experience_log, engine, num_shuffles=5)
+
+    results = discover(evo_org.experience_log, engine,
+                       threshold_overrides=null_thresh, log_provenance='oracle')
     evo_org.discovered_receptors = results['discovered']
 
     bias = {}
@@ -185,8 +191,14 @@ def run_deep_time(num_generations=5, population_size=6, num_episodes=10,
         )
 
         gen_discovered = set()
-        for evo_org in organisms:
-            discovered, bias = discover_receptors_for_organism(evo_org)
+        gen_null_thresh = None
+        for i, evo_org in enumerate(organisms):
+            if i == 0 and len(evo_org.experience_log) >= 100:
+                print("  Calibrating null thresholds (once per generation)...")
+                ref_engine = build_mental_model(evo_org.experience_log)
+                gen_null_thresh = calibrate_null_thresholds(
+                    evo_org.experience_log, ref_engine, num_shuffles=5)
+            discovered, bias = discover_receptors_for_organism(evo_org, gen_null_thresh)
             gen_discovered.update(discovered)
             evo_org.topology_bias.update(bias)
 

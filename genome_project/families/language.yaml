@@ -1,0 +1,357 @@
+# Language Family
+# Receptors for naming, internal speech, and referential grounding
+
+family_metadata:
+  name: Language
+  description: |
+    Receptors that govern the organism's relationship to its own
+    symbolic representations. Not the content of language (that's
+    Compression) or the structure of inference (that's Logic), but
+    the mechanisms that make naming, internal deliberation, and
+    referential grounding possible.
+
+    Naming stabilizes a concept — gives it persistence and
+    retrievability. Self-talk uses naming internally as a cognitive
+    tool, allowing the organism to deliberate with itself by
+    manipulating named concepts. Referential grounding detects
+    when a symbolic connection terminates in actual receptor states
+    the organism has fired.
+
+    This family bridges Compression (concepts) and Logic (inference)
+    by providing the substrate both operate on: named, grounded
+    symbols that can be composed into chains and evaluated for
+    meaning.
+
+  evolutionary_thesis: |
+    Language receptors emerge when the organism's internal
+    representations become complex enough that stabilization,
+    deliberation, and grounding checks provide survival advantage.
+
+    An organism with 1000 concepts but no naming receptor loses
+    them — they blur into each other without stable labels. An
+    organism that can name has persistent handles on its own
+    knowledge, which enables retrieval, comparison, and composition
+    that unnamed concepts can't support.
+
+    Self-talk emerges when naming is turned inward: the organism
+    uses its own signaling apparatus not to communicate with others
+    but to communicate with itself across time — holding a concept
+    stable while evaluating it.
+
+  trunk_receptor: naming
+  canopy_receptors: [referential_grounding]
+
+---
+
+receptors:
+  - receptor_id: naming
+    name: Concept Stabilization via Labeling
+    family: language
+    tier: trunk
+
+    dependencies:
+      - receptor_id: concept_formation
+        note: "Compression — must form concepts before naming them"
+      - receptor_id: simplified_shared_signals
+        note: "Compression — must have signal vocabulary to draw labels from"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that a compressed concept has become
+        stable enough to warrant a persistent label — a handle that
+        survives across episodes and contexts. The label makes the
+        concept retrievable by name rather than by similarity match.
+
+        Naming is not the same as concept formation. A concept exists
+        as a compressed causal chain in the pattern store. A name is
+        a stable pointer to that concept that persists independently
+        of the context in which the concept was formed.
+      survival_benefit: |
+        Named concepts can be retrieved faster, compared more
+        precisely, and communicated more reliably. The organism
+        that can name "danger zone" retrieves the concept without
+        needing to re-derive it from sensor data each time.
+      metabolic_cost: medium
+      selection_pressure: |
+        Environments where concept retrieval speed matters and where
+        the same concept is needed across different contexts.
+
+    selection_environments:
+      - multi_context_environments
+      - environments_requiring_rapid_concept_retrieval
+      - social_environments_with_communication
+
+    unlocks:
+      - self_talk
+      - concept_comparison
+      - vocabulary_expansion
+
+    emergence_signature:
+      description: |
+        The organism develops consistent labels for recurring
+        concepts — measured by whether the emission patterns used
+        to signal a concept stabilize across episodes.
+      metrics:
+        - metric_name: label_stability
+          measurement_method: |
+            Track emission patterns associated with specific
+            mental model contexts. Naming = same emission pattern
+            used for same context cluster across episodes.
+          expected_range: ">0.6 consistency"
+          detection_threshold: 0.6
+
+    predicted_emergence_order:
+      generation_range: "60-120"
+      confidence: medium
+
+  - receptor_id: self_talk
+    name: Internal Deliberation via Symbolic Manipulation
+    family: language
+    tier: branch
+
+    dependencies:
+      - receptor_id: naming
+        note: "Must name concepts before manipulating them internally"
+      - receptor_id: metacognition
+        note: "Must model own processing to use speech internally"
+      - receptor_id: planning
+        note: "Must plan to benefit from deliberation"
+
+    environmental_trigger:
+      structure: |
+        The organism uses its signaling apparatus internally — not
+        to communicate with other agents but to hold concepts stable
+        while evaluating them. Self-talk is the organism talking to
+        itself to think.
+
+        The mechanism: the organism activates a named concept, which
+        fires its associated receptors, which triggers associations
+        to other named concepts, which fires their receptors. The
+        chain of activations IS the deliberation. Self-talk is
+        serialized processing of named concepts — the serialization
+        thesis applied to symbolic reasoning.
+      survival_benefit: |
+        Self-talk enables multi-step reasoning that single-cycle
+        processing can't support. The organism can evaluate "if I
+        go to the danger zone, will I find food?" by activating
+        [danger zone] -> [pain prediction] -> [but food there] ->
+        [food value vs pain cost]. Each activation is a named concept
+        with grounded receptor states.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments where multi-step reasoning about abstract
+        concepts provides advantage over reactive behavior.
+
+    selection_environments:
+      - complex_planning_environments
+      - environments_with_competing_abstract_goals
+
+    unlocks:
+      - internal_argumentation
+      - hypothesis_evaluation
+      - narrative_construction
+
+    emergence_signature:
+      description: |
+        The organism's action selection shows evidence of multi-step
+        concept activation without external stimulus — internal
+        deliberation driving behavior rather than direct environmental
+        response.
+      metrics:
+        - metric_name: deliberation_latency
+          measurement_method: |
+            Measure action latency in complex decision contexts.
+            Self-talk = longer latency with better outcomes in
+            multi-factor decisions, compared to simpler decisions.
+          expected_range: ">20% latency increase in complex contexts"
+          detection_threshold: 0.2
+
+    predicted_emergence_order:
+      generation_range: "120-200"
+      confidence: low
+
+    notes: |
+      Self-talk connects to the serialization thesis directly. The
+      organism serializes its own concept activations to create
+      prediction opportunities between them — exactly the mechanism
+      the serialization thesis describes for sensory processing,
+      applied to symbolic processing.
+
+      This is also the mechanism by which "thinking in words" could
+      emerge. Not because words are necessary for thought, but
+      because named concepts are more stable anchors for serial
+      deliberation than unnamed concepts. Words are cognitive tools
+      the organism develops for its own use before they become
+      communication tools for social use.
+
+  - receptor_id: referential_grounding
+    name: Symbol-to-Receptor Termination Detection
+    family: language
+    tier: canopy
+
+    dependencies:
+      - receptor_id: naming
+        note: "Must name concepts before checking their grounding"
+      - receptor_id: concept_grounding
+        note: "Compression — must trace concepts to receptor states"
+      - receptor_id: belief_detection
+        note: "Epistemic — must detect own belief state"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that a symbolic connection terminates
+        in actual receptor states it has fired — that the named
+        concept refers to something real in the organism's history.
+
+        "Lobster has claws" is referentially grounded if the organism
+        has experienced claws (contacted them, been hurt by them,
+        seen them in action). It is referentially ungrounded if
+        "claws" is just a label with no receptor history.
+
+        This is what distinguishes genuine understanding from
+        syntactic manipulation. An LLM has naming and structural
+        connections. It doesn't have the receptor states the
+        connections terminate in. The referential grounding receptor
+        never fires because there's nothing for it to detect.
+      survival_benefit: |
+        Referentially grounded reasoning is more reliable than
+        ungrounded reasoning. An organism that knows "claws cause
+        pain" from actual experience trusts that inference differently
+        than one that merely has the structural connection. The
+        grounding receptor provides a confidence signal that
+        distinguishes experiential knowledge from inherited labels.
+      metabolic_cost: medium
+      selection_pressure: |
+        Environments where distinguishing grounded from ungrounded
+        knowledge affects decision quality — where acting on
+        unverified labels is costly.
+
+    selection_environments:
+      - mixed_reliability_environments
+      - environments_with_transmitted_knowledge
+
+    emergence_signature:
+      description: |
+        The organism treats referentially grounded claims with
+        higher confidence than structurally identical but ungrounded
+        claims — measured by differential certainty assignment.
+      metrics:
+        - metric_name: grounding_differential
+          measurement_method: |
+            Compare certainty on mental model entries where all
+            components trace to experienced receptor states vs
+            entries where some components are inherited/unverified.
+          expected_range: ">0.15 certainty difference"
+          detection_threshold: 0.15
+
+    predicted_emergence_order:
+      generation_range: "150-250"
+      confidence: low
+
+    notes: |
+      This receptor is T2 from theories.md (grounding failure is
+      architectural) stated as a specific receptor rather than a
+      general philosophical claim. The claim becomes sharper:
+      grounding failure occurs specifically when the referential
+      grounding receptor has no receptor states to terminate in.
+      The receptor exists; its inputs are missing.
+
+  - receptor_id: translation
+    name: Cross-Code Concept Mapping
+    family: language
+    tier: canopy
+
+    dependencies:
+      - receptor_id: naming
+        note: "Must have named concepts to map onto"
+      - receptor_id: referential_grounding
+        note: "Must verify grounding to confirm the mapping"
+      - receptor_id: causal_inference
+        note: "Must detect that unknown symbol causes known consequence"
+
+    environmental_trigger:
+      structure: |
+        The organism encounters an unknown symbol (a sound pattern,
+        a signal code, an emission sequence it hasn't used) and
+        observes that it maps to a known consequence — a receptor
+        state the organism has already experienced and named.
+
+        The translation receptor fires when the organism detects
+        that an unknown surface form points to a known referent.
+        Not learning a new concept, but discovering that something
+        familiar is being referred to through an unfamiliar code.
+
+        The mechanism: observe unknown symbol -> observe consequence
+        -> match consequence to existing mental model entry -> if
+        match found, the unknown symbol is a translation of the
+        known concept.
+      survival_benefit: |
+        Translation enables rapid knowledge acquisition across
+        symbol systems. An organism on an alien planet with different
+        sound codes for the same concepts can bootstrap its local
+        vocabulary in episodes rather than generations — because
+        the grounded concepts already exist and only the labels
+        need remapping.
+
+        This is also why children learn second languages faster than
+        first: the receptor states already exist. Translation maps
+        new labels onto grounded concepts rather than building
+        grounding from scratch.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments where multiple symbol systems coexist — where
+        the organism encounters other agents using different codes
+        for the same environmental structure. Multi-agent environments
+        with independently evolved communication vocabularies.
+
+    selection_environments:
+      - multi_agent_environments_with_different_vocabularies
+      - environments_with_novel_signal_codes
+      - cross_cultural_environments
+
+    unlocks:
+      - cross_vocabulary_reasoning
+      - rapid_foreign_concept_acquisition
+      - symbol_system_comparison
+
+    emergence_signature:
+      description: |
+        The organism correctly associates novel signal codes with
+        existing concepts by observing consequences — without being
+        trained on the novel code directly.
+      metrics:
+        - metric_name: novel_code_mapping
+          measurement_method: |
+            Introduce objects that respond to a new set of emission
+            codes the organism has never used. Measure how many
+            episodes until the organism discovers the mapping between
+            new codes and known object responses.
+          expected_range: "<20 episodes to map 3+ novel codes"
+          detection_threshold: 20
+
+    predicted_emergence_order:
+      generation_range: "200-350"
+      confidence: low
+
+    notes: |
+      Translation requires the environment to respond meaningfully
+      to symbol codes — objects that jump when they hear "jump,"
+      rotate when they hear "rotate." Without this environmental
+      grounding, translation has nothing to ground the mapping in.
+
+      The responsive-object mechanism from Step 19 (emission signals
+      triggering object responses) is the substrate. Translation
+      extends it: the organism discovers which novel emissions map
+      to which known object behaviors.
+
+      The progression: (1) the organism discovers that its own
+      emissions cause object responses (Step 19), (2) it names
+      those emission-response pairs (naming receptor), (3) it
+      encounters a different agent using different emissions for
+      the same responses, (4) the translation receptor maps the
+      foreign emissions onto its existing named concepts.
+
+      This is also the mechanism for metaphor — detecting that a
+      symbol used in domain A maps onto a concept grounded in
+      domain B. Metaphor is translation across domains rather than
+      across vocabularies.

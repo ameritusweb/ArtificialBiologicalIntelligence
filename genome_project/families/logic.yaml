@@ -37,18 +37,96 @@ family_metadata:
     the general inference detector (it_follows) can fire, because
     general inference is recognized by pattern across specific types.
 
-  trunk_receptor: transitivity
+  trunk_receptor: semantic_relation
   canopy_receptors: [it_follows, contradiction]
 
 ---
 
 receptors:
-  - receptor_id: transitivity
-    name: Chain Inference Detection
+  - receptor_id: semantic_relation
+    name: Relationship Type Detection
     family: logic
     tier: trunk
 
     dependencies:
+      - receptor_id: causal_association
+        note: "Causality — must detect causal relationships"
+      - receptor_id: part_whole_detection
+        note: "Organization — must detect containment/membership"
+      - receptor_id: naming
+        note: "Language — must name things before typing relationships between them"
+
+    environmental_trigger:
+      structure: |
+        The organism detects WHICH KIND of relationship holds between
+        two things — not just that they are connected, but HOW they
+        are connected. "Has a" (possession/composition), "is a"
+        (category membership), "causes" (causal dependency),
+        "precedes" (temporal order), "contains" (spatial/logical
+        containment), "belongs to" (set membership).
+
+        Each of these is a primitive semantic relationship with its
+        own distinct meaning that isn't reducible to the others.
+        "Lobster has claws" is a different kind of claim than
+        "lobster is a crustacean" — and the difference determines
+        which inference rules apply downstream.
+      survival_benefit: |
+        Relationship type detection tells the logic receptors which
+        inference rules apply. Transitivity holds for "is a" but
+        not always for "has a." The organism that knows the
+        relationship type can select the correct inference, while
+        one that treats all relationships as generic connections
+        makes invalid inferences.
+      metabolic_cost: medium
+      selection_pressure: |
+        Environments where different relationship types license
+        different inferences — where treating "has a" the same as
+        "is a" produces prediction errors.
+
+    selection_environments:
+      - multi_relationship_environments
+      - environments_where_inference_validity_depends_on_relation_type
+
+    emergence_signature:
+      description: |
+        The organism distinguishes between relationship types in its
+        mental model — storing "has a" relationships differently from
+        "is a" or "causes" — and applies different inference rules
+        to each type.
+      metrics:
+        - metric_name: relation_type_discrimination
+          measurement_method: |
+            In the entity-relation store, measure whether different
+            relation types produce different inference patterns.
+            Discrimination = different transitivity behavior for
+            different relation types.
+          expected_range: ">2 distinct relation types with different inference patterns"
+          detection_threshold: 2
+
+    predicted_emergence_order:
+      generation_range: "70-130"
+      confidence: medium
+
+    notes: |
+      This receptor sits below the logic family's inference receptors
+      because you can't build valid inference chains without first
+      detecting what kind of relationship each link represents.
+      The SVO chain receptor fires on structure. The semantic
+      relation receptor fires on relationship type. Both are needed.
+
+      The entity-relation store (EntityRelationStore) already has
+      typed relations (add_relation takes relation_type). This
+      receptor detects when the organism uses those types
+      discriminatively rather than treating all relations as generic.
+
+  - receptor_id: transitivity
+    name: Chain Inference Detection
+    family: logic
+    tier: branch
+
+    dependencies:
+      - receptor_id: semantic_relation
+        note: "Must detect relationship types before chaining them"
       - receptor_id: causal_chains
         note: "Causality — must chain causal links before detecting chain validity"
       - receptor_id: rule_extraction
