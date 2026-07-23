@@ -79,7 +79,7 @@ The key principle: **capability without receptor is latent and never gets used.*
 
 **Probe-Gated Inheritance**: Topology bias is gated by a constitutional probe budget. The organism must actually probe and explore the environment to validate inherited priors — inheritance accelerates but doesn't bypass the need for grounded experience. The probe rate floor lives outside the genome and cannot be selected to zero.
 
-**Genome Project**: The formal specification of the receptor search space — 166 receptors across 20 families. The periodic table of cognitive capabilities. Each receptor entry specifies what environmental structure it detects, what survival cost the organism pays for missing it, and what must already exist before it can emerge. The genome project is load-bearing on environmental design: the 166 receptors are 166 environmental design requirements.
+**Genome Project**: The formal specification of the receptor search space — 173 receptors across 21 families. The periodic table of cognitive capabilities. Each receptor entry specifies what environmental structure it detects, what survival cost the organism pays for missing it, and what must already exist before it can emerge. The genome project is load-bearing on environmental design: the 173 receptors are 173 environmental design requirements.
 
 **Invariant Trunk**: The set of receptors that emerge in every environment regardless of tier or complexity. 18 receptors are invariant across all 8 physics-world tiers — these are the strongest candidates for universal cognitive primitives.
 
@@ -110,7 +110,7 @@ A 6-limbed organism in a 2D liquid environment learns to navigate pain/endorphin
 
 ### Evolutionary Infrastructure (Steps 31-43)
 - **Environment tiers** (8 levels, genome-driven) from simple field navigation to meta-cognitive self-regulation
-- **Receptor discovery** — 148 null-calibrated tests detecting which of 154 genome receptors have emerged
+- **Receptor discovery** — 165 null-calibrated tests detecting which of 173 genome receptors have emerged
 - **Topology bias inheritance** — offspring inherit receptor topology priors, probe-gated
 - **Population evolution** — 8 competing organisms, social arms race
 - **Cross-tier transfer** — 8x8 transfer matrix
@@ -153,23 +153,24 @@ A formal specification of the receptor search space — the periodic table of co
 | Meta-Motivational | 13 | Curiosity -> metacognition |
 | Regulatory | 9 | Stress detection -> emotional intelligence |
 | Social | 14 | Other detection -> moral reasoning |
-| Compression | 12 | Pattern recognition -> analogy |
+| Compression | 15 | Pattern recognition -> constraint shape -> shaped absence -> missing piece located -> analogy |
 | Observation | 8 | Change detection -> meta-observation |
 | Formalization | 11 | Rule extraction -> optimization -> theory formation |
 | Mathematics | 7 | Quantity -> necessity -> proof -> formal composition |
 | Organization | 7 | Boundary -> part-whole -> system detection |
 | Self-Augmentation | 5 | Capability change -> metamorphic planning |
-| Interaction | 6 | Contact response -> composite affordance |
+| Interaction | 7 | Response recognition -> contact response -> grip -> lever -> composite affordance |
 | Environmental Augmentation | 5 | Change detection -> developmental environment engineering |
 | Sequential Processing | 5 | Stage prediction -> prediction architecture awareness |
 | Epistemic | 4 | Belief detection -> doubt -> counterfactual salience -> epistemic strategy |
 | Perception | 5 | Staged processing -> response loop detection |
 | Logic | 6 | Semantic relations -> transitivity -> conjunction -> quantifier -> contradiction -> it_follows |
-| Language | 4 | Naming -> self-talk -> referential grounding -> translation |
+| Language | 3 | Naming -> self-talk -> referential grounding |
+| Bridging | 4 | Mimicry -> trust -> executability -> translation |
 
 ### Key Empirical Results
 
-- **44 receptors genuinely discovered** out of 107 testable (40 skipped for needing closed-loop data), against null-calibrated thresholds (95th percentile of shuffled-log scores)
+- **60 receptors genuinely discovered** out of 164 testable (1 skipped for missing component), against null-calibrated thresholds (95th percentile of shuffled-log scores). Of these, 51 are independent evidence channels (correlated tests not double-counted).
 - **18 invariant receptors** across all 8 physics-world tiers — including grip_affordance and push_affordance as part of the embodied trunk
 - **Complexity reshapes, doesn't expand**: discovery count flat at 27-33/52 across all tiers and environment types (field, physics, T7+T8)
 - **Topology inheritance**: convergence accelerates from 15 epochs to 0 across generations
@@ -182,7 +183,7 @@ A formal specification of the receptor search space — the periodic table of co
 
 ### Theories Index
 
-62 formal theoretical claims indexed in `theories.md`:
+76 formal theoretical claims indexed in `theories.md`:
 - 6 supported by experimental evidence
 - 1 revised after controlled decomposition
 - 1 directionally falsified (T55, replaced by T57 annealing)
@@ -322,10 +323,10 @@ abi/
 |   +-- grounding.py              # Grounded language dictionary
 |   +-- llm_grounding.py          # LLM grounding bridge
 +-- genome_project/               # Receptor search space specification
-|   +-- families/                 # 20 receptor family YAMLs (166 receptors)
+|   +-- families/                 # 21 receptor family YAMLs (173 receptors)
 |   +-- schemas/                  # Receptor schema definition
 |   +-- docs/                     # Cross-family dependencies, overview
-+-- theories.md                   # 62 indexed theoretical claims with status
++-- theories.md                   # 76 indexed theoretical claims with status
 +-- serialization_thesis.md       # The serialization thesis (standalone paper)
 +-- visualization/                # Three.js organism visualization
 +-- docs/                         # Whitepaper, roadmap, framework documents
