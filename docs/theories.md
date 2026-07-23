@@ -301,7 +301,26 @@ Evidence status key:
 
 ---
 
-## XXII. The Novel Synthesis Claim
+## XXII. Bridging: Recognition to Action
+
+**T73. Mimicry is a receptor that fires when the organism detects correspondence between an observed action and its own motor repertoire.** Not imitation with understanding — pure motor matching that makes cultural transmission fast. Mirror neurons are the biological implementation. Requires proprioception and efference copy to map observed actions onto own body.
+*Status: Proposed. Argued: genome_project/families/bridging.yaml.*
+
+**T74. Executability is a receptor that detects whether a current thought has a motor translation available now.** Not planning (future states) but feasibility checking (current state). When executability fires low, the implementation gap is itself informative — it tells the organism what's missing and activates self-augmentation. This is the mechanistic link that makes environmental complexity load-bearing for capability development, not just for recognition.
+*Status: Proposed. Argued: genome_project/families/bridging.yaml.*
+
+**T75. The deliberation-to-action chain is: self_talk generates a thought -> executability checks feasibility -> if executable: implement -> if not: augment self or modify environment.** Without the executability receptor, the loop from recognition to action is implicit and recognition can outpace capability indefinitely. With it, the gap is a measurable signal the organism acts on.
+*Status: Proposed. Connects Language (self_talk), Agency (planning), Self-Augmentation, and Environmental Augmentation through the executability hub.*
+
+**T76. Shaped absence and missing-piece-located form a directed search cycle that is more specific than curiosity.** Curiosity fires on uncertainty in general. Shaped absence fires on a specific gap in a known pattern. The search it triggers has a target. Missing-piece-located closes the cycle when the specific gap fills. The pair together turn exploration into directed search, which is orders of magnitude more efficient.
+*Status: Proposed. Argued: genome_project/families/compression.yaml.*
+
+**T77. Mimicry emerges before executability and translation because it requires less self-model.** Testable ordering prediction: if executability or translation emerges before mimicry in any ERTI tier, the dependency structure needs revision.
+*Status: Proposed (falsifiable ordering prediction). Argued: genome_project/families/bridging.yaml.*
+
+---
+
+## XXIII. The Novel Synthesis Claim
 
 **T63. No existing research program unifies grounded cognition, active inference, and evolutionary receptor topology into a single generative mechanism.** ABI is a novel synthesis across Barsalou, Friston, Gibson, and developmental/evolutionary perspectives.
 *Status: Proposed. Argued: whitepaper Section 10.*
@@ -312,12 +331,12 @@ Evidence status key:
 
 | Status | Count |
 |---|---|
-| Proposed | 53 |
+| Proposed | 58 |
 | Partially tested | 10 |
 | Supported | 6 |
 | Revised | 1 |
 | Falsified | 1 |
-| **Total** | **71** |
+| **Total** | **76** |
 
 Seven claims have direct experimental support from ERTI: T27-T31 (evolutionary dynamics), T26 (revised after decomposition), and T57 (annealing — the framework's first structural self-discovery). One claim directionally falsified: T55 (read-shielding accelerates resolution — the opposite was found across 6 seeds). The Epistemic family (T58-T60) is the first family whose existence was predicted by a falsification rather than by theoretical deduction alone.
 

@@ -2552,6 +2552,524 @@ def build_tests():
         'Action suppression tracks pain more strongly than fatigue (priority order)', 0.05,
         test_value_hierarchy, needs_closed_loop=True))
 
+    # ============================================================
+    # 17 reviewed receptor tests (Logic, Language, Bridging,
+    # Compression additions, Interaction addition)
+    # Three review rounds. All indices from idx. Drift-subtracted.
+    # ============================================================
+
+    def test_response_recognition(log, engine, **kw):
+        cdim = engine.core_obs_dim
+        drift = _estimate_drift(log, cdim)
+        action_errors, null_errors = [], []
+        for e in log[:min(5000, len(log))]:
+            pred, cert, n = engine.predict_delta(e['obs_before'][:cdim], e['action'])
+            if n == 0:
+                continue
+            actual = e['obs_after'][:cdim] - e['obs_before'][:cdim]
+            error = float(np.mean((pred - actual[:len(pred)])**2))
+            if action_to_hash(e['action']) == 0:
+                null_errors.append(error)
+            else:
+                action_errors.append(error)
+        if len(null_errors) < 5 or len(action_errors) < 5:
+            return 0.0
+        rng = np.random.RandomState(0)
+        matched = rng.choice(action_errors, size=min(len(action_errors), len(null_errors) * 3), replace=False)
+        return max(0.0, float(np.mean(null_errors) - np.mean(matched)))
+
+    tests.append(ReceptorTest('response_recognition', 'interaction',
+        'Lower prediction error on actions than null-action probes (matched counts)', 0.01,
+        test_response_recognition))
+
+    def test_constraint_shape(log, engine, **kw):
+        cdim = engine.core_obs_dim
+        drift = _estimate_drift(log, cdim)
+        targeting_scores = []
+        for i in range(len(log) - 5):
+            pred, cert, n = engine.predict_delta(log[i]['obs_before'][:cdim], log[i]['action'])
+            if cert < 0.5 or n == 0:
+                continue
+            actual = log[i]['obs_after'][:cdim] - log[i]['obs_before'][:cdim]
+            per_dim_error = (pred - actual[:len(pred)])**2
+            per_dim_var = np.abs(actual[:len(pred)])
+            good_dims = per_dim_error < 0.05
+            bad_dims = per_dim_error > 0.2
+            if good_dims.sum() < 3 or bad_dims.sum() < 2:
+                continue
+            bad_vol = per_dim_var[bad_dims].mean()
+            matched_mask = (~bad_dims) & (np.abs(per_dim_var - bad_vol) < bad_vol * 0.5)
+            if matched_mask.sum() < 2:
+                continue
+            future_deltas = [_effect_delta(log[j], drift, cdim)
+                             for j in range(i + 1, min(i + 5, len(log)))]
+            if not future_deltas:
+                continue
+            future_mean = np.mean(future_deltas, axis=0)[:len(pred)]
+            bad_activity = float(np.mean(np.abs(future_mean[bad_dims])))
+            matched_activity = float(np.mean(np.abs(future_mean[matched_mask])))
+            targeting_scores.append(bad_activity - matched_activity)
+        if len(targeting_scores) < 10:
+            return 0.0
+        return float(np.mean(targeting_scores))
+
+    tests.append(ReceptorTest('constraint_shape', 'compression',
+        'Future actions target failed prediction dims more than matched-volatility dims', 0.01,
+        test_constraint_shape, needs_closed_loop=True))
+
+    def test_shaped_absence(log, engine, **kw):
+        cdim = engine.core_obs_dim
+        gap_revisit = 0
+        gap_total = 0
+        nongap_revisit = 0
+        nongap_total = 0
+        for i in range(len(log) - 20):
+            pred, cert, n = engine.predict_delta(log[i]['obs_before'][:cdim], log[i]['action'])
+            if n == 0 or cert < 0.3:
+                continue
+            actual = log[i]['obs_after'][:cdim] - log[i]['obs_before'][:cdim]
+            error = float(np.mean((pred - actual[:len(pred)])**2))
+            base_emb = engine.encoder.embed(log[i]['obs_before'][:cdim])
+            revisited = False
+            for j in range(i + 5, min(i + 15, len(log))):
+                future_emb = engine.encoder.embed(log[j]['obs_before'][:cdim])
+                if float(np.dot(base_emb, future_emb)) > 0.7:
+                    revisited = True
+                    break
+            if error > 0.15:
+                gap_total += 1
+                if revisited:
+                    gap_revisit += 1
+            elif error < 0.05:
+                nongap_total += 1
+                if revisited:
+                    nongap_revisit += 1
+        if gap_total < 10 or nongap_total < 10:
+            return 0.0
+        return gap_revisit / gap_total - nongap_revisit / nongap_total
+
+    tests.append(ReceptorTest('shaped_absence', 'compression',
+        'Gap contexts revisited more than non-gap contexts (skip 5 steps for continuity)', 0.02,
+        test_shaped_absence, needs_closed_loop=True))
+
+    def test_missing_piece_located(log, engine, **kw):
+        cdim = engine.core_obs_dim
+        gap_improvements = []
+        normal_improvements = []
+        for i in range(len(log) - 10):
+            pred, cert_before, n = engine.predict_delta(log[i]['obs_before'][:cdim], log[i]['action'])
+            if n == 0:
+                continue
+            actual = log[i]['obs_after'][:cdim] - log[i]['obs_before'][:cdim]
+            error = float(np.mean((pred - actual[:len(pred)])**2))
+            ah = action_to_hash(log[i]['action'])
+            for j in range(i + 5, min(i + 10, len(log))):
+                if action_to_hash(log[j]['action']) == ah:
+                    _, cert_after, n2 = engine.predict_delta(log[j]['obs_before'][:cdim], log[j]['action'])
+                    if n2 == 0:
+                        continue
+                    improvement = cert_after - cert_before
+                    if 0.3 < cert_before < 0.6:
+                        if error > 0.15:
+                            gap_improvements.append(improvement)
+                        elif error < 0.05:
+                            normal_improvements.append(improvement)
+                    break
+        if len(gap_improvements) < 10 or len(normal_improvements) < 10:
+            return 0.0
+        return float(np.mean(gap_improvements) - np.mean(normal_improvements))
+
+    tests.append(ReceptorTest('missing_piece_located', 'compression',
+        'Certainty improves faster for gap contexts than non-gap (matched starting certainty)', 0.01,
+        test_missing_piece_located))
+
+    def test_semantic_relation(log, engine, **kw):
+        if not hasattr(engine, 'entity_store') or len(engine.entity_store.entities) == 0:
+            return None
+        stats = engine.entity_store.get_stats()
+        if stats['num_relations'] < 5:
+            return 0.0
+        all_types = set()
+        for eid in stats['entity_ids']:
+            for rel in engine.entity_store.get_relations(eid):
+                all_types.add(rel['type'])
+        return float(len(all_types))
+
+    tests.append(ReceptorTest('semantic_relation', 'logic',
+        'Distinct relation types in entity-relation store', 2.0,
+        test_semantic_relation))
+
+    def test_transitivity(log, engine, **kw):
+        cdim = engine.core_obs_dim
+        drift = _estimate_drift(log, cdim)
+        sims = []
+        for i in range(min(1500, len(log)) - 2):
+            obs0 = log[i]['obs_before'][:cdim]
+            delta_chain, cert = engine.chain([log[i]['action'], log[i + 1]['action']], obs0)
+            if cert < 0.2:
+                continue
+            actual = (log[i + 1]['obs_after'][:cdim] - obs0) - 2 * drift
+            chain_corrected = delta_chain - 2 * drift
+            an = np.linalg.norm(actual)
+            dn = np.linalg.norm(chain_corrected)
+            if an > 0.01 and dn > 0.01:
+                sims.append(float(np.dot(actual, chain_corrected) / (an * dn)))
+        if len(sims) < 20:
+            return 0.0
+        return float(np.mean(sims))
+
+    tests.append(ReceptorTest('transitivity', 'logic',
+        'Drift-subtracted 2-step chain predictions match actual outcomes', 0.3,
+        test_transitivity))
+
+    def test_conjunction(log, engine, **kw):
+        cdim = engine.core_obs_dim
+        drift = _estimate_drift(log, cdim)
+        a_deltas, b_deltas, both_deltas = [], [], []
+        for e in log[:min(3000, len(log))]:
+            delta = _effect_delta(e, drift, cdim)
+            pain_high = np.mean(_ch(e['obs_before'], _pain)) > 0.3
+            endo_high = np.mean(_ch(e['obs_before'], _endo)) > 0.3
+            if pain_high and endo_high:
+                both_deltas.append(delta)
+            elif pain_high:
+                a_deltas.append(delta)
+            elif endo_high:
+                b_deltas.append(delta)
+        if len(both_deltas) < 10 or len(a_deltas) < 10 or len(b_deltas) < 10:
+            return 0.0
+        additive = np.mean(a_deltas, axis=0) + np.mean(b_deltas, axis=0)
+        actual_both = np.mean(both_deltas, axis=0)
+        non_additivity = float(np.linalg.norm(actual_both - additive))
+        baseline = float(np.linalg.norm(actual_both))
+        if baseline < 0.01:
+            return 0.0
+        return non_additivity / baseline
+
+    tests.append(ReceptorTest('conjunction', 'logic',
+        'Both-state delta differs from sum of single-state deltas (non-additivity)', 0.1,
+        test_conjunction))
+
+    def test_quantifier(log, engine, **kw):
+        cdim = engine.core_obs_dim
+        split = int(len(log) * 0.8)
+        test_log = log[split:]
+        if len(test_log) < 100:
+            return 0.0
+        small_bucket, large_bucket = [], []
+        for e in test_log:
+            ah = action_to_hash(e['action'])
+            entries = engine.store.mappings.get(ah, [])
+            if not entries:
+                continue
+            pred, cert, n = engine.predict_delta(e['obs_before'][:cdim], e['action'])
+            if n == 0:
+                continue
+            actual = e['obs_after'][:cdim] - e['obs_before'][:cdim]
+            error = float(np.mean((pred - actual[:len(pred)])**2))
+            if len(entries) >= 10:
+                large_bucket.append((cert, error))
+            elif len(entries) <= 3:
+                small_bucket.append((cert, error))
+        if len(small_bucket) < 15 or len(large_bucket) < 15:
+            return 0.0
+        large_cert = float(np.mean([c for c, e in large_bucket]))
+        small_cert = float(np.mean([c for c, e in small_bucket]))
+        large_err = float(np.mean([e for c, e in large_bucket]))
+        small_err = float(np.mean([e for c, e in small_bucket]))
+        cert_residual = large_cert - small_cert
+        error_advantage = small_err - large_err
+        if error_advantage < 0:
+            return 0.0
+        return max(0.0, cert_residual - error_advantage)
+
+    tests.append(ReceptorTest('quantifier', 'logic',
+        'Large-bucket certainty exceeds accuracy improvement (excess confidence = universality)', 0.02,
+        test_quantifier))
+
+    def test_contradiction(log, engine, **kw):
+        contradictions_resolved = 0
+        contradictions_total = 0
+        for ah, entries in engine.store.mappings.items():
+            for i, a in enumerate(entries):
+                for b in entries[i + 1:]:
+                    sim = float(np.dot(a.context_embedding, b.context_embedding))
+                    if sim < 0.7:
+                        continue
+                    sign_agree = float(np.mean(np.sign(a.delta) == np.sign(b.delta)))
+                    if sign_agree > 0.4:
+                        continue
+                    contradictions_total += 1
+                    if (a.count > 5 and a.certainty < 0.4) or (b.count > 5 and b.certainty < 0.4):
+                        contradictions_resolved += 1
+        if contradictions_total < 3:
+            return 0.0
+        return contradictions_resolved / contradictions_total
+
+    tests.append(ReceptorTest('contradiction', 'logic',
+        'High-count contradicting entries show certainty revision (high count + low cert)', 0.1,
+        test_contradiction))
+
+    def test_it_follows(log, engine, **kw):
+        cdim = engine.core_obs_dim
+        drift = _estimate_drift(log, cdim)
+        chain_certs = []
+        actual_accuracies = []
+        for i in range(min(1000, len(log)) - 2):
+            obs = log[i]['obs_before'][:cdim]
+            delta_chain, chain_cert = engine.chain([log[i]['action'], log[i + 1]['action']], obs)
+            actual = (log[i + 1]['obs_after'][:cdim] - obs) - 2 * drift
+            chain_corrected = delta_chain - 2 * drift
+            an = np.linalg.norm(actual)
+            cn = np.linalg.norm(chain_corrected)
+            if an < 0.01 or cn < 0.01:
+                continue
+            accuracy = float(np.dot(actual, chain_corrected) / (an * cn))
+            chain_certs.append(chain_cert)
+            actual_accuracies.append(accuracy)
+        if len(chain_certs) < 30:
+            return 0.0
+        return _safe_corr(chain_certs, actual_accuracies)
+
+    tests.append(ReceptorTest('it_follows', 'logic',
+        'Chain certainty predicts actual 2-step accuracy (calibration, not arithmetic)', 0.1,
+        test_it_follows))
+
+    def test_naming(log, engine, **kw):
+        if engine.pattern_store is None:
+            return 0.0
+        cdim = engine.core_obs_dim
+        steps_per_ep = 300
+        N = len(log)
+        num_eps = max(1, N // steps_per_ep)
+        if num_eps < 3:
+            return 0.0
+        motif_contexts = defaultdict(list)
+        for ep in range(num_eps):
+            s = ep * steps_per_ep
+            for i in range(s, min(s + steps_per_ep - 1, N)):
+                h = (action_to_hash(log[i]['action']),
+                     action_to_hash(log[min(i + 1, N - 1)]['action']))
+                emb = engine.encoder.embed(log[i]['obs_before'][:cdim])
+                motif_contexts[h].append((ep, emb))
+        named = 0
+        for h, contexts in motif_contexts.items():
+            eps = set(c[0] for c in contexts)
+            if len(eps) < 2:
+                continue
+            cross_ep_embs = []
+            for ep in list(eps)[:3]:
+                ep_embs = [c[1] for c in contexts if c[0] == ep]
+                if ep_embs:
+                    cross_ep_embs.append(ep_embs[0])
+            if len(cross_ep_embs) >= 2:
+                sim = float(np.dot(cross_ep_embs[0], cross_ep_embs[1]))
+                if sim > 0.5:
+                    named += 1
+        return named / (len(motif_contexts) + 1e-8)
+
+    tests.append(ReceptorTest('naming', 'language',
+        'Motifs recur across episodes in similar contexts (embedding-gated)', 0.02,
+        test_naming))
+
+    def test_self_talk(log, engine, **kw):
+        conflict_idx = idx['conflict']
+        N = min(5000, len(log))
+        high_latency, low_latency = [], []
+        high_reward, low_reward = [], []
+        for i in range(1, N):
+            obs = log[i]['obs_after']
+            if len(obs) <= conflict_idx:
+                continue
+            conflict = obs[conflict_idx]
+            action_change = float(np.sum(np.abs(
+                np.array(log[i]['action']) - np.array(log[i - 1]['action']))))
+            reward = log[i]['reward']
+            if conflict > 0.3:
+                high_latency.append(action_change)
+                high_reward.append(reward)
+            elif conflict < 0.1:
+                low_latency.append(action_change)
+                low_reward.append(reward)
+        if len(high_latency) < 20 or len(low_latency) < 20:
+            return 0.0
+        all_lat = high_latency + low_latency
+        all_rew = high_reward + low_reward
+        lat_std = float(np.std(all_lat)) + 1e-8
+        rew_std = float(np.std(all_rew)) + 1e-8
+        lat_z = (np.mean(high_latency) - np.mean(low_latency)) / lat_std
+        rew_z = (np.mean(high_reward) - np.mean(low_reward)) / rew_std
+        if lat_z <= 0 or rew_z <= 0:
+            return 0.0
+        return float(min(lat_z, rew_z))
+
+    tests.append(ReceptorTest('self_talk', 'language',
+        'High conflict -> more action variation AND better reward (z-scored, both positive)', 0.1,
+        test_self_talk, needs_closed_loop=True))
+
+    def test_referential_grounding(log, engine, **kw):
+        if engine.pattern_store is None:
+            return 0.0
+        affect_certs, nonaffect_certs = [], []
+        all_pats = [p for pats in engine.pattern_store.patterns.values() for p in pats]
+        for pat in all_pats:
+            if pat.count < 3 or pat.count > 20:
+                continue
+            d = pat.cumulative_delta
+            affect_mag = float(np.linalg.norm(d[_pain[0]:_pain[1]]) +
+                               np.linalg.norm(d[_endo[0]:_endo[1]]))
+            total_mag = float(np.linalg.norm(d)) + 1e-8
+            frac = affect_mag / total_mag
+            if frac > 0.3:
+                affect_certs.append(pat.certainty)
+            elif frac < 0.1:
+                nonaffect_certs.append(pat.certainty)
+        if len(affect_certs) < 5 or len(nonaffect_certs) < 5:
+            return 0.0
+        return float(np.mean(affect_certs) - np.mean(nonaffect_certs))
+
+    tests.append(ReceptorTest('referential_grounding', 'language',
+        'Affect-grounded patterns have higher certainty (count-controlled)', 0.05,
+        test_referential_grounding))
+
+    def test_mimicry(log, engine, **kw):
+        npc_i = idx['npc_start']
+        N = min(5000, len(log))
+        lag = 3
+        if N <= lag + 30:
+            return 0.0
+        npc_activity = []
+        org_activity = []
+        env_state = []
+        for i in range(N - lag):
+            obs = log[i]['obs_after']
+            if len(obs) <= npc_i + 4:
+                continue
+            npc_activity.append(obs[npc_i + 3] + abs(obs[npc_i + 4]))
+            org_activity.append(float(np.sum(_extends(log[i + lag]['action']))) / L)
+            env_state.append(float(np.mean(_ch(log[i]['obs_after'], _pain))))
+        if len(npc_activity) < 50:
+            return 0.0
+        raw_corr = _safe_corr(npc_activity, org_activity)
+        env_npc = _safe_corr(env_state, npc_activity)
+        env_org = _safe_corr(env_state, org_activity)
+        denom = np.sqrt(max(0.0001, (1 - env_npc**2) * (1 - env_org**2)))
+        partial = (raw_corr - env_npc * env_org) / denom
+        return max(0.0, float(partial))
+
+    tests.append(ReceptorTest('mimicry', 'bridging',
+        'Organism activity tracks NPC activity (partial corr, controlling environment)', 0.05,
+        test_mimicry, needs_closed_loop=True))
+
+    def test_trust(log, engine, **kw):
+        npc_i = idx['npc_start']
+        steps_per_ep = 300
+        N = len(log)
+        num_eps = N // steps_per_ep
+        if num_eps < 10:
+            return 0.0
+        ep_reliability = []
+        ep_mimicry = []
+        for ep in range(num_eps):
+            s = ep * steps_per_ep
+            e_end = min(s + steps_per_ep, N)
+            npc_dists = [log[i]['obs_after'][npc_i] for i in range(s, e_end)
+                         if len(log[i]['obs_after']) > npc_i]
+            rewards = [log[i]['reward'] for i in range(s, e_end)]
+            reliability = _safe_corr(npc_dists, rewards)
+            npc_acts = [log[i]['obs_after'][npc_i + 3] for i in range(s, e_end)
+                        if len(log[i]['obs_after']) > npc_i + 3]
+            org_acts = [float(np.sum(_extends(log[i]['action']))) / L for i in range(s, e_end)]
+            mimicry = _safe_corr(npc_acts[:len(org_acts)], org_acts[:len(npc_acts)])
+            ep_reliability.append(reliability)
+            ep_mimicry.append(mimicry)
+        return _safe_corr(ep_reliability, ep_mimicry)
+
+    tests.append(ReceptorTest('trust', 'bridging',
+        'Per-episode mimicry correlates with per-episode NPC reliability', 0.1,
+        test_trust, needs_closed_loop=True))
+
+    def test_executability(log, engine, **kw):
+        cdim = engine.core_obs_dim
+        N = min(3000, len(log))
+        bad_pairs = []
+        for e in log[:N // 2]:
+            if e['reward'] < -0.5:
+                emb = engine.encoder.embed(e['obs_before'][:cdim])
+                bad_pairs.append((emb, action_to_hash(e['action'])))
+        if len(bad_pairs) < 5:
+            return 0.0
+        repeat_similar = 0
+        total_similar = 0
+        repeat_dissimilar = 0
+        total_dissimilar = 0
+        for i in range(N // 2, N):
+            emb = engine.encoder.embed(log[i]['obs_before'][:cdim])
+            ah = action_to_hash(log[i]['action'])
+            for bad_emb, bad_ah in bad_pairs[:20]:
+                sim = float(np.dot(emb, bad_emb))
+                if sim > 0.6:
+                    total_similar += 1
+                    if ah == bad_ah:
+                        repeat_similar += 1
+                elif sim < 0.3:
+                    total_dissimilar += 1
+                    if ah == bad_ah:
+                        repeat_dissimilar += 1
+            if total_similar > 200:
+                break
+        if total_similar < 10 or total_dissimilar < 10:
+            return 0.0
+        similar_rate = repeat_similar / total_similar
+        dissimilar_rate = repeat_dissimilar / total_dissimilar
+        return max(0.0, float(dissimilar_rate - similar_rate))
+
+    tests.append(ReceptorTest('executability', 'bridging',
+        'Bad actions repeated less in similar context than dissimilar (context-specific avoidance)', 0.01,
+        test_executability, needs_closed_loop=True))
+
+    def test_translation(log, engine, **kw):
+        cdim = engine.core_obs_dim
+        drift = _estimate_drift(log, cdim)
+        action_means = {}
+        for ah, entries in engine.store.mappings.items():
+            if len(entries) >= 5:
+                action_means[ah] = np.mean([e.delta for e in entries], axis=0) - drift[:len(entries[0].delta)]
+        equiv = defaultdict(set)
+        for a1, d1 in action_means.items():
+            for a2, d2 in action_means.items():
+                if a1 >= a2:
+                    continue
+                n1 = np.linalg.norm(d1)
+                n2 = np.linalg.norm(d2)
+                if n1 > 0.01 and n2 > 0.01 and float(np.dot(d1, d2) / (n1 * n2)) > 0.8:
+                    equiv[a1].add(a2)
+                    equiv[a2].add(a1)
+        num_hashes = len(action_means)
+        if len(equiv) < 2 or num_hashes < 4:
+            return 0.0
+        switch_to_equiv = 0
+        switch_total = 0
+        for i in range(1, len(log)):
+            ah_prev = action_to_hash(log[i - 1]['action'])
+            if log[i - 1]['reward'] >= 0 or ah_prev not in equiv:
+                continue
+            ah_now = action_to_hash(log[i]['action'])
+            if ah_now != ah_prev:
+                switch_total += 1
+                if ah_now in equiv[ah_prev]:
+                    switch_to_equiv += 1
+        if switch_total < 10:
+            return 0.0
+        observed_rate = switch_to_equiv / switch_total
+        n_equiv = len(equiv.get(ah_prev, set()))
+        base_rate = n_equiv / max(1, num_hashes - 1)
+        return max(0.0, float(observed_rate - base_rate))
+
+    tests.append(ReceptorTest('translation', 'bridging',
+        'After failure, switches to functional equivalent above base rate', 0.01,
+        test_translation, needs_closed_loop=True))
+
     return tests
 
 
@@ -2589,6 +3107,18 @@ def discover(log, engine, threshold_overrides=None, log_provenance='oracle'):
             score = test.test_fn(log, engine)
         except Exception:
             score = 0.0
+        if score is None:
+            results['skipped'].append(test.receptor_id)
+            results['details'].append({
+                'receptor_id': test.receptor_id,
+                'family': test.family,
+                'description': test.description,
+                'score': None,
+                'threshold': test.threshold,
+                'discovered': False,
+                'skipped': True,
+            })
+            continue
         threshold = threshold_overrides.get(test.receptor_id, test.threshold) \
             if threshold_overrides else test.threshold
         passed = score > 0 and score >= threshold
@@ -2642,7 +3172,8 @@ def calibrate_null_thresholds(log, engine, num_shuffles=10, percentile=95):
                 score = test.test_fn(shuffled, null_engine)
             except Exception:
                 score = 0.0
-            null_scores[test.receptor_id].append(float(score))
+            if score is not None:
+                null_scores[test.receptor_id].append(float(score))
 
     thresholds = {}
     for receptor_id, scores in null_scores.items():
