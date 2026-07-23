@@ -1,0 +1,374 @@
+# Logic Family
+# Receptors that detect valid inference structures between propositions
+
+family_metadata:
+  name: Logic
+  description: |
+    Receptors that fire on the structural relationships between
+    propositions — not on what is being said, but on whether what
+    follows actually follows.
+
+    Distinct from Formalization (which extracts rules from observation)
+    and Mathematics (which detects necessity and proof). Logic is the
+    family that detects valid inference itself: the organism recognizes
+    that given A and B, C must hold — regardless of what A, B, and C
+    are about.
+
+    The key insight: logic is not a cultural invention taught in
+    schools. It is a receptor family that fires when inference
+    structures are valid, just as pain fires when tissue is damaged.
+    The organism that can detect "this follows" has a survival
+    advantage over one that treats every conclusion as independent
+    of its premises — because valid inference lets you act on
+    information you haven't directly observed.
+
+  evolutionary_thesis: |
+    Logic receptors emerge when the organism's environment contains
+    regularities that chain, combine, or generalize — and when acting
+    on those regularities before direct observation provides a
+    survival advantage.
+
+    An organism that detects "A causes B, B causes C, therefore A
+    causes C" without observing A->C directly can prepare for C
+    when it sees A. That preparation is the selection pressure.
+
+    The dependency structure is strict: specific inference types
+    (transitivity, conjunction, quantification) must emerge before
+    the general inference detector (it_follows) can fire, because
+    general inference is recognized by pattern across specific types.
+
+  trunk_receptor: transitivity
+  canopy_receptors: [it_follows, contradiction]
+
+---
+
+receptors:
+  - receptor_id: transitivity
+    name: Chain Inference Detection
+    family: logic
+    tier: trunk
+
+    dependencies:
+      - receptor_id: causal_chains
+        note: "Causality — must chain causal links before detecting chain validity"
+      - receptor_id: rule_extraction
+        note: "Formalization — must extract rules before chaining them"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that if A relates to B and B relates to C,
+        then A relates to C — and this holds regardless of what A, B,
+        and C are. The SVO chain: Lobster [is from] Maine [is in]
+        Northeast [is in] United States. Each link repeats the same
+        structural operation, and the chain extends validly.
+      survival_benefit: |
+        Transitive inference lets the organism act on indirect
+        relationships. If region A is dangerous and region B connects
+        to A, the organism avoids B without needing to experience A's
+        danger directly. The chain saves the cost of direct exploration.
+      metabolic_cost: medium
+      selection_pressure: |
+        Environments where indirect relationships matter — where the
+        organism can't observe every link directly and must infer
+        distal consequences from proximal observations.
+
+    selection_environments:
+      - multi_step_causal_environments
+      - spatial_chain_environments
+      - hierarchical_classification_environments
+
+    emergence_signature:
+      description: |
+        The organism acts on transitive inferences it hasn't observed
+        directly. Given A->B and B->C in the mental model, the organism
+        predicts A->C without having experienced A->C.
+      metrics:
+        - metric_name: transitive_prediction
+          measurement_method: |
+            Compare engine.chain([a, b], obs) accuracy against direct
+            engine.predict_delta(obs, c) accuracy for transitive triples.
+            Transitive prediction should approach direct prediction
+            accuracy for well-known chains.
+          expected_range: ">0.6 cosine similarity"
+          detection_threshold: 0.6
+
+    predicted_emergence_order:
+      generation_range: "80-150"
+      confidence: medium
+
+    notes: |
+      This receptor is already partially present in the mental model's
+      chain() method — but chain() is a mechanism, not a receptor.
+      The transitivity receptor fires when the organism DETECTS that
+      a chain is valid, not just when it executes one. The difference
+      is between using transitive inference and recognizing it.
+
+  - receptor_id: conjunction
+    name: Joint-Premise Inference Detection
+    family: logic
+    tier: branch
+
+    dependencies:
+      - receptor_id: transitivity
+        note: "Must detect single-link inference before multi-premise"
+      - receptor_id: multiple_hypotheses
+        note: "Must hold multiple propositions simultaneously"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that two independently true conditions
+        jointly necessitate a conclusion that neither necessitates
+        alone. It is sunny AND it is not raining — therefore the
+        ground is dry. Neither "sunny" nor "not raining" alone
+        guarantees dry ground, but together they do.
+      survival_benefit: |
+        Conjunction inference lets the organism draw conclusions from
+        combined evidence that isolated evidence can't support. Two
+        weak signals that individually mean nothing can jointly mean
+        danger — and detecting the conjunction is faster than waiting
+        for direct confirmation.
+      metabolic_cost: medium
+      selection_pressure: |
+        Environments where combined conditions matter — where the
+        relevant signal is in the combination, not in any single
+        observation.
+
+    selection_environments:
+      - multi_condition_environments
+      - environments_with_combinatorial_threats
+      - environments_where_single_signals_are_ambiguous
+
+    emergence_signature:
+      description: |
+        The organism responds differently to the conjunction of A+B
+        than to either A or B alone, in ways that reflect the logical
+        consequence of the conjunction rather than just additive
+        stimulus response.
+      metrics:
+        - metric_name: conjunction_sensitivity
+          measurement_method: |
+            Present conditions A, B, and A+B. Measure whether the
+            organism's response to A+B differs from the sum of
+            responses to A and B independently. Conjunction detection
+            = non-additive response to combined conditions.
+          expected_range: ">0.2 interaction effect"
+          detection_threshold: 0.2
+
+    predicted_emergence_order:
+      generation_range: "100-180"
+      confidence: medium
+
+  - receptor_id: quantifier
+    name: Universal-to-Particular Inference Detection
+    family: logic
+    tier: branch
+
+    dependencies:
+      - receptor_id: transitivity
+        note: "Must detect chain inference before set membership"
+      - receptor_id: categorical_compression
+        note: "Compression — must form categories before quantifying over them"
+      - receptor_id: part_whole_detection
+        note: "Organization — must detect set membership"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that a universal property applies to a
+        particular instance via set membership. Everyone has X. I am
+        in Everyone. Therefore I have X. This requires modeling the
+        relationship between a category and its members — recognizing
+        that membership in a set inherits the set's properties.
+      survival_benefit: |
+        Quantifier inference lets the organism apply general knowledge
+        to specific situations without re-learning. If all objects of
+        type X are dangerous, and this object is type X, the organism
+        avoids it without needing to experience its danger.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments with category-level regularities where individual
+        instances inherit properties of their category.
+
+    selection_environments:
+      - categorical_environments
+      - environments_with_type_level_regularities
+
+    emergence_signature:
+      description: |
+        The organism applies category-level learned responses to novel
+        instances of the category without instance-specific training.
+      metrics:
+        - metric_name: category_transfer
+          measurement_method: |
+            Train on several instances of category X. Present a novel
+            instance of X. Measure whether the organism's response
+            matches the category response without instance-specific
+            experience.
+          expected_range: ">0.5 transfer ratio"
+          detection_threshold: 0.5
+
+    predicted_emergence_order:
+      generation_range: "120-200"
+      confidence: low
+
+  - receptor_id: contradiction
+    name: Mutual Exclusion Detection
+    family: logic
+    tier: canopy
+
+    dependencies:
+      - receptor_id: conjunction
+        note: "Must detect joint premises before detecting that they can't both hold"
+      - receptor_id: conflict
+        note: "Meta-Motivational — must detect competing demands"
+      - receptor_id: doubt_detection
+        note: "Epistemic — must detect commitment-performance mismatch"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that two propositions it holds cannot
+        both be true — that their conjunction leads to an impossible
+        state. Not just that they conflict motivationally (that's the
+        conflict receptor), but that they are logically incompatible:
+        the world cannot be in a state where both hold.
+      survival_benefit: |
+        Contradiction detection forces belief revision. The organism
+        that detects "I believe A and B, but A and B can't both be
+        true" must revise at least one belief. Without this receptor,
+        the organism can hold contradictory beliefs indefinitely,
+        accumulating prediction errors without resolving them.
+
+        This connects directly to the T57 annealing result:
+        contradiction detection is the receptor that would trigger
+        deliberate certainty release on one horn of a contradiction.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments where contradictory beliefs produce costly
+        prediction failures — where the organism can't afford to
+        hold inconsistent models.
+
+    selection_environments:
+      - environments_with_mutually_exclusive_states
+      - environments_where_inconsistency_is_costly
+
+    emergence_signature:
+      description: |
+        When the organism holds two high-certainty predictions that
+        are incompatible, it initiates belief revision on at least one
+        rather than maintaining both. Measured by certainty reduction
+        on one horn following detection of incompatibility.
+      metrics:
+        - metric_name: contradiction_triggered_revision
+          measurement_method: |
+            Identify episodes where two high-certainty predictions
+            conflict. Measure whether one certainty drops within 10
+            steps of the conflict being detectable.
+          expected_range: ">30% revision rate"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "150-250"
+      confidence: low
+
+    notes: |
+      Contradiction detection is the logical receptor that most
+      directly connects to the T57 annealing mechanism. The annealing
+      result showed that releasing certainty helps resolution. The
+      contradiction receptor is what would trigger that release
+      deliberately — "these can't both be true, so I should lower
+      my confidence in at least one."
+
+      The link to the anxiety derivation (T21) is also direct:
+      contradiction produces conflict (two incompatible confident
+      predictions), conflict produces arousal, and if neither horn
+      resolves, the loop amplifies. The contradiction receptor is
+      the logical version of what the response_loop_detection
+      receptor is for arousal dynamics.
+
+  - receptor_id: it_follows
+    name: General Valid Inference Detection
+    family: logic
+    tier: canopy
+
+    dependencies:
+      - receptor_id: transitivity
+        note: "Must detect chain inference"
+      - receptor_id: conjunction
+        note: "Must detect joint-premise inference"
+      - receptor_id: quantifier
+        note: "Must detect universal-to-particular inference"
+      - receptor_id: contradiction
+        note: "Must detect mutual exclusion"
+      - receptor_id: metacognition
+        note: "Must model own processing to recognize inference patterns"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that a conclusion was necessitated by
+        prior states, regardless of which specific logical structure
+        produced it. This is the meta-receptor that fires on valid
+        inference in general — not on chains, not on conjunctions,
+        not on quantifiers, but on the shared property that makes
+        all of them valid: the conclusion could not be otherwise
+        given the premises.
+
+        This is the receptor-level mechanism for what philosophers
+        call logical consequence. The organism doesn't need to name
+        the inference type — it recognizes that the conclusion follows.
+      survival_benefit: |
+        General inference detection enables the organism to trust
+        conclusions it hasn't verified, when those conclusions
+        follow validly from premises it has verified. This is the
+        difference between an organism that must test every belief
+        independently and one that can extend its knowledge through
+        valid reasoning.
+      metabolic_cost: very_high
+      selection_pressure: |
+        Environments where the space of relevant beliefs is larger
+        than what direct observation can verify, and where acting
+        on unverified-but-valid conclusions provides advantage over
+        waiting for direct evidence.
+
+    selection_environments:
+      - large_belief_space_environments
+      - environments_requiring_inference_beyond_observation
+
+    emergence_signature:
+      description: |
+        The organism treats conclusions reached by different inference
+        types (chain, conjunction, quantifier) with similar confidence
+        when the premises are equally well-supported — indicating
+        that it recognizes validity as a property of the inference
+        structure, not of the content.
+      metrics:
+        - metric_name: inference_type_generalization
+          measurement_method: |
+            Compare confidence levels for conclusions reached via
+            different inference types (chain vs conjunction vs
+            quantifier) with equally-supported premises. General
+            valid inference detection = confidence tracks premise
+            support, not inference type.
+          expected_range: "r > 0.5 between premise certainty and conclusion certainty across types"
+          detection_threshold: 0.5
+
+    predicted_emergence_order:
+      generation_range: "250-400"
+      confidence: very_low
+
+    notes: |
+      This is one of the deepest receptors in the genome — it requires
+      all four specific inference types plus metacognition. The organism
+      must have experienced multiple kinds of valid inference, recognized
+      the pattern across them, and developed a general detector for
+      "this follows."
+
+      The connection to T50 (science as receptor phenomenon) is direct:
+      scientific reasoning requires recognizing valid inference in
+      general, not just in specific domains. The it_follows receptor
+      is a prerequisite for T60 (epistemic strategy applied to
+      novel domains).
+
+      Whether this receptor can emerge in ERTI is an open question.
+      It may require linguistic scaffolding — the ability to represent
+      propositions explicitly rather than just acting on them. If so,
+      it would be the first receptor that genuinely requires language
+      rather than just being expressible through it.

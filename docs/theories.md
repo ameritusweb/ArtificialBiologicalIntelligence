@@ -266,7 +266,20 @@ Evidence status key:
 
 ---
 
-## XX. The Novel Synthesis Claim
+## XX. Logic as Receptor Family
+
+**T64. Logic is a receptor family, not a cultural invention.** Transitivity, conjunction, quantification, contradiction, and general valid inference (it_follows) are receptors that fire on inference structure, just as pain fires on tissue damage. The organism that detects "this follows" has a survival advantage: it can act on information it hasn't directly observed.
+*Status: Proposed. Argued: genome_project/families/logic.yaml.*
+
+**T65. The it_follows receptor (general valid inference) requires all four specific inference types plus metacognition.** It is a meta-receptor that detects the shared property across transitivity, conjunction, quantification, and contradiction: the conclusion could not be otherwise given the premises. It may be the first receptor that genuinely requires linguistic scaffolding.
+*Status: Proposed. Deepest canopy in the Logic family. Argued: genome_project/families/logic.yaml.*
+
+**T66. Contradiction detection is the logical receptor that triggers the T57 annealing mechanism deliberately.** Rather than mechanical certainty decay, contradiction detection identifies when two confident predictions are incompatible and initiates targeted belief revision.
+*Status: Proposed. Connects T57 (annealing) to the Logic family. Argued: genome_project/families/logic.yaml.*
+
+---
+
+## XXI. The Novel Synthesis Claim
 
 **T63. No existing research program unifies grounded cognition, active inference, and evolutionary receptor topology into a single generative mechanism.** ABI is a novel synthesis across Barsalou, Friston, Gibson, and developmental/evolutionary perspectives.
 *Status: Proposed. Argued: whitepaper Section 10.*
@@ -277,12 +290,12 @@ Evidence status key:
 
 | Status | Count |
 |---|---|
-| Proposed | 44 |
+| Proposed | 47 |
 | Partially tested | 10 |
 | Supported | 6 |
 | Revised | 1 |
 | Falsified | 1 |
-| **Total** | **62** |
+| **Total** | **65** |
 
 Seven claims have direct experimental support from ERTI: T27-T31 (evolutionary dynamics), T26 (revised after decomposition), and T57 (annealing — the framework's first structural self-discovery). One claim directionally falsified: T55 (read-shielding accelerates resolution — the opposite was found across 6 seeds). The Epistemic family (T58-T60) is the first family whose existence was predicted by a falsification rather than by theoretical deduction alone.
 

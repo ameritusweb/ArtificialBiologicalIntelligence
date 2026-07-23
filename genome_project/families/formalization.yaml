@@ -471,6 +471,85 @@ receptors:
       If organisms can't transfer abstract structure across domains, hierarchical
       abstraction is absent.
 
+  - receptor_id: "form_010b"
+    name: "optimization"
+    family: "Formalization"
+    tier: "canopy"
+
+    description: |
+      Detect that a new solution dominates a prior solution for the same
+      problem on the dimensions the organism already cares about: fewer
+      steps, lower metabolic cost, better predicted outcome, fewer exceptions.
+
+      Not just "this works" but "this works better than what I had."
+
+      Requires maintaining competing representations simultaneously and
+      detecting dominance relationships between them. Cannot fire without
+      a stored prior solution to compare against — which means
+      multiple_hypotheses and curiosity are prerequisites, not just
+      related concepts. An organism that commits to the first working
+      solution never fires this receptor.
+
+      Connects to compression: an optimized solution is often more
+      compressed (fewer exceptions, more general coverage). The
+      optimization and compression receptors may co-fire frequently
+      enough that their co-occurrence is informative.
+
+      Bridge to mathematics: in some domains, optimal solutions are
+      provably optimal — which is where necessity_detection and
+      proof_structure enter. This receptor detects "this is better";
+      necessity_detection detects "this must be best." The optimization
+      receptor is the empirical side of what becomes proof in the
+      formal domain.
+
+    dependencies:
+      within_family:
+        - "rule_extraction"
+        - "exception_detection"
+        - "rule_revision"
+      cross_family:
+        - receptor: "multiple_hypotheses"
+          family: "Causality"
+          relationship: "Must hold competing solutions to detect dominance"
+        - receptor: "curiosity"
+          family: "Meta-Motivational"
+          relationship: "Must seek alternatives to the current solution"
+        - receptor: "compression_gain"
+          family: "Compression"
+          relationship: "Optimization often IS compression — fewer exceptions"
+        - receptor: "necessity_detection"
+          family: "Mathematics"
+          relationship: "Bridge: optimization is empirical, necessity is formal"
+
+    environmental_trigger:
+      selection_environments:
+        - "Environments with multiple viable strategies of varying efficiency"
+        - "Resource-constrained environments where metabolic cost matters"
+        - "Environments where suboptimal strategies are survivable but costly"
+      selection_pressure: |
+        Organisms that detect when a new solution dominates an old one
+        converge on better strategies faster than organisms that stick
+        with the first working solution. The metabolic savings from
+        an optimized solution compound over the organism's lifetime.
+
+    emergence_signature:
+      behavioral: "Organism abandons a working strategy for a better one it discovered"
+      neural_correlate: "Mental model stores multiple solutions per context; certainty transfers to the dominant one"
+      mental_model: "Solution replacement: old mapping certainty decreases as new mapping certainty increases, with net prediction improvement"
+
+    predicted_emergence_order:
+      roadmap_step: "After rule_revision and multiple_hypotheses"
+      generation_range: [150, 250]
+      prerequisites: "rule_revision + multiple_hypotheses + curiosity"
+
+    metabolic_cost: "High"
+
+    falsification_criteria: |
+      If organisms never abandon working strategies for better ones
+      (i.e., first-solution lock-in), optimization is absent. If strategy
+      switches happen but without net improvement in prediction accuracy
+      or metabolic cost, the switches are noise, not optimization.
+
   - receptor_id: "form_010"
     name: "theory_formation"
     family: "Formalization"
