@@ -1,0 +1,332 @@
+# Bridging Family
+# Receptors that connect recognition to action, observation to reproduction,
+# and symbol systems to each other
+
+family_metadata:
+  name: Bridging
+  description: |
+    Receptors that close the gap between what the organism recognizes
+    and what it does. Without this family, increased environmental
+    complexity produces richer receptor topology without necessarily
+    producing more capable behavior — the organism stays stuck in
+    deliberation.
+
+    The Bridging family is what makes environmental complexity
+    load-bearing for learning rather than just for recognition. If
+    the environment demands an action the organism can't execute,
+    the executability receptor fires low, which activates the
+    self-augmentation family, which develops the missing capability.
+    The tension between what the organism can recognize and what it
+    can do is the engine of capability development.
+
+    Three bridges:
+    - Mimicry: observation -> action (social learning)
+    - Executability: thought -> action (deliberation to behavior)
+    - Translation: symbol system -> symbol system (Language family,
+      cross-referenced here as the third bridge)
+
+  evolutionary_thesis: |
+    Bridging receptors emerge when the gap between recognition and
+    action becomes costly — when the organism can detect opportunities
+    or threats but can't act on them. The selection pressure is the
+    cost of the gap itself: an organism that recognizes food behind
+    a barrier but can't bridge recognition to tool-use action starves
+    in front of a solvable problem.
+
+    Mimicry emerges first because it's the cheapest bridge: copy
+    what works without understanding why. Executability emerges
+    second because it requires self-model: know what you can do
+    before committing to doing it. Together they bracket the
+    learning cycle: mimicry brings in observed behavior from outside,
+    executability pushes internal deliberation outward into action.
+
+  trunk_receptor: mimicry
+  canopy_receptors: [executability]
+
+---
+
+receptors:
+  - receptor_id: mimicry
+    name: Observed-Action Reproduction
+    family: bridging
+    tier: trunk
+
+    dependencies:
+      - receptor_id: behavioral_prediction
+        note: "Social — must predict others' actions before reproducing them"
+      - receptor_id: proprioception
+        note: "Must model own body to map observed actions onto own motor system"
+      - receptor_id: prediction_error
+        note: "Must detect mismatch between observed and self-produced action"
+
+    environmental_trigger:
+      structure: |
+        The organism detects correspondence between an observed
+        action and its own motor repertoire, and triggers reproduction
+        of that action. Not imitation with understanding — pure
+        motor matching. See action, do action.
+
+        Requires efference copy and proprioception to work: the
+        organism needs to model its own body configuration to map
+        observed actions onto its own motor system. Mirror neurons
+        fire both when observing and performing an action — the
+        mimicry receptor is the functional receptor they implement.
+      survival_benefit: |
+        Mimicry makes cultural transmission fast. Instead of every
+        organism discovering fire independently, one observes another
+        making fire and reproduces the action sequence. The survival
+        benefit is massive: the organism inherits successful behavior
+        without paying the cost of independent discovery.
+      metabolic_cost: medium
+      selection_pressure: |
+        Social environments where other agents demonstrate successful
+        behavior. The organism that can copy observed solutions
+        outperforms the organism that must discover everything
+        independently.
+
+    selection_environments:
+      - multi_agent_environments_with_demonstrable_solutions
+      - social_learning_environments
+      - environments_where_independent_discovery_is_costly
+
+    unlocks:
+      - social_learning
+      - cultural_transmission
+      - behavioral_repertoire_expansion
+
+    emergence_signature:
+      description: |
+        After observing another agent perform a novel action sequence,
+        the organism reproduces that sequence without prior training.
+        Measured by action-sequence similarity between observed and
+        reproduced behavior.
+      metrics:
+        - metric_name: reproduction_fidelity
+          measurement_method: |
+            Expose organism to NPC performing a specific action
+            sequence. Measure cosine similarity between NPC's action
+            sequence and organism's subsequent actions in similar
+            context.
+          expected_range: ">0.5 cosine similarity"
+          detection_threshold: 0.5
+
+    predicted_emergence_order:
+      generation_range: "80-150"
+      confidence: medium
+
+    notes: |
+      Mimicry is the cheapest form of social learning. It requires
+      no understanding of WHY the action works — only that it does.
+      Understanding comes later, from the organism's own experience
+      with the reproduced action. The mimicry receptor fires on
+      motor correspondence; the causal understanding develops from
+      the organism's own causal reasoning about the reproduced
+      action's outcomes.
+
+      The relationship to cultural transmission: mimicry is the
+      mechanism, cultural transmission is the outcome. A population
+      where mimicry receptors are active transmits successful
+      behaviors across generations without genetic encoding — the
+      behavior propagates through observation, not through the
+      genome.
+
+  - receptor_id: executability
+    name: Thought-to-Action Feasibility Detection
+    family: bridging
+    tier: canopy
+
+    dependencies:
+      - receptor_id: self_model
+        note: "Must model own capabilities to assess feasibility"
+      - receptor_id: self_talk
+        note: "Language — must deliberate internally before checking executability"
+      - receptor_id: planning
+        note: "Must plan actions before checking if they're executable"
+      - receptor_id: capability_change_detection
+        note: "Self-Augmentation — must detect own capabilities"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that a current thought, plan, or
+        concept has a motor translation available given the current
+        body state and environmental conditions. Not "I could do
+        this in principle" but "I can do this now."
+
+        The executability receptor operates over the current state:
+        current body configuration, current energy level, current
+        environmental affordances. It is a real-time feasibility
+        check that runs between deliberation and action.
+
+        When executability fires LOW, the organism detects the
+        implementation gap — something is blocking the translation
+        from thought to action. The gap is itself informative:
+        it tells the organism what's missing (capability, energy,
+        environmental condition, tool).
+      survival_benefit: |
+        Executability prevents two failure modes:
+        1. Endless deliberation without action (thought without
+           execution)
+        2. Premature action without feasibility (execution without
+           readiness)
+
+        The organism that checks executability before committing
+        wastes fewer resources on infeasible actions and converts
+        more deliberation into actual behavior change.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments where the gap between what the organism can
+        recognize and what it can do is variable — where sometimes
+        a recognized opportunity is immediately executable and
+        sometimes it requires preparation, tool acquisition, or
+        self-augmentation.
+
+    selection_environments:
+      - variable_affordance_environments
+      - environments_requiring_preparation_before_action
+      - tool_dependent_environments
+
+    unlocks:
+      - deliberation_to_action_bridge
+      - implementation_gap_detection
+      - self_augmentation_trigger
+
+    emergence_signature:
+      description: |
+        The organism's action latency correlates with feasibility:
+        immediately executable thoughts produce fast action, while
+        infeasible thoughts trigger preparation or environment
+        modification rather than failed attempts.
+      metrics:
+        - metric_name: feasibility_sensitive_latency
+          measurement_method: |
+            Compare action latency and success rate for executable
+            vs non-executable plans. Executability detection =
+            shorter latency + higher success for executable plans,
+            longer latency + preparation behavior for non-executable.
+          expected_range: ">30% latency difference"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "150-250"
+      confidence: low
+
+    notes: |
+      The executability receptor is what makes the theory's central
+      claim mechanistically complete. The claim: environmental
+      complexity is load-bearing for learning. The mechanism:
+
+      Environment demands action -> organism recognizes the demand
+      -> self-talk deliberates -> executability checks feasibility
+      -> if executable: implement -> world changes -> new inputs
+      -> if not executable: self-augmentation activates -> capability
+      develops -> executability re-checks -> implement
+
+      Without executability, the loop from recognition to action
+      is implicit. With it, the loop is explicit and the gap
+      between recognition and capability is a measurable signal
+      the organism can act on.
+
+      The chain: self_talk generates a thought -> executability
+      checks if it's doable now -> if yes, implementation via
+      motor output -> if no, either wait (planning), augment self
+      (self-augmentation), or modify environment (environmental
+      augmentation).
+
+      Cross-family bridge: the executability receptor connects
+      Language (self_talk), Agency (self_model, planning),
+      Self-Augmentation (capability_change_detection), and
+      Environmental Augmentation (deliberate_complexification).
+      It is the hub that routes deliberation into the correct
+      response family based on current feasibility.
+
+  - receptor_id: translation
+    name: Cross-Code Concept Mapping
+    family: bridging
+    tier: canopy
+
+    dependencies:
+      - receptor_id: naming
+        note: "Language — must have named concepts to map onto"
+      - receptor_id: referential_grounding
+        note: "Language — must verify grounding to confirm the mapping"
+      - receptor_id: causal_inference
+        note: "Must detect that unknown symbol causes known consequence"
+      - receptor_id: mimicry
+        note: "Must reproduce observed patterns before remapping them"
+
+    environmental_trigger:
+      structure: |
+        The organism encounters an unknown symbol and observes that
+        it maps to a known consequence — a receptor state it has
+        already experienced and named. The translation receptor fires
+        when the organism detects that an unknown surface form points
+        to a known referent.
+
+        Not learning a new concept, but discovering that something
+        familiar is being referred to through an unfamiliar code.
+        The mechanism: observe unknown symbol -> observe consequence
+        -> match consequence to existing mental model entry -> if
+        match, it's a translation of a known concept.
+
+        Metaphor is translation across domains rather than across
+        vocabularies: "time is money" maps temporal concepts onto
+        financial receptor states. Same mechanism, different source
+        of the unfamiliar code.
+      survival_benefit: |
+        Translation enables rapid knowledge acquisition across
+        symbol systems. An organism encountering agents with different
+        signal codes can bootstrap its local vocabulary in episodes
+        rather than generations — because the grounded concepts
+        already exist and only the labels need remapping.
+
+        This is why second languages are learned faster than first:
+        the receptor states already exist. Translation maps new
+        labels onto grounded concepts rather than building grounding
+        from scratch.
+      metabolic_cost: high
+      selection_pressure: |
+        Multi-agent environments where different agents use different
+        codes for the same environmental structure.
+
+    selection_environments:
+      - multi_agent_environments_with_different_vocabularies
+      - environments_with_novel_signal_codes
+
+    unlocks:
+      - cross_vocabulary_reasoning
+      - metaphor
+      - rapid_foreign_concept_acquisition
+
+    emergence_signature:
+      description: |
+        The organism correctly associates novel signal codes with
+        existing concepts by observing consequences.
+      metrics:
+        - metric_name: novel_code_mapping
+          measurement_method: |
+            Introduce objects responding to new emission codes the
+            organism has never used. Measure episodes until the
+            organism discovers the mapping.
+          expected_range: "<20 episodes to map 3+ novel codes"
+          detection_threshold: 20
+
+    predicted_emergence_order:
+      generation_range: "200-350"
+      confidence: low
+
+    notes: |
+      Translation completes the Bridging family's three bridges:
+        Mimicry: observation -> action
+        Executability: thought -> action
+        Translation: symbol system -> symbol system
+
+      All three are gap-closers between representational levels.
+      The family is defined by what it does: close the gap between
+      what the organism has and what it needs, whether that gap is
+      between seeing and doing, thinking and doing, or knowing in
+      one code and knowing in another.
+
+      Testable ordering prediction: mimicry should emerge before
+      both executability and translation because it requires less
+      self-model. If executability or translation emerges before
+      mimicry in any tier, the dependency structure needs revision.

@@ -30,22 +30,114 @@ family_metadata:
     it." Interaction says "the world has structure, and I can change that
     structure." That's a qualitatively different relationship.
 
-  trunk_receptor: contact_response_detection
+  trunk_receptor: response_recognition
   canopy_receptors: [composite_affordance, affordance_transfer, persistent_modification_detection]
 
 ---
 
 receptors:
-  - receptor_id: contact_response_detection
-    name: Object Responds To Contact
+  - receptor_id: response_recognition
+    name: Action-Response Pairing Detection
     family: interaction
     tier: trunk
 
     dependencies:
-      - receptor_id: controllability
-        note: "Agency — must model own actions before detecting their effects on objects"
+      - receptor_id: causal_association
+        note: "Causality — must detect that actions produce consequences"
       - receptor_id: change_detection
         note: "Observation — must detect state changes"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that something in the environment responded
+        to its action — not just that a state changed, but that the
+        change was contingent on what the organism did. I did something,
+        something noticed and responded.
+
+        This is more general than contact_response_detection (physical
+        manipulation) or other_detection (agent discrimination). It
+        fires on ANY action-response pairing regardless of modality:
+        emit a sound and something responds, move toward something
+        and it moves away, emit a signal and another organism changes
+        behavior, push an object and it moves.
+
+        The common pattern: my action produced a specific, contingent
+        response from something outside me.
+      survival_benefit: |
+        Response recognition is the foundation of all interaction.
+        Without it, the organism treats all environmental changes as
+        independent of its actions — the world just happens. With it,
+        the organism detects that it can cause things to happen, which
+        is the prerequisite for tool use, communication, social
+        interaction, and environmental manipulation.
+      metabolic_cost: low
+      selection_pressure: |
+        Any environment where the organism's actions produce
+        contingent responses from objects, agents, or environmental
+        features.
+
+    selection_environments:
+      - responsive_object_environments
+      - social_environments
+      - any_environment_with_action_contingent_feedback
+
+    unlocks:
+      - contact_response_detection
+      - sound_code_grounding
+      - social_response_detection
+      - tool_use_foundation
+
+    emergence_signature:
+      description: |
+        The organism distinguishes between environmental changes that
+        are contingent on its actions and changes that are independent.
+        Measured by: differential certainty in the mental model for
+        self-caused vs externally-caused state changes.
+      metrics:
+        - metric_name: contingency_discrimination
+          measurement_method: |
+            Compare mental model certainty for entries where the
+            organism's action preceded the state change vs entries
+            where state changes occurred without organism action
+            (null-action probe steps). Response recognition =
+            higher certainty for contingent changes.
+          expected_range: ">0.15 certainty difference"
+          detection_threshold: 0.15
+
+    predicted_emergence_order:
+      generation_range: "15-40"
+      confidence: high
+
+    notes: |
+      This is the receptor that makes the sound-code environment
+      work. The organism emits a sound pattern, an object responds.
+      Response recognition fires: I did something, something responded.
+      That pairing is what the naming receptor can stabilize into a
+      grounded symbol. Without response recognition firing first,
+      the sound pattern and the response are just two unrelated events.
+
+      It also feeds the translation receptor: when the organism
+      detects that two different signals produce the same response,
+      translation can fire on the equivalence. But it needs
+      response recognition to have established that both signals
+      produce responses at all.
+
+      Dependency chain:
+        response_recognition -> contact_response_detection (physical)
+        response_recognition -> other_detection (social)
+        response_recognition -> naming (sound-code grounding)
+        response_recognition -> translation (cross-code mapping)
+
+  - receptor_id: contact_response_detection
+    name: Object Responds To Contact
+    family: interaction
+    tier: branch
+
+    dependencies:
+      - receptor_id: response_recognition
+        note: "Must detect action-response pairings before specializing to contact"
+      - receptor_id: controllability
+        note: "Agency — must model own actions before detecting their effects on objects"
 
     environmental_trigger:
       structure: |

@@ -1,6 +1,6 @@
 # Receptor Index
 
-166 receptors across 20 families. T=trunk, B=branch, C=canopy.
+172 receptors across 21 families. T=trunk, B=branch, C=canopy.
 
 ---
 
@@ -98,7 +98,7 @@
 - [C] **moral_reasoning** — Social norm enforcement
 - [C] **nested_theory_of_mind** — Beliefs about beliefs about beliefs
 
-## Compression (12)
+## Compression (15)
 - [T] **pattern_recognition** — Detecting recurring patterns
 - [B] **chunking** — Sequence compression into units
 - [B] **categorical_compression** — Grouping by shared features
@@ -110,6 +110,9 @@
 - [C] **bias_as_compression** — Overgeneralization detection
 - [C] **analogy** — Structural mapping across domains
 - [C] **completion** — Gestalt completion detection
+- [C] **constraint_shape** — Gap geometry detection (the shape any valid filler must conform to)
+- [C] **shaped_absence** — Specific missing piece detection (the jigsaw-gap receptor)
+- [C] **missing_piece_located** — Directed-search closure (the thing I knew was missing, found)
 - [C] **analogy_receptor** — Similarity across receptor firing patterns (meta-receptor)
 
 ## Observation (8)
@@ -160,8 +163,9 @@
 - [C] **identity_continuity** — Self-persistence across transformation
 - [C] **metamorphic_planning** — Transformation-aware strategy
 
-## Interaction (6)
-- [T] **contact_response_detection** — Action changes after contact
+## Interaction (7)
+- [T] **response_recognition** — Action-response pairing detection (I did something, something responded)
+- [B] **contact_response_detection** — Object responds to physical contact specifically
 - [B] **push_affordance** — Pushability detection
 - [B] **grip_affordance** — Holdability detection
 - [C] **lever_affordance** — Force transmission detection
@@ -205,15 +209,19 @@
 - [C] **contradiction** — Mutual exclusion detection (A and B can't both be true)
 - [C] **it_follows** — General valid inference detection (the conclusion follows, regardless of type)
 
-## Language (4)
+## Language (3)
 - [T] **naming** — Concept stabilization via persistent labeling
 - [B] **self_talk** — Internal deliberation via serial named-concept activation
 - [C] **referential_grounding** — Symbol-to-receptor termination detection (does this refer to something real?)
-- [C] **translation** — Cross-code concept mapping (unknown symbol -> known consequence -> existing concept)
+
+## Bridging (3)
+- [T] **mimicry** — Observed-action reproduction (see action, do action — mirror neurons as receptor)
+- [C] **executability** — Thought-to-action feasibility detection (can I do this now?)
+- [C] **translation** — Cross-code concept mapping (unknown symbol -> known consequence -> existing concept; also: metaphor across domains)
 
 ---
 
-**Totals:** 45 trunk, 48 branch, 73 canopy = 166 receptors
+**Totals:** 47 trunk, 49 branch, 76 canopy = 172 receptors
 
 **Dependency layers:**
 - Layer 0 (single-family): ~40 receptors, emerge early

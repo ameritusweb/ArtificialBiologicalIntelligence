@@ -723,6 +723,249 @@ receptors:
       a terminal state. It is a receptor state that changes what the next cycle
       attends to.
 
+  - receptor_id: constraint_shape
+    name: Gap Geometry Detection
+    family: compression
+    tier: canopy
+
+    dependencies:
+      - receptor_id: pattern_recognition
+        note: "Must recognize patterns to detect their negative space"
+      - receptor_id: structural_invariance
+        note: "Similarity — must detect invariant structure to identify what any valid filler must preserve"
+
+    environmental_trigger:
+      structure: |
+        The organism detects the abstract contour of a constrained
+        space — the shape that any valid filler, answer, or solution
+        must conform to, before finding the filler itself.
+
+        Two firing conditions, same operation:
+        1. Shape of what's missing: a lock that knows the shape of
+           the key it needs without having seen the key. Not just
+           absence — the geometry of the absence.
+        2. Shape of what's necessary: a solution space with a specific
+           form that any valid answer must satisfy. "The proof must
+           proceed by contradiction" — the shape of the necessary
+           solution detected before the solution itself.
+
+        Both are detecting the geometry of a constrained space.
+        The gap has a shape. The necessity has a shape. The receptor
+        fires on the shape itself, independent of what fills it.
+      survival_benefit: |
+        Constraint-shape detection makes search dramatically more
+        efficient. Instead of testing every candidate against the
+        full pattern, the organism eliminates candidates that don't
+        match the gap shape. It is the difference between trying
+        every key and knowing you need a key with three ridges.
+      metabolic_cost: medium
+      selection_pressure: |
+        Environments where patterns have constrained completions —
+        where not everything can fill a gap and detecting the
+        constraint saves search cost.
+
+    selection_environments:
+      - constrained_completion_environments
+      - environments_where_solution_spaces_have_structure
+
+    unlocks:
+      - shaped_absence
+      - directed_search_refinement
+      - necessity_detection
+
+    emergence_signature:
+      description: |
+        The organism's search behavior after detecting an incomplete
+        pattern is constrained — it avoids candidates that don't
+        match the gap shape, rather than testing all candidates.
+      metrics:
+        - metric_name: search_constraint
+          measurement_method: |
+            After an incomplete pattern is detected, measure whether
+            the organism's exploration avoids candidates inconsistent
+            with the gap shape. Constraint detection = lower rate of
+            testing impossible candidates.
+          expected_range: ">30% reduction in impossible-candidate testing"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "90-160"
+      confidence: medium
+
+    notes: |
+      Constraint_shape sits between completion and shaped_absence
+      in the dependency chain. Completion detects when a pattern
+      closes. Constraint_shape detects the geometry of the gap
+      before it closes. Shaped_absence uses that geometry to
+      direct search toward what would fit.
+
+      Updated chain: pattern_recognition -> completion ->
+      constraint_shape -> shaped_absence -> missing_piece_located
+
+      Also a prerequisite for necessity_detection in the Mathematics
+      family: you can detect that something MUST be true only if
+      you can detect the shape of the constraint space that forces
+      it. Necessity is constraint_shape applied to logical structure.
+
+  - receptor_id: shaped_absence
+    name: Specific Missing Piece Detection
+    family: compression
+    tier: canopy
+
+    dependencies:
+      - receptor_id: constraint_shape
+        note: "Must detect gap geometry before detecting specific missing piece"
+      - receptor_id: completion
+        note: "Must know what complete looks like to detect what's missing"
+      - receptor_id: absence_observation
+        note: "Must detect absence in general before detecting specific shaped absence"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that a pattern is incomplete AND knows
+        what shape the missing piece has. Not just "something's wrong"
+        (that's prediction error) or "something's not here" (that's
+        absence_observation). Shaped absence is: "this specific thing
+        is missing, and I know what it would look like if it were
+        here."
+
+        The jigsaw-gap receptor. The tip-of-the-tongue receptor.
+        The proof-with-a-hole receptor. Each fires on a specific
+        shaped absence, not on generic incompleteness.
+      survival_benefit: |
+        Shaped absence turns exploration into directed search. Generic
+        curiosity says "explore." Shaped absence says "search for
+        THIS specific thing." Directed search is orders of magnitude
+        more efficient than undirected exploration.
+      metabolic_cost: medium
+      selection_pressure: |
+        Environments where completing patterns has survival value
+        and the missing piece is findable through directed search
+        rather than random exploration.
+
+    selection_environments:
+      - multi_step_problem_environments
+      - environments_with_findable_missing_components
+      - environments_where_directed_search_beats_random_exploration
+
+    unlocks:
+      - directed_search
+      - hypothesis_generation
+      - missing_piece_located
+
+    emergence_signature:
+      description: |
+        After detecting an incomplete pattern, the organism's search
+        behavior becomes targeted — visiting locations or trying
+        actions that match the predicted shape of the missing piece,
+        rather than exploring randomly.
+      metrics:
+        - metric_name: search_directedness
+          measurement_method: |
+            After an incomplete pattern is detected, measure whether
+            the organism's subsequent exploration is correlated with
+            the predicted shape of the missing piece (via mental
+            model query for what would complete the pattern).
+          expected_range: ">0.3 correlation between search and predicted completion"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "100-180"
+      confidence: medium
+
+    notes: |
+      The distinction from curiosity is precision. Curiosity fires
+      on uncertainty in general — "I don't know what's over there."
+      Shaped absence fires on a specific gap — "I know exactly what
+      should be here and it isn't." The search triggered by shaped
+      absence has a target; the search triggered by curiosity doesn't.
+
+      The something's-missing / missing-piece-located pair form a
+      directed search cycle that curiosity and self-talk operate
+      within. The cycle is: shaped_absence opens the search with a
+      target shape -> curiosity/self-talk drive the search ->
+      missing_piece_located closes it when the target is found.
+
+  - receptor_id: missing_piece_located
+    name: Directed-Search Closure Detection
+    family: compression
+    tier: canopy
+
+    dependencies:
+      - receptor_id: shaped_absence
+        note: "Must detect shaped absence before detecting its resolution"
+      - receptor_id: completion
+        note: "Must detect pattern closure"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that something specifically fills the
+        shaped absence that the shaped_absence receptor identified.
+        Not generic completion — specific satisfaction of a directed
+        search. The piece that fits the hole.
+
+        Requires that shaped_absence fired first. You can only
+        locate a missing piece if you already knew it was missing
+        and knew what shape it needed to be.
+      survival_benefit: |
+        Missing-piece-located provides a stronger learning signal
+        than generic completion because the search was directed.
+        The organism knows not just that a pattern closed, but that
+        the specific thing it was looking for was found. This
+        strengthens the association between the search strategy
+        and the outcome — directed search that succeeds reinforces
+        the shaped_absence receptor that initiated it.
+      metabolic_cost: low
+      selection_pressure: |
+        Environments where directed searches sometimes succeed —
+        where the missing piece is findable and the organism's
+        model of what's missing is accurate enough to guide search.
+
+    selection_environments:
+      - solvable_problem_environments
+      - environments_where_model_accuracy_matters
+
+    unlocks:
+      - search_strategy_reinforcement
+      - model_validation
+      - satisfaction_from_directed_discovery
+
+    emergence_signature:
+      description: |
+        After a directed search succeeds (shaped absence -> search
+        -> discovery), the organism shows stronger learning (faster
+        certainty increase, sharper behavioral transition) than
+        after accidental discoveries.
+      metrics:
+        - metric_name: directed_vs_accidental_learning
+          measurement_method: |
+            Compare certainty increase rate after discoveries that
+            followed a shaped_absence signal vs discoveries that
+            occurred without prior shaped_absence. Directed search
+            closure should produce faster learning.
+          expected_range: ">1.5x certainty increase rate"
+          detection_threshold: 1.5
+
+    predicted_emergence_order:
+      generation_range: "120-200"
+      confidence: medium
+
+    notes: |
+      This is the receptor that fires when a scientist finds the
+      confirming evidence for a hypothesis. Not just "I was right"
+      (accuracy receptor). Specifically: "this is the thing I knew
+      was missing, and here it is." The satisfaction is different
+      because the search was directed.
+
+      The dependency chain tells the evolutionary story:
+        pattern_recognition -> completion -> shaped_absence ->
+        missing_piece_located
+
+      Each receptor is completion running at a different level:
+        completion: the gestalt closes
+        shaped_absence: the gestalt should close but hasn't
+        missing_piece_located: the specific gap in the gestalt fills
+
   - receptor_id: analogy_receptor
     name: Structural Similarity Across Receptor Firing Patterns
     family: compression
