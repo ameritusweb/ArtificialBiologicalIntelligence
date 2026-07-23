@@ -67,8 +67,34 @@ def compute_obs_indices(num_limbs=6, num_segments=1, dims=2, continuous_actions=
     concept_start = conflict_start + 3
     grip_start = concept_start + 2
     obs_dim = grip_start + total_limbs + 3
+    L = total_limbs
+    pain_start = 0
+    endorphin_start = L
+    temperature_start = 2 * L
+    chemical_start = 3 * L
+    pressure_start = 4 * L
+    fatigue_start = 5 * L
+    energy_idx = 6 * L
+    ta_start = energy_idx + 1
+    gain_start = ta_start + L
+    pain_memory_start = gain_start + L
+    distant_pain_start = pain_memory_start + 25
+    distant_endo_start = distant_pain_start + 8
+    pe_start = distant_endo_start + 8
     return {
-        'energy': 6 * total_limbs,
+        'pain': (pain_start, pain_start + L),
+        'endorphin': (endorphin_start, endorphin_start + L),
+        'temperature': (temperature_start, temperature_start + L),
+        'chemical': (chemical_start, chemical_start + L),
+        'pressure': (pressure_start, pressure_start + L),
+        'fatigue': (fatigue_start, fatigue_start + L),
+        'energy': energy_idx,
+        'ta_start': ta_start,
+        'gain_start': gain_start,
+        'pain_memory_start': pain_memory_start,
+        'distant_pain_start': distant_pain_start,
+        'distant_endo_start': distant_endo_start,
+        'pe_start': pe_start,
         'conflict': conflict_start,
         'core_obs_dim': core_obs_dim,
         'obs_dim': obs_dim,
@@ -76,7 +102,13 @@ def compute_obs_indices(num_limbs=6, num_segments=1, dims=2, continuous_actions=
         'num_continuous': num_continuous,
         'mm_start': mm_start,
         'pattern_start': pattern_start,
+        'proprio_start': proprio_start,
+        'limb_dev_start': limb_dev_start,
+        'efference_start': efference_start,
         'agency_start': agency_start,
+        'obj_start': obj_start,
+        'npc_start': npc_start,
+        'opt_start': opt_start,
         'concept_start': concept_start,
         'grip_start': grip_start,
         'total_limbs': total_limbs,

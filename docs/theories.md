@@ -259,9 +259,16 @@ Evidence status key:
 
 ---
 
-## XIX. The Novel Synthesis Claim
+## XIX. Optimization as Receptor
 
-**T61. No existing research program unifies grounded cognition, active inference, and evolutionary receptor topology into a single generative mechanism.** ABI is a novel synthesis across Barsalou, Friston, Gibson, and developmental/evolutionary perspectives.
+**T62. Optimization is a receptor, not just a process.** It fires when the organism detects that a new solution dominates a prior solution for the same problem — fewer steps, lower cost, better outcomes, fewer exceptions. Requires maintaining competing solutions (multiple_hypotheses) and detecting dominance. An organism that commits to the first working solution never fires this receptor. Bridges to mathematics: optimization detects "this is better"; necessity_detection detects "this must be best."
+*Status: Proposed. Argued: genome_project/families/formalization.yaml (form_010b).*
+
+---
+
+## XX. The Novel Synthesis Claim
+
+**T63. No existing research program unifies grounded cognition, active inference, and evolutionary receptor topology into a single generative mechanism.** ABI is a novel synthesis across Barsalou, Friston, Gibson, and developmental/evolutionary perspectives.
 *Status: Proposed. Argued: whitepaper Section 10.*
 
 ---
@@ -270,12 +277,12 @@ Evidence status key:
 
 | Status | Count |
 |---|---|
-| Proposed | 42 |
+| Proposed | 44 |
 | Partially tested | 10 |
 | Supported | 6 |
 | Revised | 1 |
 | Falsified | 1 |
-| **Total** | **60** |
+| **Total** | **62** |
 
 Seven claims have direct experimental support from ERTI: T27-T31 (evolutionary dynamics), T26 (revised after decomposition), and T57 (annealing — the framework's first structural self-discovery). One claim directionally falsified: T55 (read-shielding accelerates resolution — the opposite was found across 6 seeds). The Epistemic family (T58-T60) is the first family whose existence was predicted by a falsification rather than by theoretical deduction alone.
 
