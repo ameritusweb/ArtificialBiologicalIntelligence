@@ -79,7 +79,7 @@ The key principle: **capability without receptor is latent and never gets used.*
 
 **Probe-Gated Inheritance**: Topology bias is gated by a constitutional probe budget. The organism must actually probe and explore the environment to validate inherited priors — inheritance accelerates but doesn't bypass the need for grounded experience. The probe rate floor lives outside the genome and cannot be selected to zero.
 
-**Genome Project**: The formal specification of the receptor search space — 154 receptors across 18 families. The periodic table of cognitive capabilities. Each receptor entry specifies what environmental structure it detects, what survival cost the organism pays for missing it, and what must already exist before it can emerge. The genome project is load-bearing on environmental design: the 154 receptors are 154 environmental design requirements.
+**Genome Project**: The formal specification of the receptor search space — 166 receptors across 20 families. The periodic table of cognitive capabilities. Each receptor entry specifies what environmental structure it detects, what survival cost the organism pays for missing it, and what must already exist before it can emerge. The genome project is load-bearing on environmental design: the 166 receptors are 166 environmental design requirements.
 
 **Invariant Trunk**: The set of receptors that emerge in every environment regardless of tier or complexity. 18 receptors are invariant across all 8 physics-world tiers — these are the strongest candidates for universal cognitive primitives.
 
@@ -140,7 +140,7 @@ A 6-limbed organism in a 2D liquid environment learns to navigate pain/endorphin
 - Eliminates the augmentation pipeline's leakage class entirely
 - 7% exploration + 2% null-action probes for counterfactual variation
 
-### The Genome Project (18 families, 154 receptors)
+### The Genome Project (20 families, 166 receptors)
 A formal specification of the receptor search space — the periodic table of cognitive capabilities:
 
 | Family | Receptors | From -> To |
@@ -164,6 +164,8 @@ A formal specification of the receptor search space — the periodic table of co
 | Sequential Processing | 5 | Stage prediction -> prediction architecture awareness |
 | Epistemic | 4 | Belief detection -> doubt -> counterfactual salience -> epistemic strategy |
 | Perception | 5 | Staged processing -> response loop detection |
+| Logic | 6 | Semantic relations -> transitivity -> conjunction -> quantifier -> contradiction -> it_follows |
+| Language | 4 | Naming -> self-talk -> referential grounding -> translation |
 
 ### Key Empirical Results
 
@@ -320,7 +322,7 @@ abi/
 |   +-- grounding.py              # Grounded language dictionary
 |   +-- llm_grounding.py          # LLM grounding bridge
 +-- genome_project/               # Receptor search space specification
-|   +-- families/                 # 18 receptor family YAMLs (154 receptors)
+|   +-- families/                 # 20 receptor family YAMLs (166 receptors)
 |   +-- schemas/                  # Receptor schema definition
 |   +-- docs/                     # Cross-family dependencies, overview
 +-- theories.md                   # 62 indexed theoretical claims with status
