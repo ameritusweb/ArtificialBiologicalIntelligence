@@ -61,7 +61,7 @@ class ThinkingTree:
     """
 
     def __init__(self, num_actions, max_simulations=32, max_depth=4,
-                 explore_constant=1.4):
+                 explore_constant=1.4, ema_alpha=0.05):
         self.num_actions = num_actions
         self.max_simulations = max_simulations
         self.max_depth = max_depth
@@ -70,6 +70,10 @@ class ThinkingTree:
         self._last_analysis = np.zeros(NUM_THINKING_CHANNELS)
         self._cached_candidates = None
         self._cache_store_count = -1
+        self._ema_mean = np.zeros(NUM_THINKING_CHANNELS)
+        self._ema_var = np.ones(NUM_THINKING_CHANNELS)
+        self._ema_alpha = ema_alpha
+        self._ema_count = 0
 
     def think(self, obs, engine, candidate_actions=None):
         """Run MCTS from current observation. Returns analysis channels."""
@@ -95,7 +99,8 @@ class ThinkingTree:
             value = self._rollout(node, engine, candidate_actions)
             self._backpropagate(node, value)
 
-        self._last_analysis = self._analyze()
+        raw = self._analyze()
+        self._last_analysis = self._ema_normalize(raw)
         return self._last_analysis
 
     def get_best_action(self):
@@ -255,6 +260,31 @@ class ThinkingTree:
         channels[5] = min(1.0, max_depth / max(self.max_depth, 1))
 
         return np.clip(channels, -1.0, 1.0)
+
+    def _ema_normalize(self, raw):
+        """Normalize raw analysis channels against running EMA statistics.
+
+        Stabilizes the distribution across mental model rebuilds:
+        the policy sees z-scored channels whose scale doesn't shift
+        when the mental model changes, only when the organism's
+        thinking genuinely changes.
+        """
+        a = self._ema_alpha
+        self._ema_count += 1
+
+        if self._ema_count == 1:
+            self._ema_mean = raw.copy()
+            self._ema_var = np.ones(NUM_THINKING_CHANNELS) * 0.1
+            return np.zeros(NUM_THINKING_CHANNELS)
+
+        self._ema_mean = (1 - a) * self._ema_mean + a * raw
+        diff = raw - self._ema_mean
+        self._ema_var = (1 - a) * self._ema_var + a * (diff * diff)
+
+        std = np.sqrt(self._ema_var + 1e-8)
+        normalized = diff / std
+
+        return np.clip(normalized, -2.0, 2.0)
 
     def _tree_depth(self, node, current=0):
         if not node.children:

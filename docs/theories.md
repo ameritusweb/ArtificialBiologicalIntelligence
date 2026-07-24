@@ -371,7 +371,10 @@ Evidence status key:
 **T92. Topology awareness is a receptor that fires when the organism's own cognitive repertoire changes.** Not a single thought, not a single prediction, but the detection that the set of active receptors has shifted — a new sensitivity emerged, an old one faded, or the pattern of co-activation reorganized. The topology vector is the fossil record; topology_awareness is the organism reading its own fossil record in real time. This is the receptor that makes the self-modifying loop (T83) conscious: without it, the organism gets smarter but doesn't know it. With it, the organism can direct its own cognitive development.
 *Status: Proposed. Argued: genome_project/families/epistemic.yaml, theories.md.*
 
-**T93. Topology awareness is a second-order receptor that reads the output of other receptors.** It operates on the distribution of internal channel activations — not their values at a single timestep, but the pattern of which ones are active and how that pattern has changed. This makes it the first receptor whose input is the topology itself, not the world or the organism's processing of the world.
+**T93. Contextual signal interpretation is a receptor that fires when a signal's meaning depends on hidden state.** Not "is this signal present" but "is this signal meaningful given current context." This is situational awareness: the organism conditions its response on inferred latent state, not on the signal alone. First novel receptor — emerged in generation 0 of deep time before the genome specified it. The genome entry exists because the organism told us it should.
+*Status: Supported (emerged in deep time gen 0 as novel receptor). Argued: genome_project/families/observation.yaml.*
+
+**T94. Topology awareness is a second-order receptor that reads the output of other receptors.** It operates on the distribution of internal channel activations — not their values at a single timestep, but the pattern of which ones are active and how that pattern has changed. This makes it the first receptor whose input is the topology itself, not the world or the organism's processing of the world.
 *Status: Proposed. Argued: genome_project/families/epistemic.yaml.*
 
 ---
@@ -389,10 +392,10 @@ Evidence status key:
 |---|---|
 | Proposed | 72 |
 | Partially tested | 10 |
-| Supported | 6 |
+| Supported | 7 |
 | Revised | 1 |
 | Falsified | 1 |
-| **Total** | **90** |
+| **Total** | **91** |
 
 Seven claims have direct experimental support from ERTI: T27-T31 (evolutionary dynamics), T26 (revised after decomposition), and T57 (annealing — the framework's first structural self-discovery). One claim directionally falsified: T55 (read-shielding accelerates resolution — the opposite was found across 6 seeds). The Epistemic family (T58-T60) is the first family whose existence was predicted by a falsification rather than by theoretical deduction alone. The Thinking Substrate section (T78-T85) identifies MCTS as the mechanism that makes metacognition tractable and the receptor topology as the unit that makes the self-modifying loop possible.
 
