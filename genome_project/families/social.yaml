@@ -27,7 +27,7 @@ family_metadata:
     insight that the self-model template can be reused for other-modeling.
 
   trunk_receptor: other_detection
-  canopy_receptors: [nested_theory_of_mind, cultural_transmission, moral_reasoning]
+  canopy_receptors: [nested_theory_of_mind, cultural_transmission, moral_reasoning, compliance_detection, instruction_source_discrimination]
 
 ---
 
@@ -719,3 +719,226 @@ receptors:
       This is where values become social. Moral reasoning is value hierarchy
       + empathy + social learning, producing group-level behavioral norms.
       The foundation of human morality stated mechanistically.
+
+  - receptor_id: instruction_detection
+    name: Agentive Directive Recognition
+    family: social
+    tier: branch
+
+    dependencies:
+      - receptor_id: intention_recognition
+        note: "Must detect agent intent before detecting that intent is directed at self"
+      - receptor_id: theory_of_mind
+        note: "Must model that the agent expects a specific response"
+      - receptor_id: other_detection
+        note: "Must distinguish agents from environment"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that an environmental signal is agentive,
+        directed at it specifically, and action-prescriptive. Not just
+        "this agent is doing something" (behavioral_prediction) or
+        "this agent wants something" (intention_recognition) but
+        "this agent is telling me to do something."
+
+        The firing condition: another agent emits a signal that
+        (a) is contingent on the organism's state or position,
+        (b) encodes an action the organism could take, and
+        (c) the agent's behavior indicates expectation of compliance.
+      survival_benefit: |
+        Instructions enable teaching as distinct from observational
+        learning. An organism that can detect and follow legitimate
+        instructions accesses knowledge it couldn't acquire through
+        its own experience — where the pain sources are, when the
+        predator sweeps, which zone is safe. The survival benefit
+        is borrowed experience: another agent's knowledge transmitted
+        through directed signals rather than imitation.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments where another agent knows something the organism
+        doesn't, and where that knowledge is survival-critical. The
+        deceptive NPC creates counter-pressure: following instructions
+        from unreliable sources is costly.
+
+    selection_environments:
+      - environments_with_knowledgeable_agents
+      - environments_with_asymmetric_information
+      - environments_where_instruction_following_is_survival_relevant
+
+    emergence_signature:
+      description: |
+        The organism responds differently to NPC signals that are
+        contingent on the organism's position (directed) vs signals
+        that are emitted regardless (broadcast). Behavioral marker:
+        compliance rate is higher for contingent signals from trusted
+        NPCs than for broadcast signals.
+      metrics:
+        - metric_name: directed_signal_discrimination
+          measurement_method: |
+            Compare organism response to NPC signals emitted when
+            the organism is nearby and facing the NPC (directed) vs
+            signals emitted regardless of organism position (broadcast).
+            Instruction detection = differential response rate.
+          expected_range: ">0.2 discrimination"
+          detection_threshold: 0.2
+
+    predicted_emergence_order:
+      generation_range: "150-300"
+      confidence: low
+
+    notes: |
+      Distinct from mimicry (learns from watching), simplified_shared_signals
+      (shared vocabulary), and intention_recognition (what do they want).
+      Instructions are specifically: another agent prescribing behavior
+      at you, with expectation of compliance. This makes teaching possible
+      as a cognitive operation distinct from observational learning.
+
+  - receptor_id: compliance_detection
+    name: Instruction-Following Self-Detection
+    family: social
+    tier: canopy
+
+    dependencies:
+      - receptor_id: instruction_detection
+        note: "Must detect instructions before detecting own compliance"
+      - receptor_id: controllability
+        note: "Must track own agency to detect when actions are externally driven"
+      - receptor_id: self_model
+        note: "Must model own behavior to detect that it was directed"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that its own action was determined by
+        another agent's directive rather than by its own receptor
+        cascade. Not "I detected an instruction" but "I followed it."
+        This is the social version of the agency/controllability
+        distinction: how much of my action was caused by my own
+        internal state vs another agent's instruction?
+
+        The firing condition: the organism took an action, the action
+        matches a recently detected instruction, and the organism's
+        own receptor state (without the instruction) would have
+        predicted a different action.
+      survival_benefit: |
+        Compliance detection enables the organism to learn from the
+        outcomes of instruction-following specifically. "I followed
+        that instruction and it led to pain" updates the trust model
+        differently than "I acted on my own and got pain." Without
+        compliance detection, the organism can't attribute outcomes
+        to instruction-following vs self-directed action.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments where instruction-following has different
+        consequences than self-directed action, and where attributing
+        outcomes correctly is adaptive.
+
+    selection_environments:
+      - environments_with_mixed_reliable_unreliable_instructors
+      - environments_where_compliance_attribution_matters
+
+    emergence_signature:
+      description: |
+        After following an instruction that leads to a bad outcome,
+        the organism reduces compliance to that source faster than
+        it would reduce a self-directed behavior that led to the
+        same outcome. The organism attributes the bad outcome to
+        the instruction, not to its own decision-making.
+      metrics:
+        - metric_name: compliance_attribution
+          measurement_method: |
+            Compare trust update rate after bad outcomes from
+            instruction-following vs bad outcomes from self-directed
+            action. Compliance detection = faster trust reduction
+            for instruction-sourced failures.
+          expected_range: ">1.5x attribution speed"
+          detection_threshold: 1.5
+
+    predicted_emergence_order:
+      generation_range: "200-400"
+      confidence: low
+
+    notes: |
+      The self-model question: "did I do this because I decided to,
+      or because I was told to?" An organism without compliance
+      detection can follow instructions but can't learn from the
+      distinction between self-directed and instruction-directed
+      outcomes. With it, the organism builds a richer model of
+      when to comply and when to override — the foundation for
+      autonomy in a social context.
+
+  - receptor_id: instruction_source_discrimination
+    name: Instructor Reliability Assessment
+    family: social
+    tier: canopy
+
+    dependencies:
+      - receptor_id: instruction_detection
+        note: "Must detect instructions"
+      - receptor_id: compliance_detection
+        note: "Must detect own compliance to track outcomes"
+      - receptor_id: trust
+        note: "Must have trust tracking infrastructure"
+      - receptor_id: deception_detection
+        note: "Must detect when sources are unreliable"
+
+    environmental_trigger:
+      structure: |
+        The organism discriminates between instruction sources based
+        on the reliability of their past directives. Not general trust
+        (the trust receptor handles that) but specifically: when this
+        agent tells me to do something, does following it lead to good
+        outcomes? Different agents' instructions are tracked separately.
+
+        Integrates instruction_detection + compliance_detection +
+        trust history into a per-source reliability model for
+        directives specifically.
+      survival_benefit: |
+        In an environment with both cooperative and deceptive NPCs
+        issuing instructions, the organism that follows the cooperative
+        NPC's directives and ignores the deceptive NPC's directives
+        outperforms both the organism that follows all instructions
+        and the organism that ignores all instructions. Source
+        discrimination is the optimal strategy.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments with multiple instruction sources of varying
+        reliability. The T2 environment with cooperative and deceptive
+        NPCs creates this pressure directly.
+
+    selection_environments:
+      - environments_with_cooperative_and_deceptive_instructors
+      - multi_agent_environments_with_asymmetric_reliability
+
+    emergence_signature:
+      description: |
+        The organism's compliance rate differs by source: high for
+        historically reliable instructors, low for historically
+        unreliable ones. The discrimination is based on instruction
+        outcome history, not on general proximity or emission pattern.
+      metrics:
+        - metric_name: per_source_compliance_rate
+          measurement_method: |
+            Track compliance rate separately for each NPC. After
+            sufficient experience with both reliable and unreliable
+            instructors, measure compliance rate difference.
+            Source discrimination = reliable compliance rate minus
+            unreliable compliance rate.
+          expected_range: ">0.3 rate difference"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "250-450"
+      confidence: very_low
+
+    notes: |
+      Completes the instruction chain: detect (instruction_detection),
+      follow (compliance_detection), evaluate the source
+      (instruction_source_discrimination). Together they make teaching
+      a sophisticated social interaction where the organism actively
+      selects which teachers to learn from based on their track record.
+
+      The deceptive NPC in T2+ is the selection pressure that makes
+      this receptor load-bearing. Without deception, source
+      discrimination is unnecessary — all instructors are reliable.
+      With deception, discriminating sources is the difference between
+      learning useful knowledge and being lured into pain.

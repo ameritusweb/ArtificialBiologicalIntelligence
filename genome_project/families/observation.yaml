@@ -623,6 +623,103 @@ receptors:
       anomalies and persistent ones (responds the same to noise and
       signal), significance detection is absent.
 
+  # CANOPY: Context-conditioned observation
+
+  - receptor_id: "obs_012"
+    name: "contextual_signal_interpretation"
+    family: "Observation"
+    tier: "canopy"
+
+    description: |
+      Detect that a signal's meaning depends on context the organism
+      cannot directly observe. Not "is this signal present" but "is
+      this signal meaningful given the current hidden state."
+
+      The organism stops treating a modality as a fixed signal and
+      starts treating it as a signal whose interpretation depends on
+      a latent variable. When the hidden confounder is in state A,
+      high pain means flee. In state B, the same pain level is a
+      transient artifact and the optimal response differs.
+
+      This is situational awareness in the strict sense: detecting
+      what's happening in a way that's conditioned on the broader
+      context that determines what the happening means.
+
+      FIRST NOVEL RECEPTOR — emerged in generation 0 of the deep time
+      overnight run as a cross-modal chemical→pain association that
+      the genome didn't anticipate. The organism evolved contextual
+      pain interpretation before the genome specified it. This entry
+      is the genome catching up to the organism.
+
+    dependencies:
+      within_family:
+        - "statistical_anomaly"
+        - "selective_observation"
+      cross_family:
+        - receptor: "hidden_confounder_detection"
+          family: "Causality"
+          relationship: "Must detect that a hidden variable exists before interpreting signals relative to it"
+        - receptor: "prediction"
+          family: "Foundation"
+          relationship: "Must predict signal outcomes to detect context-dependence"
+
+    environmental_trigger:
+      selection_environments:
+        - "Environments with stochastic hidden confounders modulating signal meaning"
+        - "Environments where naive signal response is suboptimal"
+        - "Non-stationary environments where the same signal means different things at different times"
+      selection_pressure: |
+        Organisms that condition their response on inferred hidden state
+        outperform organisms that treat signals as context-independent.
+        The selection pressure is the cost of wrong responses when the
+        hidden confounder changes state — fleeing from transient pain
+        wastes energy; ignoring genuine pain is fatal.
+
+    emergence_signature:
+      behavioral: |
+        Organism's response to the same signal value differs depending
+        on recent history of other modalities (which encode the hidden
+        state). Behavioral marker: partial correlation between signal
+        response and cross-modal context, after controlling for signal
+        level alone.
+      neural_correlate: "Mental model entries conditioned on multi-modal context"
+      mental_model: |
+        Entries for the same action hash have different deltas depending
+        on context embedding — the store contains context-specific
+        predictions for the same signal, not one averaged prediction.
+
+    predicted_emergence_order:
+      roadmap_step: "Emerged in deep time gen 0 under stochastic hidden confounders"
+      generation_range: [0, 50]
+      prerequisites: "Stochastic hidden confounder in environment (T4+)"
+
+    metabolic_cost: "Moderate"
+
+    falsification_criteria: |
+      If organism responds identically to the same signal level
+      regardless of cross-modal context (no interaction effect between
+      signal and context), contextual signal interpretation is absent.
+
+    notes: |
+      This receptor was not designed. It was discovered by the novel
+      receptor detector in generation 0 of the 50-generation overnight
+      run. The organism developed a cross-modal chemical→pain
+      association with novelty score 0.770 that didn't match any
+      genome entry. The pain receptor test dropped out simultaneously —
+      not because the organism stopped caring about pain, but because
+      it developed a more sophisticated relationship to pain that the
+      simple presence/absence test couldn't detect.
+
+      This is the first concrete case of the organism outpacing its
+      specification (T83). The genome entry exists because the organism
+      told us it should.
+
+      The general principle: any signal whose meaning depends on hidden
+      state requires this receptor. Pain-in-context, endorphin-in-context,
+      chemical-in-context are all instances. The receptor is the general
+      capacity for context-conditioned signal interpretation — what
+      everyday language calls situational awareness.
+
 cross_family_dependencies:
   provides_to:
     - family: "All families"
@@ -655,6 +752,11 @@ notes: |
   4. statistical_anomaly (distributional shift detection)
   5. rarity_detection (low base rate, high information content)
   6. significance_detection (commitment threshold: noticed → mattering)
+  7. contextual_signal_interpretation (signal meaning depends on hidden state — situational awareness)
+
+  contextual_signal_interpretation is the first genome entry that exists because the organism
+  discovered it, not because the designer specified it. The novel receptor detector found it
+  in generation 0 of the deep time overnight run.
 
   The rest are observational mechanisms already present but distributed across families.
 

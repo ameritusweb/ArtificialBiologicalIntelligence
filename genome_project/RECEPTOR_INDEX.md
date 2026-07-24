@@ -1,6 +1,6 @@
 # Receptor Index
 
-179 receptors across 21 families. T=trunk, B=branch, C=canopy.
+183 receptors across 22 families. T=trunk, B=branch, C=canopy.
 
 ---
 
@@ -82,7 +82,7 @@
 - [C] **ritual_formation** — Stabilized regulatory patterns
 - [C] **pattern_based_resolution** — Stored patterns as regulatory tools
 
-## Social (14)
+## Social (17)
 - [T] **other_detection** — Agent vs environment discrimination
 - [B] **behavioral_prediction** — Anticipating other agents' actions
 - [B] **predictability_mismatch** — Detecting when agents become unpredictable
@@ -90,6 +90,7 @@
 - [B] **intention_recognition** — Goal attribution to others
 - [B] **belief_attribution** — Others can have false beliefs
 - [B] **self_model_applied_to_others** — Self-model template applied to NPCs
+- [B] **instruction_detection** — Agentive directive recognition (another agent is telling me to do something)
 - [C] **perspective_taking** — Viewpoint simulation
 - [C] **theory_of_mind** — Recursive belief attribution
 - [C] **social_learning** — Learning by observation
@@ -97,6 +98,8 @@
 - [C] **deception_detection** — Recognizing intentional false signaling
 - [C] **moral_reasoning** — Social norm enforcement
 - [C] **nested_theory_of_mind** — Beliefs about beliefs about beliefs
+- [C] **compliance_detection** — Detecting own instruction-following vs self-directed action
+- [C] **instruction_source_discrimination** — Per-source reliability tracking for directives
 
 ## Compression (15)
 - [T] **pattern_recognition** — Detecting recurring patterns
@@ -115,7 +118,7 @@
 - [C] **missing_piece_located** — Directed-search closure (the thing I knew was missing, found)
 - [C] **analogy_receptor** — Similarity across receptor firing patterns (meta-receptor)
 
-## Observation (11)
+## Observation (12)
 - [T] **change_detection** — Detecting environmental changes
 - [T] **coincidence_detection** — Co-occurrence detection
 - [T] **relational_observation** — Observing relationships between entities
@@ -127,6 +130,7 @@
 - [C] **cross_modal_observation** — Cross-modality integration
 - [C] **meta_observation** — Observing own observation process
 - [C] **significance_detection** — Commitment threshold (noticed → mattering)
+- [C] **contextual_signal_interpretation** — Signal meaning depends on hidden state (situational awareness) *[organism-discovered]*
 
 ## Formalization (11)
 - [T] **pattern_recognition** — Extracting repeating patterns
@@ -228,7 +232,7 @@
 
 ---
 
-**Totals:** 47 trunk, 53 branch, 79 canopy = 179 receptors
+**Totals:** 47 trunk, 54 branch, 82 canopy = 183 receptors
 
 **Dependency layers:**
 - Layer 0 (single-family): ~40 receptors, emerge early
