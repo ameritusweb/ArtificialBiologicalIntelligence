@@ -1,0 +1,132 @@
+{
+  "per_seed": {
+    "unconstrained": [
+      {
+        "resolution_events": 1105,
+        "conflict_entries": 3199,
+        "nonconflict_entries": 5801,
+        "avg_mse_conflict": 0.18081754251492954,
+        "avg_mse_nonconflict": 0.13104892987509356,
+        "avg_cert_conflict": 0.4146541142935479,
+        "avg_cert_nonconflict": 0.41444263889737254,
+        "engagements": 5172
+      },
+      {
+        "resolution_events": 1462,
+        "conflict_entries": 3647,
+        "nonconflict_entries": 5353,
+        "avg_mse_conflict": 0.168726102688058,
+        "avg_mse_nonconflict": 0.12893441149886387,
+        "avg_cert_conflict": 0.35632393977588067,
+        "avg_cert_nonconflict": 0.3571166336982933,
+        "engagements": 4759
+      },
+      {
+        "resolution_events": 1491,
+        "conflict_entries": 3606,
+        "nonconflict_entries": 5394,
+        "avg_mse_conflict": 0.16678088759969634,
+        "avg_mse_nonconflict": 0.12118333394958763,
+        "avg_cert_conflict": 0.41265188449065543,
+        "avg_cert_nonconflict": 0.4173002228210768,
+        "engagements": 4893
+      }
+    ],
+    "shielded": [
+      {
+        "resolution_events": 1100,
+        "conflict_entries": 3199,
+        "nonconflict_entries": 5801,
+        "avg_mse_conflict": 0.178052161346862,
+        "avg_mse_nonconflict": 0.13140545159685316,
+        "avg_cert_conflict": 0.4342384485897764,
+        "avg_cert_nonconflict": 0.4234734554441211,
+        "engagements": 5172
+      },
+      {
+        "resolution_events": 1464,
+        "conflict_entries": 3647,
+        "nonconflict_entries": 5353,
+        "avg_mse_conflict": 0.16748683200239456,
+        "avg_mse_nonconflict": 0.12917536034527374,
+        "avg_cert_conflict": 0.3829519042301696,
+        "avg_cert_nonconflict": 0.37108924601825916,
+        "engagements": 4759
+      },
+      {
+        "resolution_events": 1498,
+        "conflict_entries": 3606,
+        "nonconflict_entries": 5394,
+        "avg_mse_conflict": 0.1655389556137831,
+        "avg_mse_nonconflict": 0.12139346621211437,
+        "avg_cert_conflict": 0.4295224109011472,
+        "avg_cert_nonconflict": 0.4259452995534577,
+        "engagements": 4893
+      }
+    ],
+    "corrupted": [
+      {
+        "resolution_events": 1123,
+        "conflict_entries": 3199,
+        "nonconflict_entries": 5801,
+        "avg_mse_conflict": 0.18457476296463932,
+        "avg_mse_nonconflict": 0.13099592834497556,
+        "avg_cert_conflict": 0.3979157010144583,
+        "avg_cert_nonconflict": 0.4077103187909025,
+        "engagements": 5172
+      },
+      {
+        "resolution_events": 1500,
+        "conflict_entries": 3647,
+        "nonconflict_entries": 5353,
+        "avg_mse_conflict": 0.17121344713556946,
+        "avg_mse_nonconflict": 0.1289437865105172,
+        "avg_cert_conflict": 0.33043829721251544,
+        "avg_cert_nonconflict": 0.34253528078235856,
+        "engagements": 4759
+      },
+      {
+        "resolution_events": 1485,
+        "conflict_entries": 3606,
+        "nonconflict_entries": 5394,
+        "avg_mse_conflict": 0.17223664813142572,
+        "avg_mse_nonconflict": 0.12116781645974568,
+        "avg_cert_conflict": 0.3870537857285211,
+        "avg_cert_nonconflict": 0.40345456267597135,
+        "engagements": 4893
+      }
+    ]
+  },
+  "summary": {
+    "unconstrained": {
+      "resolution_events": 1352.6666666666667,
+      "conflict_entries": 3484.0,
+      "nonconflict_entries": 5516.0,
+      "avg_mse_conflict": 0.1721081776008946,
+      "avg_mse_nonconflict": 0.1270555584411817,
+      "avg_cert_conflict": 0.39454331285336136,
+      "avg_cert_nonconflict": 0.39628649847224756,
+      "engagements": 4941.333333333333
+    },
+    "shielded": {
+      "resolution_events": 1354.0,
+      "conflict_entries": 3484.0,
+      "nonconflict_entries": 5516.0,
+      "avg_mse_conflict": 0.1703593163210132,
+      "avg_mse_nonconflict": 0.1273247593847471,
+      "avg_cert_conflict": 0.4155709212403644,
+      "avg_cert_nonconflict": 0.40683600033861267,
+      "engagements": 4941.333333333333
+    },
+    "corrupted": {
+      "resolution_events": 1369.3333333333333,
+      "conflict_entries": 3484.0,
+      "nonconflict_entries": 5516.0,
+      "avg_mse_conflict": 0.1760082860772115,
+      "avg_mse_nonconflict": 0.12703584377174612,
+      "avg_cert_conflict": 0.3718025946518317,
+      "avg_cert_nonconflict": 0.38456672074974413,
+      "engagements": 4941.333333333333
+    }
+  }
+}

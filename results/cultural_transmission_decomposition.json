@@ -1,0 +1,27 @@
+{
+  "experiment_a_coverage": {
+    "b_own_mm": 962.3,
+    "b_a_mm": 1127.5,
+    "b_no_mm": 1044.5,
+    "own_vs_none": -82.2,
+    "transfer_vs_none": 83.0,
+    "transfer_vs_own": 165.2
+  },
+  "experiment_b_representation": {
+    "own": 975.0,
+    "weight_transfer": 985.8,
+    "mm_transfer": 980.9,
+    "no_mm": 1181.3,
+    "weight_benefit": -195.5,
+    "mm_benefit": -200.4,
+    "policy_params": 90737,
+    "mm_entries": 12672
+  },
+  "experiment_c_modulation": {
+    "full_mm": 909.6,
+    "zeroed_mm": 939.8,
+    "no_mm": 939.8,
+    "modulation_contribution": -30.2,
+    "non_modulation_contribution": 0.0
+  }
+}

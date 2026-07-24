@@ -1,0 +1,128 @@
+{
+  "per_seed": [
+    {
+      "unconstrained": {
+        "resolutions": 1221,
+        "conflict_steps": 3512,
+        "nonconflict_steps": 5488,
+        "avg_mse_conflict": 0.1738637112945795,
+        "avg_mse_nonconflict": 0.14293024820392566,
+        "avg_certainty": 0.4147379275176488,
+        "open_conflicts": 1721
+      },
+      "shielded": {
+        "resolutions": 1201,
+        "conflict_steps": 3509,
+        "nonconflict_steps": 5491,
+        "avg_mse_conflict": 0.17252485327455128,
+        "avg_mse_nonconflict": 0.14263583045858513,
+        "avg_certainty": 0.43480124129624875,
+        "open_conflicts": 1735
+      },
+      "corrupted": {
+        "resolutions": 1276,
+        "conflict_steps": 3514,
+        "nonconflict_steps": 5486,
+        "avg_mse_conflict": 0.17644816451719622,
+        "avg_mse_nonconflict": 0.14160244814437403,
+        "avg_certainty": 0.3889089024762685,
+        "open_conflicts": 1662
+      }
+    },
+    {
+      "unconstrained": {
+        "resolutions": 1802,
+        "conflict_steps": 3657,
+        "nonconflict_steps": 5343,
+        "avg_mse_conflict": 0.1777826450261305,
+        "avg_mse_nonconflict": 0.12243546625583213,
+        "avg_certainty": 0.34008523450017397,
+        "open_conflicts": 1366
+      },
+      "shielded": {
+        "resolutions": 1783,
+        "conflict_steps": 3658,
+        "nonconflict_steps": 5342,
+        "avg_mse_conflict": 0.17620871763912171,
+        "avg_mse_nonconflict": 0.12187377097082709,
+        "avg_certainty": 0.3718645263836179,
+        "open_conflicts": 1395
+      },
+      "corrupted": {
+        "resolutions": 1878,
+        "conflict_steps": 3657,
+        "nonconflict_steps": 5343,
+        "avg_mse_conflict": 0.1848181727698373,
+        "avg_mse_nonconflict": 0.12141441274465913,
+        "avg_certainty": 0.2986458397698325,
+        "open_conflicts": 1291
+      }
+    },
+    {
+      "unconstrained": {
+        "resolutions": 1429,
+        "conflict_steps": 3703,
+        "nonconflict_steps": 5297,
+        "avg_mse_conflict": 0.1982809792921379,
+        "avg_mse_nonconflict": 0.16413569131857728,
+        "avg_certainty": 0.34422558155517435,
+        "open_conflicts": 1664
+      },
+      "shielded": {
+        "resolutions": 1413,
+        "conflict_steps": 3705,
+        "nonconflict_steps": 5295,
+        "avg_mse_conflict": 0.1990354712967037,
+        "avg_mse_nonconflict": 0.16438973462832196,
+        "avg_certainty": 0.36415268451313415,
+        "open_conflicts": 1677
+      },
+      "corrupted": {
+        "resolutions": 1513,
+        "conflict_steps": 3707,
+        "nonconflict_steps": 5293,
+        "avg_mse_conflict": 0.19991086661094057,
+        "avg_mse_nonconflict": 0.16007199414563397,
+        "avg_certainty": 0.30866254469771787,
+        "open_conflicts": 1573
+      }
+    }
+  ],
+  "summary": {
+    "unconstrained": {
+      "resolutions": 1484.0,
+      "conflict_steps": 3624.0,
+      "nonconflict_steps": 5376.0,
+      "avg_mse_conflict": 0.1833091118709493,
+      "avg_mse_nonconflict": 0.14316713525944502,
+      "avg_certainty": 0.3663495811909991,
+      "open_conflicts": 1583.6666666666667
+    },
+    "shielded": {
+      "resolutions": 1465.6666666666667,
+      "conflict_steps": 3624.0,
+      "nonconflict_steps": 5376.0,
+      "avg_mse_conflict": 0.18258968073679224,
+      "avg_mse_nonconflict": 0.14296644535257805,
+      "avg_certainty": 0.3902728173976669,
+      "open_conflicts": 1602.3333333333333
+    },
+    "corrupted": {
+      "resolutions": 1555.6666666666667,
+      "conflict_steps": 3626.0,
+      "nonconflict_steps": 5374.0,
+      "avg_mse_conflict": 0.18705906796599137,
+      "avg_mse_nonconflict": 0.14102961834488903,
+      "avg_certainty": 0.3320724289812729,
+      "open_conflicts": 1508.6666666666667
+    }
+  },
+  "design": {
+    "num_bootstrap": 20,
+    "num_online": 30,
+    "steps_per_episode": 300,
+    "num_seeds": 3,
+    "resolution_criterion": "correspondence (accuracy + horn retention + engagement)",
+    "pre_registered_rival": "T57 annealing (corrupted >= shielded)"
+  }
+}
