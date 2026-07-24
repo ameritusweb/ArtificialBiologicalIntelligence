@@ -151,11 +151,11 @@ Step 60 (thinking substrate): MCTS with 6 receptor channels — best_value, visi
 
 ## 8. The Genome Project
 
-The Genome Project is the formal specification of the receptor search space — 179 receptors across 21 families. It is the periodic table of cognitive capabilities.
+The Genome Project is the formal specification of the receptor search space — 179 receptors across 22 families. It is the periodic table of cognitive capabilities.
 
 Each receptor entry specifies: what environmental structure it detects, why detecting it is worth the metabolic cost, what must already exist before it can emerge, how to measure its emergence, and what would falsify the entry.
 
-**The 21 families:**
+**The 22 families:**
 
 **Repetition** (6) — static repetition -> rhythm -> nested/causal rhythms
 
@@ -304,4 +304,4 @@ Not simulation. Not reconstruction. Generation.
 
 ---
 
-*Steps 1-60 of the ABI roadmap are implemented and running. 179 receptors specified across 21 families. 90 indexed theories. 182 null-calibrated receptor tests. 151 receptors empirically discovered across 10 generations of deep time with thinking. 8 environment tiers. Physics world with grip, compound objects, and persistent state. MCTS thinking substrate with 6 receptor channels. Self-play pipeline with oracle removed. Novel receptor detection. Resumable 50-generation overnight run executing. The organism is in the liquid environment right now, navigating pain fields, querying its mental model, thinking before acting, sensing its own thinking, evolving its receptor topology across generations, and making distinctions its designer didn't anticipate.*
+*Steps 1-60 of the ABI roadmap are implemented and running. 179 receptors specified across 22 families. 90 indexed theories. 182 null-calibrated receptor tests. 151 receptors empirically discovered across 10 generations of deep time with thinking. 8 environment tiers. Physics world with grip, compound objects, and persistent state. MCTS thinking substrate with 6 receptor channels. Self-play pipeline with oracle removed. Novel receptor detection. Resumable 50-generation overnight run executing. The organism is in the liquid environment right now, navigating pain fields, querying its mental model, thinking before acting, sensing its own thinking, evolving its receptor topology across generations, and making distinctions its designer didn't anticipate.*

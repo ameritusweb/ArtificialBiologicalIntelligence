@@ -91,7 +91,7 @@ The key principle: **capability without receptor is latent and never gets used.*
 
 **Probe-Gated Inheritance**: Topology bias is gated by a constitutional probe budget. The organism must actually probe and explore the environment to validate inherited priors — inheritance accelerates but doesn't bypass the need for grounded experience. The probe rate floor lives outside the genome and cannot be selected to zero.
 
-**Genome Project**: The formal specification of the receptor search space — 173 receptors across 21 families. The periodic table of cognitive capabilities. Each receptor entry specifies what environmental structure it detects, what survival cost the organism pays for missing it, and what must already exist before it can emerge. The genome project is load-bearing on environmental design: the 173 receptors are 173 environmental design requirements.
+**Genome Project**: The formal specification of the receptor search space — 179 receptors across 22 families. The periodic table of cognitive capabilities. Each receptor entry specifies what environmental structure it detects, what survival cost the organism pays for missing it, and what must already exist before it can emerge. The genome project is load-bearing on environmental design: the 179 receptors are 179 environmental design requirements.
 
 **Invariant Trunk**: The set of receptors that emerge in every environment regardless of tier or complexity. 18 receptors are invariant across all 8 physics-world tiers — these are the strongest candidates for universal cognitive primitives.
 
@@ -122,7 +122,7 @@ A 6-limbed organism in a 2D liquid environment learns to navigate pain/endorphin
 
 ### Evolutionary Infrastructure (Steps 31-43)
 - **Environment tiers** (8 levels, genome-driven) from simple field navigation to meta-cognitive self-regulation
-- **Receptor discovery** — 165 null-calibrated tests detecting which of 173 genome receptors have emerged
+- **Receptor discovery** — 182 null-calibrated tests with per-test null types (action-shuffled, block-permuted, NPC-appearance-permuted, Granger causality)
 - **Topology bias inheritance** — offspring inherit receptor topology priors, probe-gated
 - **Population evolution** — 8 competing organisms, social arms race
 - **Cross-tier transfer** — 8x8 transfer matrix
@@ -147,12 +147,33 @@ A 6-limbed organism in a 2D liquid environment learns to navigate pain/endorphin
 - **T8**: 8 skill zones, 5 difficulty levels, Ship of Theseus test, curriculum design
 - **Combined**: abstract problems at varying difficulty with self-directed skill development
 
+### Self-Play & Thinking Substrate (Steps 59-60)
+- **Self-play pipeline** — policy drives behavior, oracle removed after bootstrap
+- **MCTS thinking substrate** — organism thinks before acting; tree metadata (visit entropy, best value, value convergence, path divergence, underexplored, depth reached) feeds back as 6 receptor channels
+- **Thinking influence** — 5 of 6 channels active by self-play iteration 5; +23.3 reward difference over non-thinking organisms
+- **Batched predict_delta** — 4.4x speedup on thinking operations
+
+### Deep Time with Thinking (10 generations)
+- **151 unique receptors** discovered across all generations (up from 75 at gen 0)
+- **53 receptors gained** through evolution alone — including full epistemic chain, metacognition, theory of mind, nested theory of mind, meta-observation, self-regulation, niche construction
+- **21 receptors lost** — complexity reshapes topology (T27 confirmed)
+- **Peak thinking influence** at generation 7: partial correlation 0.376
+- **Novel receptor detection** — scanning mental model for distinctions the genome didn't anticipate
+
 ### Closed-Loop Training
 - Mental model online during data generation — features computed inline at correct lag
 - Eliminates the augmentation pipeline's leakage class entirely
 - 7% exploration + 2% null-action probes for counterfactual variation
+- EntityRelationStore wired in — observe_npc called every step for social cognition
 
-### The Genome Project (20 families, 166 receptors)
+### Environment Enrichment
+- **Multi-NPC observation** — closest of 4 profiled NPCs (cooperative, competitive, erratic, deceptive) visible to organism
+- **Strategic deception NPC** — context-dependent lying (signals endorphin near pain, signals pain near endorphin)
+- **Non-stationary rules** — T7 trigger signals rotate between phases
+- **Stochastic hidden confounders** — 3-state Markov chain modulating 4 modalities simultaneously
+- **Cross-modal objects** — sources with correlated pain + temperature + chemical signatures
+
+### The Genome Project (22 families, 179 receptors)
 A formal specification of the receptor search space — the periodic table of cognitive capabilities:
 
 | Family | Receptors | From -> To |
@@ -166,7 +187,7 @@ A formal specification of the receptor search space — the periodic table of co
 | Regulatory | 9 | Stress detection -> emotional intelligence |
 | Social | 14 | Other detection -> moral reasoning |
 | Compression | 15 | Pattern recognition -> constraint shape -> shaped absence -> missing piece located -> analogy |
-| Observation | 8 | Change detection -> meta-observation |
+| Observation | 11 | Change detection -> statistical anomaly -> rarity -> significance -> meta-observation |
 | Formalization | 11 | Rule extraction -> optimization -> theory formation |
 | Mathematics | 7 | Quantity -> necessity -> proof -> formal composition |
 | Organization | 7 | Boundary -> part-whole -> system detection |
@@ -174,7 +195,7 @@ A formal specification of the receptor search space — the periodic table of co
 | Interaction | 7 | Response recognition -> contact response -> grip -> lever -> composite affordance |
 | Environmental Augmentation | 5 | Change detection -> developmental environment engineering |
 | Sequential Processing | 5 | Stage prediction -> prediction architecture awareness |
-| Epistemic | 4 | Belief detection -> doubt -> counterfactual salience -> epistemic strategy |
+| Epistemic | 7 | Belief detection -> doubt -> conflation -> fundamental distinction -> topology awareness -> epistemic strategy |
 | Perception | 5 | Staged processing -> response loop detection |
 | Logic | 6 | Semantic relations -> transitivity -> conjunction -> quantifier -> contradiction -> it_follows |
 | Language | 3 | Naming -> self-talk -> referential grounding |
@@ -182,24 +203,28 @@ A formal specification of the receptor search space — the periodic table of co
 
 ### Key Empirical Results
 
-- **60 receptors genuinely discovered** out of 164 testable (1 skipped for missing component), against null-calibrated thresholds (95th percentile of shuffled-log scores). Of these, 51 are independent evidence channels (correlated tests not double-counted).
+- **77 receptors discovered** in single-run oracle training; **75 in self-play** (policy-driven, no oracle); **151 unique across 10 generations** of deep time with thinking substrate
 - **18 invariant receptors** across all 8 physics-world tiers — including grip_affordance and push_affordance as part of the embodied trunk
-- **Complexity reshapes, doesn't expand**: discovery count flat at 27-33/52 across all tiers and environment types (field, physics, T7+T8)
+- **Complexity reshapes, doesn't expand**: T27 confirmed across tiers, single runs, and deep time (53 gained, 21 lost in 10 generations)
 - **Topology inheritance**: convergence accelerates from 15 epochs to 0 across generations
 - **Social universally transferable**: any prior training helps social environments (11-25x)
 - **Tool use resists transfer**: must be learned directly in the target environment
 - **T57 annealing supported** (6 seeds): releasing certainty on conflict entries produces more resolutions than protecting them. First structural self-discovery.
-- **T55 directionally falsified**: read-shielding was protecting the wrong thing
+- **T55 directionally falsified**: read-shielding was protecting the wrong thing — the falsification led to the Epistemic family
 - **Cultural transmission revised**: +223% claim retracted after decomposition; benefit is training-time observation enrichment, not inference-time modulation
-- **Staged processing**: inter-stage prediction MSE decreases 25% over training; staged model outperforms flat on val accuracy with more engaged slow pathway
+- **Staged processing**: inter-stage prediction MSE decreases 25% over training; staged model outperforms flat on val accuracy
+- **Self-play finds richer causality**: 7 causality receptors in self-play vs 4 in oracle — suboptimal actions create more varied causal experiences
+- **Thinking substrate load-bearing from iteration 1**: ablation divergence 0.060, reward difference +23.3, 5/6 channels active by iteration 5
+- **Epistemic family activated from scratch under evolution**: belief, doubt, epistemic strategy emerged in deep time when they couldn't emerge in single runs
+- **Peak thinking influence gen 7**: partial correlation 0.376 (value_convergence and path_divergence dominant)
 
 ### Theories Index
 
-76 formal theoretical claims indexed in `theories.md`:
+90 formal theoretical claims indexed in `theories.md`:
 - 6 supported by experimental evidence
 - 1 revised after controlled decomposition
 - 1 directionally falsified (T55, replaced by T57 annealing)
-- 44 proposed with falsification criteria
+- 72 proposed with falsification criteria
 
 ---
 
@@ -221,7 +246,15 @@ python train.py                # Full training pipeline (500 episodes, ~10 min)
 python model.py                # Model architecture summary
 ```
 
-### Closed-loop training (recommended)
+### Self-play with thinking (recommended)
+```python
+from train import generate_training_data_self_play, train_model
+X, Y, Z, log, engine, model = generate_training_data_self_play(
+    num_bootstrap=50, num_self_play=75, num_iterations=3,
+    steps_per_episode=300, seed=42, use_thinking=True)
+```
+
+### Closed-loop training (oracle-driven)
 ```python
 from train import generate_training_data_closed_loop, train_model
 X, Y, Z, log, engine = generate_training_data_closed_loop(
@@ -234,14 +267,19 @@ Open `visualization/index.html` in a browser after training (loads `src/data/rep
 
 ### Run the laboratory
 ```bash
-python receptor_discovery.py   # Full 148-test receptor battery with null calibration
-python environment_tiers.py    # Test all 8 environment tiers
-python canopy_sweep.py         # Physics-world receptor sweep across tiers
-python full_receptor_battery.py # 3-environment comparison (field, physics, T7+T8)
-python t54_v2_experiment.py    # T54/T57 rationalization/annealing experiment
-python abstract_env.py         # T7 abstract + T8 self-modification environments
-python population_evolution.py # Population evolution (8 organisms)
-python cross_tier_transfer.py  # Cross-tier transfer matrix
+python receptor_discovery.py     # Full 182-test receptor battery with null calibration
+python environment_tiers.py      # Test all 8 environment tiers
+python canopy_sweep.py           # Physics-world receptor sweep across tiers
+python run_full_battery.py       # 3-environment comparison (field, physics, T7+T8)
+python t54_v2_experiment.py      # T54/T57 rationalization/annealing experiment
+python abstract_env.py           # T7 abstract + T8 self-modification environments
+python population_evolution.py   # Population evolution (8 organisms)
+python cross_tier_transfer.py    # Cross-tier transfer matrix
+python self_play_experiment.py   # Self-play vs oracle comparison
+python thinking_influence.py     # Thinking substrate influence measurement
+python thinking_emergence_curve.py # 10-iteration thinking emergence curve
+python deep_time_thinking.py     # Deep time with thinking (10 generations)
+python deep_time_overnight.py    # 50-generation overnight run with novel detection
 ```
 
 ### Scale testing
@@ -254,28 +292,26 @@ python scaling.py              # Limb count, segments, 3D, diversity, generation
 ## Architecture
 
 ```
-169-dim observation vector --> HierarchicalPolicy --> 22-bit action vector
-                                    |
-                    +---------------+---------------+
-                    |               |               |
-              FastPathway      SlowPathway       Router
-              (MLP reflex)   (2-layer transformer) (confidence+energy+conflict)
-              + pain pred    + StagedInputProjection  |
-                    |          (4-stage pipeline)      |
-                    |               |                  |
-                    +--------> ArbitrationHead <-------+
-                           (5 receptor group weights)
-                                    |
-                              Blended output
-                                    |
-                    +---------------+---------------+
-                    |               |               |
-              18 muscle bits   4 emission bits   Mental Model
-              (6 limbs x 3)   (signal vocab)   (26K+ mappings)
+175-dim observation vector --> HierarchicalPolicy --> 22-bit action vector
+           |                        |
+     ThinkingTree             +-----+-----+
+     (MCTS 24 sims)           |     |     |
+     6 receptor channels  FastPath SlowPath Router
+           |              (reflex) (transformer)
+           |                  |     |     |
+           +----------> ArbitrationHead <-+
+                        (5 group weights)
+                              |
+                        Blended output
+                              |
+                    +---------+---------+
+                    |         |         |
+              18 muscle  4 emission  Mental Model
+              (6x3)     (signals)   (26K+ mappings)
 ```
 
-### Observation Vector (169 dims)
-Pain(6), endorphin(6), temperature(6), chemical(6), pressure(6), fatigue(6), energy(1), temporal aversion(6), receptor gain(6), pain memory(25), distance sensing(16), prediction error(6), mental model features(4), pattern features(2), kinematics(2), limb deviations(6), efference copy(22), agency(3), object proximity(3), object responding(3), NPC obs(12), optimism(2), conflict(3), concepts(2), grip state(6), physics(3)
+### Observation Vector (175 dims)
+Pain(6), endorphin(6), temperature(6), chemical(6), pressure(6), fatigue(6), energy(1), temporal aversion(6), receptor gain(6), pain memory(25), distance sensing(16), prediction error(6), mental model features(4), pattern features(2), kinematics(2), limb deviations(6), efference copy(22), agency(3), object proximity(3), object responding(3), NPC obs(12), optimism(2), conflict(3), concepts(2), grip state(6), physics(3), **thinking channels(6)**: best_value, visit_entropy, value_convergence, path_divergence, underexplored, depth_reached
 
 ### Staged Processing Pipeline
 ```
@@ -289,7 +325,9 @@ Stage 1 [Body: 39d] --> predict Stage 2 --> Stage 2 [Spatial: 59d] --> predict S
 
 Intelligence is what happens when you run evolutionary receptor topology selection long enough in a rich enough environment. It is not a property you design into a system. It is a property that grows out of a process.
 
-The organism builds the world that builds the organism that builds the next world.
+The organism builds the world that builds the organism that builds the next world. Now with a thinking substrate tracking every thinking path taken through that loop, analyzing which paths lead where, and bootstrapping increasingly sophisticated reasoning strategies from the accumulated record.
+
+The self-modifying loop has no fixed ceiling because each layer feeds the next: better receptor topology → better evaluation → better thinking → richer experience → deeper metacognition → receptor firings that develop better topology. The ceiling rises with the organism.
 
 Not simulation. Not reconstruction. Generation.
 
@@ -315,35 +353,43 @@ No existing program unifies these threads. The receptor topology as a single gen
 
 ```
 abi/
-+-- src/                          # Core implementation
-|   +-- environment.py            # Organism, NPC, Environment classes
-|   +-- model.py                  # HierarchicalPolicy (fast/slow/router/arbitration/staged)
-|   +-- train.py                  # Training pipeline (augmented + closed-loop)
-|   +-- mental_model.py           # Causal mental model (encoder, mappings, patterns)
-|   +-- physics_world.py          # Pymunk rigid body simulation + grip + compounds
-|   +-- environment_tiers.py      # 8 tiered environments (genome-driven)
-|   +-- abstract_env.py           # T7 abstract + T8 self-modification environments
-|   +-- receptor_discovery.py     # 148 receptor emergence tests with null calibration
-|   +-- topology_inheritance.py   # Multi-generational topology bias inheritance
-|   +-- population_evolution.py   # Population evolution (8 organisms)
-|   +-- evolutionary_sweep.py     # Cross-tier evolutionary sweep
-|   +-- cross_tier_transfer.py    # Transfer matrix across tiers
-|   +-- canopy_sweep.py           # Physics-world receptor sweep
-|   +-- full_receptor_battery.py  # 3-environment receptor comparison
-|   +-- t54_v2_experiment.py      # Rationalization/annealing experiment
-|   +-- scaling.py                # Scaling experiments (limbs, segments, 3D)
-|   +-- grounding.py              # Grounded language dictionary
-|   +-- llm_grounding.py          # LLM grounding bridge
-+-- genome_project/               # Receptor search space specification
-|   +-- families/                 # 21 receptor family YAMLs (173 receptors)
-|   +-- schemas/                  # Receptor schema definition
-|   +-- docs/                     # Cross-family dependencies, overview
-+-- theories.md                   # 76 indexed theoretical claims with status
-+-- serialization_thesis.md       # The serialization thesis (standalone paper)
-+-- visualization/                # Three.js organism visualization
-+-- docs/                         # Whitepaper, roadmap, framework documents
-+-- results/                      # Experimental results (JSON + FINDINGS.md)
-+-- LICENSE                       # MIT License
++-- src/                            # Core implementation
+|   +-- environment.py              # Organism, NPC, Environment (175-dim obs)
+|   +-- model.py                    # HierarchicalPolicy (fast/slow/router/arbitration/staged)
+|   +-- train.py                    # Training: augmented, closed-loop, self-play
+|   +-- mental_model.py             # Causal mental model (encoder, mappings, patterns, entity store)
+|   +-- thinking_substrate.py       # MCTS thinking tree (6 receptor channels)
+|   +-- thinking_influence.py       # Ablation + partial correlation measurement
+|   +-- thinking_emergence_curve.py # Multi-iteration emergence tracking
+|   +-- novel_receptor_detector.py  # Detect distinctions not in the genome
+|   +-- physics_world.py            # Pymunk rigid body simulation + grip + compounds
+|   +-- environment_tiers.py        # 8 tiered environments (multi-NPC, deception, hidden vars)
+|   +-- abstract_env.py             # T7 abstract + T8 self-modification environments
+|   +-- receptor_discovery.py       # 182 receptor emergence tests with null calibration
+|   +-- deep_time.py                # Evolutionary loop (population + inheritance)
+|   +-- deep_time_thinking.py       # Deep time with thinking substrate
+|   +-- deep_time_overnight.py      # 50-gen overnight run with checkpoints + resume
+|   +-- self_play_experiment.py     # Self-play vs oracle comparison
+|   +-- topology_inheritance.py     # Multi-generational topology bias inheritance
+|   +-- population_evolution.py     # Population evolution (8 organisms)
+|   +-- evolutionary_sweep.py       # Cross-tier evolutionary sweep
+|   +-- cross_tier_transfer.py      # Transfer matrix across tiers
+|   +-- canopy_sweep.py             # Physics-world receptor sweep
+|   +-- run_full_battery.py         # 3-environment receptor comparison
+|   +-- t54_v2_experiment.py        # Rationalization/annealing experiment
+|   +-- scaling.py                  # Scaling experiments (limbs, segments, 3D)
+|   +-- grounding.py                # Grounded language dictionary
+|   +-- llm_grounding.py            # LLM grounding bridge
++-- genome_project/                 # Receptor search space specification
+|   +-- families/                   # 21 receptor family YAMLs (179 receptors)
+|   +-- schemas/                    # Receptor schema definition
+|   +-- docs/                       # Cross-family dependencies, overview
++-- theories.md                     # 90 indexed theoretical claims with status
++-- serialization_thesis.md         # The serialization thesis (standalone paper)
++-- visualization/                  # Three.js organism visualization
++-- docs/                           # Whitepaper, roadmap, framework documents
++-- results/                        # Experimental results (JSON + FINDINGS.md)
++-- LICENSE                         # MIT License
 ```
 
 ---
