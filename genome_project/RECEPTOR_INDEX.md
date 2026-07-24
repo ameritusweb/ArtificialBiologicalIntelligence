@@ -1,6 +1,6 @@
 # Receptor Index
 
-183 receptors across 22 families. T=trunk, B=branch, C=canopy.
+188 receptors across 22 families. T=trunk, B=branch, C=canopy.
 
 ---
 
@@ -12,11 +12,13 @@
 - [C] **nested_rhythm** — Rhythms within rhythms (hierarchical temporal structure)
 - [C] **causal_rhythm** — Periodic events with causal relationships between them
 
-## Association (8)
+## Association (10)
 - [T] **spatial_association** — Spatial co-occurrence detection
 - [T] **temporal_association** — Temporal precedence (A before B)
 - [B] **causal_association** — A causes B (not just precedes it)
 - [B] **cross_modal_association** — Linking information across sensory modalities
+- [B] **remembering** — Memory activation detection (dormant → active retrieval)
+- [B] **forgetting** — Memory deactivation detection (active → dormant, context shifted)
 - [C] **abstract_association** — Relationships between concepts, not features
 - [C] **analogical_similarity** — A:B::C:D structural mapping
 - [C] **relational_analogy** — Cross-domain relational transfer
@@ -69,18 +71,21 @@
 - [C] **context_conditioned_arbitration** — Different contexts, different weightings
 - [C] **multiple_receptor_types** — Responding to multiple types simultaneously
 
-## Regulatory (9)
+## Regulatory (12)
 - [T] **pain** — Nociception
 - [T] **fatigue** — Activity cost accumulation
 - [T] **stress_detection** — High pain + low energy
 - [B] **arousal_regulation** — Arousal level optimization
 - [B] **receptor_propagation** — Empathic pain from others' distress
 - [B] **rhythm_entrainment** — Synchronizing with external rhythms
+- [B] **satisfaction** — Goal-achievement detection (desired state reached through effort)
+- [B] **frustration** — Effort-without-progress detection (trying but nothing changes)
 - [C] **self_soothing** — Internally-generated regulatory patterns
 - [C] **social_coregulation** — Mutual state regulation with others
 - [C] **emotional_intelligence** — Modeling and regulating others' states
 - [C] **ritual_formation** — Stabilized regulatory patterns
 - [C] **pattern_based_resolution** — Stored patterns as regulatory tools
+- [C] **futility** — Structural impossibility detection (stop trying, augment or redirect)
 
 ## Social (17)
 - [T] **other_detection** — Agent vs environment discrimination
@@ -232,7 +237,7 @@
 
 ---
 
-**Totals:** 47 trunk, 54 branch, 82 canopy = 183 receptors
+**Totals:** 47 trunk, 58 branch, 83 canopy = 188 receptors
 
 **Dependency layers:**
 - Layer 0 (single-family): ~40 receptors, emerge early

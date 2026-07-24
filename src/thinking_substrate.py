@@ -61,7 +61,7 @@ class ThinkingTree:
     """
 
     def __init__(self, num_actions, max_simulations=32, max_depth=4,
-                 explore_constant=1.4, ema_alpha=0.05):
+                 explore_constant=1.4, use_ema=False, ema_alpha=0.05):
         self.num_actions = num_actions
         self.max_simulations = max_simulations
         self.max_depth = max_depth
@@ -70,6 +70,7 @@ class ThinkingTree:
         self._last_analysis = np.zeros(NUM_THINKING_CHANNELS)
         self._cached_candidates = None
         self._cache_store_count = -1
+        self._use_ema = use_ema
         self._ema_mean = np.zeros(NUM_THINKING_CHANNELS)
         self._ema_var = np.ones(NUM_THINKING_CHANNELS)
         self._ema_alpha = ema_alpha
@@ -100,7 +101,10 @@ class ThinkingTree:
             self._backpropagate(node, value)
 
         raw = self._analyze()
-        self._last_analysis = self._ema_normalize(raw)
+        if self._use_ema:
+            self._last_analysis = self._ema_normalize(raw)
+        else:
+            self._last_analysis = raw
         return self._last_analysis
 
     def get_best_action(self):

@@ -37,17 +37,23 @@ from deep_time import EvolvingOrganism, select_and_reproduce
 RESULTS_DIR = os.path.join(os.path.dirname(__file__), 'data')
 CHECKPOINT_DIR = os.path.join(RESULTS_DIR, 'checkpoints')
 
+def _checkpoint_dir(seed=42):
+    if seed == 42:
+        return CHECKPOINT_DIR
+    return os.path.join(RESULTS_DIR, f'checkpoints_seed{seed}')
+
 
 def save_resumable_checkpoint(gen, history, organisms, model, cumulative_log,
                                cumulative_windows, cumulative_targets,
                                cumulative_next_pain, null_thresh, rng_state,
-                               world_state, t_start):
+                               world_state, t_start, seed=42):
     """Save everything needed to resume from this generation."""
     import torch
     import pickle
 
-    os.makedirs(CHECKPOINT_DIR, exist_ok=True)
-    cp_path = os.path.join(CHECKPOINT_DIR, f'checkpoint_gen{gen}.pt')
+    cp_dir = _checkpoint_dir(seed)
+    os.makedirs(cp_dir, exist_ok=True)
+    cp_path = os.path.join(cp_dir, f'checkpoint_gen{gen}.pt')
 
     organism_states = []
     for org in organisms:
@@ -71,7 +77,7 @@ def save_resumable_checkpoint(gen, history, organisms, model, cumulative_log,
         'elapsed_min': round((time.time() - t_start) / 60, 1),
     }, cp_path)
 
-    log_path = os.path.join(CHECKPOINT_DIR, f'log_gen{gen}.pkl')
+    log_path = os.path.join(cp_dir, f'log_gen{gen}.pkl')
     with open(log_path, 'wb') as f:
         pickle.dump({
             'cumulative_log': cumulative_log[-60000:],
@@ -83,18 +89,19 @@ def save_resumable_checkpoint(gen, history, organisms, model, cumulative_log,
     print(f"  Checkpoint saved: gen {gen} -> {cp_path}")
 
 
-def load_checkpoint(gen):
+def load_checkpoint(gen, seed=42):
     """Load checkpoint for resuming."""
     import torch
     import pickle
 
-    cp_path = os.path.join(CHECKPOINT_DIR, f'checkpoint_gen{gen}.pt')
+    cp_dir = _checkpoint_dir(seed)
+    cp_path = os.path.join(cp_dir, f'checkpoint_gen{gen}.pt')
     if not os.path.exists(cp_path):
         return None
 
     cp = torch.load(cp_path, weights_only=False)
 
-    log_path = os.path.join(CHECKPOINT_DIR, f'log_gen{gen}.pkl')
+    log_path = os.path.join(cp_dir, f'log_gen{gen}.pkl')
     if os.path.exists(log_path):
         with open(log_path, 'rb') as f:
             log_data = pickle.load(f)
@@ -110,12 +117,13 @@ def load_checkpoint(gen):
     return cp
 
 
-def find_latest_checkpoint():
+def find_latest_checkpoint(seed=42):
     """Find the most recent checkpoint generation."""
-    if not os.path.exists(CHECKPOINT_DIR):
+    cp_dir = _checkpoint_dir(seed)
+    if not os.path.exists(cp_dir):
         return -1
     gens = []
-    for f in os.listdir(CHECKPOINT_DIR):
+    for f in os.listdir(cp_dir):
         if f.startswith('checkpoint_gen') and f.endswith('.pt'):
             try:
                 g = int(f[len('checkpoint_gen'):-3])
@@ -278,10 +286,10 @@ def run_overnight(num_generations=50, population_size=4,
 
     # Check for existing checkpoint
     if resume:
-        latest = find_latest_checkpoint()
+        latest = find_latest_checkpoint(seed)
         if latest >= 0:
-            print(f"Found checkpoint at generation {latest}, resuming...")
-            cp = load_checkpoint(latest)
+            print(f"Found checkpoint at generation {latest} (seed {seed}), resuming...")
+            cp = load_checkpoint(latest, seed)
             if cp is not None:
                 history = cp['history']
                 null_thresh = cp['null_thresh']
@@ -415,7 +423,7 @@ def run_overnight(num_generations=50, population_size=4,
         save_resumable_checkpoint(0, history, organisms, model, cumulative_log,
                                    cumulative_windows, cumulative_targets,
                                    cumulative_next_pain, null_thresh,
-                                   rng.get_state(), world_state, t_start)
+                                   rng.get_state(), world_state, t_start, seed)
         start_gen = 1
 
     # Generations start_gen+
@@ -511,7 +519,7 @@ def run_overnight(num_generations=50, population_size=4,
                                        cumulative_log, cumulative_windows,
                                        cumulative_targets, cumulative_next_pain,
                                        null_thresh, rng.get_state(),
-                                       world_state, t_start)
+                                       world_state, t_start, seed)
             _save_checkpoint(history, gen, t_start)
 
     # Final summary

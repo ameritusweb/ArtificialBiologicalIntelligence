@@ -377,7 +377,10 @@ Evidence status key:
 **T94. Theoretical reasoning and evolutionary selection converge on the same receptors independently.** Conflation was added to the genome based on theoretical reasoning (two things treated as one should be detectable through bimodal prediction errors). The organism evolved it at generation 27-28 under selection pressure from stochastic hidden confounders — without any specification that it should. One generation later (gen 29), depth_reached activated for the first time, because conflation + metacognition were the prerequisites the organism needed to detect that shallow and deep thinking produce different outcomes. Two independent paths — reasoning and evolution — converged on the same receptor because the receptor detects something real about the structure of the problem. This is T40 (concepts exist in the world's causal structure) confirmed at the meta level.
 *Status: Supported (conflation predicted theoretically, evolved independently, confirmed as prerequisite for depth_reached). Argued: theories.md, deep_time_overnight results.*
 
-**T95. Contextual signal interpretation is a receptor that fires when a signal's meaning depends on hidden state.** Not "is this signal present" but "is this signal meaningful given current context." This is situational awareness: the organism conditions its response on inferred latent state, not on the signal alone. First novel receptor — emerged in generation 0 of deep time before the genome specified it. The genome entry exists because the organism told us it should.
+**T95. The receptor topology is not uniquely determined by the environment — it is jointly determined by the environment and the evolutionary path.** Two organisms in the same environment with different evolutionary histories produce different canopy topologies on a common trunk. Both are adequate to the environment's demands. The canopy diverges based on history; the trunk converges. Human cognitive diversity is not noise around an optimal design — it is the expected output of a process where the evolutionary path is irreducible. The trunk is universal. The canopy is biography.
+*Status: Supported (cross-environment transfer experiment: 71 shared receptors, 30 transfer-only, 27 naive-only in the same environment). Argued: cross_env_transfer.json, theories.md.*
+
+**T96. Contextual signal interpretation is a receptor that fires when a signal's meaning depends on hidden state.** Not "is this signal present" but "is this signal meaningful given current context." This is situational awareness: the organism conditions its response on inferred latent state, not on the signal alone. First novel receptor — emerged in generation 0 of deep time before the genome specified it. The genome entry exists because the organism told us it should.
 *Status: Supported (emerged in deep time gen 0 as novel receptor). Argued: genome_project/families/observation.yaml.*
 
 **T94. Topology awareness is a second-order receptor that reads the output of other receptors.** It operates on the distribution of internal channel activations — not their values at a single timestep, but the pattern of which ones are active and how that pattern has changed. This makes it the first receptor whose input is the topology itself, not the world or the organism's processing of the world.
@@ -398,10 +401,10 @@ Evidence status key:
 |---|---|
 | Proposed | 72 |
 | Partially tested | 10 |
-| Supported | 9 |
+| Supported | 10 |
 | Revised | 1 |
 | Falsified | 1 |
-| **Total** | **93** |
+| **Total** | **94** |
 
 Seven claims have direct experimental support from ERTI: T27-T31 (evolutionary dynamics), T26 (revised after decomposition), and T57 (annealing — the framework's first structural self-discovery). One claim directionally falsified: T55 (read-shielding accelerates resolution — the opposite was found across 6 seeds). The Epistemic family (T58-T60) is the first family whose existence was predicted by a falsification rather than by theoretical deduction alone. The Thinking Substrate section (T78-T85) identifies MCTS as the mechanism that makes metacognition tractable and the receptor topology as the unit that makes the self-modifying loop possible.
 

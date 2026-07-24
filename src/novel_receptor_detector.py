@@ -120,11 +120,26 @@ def characterize_cluster(cluster):
         'pressure': idx['pressure'],
         'fatigue': idx['fatigue'],
     }
+    if cdim > 42:
+        extended_groups = dict(groups)
+        mm_s = idx.get('mm_start', cdim)
+        if mm_s < cdim:
+            extended_groups['mm_features'] = (mm_s, min(mm_s + 4, cdim))
+        pe_s = idx.get('pe_start', cdim)
+        if pe_s < cdim:
+            extended_groups['prediction_error'] = (pe_s, min(pe_s + 6, cdim))
+        npc_s = idx.get('npc_start', cdim)
+        agency_s = idx.get('agency_start', cdim)
+        thinking_s = idx.get('thinking_start', cdim)
+    else:
+        extended_groups = groups
+
+    all_groups = extended_groups if cdim > 42 else groups
 
     dominant_input = None
     max_input = 0
     mean_emb = np.mean(embeddings, axis=0)
-    for name, (s, e) in groups.items():
+    for name, (s, e) in all_groups.items():
         if e <= len(mean_emb):
             val = float(np.mean(np.abs(mean_emb[s:e])))
             if val > max_input:
@@ -133,7 +148,7 @@ def characterize_cluster(cluster):
 
     dominant_output = None
     max_output = 0
-    for name, (s, e) in groups.items():
+    for name, (s, e) in all_groups.items():
         if e <= len(mean_delta):
             val = float(np.mean(np.abs(mean_delta[s:e])))
             if val > max_output:
@@ -160,14 +175,17 @@ def characterize_cluster(cluster):
 
 
 KNOWN_SIGNATURES = {
-    'pain_avoidance': {'input': 'pain', 'output': 'pain', 'direction': 'decrease'},
-    'endorphin_seeking': {'input': 'endorphin', 'output': 'endorphin', 'direction': 'increase'},
-    'temperature_regulation': {'input': 'temperature', 'output': 'temperature', 'direction': 'neutral'},
-    'chemical_seeking': {'input': 'chemical', 'output': 'chemical', 'direction': 'increase'},
-    'fatigue_management': {'input': 'fatigue', 'output': 'fatigue', 'direction': 'decrease'},
-    'pressure_avoidance': {'input': 'pressure', 'output': 'pressure', 'direction': 'decrease'},
-    'pain_endorphin_tradeoff': {'input': 'pain', 'output': 'endorphin', 'direction': 'increase'},
-    'endorphin_pain_tradeoff': {'input': 'endorphin', 'output': 'pain', 'direction': 'increase'},
+    'pain_avoidance': {'input': 'pain', 'output': 'pain'},
+    'endorphin_seeking': {'input': 'endorphin', 'output': 'endorphin'},
+    'temperature_regulation': {'input': 'temperature', 'output': 'temperature'},
+    'chemical_seeking': {'input': 'chemical', 'output': 'chemical'},
+    'fatigue_management': {'input': 'fatigue', 'output': 'fatigue'},
+    'pressure_avoidance': {'input': 'pressure', 'output': 'pressure'},
+    'pain_endorphin_tradeoff': {'input': 'pain', 'output': 'endorphin'},
+    'endorphin_pain_tradeoff': {'input': 'endorphin', 'output': 'pain'},
+    'prediction_error_response': {'input': 'prediction_error', 'output': 'pain'},
+    'prediction_error_learning': {'input': 'prediction_error', 'output': 'endorphin'},
+    'mm_certainty_response': {'input': 'mm_features', 'output': 'mm_features'},
 }
 
 

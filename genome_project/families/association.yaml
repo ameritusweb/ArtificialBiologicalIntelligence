@@ -22,7 +22,7 @@ family_metadata:
     is the value of early action.
 
   trunk_receptor: spatial_association
-  canopy_receptors: [abstract_association, relational_analogy]
+  canopy_receptors: [abstract_association, relational_analogy, remembering, forgetting]
 
 ---
 
@@ -570,3 +570,167 @@ receptors:
       This represents the apex of associative reasoning. This is where
       "learning" becomes "insight" — solving problems you've never seen by
       recognizing their relational structure matches something you do know.
+
+  - receptor_id: remembering
+    name: Memory Activation Detection
+    family: association
+    tier: branch
+
+    dependencies:
+      - receptor_id: spatial_association
+        note: "Associative triggers are the mechanism for retrieval"
+      - receptor_id: pattern_recognition
+        note: "Must have stored patterns to retrieve"
+        family: compression
+      - receptor_id: shaped_absence
+        note: "Sometimes retrieval is triggered by a gap the memory fills"
+        family: compression
+
+    environmental_trigger:
+      structure: |
+        The organism detects that a stored pattern has crossed from
+        dormant to active — a specific memory was pulled into working
+        processing because the current context made it relevant.
+        Not that the memory exists (the mental model has thousands
+        of entries) but that a specific entry was retrieved NOW
+        because something in the present triggered it.
+
+        Three retrieval triggers:
+        1. Association — current input shares structure with a stored
+           memory. The similarity or cross-modal receptors fire, and
+           the shared structure activates the stored pattern.
+        2. Necessity — the organism needs something it doesn't have
+           active. shaped_absence or executability fires, driving
+           a search for stored strategies that previously worked.
+        3. Contextual relevance — the current situation matches a
+           past situation closely enough that stored strategies
+           become worth activating. contextual_signal_interpretation
+           provides the trigger.
+
+        The distinction from retrieval-as-mechanism (which happens
+        every time predict_delta runs) is that the remembering
+        receptor fires on retrieval-as-event — when the retrieved
+        content is surprising, relevant, or gap-filling enough to
+        change what the organism does next.
+      survival_benefit: |
+        Detecting that a memory just activated enables the organism
+        to treat the memory's content as decision-relevant. Without
+        the receptor, retrieval happens mechanically but the organism
+        doesn't notice it happened. With it, the organism can ask
+        "why did I remember this now?" and use the answer.
+      metabolic_cost: low
+      selection_pressure: |
+        Environments where past experience is decision-relevant and
+        where the organism benefits from noticing what its own
+        retrieval system is doing — not just using retrieved
+        information, but detecting that retrieval occurred.
+
+    emergence_signature:
+      description: |
+        After a retrieval event (mental model query returns a
+        high-similarity match to a context not seen recently),
+        the organism's behavior changes more than would be
+        expected from the current observation alone. Behavioral
+        marker: action is driven by retrieved content, not just
+        current sensory input.
+      metrics:
+        - metric_name: retrieval_driven_action
+          measurement_method: |
+            Identify steps where mental model retrieval returned
+            a high-similarity match (>0.8) to a context not seen
+            in the last 50 steps. Measure whether the organism's
+            action at that step correlates more with the retrieved
+            entry's delta than with the current observation gradient.
+          expected_range: ">0.2 correlation with retrieved content"
+          detection_threshold: 0.2
+
+    predicted_emergence_order:
+      generation_range: "80-150"
+      confidence: medium
+
+    notes: |
+      The short-term / long-term distinction in this framework is
+      not a storage location — it's an activation state. Long-term
+      is dormant in the mental model. Short-term is currently active
+      in the observation vector or the MCTS thinking tree. The
+      remembering receptor fires on the transition between those
+      states — the moment a dormant entry becomes active.
+
+      Connects to the thinking substrate: every MCTS simulation
+      cycle triggers predict_delta, which retrieves stored mappings.
+      The thinking substrate is constantly generating remembering
+      events. The organism that detects which retrievals are
+      informative (vs routine) can direct its thinking more
+      effectively.
+
+  - receptor_id: forgetting
+    name: Memory Deactivation Detection
+    family: association
+    tier: branch
+
+    dependencies:
+      - receptor_id: remembering
+        note: "Must detect activation before detecting deactivation"
+      - receptor_id: change_detection
+        note: "Must detect state transitions"
+        family: observation
+
+    environmental_trigger:
+      structure: |
+        The organism detects that a previously active memory has
+        dropped back below the activation threshold — something
+        it was remembering is no longer active in processing.
+        This is not data loss (the experience log is append-only).
+        It is the transition from active to dormant.
+
+        The firing condition: a stored pattern that was recently
+        retrieved (remembering fired) is no longer being retrieved
+        by current queries. The context has shifted enough that
+        the memory is no longer relevant.
+
+        Forgetting is informative because it tells the organism
+        what's no longer relevant to the current context. A memory
+        that deactivates is a signal that the situation has changed.
+      survival_benefit: |
+        Detecting that a memory deactivated prevents the organism
+        from continuing to act on stale retrieved content. Without
+        forgetting detection, a remembered strategy might persist
+        in behavior after the context that triggered it has passed.
+        Forgetting is the complement of remembering: one tells you
+        what became relevant, the other tells you what stopped
+        being relevant.
+      metabolic_cost: low
+      selection_pressure: |
+        Environments where context changes rapidly and where
+        acting on stale memories is costly. The selection pressure
+        is the cost of persisting with a strategy triggered by
+        a memory that's no longer relevant.
+
+    emergence_signature:
+      description: |
+        After a context shift (observation changes significantly),
+        the organism drops previously retrieved strategies and
+        returns to current-observation-driven behavior. Behavioral
+        marker: correlation between behavior and retrieved content
+        drops to baseline after context shift.
+      metrics:
+        - metric_name: context_shift_memory_release
+          measurement_method: |
+            After a significant observation change (cosine distance
+            > 0.3 between consecutive steps), measure how quickly
+            behavior returns to being driven by current observation
+            rather than by previously retrieved content.
+          expected_range: ">50% faster release than no-shift baseline"
+          detection_threshold: 0.5
+
+    predicted_emergence_order:
+      generation_range: "100-180"
+      confidence: medium
+
+    notes: |
+      Forgetting in this framework is NOT data loss. The experience
+      log is immutable. The mental model entries persist. Forgetting
+      is the active process of a previously-active entry dropping
+      below the retrieval threshold because the context shifted.
+      It's a state transition, not a deletion — the memory can be
+      re-activated later if the context returns.

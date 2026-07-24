@@ -766,6 +766,17 @@ class MentalModelEngine:
             self.entity_store.add_relation(entity_id, 'exhibits', 'erratic_behavior', 0.7)
         if npc_dist > 0.5:
             self.entity_store.add_relation('self', 'near', entity_id, float(npc_dist))
+        speed = float(npc_features[3]) if len(npc_features) > 3 else 0
+        if speed > 0.5:
+            self.entity_store.add_relation(entity_id, 'moving', 'fast', min(1.0, speed))
+        elif speed < 0.1 and npc_dist > 0.3:
+            self.entity_store.add_relation(entity_id, 'exhibits', 'stationary', 0.6)
+        if len(npc_features) > 8 and any(npc_features[8:12] > 0.5):
+            self.entity_store.add_relation(entity_id, 'emitting', 'signal', 0.8)
+        if npc_dist > 0.7:
+            self.entity_store.add_relation(entity_id, 'approaching', 'self', float(npc_dist))
+        elif npc_dist < 0.3 and npc_dist > 0.01:
+            self.entity_store.add_relation(entity_id, 'retreating_from', 'self', 0.5)
 
     def update(self, obs_before, action, obs_after, reward):
         obs_before = self._core_obs(obs_before)

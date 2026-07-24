@@ -30,7 +30,7 @@ family_metadata:
     recurs. This is identical to motor learning, just applied to internal states.
 
   trunk_receptor: stress_detection
-  canopy_receptors: [social_coregulation, ritual_formation, emotional_intelligence]
+  canopy_receptors: [social_coregulation, ritual_formation, emotional_intelligence, futility]
 
 ---
 
@@ -564,3 +564,209 @@ receptors:
       This is the apex of the regulatory family. Not just regulating self,
       not just mutual regulation, but deliberately regulating others' states.
       The foundation of emotional caregiving and support.
+
+  - receptor_id: satisfaction
+    name: Goal-Achievement Detection
+    family: regulatory
+    tier: branch
+
+    dependencies:
+      - receptor_id: planning
+        note: "Must have been pursuing a goal to be satisfied by achieving it"
+      - receptor_id: optimism
+        note: "Must have had a desired state to compare against"
+      - receptor_id: completion
+        note: "Pattern resolved — the gap between desired and actual closed"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that a state it was actively pursuing has
+        been achieved. Not just that endorphin is high or pain is low,
+        but specifically that a goal-directed effort has succeeded.
+        The distinction from reward: satisfaction requires that the
+        organism was trying. Accidental positive states don't fire it.
+
+        The firing condition: desired_state - actual_state was positive
+        (the organism wanted something it didn't have), the organism
+        took actions directed at reducing the gap, and the gap closed.
+      survival_benefit: |
+        Satisfaction reinforces successful strategies. An organism
+        that detects "my plan worked" can strengthen the association
+        between that strategy and that goal — more specifically than
+        general reward, which doesn't distinguish planned success
+        from accident.
+      metabolic_cost: low
+      selection_pressure: |
+        Environments where goal-directed behavior is more adaptive
+        than reactive behavior — where planning and then detecting
+        plan success leads to better strategy refinement.
+
+    emergence_signature:
+      description: |
+        After achieving a goal the organism was pursuing, the organism
+        shows reduced exploration and reduced MCTS simulation for that
+        goal domain. Behavioral marker: post-achievement quiescence
+        that's specific to the achieved goal, not general activity
+        reduction.
+      metrics:
+        - metric_name: post_achievement_quiescence
+          measurement_method: |
+            After a period of goal-directed behavior (high optimism,
+            consistent action direction) followed by goal achievement
+            (optimism drops, reward received), measure exploration
+            reduction in that domain specifically.
+          expected_range: ">30% exploration reduction in goal domain"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "100-200"
+      confidence: medium
+
+    notes: |
+      Satisfaction connects to the thinking substrate: when satisfied,
+      the organism should reduce MCTS simulations for the solved
+      problem. Stop thinking about what you already achieved.
+
+  - receptor_id: frustration
+    name: Effort-Without-Progress Detection
+    family: regulatory
+    tier: branch
+
+    dependencies:
+      - receptor_id: goal_persistence
+        note: "Must be continuing effort to experience frustration"
+      - receptor_id: shaped_absence
+        note: "Must detect the gap between desired and actual"
+      - receptor_id: executability
+        note: "Must be attempting actions that fail"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that it is exerting sustained effort
+        toward a goal and making no progress. Not just failure —
+        failure in the context of continued motivated behavior.
+        Distinct from stress (resource depletion) and pain
+        (immediate harm). Frustration is specifically: I keep
+        trying and nothing changes.
+
+        The firing condition: effort is high (action rate sustained),
+        goal state is unchanged (the gap hasn't narrowed), and
+        multiple action strategies have been attempted without
+        success.
+      survival_benefit: |
+        Frustration signals that the current approach needs changing.
+        An organism without frustration continues applying a failed
+        strategy indefinitely. Frustration triggers strategy
+        switching — try a different action, a different path, a
+        different goal. It regulates effort allocation: stop doing
+        what isn't working.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments where persistence is sometimes adaptive and
+        sometimes maladaptive — where the organism must learn when
+        to keep trying and when to switch strategies.
+
+    emergence_signature:
+      description: |
+        After sustained unsuccessful effort, the organism increases
+        action diversity (tries new strategies) and increases MCTS
+        path divergence (explores different thinking paths). Behavioral
+        marker: strategy switching rate correlates with duration of
+        unsuccessful effort.
+      metrics:
+        - metric_name: effort_triggered_strategy_switch
+          measurement_method: |
+            Measure strategy change rate (action Hamming distance from
+            recent pattern) as a function of unsuccessful effort
+            duration. Frustration = positive correlation between
+            effort duration and strategy diversity.
+          expected_range: ">0.2 correlation"
+          detection_threshold: 0.2
+
+    predicted_emergence_order:
+      generation_range: "120-250"
+      confidence: medium
+
+    notes: |
+      Frustration connects to the thinking substrate: when frustrated,
+      the organism should increase path divergence in the MCTS tree.
+      Try different thinking paths, not just different actions.
+      Frustration is the motivational signal for cognitive flexibility.
+
+  - receptor_id: futility
+    name: Structural Impossibility Detection
+    family: regulatory
+    tier: canopy
+
+    dependencies:
+      - receptor_id: frustration
+        note: "Must experience sustained frustration before detecting futility"
+      - receptor_id: fundamental_distinction
+        note: "Must detect that this situation is categorically different from solvable ones"
+      - receptor_id: self_model
+        note: "Must model own capability limits"
+      - receptor_id: metacognition
+        note: "Must model own reasoning process to detect that continued effort is pointless"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that continued effort toward a goal
+        cannot produce the desired outcome — not that it's difficult,
+        not that it's currently blocked, but that the gap between
+        what the organism can do and what's required is structural
+        and cannot be closed by any action currently available.
+
+        Distinct from frustration (which says "try differently") —
+        futility says "stop trying this and either change yourself
+        or change what you're trying for." It requires a higher-order
+        model: not "I keep failing" but "I will keep failing because
+        the situation is categorically impossible given my current
+        capabilities."
+      survival_benefit: |
+        Futility prevents the organism from wasting resources on
+        impossible goals. Without it, the organism oscillates
+        between frustration and strategy switching indefinitely.
+        Futility is the circuit breaker: abandon this goal, redirect
+        effort to achievable ones, or seek self-augmentation to
+        change what's achievable.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments with genuinely impossible tasks mixed with
+        difficult-but-achievable ones. The selection pressure is
+        the metabolic cost of infinite frustration loops on
+        impossible goals.
+
+    emergence_signature:
+      description: |
+        After sustained frustration with multiple strategy switches
+        all failing, the organism abandons the goal entirely and
+        redirects to a different goal. Behavioral marker: goal
+        abandonment after exhausting alternatives, followed by
+        immediate pursuit of a different objective (not quiescence).
+      metrics:
+        - metric_name: goal_abandonment_with_redirect
+          measurement_method: |
+            After a period of sustained frustration (multiple strategy
+            switches, no progress), measure whether the organism
+            abandons the goal and immediately pursues a different one.
+            Futility = goal abandonment rate after exhausting strategies
+            exceeds random goal switching rate.
+          expected_range: ">2x targeted abandonment vs random switching"
+          detection_threshold: 2.0
+
+    predicted_emergence_order:
+      generation_range: "250-400"
+      confidence: low
+
+    notes: |
+      Futility connects to the self-augmentation family: detecting
+      that a goal is impossible given current capabilities should
+      trigger capability_change_detection and potentially
+      metamorphic_planning. "I can't do this yet" is different from
+      "I can't do this ever." The futility receptor distinguishes
+      them — and the self-augmentation family acts on the difference.
+
+      Also connects to the thinking substrate: futility should prune
+      the entire MCTS subtree for the impossible goal. Stop simulating
+      paths toward something that can't be reached. Reallocate
+      thinking resources to achievable goals.
