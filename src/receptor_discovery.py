@@ -3070,6 +3070,741 @@ def build_tests():
         'After failure, switches to functional equivalent above base rate', 0.01,
         test_translation, needs_closed_loop=True))
 
+    # ============================================================
+    # 14 NEW receptor tests (Observation, Social, Formalization)
+    # Review-corrected: partial correlations, pain-stratified splits,
+    # Granger causality, drift-subtracted deltas, proper store iteration.
+    # ============================================================
+
+    _pe_start = idx['pe_start']
+    _mm_start = idx['mm_start']
+    _npc_start = idx['npc_start']
+    _energy_idx = idx['energy']
+    _cdim = idx.get('core_obs_dim', CORE_OBS_DIM)
+
+    def _lstsq_resid(X, y):
+        X_aug = np.column_stack([X, np.ones(len(y))])
+        beta = np.linalg.lstsq(X_aug, y, rcond=None)[0]
+        return y - X_aug @ beta
+
+    def _hamming(a, b):
+        return sum(x != y for x, y in zip(a, b))
+
+    # --- OBSERVATION FAMILY ---
+
+    def test_relational_observation(log, engine, **kw):
+        if len(log) < 100:
+            return 0.0
+        pairs = [(_pain, _endo), (_temp, _chem), (_pain, _pres), (_endo, _temp)]
+        advantages = []
+        for ch_a, ch_b in pairs:
+            vals_a, vals_b, signs, hams = [], [], [], []
+            for i in range(1, min(len(log), 3000)):
+                obs = log[i]['obs_before']
+                va = float(np.mean(_ch(obs, ch_a)))
+                vb = float(np.mean(_ch(obs, ch_b)))
+                s = 1.0 if va > vb else -1.0
+                h = _hamming(log[i]['action'], log[i - 1]['action'])
+                vals_a.append(va)
+                vals_b.append(vb)
+                signs.append(s)
+                hams.append(h)
+            n = len(hams)
+            if n < 30:
+                continue
+            X = np.column_stack([vals_a, vals_b])
+            y = np.array(hams, dtype=float)
+            s = np.array(signs)
+            try:
+                resid_y = _lstsq_resid(X, y)
+                resid_s = _lstsq_resid(X, s)
+            except Exception:
+                continue
+            pc = abs(_safe_corr(resid_s, resid_y))
+            advantages.append(pc)
+        if len(advantages) < 2:
+            return 0.0
+        return float(np.mean(advantages))
+
+    tests.append(ReceptorTest('relational_observation', 'observation',
+        'Action correlates with sign(a-b) after residualizing absolutes', 0.02,
+        test_relational_observation))
+
+    def test_selective_observation(log, engine, **kw):
+        if len(log) < 200:
+            return 0.0
+        pe_vals = [float(np.mean(e['obs_before'][_pe_start:_pe_start + 6])) for e in log]
+        pain_vals = [float(np.mean(_ch(e['obs_before'], _pain))) for e in log]
+        pe_med = np.median(pe_vals)
+        pain_med = np.median(pain_vals)
+        cells = [[], [], [], []]
+        for i, entry in enumerate(log):
+            hp = int(pain_vals[i] > pain_med)
+            hpe = int(pe_vals[i] > pe_med)
+            cells[hp * 2 + hpe].append(np.array(entry['action'], dtype=float))
+        if any(len(c) < 15 for c in cells):
+            return 0.0
+        def _div(a_list, b_list):
+            return float(np.mean(np.abs(np.mean(a_list, axis=0) - np.mean(b_list, axis=0))))
+        d_high_pain = _div(cells[3], cells[2])
+        d_low_pain = _div(cells[1], cells[0])
+        return (d_high_pain + d_low_pain) / 2.0
+
+    tests.append(ReceptorTest('selective_observation', 'observation',
+        'PE-driven action divergence within matched pain strata', 0.02,
+        test_selective_observation))
+
+    def test_comparative_observation(log, engine, **kw):
+        if len(log) < 100:
+            return 0.0
+        WINDOW = 10
+        trends, levels, changes = [], [], []
+        for i in range(WINDOW, min(len(log) - 1, 3000)):
+            energies = [log[j]['obs_before'][_energy_idx] for j in range(i - WINDOW, i)]
+            trend = energies[-1] - energies[0]
+            level = log[i]['obs_before'][_energy_idx]
+            ham = _hamming(log[i]['action'], log[i + 1]['action'])
+            trends.append(trend)
+            levels.append(level)
+            changes.append(ham)
+        if len(trends) < 50:
+            return 0.0
+        y = np.array(changes, dtype=float)
+        t = np.array(trends)
+        X = np.array(levels).reshape(-1, 1)
+        try:
+            resid_y = _lstsq_resid(X, y)
+            resid_t = _lstsq_resid(X, t)
+        except Exception:
+            return 0.0
+        return float(abs(_safe_corr(resid_t, resid_y)))
+
+    tests.append(ReceptorTest('comparative_observation', 'observation',
+        'Trend predicts strategy change after controlling for level', 0.02,
+        test_comparative_observation))
+
+    def test_cross_modal_observation(log, engine, **kw):
+        if not hasattr(engine, 'store'):
+            return None
+        groups = {'pain': _pain, 'endorphin': _endo, 'temperature': _temp,
+                  'chemical': _chem, 'pressure': _pres}
+        cross_certs, same_certs = [], []
+        for entry_list in engine.store.mappings.values():
+            entries = entry_list if isinstance(entry_list, list) else [entry_list]
+            for m in entries:
+                if m.certainty < 0.3 or m.count < 3:
+                    continue
+                if not hasattr(m, 'representative_obs') or m.representative_obs is None:
+                    continue
+                raw_obs = m.representative_obs
+                delta_group, max_d = None, 0
+                for name, (s, e) in groups.items():
+                    d = float(np.mean(np.abs(m.delta[s:e])))
+                    if d > max_d:
+                        max_d = d
+                        delta_group = name
+                ctx_group, max_c = None, 0
+                for name, (s, e) in groups.items():
+                    c = float(np.mean(np.abs(raw_obs[s:e])))
+                    if c > max_c:
+                        max_c = c
+                        ctx_group = name
+                if delta_group is None or ctx_group is None:
+                    continue
+                if max_d < 0.01 or max_c < 0.01:
+                    continue
+                if delta_group != ctx_group:
+                    cross_certs.append(m.certainty)
+                else:
+                    same_certs.append(m.certainty)
+        if len(cross_certs) < 5 or len(same_certs) < 5:
+            return 0.0
+        return float(max(0.0, np.mean(cross_certs) - np.mean(same_certs)))
+
+    tests.append(ReceptorTest('cross_modal_observation', 'observation',
+        'Cross-modal entries have higher certainty than same-modal', 0.01,
+        test_cross_modal_observation))
+
+    def test_meta_observation(log, engine, **kw):
+        if kw.get('log_provenance') == 'oracle':
+            return 0.0
+        if len(log) < 100:
+            return 0.0
+        LP_OFFSET = 1
+        lp_vals, ext_feats, act_scalars = [], [], []
+        for entry in log:
+            obs = entry['obs_before']
+            lp = obs[_mm_start + LP_OFFSET] if len(obs) > _mm_start + LP_OFFSET else 0.0
+            pv = float(np.mean(_ch(obs, _pain)))
+            ev = float(np.mean(_ch(obs, _endo)))
+            lp_vals.append(lp)
+            ext_feats.append([pv, ev])
+            act_scalars.append(float(np.mean(entry['action'])))
+        n = len(lp_vals)
+        if n < 50:
+            return 0.0
+        X = np.array(ext_feats)
+        y = np.array(act_scalars)
+        lp = np.array(lp_vals)
+        try:
+            resid_y = _lstsq_resid(X, y)
+            resid_lp = _lstsq_resid(X, lp)
+        except Exception:
+            return 0.0
+        return float(abs(_safe_corr(resid_lp, resid_y)))
+
+    tests.append(ReceptorTest('meta_observation', 'observation',
+        'Learning progress predicts action after controlling for external state', 0.02,
+        test_meta_observation, needs_closed_loop=True))
+
+    # --- SOCIAL FAMILY ---
+
+    def test_belief_attribution(log, engine, **kw):
+        if kw.get('log_provenance') == 'oracle':
+            return 0.0
+        if not hasattr(engine, 'entity_store'):
+            return None
+        if len(log) < 300:
+            return 0.0
+        npc_present = [any(abs(v) > 0.1
+                           for v in entry['obs_before'][_npc_start:_npc_start + 12])
+                       for entry in log]
+        reappearance_tests = []
+        i = 0
+        while i < len(log) - 1:
+            if npc_present[i] and i + 1 < len(log) and not npc_present[i + 1]:
+                last_seen_obs = log[i]['obs_before']
+                for j in range(i + 5, min(i + 50, len(log))):
+                    if npc_present[j]:
+                        reappear_obs = log[j]['obs_before']
+                        pain_then = float(np.mean(_ch(last_seen_obs, _pain)))
+                        pain_now = float(np.mean(_ch(reappear_obs, _pain)))
+                        if abs(pain_now - pain_then) > 0.2:
+                            reappearance_tests.append({
+                                'old': pain_then, 'new': pain_now,
+                                'action': log[j]['action'],
+                            })
+                        i = j
+                        break
+                else:
+                    i += 1
+            else:
+                i += 1
+        if len(reappearance_tests) < 15:
+            return 0.0
+        action_mags = [sum(t['action']) for t in reappearance_tests]
+        r_old = abs(_safe_corr([t['old'] for t in reappearance_tests], action_mags))
+        r_new = abs(_safe_corr([t['new'] for t in reappearance_tests], action_mags))
+        return float(max(0.0, r_old - r_new))
+
+    tests.append(ReceptorTest('belief_attribution', 'social',
+        'Behavior at NPC reappearance tracks stale state over current', 0.02,
+        test_belief_attribution, needs_closed_loop=True))
+
+    def test_social_learning(log, engine, **kw):
+        if kw.get('log_provenance') == 'oracle':
+            return 0.0
+        if len(log) < 200:
+            return 0.0
+        npc_present = [any(abs(v) > 0.1
+                           for v in entry['obs_before'][_npc_start:_npc_start + 12])
+                       for entry in log]
+        transition = None
+        run_start, run_len = None, 0
+        for i, present in enumerate(npc_present):
+            if present:
+                if run_start is None:
+                    run_start = i
+                run_len += 1
+                if run_len >= 10:
+                    transition = run_start
+                    break
+            else:
+                run_start, run_len = None, 0
+        if transition is None or transition < 50:
+            return 0.0
+        pre_actions = set()
+        for entry in log[:transition]:
+            pre_actions.add(action_to_hash(entry['action']))
+        if len(pre_actions) < 5:
+            return 0.0
+        npc_novel, non_npc_novel = set(), set()
+        post_npc, post_no_npc = 0, 0
+        for i in range(transition, len(log)):
+            h = action_to_hash(log[i]['action'])
+            if h in pre_actions:
+                continue
+            if npc_present[i]:
+                npc_novel.add(h)
+                post_npc += 1
+            else:
+                non_npc_novel.add(h)
+                post_no_npc += 1
+        if post_npc < 20 or post_no_npc < 20:
+            return 0.0
+        npc_rate = len(npc_novel) / post_npc
+        non_npc_rate = len(non_npc_novel) / post_no_npc
+        return float(max(0.0, npc_rate - non_npc_rate))
+
+    tests.append(ReceptorTest('social_learning', 'social',
+        'Repertoire expansion rate higher during NPC presence', 0.01,
+        test_social_learning, needs_closed_loop=True))
+
+    def test_cultural_transmission(log, engine, **kw):
+        generation = kw.get('generation', None)
+        parent_engine = kw.get('parent_engine', None)
+        if generation is None or generation < 1:
+            return None
+        if parent_engine is None:
+            return None
+        if not hasattr(engine, 'store') or not hasattr(parent_engine, 'store'):
+            return None
+        parent_confident = set()
+        parent_all = set()
+        for ah, entry_list in parent_engine.store.mappings.items():
+            entries = entry_list if isinstance(entry_list, list) else [entry_list]
+            parent_all.add(ah)
+            for m in entries:
+                if m.certainty > 0.7 and m.count > 5:
+                    parent_confident.add(ah)
+        if len(parent_confident) < 5:
+            return 0.0
+        inherited_speeds, control_speeds = [], []
+        for ah, entry_list in engine.store.mappings.items():
+            entries = entry_list if isinstance(entry_list, list) else [entry_list]
+            for m in entries:
+                if m.count < 3:
+                    continue
+                speed = m.certainty / np.log(m.count + 1)
+                if ah in parent_confident:
+                    inherited_speeds.append(speed)
+                elif ah not in parent_all:
+                    control_speeds.append(speed)
+        if len(inherited_speeds) < 5 or len(control_speeds) < 5:
+            return 0.0
+        return float(max(0.0, np.mean(inherited_speeds) - np.mean(control_speeds)))
+
+    tests.append(ReceptorTest('cultural_transmission', 'social',
+        'Offspring converge faster on parent-mastered patterns', 0.02,
+        test_cultural_transmission))
+
+    def test_deception_detection(log, engine, **kw):
+        if kw.get('log_provenance') == 'oracle':
+            return 0.0
+        if len(log) < 200:
+            return 0.0
+        npc_steps = []
+        for i, entry in enumerate(log):
+            obs = entry['obs_before']
+            npc_obs = obs[_npc_start:_npc_start + 12]
+            if any(abs(v) > 0.1 for v in npc_obs):
+                obs_after = entry['obs_after']
+                pd = float(np.mean(_ch(obs_after, _pain)) - np.mean(_ch(obs, _pain)))
+                npc_steps.append({'step': i, 'pain_delta': pd,
+                                  'action': entry['action']})
+        if len(npc_steps) < 30:
+            return 0.0
+        third = len(npc_steps) // 3
+        early = npc_steps[:third]
+        late = npc_steps[-third:]
+        early_bad_rate = sum(1 for s in early if s['pain_delta'] > 0.1) / len(early)
+        if early_bad_rate < 0.3:
+            return 0.0
+        non_npc_actions = []
+        for entry in log:
+            obs = entry['obs_before']
+            if not any(abs(v) > 0.1 for v in obs[_npc_start:_npc_start + 12]):
+                non_npc_actions.append(np.array(entry['action'], dtype=float))
+        if len(non_npc_actions) < 20:
+            return 0.0
+        baseline = np.mean(non_npc_actions, axis=0)
+        early_dev = np.mean([np.mean(np.abs(np.array(s['action'], dtype=float) - baseline))
+                             for s in early])
+        late_dev = np.mean([np.mean(np.abs(np.array(s['action'], dtype=float) - baseline))
+                            for s in late])
+        return float(max(0.0, late_dev - early_dev))
+
+    tests.append(ReceptorTest('deception_detection', 'social',
+        'Behavioral coupling with NPC decreases after bad outcomes', 0.02,
+        test_deception_detection, needs_closed_loop=True))
+
+    def test_moral_reasoning(log, engine, **kw):
+        npc_count = kw.get('npc_count', 1)
+        if npc_count < 2:
+            return None
+        return None
+
+    tests.append(ReceptorTest('moral_reasoning', 'social',
+        'Third-party punishment (needs multi-NPC)', 0.1,
+        test_moral_reasoning, needs_closed_loop=True))
+
+    def test_nested_theory_of_mind(log, engine, **kw):
+        if kw.get('log_provenance') == 'oracle':
+            return 0.0
+        if not hasattr(engine, 'entity_store'):
+            return None
+        if len(log) < 300:
+            return 0.0
+        LAG = 5
+        HISTORY = 10
+        npc_series, org_actions = [], []
+        for entry in log:
+            obs = entry['obs_before']
+            npc_obs = obs[_npc_start:_npc_start + 12]
+            if any(abs(v) > 0.1 for v in npc_obs):
+                npc_series.append(float(np.mean(np.abs(npc_obs))))
+                org_actions.append(float(np.mean(entry['action'])))
+        n = len(npc_series)
+        if n < HISTORY + LAG + 50:
+            return 0.0
+        targets, X_base, X_aug = [], [], []
+        for t in range(HISTORY, n - LAG):
+            targets.append(npc_series[t + LAG])
+            npc_hist = [npc_series[t - h] for h in range(HISTORY)]
+            X_base.append(npc_hist + [1.0])
+            X_aug.append(npc_hist + [org_actions[t]] + [1.0])
+        if len(targets) < 30:
+            return 0.0
+        targets = np.array(targets)
+        X_b = np.array(X_base)
+        X_a = np.array(X_aug)
+        try:
+            beta_b = np.linalg.lstsq(X_b, targets, rcond=None)[0]
+            var_base = float(np.var(targets - X_b @ beta_b))
+            beta_a = np.linalg.lstsq(X_a, targets, rcond=None)[0]
+            var_aug = float(np.var(targets - X_a @ beta_a))
+        except Exception:
+            return 0.0
+        if var_base < 1e-8:
+            return 0.0
+        return float(max(0.0, (var_base - var_aug) / var_base))
+
+    tests.append(ReceptorTest('nested_theory_of_mind', 'social',
+        'Organism actions Granger-cause NPC future state', 0.01,
+        test_nested_theory_of_mind, needs_closed_loop=True))
+
+    # --- FORMALIZATION FAMILY ---
+
+    def test_rule_generalization(log, engine, **kw):
+        if not hasattr(engine, 'store'):
+            return None
+        if len(log) < 100:
+            return 0.0
+        drift = _estimate_drift(log, _cdim)
+        mid = len(log) // 2
+        early_obs = np.array([e['obs_before'][:_cdim] for e in log[:mid]])
+        centroid = np.mean(early_obs, axis=0)
+        early_dists = [np.linalg.norm(obs - centroid) for obs in early_obs]
+        dist_threshold = np.percentile(early_dists, 75)
+        familiar_accs, novel_accs = [], []
+        for entry in log[mid:]:
+            obs = entry['obs_before']
+            action = entry['action']
+            pred_delta, cert, n = engine.predict_delta(obs, action)
+            if n == 0 or cert < 0.3:
+                continue
+            actual = _effect_delta(entry, drift, _cdim)
+            error = float(np.mean(np.abs(pred_delta[:_cdim] - actual[:_cdim])))
+            accurate = 1.0 if error < 0.3 else 0.0
+            d = np.linalg.norm(obs[:_cdim] - centroid)
+            if d <= dist_threshold:
+                familiar_accs.append(accurate)
+            else:
+                novel_accs.append(accurate)
+        if len(novel_accs) < 10:
+            return 0.0
+        novel_acc = float(np.mean(novel_accs))
+        if len(familiar_accs) >= 10:
+            fam_acc = float(np.mean(familiar_accs))
+            if fam_acc > 0.1:
+                return float(novel_acc * (novel_acc / fam_acc))
+        return novel_acc
+
+    tests.append(ReceptorTest('rule_generalization', 'formalization',
+        'Prediction accuracy on out-of-distribution observations', 0.1,
+        test_rule_generalization))
+
+    def test_rule_composition(log, engine, **kw):
+        if not hasattr(engine, 'store'):
+            return None
+        if not hasattr(engine, 'chain'):
+            return None
+        if len(log) < 100:
+            return 0.0
+        drift = _estimate_drift(log, _cdim)
+        chain_errors, single_errors = [], []
+        for i in range(1, min(len(log) - 1, 200)):
+            a1 = log[i - 1]['action']
+            a2 = log[i]['action']
+            obs_start = log[i - 1]['obs_before']
+            try:
+                chain_delta, chain_cert = engine.chain([a1, a2], obs_start)
+            except Exception:
+                continue
+            if chain_cert < 0.1:
+                continue
+            actual = (log[i]['obs_after'][:_cdim] - obs_start[:_cdim]) - drift[:_cdim] * 2
+            chain_err = float(np.mean(np.abs(chain_delta[:_cdim] - actual)))
+            single_delta, _, _ = engine.predict_delta(obs_start, a2)
+            single_err = float(np.mean(np.abs(single_delta[:_cdim] - actual)))
+            chain_errors.append(chain_err)
+            single_errors.append(single_err)
+        if len(chain_errors) < 15:
+            return 0.0
+        mc = float(np.mean(chain_errors))
+        ms = float(np.mean(single_errors))
+        if ms < 0.01:
+            return 0.0
+        improvement = max(0.0, (ms - mc) / ms)
+        if kw.get('log_provenance') == 'oracle':
+            return float(improvement)
+        sp_rng = np.random.RandomState(42)
+        chosen_certs, random_certs = [], []
+        for i in range(1, min(len(log), 150)):
+            a1 = log[i - 1]['action']
+            a2 = log[i]['action']
+            obs = log[i - 1]['obs_before']
+            try:
+                _, cc = engine.chain([a1, a2], obs)
+                chosen_certs.append(cc)
+            except Exception:
+                continue
+            ra1 = log[sp_rng.randint(len(log))]['action']
+            ra2 = log[sp_rng.randint(len(log))]['action']
+            try:
+                _, rc = engine.chain([ra1, ra2], obs)
+                random_certs.append(rc)
+            except Exception:
+                random_certs.append(0.0)
+        if len(chosen_certs) < 10:
+            return float(improvement)
+        usage = float(np.mean(chosen_certs) - np.mean(random_certs))
+        return float(improvement * 0.5 + max(0.0, usage) * 0.5)
+
+    tests.append(ReceptorTest('rule_composition', 'formalization',
+        'Chain predictions beat single-step; organism selects high-cert chains', 0.02,
+        test_rule_composition))
+
+    def test_rule_revision(log, engine, **kw):
+        if not hasattr(engine, 'pattern_store'):
+            return None
+        if len(log) < 200:
+            return 0.0
+        patterns = getattr(engine.pattern_store, 'patterns', [])
+        revision_signals = 0
+        total_candidates = 0
+        for pattern in patterns:
+            if pattern.count < 15:
+                continue
+            total_candidates += 1
+            if pattern.certainty <= 0.6:
+                continue
+            cum_delta = getattr(pattern, 'cum_delta', None)
+            if cum_delta is None:
+                continue
+            delta_mag = float(np.mean(np.abs(cum_delta)))
+            if delta_mag < 0.01:
+                continue
+            m2_val = pattern.m2
+            if isinstance(m2_val, np.ndarray):
+                m2_val = float(np.mean(m2_val))
+            rel_var = m2_val / (delta_mag + 1e-8)
+            if rel_var > 0.5:
+                revision_signals += 1
+        if total_candidates < 10:
+            return 0.0
+        return float(revision_signals / total_candidates)
+
+    tests.append(ReceptorTest('rule_revision', 'formalization',
+        'Patterns with high certainty AND high relative variance (revised)', 0.05,
+        test_rule_revision))
+
+    def test_theory_formation(log, engine, **kw):
+        if not hasattr(engine, 'store'):
+            return None
+        entries = []
+        for entry_list in engine.store.mappings.values():
+            el = entry_list if isinstance(entry_list, list) else [entry_list]
+            for m in el:
+                if m.certainty < 0.5 or m.count < 5:
+                    continue
+                if m.context_embedding is None:
+                    continue
+                if not hasattr(m, 'delta'):
+                    continue
+                entries.append(m)
+        if len(entries) < 30:
+            return 0.0
+        if len(entries) > 200:
+            sample_rng = np.random.RandomState(42)
+            entries = [entries[i] for i in sample_rng.choice(len(entries), 200, replace=False)]
+        embeddings = np.array([m.context_embedding for m in entries])
+        deltas = np.array([m.delta for m in entries])
+        emb_norms = np.linalg.norm(embeddings, axis=1, keepdims=True) + 1e-8
+        emb_n = embeddings / emb_norms
+        d_norms = np.linalg.norm(deltas, axis=1, keepdims=True) + 1e-8
+        d_n = deltas / d_norms
+        n = len(entries)
+        K = min(5, n // 5)
+        if K < 1:
+            return 0.0
+        sim_matrix = emb_n @ emb_n.T
+        neighbor_sims, distant_sims = [], []
+        for i in range(n):
+            ctx_sims = sim_matrix[i].copy()
+            ctx_sims[i] = -2
+            sorted_idx = np.argsort(ctx_sims)
+            for j in sorted_idx[-K:]:
+                neighbor_sims.append(float(d_n[i] @ d_n[j]))
+            for j in sorted_idx[:K]:
+                distant_sims.append(float(d_n[i] @ d_n[j]))
+        if len(neighbor_sims) < 20:
+            return 0.0
+        return float(max(0.0, np.mean(neighbor_sims) - np.mean(distant_sims)))
+
+    tests.append(ReceptorTest('theory_formation', 'formalization',
+        'Context-neighbors share delta direction (organized structure)', 0.02,
+        test_theory_formation))
+
+    # --- EPISTEMIC FAMILY (new: conflation, fundamental_distinction) ---
+
+    def test_conflation(log, engine, **kw):
+        """Detects conflation via near-neighbor divergent pairs: entries in the
+        same action bucket with similar context embeddings (0.5-0.9 cosine sim)
+        but opposite delta directions. "Similar situation, two systematically
+        different outcomes" is the conflation signature."""
+        if not hasattr(engine, 'store'):
+            return None
+
+        divergent_pairs = 0
+        aligned_pairs = 0
+
+        for ah, entry_list in engine.store.mappings.items():
+            entries = entry_list if isinstance(entry_list, list) else [entry_list]
+            qualified = [e for e in entries
+                         if e.count >= 3 and e.context_embedding is not None
+                         and hasattr(e, 'delta')]
+            if len(qualified) < 2:
+                continue
+
+            for i in range(len(qualified)):
+                ei = qualified[i]
+                emb_i = ei.context_embedding
+                norm_i = np.linalg.norm(emb_i) + 1e-8
+                delta_i = ei.delta
+                dnorm_i = np.linalg.norm(delta_i) + 1e-8
+
+                for j in range(i + 1, len(qualified)):
+                    ej = qualified[j]
+                    emb_j = ej.context_embedding
+                    norm_j = np.linalg.norm(emb_j) + 1e-8
+
+                    ctx_sim = float(emb_i @ emb_j / (norm_i * norm_j))
+                    if ctx_sim < 0.5 or ctx_sim > 0.95:
+                        continue
+
+                    delta_j = ej.delta
+                    dnorm_j = np.linalg.norm(delta_j) + 1e-8
+                    delta_sim = float(delta_i @ delta_j / (dnorm_i * dnorm_j))
+
+                    if delta_sim < -0.1:
+                        divergent_pairs += 1
+                    elif delta_sim > 0.3:
+                        aligned_pairs += 1
+
+        total = divergent_pairs + aligned_pairs
+        if total < 5:
+            return 0.0
+        return float(divergent_pairs / total)
+
+    tests.append(ReceptorTest('conflation', 'epistemic',
+        'Same-action entries with similar context but divergent deltas', None,
+        test_conflation))
+
+    def test_fundamental_distinction(log, engine, **kw):
+        """After identifying conflated regions (divergent-pair signature),
+        narrowing context improves prediction MORE in conflated regions than
+        in clean regions. The contrast isolates the distinction signal from
+        the k-NN bias-variance effect."""
+        if not hasattr(engine, 'store'):
+            return None
+        if len(log) < 200:
+            return 0.0
+
+        # Flag conflated action hashes: those with divergent-pair signature
+        conflated_hashes = set()
+        clean_hashes = set()
+        for ah, entry_list in engine.store.mappings.items():
+            entries = entry_list if isinstance(entry_list, list) else [entry_list]
+            qualified = [e for e in entries
+                         if e.count >= 3 and e.context_embedding is not None
+                         and hasattr(e, 'delta')]
+            if len(qualified) < 2:
+                clean_hashes.add(ah)
+                continue
+            has_divergent = False
+            for i in range(len(qualified)):
+                ei = qualified[i]
+                ni = np.linalg.norm(ei.context_embedding) + 1e-8
+                di = np.linalg.norm(ei.delta) + 1e-8
+                for j in range(i + 1, len(qualified)):
+                    ej = qualified[j]
+                    nj = np.linalg.norm(ej.context_embedding) + 1e-8
+                    ctx_sim = float(ei.context_embedding @ ej.context_embedding / (ni * nj))
+                    if 0.5 < ctx_sim < 0.95:
+                        dj = np.linalg.norm(ej.delta) + 1e-8
+                        delta_sim = float(ei.delta @ ej.delta / (di * dj))
+                        if delta_sim < -0.1:
+                            has_divergent = True
+                            break
+                if has_divergent:
+                    break
+            if has_divergent:
+                conflated_hashes.add(ah)
+            else:
+                clean_hashes.add(ah)
+
+        if len(conflated_hashes) < 3 or len(clean_hashes) < 3:
+            return 0.0
+
+        # Compare narrow-vs-broad improvement in conflated vs clean regions
+        def _improvement_for_hashes(target_hashes):
+            broad_errs, narrow_errs = [], []
+            for entry in log[len(log)//2:]:
+                ah = action_to_hash(entry['action'])
+                if ah not in target_hashes:
+                    continue
+                obs = entry['obs_before']
+                action = entry['action']
+                actual = entry['obs_after'][:_cdim] - obs[:_cdim]
+
+                pred_b, cert_b, n_b = engine.predict_delta(obs, action, top_k=10)
+                pred_n, cert_n, n_n = engine.predict_delta(obs, action, top_k=3)
+                if n_b < 2 or n_n < 1:
+                    continue
+                broad_errs.append(float(np.mean(np.abs(pred_b[:_cdim] - actual))))
+                narrow_errs.append(float(np.mean(np.abs(pred_n[:_cdim] - actual))))
+            if len(broad_errs) < 10:
+                return None
+            mb = float(np.mean(broad_errs))
+            mn = float(np.mean(narrow_errs))
+            if mb < 0.01:
+                return 0.0
+            return (mb - mn) / mb
+
+        imp_conflated = _improvement_for_hashes(conflated_hashes)
+        imp_clean = _improvement_for_hashes(clean_hashes)
+
+        if imp_conflated is None or imp_clean is None:
+            return 0.0
+
+        # Score: narrowing helps MORE in conflated regions than clean regions
+        return float(max(0.0, imp_conflated - imp_clean))
+
+    tests.append(ReceptorTest('fundamental_distinction', 'epistemic',
+        'Narrowing context improves prediction more in conflated than clean regions', None,
+        test_fundamental_distinction))
+
     return tests
 
 
@@ -3158,18 +3893,22 @@ def calibrate_null_thresholds(log, engine, num_shuffles=10, percentile=95):
     null_scores = {t.receptor_id: [] for t in tests}
 
     for shuffle_i in range(num_shuffles):
-        shuffled = log.copy()
         rng = np.random.RandomState(shuffle_i)
-        rng.shuffle(shuffled)
+
+        null_log = [dict(e) for e in log]
+        action_perm = rng.permutation(len(null_log))
+        for i in range(len(null_log)):
+            null_log[i]['action'] = log[int(action_perm[i])]['action']
+            null_log[i]['reward'] = log[int(action_perm[i])]['reward']
 
         try:
-            null_engine = build_mental_model(shuffled)
+            null_engine = build_mental_model(null_log)
         except Exception:
             null_engine = engine
 
         for test in tests:
             try:
-                score = test.test_fn(shuffled, null_engine)
+                score = test.test_fn(null_log, null_engine)
             except Exception:
                 score = 0.0
             if score is not None:

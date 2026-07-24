@@ -152,10 +152,10 @@ if __name__ == '__main__':
     print(f"  {'Log entries':<30} {len(oracle_log):>10} {len(sp_log):>10}")
     print(f"  {'Store mappings':<30} {oracle_engine.store.total_count:>10} {sp_engine.store.total_count:>10}")
     print(f"  {'Mean reward':<30} {oracle_rewards['mean']:>10.1f} {sp_rewards['mean']:>10.1f}")
-    print(f"  {'Receptors discovered':<30} {len(oracle_ids):>10} {len(sp_ids):>10}")
 
     oracle_ids = set(oracle_results['discovered'])
     sp_ids = set(sp_results['discovered'])
+    print(f"  {'Receptors discovered':<30} {len(oracle_ids):>10} {len(sp_ids):>10}")
     both = oracle_ids & sp_ids
     oracle_only = oracle_ids - sp_ids
     sp_only = sp_ids - oracle_ids
