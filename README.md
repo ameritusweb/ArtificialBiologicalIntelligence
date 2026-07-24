@@ -351,6 +351,8 @@ No existing program unifies these threads. The receptor topology as a single gen
 
 For a formal mathematical treatment of the Receptor-Topological Dynamical System (RTDS), see [docs/ERTI_formalization.tex](docs/ERTI_formalization.tex). Three levels of documentation: intuitive argument ([Whitepaper](docs/WHITEPAPER.md)), empirical record ([Theories](docs/theories.md) + [Roadmap](docs/ROADMAP.md)), formal structure ([Formalization](docs/ERTI_formalization.tex)).
 
+![RTDS](rtds.png)
+
 ---
 
 ## Project Structure
