@@ -1,6 +1,6 @@
 # Receptor Index
 
-172 receptors across 21 families. T=trunk, B=branch, C=canopy.
+179 receptors across 21 families. T=trunk, B=branch, C=canopy.
 
 ---
 
@@ -115,15 +115,18 @@
 - [C] **missing_piece_located** — Directed-search closure (the thing I knew was missing, found)
 - [C] **analogy_receptor** — Similarity across receptor firing patterns (meta-receptor)
 
-## Observation (8)
+## Observation (11)
 - [T] **change_detection** — Detecting environmental changes
 - [T] **coincidence_detection** — Co-occurrence detection
+- [T] **relational_observation** — Observing relationships between entities
 - [B] **selective_observation** — Attention to relevant channels
 - [B] **absence_observation** — Detecting what's missing
 - [B] **comparative_observation** — Comparing across contexts
+- [B] **statistical_anomaly** — Distributional shift detection (base rate changed)
+- [B] **rarity_detection** — Low base rate, high information content event
 - [C] **cross_modal_observation** — Cross-modality integration
 - [C] **meta_observation** — Observing own observation process
-- [T] **relational_observation** — Observing relationships between entities
+- [C] **significance_detection** — Commitment threshold (noticed → mattering)
 
 ## Formalization (11)
 - [T] **pattern_recognition** — Extracting repeating patterns
@@ -193,10 +196,13 @@
 - [C] **adaptive_depth** — Dynamic processing depth control
 - [C] **response_loop_detection** — Corrective response amplification detection
 
-## Epistemic (4)
+## Epistemic (7)
 - [T] **belief_detection** — Own-belief state detection
 - [B] **doubt_detection** — Commitment-performance mismatch
+- [B] **conflation** — Category collapse detection (two things treated as one)
 - [C] **counterfactual_salience** — Motivationally-loaded possibility detection
+- [C] **fundamental_distinction** — Load-bearing difference detection (the difference that matters)
+- [C] **topology_awareness** — Cognitive repertoire state detection (what kind of mind am I)
 - [C] **epistemic_strategy** — Deliberate epistemic state management
 
 ---
@@ -214,14 +220,15 @@
 - [B] **self_talk** — Internal deliberation via serial named-concept activation
 - [C] **referential_grounding** — Symbol-to-receptor termination detection (does this refer to something real?)
 
-## Bridging (3)
+## Bridging (4)
 - [T] **mimicry** — Observed-action reproduction (see action, do action — mirror neurons as receptor)
+- [B] **trust** — Source reliability calibration (is this agent's behavior worth copying?)
 - [C] **executability** — Thought-to-action feasibility detection (can I do this now?)
 - [C] **translation** — Cross-code concept mapping (unknown symbol -> known consequence -> existing concept; also: metaphor across domains)
 
 ---
 
-**Totals:** 47 trunk, 49 branch, 76 canopy = 172 receptors
+**Totals:** 47 trunk, 53 branch, 79 canopy = 179 receptors
 
 **Dependency layers:**
 - Layer 0 (single-family): ~40 receptors, emerge early

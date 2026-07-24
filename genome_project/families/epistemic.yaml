@@ -40,7 +40,7 @@ family_metadata:
     allocated.
 
   trunk_receptor: belief_detection
-  canopy_receptors: [counterfactual_salience, epistemic_strategy]
+  canopy_receptors: [counterfactual_salience, fundamental_distinction, topology_awareness, epistemic_strategy]
 
 ---
 
@@ -303,6 +303,353 @@ receptors:
       generate. Counterfactual salience is serialization applied
       to possibility space rather than to sensory processing.
 
+  - receptor_id: conflation
+    name: Category Collapse Detection
+    family: epistemic
+    tier: branch
+
+    dependencies:
+      - receptor_id: doubt_detection
+        note: "Must detect commitment-performance mismatch before detecting category failure"
+      - receptor_id: exception_detection
+        note: "Must accumulate exceptions before detecting that a single concept is actually two"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that two things it has been treating as the
+        same concept are actually distinct — and that this conflation has
+        been producing prediction errors. Not just that the concept has
+        exceptions (exception_detection covers that), but that the
+        exceptions have structure: they cluster into a second category
+        that the organism has been systematically ignoring.
+
+        The firing condition: a concept C with high certainty but high
+        variance (m2), where the prediction errors are bimodal — some
+        predictions succeed and some fail, and the failures share a
+        common context that the successes don't.
+      survival_benefit: |
+        Conflation detection enables category refinement. An organism
+        that treats "predators" as one concept pays the cost when
+        the avoidance strategy for type-A predators fails against
+        type-B. Detecting the conflation — "these are not one thing" —
+        is the first step toward the split that resolves the prediction
+        errors.
+      metabolic_cost: medium
+      selection_pressure: |
+        Environments where two genuinely different things share
+        surface features, and where the difference is consequential.
+        The selection pressure is the accumulated cost of wrong
+        predictions from the conflated concept.
+
+    selection_environments:
+      - environments_with_similar_looking_different_things
+      - environments_where_category_errors_are_costly
+      - non_stationary_environments
+
+    unlocks:
+      - category_refinement
+      - fundamental_distinction
+      - concept_splitting
+
+    emergence_signature:
+      description: |
+        The organism splits a previously unified concept into two after
+        a period of increasing prediction errors. Behavioral marker:
+        actions that were previously the same for both underlying types
+        become differentiated — the organism starts responding differently
+        to the two things it used to treat as one.
+      metrics:
+        - metric_name: concept_split_rate
+          measurement_method: |
+            Track mental model entries with high certainty + high m2
+            (bimodal variance). After a split event (new entries created
+            for the sub-categories), measure whether prediction error
+            decreases. Conflation detection = split events followed by
+            error reduction.
+          expected_range: ">30% error reduction after split"
+          detection_threshold: 0.3
+        - metric_name: thinking_path_divergence
+          measurement_method: |
+            In the MCTS thinking tree, conflated concepts produce high
+            path_divergence — the same starting concept leads to
+            different simulated outcomes. Measure correlation between
+            path_divergence and subsequent concept splitting.
+          expected_range: ">0.3 correlation"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "150-250"
+      confidence: medium
+
+    notes: |
+      Conflation connects directly to the thinking substrate. The MCTS
+      tree's path_divergence channel IS the signal for conflation: when
+      a single concept produces wildly different simulated outcomes,
+      that divergence means the concept is covering two different
+      underlying states. The organism detects conflation by sensing
+      divergence in its own thinking paths.
+
+      The genome itself is subject to conflation. Receptor categories
+      defined in this file may contain conflations that only become
+      visible when richer environments produce prediction errors that
+      reveal the hidden distinction. This receptor is the mechanism
+      by which the genome revises itself from within.
+
+  - receptor_id: fundamental_distinction
+    name: Load-Bearing Difference Detection
+    family: epistemic
+    tier: canopy
+
+    dependencies:
+      - receptor_id: conflation
+        note: "Must detect that things are conflated before finding where the real boundary is"
+      - receptor_id: rule_extraction
+        note: "Must extract rules to determine which level of description matters"
+      - receptor_id: hierarchical_abstraction
+        note: "Must represent levels of description"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that two things which appear similar at
+        the surface have a difference at a deeper level that is
+        load-bearing for everything downstream. Not just "these are
+        different" (the similarity family handles that) but "this
+        is THE difference — the level at which everything else
+        follows." The level at which the distinction is fundamental
+        determines what can be correctly inferred from it.
+
+        The firing condition: after a conflation is detected and the
+        organism is searching for the boundary, the fundamental
+        distinction fires when it finds the level of description
+        at which the two previously-conflated things become
+        consistently predictable — where the MCTS value divergence
+        disappears because the concepts have been correctly separated.
+      survival_benefit: |
+        Fundamental distinction is what makes category refinement
+        correct rather than arbitrary. An organism could split a
+        conflated concept along any feature — color, size, location.
+        Fundamental distinction detects which feature is the one
+        that makes the downstream predictions work. The benefit is
+        not just having two categories instead of one, but having
+        the RIGHT two categories — the ones that carve nature at
+        its joints.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments where surface features mislead and the
+        load-bearing feature is not the most salient. The organism
+        must learn to look past the obvious difference to the one
+        that actually predicts outcomes.
+
+    selection_environments:
+      - environments_with_deep_structure
+      - environments_where_surface_similarity_misleads
+      - environments_requiring_correct_abstraction_level
+
+    unlocks:
+      - correct_category_formation
+      - epistemic_strategy_refinement
+      - theory_formation_support
+
+    emergence_signature:
+      description: |
+        After a conflation is detected, the organism tries multiple
+        splits and converges on the one that maximally reduces
+        prediction error. Behavioral marker: the organism explores
+        several potential distinction levels, and the one it settles
+        on produces value convergence in the MCTS tree — the
+        divergence that triggered conflation detection disappears.
+      metrics:
+        - metric_name: split_quality
+          measurement_method: |
+            After a concept split, compare prediction error reduction
+            across different potential split features. Fundamental
+            distinction = the organism converges on the split that
+            produces the largest error reduction, not just any split.
+          expected_range: ">0.5 of maximum possible error reduction"
+          detection_threshold: 0.5
+        - metric_name: thinking_convergence_after_split
+          measurement_method: |
+            After the concept is split on the fundamental dimension,
+            measure MCTS value_convergence for each sub-concept.
+            Fundamental distinction = value_convergence increases
+            (the subtrees stabilize because predictions are now correct).
+          expected_range: ">0.3 convergence increase"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "200-350"
+      confidence: low
+
+    notes: |
+      Fundamental distinction is the receptor-level mechanism for
+      what philosophy calls "carving nature at its joints." The
+      organism doesn't need the concept of a natural kind — it needs
+      a receptor that fires when a distinction makes all the
+      downstream predictions work. The philosophical concept falls
+      out as a description of what the receptor detects.
+
+      The asymmetry between conflation and fundamental distinction
+      matters: conflation fires first (something is wrong with this
+      category), then the organism searches, then fundamental
+      distinction fires when it finds the right boundary. Conflation
+      is the error signal. Fundamental distinction is the resolution
+      signal. Together they form a cycle that refines the organism's
+      conceptual apparatus — and because MCTS mediates both (divergence
+      triggers conflation, convergence confirms distinction), the
+      thinking substrate is the mechanism through which concepts
+      improve.
+
+  - receptor_id: topology_awareness
+    name: Cognitive Repertoire State Detection
+    family: epistemic
+    tier: canopy
+
+    dependencies:
+      - receptor_id: fundamental_distinction
+        note: "Must detect load-bearing differences before detecting changes to the difference-set itself"
+      - receptor_id: metacognition
+        note: "Must model own processing before modeling own cognitive repertoire"
+      - receptor_id: capability_change_detection
+        note: "Must detect capability change before detecting topology change"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that its own cognitive repertoire has changed —
+        a receptor that used to fire no longer does, a new receptor has
+        begun firing, or the pattern of receptor co-activation has shifted.
+        This is not about any single thought or prediction. It is about the
+        organism detecting what kind of mind it currently has.
+
+        The topology vector — the binary discovery vector recording which
+        receptors are active — is the fossil record of selection pressures.
+        The topology_awareness receptor fires when that fossil record
+        changes: when the organism gains a new sensitivity, loses one, or
+        notices that its sensitivities have reorganized.
+
+        The firing condition: the organism maintains a running estimate of
+        its own receptor activation pattern (which thinking channels fire,
+        which mental model features are active, which prediction types
+        succeed). When that pattern changes significantly — measured as
+        drift in the activation distribution — the receptor fires.
+      survival_benefit: |
+        An organism that detects its own cognitive expansion can seek
+        environments that develop missing capabilities. An organism that
+        detects cognitive contraction can protect degrading capabilities.
+        An organism that detects reorganization can recalibrate its
+        strategies to match its new cognitive profile.
+
+        Without topology_awareness, the organism gets smarter but doesn't
+        know it's getting smarter. The self-modifying loop (T83) operates
+        but the organism can't direct it. With topology_awareness, the
+        organism can steer its own cognitive development — choosing
+        environments, experiences, and thinking strategies based on
+        what kind of mind it currently has and what kind it needs.
+
+        This is the mechanism by which the ceiling (T83) actively rises
+        rather than passively drifting: the organism notices its own
+        growth and acts to continue it.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments where cognitive capabilities change over the
+        organism's lifetime and where detecting those changes enables
+        better environment selection. The selection pressure is
+        strongest in developmental environments where the organism
+        passes through qualitatively different cognitive stages
+        and where the optimal strategy depends on which stage
+        it's in.
+
+    selection_environments:
+      - developmental_environments
+      - environments_requiring_adaptive_strategy
+      - environments_where_cognitive_profile_matters
+
+    unlocks:
+      - directed_cognitive_development
+      - environment_selection_for_growth
+      - cognitive_identity
+
+    emergence_signature:
+      description: |
+        The organism's behavior changes when its cognitive repertoire
+        changes — not just because new capabilities enable new actions,
+        but because the organism detects the change itself and adjusts
+        its strategy. Behavioral marker: after gaining a new receptor
+        (e.g., a new thinking channel starts firing), the organism
+        seeks experiences that exercise that receptor, even when those
+        experiences don't directly improve reward.
+
+        The strongest signature: the organism's environment-seeking
+        behavior correlates with its recent topology changes, not
+        just with its current reward gradient. An organism that just
+        gained spatial reasoning seeks spatial challenges. An organism
+        that lost prediction accuracy seeks stable environments for
+        recalibration.
+      metrics:
+        - metric_name: topology_change_behavioral_response
+          measurement_method: |
+            Track the activation pattern of internal observation channels
+            (mm features, thinking channels, pattern features) over a
+            sliding window. When the pattern shifts significantly
+            (cosine distance > 0.2 between windows), measure whether
+            the organism's subsequent actions change more than expected
+            from the environmental change alone. Topology awareness =
+            behavioral adjustment driven by internal repertoire change,
+            controlling for external state change.
+          expected_range: ">0.15 partial correlation"
+          detection_threshold: 0.15
+        - metric_name: growth_seeking
+          measurement_method: |
+            After a period of topology expansion (new channels activating),
+            measure whether the organism preferentially enters environments
+            or states that exercise the new channels. Growth seeking =
+            new-channel activation rate in chosen environments exceeds
+            rate in random environments.
+          expected_range: ">1.5x activation rate"
+          detection_threshold: 1.5
+
+    predicted_emergence_order:
+      generation_range: "300-500"
+      confidence: low
+
+    notes: |
+      Topology awareness is the receptor that makes the self-modifying
+      loop conscious. Without it, T83's loop runs but the organism is
+      a passenger. With it, the organism is the driver — it detects
+      its own cognitive state, evaluates it against its needs, and
+      steers toward the cognitive profile that fits its environment.
+
+      The implementation path: the organism already has internal
+      observation channels (mm_certainty, learning_progress,
+      controllability, thinking channels 0-5, pattern features).
+      The topology_awareness receptor operates on the *distribution*
+      of these channels — not their values at a single timestep,
+      but the pattern of which ones are active and how that pattern
+      has changed. This is a second-order receptor: it reads the
+      output of other receptors, not the world.
+
+      Connection to the genome: if the topology vector is the fossil
+      record, topology_awareness is the organism reading its own
+      fossil record in real time. It can detect: "I used to have
+      strong doubt detection but it's fading" or "my thinking
+      substrate just started producing value_convergence signals
+      it didn't before." Each detection is actionable — seek
+      experiences that restore the fading capability, or exercise
+      the new one.
+
+      Connection to MCTS: the thinking substrate's 6 channels are
+      themselves part of the topology. When the organism starts
+      using depth_reached (currently inactive at iteration 3),
+      topology_awareness fires on that change. The organism notices
+      it has started thinking deeper and can decide whether to
+      continue developing that capacity or redirect.
+
+      The deepest implication: an organism with topology_awareness
+      has a concept of cognitive identity — "what kind of mind am I"
+      as a detectable, motivationally significant state. This is
+      not self-awareness in the philosophical sense but in the
+      functional sense: the organism's cognitive profile is an
+      object it can reason about, plan around, and act to change.
+
   - receptor_id: epistemic_strategy
     name: Deliberate Epistemic State Management
     family: epistemic
@@ -311,6 +658,10 @@ receptors:
     dependencies:
       - receptor_id: counterfactual_salience
         note: "Must detect salient possibilities before managing them"
+      - receptor_id: fundamental_distinction
+        note: "Must find load-bearing differences before managing epistemic states strategically"
+      - receptor_id: topology_awareness
+        note: "Must detect own cognitive repertoire before managing it strategically"
       - receptor_id: self_regulation
         note: "Must regulate own processing states"
       - receptor_id: pipeline_optimization

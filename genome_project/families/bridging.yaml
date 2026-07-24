@@ -130,6 +130,98 @@ receptors:
       behavior propagates through observation, not through the
       genome.
 
+  - receptor_id: trust
+    name: Source Reliability Calibration
+    family: bridging
+    tier: branch
+
+    dependencies:
+      - receptor_id: mimicry
+        note: "Must have mimicry to need a gate on it"
+      - receptor_id: behavioral_prediction
+        note: "Social — must predict agent behavior to assess reliability"
+      - receptor_id: response_recognition
+        note: "Interaction — must detect that agent actions produce consequences"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that a specific source's outputs have
+        a reliable relationship to good outcomes — that what this
+        agent does is worth copying. Not credibility in the abstract,
+        but specifically: is this agent's behavior worth modeling?
+
+        Trust operates on a gradient:
+          Low trust — observe but don't copy
+          Medium trust — copy motor patterns but verify outcomes
+          High trust — copy and propagate without verification
+
+        The gradient matters because high trust is cognitively cheap
+        but epistemically risky. An organism that trusts completely
+        copies errors as readily as successes. An organism that never
+        trusts discovers everything independently. The trust receptor
+        calibrates the tradeoff.
+      survival_benefit: |
+        Without trust, mimicry is indiscriminate — the organism
+        copies everything it observes, flooding its motor repertoire
+        with noise. Trust is the filter that makes mimicry selective
+        and therefore useful. It determines whether the mimicry
+        bridge opens for a given source.
+      metabolic_cost: medium
+      selection_pressure: |
+        Social environments where some agents are reliably competent
+        and others are not — where indiscriminate copying is worse
+        than selective copying, and selective copying is better than
+        independent discovery.
+
+    selection_environments:
+      - mixed_competence_social_environments
+      - environments_with_deceptive_agents
+      - environments_where_independent_discovery_is_costly
+
+    unlocks:
+      - selective_mimicry
+      - source_reliability_tracking
+      - cultural_quality_filter
+
+    emergence_signature:
+      description: |
+        The organism copies behavior from agents whose prior outputs
+        correlated with positive outcomes, and avoids copying from
+        agents whose outputs didn't. Measured by differential mimicry
+        rate by source quality.
+      metrics:
+        - metric_name: selective_copying
+          measurement_method: |
+            Expose organism to two agents: one whose actions correlate
+            with reward, one whose actions don't. Trust = higher
+            mimicry rate for the reliable agent.
+          expected_range: ">2x mimicry rate for reliable vs unreliable source"
+          detection_threshold: 2.0
+
+    predicted_emergence_order:
+      generation_range: "100-180"
+      confidence: medium
+
+    notes: |
+      Trust and deception_detection (Social family) are paired
+      receptors. Trust opens the mimicry channel. Deception_detection
+      closes it when the source proves unreliable. Together they
+      form the quality gate on cultural transmission.
+
+      Trust also connects to the translation receptor: on a new
+      planet, you can't trust that observed behaviors are worth
+      copying until you've established that the other agents are
+      reliably competent. Trust must be earned before mimicry
+      becomes safe, and before translation of foreign codes is
+      worth the investment.
+
+      The bridging family now has four receptors with a clean
+      structure:
+        mimicry (trunk) — the bridge mechanism
+        trust (branch) — the gate on the bridge
+        executability (canopy) — thought to action
+        translation (canopy) — code to code
+
   - receptor_id: executability
     name: Thought-to-Action Feasibility Detection
     family: bridging

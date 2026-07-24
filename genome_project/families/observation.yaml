@@ -420,6 +420,209 @@ receptors:
       If organism can't report or adjust what it's attending to (only what it observes),
       meta-observation is absent.
 
+  # BRANCH: Statistical monitoring
+
+  - receptor_id: "obs_009"
+    name: "statistical_anomaly"
+    family: "Observation"
+    tier: "branch"
+
+    description: |
+      Detect when the current observation falls outside the distribution
+      of normal variation the organism has come to expect. Not "my
+      prediction failed" (that's exception_detection, tied to a specific
+      prediction) but "the base rate of something just changed and I
+      don't know why yet."
+
+      Runs continuously over the stream of experience as a background
+      monitor. Unlike prediction error (which fires on a specific
+      prediction-outcome pair), this fires on distributional shift —
+      a channel's statistics are no longer what they were.
+
+    dependencies:
+      within_family:
+        - "change_detection"
+        - "comparative_observation"
+      cross_family:
+        - receptor: "pattern_recognition"
+          family: "Compression"
+          relationship: "Must have a baseline distribution to detect departure from"
+        - receptor: "prediction"
+          family: "Foundation"
+          relationship: "Distinguishes from prediction error: anomaly is distributional, prediction error is instance-level"
+
+    environmental_trigger:
+      selection_environments:
+        - "Non-stationary environments where the base rate changes"
+        - "Environments with hidden state transitions"
+        - "Environments where early detection of regime change is adaptive"
+      selection_pressure: |
+        Organisms that detect distributional shift before it produces
+        specific prediction failures can prepare for regime change.
+        The survival benefit is lead time — the anomaly signal fires
+        before the exceptions accumulate.
+
+    emergence_signature:
+      behavioral: |
+        Organism increases exploration or caution when a channel's
+        running statistics shift, even before any specific prediction
+        fails. Behavioral marker: response to a channel whose mean
+        shifts by >1 std before any single-step prediction error
+        exceeds threshold.
+      neural_correlate: "EMA-tracked channel statistics with shift detection"
+      mental_model: "Certainty for the affected channel drops before exceptions accumulate"
+
+    predicted_emergence_order:
+      roadmap_step: "After Step 10 (mental model), Step 25 (optimism)"
+      generation_range: [80, 130]
+      prerequisites: "Running statistics on observation channels"
+
+    metabolic_cost: "Low (EMA tracking is cheap)"
+
+    falsification_criteria: |
+      If organism doesn't respond to distributional shift until
+      specific predictions fail, anomaly detection is absent and
+      the organism relies on exception_detection only.
+
+  - receptor_id: "obs_010"
+    name: "rarity_detection"
+    family: "Observation"
+    tier: "branch"
+
+    description: |
+      Detect when the current observation falls within the known
+      distribution but occurs at very low base rate — it's not
+      anomalous (the distribution includes it) but it's highly
+      informative because it almost never happens.
+
+      The distinction from anomaly: an anomaly violates the
+      distribution. A rare event IS in the distribution but at
+      the tail. The information content of a rare event is
+      -log(p), which is high precisely because p is low.
+
+      A rare event isn't necessarily surprising (the organism
+      might know it can happen) — it's significant. It carries
+      disproportionate information about the environment's
+      hidden state.
+
+    dependencies:
+      within_family:
+        - "change_detection"
+        - "statistical_anomaly"
+      cross_family:
+        - receptor: "coincidence_detection"
+          family: "Causality"
+          relationship: "Rare co-occurrences are especially informative"
+        - receptor: "curiosity"
+          family: "Meta-Motivational"
+          relationship: "Rarity triggers curiosity through information content, not prediction error"
+
+    environmental_trigger:
+      selection_environments:
+        - "Environments with power-law distributed events"
+        - "Environments where rare events carry disproportionate consequences"
+        - "Environments with hidden state that surfaces through rare observations"
+      selection_pressure: |
+        Rare events often signal hidden state transitions, predator
+        presence, or resource opportunities that the organism cannot
+        afford to miss. An organism that treats rare events as
+        background noise loses the signal; one that flags them for
+        investigation captures information its competitors miss.
+
+    emergence_signature:
+      behavioral: |
+        Organism allocates disproportionate attention to low-frequency
+        events. Not just novelty (which habituates) but genuine rarity
+        (which stays rare and stays informative). Behavioral marker:
+        sustained attention to events that have occurred <5% of the
+        time, even after many encounters.
+      neural_correlate: "Base-rate tracking with information-content weighting"
+      mental_model: "Low-count high-consequence entries are prioritized"
+
+    predicted_emergence_order:
+      roadmap_step: "After Step 10 (mental model)"
+      generation_range: [90, 150]
+      prerequisites: "Base-rate estimation, information-content computation"
+
+    metabolic_cost: "Low"
+
+    falsification_criteria: |
+      If organism habituates to rare events (treats 3rd occurrence same
+      as 1st), rarity detection is absent and the organism relies on
+      novelty only.
+
+  - receptor_id: "obs_011"
+    name: "significance_detection"
+    family: "Observation"
+    tier: "canopy"
+
+    description: |
+      Detect when a statistical anomaly or rare event has persisted
+      long enough that it crosses from "noticed" to "mattering" —
+      the commitment threshold between observation and investigation.
+
+      This receptor prevents the organism from chasing every
+      statistical fluctuation. It fires only when the signal
+      persists long enough, or recurs frequently enough, to
+      warrant sustained investigation. It is the transition from
+      "hm, that's odd" to "I need to understand this."
+
+      Feeds directly into the MCTS thinking substrate: when
+      significance fires, it should lower the value estimates of
+      thinking paths that assume the old distribution still holds,
+      and trigger deep exploration of paths that account for the
+      new signal.
+
+    dependencies:
+      within_family:
+        - "statistical_anomaly"
+        - "rarity_detection"
+        - "comparative_observation"
+      cross_family:
+        - receptor: "doubt_detection"
+          family: "Epistemic"
+          relationship: "Significance triggers doubt about current model"
+        - receptor: "curiosity"
+          family: "Meta-Motivational"
+          relationship: "Significance is curiosity with a commitment threshold"
+        - receptor: "counterfactual_salience"
+          family: "Epistemic"
+          relationship: "A significant anomaly becomes a motivationally loaded possibility"
+
+    environmental_trigger:
+      selection_environments:
+        - "Environments with genuine signals buried in noise"
+        - "Environments where false alarms are costly (investigation is expensive)"
+        - "Environments where missing a real signal is catastrophic"
+      selection_pressure: |
+        The tradeoff between false alarms and missed detections. An
+        organism without significance detection either investigates
+        everything (expensive) or ignores everything below a high
+        threshold (misses real signals). Significance detection is
+        the adaptive threshold that balances these costs.
+
+    emergence_signature:
+      behavioral: |
+        Organism shows a two-stage response to anomalies: initial
+        heightened attention (anomaly detection firing), then either
+        dismissal (signal didn't persist → false alarm) or sustained
+        investigation (signal persisted → significance). The
+        transition is detectable as a behavioral commitment point.
+      neural_correlate: "Accumulator model: evidence for significance integrates over time"
+      mental_model: "Doubt escalates to investigation only after threshold crossing"
+
+    predicted_emergence_order:
+      roadmap_step: "Deep canopy — requires anomaly, rarity, and doubt"
+      generation_range: [150, 250]
+      prerequisites: "Statistical anomaly + rarity + doubt detection"
+
+    metabolic_cost: "Moderate"
+
+    falsification_criteria: |
+      If organism shows no behavioral difference between transient
+      anomalies and persistent ones (responds the same to noise and
+      signal), significance detection is absent.
+
 cross_family_dependencies:
   provides_to:
     - family: "All families"
@@ -449,6 +652,9 @@ notes: |
   1. comparative_observation (explicit now-vs-then comparison)
   2. absence_observation (noticing what's missing)
   3. meta_observation (observing own observation)
+  4. statistical_anomaly (distributional shift detection)
+  5. rarity_detection (low base rate, high information content)
+  6. significance_detection (commitment threshold: noticed → mattering)
 
   The rest are observational mechanisms already present but distributed across families.
 
