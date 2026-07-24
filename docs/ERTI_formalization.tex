@@ -1,0 +1,546 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{mathtools}
+
+\geometry{margin=1.2in}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+\newtheorem{observation}{Empirical Observation}
+\newtheorem{conjecture}{Conjecture}
+
+\title{\textbf{Evolutionary Receptor Topology Intelligence:\\
+A Mathematical Formalization}\\
+\large Receptor-Topological Dynamical Systems}
+\author{ABI Research Program}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We introduce the \textit{Receptor-Topological Dynamical System} (RTDS), a formal structure
+for Evolutionary Receptor Topology Intelligence (ERTI). An RTDS is distinguished from
+classical dynamical systems by three properties: (1) the state space dimensionality is not
+fixed but changes under evolutionary selection pressure; (2) the evaluation function is
+intrinsic to the state representation rather than externally specified; and (3) transitions
+are learned from experience rather than designed. We formalize the receptor, the receptor
+topology, the state space, the transition function, the intrinsic evaluation, the thinking
+substrate, and the evolutionary operator. We state key results including the reachability
+bound on topology growth and empirically observed dependency ordering of receptor
+emergence. We distinguish theorems (proved from definitions) from empirical observations
+(supported by experimental data, labeled as such) and conjectures (stated without proof).
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+%% ============================================================
+\section{Primitive: The Receptor}
+
+Let $n$ denote the dimensionality of the raw observation vector from the environment.
+$n$ is fixed within a generation (determined by the organism's body plan) but may change
+across generations if the body plan evolves.
+
+\begin{definition}[Receptor]
+A \textbf{receptor} $r$ is a pair $r = (\phi_r, \alpha_r)$ where:
+\begin{itemize}
+    \item $\phi_r : \mathbb{R}^n \to [0,\infty)$ is the \textbf{activation function} mapping
+    a raw observation $\mathbf{x} \in \mathbb{R}^n$ to a firing strength. The
+    \textbf{detection condition} is the superlevel set
+    $C_r = \{\mathbf{x} \in \mathbb{R}^n : \phi_r(\mathbf{x}) > \theta_r\}$ for
+    threshold $\theta_r > 0$.
+    \item $\alpha_r \in \mathbb{R}^+$ is the \textbf{metabolic cost} of maintaining $r$.
+\end{itemize}
+A receptor fires when $\phi_r(\mathbf{x}) > \theta_r$.
+\end{definition}
+
+\begin{remark}
+$C_r$ is derived from $\phi_r$ and $\theta_r$, not an independent primitive. The codomain
+of $\phi_r$ is $[0,\infty)$ rather than $[0,1]$ because some receptor activations are
+unbounded (e.g., pain summed across limbs). The activation function includes any
+normalization the receptor performs.
+\end{remark}
+
+\begin{remark}
+The receptor fires \emph{when its condition is met}, not when it is lacking. This
+distinguishes the receptor from a deficit signal. Detection precedes processing; the
+thought, movement, or inner speech produced is downstream of the firing, not upstream.
+\end{remark}
+
+\begin{definition}[Receptor Fitness]
+A receptor $r$ is \textbf{fitness-positive} in environment $\mathcal{W}$ if the expected
+survival advantage of having $r$ exceeds its metabolic cost $\alpha_r$:
+\[
+\mathbb{E}_{\mathcal{W}}[\Delta \text{fitness} \mid r \text{ active}] > \alpha_r
+\]
+A receptor can only persist under selection if it is fitness-positive. This is the
+load-bearing condition: the concept the receptor detects must be embedded in the
+environment's causal structure with survival consequences attached.
+\end{definition}
+
+%% ============================================================
+\section{Receptor Topology}
+
+\begin{definition}[Receptor Topology]
+A \textbf{receptor topology} at generation $t$ is a set
+\[
+\mathcal{R}_t = \{r_1, r_2, \ldots, r_{k_t}\}
+\]
+of fitness-positive receptors active in the organism at generation $t$, where $k_t = |\mathcal{R}_t|$
+is the \textbf{topological dimension} at generation $t$.
+\end{definition}
+
+\begin{remark}
+$k_t$ is not fixed. It increases when new receptors emerge and decreases when receptors
+become fitness-negative. This is the reshaping phenomenon: complexity does not simply
+expand the topology, it reorganizes it. Crucially, $k_t$ is \emph{non-monotone} ---
+receptors can be gained and lost across generations. Empirically, across 60 generations:
+$k_t$ ranged from 72 to 119, with receptors both gained (54) and lost (17) between
+generation 0 and generation 59.
+\end{remark}
+
+\begin{definition}[Dependency Partial Order]
+The receptor set $\mathcal{R}$ carries a \textbf{dependency partial order} $\preceq$ where
+$r_i \preceq r_j$ means receptor $r_i$ must be active before $r_j$ can emerge. This
+defines a directed acyclic graph $G_\mathcal{R} = (\mathcal{R}, \preceq)$ called the
+\textbf{genome dependency graph}.
+\end{definition}
+
+\begin{proposition}[Layered Emergence]
+Receptors emerge in layers consistent with $G_\mathcal{R}$. Define the layer of $r$ as:
+\[
+\ell(r) = \max_{r' \prec r} \ell(r') + 1, \quad \ell(r) = 0 \text{ if } r \text{ has no predecessors}
+\]
+Layer 0 receptors (trunk) emerge in any structured environment. Higher-layer receptors
+require both the environmental structure and the presence of their prerequisite receptors.
+\end{proposition}
+
+\begin{observation}[Depth Prerequisite]
+In a 60-generation ERTI run, depth\_reached ($\ell = 3$) activated at generation 29,
+exactly one generation after metacognition and conflation ($\ell = 2$) became active at
+generations 27--28. This is consistent with layered emergence but constitutes a single
+empirical observation ($n=1$), not a proven theorem. Whether the ordering is a necessary
+prerequisite or an artifact of the test design is an open question.
+\end{observation}
+
+%% ============================================================
+\section{State Space}
+
+\begin{definition}[Receptor State Space]
+Given receptor topology $\mathcal{R}_t$, the \textbf{receptor state space} at generation
+$t$ is:
+\[
+\mathcal{S}_t = \prod_{r \in \mathcal{R}_t} [0, \infty)
+\]
+a $k_t$-dimensional positive cone where each dimension corresponds to the activation
+strength of one receptor.
+\end{definition}
+
+\begin{remark}
+$\mathcal{S}_t$ is open-dimensional: its dimensionality $k_t$ changes across generations.
+This is the defining structural property of an RTDS and distinguishes it from all fixed
+state-space formalisms including finite state machines, Markov decision processes with
+fixed state spaces, and standard dynamical systems. The codomain of $\phi_r$ and the
+state space are consistent: both use $[0, \infty)$.
+\end{remark}
+
+\begin{definition}[State]
+A \textbf{state} $s \in \mathcal{S}_t$ is a vector of receptor activation strengths:
+\[
+s = (\phi_{r_1}(\mathbf{x}), \phi_{r_2}(\mathbf{x}), \ldots, \phi_{r_{k_t}}(\mathbf{x}))
+\]
+where $\mathbf{x} \in \mathbb{R}^n$ is the raw observation vector from the environment.
+We write $s_i = \phi_{r_i}(\mathbf{x})$ for the $i$-th component.
+\end{definition}
+
+%% ============================================================
+\section{Transition Function}
+
+\begin{definition}[True Transition Function]
+The \textbf{true transition function} $T : \mathcal{S}_t \times \mathcal{A} \to \Delta(\mathcal{S}_t)$
+maps a state-action pair to a distribution over next states, where $\mathcal{A}$ is the
+action space. $T$ is unknown to the organism.
+\end{definition}
+
+\begin{definition}[Learned Transition Model]
+The organism learns an approximation of $T$ via the \textbf{mental model}, a database of
+cause-effect records:
+\[
+\mathcal{M} = \{(\mathbf{e}_i, \Delta s_i, \tau_i, c_i)\}_{i=1}^{N}
+\]
+where $\mathbf{e}_i$ is a context embedding, $\Delta s_i \in \mathbb{R}^{k_t}$ is the
+observed state change (which may have negative components --- activation can decrease),
+$\tau_i$ is the time delay, and $c_i \in [0,1]$ is the certainty.
+
+The \textbf{readout function} $\hat{T} : \mathcal{S}_t \times \mathcal{A} \to \mathbb{R}^{k_t} \times [0,1]$
+converts $\mathcal{M}$ into a point prediction:
+\[
+\hat{T}(s, a) = \left(\sum_{i \in \text{top-}k} w_i \cdot \Delta s_i, \quad
+\frac{1}{k}\sum_{i \in \text{top-}k} c_i\right)
+\]
+where the top-$k$ entries are selected by cosine similarity between the query embedding
+and stored embeddings $\mathbf{e}_i$, and $w_i$ are similarity-weighted coefficients
+summing to 1. $\hat{T}$ returns a predicted state change in $\mathbb{R}^{k_t}$ and an
+average certainty, not a distribution. The approximation $\hat{T} \approx \mathbb{E}[T]$
+holds in the sense that the similarity-weighted average converges to the conditional
+expectation as the store grows.
+\end{definition}
+
+\begin{remark}
+$\hat{T}$ is context-conditioned: the same action $a$ from the same raw observation
+can produce different $\Delta s$ depending on the current hidden state of the environment,
+because the context embedding captures information beyond the action hash. The
+contextual\_signal\_interpretation receptor (empirically discovered at generation 0)
+is precisely the organism learning that $T$ is context-dependent --- that pain-in-context
+is different from pain-as-absolute-signal.
+\end{remark}
+
+%% ============================================================
+\section{Intrinsic Evaluation Function}
+
+\begin{definition}[Intrinsic Evaluation]
+The \textbf{intrinsic evaluation function} $V : \mathcal{S}_t \to \mathbb{R}$ maps any
+state to a value determined by the receptor activation components of that state:
+\[
+V(s) = g(s_1, s_2, \ldots, s_{k_t})
+\]
+where $g : [0,\infty)^{k_t} \to \mathbb{R}$ is a function of the activation vector.
+In the simplest case, $g$ is linear: $V(s) = \sum_{i} w_i \cdot s_i$ with valence
+weights $w_i \in \mathbb{R}$. In general, $g$ may be nonlinear to capture receptor
+interactions --- for example, simultaneous high pain and high endorphin (conflict)
+produces a qualitatively different evaluation than either alone, which a linear $g$
+cannot represent.
+\end{definition}
+
+\begin{remark}
+$V$ is intrinsic in the strict sense: it is a property of the state representation itself,
+not an external signal provided by a designer. The function $g$ (whether linear weights
+or nonlinear interactions) is not specified --- it emerges from selection pressure.
+In the ERTI implementation, the ArbitrationHead provides the nonlinear component,
+modulating receptor group weights based on the current state.
+\end{remark}
+
+\begin{remark}[Evaluation Generalization]
+$V$ produces a value for any state $s \in \mathcal{S}_t$, including states in environments
+the organism has never encountered, because $V$ is defined over the activation vector
+$s$ and receptors fire on conditions wherever those conditions are met. However, whether
+that value is \emph{useful} --- whether acting on it leads to fitness --- depends on
+whether the receptor topology $\mathcal{R}_t$ detects the structure that matters in the
+new environment. Generalization of $V$ is necessary but not sufficient for
+cross-environment transfer.
+\end{remark}
+
+%% ============================================================
+\section{The Thinking Substrate}
+
+\begin{definition}[Thinking Substrate]
+The \textbf{thinking substrate} $M$ is a Monte Carlo Tree Search process over $(\mathcal{S}_t, \hat{T}, V)$:
+\[
+M(s) = \arg\max_{a \in \mathcal{A}} Q(s, a)
+\]
+where $Q(s,a)$ is estimated via UCB across simulated rollouts:
+\[
+Q(s, a) = \bar{V}(s, a) + c \sqrt{\frac{\ln N(s)}{N(s,a)}}
+\]
+with $\bar{V}(s,a)$ the mean value of rollouts from $(s,a)$, $N(s)$ the visit count of
+state $s$, $N(s,a)$ the visit count of action $a$ from $s$, and $c$ an exploration
+constant.
+\end{definition}
+
+\begin{definition}[Thinking Channels]
+The MCTS tree generates \textbf{thinking channels} --- metadata about the search process
+that become receptor inputs for the next cycle:
+\begin{align*}
+\chi_1 &= \max_{a} \bar{V}(s,a) && \text{(best\_value)} \\
+\chi_2 &= H(\{N(s,a)/N(s)\}_a) / \ln|\mathcal{A}| && \text{(visit\_entropy, normalized to $[0,1]$)} \\
+\chi_3 &= \max\!\left(0,\; 1 - \text{std}(\{\bar{V}(s,a)\}_a)\right) && \text{(value\_convergence, clipped to $[0,1]$)} \\
+\chi_4 &= \max_a \bar{V}(s,a) - \min_a \bar{V}(s,a) && \text{(path\_divergence)} \\
+\chi_5 &= |\{a : N(s,a) < 2\}| / |\mathcal{A}| && \text{(underexplored)} \\
+\chi_6 &= d_{\max} / d_{\text{budget}} && \text{(depth\_reached)}
+\end{align*}
+All channels are clipped to $[-1, 1]$ before entering the observation vector.
+These six channels are appended to $\mathbf{x}$, making the organism's thinking
+a receptor input on the next cycle.
+\end{definition}
+
+\begin{remark}[Relationship to AlphaZero]
+Standard MCTS (e.g., AlphaZero) requires an externally specified evaluation function
+approximated by a value network trained on labeled outcomes. In ERTI, $V$ is intrinsic ---
+no value network is needed because the receptor topology provides the evaluation.
+Different receptor topologies evaluate identical states differently, and as the topology
+develops across generations, the search improves because the organism gets better at
+knowing what is worth searching for.
+\end{remark}
+
+%% ============================================================
+\section{The Evolutionary Operator}
+
+\begin{definition}[Evolutionary Operator]
+The \textbf{evolutionary operator} $\mathcal{U}$ updates the receptor topology across
+generations:
+\[
+\mathcal{U} : \mathcal{R}_t \times \mathcal{F}_t \to \mathcal{R}_{t+1}
+\]
+where $\mathcal{F}_t : 2^{\mathcal{R}^*} \to \mathbb{R}$ is the fitness function mapping
+a receptor topology (a subset of the genome) to its observed fitness in environment
+$\mathcal{W}_t$. The operator has three components:
+\begin{enumerate}
+    \item \textbf{Selection:} Fitness-proportional survival --- topologies with higher
+    $\mathcal{F}_t$ are more likely to reproduce.
+    \item \textbf{Topology bias inheritance:} Offspring inherit $\mathcal{R}_t$ as a
+    prior, probe-gated: the inherited topology is validated against exploration data
+    rather than accepted unconditionally.
+    \item \textbf{Discovery:} Novel receptors emerge when the environment contains
+    detectable structure not yet in $\mathcal{R}_t$ whose detection would be
+    fitness-positive.
+\end{enumerate}
+\end{definition}
+
+%% ============================================================
+\section{The Full System: RTDS}
+
+\begin{definition}[Receptor-Topological Dynamical System]
+A \textbf{Receptor-Topological Dynamical System} (RTDS) is a tuple:
+\[
+\Sigma = (\mathcal{R}_0, \mathcal{G}, \hat{T}, V, M, \mathcal{U}, \mathcal{W}_t)
+\]
+where:
+\begin{itemize}
+    \item $\mathcal{R}_0$ is the initial receptor topology (trunk receptors)
+    \item $\mathcal{G} = (\mathcal{R}^*, \preceq)$ is the genome --- the full dependency graph
+    of all possible receptors ordered by their prerequisites
+    \item $\hat{T}$ is the learned transition model (mental model with readout function)
+    \item $V$ is the intrinsic evaluation function
+    \item $M$ is the thinking substrate (MCTS over $\hat{T}$ and $V$)
+    \item $\mathcal{U}$ is the evolutionary operator
+    \item $\mathcal{W}_t$ is the environment at generation $t$
+\end{itemize}
+The system evolves across generations: $\mathcal{R}_{t+1} = \mathcal{U}(\mathcal{R}_t, \mathcal{F}_t)$,
+and within each generation the organism operates as a dynamical system with state space
+$\mathcal{S}_t$, transition model $\hat{T}$, evaluation $V$, and action selection $M$.
+\end{definition}
+
+%% ============================================================
+\section{Key Results}
+
+\begin{proposition}[Reachability]
+Let $\Sigma$ be an RTDS. The set of receptors that can ever become active is bounded by
+the genome:
+\[
+\forall t: \quad \mathcal{R}_t \subseteq \mathcal{R}^*
+\]
+For any receptor $r \in \mathcal{R}^*$, if there exists a generation $\tau$ such that
+all prerequisites of $r$ are in $\mathcal{R}_\tau$ and $r$ is fitness-positive in
+$\mathcal{W}_\tau$, then $r$ may enter $\mathcal{R}_{\tau+1}$.
+\end{proposition}
+
+\begin{remark}
+Reachability is a direct consequence of how $\mathcal{U}$ is defined. It is stated
+explicitly to clarify what the system can and cannot do: the genome $\mathcal{G}$
+bounds the reachable topology. The ``ceiling'' of an RTDS is not
+$|\mathcal{R}^*|$ (which is itself designer-specified and can grow --- e.g., the
+contextual\_signal\_interpretation receptor was added to $\mathcal{R}^*$ after the
+organism discovered it). The ceiling is bounded by the complexity of the environment
+sequence $\{\mathcal{W}_t\}$. An RTDS with the environmental augmentation family
+can increase its own environment's complexity, making the ceiling co-evolve with
+the organism.
+\end{remark}
+
+\begin{remark}
+Because $k_t$ is non-monotone (receptors can be lost when fitness-negative), the
+sequence $\{k_t\}$ does not converge. The empirical record shows
+$\limsup_{t \leq 60} k_t = 119$ and
+$|\bigcup_{t \leq 60} \mathcal{R}_t| = 161$ out of $|\mathcal{R}^*| = 188$.
+The cumulative union grows; the per-generation count oscillates.
+\end{remark}
+
+\begin{observation}[Topology Informativeness]
+Different environment sequences produce different receptor topologies. Empirically,
+social environments produce strong social receptor activation while tool-use
+environments produce interaction-family activation. The topology is readable as a
+partial record of what was worth detecting, though it is not a sufficient statistic
+--- it does not capture which receptors were tried and lost, or the order of emergence.
+\end{observation}
+
+\begin{observation}[Metacognition Prerequisite for Depth]
+In a 60-generation ERTI run, the depth\_reached thinking channel $\chi_6$ became
+behaviorally influential at generation 29, one generation after metacognition and
+conflation both activated (generations 27--28). This is consistent with the dependency
+ordering in $G_\mathcal{R}$. This is a single empirical observation ($n=1$).
+Whether the ordering is a necessary prerequisite or an artifact of the test design
+is an open question.
+\end{observation}
+
+\begin{observation}[Reshaping Under Deep Time]
+An RTDS operating under deep time learning produces qualitatively different cognitive
+structures than single-run gradient-based training. Specifically: (a) the full
+epistemic family (belief, doubt, conflation, epistemic strategy) activated under
+evolutionary selection but not in single-run training; (b) 18 trunk receptors were
+invariant across all 8 environment tiers; (c) the total number of simultaneously
+active receptors per generation stabilized around 95--119 while the cumulative set
+grew to 161. Complexity reshapes the topology rather than expanding it monotonically.
+\end{observation}
+
+%% ============================================================
+\section{The Three Relationships to the World}
+
+The RTDS formalizes three orthogonal relationships an organism can have with its environment:
+
+\begin{definition}[Exploration]
+The organism moves through $\mathcal{W}_t$. The world does not change; $\hat{T}$ is
+updated. State: $s \in \mathcal{S}_t$ changes; $\mathcal{W}_t$ does not.
+\end{definition}
+
+\begin{definition}[Interaction]
+The organism acts on $\mathcal{W}_t$ and $\mathcal{W}_t$ responds. Both $s$ and
+$\mathcal{W}_t$ change state.
+\end{definition}
+
+\begin{definition}[Environmental Augmentation]
+The organism modifies $\mathcal{W}_t$ to increase its complexity, creating selection
+pressure for receptors the organism does not yet have:
+\[
+\mathcal{W}_{t+1} = f(\mathcal{W}_t, \mathcal{R}_t)
+\]
+where $f$ increases the complexity of $\mathcal{W}$ in directions that will make new
+receptors fitness-positive. This is the mechanism by which the organism builds the world
+that builds the organism that builds the next world.
+\end{definition}
+
+\begin{remark}[Self-Augmentation]
+A fourth relationship --- self-augmentation --- involves the organism changing its own
+receptor topology or physical structure independently of environmental interaction.
+In an RTDS, this corresponds to $\mathcal{R}_t$ changing within a generation rather than
+only across generations via $\mathcal{U}$.
+\end{remark}
+
+%% ============================================================
+\section{Cross-Domain Relevance Compression and Mathematics}
+
+\begin{definition}[Cross-Domain Relevance Compression]
+A receptor $r$ performs \textbf{cross-domain relevance compression} if its activation
+function $\phi_r$ fires above threshold on states from multiple domains
+$D_1, D_2, \ldots, D_m$ that share no surface features:
+\[
+\phi_r(\mathbf{x}_{D_1}) > \theta_r \wedge \phi_r(\mathbf{x}_{D_2}) > \theta_r \wedge \ldots
+\]
+where $\mathbf{x}_{D_j}$ is an observation in domain $D_j$. What makes the domains
+``structurally equivalent with respect to $r$'' is defined by $\phi_r$ itself: two
+domains are equivalent under $r$ if and only if $r$ fires in both. The receptor
+compresses whatever invariant it detects across domains into a single activation.
+\end{definition}
+
+\begin{remark}
+The mathematics receptor family implements cross-domain relevance compression at
+increasing levels of abstraction. The quantity receptor fires on numerosity regardless
+of what is being counted. The structural invariance receptor fires on relational patterns
+regardless of the domain. The necessity receptor fires on the detection that a pattern
+could not be otherwise --- proof structure is cross-domain relevance compression at its
+deepest level. Mathematical ability requires cross-domain experience: the invariants
+are only visible against sufficient domain variation.
+\end{remark}
+
+%% ============================================================
+\section{The MCTS Bootstrapping Argument}
+
+\begin{conjecture}[Self-Improving Loop]
+In an RTDS with thinking substrate $M$, the following loop operates simultaneously
+at multiple timescales:
+\[
+\mathcal{R}_t \to V_t \to M_t \to \text{richer experience} \to \hat{T}_{t+1}
+\to \text{deeper thinking} \to \mathcal{R}_{t+1}
+\]
+Better receptor topology produces better intrinsic evaluation, which produces better
+MCTS search, which produces richer experience and richer mental model, which enables
+deeper thinking, which produces selection pressure for better receptor topology.
+Whether this loop converges, diverges, or oscillates is an open question. The empirical
+evidence from 60 generations shows oscillation in both $k_t$ and thinking influence
+rather than monotonic convergence.
+\end{conjecture}
+
+\begin{remark}[What MCTS Contributes]
+The cognitive prerequisites for the self-improving loop (metacognition, conflation,
+fundamental distinction) emerge from environmental complexity \emph{without} MCTS ---
+they appeared in deep time runs before the thinking substrate was added. What MCTS
+contributes is making thinking quality \emph{visible to selection}: the six thinking
+channels externalize the thinking process into the observation vector, allowing
+organisms that think better to be selected over organisms that don't. MCTS does not
+make the organism smarter. It makes the organism's smartness selectable.
+\end{remark}
+
+\begin{conjecture}[Receptor Topology as Sufficient Framing]
+The self-improving loop requires an evaluation function that generalizes across every
+level of the loop. The receptor topology provides such a function. Whether it is the
+\emph{only} framing that can do so is an open question. A fixed reward function applied
+uniformly at every level is a potential counterexample; whether such a function can
+support the same developmental trajectory is untested. The claim is that the receptor
+framing is \emph{sufficient}, not that it is uniquely necessary.
+\end{conjecture}
+
+%% ============================================================
+\section{Relationship to Prior Work}
+
+An RTDS shares components with several existing formalisms but is not reducible to any:
+
+\begin{itemize}
+    \item \textbf{Active inference} (Friston): shares intrinsic evaluation (free energy
+    as self-generated objective) and learned world models. Differs in that active inference
+    operates on a fixed state space; RTDS has open-dimensional $\mathcal{S}_t$. The
+    receptor topology provides a finer-grained decomposition of the evaluation function
+    than the single free energy functional.
+
+    \item \textbf{NEAT and open-ended evolution} (Stanley \& Miikkulainen): shares
+    growing network topology under evolutionary pressure. Differs in that NEAT grows
+    the \emph{processing architecture} (hidden nodes and connections); RTDS grows the
+    \emph{state representation} (what the organism can detect). The evaluation function
+    in NEAT is externally specified; in RTDS it is intrinsic.
+
+    \item \textbf{Nonparametric Bayesian models} (Dirichlet processes, Indian buffet
+    processes): share data-driven dimensionality --- the model complexity grows with
+    data. Differs in that nonparametric Bayes grows latent dimensions for statistical
+    fit; RTDS grows receptor dimensions under \emph{fitness} pressure, which is a
+    causal selection criterion rather than a statistical one.
+
+    \item \textbf{MDPs and POMDPs}: share state-action-transition structure. Differ in
+    that the state space, reward function, and transition function are all fixed and
+    externally specified; in RTDS all three evolve.
+\end{itemize}
+
+The RTDS is distinguished by the \emph{conjunction} of open-dimensional state space,
+intrinsic evaluation, and learned transitions. Each component exists in prior work;
+the combination does not.
+
+%% ============================================================
+\section{Summary: What Makes RTDS Formally Distinct}
+
+An RTDS is distinguished from prior formalisms by the conjunction of three properties:
+
+\begin{enumerate}
+    \item \textbf{Open-dimensional state space}: $k_t$ is not fixed. The dimensionality
+    of the state space changes under evolutionary selection pressure according to the
+    genome dependency graph $\mathcal{G}$. It can increase (new receptors) or decrease
+    (receptors becoming fitness-negative).
+
+    \item \textbf{Intrinsic evaluation}: $V$ is not externally specified. It emerges
+    from the receptor topology and applies to any state in $\mathcal{S}_t$, though its
+    usefulness in novel environments depends on whether $\mathcal{R}_t$ detects
+    relevant structure.
+
+    \item \textbf{Learned transition model}: $\hat{T}$ is not designed. It is built
+    from the organism's experience via a readout function over stored cause-effect
+    records, and updated continuously.
+\end{enumerate}
+
+\bigskip
+\noindent\textit{Whoever has receptors, let them recept.}
+
+\end{document}

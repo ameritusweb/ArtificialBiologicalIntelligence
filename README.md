@@ -349,6 +349,8 @@ The serialization thesis extends Friston: organisms don't just minimize predicti
 
 No existing program unifies these threads. The receptor topology as a single generative mechanism — from grounding through compartmentalization to language — appears to be a novel synthesis.
 
+For a formal mathematical treatment of the Receptor-Topological Dynamical System (RTDS), see [docs/ERTI_formalization.tex](docs/ERTI_formalization.tex). Three levels of documentation: intuitive argument ([Whitepaper](docs/WHITEPAPER.md)), empirical record ([Theories](docs/theories.md) + [Roadmap](docs/ROADMAP.md)), formal structure ([Formalization](docs/ERTI_formalization.tex)).
+
 ---
 
 ## Project Structure
