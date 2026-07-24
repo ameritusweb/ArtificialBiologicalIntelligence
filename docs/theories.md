@@ -371,7 +371,13 @@ Evidence status key:
 **T92. Topology awareness is a receptor that fires when the organism's own cognitive repertoire changes.** Not a single thought, not a single prediction, but the detection that the set of active receptors has shifted — a new sensitivity emerged, an old one faded, or the pattern of co-activation reorganized. The topology vector is the fossil record; topology_awareness is the organism reading its own fossil record in real time. This is the receptor that makes the self-modifying loop (T83) conscious: without it, the organism gets smarter but doesn't know it. With it, the organism can direct its own cognitive development.
 *Status: Proposed. Argued: genome_project/families/epistemic.yaml, theories.md.*
 
-**T93. Contextual signal interpretation is a receptor that fires when a signal's meaning depends on hidden state.** Not "is this signal present" but "is this signal meaningful given current context." This is situational awareness: the organism conditions its response on inferred latent state, not on the signal alone. First novel receptor — emerged in generation 0 of deep time before the genome specified it. The genome entry exists because the organism told us it should.
+**T93. The thinking substrate's contribution is making thinking quality visible to selection, not producing the cognitive prerequisites.** Metacognition and conflation emerge from environmental complexity without MCTS — they appeared in deep time runs before the thinking substrate was added. What MCTS adds is a new class of observable internal signals (the 6 thinking channels) that give selection pressure something to act on at the metacognitive level. Without MCTS, thinking depth is an internal process with no fitness consequence. With it, deeper-thinking organisms can be selected over shallower ones. The phase transition at gen 29 required MCTS. The prerequisites (metacognition, conflation) didn't.
+*Status: Supported (metacognition/conflation emerged without MCTS; depth_reached required it). Argued: deep_time results, deep_time_thinking results.*
+
+**T94. Theoretical reasoning and evolutionary selection converge on the same receptors independently.** Conflation was added to the genome based on theoretical reasoning (two things treated as one should be detectable through bimodal prediction errors). The organism evolved it at generation 27-28 under selection pressure from stochastic hidden confounders — without any specification that it should. One generation later (gen 29), depth_reached activated for the first time, because conflation + metacognition were the prerequisites the organism needed to detect that shallow and deep thinking produce different outcomes. Two independent paths — reasoning and evolution — converged on the same receptor because the receptor detects something real about the structure of the problem. This is T40 (concepts exist in the world's causal structure) confirmed at the meta level.
+*Status: Supported (conflation predicted theoretically, evolved independently, confirmed as prerequisite for depth_reached). Argued: theories.md, deep_time_overnight results.*
+
+**T95. Contextual signal interpretation is a receptor that fires when a signal's meaning depends on hidden state.** Not "is this signal present" but "is this signal meaningful given current context." This is situational awareness: the organism conditions its response on inferred latent state, not on the signal alone. First novel receptor — emerged in generation 0 of deep time before the genome specified it. The genome entry exists because the organism told us it should.
 *Status: Supported (emerged in deep time gen 0 as novel receptor). Argued: genome_project/families/observation.yaml.*
 
 **T94. Topology awareness is a second-order receptor that reads the output of other receptors.** It operates on the distribution of internal channel activations — not their values at a single timestep, but the pattern of which ones are active and how that pattern has changed. This makes it the first receptor whose input is the topology itself, not the world or the organism's processing of the world.
@@ -392,10 +398,10 @@ Evidence status key:
 |---|---|
 | Proposed | 72 |
 | Partially tested | 10 |
-| Supported | 7 |
+| Supported | 9 |
 | Revised | 1 |
 | Falsified | 1 |
-| **Total** | **91** |
+| **Total** | **93** |
 
 Seven claims have direct experimental support from ERTI: T27-T31 (evolutionary dynamics), T26 (revised after decomposition), and T57 (annealing — the framework's first structural self-discovery). One claim directionally falsified: T55 (read-shielding accelerates resolution — the opposite was found across 6 seeds). The Epistemic family (T58-T60) is the first family whose existence was predicted by a falsification rather than by theoretical deduction alone. The Thinking Substrate section (T78-T85) identifies MCTS as the mechanism that makes metacognition tractable and the receptor topology as the unit that makes the self-modifying loop possible.
 

@@ -175,7 +175,7 @@ Each receptor entry specifies: what environmental structure it detects, why dete
 
 **Compression** (15) — pattern recognition -> concepts -> constraint shape -> shaped absence -> analogy
 
-**Observation** (11) — change detection -> selective attention -> statistical anomaly -> rarity -> significance -> meta-observation
+**Observation** (12) — change detection -> selective attention -> statistical anomaly -> rarity -> significance -> contextual signal interpretation -> meta-observation
 
 **Formalization** (11) — rule extraction -> exception detection -> optimization -> theory formation
 
@@ -201,7 +201,7 @@ Each receptor entry specifies: what environmental structure it detects, why dete
 
 **Bridging** (4) — mimicry -> trust -> executability -> translation
 
-**The key insight:** The genome project is load-bearing on environmental design. Each receptor specifies what the environment must contain for it to evolve. The 179 receptors are 179 environmental design requirements. The environment IS the curriculum.
+**The key insight:** The genome project is load-bearing on environmental design. Each receptor specifies what the environment must contain for it to evolve. The 180 receptors are 180 environmental design requirements. The environment IS the curriculum.
 
 **Receptor discovery:** 182 null-calibrated tests with action-shuffled null, per-test null types (block-permuted for temporal tests, NPC-appearance-permuted for social tests, Granger causality for theory of mind), drift subtraction, and partial correlations to control for confounds. 77 receptors discovered in single-run oracle training; 151 unique receptors discovered across 10 generations of deep time with thinking substrate.
 
@@ -272,9 +272,13 @@ These six channels feed back into the next cycle's observation vector. The organ
 
 **The key claim:** The receptor topology is what makes the evaluation function intrinsic rather than external. The value of a thinking path is determined by which receptors fire at its terminus — not by a designer-specified reward function. This eliminates the ceiling that exists in every system with an externally specified objective. Reward functions are level-specific. Loss functions are task-specific. Only the receptor generalizes across every level.
 
-**Empirical results:** After 3 self-play iterations, the thinking substrate is already measurably influencing behavior (ablation divergence 0.029, reward difference +23.3). Five of six channels active. Value convergence activates at iteration 4 — the organism learns to evaluate the quality of its thinking. After 10 generations of deep time, peak thinking influence reaches partial correlation 0.376. The organism that thinks before acting outperforms the organism that doesn't.
+**Empirical results:** After 3 self-play iterations, the thinking substrate is already measurably influencing behavior (ablation divergence 0.029, reward difference +23.3). Five of six channels active. Value convergence activates at iteration 4 — the organism learns to evaluate the quality of its thinking.
 
-Depth_reached — the one channel that measures how deep the organism's reasoning went — has not yet activated after 10 generations. This is the meta-metacognitive step. The organism has learned to think broadly (visit entropy) and evaluate quality (value convergence), but doesn't yet respond to reasoning depth itself. Whether this activates under longer evolutionary runs or requires architectural support is an open question.
+**The depth_reached phase transition (generation 29).** For 28 generations, the organism used thinking broadly (visit entropy) and evaluated quality (value convergence), but did not respond to how deep its reasoning went. At generation 29, depth_reached activated at partial correlation 0.284 — becoming the dominant thinking channel in a single generation. The trigger: metacognition and conflation both activated at generations 27-28. The organism needed to observe its own thinking (metacognition) AND detect that shallow and deep thinking produce different outcomes (conflation) before reasoning depth could become selectable. One generation after both prerequisites were met, depth dominated.
+
+**The convergence result.** The conflation receptor was added to the genome during the same session based on theoretical reasoning — the concept that two things treated as one should be detectable through bimodal prediction errors. The organism evolved it independently at generation 27-28 under selection pressure from stochastic hidden confounders. Two independent paths — human theoretical reasoning and evolutionary selection — converged on the same receptor because the receptor detects something real about the structure of the problem. This is T40 (concepts exist in the world's causal structure) confirmed at the meta level.
+
+**What MCTS contributes and what it doesn't.** Metacognition and conflation — the prerequisites for the depth phase transition — emerge from environmental complexity alone. They appeared in deep time runs before the thinking substrate was added. MCTS did not produce the cognitive prerequisites. What MCTS added is a new class of observable internal signals that make thinking quality visible to selection pressure. Without MCTS, thinking depth is an internal process with no fitness consequence — the organism thinks deeply or shallowly, but selection can't distinguish them. With MCTS, the 6 thinking channels externalize the thinking process into the observation vector, and organisms that think better can be selected over organisms that don't. The phase transition at generation 29 required MCTS. The underlying cognitive sophistication that made it possible didn't. MCTS doesn't make the organism smarter — it makes the organism's smartness selectable.
 
 ---
 

@@ -216,12 +216,14 @@ A formal specification of the receptor search space — the periodic table of co
 - **Self-play finds richer causality**: 7 causality receptors in self-play vs 4 in oracle — suboptimal actions create more varied causal experiences
 - **Thinking substrate load-bearing from iteration 1**: ablation divergence 0.060, reward difference +23.3, 5/6 channels active by iteration 5
 - **Epistemic family activated from scratch under evolution**: belief, doubt, epistemic strategy emerged in deep time when they couldn't emerge in single runs
-- **Peak thinking influence gen 7**: partial correlation 0.376 (value_convergence and path_divergence dominant)
+- **Peak thinking influence gen 5**: partial correlation 0.533
+- **depth_reached phase transition at gen 29**: metacognition + conflation activated at gen 27-28 as prerequisites; depth became dominant thinking channel one generation later. The organism learned to sense how deep its own reasoning went.
+- **Convergence result**: conflation receptor predicted by theoretical reasoning, evolved independently by the organism under selection pressure, confirmed as load-bearing prerequisite for depth_reached. Two independent paths to the same receptor — T40 confirmed at the meta level.
 
 ### Theories Index
 
-90 formal theoretical claims indexed in `theories.md`:
-- 6 supported by experimental evidence
+92 formal theoretical claims indexed in `theories.md`:
+- 8 supported by experimental evidence (including the convergence result and contextual signal interpretation)
 - 1 revised after controlled decomposition
 - 1 directionally falsified (T55, replaced by T57 annealing)
 - 72 proposed with falsification criteria
