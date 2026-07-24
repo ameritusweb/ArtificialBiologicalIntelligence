@@ -21,8 +21,10 @@ body { background: #0a0a1a; color: #ccddee; font-family: 'Consolas', 'Monaco', m
 
 #panel-top {
   top: 12px; left: 50%; transform: translateX(-50%);
-  display: flex; gap: 20px; align-items: center;
+  display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center;
   font-size: 13px;
+  max-width: 90vw;
+  justify-content: center;
 }
 #panel-top .label { color: #667788; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
 #panel-top .value { font-size: 16px; font-weight: bold; }
@@ -308,10 +310,14 @@ body { background: #0a0a1a; color: #ccddee; font-family: 'Consolas', 'Monaco', m
 </div>
 
 <script type="importmap">
-{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+{ "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  } }
 </script>
 <script type="module">
 import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 let replayData = null;
 let currentEpisode = 0;
@@ -329,8 +335,17 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping;
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
-camera.position.set(10, 10, 28);
+camera.position.set(10, 25, 20);
 camera.lookAt(10, 10, 0);
+
+const controls = new OrbitControls(camera, canvas);
+controls.target.set(10, 10, 0);
+controls.enableDamping = true;
+controls.dampingFactor = 0.1;
+controls.minDistance = 5;
+controls.maxDistance = 50;
+
+let is3D = false;
 
 scene.add(new THREE.AmbientLight(0x445566, 0.8));
 const dirLight = new THREE.DirectionalLight(0xffffff, 0.6);
@@ -573,7 +588,7 @@ function updateMemoryOverlay(frame) {
 
 // --- Organism ---
 function updateOrganism(frame) {
-  organismGroup.position.set(frame.bx, frame.by, 0);
+  organismGroup.position.set(frame.bx, frame.by, frame.bz || 0);
   organismGroup.rotation.z = frame.bh;
 
   const energyLevel = frame.en !== undefined ? frame.en : 1.0;
@@ -1063,6 +1078,15 @@ async function loadData() {
   const ep = replayData.episodes[0];
   document.getElementById('scrubber').max = ep.frames.length - 1;
   createAllMarkers(ep.frames[0]);
+
+  is3D = ep.frames[0].dims === 3;
+  if (is3D) {
+    camera.position.set(10, -5, 25);
+    controls.target.set(10, 10, 5);
+    controls.update();
+    ground.rotation.x = -Math.PI / 2;
+    ground.position.set(10, 0, 10);
+  }
 }
 
 function resize() {
@@ -1073,6 +1097,7 @@ function resize() {
 
 function animate() {
   requestAnimationFrame(animate);
+  controls.update();
   if (!replayData) return;
 
   const ep = replayData.episodes[currentEpisode];
@@ -1094,7 +1119,7 @@ function animate() {
   }
 
   const frame = ep.frames[Math.min(currentFrame, totalFrames - 1)];
-  updateHeatmap(frame, ep.environment);
+  updateHeatmap(frame, ep.environment || {});
   updateMemoryOverlay(frame);
   updateOrganism(frame);
   updateSourceMarkers(frame);
