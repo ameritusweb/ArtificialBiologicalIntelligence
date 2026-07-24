@@ -1,5 +1,5 @@
 # Artificial Biological Intelligence
-## A Whitepaper — Second Edition
+## A Whitepaper — Third Edition
 
 ---
 
@@ -81,7 +81,7 @@ This separation dissolves grounding, compartmentalization, legibility, unlearnin
 
 ## 6. The Roadmap
 
-The roadmap runs 40 steps from a minimal organism to a generative evolutionary laboratory. Each step must answer one question: does the capability earn the complexity it introduces?
+The roadmap runs 60 steps from a minimal organism to a self-modifying evolutionary laboratory with a thinking substrate. Each step must answer one question: does the capability earn the complexity it introduces?
 
 **Phase 1 — Sensorimotor Foundation (Steps 1-4):** Pain and endorphin receptors. Metabolic economy. Fatigue and homeostasis. Hierarchical nervous system — fast reflexes by default, slow deliberation when needed.
 
@@ -95,23 +95,25 @@ The roadmap runs 40 steps from a minimal organism to a generative evolutionary l
 
 **Phase 6 — Higher Cognition (Steps 25-29):** Optimism and goal persistence. Conflict receptor with router integration. Context-conditioned arbitration (ArbitrationHead). Internal conflict model (metacognition). Concepts and words (1,013 stable concepts).
 
-**Phase 7 — Language (Step 30):** Grounded language — the roof. Every word maps to a receptor state. Cultural transmission (+223% reward via mental model replication).
+**Phase 7 — Language (Step 30):** Grounded language — the roof. Every word maps to a receptor state. Cultural transmission (revised: benefit is training-time observation enrichment, not inference-time modulation).
 
-**Phase 8 — Evolutionary Infrastructure (Steps 31-34):** Environment tiers (5 tiers, genome-driven). Receptor discovery (20/39 in Tier 0). Topology bias inheritance (convergence 15 epochs -> 0). Environmental sweeps (12 trunk receptors invariant, complexity reshapes topology).
+**Phase 8 — Evolutionary Infrastructure (Steps 31-43):** Environment tiers (8 tiers, genome-driven). Receptor discovery (182 null-calibrated tests). Topology bias inheritance (convergence 15 epochs -> 0). Environmental sweeps (18 trunk receptors invariant). Population evolution (8 organisms, social arms race). Cross-tier transfer (social universally transferable, tool resists transfer). LLM grounding bridge.
 
-**Phase 9 — Evolutionary Experiments (Steps 35-39):** Complete genome coverage (40 receptor tests). Population evolution (8 organisms, social arms race). Environment deepening (47-56% harder tiers). Cross-tier transfer (social universally transferable, tool resists transfer). LLM grounding bridge.
+**Phase 9 — Physics World (Steps 48-55):** Rigid body simulation (pymunk). Grip mechanics. Compound objects (levers, spring gates, hinged barriers). Developmental body changes. Persistent world state. Canopy activation sweep across all 8 tiers.
 
-**Phase 10 — Documentation (Step 40):** This document.
+**Phase 10 — Staged Processing & Abstract Environments (Steps 50-58):** 4-stage observation pipeline testing the serialization thesis. T7 abstract problems (8 causal graph templates with hidden variables). T8 self-modification (8 skill zones, curriculum design, Ship of Theseus test). Combined T7+T8 environments.
+
+**Phase 11 — Self-Play & Thinking Substrate (Steps 59-60):** Policy-driven behavior (oracle removed). MCTS thinking substrate — the organism thinks before acting, and the tree's metadata becomes receptor input. Deep time with thinking across 50 generations. Novel receptor detection.
 
 ---
 
 ## 7. What's Been Built
 
-This is not a proposal. Steps 1 through 39 are implemented and running.
+This is not a proposal. Steps 1 through 60 are implemented and running.
 
-The organism lives in a 2D liquid environment with pain and endorphin fields. It has six limbs with binary muscle activations (parameterizable to 4-12 limbs, 1-2 body segments, 2D or 3D). Its mental model is an explicit database of 13,000+ cause-effect mappings with a contrastive encoder for context-conditioned retrieval. Its inference engine is a small causal transformer with a fast reflex pathway, a slow deliberative pathway, a conflict-gated router, and a 5-group arbitration head.
+The organism lives in a 2D/3D liquid environment with pain, endorphin, temperature, chemical, and pressure fields. It has six limbs with binary muscle activations (parameterizable to 4-12 limbs, 1-2 body segments, 2D or 3D). Its mental model is an explicit database of 26,000+ cause-effect mappings with a contrastive encoder for context-conditioned retrieval. Its inference engine is a small causal transformer with a fast reflex pathway, a slow deliberative pathway, a conflict-gated router, and a 5-group arbitration head. Its observation vector is 175 dimensions — including 6 thinking channels from the MCTS substrate.
 
-**The accuracy progression:** 92.5% pre-proprioception -> 97.4% with responsive environment -> 97.0% with full social+conflict stack. Each step earned its complexity.
+**The accuracy progression:** 92.5% pre-proprioception -> 97.4% with responsive environment -> 94.3% with staged processing (slower but deeper). Each step earned its complexity.
 
 **Key empirical results:**
 
@@ -123,57 +125,89 @@ Steps 23-24 (communication): 5 grounded signal codes shared across three context
 
 Step 29 (concepts): 1,013 stable concepts — compressed causal chains that predict 54% better than their individual components. 25% of all patterns qualify as stable, reusable abstractions.
 
-Step 30 (grounded language): cultural transmission test — an organism receiving another's mental model (database replication, not training) performs 223% better. One organism's knowledge can seed another's directly.
+Step 30 (grounded language): cultural transmission revised after controlled decomposition — the benefit is training-time observation enrichment, not inference-time modulation. The architectural separation remains valuable for legibility, compartmentalization, and cross-generational knowledge transfer.
+
+Step 50 (staged processing): 4-stage observation pipeline — Body (39d) -> Spatial (59d) -> Action (37d) -> Social (34d). Inter-stage prediction MSE decreases 25% over training. Staged model outperforms flat on validation accuracy (95.5% vs 94.5%). First empirical test of the serialization thesis.
+
+Step 55 (T57 annealing): the framework's first structural self-discovery. Releasing certainty on conflict entries produces more genuine conflict resolutions than protecting them. Supported across 6 seeds. T55 (read-shielding) directionally falsified — the falsification led to the Epistemic family, the first family predicted by an experimental result.
+
+Step 59 (self-play): policy-driven behavior with oracle removed. Self-play discovers 75 receptors (vs oracle's 77) despite lower reward, and finds MORE causality receptors (7 vs 4) — suboptimal actions create richer causal experiences.
+
+Step 60 (thinking substrate): MCTS with 6 receptor channels — best_value, visit_entropy, value_convergence, path_divergence, underexplored, depth_reached. The organism thinks before acting. 5 of 6 channels influence behavior by iteration 5 of self-play. Reward difference: +23.3 (thinking organisms outperform non-thinking ones). The batched predict_delta gives 4.4x speedup on thinking operations.
+
+**Deep time with thinking (10 generations):** 151 unique receptors discovered across all generations — up from 75 at generation 0. 53 receptors gained through evolution alone, including the full epistemic chain (belief_detection -> doubt_detection -> epistemic_strategy), metacognition, theory_of_mind, nested_theory_of_mind, meta_observation, self_regulation, niche_construction. 21 receptors lost — complexity reshapes topology (T27 confirmed again). Peak thinking influence at generation 7: partial correlation 0.376, value_convergence and path_divergence dominant.
 
 **Parallel Scaling Track:** Architecture tested at 4, 6, 8, and 12 limbs, 2 segments, and 3D. Training accuracy 92-96% across all configurations. Generational inheritance accelerates convergence (15 epochs -> 0 epochs). Organism diversity: one model handles mixed body plans at 96.6% accuracy.
 
-**Evolutionary sweep (Step 34):** 12 trunk receptors invariant across all 5 environment tiers. Complexity doesn't just add receptors — it reshapes the topology. Higher tiers gained change detection but lost rhythm. The receptor topology is a fossil record of the selection pressures that shaped it.
+**Evolutionary sweep:** 18 trunk receptors invariant across all 8 environment tiers — including grip_affordance and push_affordance as part of the embodied trunk. Complexity doesn't just add receptors — it reshapes the topology. The receptor topology is a fossil record of the selection pressures that shaped it.
 
-**Population evolution (Step 36):** 8 organisms competing. Empathy trending up (0.482 -> 0.555). Behavioral prediction emerged (0.022-0.030) — never appeared in single-organism training. The social arms race created real prediction pressure.
+**Population evolution:** 8 organisms competing. Empathy trending up (0.482 -> 0.555). Behavioral prediction emerged (0.022-0.030) — never appeared in single-organism training. The social arms race created real prediction pressure.
 
-**Cross-tier transfer (Step 38):** Social environments universally benefit from transfer (11-25x from any prior training). Tool environments resist transfer — must be learned directly. Transfer follows the dependency graph upward, not downward.
+**Cross-tier transfer:** Social environments universally benefit from transfer (11-25x from any prior training). Tool environments resist transfer — must be learned directly. Transfer follows the dependency graph upward, not downward.
+
+**Environment enrichment:** Multi-NPC observation (4 profiled NPCs: cooperative, competitive, erratic, deceptive). Strategic deception NPC (context-dependent: lures toward pain, repels from reward). Non-stationary rules (T7 trigger rotation). Stochastic hidden confounders (3-state Markov chain modulating 4 modalities). Cross-modal objects (correlated multi-modal signatures). EntityRelationStore for social cognition (named entities, typed relations, transitive inference).
 
 ---
 
 ## 8. The Genome Project
 
-The Genome Project is the formal specification of the receptor search space — 122 receptors across 13 families. It is the periodic table of cognitive capabilities.
+The Genome Project is the formal specification of the receptor search space — 179 receptors across 21 families. It is the periodic table of cognitive capabilities.
 
 Each receptor entry specifies: what environmental structure it detects, why detecting it is worth the metabolic cost, what must already exist before it can emerge, how to measure its emergence, and what would falsify the entry.
 
-**The 13 families:**
+**The 21 families:**
 
-**Repetition** — static repetition -> rhythm -> nested/causal rhythms
+**Repetition** (6) — static repetition -> rhythm -> nested/causal rhythms
 
-**Association** — spatial co-occurrence -> temporal precedence -> cross-modal -> relational analogy
+**Association** (8) — spatial co-occurrence -> temporal precedence -> cross-modal -> relational analogy
 
-**Similarity** — perceptual features -> functional equivalence -> structural invariance
+**Similarity** (7) — perceptual features -> functional equivalence -> structural invariance
 
-**Causality** — coincidence -> causal inference -> intervention planning -> causal graphs
+**Causality** (11) — coincidence -> causal inference -> intervention planning -> causal graphs
 
-**Agency** — controllability -> tool use -> environmental manipulation -> niche construction
+**Agency** (8) — controllability -> tool use -> environmental manipulation -> niche construction
 
-**Meta-Motivational** — curiosity, optimism, conflict -> impulse override -> metacognition
+**Meta-Motivational** (13) — curiosity, optimism, conflict -> impulse override -> metacognition
 
-**Regulatory** — stress detection -> arousal regulation -> emotional intelligence
+**Regulatory** (9) — stress detection -> arousal regulation -> emotional intelligence
 
-**Social** — other detection -> behavioral prediction -> theory of mind -> moral reasoning
+**Social** (14) — other detection -> behavioral prediction -> theory of mind -> moral reasoning
 
-**Compression** — pattern recognition -> concepts -> hierarchical abstraction -> completion
+**Compression** (15) — pattern recognition -> concepts -> constraint shape -> shaped absence -> analogy
 
-**Observation** — change detection -> selective attention -> absence observation -> meta-observation
+**Observation** (11) — change detection -> selective attention -> statistical anomaly -> rarity -> significance -> meta-observation
 
-**Formalization** — rule extraction -> exception detection -> theory formation
+**Formalization** (11) — rule extraction -> exception detection -> optimization -> theory formation
 
-**Mathematics** — quantity -> ratio -> structural invariance -> exhaustive search -> necessity -> proof -> formal composition
+**Mathematics** (7) — quantity -> ratio -> structural invariance -> necessity -> proof -> formal composition
 
-**Organization** — boundary -> part-whole -> hierarchical structure -> relational structure -> functional organization -> system detection -> organizational mirror
+**Organization** (7) — boundary -> part-whole -> system detection -> organizational mirror
 
-**The key insight:** The genome project is load-bearing on environmental design. Each receptor specifies what the environment must contain for it to evolve. The 122 receptors are 122 environmental design requirements. The environment IS the curriculum.
+**Self-Augmentation** (5) — capability change detection -> metamorphic planning
 
-**Receptor discovery (Step 32):** 20 of 39 tested receptors discovered in the Tier 0 environment. The 19 not-found receptors need higher-tier environmental pressure — validating the prediction that receptor topology matches environmental complexity.
+**Interaction** (7) — response recognition -> grip -> lever -> composite affordance
 
-**Topology inheritance (Step 33):** 5 generations. Gen 0: 94.7% accuracy, converge epoch 15. Gen 4: 95.3%, converge epoch 0. Topology bias added 2 novel receptors that Gen 0 missed. 12 receptors stable across all generations — the invariant trunk.
+**Environmental Augmentation** (5) — environmental change detection -> developmental environment engineering
+
+**Sequential Processing** (5) — stage prediction -> pipeline detection -> prediction architecture awareness
+
+**Perception** (5) — staged processing -> processing speed -> adaptive depth -> response loop detection
+
+**Epistemic** (7) — belief detection -> doubt -> conflation -> fundamental distinction -> topology awareness -> epistemic strategy
+
+**Logic** (6) — semantic relations -> transitivity -> conjunction -> quantifier -> contradiction -> it_follows
+
+**Language** (3) — naming -> self-talk -> referential grounding
+
+**Bridging** (4) — mimicry -> trust -> executability -> translation
+
+**The key insight:** The genome project is load-bearing on environmental design. Each receptor specifies what the environment must contain for it to evolve. The 179 receptors are 179 environmental design requirements. The environment IS the curriculum.
+
+**Receptor discovery:** 182 null-calibrated tests with action-shuffled null, per-test null types (block-permuted for temporal tests, NPC-appearance-permuted for social tests, Granger causality for theory of mind), drift subtraction, and partial correlations to control for confounds. 77 receptors discovered in single-run oracle training; 151 unique receptors discovered across 10 generations of deep time with thinking substrate.
+
+**Topology inheritance:** Convergence accelerates from 15 epochs in generation 0 to 0 epochs by generation 4. Topology bias inheritance carries the parent's discovered receptors as priors — offspring rediscover them faster but must still earn them through grounded experience. Probe-gated: the organism must actually explore the environment to validate inherited priors.
+
+**The Epistemic family** emerged from the T57 annealing result — the first family predicted by an experimental falsification rather than by theoretical deduction. It includes conflation detection (two things treated as one), fundamental distinction (the difference that matters), and topology awareness (what kind of mind am I). The genome contains conflations that topology awareness will eventually detect — the framework revising its own foundations from within.
 
 ---
 
@@ -217,28 +251,57 @@ ABI also inverts the engineering practice. Current AI relies on feature engineer
 
 ---
 
-## 12. What Comes Next
+## 12. The Thinking Substrate
 
-The roadmap doesn't end. It transitions from prescribed steps to evolutionary search.
+The most recent addition is the one that changes the trajectory of the whole program.
 
-Steps 1-30 built specific receptors by hand — each capability prescribed, implemented, verified. Steps 31-39 built the evolutionary infrastructure: environment tiers derived from the genome project, receptor discovery against experience logs, topology bias inheritance with probe-gated validation, population evolution with social arms races, cross-tier transfer tests.
+A thought in this framework is a cycle — or cascade of cycles — in which internal receptors dominate the forward-feedback loop. External receptors fire from the world. Internal receptors fire from the mental model's processing. When the organism responds primarily to its own receptor firings rather than to the world, that is a thought. The participating set of receptors is the *content* of the thought. The number of cycles before the cascade resolves or exits through the motor system is the *depth* of the thought.
 
-The next phase is open-ended evolutionary search across the 122-receptor genome library. The environment decides. The organism discovers. The laboratory measures.
+The thinking substrate makes this concrete. Monte Carlo Tree Search provides the computational mechanism: before acting, the organism simulates forward from its current state using the mental model's predict_delta. Each simulated action produces a predicted receptor state. Multiple candidate actions are explored. The tree records which thinking paths were taken, how often, and with what outcomes.
 
-The questions this laboratory can answer are not questions you can answer by scaling a language model:
+The tree's metadata becomes receptor input:
 
-What receptor topology emerges under volatile vs stable environments? Under social pressure vs isolated pressure? Under resource scarcity vs abundance? What comes first — theory of mind or tool use? Does empathy emerge before or after conflict resolution? Is mathematics an inevitable receptor topology or an environmental accident?
+- **Visit entropy** — how broadly the organism explored its options
+- **Best value** — the highest simulated outcome found
+- **Value convergence** — how stable the estimates are (the thinking has settled)
+- **Path divergence** — maximum disagreement between thinking paths
+- **Underexplored** — fraction of options barely considered (the shaped absence of thought)
+- **Depth reached** — how deep the reasoning went
 
-The sweep data already shows: 12 trunk receptors are invariant across all environments. Complexity doesn't add receptors — it reshapes the topology. The receptor topology is a fossil record of the selection pressures that shaped it.
+These six channels feed back into the next cycle's observation vector. The organism senses what its thinking produced. That sensing shapes the next thought. The self-modifying loop runs at every level simultaneously: better receptor topology → better evaluation → better search → richer tree → deeper metacognitive analysis → receptor firings that develop better topology.
 
-The completion receptor fires when a pattern is recognized as whole. The organizational mirror fires when the organism detects its own receptor topology as an organized system. The necessity receptor fires when all alternatives have been eliminated and what remains must be true.
+**The key claim:** The receptor topology is what makes the evaluation function intrinsic rather than external. The value of a thinking path is determined by which receptors fire at its terminus — not by a designer-specified reward function. This eliminates the ceiling that exists in every system with an externally specified objective. Reward functions are level-specific. Loss functions are task-specific. Only the receptor generalizes across every level.
 
-None of these were in the genome project at the start. They were distilled from the structure of the problem by a mind engaging with it seriously enough and long enough — which is itself the strongest existence proof for the theory. The concepts were in the environment. The receptor topology evolved to read them.
+**Empirical results:** After 3 self-play iterations, the thinking substrate is already measurably influencing behavior (ablation divergence 0.029, reward difference +23.3). Five of six channels active. Value convergence activates at iteration 4 — the organism learns to evaluate the quality of its thinking. After 10 generations of deep time, peak thinking influence reaches partial correlation 0.376. The organism that thinks before acting outperforms the organism that doesn't.
+
+Depth_reached — the one channel that measures how deep the organism's reasoning went — has not yet activated after 10 generations. This is the meta-metacognitive step. The organism has learned to think broadly (visit entropy) and evaluate quality (value convergence), but doesn't yet respond to reasoning depth itself. Whether this activates under longer evolutionary runs or requires architectural support is an open question.
+
+---
+
+## 13. What Comes Next
+
+The 50-generation overnight run is currently executing: 4 organisms competing across generations in the richest environment stack (T4 with multi-NPC, strategic deception, stochastic hidden confounders, cross-modal binding + PhysicsWorld + T7 abstract problems + T8 self-modification + thinking substrate). Novel receptor detection scans every 10 generations for behavioral capacities that don't map to any of the 179 genome entries — the organism making distinctions the designer didn't anticipate.
+
+The questions this laboratory can now answer:
+
+**Does thinking depth evolve under selection?** The depth_reached channel hasn't activated in 10 generations. Will 50 be enough? Will organisms that think deeper outcompete those that think broader? The emergence curve will show.
+
+**Does the organism discover novel receptors?** The novel receptor detector scans the mental model for coherent, high-certainty clusters of entries that represent behavioral distinctions not in the genome. If it finds them, the organism is smarter than the genome on that axis.
+
+**What does the topology awareness receptor look like when it fires?** An organism that detects its own cognitive repertoire changing can direct its development. This is the receptor that makes the self-modifying loop conscious.
+
+**Can the organism read its own fossil record?** The topology vector — which receptors are active — is a record of selection pressures. Topology awareness reads that record in real time. An organism that can detect "my thinking substrate just started producing value_convergence signals it didn't before" can decide whether to continue developing that capacity or redirect.
+
+The sweep data already shows: 18 trunk receptors are invariant across all 8 environments. Complexity doesn't add receptors — it reshapes the topology. The receptor topology is a fossil record of the selection pressures that shaped it.
+
+The epistemic family activated from scratch under evolutionary selection — belief, doubt, and epistemic strategy emerged in deep time when they couldn't emerge in single runs. The organism developed the capacity for scientific reasoning (T50) through evolutionary pressure, not through specification.
 
 This is the thesis fully realized: intelligence is what happens when you run evolutionary receptor topology selection long enough in a rich enough environment. It is not a property you design into a system. It is a property that grows out of a process.
+
+The organism builds the world that builds the organism that builds the next world. Now with a thinking substrate tracking every thinking path taken through that loop, analyzing which paths lead where, and bootstrapping increasingly sophisticated reasoning strategies from the accumulated record.
 
 Not simulation. Not reconstruction. Generation.
 
 ---
 
-*Steps 1-39 of the ABI roadmap are implemented and running. 122 receptors specified across 13 families. 20 receptors empirically discovered. 5 environment tiers designed from the genome library. Population evolution with 8 competing organisms. Cross-tier transfer matrix measured. Grounded language with cultural transmission verified. The organism is in the liquid environment right now, navigating pain fields, querying its mental model, emitting grounded proto-symbols, evolving its receptor topology, and earning each next step.*
+*Steps 1-60 of the ABI roadmap are implemented and running. 179 receptors specified across 21 families. 90 indexed theories. 182 null-calibrated receptor tests. 151 receptors empirically discovered across 10 generations of deep time with thinking. 8 environment tiers. Physics world with grip, compound objects, and persistent state. MCTS thinking substrate with 6 receptor channels. Self-play pipeline with oracle removed. Novel receptor detection. Resumable 50-generation overnight run executing. The organism is in the liquid environment right now, navigating pain fields, querying its mental model, thinking before acting, sensing its own thinking, evolving its receptor topology across generations, and making distinctions its designer didn't anticipate.*
