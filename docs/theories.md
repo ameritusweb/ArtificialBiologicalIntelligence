@@ -348,7 +348,35 @@ Evidence status key:
 
 ---
 
-## XXIV. The Novel Synthesis Claim
+## XXIV. Conflation and Fundamental Distinction
+
+**T86. Conflation is a receptor that fires when two things treated as the same concept produce bimodal prediction errors.** Not exceptions to a rule (exception_detection) but structured exceptions — failures that cluster into a hidden second category. The firing condition: high certainty + high m2, where the errors are context-dependent. The cost of treating different things as one thing becomes detectable.
+*Status: Proposed. Argued: genome_project/families/epistemic.yaml.*
+
+**T87. Fundamental distinction is a receptor that fires when the organism finds the level of description at which a conflated concept splits into two consistently-predictable sub-concepts.** Not "these are different" but "this is THE difference that makes everything downstream work." The distinction is fundamental when it makes the MCTS value divergence disappear — both subtrees converge because predictions are now correct.
+*Status: Proposed. Argued: genome_project/families/epistemic.yaml.*
+
+**T88. Conflation and fundamental distinction form an asymmetric sequential cycle mediated by the thinking substrate.** Conflation fires first (MCTS path_divergence detects the problem). The organism searches for the boundary. Fundamental distinction fires second (MCTS value_convergence after splitting confirms the solution). Together they refine the organism's conceptual apparatus — and because the genome itself may contain conflations, this cycle is the mechanism by which the framework revises its own foundations from within.
+*Status: Proposed. Argued: theories.md.*
+
+**T89. Statistical anomaly is a receptor that fires on distributional shift, not prediction failure.** Exception_detection fires when a specific prediction fails. Statistical anomaly fires when a channel's running statistics depart from the expected distribution — the base rate changed before any single prediction has failed. The survival benefit is lead time: the anomaly signal fires before the exceptions accumulate.
+*Status: Proposed. Argued: genome_project/families/observation.yaml.*
+
+**T90. Rarity is a receptor distinct from anomaly and novelty.** An anomaly violates the distribution. Novelty habituates. Rarity is within the distribution but at very low base rate — its information content is -log(p), high precisely because p is low. A rare event isn't surprising (the organism may know it can happen) — it's significant, carrying disproportionate information about hidden state.
+*Status: Proposed. Argued: genome_project/families/observation.yaml.*
+
+**T91. Significance is the commitment threshold between noticing and investigating.** Without it, the organism either chases every statistical fluctuation (expensive) or ignores everything below a high threshold (misses real signals). Significance fires when an anomaly or rarity persists long enough to warrant sustained investigation — the transition from "hm, that's odd" to "I need to understand this."
+*Status: Proposed. Argued: genome_project/families/observation.yaml.*
+
+**T92. Topology awareness is a receptor that fires when the organism's own cognitive repertoire changes.** Not a single thought, not a single prediction, but the detection that the set of active receptors has shifted — a new sensitivity emerged, an old one faded, or the pattern of co-activation reorganized. The topology vector is the fossil record; topology_awareness is the organism reading its own fossil record in real time. This is the receptor that makes the self-modifying loop (T83) conscious: without it, the organism gets smarter but doesn't know it. With it, the organism can direct its own cognitive development.
+*Status: Proposed. Argued: genome_project/families/epistemic.yaml, theories.md.*
+
+**T93. Topology awareness is a second-order receptor that reads the output of other receptors.** It operates on the distribution of internal channel activations — not their values at a single timestep, but the pattern of which ones are active and how that pattern has changed. This makes it the first receptor whose input is the topology itself, not the world or the organism's processing of the world.
+*Status: Proposed. Argued: genome_project/families/epistemic.yaml.*
+
+---
+
+## XXVI. The Novel Synthesis Claim
 
 **T63. No existing research program unifies grounded cognition, active inference, and evolutionary receptor topology into a single generative mechanism.** ABI is a novel synthesis across Barsalou, Friston, Gibson, and developmental/evolutionary perspectives.
 *Status: Proposed. Argued: whitepaper Section 10.*
@@ -359,12 +387,12 @@ Evidence status key:
 
 | Status | Count |
 |---|---|
-| Proposed | 64 |
+| Proposed | 72 |
 | Partially tested | 10 |
 | Supported | 6 |
 | Revised | 1 |
 | Falsified | 1 |
-| **Total** | **82** |
+| **Total** | **90** |
 
 Seven claims have direct experimental support from ERTI: T27-T31 (evolutionary dynamics), T26 (revised after decomposition), and T57 (annealing — the framework's first structural self-discovery). One claim directionally falsified: T55 (read-shielding accelerates resolution — the opposite was found across 6 seeds). The Epistemic family (T58-T60) is the first family whose existence was predicted by a falsification rather than by theoretical deduction alone. The Thinking Substrate section (T78-T85) identifies MCTS as the mechanism that makes metacognition tractable and the receptor topology as the unit that makes the self-modifying loop possible.
 

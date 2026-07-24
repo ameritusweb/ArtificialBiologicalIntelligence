@@ -683,6 +683,52 @@ class MentalModelEngine:
         avg_cert = float(np.mean([e.certainty for e, _ in results]))
         return predicted, avg_cert, len(results)
 
+    def predict_delta_batch(self, obs_before, actions, top_k=10):
+        """Predict deltas for multiple actions from the same observation.
+
+        One embedding call, grouped store queries. Returns list of
+        (predicted_delta, certainty, n_entries) tuples, one per action.
+        """
+        obs_before = self._core_obs(obs_before)
+        embedding = self.encoder.embed(obs_before)
+        cdim = len(obs_before)
+
+        results = []
+        hashes = [action_to_hash(a) for a in actions]
+
+        # Group by hash to avoid redundant queries
+        hash_to_indices = defaultdict(list)
+        for i, ah in enumerate(hashes):
+            hash_to_indices[ah].append(i)
+
+        per_action = [None] * len(actions)
+
+        for ah, indices in hash_to_indices.items():
+            query_results = self.store.query(
+                ah, embedding, top_k, family_manager=self.family_manager)
+
+            if not query_results:
+                for i in indices:
+                    per_action[i] = (np.zeros(cdim), 0.0, 0)
+                continue
+
+            scores = np.maximum(np.array([s for _, s in query_results]), 0.0)
+            total = scores.sum()
+            if total < 1e-8:
+                for i in indices:
+                    per_action[i] = (np.zeros(cdim), 0.0, 0)
+                continue
+
+            weights = scores / total
+            predicted = sum(w * e.delta for (e, _), w in zip(query_results, weights))
+            avg_cert = float(np.mean([e.certainty for e, _ in query_results]))
+            result = (predicted, avg_cert, len(query_results))
+
+            for i in indices:
+                per_action[i] = result
+
+        return per_action
+
     def chain(self, action_sequence, obs_before, top_k=10):
         state = obs_before.copy()
         cumulative_delta = np.zeros_like(obs_before)

@@ -68,6 +68,8 @@ class ThinkingTree:
         self.explore_constant = explore_constant
         self.root = None
         self._last_analysis = np.zeros(NUM_THINKING_CHANNELS)
+        self._cached_candidates = None
+        self._cache_store_count = -1
 
     def think(self, obs, engine, candidate_actions=None):
         """Run MCTS from current observation. Returns analysis channels."""
@@ -78,12 +80,16 @@ class ThinkingTree:
         self.root = ThinkingNode(obs)
 
         if candidate_actions is None:
-            candidate_actions = self._generate_candidates_from_store(engine)
+            store_count = engine.store.total_count
+            if self._cached_candidates is None or store_count != self._cache_store_count:
+                self._cached_candidates = self._generate_candidates_from_store(engine)
+                self._cache_store_count = store_count
+            candidate_actions = self._cached_candidates
 
-        for _ in range(self.max_simulations):
+        for sim in range(self.max_simulations):
             node = self._select(self.root)
             if node.visit_count > 0 and len(node.children) == 0:
-                self._expand(node, engine, candidate_actions)
+                self._expand_batch(node, engine, candidate_actions)
                 if node.children:
                     node = node.children[0]
             value = self._rollout(node, engine, candidate_actions)
@@ -140,18 +146,30 @@ class ThinkingTree:
             node = max(node.children, key=lambda c: c.ucb(self.explore_constant))
         return node
 
-    def _expand(self, node, engine, candidate_actions):
-        for action in candidate_actions:
-            pred_delta, cert, n = engine.predict_delta(node.obs, action)
-            if n == 0:
-                continue
-            child_obs = node.obs.copy()
-            cdim = min(len(pred_delta), len(child_obs))
-            child_obs[:cdim] += pred_delta[:cdim]
-            prior = cert
-            child = ThinkingNode(child_obs, action=action.copy(),
-                                 parent=node, prior=prior)
-            node.children.append(child)
+    def _expand_batch(self, node, engine, candidate_actions):
+        """Expand all candidate actions at once using batched predict_delta."""
+        if hasattr(engine, 'predict_delta_batch'):
+            batch_results = engine.predict_delta_batch(node.obs, candidate_actions)
+            for action, (pred_delta, cert, n) in zip(candidate_actions, batch_results):
+                if n == 0:
+                    continue
+                child_obs = node.obs.copy()
+                cdim = min(len(pred_delta), len(child_obs))
+                child_obs[:cdim] += pred_delta[:cdim]
+                child = ThinkingNode(child_obs, action=action.copy(),
+                                     parent=node, prior=cert)
+                node.children.append(child)
+        else:
+            for action in candidate_actions:
+                pred_delta, cert, n = engine.predict_delta(node.obs, action)
+                if n == 0:
+                    continue
+                child_obs = node.obs.copy()
+                cdim = min(len(pred_delta), len(child_obs))
+                child_obs[:cdim] += pred_delta[:cdim]
+                child = ThinkingNode(child_obs, action=action.copy(),
+                                     parent=node, prior=cert)
+                node.children.append(child)
 
     def _rollout(self, node, engine, candidate_actions, depth=0):
         if depth >= self.max_depth:
@@ -162,12 +180,15 @@ class ThinkingTree:
 
         action = candidate_actions[np.random.randint(len(candidate_actions))]
         pred_delta, cert, n = engine.predict_delta(node.obs, action)
-        if n == 0 or cert < 0.1:
+        if n == 0 or cert < 0.2:
             return self._evaluate(node.obs)
 
         next_obs = node.obs.copy()
         cdim = min(len(pred_delta), len(next_obs))
         next_obs[:cdim] += pred_delta[:cdim]
+
+        if cert < 0.4:
+            return self._evaluate(next_obs)
 
         rollout_node = ThinkingNode(next_obs, action=action, parent=node)
         return self._evaluate(next_obs) * 0.5 + \

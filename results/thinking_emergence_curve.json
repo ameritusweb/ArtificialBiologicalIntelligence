@@ -1,0 +1,210 @@
+[
+  {
+    "ablation_divergence": 0.004272727272727273,
+    "ablation_divergence_std": 0.008212568477141335,
+    "reward_live": 14.834467505616988,
+    "reward_ablated": 13.48058929340964,
+    "reward_difference": 1.3538782122073485,
+    "thinking_action_partial_corr": 0.09128672157004537,
+    "channel_influence": {
+      "best_value": 0.00893355113833043,
+      "visit_entropy": 0.09128672157004537,
+      "value_convergence": 0.06507492425594667,
+      "path_divergence": 0.05318240319781156,
+      "underexplored": 0.07342070437612894,
+      "depth_reached": 0.0
+    },
+    "num_episodes": 10,
+    "iteration": 0
+  },
+  {
+    "ablation_divergence": 0.0600909090909091,
+    "ablation_divergence_std": 0.04210486929519521,
+    "reward_live": 23.645137363048832,
+    "reward_ablated": 20.3232250732147,
+    "reward_difference": 3.321912289834131,
+    "thinking_action_partial_corr": 0.13795436529935376,
+    "channel_influence": {
+      "best_value": 0.008109699476822042,
+      "visit_entropy": 0.13795436529935376,
+      "value_convergence": 0.09754665435794276,
+      "path_divergence": 0.033970006194206474,
+      "underexplored": 0.12014277738406644,
+      "depth_reached": 0.0
+    },
+    "num_episodes": 10,
+    "iteration": 1,
+    "train_reward": 487.23272748755136
+  },
+  {
+    "ablation_divergence": 0.03463636363636364,
+    "ablation_divergence_std": 0.019786765015757303,
+    "reward_live": 108.64950909550775,
+    "reward_ablated": 130.51593824473346,
+    "reward_difference": -21.86642914922571,
+    "thinking_action_partial_corr": 0.11606835877861822,
+    "channel_influence": {
+      "best_value": 0.10555997819638777,
+      "visit_entropy": 0.037045341949549,
+      "value_convergence": 0.08132083812663694,
+      "path_divergence": 0.11606835877861822,
+      "underexplored": 0.047685681539433714,
+      "depth_reached": 0.0
+    },
+    "num_episodes": 10,
+    "iteration": 2,
+    "train_reward": 468.8470995707193
+  },
+  {
+    "ablation_divergence": 0.03257575757575758,
+    "ablation_divergence_std": 0.03685980936430381,
+    "reward_live": 220.64834021623727,
+    "reward_ablated": 178.60454151842868,
+    "reward_difference": 42.0437986978086,
+    "thinking_action_partial_corr": 0.1897056196575216,
+    "channel_influence": {
+      "best_value": 0.1897056196575216,
+      "visit_entropy": 0.03576243871937043,
+      "value_convergence": 0.04310299928659057,
+      "path_divergence": 0.1335797033780537,
+      "underexplored": 0.023880222758835477,
+      "depth_reached": 0.0
+    },
+    "num_episodes": 10,
+    "iteration": 3,
+    "train_reward": 670.0164523328012
+  },
+  {
+    "ablation_divergence": 0.012272727272727274,
+    "ablation_divergence_std": 0.012784323791369302,
+    "reward_live": 114.69655270558401,
+    "reward_ablated": 131.47300967456684,
+    "reward_difference": -16.776456968982828,
+    "thinking_action_partial_corr": 0.21503998555473447,
+    "channel_influence": {
+      "best_value": 0.11702820411219007,
+      "visit_entropy": 0.20190169757914997,
+      "value_convergence": 0.21503998555473447,
+      "path_divergence": 0.13344978012173336,
+      "underexplored": 0.20361059270397333,
+      "depth_reached": 0.0
+    },
+    "num_episodes": 10,
+    "iteration": 4,
+    "train_reward": 739.6732301213171
+  },
+  {
+    "ablation_divergence": 0.06003030303030303,
+    "ablation_divergence_std": 0.047578353528867585,
+    "reward_live": 165.72117000019773,
+    "reward_ablated": 170.20360595296947,
+    "reward_difference": -4.482435952771738,
+    "thinking_action_partial_corr": 0.24490051673693464,
+    "channel_influence": {
+      "best_value": 0.24490051673693464,
+      "visit_entropy": 0.17775656290906458,
+      "value_convergence": 0.24181650217365672,
+      "path_divergence": 0.2124502969704428,
+      "underexplored": 0.1797805986194475,
+      "depth_reached": 0.0
+    },
+    "num_episodes": 10,
+    "iteration": 5,
+    "train_reward": 554.6641713751137
+  },
+  {
+    "ablation_divergence": 0.02372727272727273,
+    "ablation_divergence_std": 0.020542258623336085,
+    "reward_live": 209.64939434106358,
+    "reward_ablated": 210.22790131880765,
+    "reward_difference": -0.5785069777440697,
+    "thinking_action_partial_corr": 0.1708313403916422,
+    "channel_influence": {
+      "best_value": 0.06207582959169978,
+      "visit_entropy": 0.1708313403916422,
+      "value_convergence": 0.12858343699645422,
+      "path_divergence": 0.05607474193321828,
+      "underexplored": 0.12977711025864577,
+      "depth_reached": 0.0
+    },
+    "num_episodes": 10,
+    "iteration": 6,
+    "train_reward": 546.324517937031
+  },
+  {
+    "ablation_divergence": 0.02112121212121212,
+    "ablation_divergence_std": 0.015720264684892727,
+    "reward_live": 301.16387486203774,
+    "reward_ablated": 294.65454294341686,
+    "reward_difference": 6.509331918620887,
+    "thinking_action_partial_corr": 0.07520145020661197,
+    "channel_influence": {
+      "best_value": 0.03800592745295363,
+      "visit_entropy": 0.07520145020661197,
+      "value_convergence": 0.031221491260435875,
+      "path_divergence": 0.03399114800186518,
+      "underexplored": 0.01756882076829953,
+      "depth_reached": 0.0
+    },
+    "num_episodes": 10,
+    "iteration": 7,
+    "train_reward": 603.1361540481231
+  },
+  {
+    "ablation_divergence": 0.02836363636363637,
+    "ablation_divergence_std": 0.03325229819380731,
+    "reward_live": 213.33792976150443,
+    "reward_ablated": 215.23480207656416,
+    "reward_difference": -1.8968723150597384,
+    "thinking_action_partial_corr": 0.12124726985603607,
+    "channel_influence": {
+      "best_value": 0.04624939246156808,
+      "visit_entropy": 0.12124726985603607,
+      "value_convergence": 0.08467305823657525,
+      "path_divergence": 0.0739907503269994,
+      "underexplored": 0.00044521311283639287,
+      "depth_reached": 0.0
+    },
+    "num_episodes": 10,
+    "iteration": 8,
+    "train_reward": 654.1344284649931
+  },
+  {
+    "ablation_divergence": 0.04872727272727273,
+    "ablation_divergence_std": 0.05179173523240787,
+    "reward_live": 257.88257640634095,
+    "reward_ablated": 236.7684667604479,
+    "reward_difference": 21.114109645893052,
+    "thinking_action_partial_corr": 0.1942536176389083,
+    "channel_influence": {
+      "best_value": 0.02046022939420102,
+      "visit_entropy": 0.19095331198748322,
+      "value_convergence": 0.1942536176389083,
+      "path_divergence": 0.18113553001921398,
+      "underexplored": 0.17831423823379688,
+      "depth_reached": 0.0
+    },
+    "num_episodes": 10,
+    "iteration": 9,
+    "train_reward": 588.9790701255761
+  },
+  {
+    "ablation_divergence": 0.05354545454545454,
+    "ablation_divergence_std": 0.05702625335829525,
+    "reward_live": 355.0525163313608,
+    "reward_ablated": 350.38517467288136,
+    "reward_difference": 4.667341658479415,
+    "thinking_action_partial_corr": 0.13863435736797267,
+    "channel_influence": {
+      "best_value": 0.06124060866278407,
+      "visit_entropy": 0.07697634201719472,
+      "value_convergence": 0.1214841015131403,
+      "path_divergence": 0.13863435736797267,
+      "underexplored": 0.07256832264678809,
+      "depth_reached": 0.0
+    },
+    "num_episodes": 10,
+    "iteration": 10,
+    "train_reward": 496.15397554971173
+  }
+]
