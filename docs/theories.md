@@ -320,7 +320,35 @@ Evidence status key:
 
 ---
 
-## XXIII. The Novel Synthesis Claim
+## XXIII. The Thinking Substrate (MCTS as Cognitive Architecture)
+
+**T78. A thought is a cycle — or cascade of cycles — in which internal receptors dominate the forward-feedback loop.** External receptors fire from the world. Internal receptors fire from the mental model's processing. When the organism responds primarily to its own receptor firings rather than to the world, that is a thought. The participating set of receptors is the *content* of the thought. The number of cycles before the cascade resolves or exits through the motor system is the *depth* of the thought. A reflex is one cycle dominated by external receptors. A thought is multiple cycles dominated by internal ones.
+*Status: Proposed (definitional). Argued: README (Core Concepts).*
+
+**T79. Planning is a thought where the mental model is the dominant source of receptor firings — the organism is responding to predicted futures.** The mental model runs `predict_delta` for actions the organism hasn't taken. Predicted states fire internal receptors (optimism, conflict, curiosity). The cascade across candidate actions IS the deliberation. Decision-making is when the cascade exits through the motor system.
+*Status: Proposed. Argued: README (Core Concepts).*
+
+**T80. MCTS provides the concrete substrate that makes metacognition tractable.** The tree structure is an architectural component — alongside the mental model and experience log — that records which thinking paths were taken, how often, and with what outcomes. The metacognition receptor has something specific to operate on: not vague introspection but structured visit counts, value estimates, and path divergence data.
+*Status: Proposed. Argued: theories.md.*
+
+**T81. The MCTS tree's metadata is itself input to receptors.** Visit count patterns trigger shaped_absence (underexplored regions). UCB scores trigger curiosity (high-uncertainty, high-potential branches). Value convergence triggers completion (the search has found what it was looking for). Path divergence triggers exception_detection. High-value low-visit branches trigger optimization. Repeated low-value high-visit paths trigger contradiction. The tree generates receptor inputs at every level.
+*Status: Proposed. Argued: theories.md.*
+
+**T82. The receptor topology is what makes the MCTS evaluation function intrinsic rather than external.** The value of a thinking path is determined by which receptors fire at its terminus and how strongly — not by a designer-specified reward function. This eliminates the ceiling that exists in every system with an externally specified objective: the system can only be as good as whoever specified what counts as good.
+*Status: Proposed. Argued: theories.md.*
+
+**T83. The self-modifying loop has no fixed ceiling because each layer feeds the next.** Better receptor topology → better evaluation function → better MCTS search → better thinking paths → richer tree → deeper metacognitive analysis → receptor firings that develop better receptor topology. The loop stabilizes only when the environment stops presenting new structure worth detecting. Since the environmental augmentation family allows the organism to increase environmental complexity, the ceiling rises with the organism.
+*Status: Proposed. Argued: theories.md.*
+
+**T84. Receptors are the only cognitive unit that generalizes across every level of the self-modifying loop.** Reward functions are level-specific. Loss functions are task-specific. Utility functions are designer-specified. A receptor — defined as any selected internal state whose activation changes behavior (T6) — fires on conditions whether they arise from the environment, from internal processing, from the MCTS tree, or from analysis of the analysis. This is why the bootstrapping loop is only conceivable with the receptor topology framing.
+*Status: Proposed. Argued: theories.md. Depends on T6.*
+
+**T85. Existing AI research has each piece but no bridge between them.** MCTS researchers (DeepMind) treat the tree as a tool with an externally trained evaluation function. Metacognition researchers describe thinking-about-thinking without a computational substrate. Intrinsic motivation researchers (Schmidhuber, Oudeyer) formalize curiosity as a reward bonus — modifying search intensity, not search evaluation or search perception. Self-modifying AI (Gödel machines) allows rewriting with fixed utility. None have a unit that works at every level because none started from the bottom where the question "what is the primitive unit of cognition" is forced.
+*Status: Proposed. Argued: theories.md.*
+
+---
+
+## XXIV. The Novel Synthesis Claim
 
 **T63. No existing research program unifies grounded cognition, active inference, and evolutionary receptor topology into a single generative mechanism.** ABI is a novel synthesis across Barsalou, Friston, Gibson, and developmental/evolutionary perspectives.
 *Status: Proposed. Argued: whitepaper Section 10.*
@@ -331,14 +359,14 @@ Evidence status key:
 
 | Status | Count |
 |---|---|
-| Proposed | 58 |
+| Proposed | 64 |
 | Partially tested | 10 |
 | Supported | 6 |
 | Revised | 1 |
 | Falsified | 1 |
-| **Total** | **76** |
+| **Total** | **82** |
 
-Seven claims have direct experimental support from ERTI: T27-T31 (evolutionary dynamics), T26 (revised after decomposition), and T57 (annealing — the framework's first structural self-discovery). One claim directionally falsified: T55 (read-shielding accelerates resolution — the opposite was found across 6 seeds). The Epistemic family (T58-T60) is the first family whose existence was predicted by a falsification rather than by theoretical deduction alone.
+Seven claims have direct experimental support from ERTI: T27-T31 (evolutionary dynamics), T26 (revised after decomposition), and T57 (annealing — the framework's first structural self-discovery). One claim directionally falsified: T55 (read-shielding accelerates resolution — the opposite was found across 6 seeds). The Epistemic family (T58-T60) is the first family whose existence was predicted by a falsification rather than by theoretical deduction alone. The Thinking Substrate section (T78-T85) identifies MCTS as the mechanism that makes metacognition tractable and the receptor topology as the unit that makes the self-modifying loop possible.
 
 ---
 

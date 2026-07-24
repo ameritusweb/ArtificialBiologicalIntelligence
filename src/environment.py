@@ -555,7 +555,8 @@ class Organism:
         num_joints = num_segments - 1
         self.NUM_ACTIONS = self.NUM_LIMBS * 3 + num_joints * 2 + self.EMISSION_BITS
         extra_dims = dims - 2
-        self.OBS_DIM = 13 * self.NUM_LIMBS + 4 * num_joints + 82 + extra_dims * 2 + self.NUM_LIMBS + 3
+        self.NUM_THINKING_CHANNELS = 6
+        self.OBS_DIM = 13 * self.NUM_LIMBS + 4 * num_joints + 82 + extra_dims * 2 + self.NUM_LIMBS + 3 + self.NUM_THINKING_CHANNELS
         self.ENERGY_OBS_INDEX = 6 * self.NUM_LIMBS
         self.CORE_OBS_DIM = 9 * self.NUM_LIMBS + 42
         self.x = 10.0
@@ -599,6 +600,7 @@ class Organism:
         self.rupture_count = 0
         self.concept_match = 0.0
         self.concept_quality = 0.0
+        self.thinking_channels = np.zeros(self.NUM_THINKING_CHANNELS)
         self.physics_mode = False
         self.grip_state = [0] * self.NUM_LIMBS
         self.carried_mass = 0.0
@@ -1011,6 +1013,7 @@ class Organism:
             np.array([self.concept_match, self.concept_quality]),
             np.array(self.grip_state, dtype=np.float64),
             np.array([self.carried_mass, self.contact_count, self.contact_force]),
+            self.thinking_channels,
         ])
         self.history.append(obs)
 
@@ -1064,7 +1067,9 @@ class Organism:
         )
         return {
             't': time_step,
-            'bx': round(self.x, 3), 'by': round(self.y, 3), 'bh': round(self.heading, 3),
+            'bx': round(self.x, 3), 'by': round(self.y, 3), 'bz': round(getattr(self, 'z', 0.0), 3),
+            'bh': round(self.heading, 3),
+            'dims': self.dims,
             'la': [round(a, 3) for a in self.limb_angles],
             'le': [int(e) for e in self.limb_extended],
             'ma': self.last_actions.tolist(),

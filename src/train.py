@@ -23,6 +23,67 @@ PROBE_RATE_FLOOR = 0.02
 EXPLORE_RATE = 0.07
 
 
+def generate_training_data_physics(num_episodes=200, steps_per_episode=300, seed=0,
+                                    compound_objects=True, developmental=False):
+    """Generate training data with physics world active."""
+    from physics_world import PhysicsWorld
+    rng = np.random.RandomState(seed)
+    all_windows = []
+    all_targets = []
+    all_next_pain = []
+    global_log = []
+
+    for ep in range(num_episodes):
+        env = Environment(seed=rng.randint(0, 100000))
+        org = Organism()
+        org.reset(rng)
+        npc = NPC()
+        npc.reset(rng)
+
+        pw = PhysicsWorld(env, org, num_objects=3, seed=rng.randint(0, 100000))
+        if compound_objects:
+            pw.add_compound_objects()
+
+        episode_pain = []
+        for step in range(steps_per_episode):
+            npc.step(env, step)
+            if developmental:
+                pw.apply_developmental_changes(step)
+            optimal = org.compute_optimal_actions(env, step, npc=npc)
+            window = org.get_observation_window()
+            all_windows.append(window.copy())
+            all_targets.append(optimal.copy())
+            r = rng.random()
+            if r < 0.02:
+                executed = np.zeros(org.NUM_ACTIONS, dtype=np.int32)
+            elif r < EXPLORE_RATE:
+                executed = rng.randint(0, 2, size=org.NUM_ACTIONS).astype(np.int32)
+            else:
+                executed = optimal
+            pw.apply_organism_forces(executed)
+            pw.check_grips(executed)
+            pw.step()
+            obs, reward = org.step(executed, env, step, npc=npc)
+            npc.receive_signal(executed[org.NUM_LIMBS * 3:], org.x, org.y)
+            episode_pain.append(obs[0:6].copy())
+
+        for i in range(steps_per_episode):
+            if i + 1 < steps_per_episode:
+                all_next_pain.append(episode_pain[i + 1])
+            else:
+                all_next_pain.append(episode_pain[i])
+        global_log.extend(org.experience_log)
+
+        if (ep + 1) % 50 == 0:
+            print(f"  Physics: {ep + 1}/{num_episodes} episodes "
+                  f"({(ep + 1) * steps_per_episode:,} samples)")
+
+    X = np.array(all_windows, dtype=np.float32)
+    Y = np.array(all_targets, dtype=np.float32)
+    Z = np.array(all_next_pain, dtype=np.float32)
+    return X, Y, Z, global_log
+
+
 def generate_training_data(num_episodes=500, steps_per_episode=300, seed=0):
     rng = np.random.RandomState(seed)
     all_windows = []
@@ -359,6 +420,9 @@ def generate_training_data_closed_loop(num_bootstrap=100, num_online=400,
             pred, cert, _ = engine.predict_delta(obs_before, executed)
             lp, cert_after = engine.compute_learning_progress(obs_before, executed, obs, reward)
             prev_mm_certainty = cert_after
+
+            if hasattr(engine, 'observe_npc'):
+                engine.observe_npc(obs)
             prev_learning_progress = lp
 
             prev_predicted_pain = obs_before[:6] + pred[:6] if len(pred) >= 6 else obs_before[:6].copy()
@@ -387,6 +451,213 @@ def generate_training_data_closed_loop(num_bootstrap=100, num_online=400,
     Y = np.array(all_targets, dtype=np.float32)
     Z = np.array(all_next_pain, dtype=np.float32)
     return X, Y, Z, global_log, engine
+
+
+def generate_training_data_self_play(num_bootstrap=50, num_self_play=200,
+                                      num_iterations=3, steps_per_episode=300,
+                                      epochs_per_iter=15, seed=0, staged=True,
+                                      use_thinking=True):
+    """Generate training data via self-play: policy drives behavior, not oracle.
+
+    Phase 1 (bootstrap): Small oracle dataset to get an initial policy.
+    Phase 2 (self-play iterations): Train policy, then run episodes where the
+    policy's own actions drive behavior. The mental model learns from what the
+    policy actually did. Retrain on self-generated data. Repeat.
+
+    When use_thinking=True, the organism runs MCTS (thinking substrate) before
+    acting. Tree metadata becomes receptor input: visit patterns, value
+    convergence, path divergence, underexplored branches.
+    """
+    from thinking_substrate import ThinkingTree
+    rng = np.random.RandomState(seed)
+    idx = compute_obs_indices()
+    obs_dim = idx['obs_dim']
+    num_actions = idx['num_actions']
+
+    print(f"Self-play: {num_bootstrap} bootstrap + {num_iterations}x{num_self_play} self-play")
+
+    # Phase 1: Bootstrap from oracle
+    print("\n--- Phase 1: Bootstrap (oracle) ---")
+    all_windows, all_targets, all_next_pain = [], [], []
+    global_log = []
+
+    for ep in range(num_bootstrap):
+        env = Environment(seed=rng.randint(0, 100000))
+        org = Organism()
+        org.reset(rng)
+        npc = NPC()
+        npc.reset(rng)
+        episode_pain = []
+
+        for step in range(steps_per_episode):
+            npc.step(env, step)
+            optimal = org.compute_optimal_actions(env, step, npc=npc)
+            window = org.get_observation_window()
+            all_windows.append(window.copy())
+            all_targets.append(optimal.copy())
+            r = rng.random()
+            if r < 0.02:
+                executed = np.zeros(num_actions, dtype=np.int32)
+            elif r < EXPLORE_RATE:
+                executed = rng.randint(0, 2, size=num_actions).astype(np.int32)
+            else:
+                executed = optimal
+            obs, reward = org.step(executed, env, step, npc=npc)
+            npc.receive_signal(executed[org.NUM_LIMBS * 3:], org.x, org.y)
+            episode_pain.append(obs[0:6].copy())
+
+        for i in range(steps_per_episode):
+            next_p = episode_pain[i + 1] if i + 1 < steps_per_episode else episode_pain[i]
+            all_next_pain.append(next_p)
+        global_log.extend(org.experience_log)
+
+    print(f"  Bootstrap: {len(all_windows)} samples from {num_bootstrap} episodes")
+
+    # Train initial policy
+    X = np.array(all_windows, dtype=np.float32)
+    Y = np.array(all_targets, dtype=np.float32)
+    Z = np.array(all_next_pain, dtype=np.float32)
+    print(f"  Training initial policy ({epochs_per_iter} epochs)...")
+    model = train_model(X, Y, Z, epochs=epochs_per_iter, staged=staged,
+                        steps_per_episode=steps_per_episode)
+
+    # Build mental model from bootstrap
+    print("  Building mental model from bootstrap...")
+    engine = build_mental_model(global_log)
+    print(f"  Store: {engine.store.total_count} mappings")
+
+    tree = ThinkingTree(num_actions=idx['num_actions'],
+                        max_simulations=32, max_depth=4) if use_thinking else None
+
+    # Phase 2: Self-play iterations
+    for iteration in range(num_iterations):
+        print(f"\n--- Phase 2: Self-play iteration {iteration + 1}/{num_iterations} ---")
+
+        sp_windows, sp_targets, sp_next_pain = [], [], []
+        sp_log = []
+        iter_rewards = []
+
+        for ep in range(num_self_play):
+            env = Environment(seed=rng.randint(0, 100000))
+            org = Organism()
+            org.reset(rng)
+            npc = NPC()
+            npc.reset(rng)
+            episode_pain = []
+            episode_reward = 0.0
+
+            prev_predicted_pain = None
+            prev_mm_certainty = 0.0
+            prev_learning_progress = 0.0
+            prev_action_hash = 0
+            prev_controllability = 0.0
+            prev_external_change = 0.0
+            prev_planning_value = 0.0
+
+            for step in range(steps_per_episode):
+                npc.step(env, step)
+                obs_before = org.history[-1].copy() if len(org.history) > 0 else np.zeros(obs_dim)
+
+                mm_fam, mm_qual = engine.get_context_features(obs_before)
+                mm_features = (mm_fam, mm_qual, prev_mm_certainty, prev_learning_progress)
+
+                pattern_features = None
+                if engine.pattern_store is not None:
+                    pa, pc = engine.query_pattern(prev_action_hash, obs_before)
+                    pattern_features = (pa, pc)
+
+                cm, cq = engine.query_concept(prev_action_hash, obs_before)
+                org.concept_match = cm
+                org.concept_quality = cq
+
+                if tree is not None:
+                    thinking_analysis = tree.think(obs_before, engine)
+                    org.thinking_channels = thinking_analysis
+
+                # Policy decides the action — no oracle
+                window = org.get_observation_window()
+                policy_action, _ = model.predict(window)
+
+                # Oracle provides the training target (what SHOULD have been done)
+                optimal = org.compute_optimal_actions(env, step, npc=npc)
+
+                sp_windows.append(window.copy())
+                sp_targets.append(optimal.copy())
+
+                # Exploration on the policy's action
+                r = rng.random()
+                if r < PROBE_RATE_FLOOR:
+                    executed = np.zeros(num_actions, dtype=np.int32)
+                elif r < EXPLORE_RATE:
+                    executed = rng.randint(0, 2, size=num_actions).astype(np.int32)
+                else:
+                    executed = policy_action
+
+                obs, reward = org.step(
+                    executed, env, step,
+                    predicted_pain=prev_predicted_pain,
+                    mm_features=mm_features,
+                    pattern_features=pattern_features,
+                    agency_features=(prev_controllability, prev_external_change, prev_planning_value),
+                    npc=npc,
+                )
+                npc.receive_signal(executed[org.NUM_LIMBS * 3:], org.x, org.y)
+                episode_pain.append(obs[0:6].copy())
+                episode_reward += reward
+
+                ctrl, ext_ch, plan_v = engine.compute_agency_features(obs_before, executed, obs)
+                prev_controllability = ctrl
+                prev_external_change = ext_ch
+                prev_planning_value = plan_v
+
+                pred, cert, _ = engine.predict_delta(obs_before, executed)
+                lp, cert_after = engine.compute_learning_progress(obs_before, executed, obs, reward)
+                prev_mm_certainty = cert_after
+
+                if hasattr(engine, 'observe_npc'):
+                    engine.observe_npc(obs)
+                prev_learning_progress = lp
+
+                prev_predicted_pain = obs_before[:6] + pred[:6] if len(pred) >= 6 else obs_before[:6].copy()
+                prev_action_hash = action_to_hash(executed)
+
+            for i in range(steps_per_episode):
+                next_p = episode_pain[i + 1] if i + 1 < steps_per_episode else episode_pain[i]
+                sp_next_pain.append(next_p)
+            sp_log.extend(org.experience_log)
+            iter_rewards.append(episode_reward)
+
+            if (ep + 1) % 50 == 0:
+                print(f"  Self-play: {ep + 1}/{num_self_play} episodes, "
+                      f"avg reward: {np.mean(iter_rewards[-50:]):.1f}")
+
+        global_log.extend(sp_log)
+
+        # Combine bootstrap + all self-play data so far
+        all_windows.extend(sp_windows)
+        all_targets.extend(sp_targets)
+        all_next_pain.extend(sp_next_pain)
+
+        X = np.array(all_windows, dtype=np.float32)
+        Y = np.array(all_targets, dtype=np.float32)
+        Z = np.array(all_next_pain, dtype=np.float32)
+
+        print(f"  Retraining policy on {len(X)} samples ({epochs_per_iter} epochs)...")
+        model = train_model(X, Y, Z, epochs=epochs_per_iter, staged=staged,
+                            steps_per_episode=steps_per_episode)
+
+        # Rebuild mental model with all data
+        print("  Rebuilding mental model...")
+        engine = build_mental_model(global_log)
+        if engine.pattern_store is not None:
+            engine.pattern_store.build_from_log(
+                global_log, engine.encoder, engine.store,
+                steps_per_episode=steps_per_episode)
+
+        print(f"  Store: {engine.store.total_count} mappings, "
+              f"avg reward: {np.mean(iter_rewards):.1f}")
+
+    return X, Y, Z, global_log, engine, model
 
 
 def train_model(X, Y, Z, epochs=30, batch_size=256, lr=1e-3, num_limbs=6,

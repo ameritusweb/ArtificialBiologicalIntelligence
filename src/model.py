@@ -66,7 +66,9 @@ def compute_obs_indices(num_limbs=6, num_segments=1, dims=2, continuous_actions=
     conflict_start = dim3_start + extra_dims
     concept_start = conflict_start + 3
     grip_start = concept_start + 2
-    obs_dim = grip_start + total_limbs + 3
+    thinking_start = grip_start + total_limbs + 3
+    NUM_THINKING_CHANNELS = 6
+    obs_dim = thinking_start + NUM_THINKING_CHANNELS
     L = total_limbs
     pain_start = 0
     endorphin_start = L
@@ -111,6 +113,8 @@ def compute_obs_indices(num_limbs=6, num_segments=1, dims=2, continuous_actions=
         'opt_start': opt_start,
         'concept_start': concept_start,
         'grip_start': grip_start,
+        'thinking_start': thinking_start,
+        'num_thinking_channels': NUM_THINKING_CHANNELS,
         'total_limbs': total_limbs,
         'num_segments': num_segments,
         'num_joints': num_joints,
