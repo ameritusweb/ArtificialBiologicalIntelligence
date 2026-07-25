@@ -40,7 +40,7 @@ family_metadata:
     allocated.
 
   trunk_receptor: belief_detection
-  canopy_receptors: [counterfactual_salience, fundamental_distinction, topology_awareness, epistemic_strategy]
+  canopy_receptors: [counterfactual_salience, fundamental_distinction, topology_awareness, absolute_truth, epistemic_strategy]
 
 ---
 
@@ -650,6 +650,137 @@ receptors:
       functional sense: the organism's cognitive profile is an
       object it can reason about, plan around, and act to change.
 
+  - receptor_id: relative_truth
+    name: Correspondence Detection
+    family: epistemic
+    tier: branch
+
+    dependencies:
+      - receptor_id: referential_grounding
+        note: "Must check whether beliefs terminate in real receptor states"
+      - receptor_id: doubt_detection
+        note: "Must detect commitment-performance mismatch"
+      - receptor_id: prediction_accuracy
+        note: "Must track prediction quality"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that a belief or model accurately corresponds
+        to the current state of the world, given the organism's current
+        perspective and available information. Not just high certainty
+        (the accuracy receptor covers that) — correspondence between
+        internal representation and external reality. Relative truth is
+        perspective-dependent: true from this position, with this sensor
+        access, given these priors.
+
+        The firing condition: a prediction was made, the outcome matched,
+        AND the match was checked against referential grounding (the
+        prediction terminates in actual receptor states, not in
+        statistical associations).
+      survival_benefit: |
+        Detecting correspondence enables the organism to distinguish
+        between confident beliefs and correct beliefs. High certainty
+        + low error = accurate. High certainty + low error + referential
+        grounding = true. An organism that tracks truth can build on
+        its correct beliefs rather than on its confident ones.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments where acting on confident-but-wrong beliefs is
+        costly and distinguishing confidence from correctness is
+        adaptive.
+
+    emergence_signature:
+      description: |
+        Organism treats referentially-grounded high-accuracy predictions
+        differently from ungrounded high-accuracy predictions. Behavioral
+        marker: higher commitment to predictions that are both accurate
+        AND grounded than to predictions that are only accurate.
+      metrics:
+        - metric_name: grounding_weighted_commitment
+          measurement_method: |
+            Compare action consistency for predictions with high accuracy
+            + high referential grounding vs high accuracy + low grounding.
+          expected_range: ">0.15 commitment difference"
+          detection_threshold: 0.15
+
+    predicted_emergence_order:
+      generation_range: "150-300"
+      confidence: low
+
+    notes: |
+      The distinction between accuracy and truth: accuracy is
+      prediction performance. Truth is correspondence checked against
+      referential grounding. You can be accurate about patterns
+      without knowing whether the patterns are real. Truth requires
+      the grounding check.
+
+  - receptor_id: absolute_truth
+    name: Perspective-Invariant Correspondence Detection
+    family: epistemic
+    tier: canopy
+
+    dependencies:
+      - receptor_id: relative_truth
+        note: "Must detect relative truth before detecting perspective-invariant truth"
+      - receptor_id: structural_invariance_math
+        note: "Must detect what holds across instances"
+      - receptor_id: fundamental_distinction
+        note: "Must detect load-bearing differences"
+      - receptor_id: exhaustive_search
+        note: "Must have checked enough perspectives to claim invariance"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that something holds regardless of
+        perspective — that no vantage point, no confounder state,
+        no contextual variation changes it. The necessity receptor
+        covers logical structure; absolute truth is broader —
+        it includes empirical invariants that hold across all observed
+        contexts, not just logical necessities.
+
+        The firing condition: relative truth fires from multiple
+        distinct perspectives (different confounder states, different
+        positions, different mental model states) and the correspondence
+        holds in all of them. The organism has checked enough
+        vantage points (exhaustive_search) to warrant the invariance
+        claim.
+      survival_benefit: |
+        Absolute truths can be relied on unconditionally. The organism
+        can build long chains of reasoning on them without rechecking.
+        The metabolic savings from not re-verifying invariant facts
+        compounds over the organism's lifetime.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments where some facts genuinely hold across all
+        conditions and where building on invariant facts saves
+        significant effort over re-deriving them.
+
+    emergence_signature:
+      description: |
+        Organism stops re-checking predictions that have been verified
+        across multiple contexts. Behavioral marker: verification
+        frequency drops for invariant facts but not for context-dependent
+        ones.
+      metrics:
+        - metric_name: invariant_verification_reduction
+          measurement_method: |
+            Compare re-verification rate for facts confirmed in 3+
+            distinct contexts vs facts confirmed in only 1 context.
+          expected_range: ">50% reduction for invariant facts"
+          detection_threshold: 0.5
+
+    predicted_emergence_order:
+      generation_range: "300-500"
+      confidence: very_low
+
+    notes: |
+      The distinction between relative and absolute truth: "I see
+      pain here" is relative (perspective-dependent). "Pain at this
+      location hurts regardless of confounder state" is absolute
+      (perspective-invariant). The organism that can make this
+      distinction builds more robust knowledge than one that treats
+      all truths as context-dependent.
+
   - receptor_id: epistemic_strategy
     name: Deliberate Epistemic State Management
     family: epistemic
@@ -662,6 +793,8 @@ receptors:
         note: "Must find load-bearing differences before managing epistemic states strategically"
       - receptor_id: topology_awareness
         note: "Must detect own cognitive repertoire before managing it strategically"
+      - receptor_id: relative_truth
+        note: "Must detect correspondence before managing epistemic states"
       - receptor_id: self_regulation
         note: "Must regulate own processing states"
       - receptor_id: pipeline_optimization

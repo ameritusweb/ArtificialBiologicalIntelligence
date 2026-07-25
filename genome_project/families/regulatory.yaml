@@ -30,7 +30,7 @@ family_metadata:
     recurs. This is identical to motor learning, just applied to internal states.
 
   trunk_receptor: stress_detection
-  canopy_receptors: [social_coregulation, ritual_formation, emotional_intelligence, futility]
+  canopy_receptors: [social_coregulation, ritual_formation, emotional_intelligence, futility, knowledge_preservation, identity_preservation]
 
 ---
 
@@ -770,3 +770,191 @@ receptors:
       the entire MCTS subtree for the impossible goal. Stop simulating
       paths toward something that can't be reached. Reallocate
       thinking resources to achievable goals.
+
+  - receptor_id: structural_preservation
+    name: Pattern-Worth-Keeping Detection
+    family: regulatory
+    tier: branch
+
+    dependencies:
+      - receptor_id: satisfaction
+        note: "Must detect that a goal was achieved before detecting it's worth keeping"
+      - receptor_id: pattern_recognition
+        note: "Must detect patterns before detecting they're worth preserving"
+        family: compression
+      - receptor_id: rule_extraction
+        note: "Must extract rules before detecting they're worth preserving"
+        family: formalization
+
+    environmental_trigger:
+      structure: |
+        The organism detects that a pattern, relationship, or causal
+        chain it has found is worth protecting from change or loss.
+        Not just that the pattern exists (compression covers that) or
+        that finding it was satisfying (satisfaction covers that), but
+        specifically that losing it would be costly. The pattern has
+        value that would be destroyed by revision.
+      survival_benefit: |
+        Organisms that protect useful patterns avoid the cost of
+        re-deriving them. A rule that was expensive to learn is worth
+        defending against noisy counter-evidence that would erode its
+        certainty. Preservation is targeted resistance to forgetting.
+      metabolic_cost: low
+      selection_pressure: |
+        Environments where useful patterns are hard to learn and easy
+        to lose — where the mental model is subject to noisy updates
+        that could overwrite correct knowledge.
+
+    emergence_signature:
+      description: |
+        High-value high-certainty mental model entries show slower
+        certainty decay than low-value entries when both encounter
+        conflicting evidence.
+      metrics:
+        - metric_name: value_weighted_certainty_persistence
+          measurement_method: |
+            Compare certainty decay rates for high-reward vs low-reward
+            entries after conflicting evidence. Preservation = slower
+            decay for high-value entries.
+          expected_range: ">30% slower decay for high-value"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "100-200"
+      confidence: medium
+
+    notes: |
+      The simplest form of preservation. The architecture already
+      implements preservation at the infrastructure level (append-only
+      experience log). This receptor makes it motivationally active:
+      the organism doesn't just have an immutable log, it detects
+      when something is worth protecting and resists updates that
+      would degrade it.
+
+  - receptor_id: knowledge_preservation
+    name: Belief-Worth-Protecting Detection
+    family: regulatory
+    tier: canopy
+
+    dependencies:
+      - receptor_id: structural_preservation
+        note: "Must detect pattern preservation before detecting belief preservation"
+      - receptor_id: topology_awareness
+        note: "Must detect own cognitive repertoire"
+        family: epistemic
+      - receptor_id: remembering
+        note: "Must detect memory activation"
+        family: association
+
+    environmental_trigger:
+      structure: |
+        The organism detects that a specific belief or concept in its
+        mental model is worth protecting from being overwritten. Not
+        just that the belief is useful (structural_preservation covers
+        utility-based preservation), but that the belief is part of
+        the organism's knowledge architecture — losing it would
+        damage the ability to reason, not just the ability to act.
+
+        This is preservation applied to the epistemic level: protecting
+        the structures that enable thought, not just the structures
+        that enable action.
+      survival_benefit: |
+        Knowledge that took many generations to accumulate is more
+        costly to lose than knowledge acquired in a single lifetime.
+        Knowledge preservation protects the organism's cognitive
+        inheritance — the accumulated wisdom of its evolutionary
+        lineage, carried through topology bias.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments where knowledge is cumulative and where losing
+        hard-won insights forces expensive re-learning. Deep time
+        environments with topology inheritance.
+
+    emergence_signature:
+      description: |
+        Organism resists certainty updates on entries inherited from
+        parent topology more strongly than on self-learned entries,
+        when both encounter the same conflicting evidence.
+      metrics:
+        - metric_name: inherited_knowledge_persistence
+          measurement_method: |
+            Compare certainty decay rates for topology-bias-inherited
+            entries vs self-discovered entries under conflicting evidence.
+          expected_range: ">20% slower decay for inherited"
+          detection_threshold: 0.2
+
+    predicted_emergence_order:
+      generation_range: "200-400"
+      confidence: low
+
+    notes: |
+      Connected to cultural transmission: knowledge preservation is
+      what makes transmitted knowledge stick. Without it, offspring
+      receive parent knowledge but don't protect it — it erodes under
+      new experience. With it, the inherited knowledge persists long
+      enough to be validated and integrated.
+
+  - receptor_id: identity_preservation
+    name: Self-Continuity Protection
+    family: regulatory
+    tier: canopy
+
+    dependencies:
+      - receptor_id: knowledge_preservation
+        note: "Must protect knowledge before protecting identity"
+      - receptor_id: identity_continuity
+        note: "Must detect identity continuity"
+        family: self_augmentation
+      - receptor_id: self_model
+        note: "Must model self"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that what remains the same across change
+        is what it protects most strongly. Not just that knowledge is
+        worth keeping, but that the organism's own cognitive identity
+        — its characteristic receptor topology, its thinking style,
+        its core patterns — is worth defending against changes that
+        would make it a fundamentally different kind of mind.
+
+        This is the regulatory receptor for the Ship of Theseus: at
+        what point does changing the parts change the whole?
+      survival_benefit: |
+        An organism that preserves its core cognitive identity
+        maintains the coherence of its decision-making across time.
+        Without identity preservation, successive updates could
+        produce a policy that contradicts its own prior decisions,
+        destroying long-term plans.
+      metabolic_cost: high
+      selection_pressure: |
+        Environments where long-term consistency is rewarded and
+        where rapid identity shifts are costly — where other agents
+        or the organism itself depend on behavioral predictability.
+
+    emergence_signature:
+      description: |
+        Organism's core action patterns persist across mental model
+        rebuilds and environmental changes. Behavioral marker: high
+        autocorrelation in action distribution across generational
+        boundaries, specifically for actions associated with the
+        organism's most-used receptor groups.
+      metrics:
+        - metric_name: cross_generation_action_consistency
+          measurement_method: |
+            Compare action distributions before and after mental model
+            rebuild on the same environmental context. Identity
+            preservation = high consistency on core actions.
+          expected_range: ">0.7 correlation"
+          detection_threshold: 0.7
+
+    predicted_emergence_order:
+      generation_range: "300-500"
+      confidence: very_low
+
+    notes: |
+      The deepest regulatory receptor. Connected to T8's Ship of
+      Theseus test: an organism with identity preservation should
+      refuse the skill reset (accepting a different mind) even when
+      the reset is fitness-positive in the short term. The receptor
+      makes self-continuity motivationally significant — the organism
+      cares about remaining itself.

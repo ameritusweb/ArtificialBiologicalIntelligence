@@ -1,6 +1,6 @@
 # Receptor Index
 
-188 receptors across 22 families. T=trunk, B=branch, C=canopy.
+194 receptors across 22 families. T=trunk, B=branch, C=canopy.
 
 ---
 
@@ -71,7 +71,7 @@
 - [C] **context_conditioned_arbitration** — Different contexts, different weightings
 - [C] **multiple_receptor_types** — Responding to multiple types simultaneously
 
-## Regulatory (12)
+## Regulatory (15)
 - [T] **pain** — Nociception
 - [T] **fatigue** — Activity cost accumulation
 - [T] **stress_detection** — High pain + low energy
@@ -80,14 +80,17 @@
 - [B] **rhythm_entrainment** — Synchronizing with external rhythms
 - [B] **satisfaction** — Goal-achievement detection (desired state reached through effort)
 - [B] **frustration** — Effort-without-progress detection (trying but nothing changes)
+- [B] **structural_preservation** — Pattern-worth-keeping detection (resist overwriting useful knowledge)
 - [C] **self_soothing** — Internally-generated regulatory patterns
 - [C] **social_coregulation** — Mutual state regulation with others
 - [C] **emotional_intelligence** — Modeling and regulating others' states
 - [C] **ritual_formation** — Stabilized regulatory patterns
 - [C] **pattern_based_resolution** — Stored patterns as regulatory tools
 - [C] **futility** — Structural impossibility detection (stop trying, augment or redirect)
+- [C] **knowledge_preservation** — Belief-worth-protecting detection (protect cognitive inheritance)
+- [C] **identity_preservation** — Self-continuity protection (remain the same kind of mind)
 
-## Social (17)
+## Social (18)
 - [T] **other_detection** — Agent vs environment discrimination
 - [B] **behavioral_prediction** — Anticipating other agents' actions
 - [B] **predictability_mismatch** — Detecting when agents become unpredictable
@@ -95,7 +98,8 @@
 - [B] **intention_recognition** — Goal attribution to others
 - [B] **belief_attribution** — Others can have false beliefs
 - [B] **self_model_applied_to_others** — Self-model template applied to NPCs
-- [B] **instruction_detection** — Agentive directive recognition (another agent is telling me to do something)
+- [B] **instruction_detection** — Agentive directive recognition
+- [B] **ownership_boundary** — Not-mine detection (boundary respect, not fear)
 - [C] **perspective_taking** — Viewpoint simulation
 - [C] **theory_of_mind** — Recursive belief attribution
 - [C] **social_learning** — Learning by observation
@@ -135,7 +139,7 @@
 - [C] **cross_modal_observation** — Cross-modality integration
 - [C] **meta_observation** — Observing own observation process
 - [C] **significance_detection** — Commitment threshold (noticed → mattering)
-- [C] **contextual_signal_interpretation** — Signal meaning depends on hidden state (situational awareness) *[organism-discovered]*
+- [C] **contextual_signal_interpretation** — Signal meaning depends on hidden state (situational awareness) *[learned in-lifetime, preserved by evolution]*
 
 ## Formalization (11)
 - [T] **pattern_recognition** — Extracting repeating patterns
@@ -205,13 +209,15 @@
 - [C] **adaptive_depth** — Dynamic processing depth control
 - [C] **response_loop_detection** — Corrective response amplification detection
 
-## Epistemic (7)
+## Epistemic (9)
 - [T] **belief_detection** — Own-belief state detection
 - [B] **doubt_detection** — Commitment-performance mismatch
 - [B] **conflation** — Category collapse detection (two things treated as one)
+- [B] **relative_truth** — Correspondence detection (belief matches reality from current perspective)
 - [C] **counterfactual_salience** — Motivationally-loaded possibility detection
-- [C] **fundamental_distinction** — Load-bearing difference detection (the difference that matters)
-- [C] **topology_awareness** — Cognitive repertoire state detection (what kind of mind am I)
+- [C] **fundamental_distinction** — Load-bearing difference detection
+- [C] **topology_awareness** — Cognitive repertoire state detection
+- [C] **absolute_truth** — Perspective-invariant correspondence (holds regardless of vantage point)
 - [C] **epistemic_strategy** — Deliberate epistemic state management
 
 ---
@@ -237,7 +243,7 @@
 
 ---
 
-**Totals:** 47 trunk, 58 branch, 83 canopy = 188 receptors
+**Totals:** 47 trunk, 61 branch, 86 canopy = 194 receptors
 
 **Dependency layers:**
 - Layer 0 (single-family): ~40 receptors, emerge early

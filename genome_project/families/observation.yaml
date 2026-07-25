@@ -645,11 +645,12 @@ receptors:
       what's happening in a way that's conditioned on the broader
       context that determines what the happening means.
 
-      FIRST NOVEL RECEPTOR — emerged in generation 0 of the deep time
-      overnight run as a cross-modal chemical→pain association that
-      the genome didn't anticipate. The organism evolved contextual
-      pain interpretation before the genome specified it. This entry
-      is the genome catching up to the organism.
+      FIRST NOVEL RECEPTOR — detected via within-lifetime learning
+      in generation 0 of the deep time overnight run as a cross-modal
+      chemical→pain association. Not evolved through selection —
+      learned by a single organism during its own experience. Evolution
+      preserved it (detected 5 times across 60 generations). This
+      entry is the genome catching up to what the organism learned.
 
     dependencies:
       within_family:
@@ -701,12 +702,14 @@ receptors:
       signal and context), contextual signal interpretation is absent.
 
     notes: |
-      This receptor was not designed. It was discovered by the novel
-      receptor detector in generation 0 of the 50-generation overnight
-      run. The organism developed a cross-modal chemical→pain
-      association with novelty score 0.770 that didn't match any
-      genome entry. The pain receptor test dropped out simultaneously —
-      not because the organism stopped caring about pain, but because
+      This receptor was not designed. It was detected by the novel
+      receptor detector in generation 0 — within-lifetime learning,
+      not evolutionary selection. The organism learned a cross-modal
+      chemical→pain association with novelty score 0.770 that didn't
+      match any genome entry. Evolution then preserved it across 60
+      generations (5 independent detections). The pain receptor test
+      dropped out simultaneously — not because the organism stopped
+      caring about pain, but because
       it developed a more sophisticated relationship to pain that the
       simple presence/absence test couldn't detect.
 

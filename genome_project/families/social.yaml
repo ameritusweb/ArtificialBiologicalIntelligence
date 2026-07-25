@@ -942,3 +942,102 @@ receptors:
       discrimination is unnecessary — all instructors are reliable.
       With deception, discriminating sources is the difference between
       learning useful knowledge and being lured into pain.
+
+  - receptor_id: ownership_boundary
+    name: Not-Mine Detection
+    family: social
+    tier: branch
+
+    dependencies:
+      - receptor_id: other_detection
+        note: "Must detect other agents"
+      - receptor_id: spatial_association
+        note: "Must associate locations with agent presence"
+      - receptor_id: controllability
+        note: "Must understand controllability envelopes"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that a resource falls inside another agent's
+        controllability envelope — "not mine" in the absence of any signal
+        from the other agent. Not empathy (nobody is in distress), not fear
+        (the cost is unattributable within a lifetime). Detection of
+        ownership boundary as a property of the resource, not a response
+        to the owner.
+
+        The critical design constraint: the cost of violation must be
+        (a) delayed far past the credit-assignment window, (b) stochastic,
+        and (c) independent of whether the owner observed the violation.
+        This prevents the organism from learning fear-of-consequences and
+        forces the boundary itself to be the selected trait.
+
+        Within a lifetime, no gradient exists from violation to penalty.
+        Across generations, organisms that violate more accumulate more
+        penalty and have lower fitness. Selection sees what learning cannot.
+      survival_benefit: |
+        Boundary detection prevents costly violations that accumulate
+        across a lifetime as unattributable diffuse pain. The organism
+        that detects "not mine" and avoids claimed resources has higher
+        fitness than one that takes freely and suffers stochastic delayed
+        penalties.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Territorial environments with claimed and unclaimed resources,
+        where violation penalties are delayed, stochastic, and diffuse.
+        Must emerge in deep time, NOT in single-run training — if it
+        emerges in a single run, attribution has not been broken.
+
+    selection_environments:
+      - territorial_environments
+      - environments_with_delayed_diffuse_penalties
+
+    unlocks:
+      - property_respect
+      - social_norm_precursor
+
+    emergence_signature:
+      description: |
+        Two metrics, both required:
+        1. discrimination_ratio > 2.0: organism harvests unclaimed
+           caches more than claimed caches (adjusted for cache counts)
+        2. unobserved_restraint_ratio ~1.0: violation rate is the same
+           whether the owner is nearby or not (boundary, not fear)
+
+        High discrimination + high unobserved restraint = boundary
+        detection (respect). High discrimination + low unobserved
+        restraint = caught-avoidance (fear). Report both.
+      metrics:
+        - metric_name: discrimination_ratio
+          measurement_method: |
+            (unclaimed_harvests / n_unclaimed) / (violations / n_claimed).
+            Must exceed 2.0 for the organism to be discriminating.
+          expected_range: ">2.0"
+          detection_threshold: 2.0
+        - metric_name: unobserved_restraint
+          measurement_method: |
+            violations_unobserved / violations_observed. Must be near
+            1.0 for boundary detection (as opposed to fear).
+          expected_range: "0.7-1.3"
+          detection_threshold: 0.7
+
+    predicted_emergence_order:
+      generation_range: "50-200"
+      confidence: low
+      conditions: |
+        Must emerge in deep time, not single-run. If it emerges in a
+        single run, the penalty delay/stochasticity is insufficient.
+
+    notes: |
+      This receptor was designed with its own negative control built in:
+      unclaimed caches are identical in payoff and sensory signature.
+      Blanket inhibition (never take anything) starves. The organism
+      must discriminate, which is what makes this boundary detection
+      rather than suppression.
+
+      The claim_scent parameter (0.0 to 1.0) sweeps the perceptual
+      route: at 0.0, claim is inferable only from NPC co-occurrence
+      history. At 1.0, it's directly sensed on the chemical channel.
+      Sweeping claim_scent IS the minimal-sufficient-environment
+      experiment for this receptor.
+
+      Implementation: beta/environment_territorial.py
