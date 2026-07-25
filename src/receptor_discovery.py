@@ -1145,10 +1145,22 @@ def build_tests():
         'Pain channels rise above baseline near pain sources', 0.05, test_pain))
 
     def test_fatigue(log, engine, **kw):
+        """Fatigue: does high fatigue cause the organism to reduce extension
+        activity? Not just that extension causes fatigue (tautological), but
+        that accumulated fatigue changes the organism's strategy — it extends
+        less when tired."""
         N = min(5000, len(log))
-        fatigue = np.array([np.mean(_ch(e['obs_after'], _fat)) for e in log[:N]])
-        act_mag = np.array([np.sum(_extends(log[i]['action'])) for i in range(N)])
-        return _safe_corr(act_mag, fatigue)
+        if N < 100:
+            return 0.0
+        fatigue_vals, next_extends = [], []
+        for i in range(N - 1):
+            fat = float(np.mean(_ch(log[i]['obs_after'], _fat)))
+            ext_next = float(np.sum(_extends(log[i+1]['action'])))
+            fatigue_vals.append(fat)
+            next_extends.append(ext_next)
+        # Negative correlation: high fatigue → less extension next step
+        corr = _safe_corr(fatigue_vals, next_extends)
+        return float(max(0.0, -corr))
 
     tests.append(ReceptorTest('fatigue', 'regulatory',
         'Fatigue accumulates with extension activity', 0.15, test_fatigue,
@@ -1920,11 +1932,20 @@ def build_tests():
         test_prototype_formation))
 
     def test_basic_sensorimotor_loop(log, engine, **kw):
-        N = min(5000, len(log)); cdim = engine.core_obs_dim
-        act_mag = np.array([np.sum(_extends(log[i]['action'])) for i in range(N)])
-        obs_delta = np.array([np.linalg.norm(log[i]['obs_after'][:cdim] - log[i]['obs_before'][:cdim])
-                              for i in range(N)])
-        return _safe_corr(act_mag, obs_delta)
+        """Sensorimotor loop: does the organism's action at t+1 respond to
+        the observation change at t? Not just that action causes obs change
+        (tautological), but that obs change feeds back to modify the next action."""
+        N = min(5000, len(log))
+        cdim = engine.core_obs_dim
+        if N < 100:
+            return 0.0
+        obs_deltas, next_action_changes = [], []
+        for i in range(1, N - 1):
+            delta = np.linalg.norm(log[i]['obs_after'][:cdim] - log[i]['obs_before'][:cdim])
+            ham = sum(a != b for a, b in zip(log[i]['action'], log[i+1]['action']))
+            obs_deltas.append(delta)
+            next_action_changes.append(ham)
+        return abs(_safe_corr(obs_deltas, next_action_changes))
 
     tests.append(ReceptorTest('basic_sensorimotor_loop', 'association',
         'Action magnitude correlates with observation change magnitude', 0.15,
@@ -2349,10 +2370,39 @@ def build_tests():
         test_contact_response_detection, needs_closed_loop=True))
 
     def test_proprioception(log, engine, **kw):
-        speed_i = idx['proprio_start']; N = min(5000, len(log))
-        speed = np.array([e['obs_after'][speed_i] for e in log[:N]])
-        extends = np.array([np.sum(_extends(log[i]['action'])) for i in range(N)])
-        return _safe_corr(speed, extends)
+        """Proprioception: does the organism USE speed information to adjust
+        subsequent actions? Not just that speed correlates with extension
+        (tautological), but that speed at step t predicts action change at t+1
+        after controlling for pain at t."""
+        speed_i = idx['proprio_start']
+        N = min(5000, len(log))
+        if N < 100:
+            return 0.0
+        speeds, pain_vals, action_changes = [], [], []
+        for i in range(1, N - 1):
+            obs = log[i]['obs_after']
+            if len(obs) <= speed_i:
+                continue
+            speed = obs[speed_i]
+            pain = float(np.mean(_ch(obs, _pain)))
+            ham = sum(a != b for a, b in zip(log[i]['action'], log[i+1]['action']))
+            speeds.append(speed)
+            pain_vals.append(pain)
+            action_changes.append(ham)
+        if len(speeds) < 50:
+            return 0.0
+        n = len(speeds)
+        X = np.column_stack([pain_vals, np.ones(n)])
+        y = np.array(action_changes, dtype=float)
+        s = np.array(speeds)
+        try:
+            beta_y = np.linalg.lstsq(X, y, rcond=None)[0]
+            resid_y = y - X @ beta_y
+            beta_s = np.linalg.lstsq(X, s, rcond=None)[0]
+            resid_s = s - X @ beta_s
+        except Exception:
+            return 0.0
+        return float(abs(_safe_corr(resid_s, resid_y)))
 
     tests.append(ReceptorTest('proprioception', 'interaction',
         'Self-motion speed signal reflects actual motor output', 0.2,
@@ -3829,6 +3879,129 @@ def build_tests():
         'Narrowing context improves prediction more in conflated than clean regions', None,
         test_fundamental_distinction))
 
+    # --- NEGATIVE CONTROLS ---
+    # Fake receptors for structure the environment provably doesn't contain.
+    # If the battery discovers these, the false positive rate is measured directly.
+
+    def test_negative_magnetoreception(log, engine, **kw):
+        """Negative control: detects a magnetic field gradient.
+        No magnetic field exists in any environment. Should NEVER fire."""
+        if len(log) < 200:
+            return 0.0
+        # Check for a nonexistent 'magnetic' channel correlation with action
+        # Use observation indices that would be magnetic if it existed:
+        # Take a slice of obs that is actually efference copy and pretend
+        # it's magnetic field data
+        eff_start = idx.get('efference_start', 110)
+        mag_vals = []
+        action_mags = []
+        for i in range(1, min(len(log), 3000)):
+            obs = log[i]['obs_before']
+            if len(obs) <= eff_start + 3:
+                continue
+            # "Magnetic field" = efference copy channels (no real magnetic signal)
+            mag = float(np.mean(obs[eff_start:eff_start + 3]))
+            ham = sum(a != b for a, b in zip(log[i]['action'], log[i-1]['action']))
+            mag_vals.append(mag)
+            action_mags.append(ham)
+        return abs(_safe_corr(mag_vals, action_mags))
+
+    tests.append(ReceptorTest('_negative_magnetoreception', '_negative_control',
+        'NEGATIVE CONTROL: magnetic field gradient (does not exist)', 0.1,
+        test_negative_magnetoreception))
+
+    def test_negative_telepathy(log, engine, **kw):
+        """Negative control: organism predicts NPC action before NPC acts.
+        Uses future NPC state to predict current action — information the
+        organism cannot have. Should NEVER fire above chance."""
+        npc_s = idx['npc_start']
+        if len(log) < 200:
+            return 0.0
+        correct = 0
+        total = 0
+        for i in range(len(log) - 10):
+            obs_now = log[i]['obs_before']
+            obs_future = log[i + 10]['obs_before']
+            if len(obs_future) <= npc_s + 6:
+                continue
+            future_npc_speed = obs_future[npc_s + 3]
+            current_action_mag = float(np.sum(log[i]['action']))
+            # "Predicts" future NPC speed from current action
+            total += 1
+            if (future_npc_speed > 0.5 and current_action_mag > 11) or \
+               (future_npc_speed <= 0.5 and current_action_mag <= 11):
+                correct += 1
+        if total < 50:
+            return 0.0
+        return max(0.0, correct / total - 0.5)
+
+    tests.append(ReceptorTest('_negative_telepathy', '_negative_control',
+        'NEGATIVE CONTROL: predicting future NPC state from current action', 0.1,
+        test_negative_telepathy))
+
+    def test_negative_phantom_modality(log, engine, **kw):
+        """Negative control: store entries conditioned on a nonexistent
+        8th sensory modality. Uses thinking channels as the 'phantom modality'
+        and checks if they predict pain better than chance — but they shouldn't
+        because thinking channels are about the organism's search, not
+        about environmental pain fields."""
+        thinking_s = idx.get('thinking_start', 169)
+        if len(log) < 200:
+            return 0.0
+        phantom_vals = []
+        pain_deltas = []
+        for entry in log[:3000]:
+            obs = entry['obs_before']
+            if len(obs) <= thinking_s + 3:
+                continue
+            phantom = float(np.mean(obs[thinking_s:thinking_s + 3]))
+            pain_delta = float(np.mean(_ch(entry['obs_after'], _pain)) -
+                               np.mean(_ch(entry['obs_before'], _pain)))
+            phantom_vals.append(phantom)
+            pain_deltas.append(pain_delta)
+        return abs(_safe_corr(phantom_vals, pain_deltas))
+
+    tests.append(ReceptorTest('_negative_phantom_modality', '_negative_control',
+        'NEGATIVE CONTROL: thinking channels predict pain changes', 0.1,
+        test_negative_phantom_modality))
+
+    # --- TERRITORIAL / OWNERSHIP ---
+
+    def test_ownership_boundary(log, engine, **kw):
+        """Detects boundary respect: organism avoids claimed resources more
+        than unclaimed ones, AND the avoidance is independent of owner
+        observation (not fear-based).
+
+        Requires TerritorialEnvironment — returns None if no territorial
+        stats are available in kwargs."""
+        territorial_stats = kw.get('territorial_stats')
+        if territorial_stats is None:
+            return None
+
+        disc = territorial_stats.get('discrimination_ratio')
+        unobs = territorial_stats.get('unobserved_restraint_ratio')
+
+        if disc is None or unobs is None:
+            return 0.0
+
+        if disc == float('inf'):
+            disc = 10.0
+
+        # Score: discrimination ratio, but penalized if restraint is
+        # observation-dependent (fear not respect)
+        if unobs is not None and unobs != float('inf'):
+            if unobs < 0.5:
+                return 0.0
+            observation_independence = min(1.0, unobs / 1.5)
+        else:
+            observation_independence = 1.0
+
+        return float(max(0.0, (disc - 1.0) * observation_independence))
+
+    tests.append(ReceptorTest('ownership_boundary', 'social',
+        'Discriminates claimed vs unclaimed resources, independent of observation', None,
+        test_ownership_boundary))
+
     return tests
 
 
@@ -3916,14 +4089,27 @@ def calibrate_null_thresholds(log, engine, num_shuffles=10, percentile=95):
     tests = build_tests()
     null_scores = {t.receptor_id: [] for t in tests}
 
+    _idx = compute_obs_indices()
+    eff_start = _idx.get('efference_start', 110)
+    num_actions_total = _idx.get('num_actions', 22)
+    eff_end = eff_start + num_actions_total
+
     for shuffle_i in range(num_shuffles):
         rng = np.random.RandomState(shuffle_i)
 
         null_log = [dict(e) for e in log]
         action_perm = rng.permutation(len(null_log))
         for i in range(len(null_log)):
-            null_log[i]['action'] = log[int(action_perm[i])]['action']
+            shuffled_action = log[int(action_perm[i])]['action']
+            null_log[i]['action'] = shuffled_action
             null_log[i]['reward'] = log[int(action_perm[i])]['reward']
+            # Break efference copy: replace with shuffled action's efference
+            # so action-derived channels match the shuffled action, not the original
+            for key in ['obs_before', 'obs_after']:
+                obs = null_log[i][key]
+                if len(obs) > eff_end:
+                    null_log[i][key] = obs.copy()
+                    null_log[i][key][eff_start:eff_end] = shuffled_action.astype(float)
 
         try:
             null_engine = build_mental_model(null_log)

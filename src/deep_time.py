@@ -38,6 +38,15 @@ class EvolvingOrganism:
             'num_limbs': 6,
             'growth_rate': 1.0,
             'pain_sensitivity': 1.0,
+            'merge_threshold': 0.90,
+            'thinking_budget': 24,
+            'thinking_cost': 0.001,
+            'v_pain': -1.0,
+            'v_endorphin': 1.0,
+            'v_energy': 0.5,
+            'v_chemical': 0.3,
+            'v_temperature': -0.3,
+            'v_pressure': -0.2,
         }
         self.organism = None
         self.fitness = 0.0
@@ -57,6 +66,18 @@ class EvolvingOrganism:
             child_params['growth_rate'] + rng.normal(0, 0.05), 0.5, 1.5)
         child_params['pain_sensitivity'] = np.clip(
             child_params['pain_sensitivity'] + rng.normal(0, 0.05), 0.5, 2.0)
+        child_params['merge_threshold'] = np.clip(
+            child_params.get('merge_threshold', 0.90) + rng.normal(0, 0.02), 0.70, 0.99)
+        child_params['thinking_budget'] = int(np.clip(
+            child_params.get('thinking_budget', 24) + rng.normal(0, 2), 4, 64))
+        child_params['thinking_cost'] = np.clip(
+            child_params.get('thinking_cost', 0.001) + rng.normal(0, 0.0003), 0.0001, 0.01)
+        for v_key in ['v_pain', 'v_endorphin', 'v_energy', 'v_chemical',
+                       'v_temperature', 'v_pressure']:
+            default = {'v_pain': -1.0, 'v_endorphin': 1.0, 'v_energy': 0.5,
+                       'v_chemical': 0.3, 'v_temperature': -0.3, 'v_pressure': -0.2}
+            child_params[v_key] = np.clip(
+                child_params.get(v_key, default[v_key]) + rng.normal(0, 0.05), -2.0, 2.0)
         return child_params
 
 

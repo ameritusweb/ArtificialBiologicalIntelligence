@@ -91,7 +91,7 @@ The key principle: **capability without receptor is latent and never gets used.*
 
 **Probe-Gated Inheritance**: Topology bias is gated by a constitutional probe budget. The organism must actually probe and explore the environment to validate inherited priors — inheritance accelerates but doesn't bypass the need for grounded experience. The probe rate floor lives outside the genome and cannot be selected to zero.
 
-**Genome Project**: The formal specification of the receptor search space — 179 receptors across 22 families. The periodic table of cognitive capabilities. Each receptor entry specifies what environmental structure it detects, what survival cost the organism pays for missing it, and what must already exist before it can emerge. The genome project is load-bearing on environmental design: the 179 receptors are 179 environmental design requirements.
+**Genome Project**: The formal specification of the receptor search space — 189 receptors across 22 families. The periodic table of cognitive capabilities. Each receptor entry specifies what environmental structure it detects, what survival cost the organism pays for missing it, and what must already exist before it can emerge. The genome project is load-bearing on environmental design: the 189 receptors are 189 environmental design requirements.
 
 **Invariant Trunk**: The set of receptors that emerge in every environment regardless of tier or complexity. 18 receptors are invariant across all 8 physics-world tiers — these are the strongest candidates for universal cognitive primitives.
 
@@ -173,21 +173,21 @@ A 6-limbed organism in a 2D liquid environment learns to navigate pain/endorphin
 - **Stochastic hidden confounders** — 3-state Markov chain modulating 4 modalities simultaneously
 - **Cross-modal objects** — sources with correlated pain + temperature + chemical signatures
 
-### The Genome Project (22 families, 179 receptors)
+### The Genome Project (22 families, 189 receptors)
 A formal specification of the receptor search space — the periodic table of cognitive capabilities:
 
 | Family | Receptors | From -> To |
 |--------|-----------|-----------|
 | Repetition | 6 | Static repetition -> causal rhythms |
-| Association | 8 | Spatial co-occurrence -> relational analogy |
+| Association | 10 | Spatial co-occurrence -> remembering -> forgetting -> relational analogy |
 | Similarity | 7 | Perceptual features -> structural invariance |
 | Causality | 11 | Coincidence -> causal graphs |
 | Agency | 8 | Controllability -> niche construction |
 | Meta-Motivational | 13 | Curiosity -> metacognition |
-| Regulatory | 9 | Stress detection -> emotional intelligence |
-| Social | 14 | Other detection -> moral reasoning |
+| Regulatory | 12 | Stress detection -> satisfaction -> frustration -> futility -> emotional intelligence |
+| Social | 18 | Other detection -> ownership boundary -> moral reasoning |
 | Compression | 15 | Pattern recognition -> constraint shape -> shaped absence -> missing piece located -> analogy |
-| Observation | 11 | Change detection -> statistical anomaly -> rarity -> significance -> meta-observation |
+| Observation | 12 | Change detection -> statistical anomaly -> rarity -> significance -> contextual signal interpretation -> meta-observation |
 | Formalization | 11 | Rule extraction -> optimization -> theory formation |
 | Mathematics | 7 | Quantity -> necessity -> proof -> formal composition |
 | Organization | 7 | Boundary -> part-whole -> system detection |
@@ -203,9 +203,9 @@ A formal specification of the receptor search space — the periodic table of co
 
 ### Key Empirical Results
 
-- **77 receptors discovered** in single-run oracle training; **75 in self-play** (policy-driven, no oracle); **151 unique across 10 generations** of deep time with thinking substrate
+- **77 receptors discovered** in single-run oracle training; **75 in self-play** (policy-driven, no oracle); **163 unique across 20 generations** with heritable parameters
 - **18 invariant receptors** across all 8 physics-world tiers — including grip_affordance and push_affordance as part of the embodied trunk
-- **Complexity reshapes, doesn't expand**: T27 confirmed across tiers, single runs, and deep time (53 gained, 21 lost in 10 generations)
+- **Complexity reshapes, doesn't expand**: T27 confirmed across tiers, single runs, and deep time (52 gained, 31 lost in 20 generations)
 - **Topology inheritance**: convergence accelerates from 15 epochs to 0 across generations
 - **Social universally transferable**: any prior training helps social environments (11-25x)
 - **Tool use resists transfer**: must be learned directly in the target environment
@@ -215,18 +215,24 @@ A formal specification of the receptor search space — the periodic table of co
 - **Staged processing**: inter-stage prediction MSE decreases 25% over training; staged model outperforms flat on val accuracy
 - **Self-play finds richer causality**: 7 causality receptors in self-play vs 4 in oracle — suboptimal actions create more varied causal experiences
 - **Thinking substrate load-bearing from iteration 1**: ablation divergence 0.060, reward difference +23.3, 5/6 channels active by iteration 5
-- **Epistemic family activated from scratch under evolution**: belief, doubt, epistemic strategy emerged in deep time when they couldn't emerge in single runs
-- **Peak thinking influence gen 5**: partial correlation 0.533
-- **depth_reached phase transition at gen 29**: metacognition + conflation activated at gen 27-28 as prerequisites; depth became dominant thinking channel one generation later. The organism learned to sense how deep its own reasoning went.
-- **Convergence result**: conflation receptor predicted by theoretical reasoning, evolved independently by the organism under selection pressure, confirmed as load-bearing prerequisite for depth_reached. Two independent paths to the same receptor — T40 confirmed at the meta level.
+- **Epistemic family activated from scratch under evolution**: belief, doubt, epistemic strategy emerged in deep time when they couldn't emerge in single runs. Metacognition and conflation replicate across seeds (42 and 99).
+- **depth_reached observed once** (seed 42 gen 29), not replicated (seed 99, 40 gens). Metacognition + conflation prerequisites replicate; depth activation does not.
+- **Convergence result (replicated)**: conflation predicted by theoretical reasoning, evolved independently in both seeds. T40 confirmed at meta level.
+- **Cross-environment transfer**: 71 shared receptors, 30 transfer-only, 27 naive-only in the same environment. The trunk is universal. The canopy is biography.
+- **Order-swap negative result**: explore-first vs accuracy-first produces nearly identical topologies (59/62 shared). Environment structure dominates ordering.
+- **Prerequisite knockout**: conflation rediscovered 15/15 generations after ablation (environment demands it). epistemic_strategy 0/15 without prerequisite bias (functional dependency).
+- **Necessity elicitation**: necessity_detection found (score 0.988) in targeted elimination environment. First genome entry validated by elicitation.
+- **Negative controls**: 1 false positive in 186 tests survives null calibration (~0.5% FP rate). Efference-copy confound identified and documented.
+- **Heritable evaluation evolved away from defaults**: thinking budget collapsed 24→7-12 (metabolic pressure), v_energy increased 0.5→0.7, v_pain decreased -1.0→-0.7, v_temperature increased -0.3→-0.5. The organism's evolved sense of what matters differs from the designer's specification. T82 empirically confirmed.
 
 ### Theories Index
 
-92 formal theoretical claims indexed in `theories.md`:
-- 8 supported by experimental evidence (including the convergence result and contextual signal interpretation)
+93 formal theoretical claims indexed in `theories.md`:
+- 9 supported by experimental evidence
+- 11 partially tested
 - 1 revised after controlled decomposition
 - 1 directionally falsified (T55, replaced by T57 annealing)
-- 72 proposed with falsification criteria
+- 71 proposed with falsification criteria
 
 ---
 
@@ -371,7 +377,7 @@ abi/
 |   +-- physics_world.py            # Pymunk rigid body simulation + grip + compounds
 |   +-- environment_tiers.py        # 8 tiered environments (multi-NPC, deception, hidden vars)
 |   +-- abstract_env.py             # T7 abstract + T8 self-modification environments
-|   +-- receptor_discovery.py       # 182 receptor emergence tests with null calibration
+|   +-- receptor_discovery.py       # 186 receptor emergence tests with null calibration
 |   +-- deep_time.py                # Evolutionary loop (population + inheritance)
 |   +-- deep_time_thinking.py       # Deep time with thinking substrate
 |   +-- deep_time_overnight.py      # 50-gen overnight run with checkpoints + resume
@@ -387,10 +393,10 @@ abi/
 |   +-- grounding.py                # Grounded language dictionary
 |   +-- llm_grounding.py            # LLM grounding bridge
 +-- genome_project/                 # Receptor search space specification
-|   +-- families/                   # 21 receptor family YAMLs (179 receptors)
+|   +-- families/                   # 22 receptor family YAMLs (189 receptors)
 |   +-- schemas/                    # Receptor schema definition
 |   +-- docs/                       # Cross-family dependencies, overview
-+-- theories.md                     # 90 indexed theoretical claims with status
++-- theories.md                     # 93 indexed theoretical claims with status
 +-- serialization_thesis.md         # The serialization thesis (standalone paper)
 +-- visualization/                  # Three.js organism visualization
 +-- docs/                           # Whitepaper, roadmap, framework documents

@@ -167,6 +167,13 @@ def run_generation_rich(organisms, gen, model, engine, tree, rng,
             pw.org = org
             org.physics_mode = True
 
+            if tree is not None:
+                v_keys = {k: v for k, v in evo_org.body_params.items()
+                          if k.startswith('v_')}
+                tree.v_weights = v_keys if v_keys else None
+                tree.max_simulations = int(evo_org.body_params.get('thinking_budget', 24))
+            _thinking_cost = float(evo_org.body_params.get('thinking_cost', 0.001))
+
             active_npc = env.get_closest_npc(org.x, org.y)
             if active_npc is None:
                 active_npc = NPC()
@@ -206,6 +213,7 @@ def run_generation_rich(organisms, gen, model, engine, tree, rng,
 
                 if tree is not None and engine is not None:
                     org.thinking_channels = tree.think(obs_before, engine)
+                    org.energy = max(0.0, org.energy - _thinking_cost * tree.max_simulations)
 
                 optimal = org.compute_optimal_actions(env, step, npc=active_npc)
 
@@ -388,7 +396,8 @@ def run_overnight(num_generations=50, population_size=4,
         gen_discovered = set()
         for evo_org in organisms:
             if len(evo_org.experience_log) >= 100:
-                org_engine = build_mental_model(evo_org.experience_log)
+                mt = evo_org.body_params.get('merge_threshold')
+                org_engine = build_mental_model(evo_org.experience_log, merge_threshold=mt)
                 results = discover(evo_org.experience_log, org_engine,
                                    threshold_overrides=null_thresh, log_provenance='oracle')
                 evo_org.discovered_receptors = results['discovered']
@@ -467,7 +476,8 @@ def run_overnight(num_generations=50, population_size=4,
         gen_discovered = set()
         for evo_org in organisms:
             if len(evo_org.experience_log) >= 100:
-                org_engine = build_mental_model(evo_org.experience_log)
+                mt = evo_org.body_params.get('merge_threshold')
+                org_engine = build_mental_model(evo_org.experience_log, merge_threshold=mt)
                 results = discover(evo_org.experience_log, org_engine,
                                    threshold_overrides=null_thresh,
                                    log_provenance='policy')

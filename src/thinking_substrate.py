@@ -61,11 +61,13 @@ class ThinkingTree:
     """
 
     def __init__(self, num_actions, max_simulations=32, max_depth=4,
-                 explore_constant=1.4, use_ema=False, ema_alpha=0.05):
+                 explore_constant=1.4, use_ema=False, ema_alpha=0.05,
+                 v_weights=None):
         self.num_actions = num_actions
         self.max_simulations = max_simulations
         self.max_depth = max_depth
         self.explore_constant = explore_constant
+        self.v_weights = v_weights
         self.root = None
         self._last_analysis = np.zeros(NUM_THINKING_CHANNELS)
         self._cached_candidates = None
@@ -204,19 +206,32 @@ class ThinkingTree:
                self._rollout(rollout_node, engine, candidate_actions, depth + 1) * 0.5
 
     def _evaluate(self, obs):
-        """Intrinsic evaluation: receptor-based, not designer-specified.
+        """Intrinsic evaluation: receptor-based.
 
-        Value = endorphin - pain + certainty bonus - conflict penalty.
-        All terms come from observation channels the organism already has.
+        Uses heritable v_weights when available (evolved valence).
+        Falls back to defaults otherwise.
         """
         L = min(6, len(obs) // 9)
         if L < 1:
             return 0.0
         pain = float(np.sum(obs[0:L]))
         endorphin = float(np.sum(obs[L:2*L]))
+        temperature = float(np.sum(obs[2*L:3*L])) if len(obs) > 3*L else 0.5
+        chemical = float(np.sum(obs[3*L:4*L])) if len(obs) > 4*L else 0.0
+        pressure = float(np.sum(obs[4*L:5*L])) if len(obs) > 5*L else 0.0
         energy = float(obs[6*L]) if len(obs) > 6*L else 0.5
 
-        value = -pain + endorphin + 0.5 * energy
+        w = self.v_weights
+        if w is not None:
+            value = (w.get('v_pain', -1.0) * pain +
+                     w.get('v_endorphin', 1.0) * endorphin +
+                     w.get('v_energy', 0.5) * energy +
+                     w.get('v_chemical', 0.3) * chemical +
+                     w.get('v_temperature', -0.3) * temperature +
+                     w.get('v_pressure', -0.2) * pressure)
+        else:
+            temp_discomfort = max(0, temperature - 0.7 * L) + max(0, 0.3 * L - temperature)
+            value = -pain + endorphin + 0.5 * energy + 0.3 * chemical - 0.3 * temp_discomfort - 0.2 * pressure
         return float(np.clip(value / 5.0, -1.0, 1.0))
 
     def _backpropagate(self, node, value):

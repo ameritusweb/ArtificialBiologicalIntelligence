@@ -915,13 +915,15 @@ class MentalModelEngine:
         return stats
 
 
-def build_mental_model(global_log, obs_dim=96, core_obs_dim=None):
+def build_mental_model(global_log, obs_dim=96, core_obs_dim=None, merge_threshold=None):
     if core_obs_dim is not None:
         obs_dim = core_obs_dim
     print("  Training contrastive encoder...")
     encoder = train_contrastive_encoder(global_log, obs_dim=obs_dim, epochs=10)
     print("  Building mapping store...")
     store = CausalMappingStore()
+    if merge_threshold is not None:
+        store.MERGE_THRESHOLD = merge_threshold
     store.build_from_log(global_log, encoder)
     engine = MentalModelEngine(encoder, store)
     print("  Discovering action families...")
