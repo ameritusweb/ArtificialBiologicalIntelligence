@@ -362,7 +362,8 @@ Not simulation. Not reconstruction. Generation.
 
 ## Academic Context
 
-The core claims find support across four research communities (see `docs/WHITEPAPER.md` Section 10):
+The core claims find support across five research communities (see `docs/WHITEPAPER.md` Section 10):
+- **Umwelt theory**: von Uexküll (1909) — the organism lives in a subjective world defined by what its receptors can separate. ERTI computes the Umwelt as R^n/~_{R_t}, the observation space quotiented by receptor equivalence. Two states indistinguishable to the organism are the same point in its world. Adding receptors refines the topology; the organism doesn't get more information about the same world, it gets a finer world. Von Uexküll proposed this philosophically. ERTI formalizes and implements it.
 - **Grounded cognition**: Barsalou (2008), O'Regan & Noe (2001)
 - **Active inference**: Friston's free energy framework
 - **Inverse phylogeny**: Trends in Cognitive Sciences (2023)
@@ -372,7 +373,7 @@ The core claims find support across four research communities (see `docs/WHITEPA
 
 The serialization thesis extends Friston: organisms don't just minimize prediction error, they manufacture prediction opportunities through sequential processing architecture. The per-receptor pipeline claim — that each receptor family has its own evolved temporal decomposition strategy — goes beyond anything in the current embodied cognition literature.
 
-No existing program unifies these threads. The receptor topology as a single generative mechanism — from grounding through compartmentalization to language — appears to be a novel synthesis.
+No existing program unifies these threads. The receptor topology as a single generative mechanism — from grounding through compartmentalization to language — appears to be a novel synthesis. Von Uexküll gave the concept. ERTI gives it a computable form and derives it from selection pressure rather than asserting it from observation.
 
 For a formal mathematical treatment of the Receptor-Topological Dynamical System (RTDS), see [docs/ERTI_formalization.tex](docs/ERTI_formalization.tex). Three levels of documentation: intuitive argument ([Whitepaper](docs/WHITEPAPER.md)), empirical record ([Theories](docs/theories.md) + [Roadmap](docs/ROADMAP.md)), formal structure ([Formalization](docs/ERTI_formalization.tex)).
 
