@@ -91,7 +91,7 @@ The key principle: **capability without receptor is latent and never gets used.*
 
 **Probe-Gated Inheritance**: Topology bias is gated by a constitutional probe budget. The organism must actually probe and explore the environment to validate inherited priors — inheritance accelerates but doesn't bypass the need for grounded experience. The probe rate floor lives outside the genome and cannot be selected to zero.
 
-**Genome Project**: The formal specification of the receptor search space — 189 receptors across 22 families. The periodic table of cognitive capabilities. Each receptor entry specifies what environmental structure it detects, what survival cost the organism pays for missing it, and what must already exist before it can emerge. The genome project is load-bearing on environmental design: the 189 receptors are 189 environmental design requirements.
+**Genome Project**: The formal specification of the receptor search space — 200 receptors across 23 families. The periodic table of cognitive capabilities. Each receptor entry specifies what environmental structure it detects, what survival cost the organism pays for missing it, and what must already exist before it can emerge. The genome project is load-bearing on environmental design: the 200 receptors are 200 environmental design requirements.
 
 **Invariant Trunk**: The set of receptors that emerge in every environment regardless of tier or complexity. 18 receptors are invariant across all 8 physics-world tiers — these are the strongest candidates for universal cognitive primitives.
 
@@ -122,7 +122,7 @@ A 6-limbed organism in a 2D liquid environment learns to navigate pain/endorphin
 
 ### Evolutionary Infrastructure (Steps 31-43)
 - **Environment tiers** (8 levels, genome-driven) from simple field navigation to meta-cognitive self-regulation
-- **Receptor discovery** — 182 null-calibrated tests with per-test null types (action-shuffled, block-permuted, NPC-appearance-permuted, Granger causality)
+- **Receptor discovery** — 186 null-calibrated tests with per-test null types (action-shuffled, block-permuted, NPC-appearance-permuted, Granger causality), 3 negative controls
 - **Topology bias inheritance** — offspring inherit receptor topology priors, probe-gated
 - **Population evolution** — 8 competing organisms, social arms race
 - **Cross-tier transfer** — 8x8 transfer matrix
@@ -150,21 +150,28 @@ A 6-limbed organism in a 2D liquid environment learns to navigate pain/endorphin
 ### Self-Play & Thinking Substrate (Steps 59-60)
 - **Self-play pipeline** — policy drives behavior, oracle removed after bootstrap
 - **MCTS thinking substrate** — organism thinks before acting; tree metadata (visit entropy, best value, value convergence, path divergence, underexplored, depth reached) feeds back as 6 receptor channels
+- **Cognitive state channels** — thought_type_id (256-entry codebook of co-activation patterns) + concept_id (which stored concept was retrieved) at obs[175:177]
 - **Thinking influence** — 5 of 6 channels active by self-play iteration 5; +23.3 reward difference over non-thinking organisms
-- **Batched predict_delta** — 4.4x speedup on thinking operations
+- **Batched predict_delta** — 4.4x speedup; embedding cache in MCTS nodes eliminates redundant encoder calls
+- **Procedural memory** — PeakExperienceIndex, ReplayEngine, MotorSequenceStore (action recipes keyed on thought_type_id), ShortcutExecutor (state machine bypassing MCTS when confident match exists, zeroing thinking_channels to starve the anxiety loop)
 
-### Deep Time with Thinking (10 generations)
-- **151 unique receptors** discovered across all generations (up from 75 at gen 0)
+### Deep Time with Thinking (80 generations seed 42, 40 generations seed 99)
+- **161 unique receptors** discovered across 80 generations (up from 75 at gen 0)
 - **53 receptors gained** through evolution alone — including full epistemic chain, metacognition, theory of mind, nested theory of mind, meta-observation, self-regulation, niche construction
 - **21 receptors lost** — complexity reshapes topology (T27 confirmed)
 - **Peak thinking influence** at generation 7: partial correlation 0.376
-- **Novel receptor detection** — scanning mental model for distinctions the genome didn't anticipate
+- **Novel receptor detection** — scanning mental model for distinctions the genome didn't anticipate; 5 detections across 80 gens, all contextual_signal_interpretation variants
+- **Heritable parameters** — MERGE_THRESHOLD, V weights (6 coefficients), thinking_budget, thinking_cost all evolve under selection
+- **Co-activation analysis** — 281 unique thought types observed; anxiety loop (pain<->conflict) persists in 9/10 generations
+- **Cross-environment transfer** — 71 shared receptors, 30 transfer-only, 27 naive-only. T95: trunk is universal, canopy is biography
 
 ### Closed-Loop Training
 - Mental model online during data generation — features computed inline at correct lag
 - Eliminates the augmentation pipeline's leakage class entirely
 - 7% exploration + 2% null-action probes for counterfactual variation
 - EntityRelationStore wired in — observe_npc called every step for social cognition
+- Peak experience indexing and replay during low-demand periods
+- Motor sequence extraction from high-reward contiguous runs
 
 ### Environment Enrichment
 - **Multi-NPC observation** — closest of 4 profiled NPCs (cooperative, competitive, erratic, deceptive) visible to organism
@@ -172,20 +179,21 @@ A 6-limbed organism in a 2D liquid environment learns to navigate pain/endorphin
 - **Non-stationary rules** — T7 trigger signals rotate between phases
 - **Stochastic hidden confounders** — 3-state Markov chain modulating 4 modalities simultaneously
 - **Cross-modal objects** — sources with correlated pain + temperature + chemical signatures
+- **Territorial environment** — ownership boundary receptor with unattributable delayed penalties
 
-### The Genome Project (22 families, 189 receptors)
+### The Genome Project (23 families, 200 receptors)
 A formal specification of the receptor search space — the periodic table of cognitive capabilities:
 
 | Family | Receptors | From -> To |
 |--------|-----------|-----------|
 | Repetition | 6 | Static repetition -> causal rhythms |
-| Association | 10 | Spatial co-occurrence -> remembering -> forgetting -> relational analogy |
+| Association | 11 | Spatial co-occurrence -> remembering -> forgetting -> concept activation -> relational analogy |
 | Similarity | 7 | Perceptual features -> structural invariance |
 | Causality | 11 | Coincidence -> causal graphs |
 | Agency | 8 | Controllability -> niche construction |
 | Meta-Motivational | 13 | Curiosity -> metacognition |
-| Regulatory | 12 | Stress detection -> satisfaction -> frustration -> futility -> emotional intelligence |
-| Social | 18 | Other detection -> ownership boundary -> moral reasoning |
+| Regulatory | 15 | Stress detection -> satisfaction -> frustration -> futility -> structural/knowledge/identity preservation |
+| Social | 18 | Other detection -> ownership boundary -> instruction source discrimination -> moral reasoning |
 | Compression | 15 | Pattern recognition -> constraint shape -> shaped absence -> missing piece located -> analogy |
 | Observation | 12 | Change detection -> statistical anomaly -> rarity -> significance -> contextual signal interpretation -> meta-observation |
 | Formalization | 11 | Rule extraction -> optimization -> theory formation |
@@ -195,17 +203,19 @@ A formal specification of the receptor search space — the periodic table of co
 | Interaction | 7 | Response recognition -> contact response -> grip -> lever -> composite affordance |
 | Environmental Augmentation | 5 | Change detection -> developmental environment engineering |
 | Sequential Processing | 5 | Stage prediction -> prediction architecture awareness |
-| Epistemic | 7 | Belief detection -> doubt -> conflation -> fundamental distinction -> topology awareness -> epistemic strategy |
+| Epistemic | 10 | Belief detection -> doubt -> conflation -> thought type detection -> relative/absolute truth -> topology awareness -> epistemic strategy |
 | Perception | 5 | Staged processing -> response loop detection |
 | Logic | 6 | Semantic relations -> transitivity -> conjunction -> quantifier -> contradiction -> it_follows |
 | Language | 3 | Naming -> self-talk -> referential grounding |
 | Bridging | 4 | Mimicry -> trust -> executability -> translation |
+| Procedural Memory | 4 | Replay -> peak experience -> shortcut activation -> muscle memory |
 
 ### Key Empirical Results
 
-- **77 receptors discovered** in single-run oracle training; **75 in self-play** (policy-driven, no oracle); **163 unique across 20 generations** with heritable parameters
+- **77 receptors discovered** in single-run oracle training; **75 in self-play** (policy-driven, no oracle); **161 unique across 80 generations** (seed 42) with heritable parameters
+- **186 receptor tests** with null calibration (3 negative controls); ~0.5% false positive rate (1 survives: efference-copy confound, documented)
 - **18 invariant receptors** across all 8 physics-world tiers — including grip_affordance and push_affordance as part of the embodied trunk
-- **Complexity reshapes, doesn't expand**: T27 confirmed across tiers, single runs, and deep time (52 gained, 31 lost in 20 generations)
+- **Complexity reshapes, doesn't expand**: T27 confirmed across tiers, single runs, and deep time (53 gained, 21 lost in 80 generations)
 - **Topology inheritance**: convergence accelerates from 15 epochs to 0 across generations
 - **Social universally transferable**: any prior training helps social environments (11-25x)
 - **Tool use resists transfer**: must be learned directly in the target environment
@@ -223,7 +233,10 @@ A formal specification of the receptor search space — the periodic table of co
 - **Prerequisite knockout**: conflation rediscovered 15/15 generations after ablation (environment demands it). epistemic_strategy 0/15 without prerequisite bias (functional dependency).
 - **Necessity elicitation**: necessity_detection found (score 0.988) in targeted elimination environment. First genome entry validated by elicitation.
 - **Negative controls**: 1 false positive in 186 tests survives null calibration (~0.5% FP rate). Efference-copy confound identified and documented.
-- **Heritable evaluation evolved away from defaults**: thinking budget collapsed 24→7-12 (metabolic pressure), v_energy increased 0.5→0.7, v_pain decreased -1.0→-0.7, v_temperature increased -0.3→-0.5. The organism's evolved sense of what matters differs from the designer's specification. T82 empirically confirmed.
+- **Heritable evaluation evolved away from defaults**: thinking budget collapsed 24->7-12 (metabolic pressure), v_energy increased 0.5->0.7, v_pain decreased -1.0->-0.7, v_temperature increased -0.3->-0.5. The organism's evolved sense of what matters differs from the designer's specification. T82 empirically confirmed.
+- **Anxiety loop (T21)**: pain<->conflict bidirectional cascade present in 9/10 generations. Cognitive state channels (thought_type_id) improve fitness but don't break the loop — recognition alone is insufficient. Gen 8 broke it through saturation (constant pain), not detection. Procedural memory shortcuts (bypassing MCTS, zeroing thinking_channels) designed as the architectural fix.
+- **281 unique thought types**: co-activation codebook of 256 patterns fills across 10 generations; distinct cognitive modes emerge and persist across evolutionary selection.
+- **contextual_signal_interpretation**: learned in-lifetime, preserved by evolution. Not genetically evolved — the first receptor confirmed as epigenetically transmitted (T96).
 
 ### Theories Index
 
@@ -259,7 +272,7 @@ python model.py                # Model architecture summary
 from train import generate_training_data_self_play, train_model
 X, Y, Z, log, engine, model = generate_training_data_self_play(
     num_bootstrap=50, num_self_play=75, num_iterations=3,
-    steps_per_episode=300, seed=42, use_thinking=True)
+    steps_per_episode=1000, seed=42, use_thinking=True)
 ```
 
 ### Closed-loop training (oracle-driven)
@@ -275,19 +288,25 @@ Open `visualization/index.html` in a browser after training (loads `src/data/rep
 
 ### Run the laboratory
 ```bash
-python receptor_discovery.py     # Full 182-test receptor battery with null calibration
-python environment_tiers.py      # Test all 8 environment tiers
-python canopy_sweep.py           # Physics-world receptor sweep across tiers
-python run_full_battery.py       # 3-environment comparison (field, physics, T7+T8)
-python t54_v2_experiment.py      # T54/T57 rationalization/annealing experiment
-python abstract_env.py           # T7 abstract + T8 self-modification environments
-python population_evolution.py   # Population evolution (8 organisms)
-python cross_tier_transfer.py    # Cross-tier transfer matrix
-python self_play_experiment.py   # Self-play vs oracle comparison
-python thinking_influence.py     # Thinking substrate influence measurement
+python receptor_discovery.py       # Full 186-test receptor battery with null calibration
+python environment_tiers.py        # Test all 8 environment tiers
+python canopy_sweep.py             # Physics-world receptor sweep across tiers
+python run_full_battery.py         # 3-environment comparison (field, physics, T7+T8)
+python t54_v2_experiment.py        # T54/T57 rationalization/annealing experiment
+python abstract_env.py             # T7 abstract + T8 self-modification environments
+python population_evolution.py     # Population evolution (8 organisms)
+python cross_tier_transfer.py      # Cross-tier transfer matrix
+python self_play_experiment.py     # Self-play vs oracle comparison
+python thinking_influence.py       # Thinking substrate influence measurement
 python thinking_emergence_curve.py # 10-iteration thinking emergence curve
-python deep_time_thinking.py     # Deep time with thinking (10 generations)
-python deep_time_overnight.py    # 50-generation overnight run with novel detection
+python deep_time_thinking.py       # Deep time with thinking (10 generations)
+python deep_time_overnight.py      # 80-generation overnight run with checkpoints + resume
+python coactivation_deep_time.py   # Co-activation analysis across generations
+python motor_store_experiment.py   # Procedural memory anxiety loop experiment (1000 steps)
+python cross_env_transfer.py       # Cross-environment transfer experiment
+python order_swap_experiment.py    # Explore-first vs accuracy-first ordering
+python prerequisite_knockout.py    # Prerequisite knockout experiment
+python elicitation_necessity.py    # Targeted elicitation for specific receptors
 ```
 
 ### Scale testing
@@ -300,26 +319,26 @@ python scaling.py              # Limb count, segments, 3D, diversity, generation
 ## Architecture
 
 ```
-175-dim observation vector --> HierarchicalPolicy --> 22-bit action vector
+177-dim observation vector --> HierarchicalPolicy --> 22-bit action vector
            |                        |
      ThinkingTree             +-----+-----+
      (MCTS 24 sims)           |     |     |
      6 receptor channels  FastPath SlowPath Router
            |              (reflex) (transformer)
-           |                  |     |     |
-           +----------> ArbitrationHead <-+
-                        (5 group weights)
-                              |
-                        Blended output
-                              |
-                    +---------+---------+
-                    |         |         |
-              18 muscle  4 emission  Mental Model
-              (6x3)     (signals)   (26K+ mappings)
+     CognitiveState           |     |     |
+     (256 codebook)    -> ArbitrationHead <-+
+     2 receptor channels (5 group weights)
+           |                      |
+     MotorSequenceStore     Blended output
+     (shortcuts bypass          |
+      MCTS when confident) +---------+---------+
+                           |         |         |
+                     18 muscle  4 emission  Mental Model
+                     (6x3)     (signals)   (26K+ mappings)
 ```
 
-### Observation Vector (175 dims)
-Pain(6), endorphin(6), temperature(6), chemical(6), pressure(6), fatigue(6), energy(1), temporal aversion(6), receptor gain(6), pain memory(25), distance sensing(16), prediction error(6), mental model features(4), pattern features(2), kinematics(2), limb deviations(6), efference copy(22), agency(3), object proximity(3), object responding(3), NPC obs(12), optimism(2), conflict(3), concepts(2), grip state(6), physics(3), **thinking channels(6)**: best_value, visit_entropy, value_convergence, path_divergence, underexplored, depth_reached
+### Observation Vector (177 dims)
+Pain(6), endorphin(6), temperature(6), chemical(6), pressure(6), fatigue(6), energy(1), temporal aversion(6), receptor gain(6), pain memory(25), distance sensing(16), prediction error(6), mental model features(4), pattern features(2), kinematics(2), limb deviations(6), efference copy(22), agency(3), object proximity(3), object responding(3), NPC obs(12), optimism(2), conflict(3), concepts(2), grip state(6), physics(3), **thinking channels(6)**: best_value, visit_entropy, value_convergence, path_divergence, underexplored, depth_reached, **cognitive state(2)**: thought_type_id, concept_id
 
 ### Staged Processing Pipeline
 ```
@@ -366,11 +385,14 @@ For a formal mathematical treatment of the Receptor-Topological Dynamical System
 ```
 abi/
 +-- src/                            # Core implementation
-|   +-- environment.py              # Organism, NPC, Environment (175-dim obs)
+|   +-- environment.py              # Organism, NPC, Environment (177-dim obs)
 |   +-- model.py                    # HierarchicalPolicy (fast/slow/router/arbitration/staged)
 |   +-- train.py                    # Training: augmented, closed-loop, self-play
 |   +-- mental_model.py             # Causal mental model (encoder, mappings, patterns, entity store)
-|   +-- thinking_substrate.py       # MCTS thinking tree (6 receptor channels)
+|   +-- thinking_substrate.py       # MCTS thinking tree (6 receptor channels, embedding cache)
+|   +-- cognitive_state.py          # Thought type detection (256 codebook) + concept activation
+|   +-- procedural_memory.py        # Peak index, replay, motor sequence store, shortcut executor
+|   +-- receptor_coactivation.py    # Co-activation logging and analysis across generations
 |   +-- thinking_influence.py       # Ablation + partial correlation measurement
 |   +-- thinking_emergence_curve.py # Multi-iteration emergence tracking
 |   +-- novel_receptor_detector.py  # Detect distinctions not in the genome
@@ -380,7 +402,13 @@ abi/
 |   +-- receptor_discovery.py       # 186 receptor emergence tests with null calibration
 |   +-- deep_time.py                # Evolutionary loop (population + inheritance)
 |   +-- deep_time_thinking.py       # Deep time with thinking substrate
-|   +-- deep_time_overnight.py      # 50-gen overnight run with checkpoints + resume
+|   +-- deep_time_overnight.py      # 80-gen overnight run with checkpoints + resume
+|   +-- coactivation_deep_time.py   # Co-activation analysis across generations
+|   +-- motor_store_experiment.py   # Procedural memory anxiety loop experiment
+|   +-- cross_env_transfer.py       # Cross-environment transfer experiment
+|   +-- order_swap_experiment.py    # Environment ordering experiment
+|   +-- prerequisite_knockout.py    # Prerequisite knockout experiment
+|   +-- elicitation_necessity.py    # Targeted receptor elicitation
 |   +-- self_play_experiment.py     # Self-play vs oracle comparison
 |   +-- topology_inheritance.py     # Multi-generational topology bias inheritance
 |   +-- population_evolution.py     # Population evolution (8 organisms)
@@ -393,7 +421,7 @@ abi/
 |   +-- grounding.py                # Grounded language dictionary
 |   +-- llm_grounding.py            # LLM grounding bridge
 +-- genome_project/                 # Receptor search space specification
-|   +-- families/                   # 22 receptor family YAMLs (189 receptors)
+|   +-- families/                   # 23 receptor family YAMLs (200 receptors)
 |   +-- schemas/                    # Receptor schema definition
 |   +-- docs/                       # Cross-family dependencies, overview
 +-- theories.md                     # 93 indexed theoretical claims with status
