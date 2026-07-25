@@ -469,6 +469,9 @@ def generate_training_data_self_play(num_bootstrap=50, num_self_play=200,
     convergence, path divergence, underexplored branches.
     """
     from thinking_substrate import ThinkingTree
+    from cognitive_state import CognitiveStateDetector
+    from procedural_memory import (PeakExperienceIndex, ReplayEngine,
+                                   MotorSequenceStore, ShortcutExecutor)
     rng = np.random.RandomState(seed)
     idx = compute_obs_indices()
     obs_dim = idx['obs_dim']
@@ -528,6 +531,15 @@ def generate_training_data_self_play(num_bootstrap=50, num_self_play=200,
 
     tree = ThinkingTree(num_actions=idx['num_actions'],
                         max_simulations=32, max_depth=4) if use_thinking else None
+    cog_detector = CognitiveStateDetector()
+    peak_index = PeakExperienceIndex(max_size=200)
+    replay_engine = ReplayEngine(peak_index)
+    motor_store = MotorSequenceStore(num_continuous=idx.get('num_continuous', 0))
+    shortcut_executor = ShortcutExecutor()
+    core_obs_dim = idx['core_obs_dim']
+    num_thinking_channels = idx.get('num_thinking_channels', 6)
+    shortcut_threshold = 0.5
+    shortcut_count = 0
 
     # Phase 2: Self-play iterations
     for iteration in range(num_iterations):
@@ -570,21 +582,94 @@ def generate_training_data_self_play(num_bootstrap=50, num_self_play=200,
                 org.concept_match = cm
                 org.concept_quality = cq
 
+                # 1. Cognitive state detection
+                tt, ca = cog_detector.update(obs_before, engine, prev_action_hash)
+                org.thought_type_id = tt
+                org.concept_id = ca
+
+                # 2. Check if shortcut executor is mid-sequence
+                shortcut_fired = False
+                if shortcut_executor.is_active():
+                    if shortcut_executor.should_abort(obs_before):
+                        shortcut_executor.finish(motor_store, iteration)
+                    elif shortcut_executor.is_complete():
+                        shortcut_executor.finish(motor_store, iteration)
+                    else:
+                        executed = shortcut_executor.get_action()
+                        if executed is not None:
+                            org.thinking_channels = np.zeros(num_thinking_channels)
+                            optimal = org.compute_optimal_actions(env, step, npc=npc)
+                            window = org.get_observation_window()
+                            sp_windows.append(window.copy())
+                            sp_targets.append(optimal.copy())
+                            obs, reward = org.step(
+                                executed, env, step,
+                                predicted_pain=prev_predicted_pain,
+                                mm_features=mm_features,
+                                pattern_features=pattern_features,
+                                agency_features=(prev_controllability, prev_external_change, prev_planning_value),
+                                npc=npc,
+                            )
+                            npc.receive_signal(executed[org.NUM_LIMBS * 3:], org.x, org.y)
+                            shortcut_executor.add_reward(reward)
+                            episode_pain.append(obs[0:6].copy())
+                            episode_reward += reward
+                            prev_action_hash = action_to_hash(executed)
+                            shortcut_fired = True
+                            shortcut_count += 1
+
+                # 3. Check for new shortcut match BEFORE MCTS
+                if not shortcut_fired and not shortcut_executor.is_active():
+                    embedding = engine.encoder.embed(obs_before[:core_obs_dim])
+                    match, score = motor_store.query(tt, embedding, min_support=3)
+                    if match is not None and score > shortcut_threshold:
+                        shortcut_executor.start(match, obs_before)
+                        executed = shortcut_executor.get_action()
+                        if executed is not None:
+                            org.thinking_channels = np.zeros(num_thinking_channels)
+                            optimal = org.compute_optimal_actions(env, step, npc=npc)
+                            window = org.get_observation_window()
+                            sp_windows.append(window.copy())
+                            sp_targets.append(optimal.copy())
+                            obs, reward = org.step(
+                                executed, env, step,
+                                predicted_pain=prev_predicted_pain,
+                                mm_features=mm_features,
+                                pattern_features=pattern_features,
+                                agency_features=(prev_controllability, prev_external_change, prev_planning_value),
+                                npc=npc,
+                            )
+                            npc.receive_signal(executed[org.NUM_LIMBS * 3:], org.x, org.y)
+                            shortcut_executor.add_reward(reward)
+                            episode_pain.append(obs[0:6].copy())
+                            episode_reward += reward
+                            prev_action_hash = action_to_hash(executed)
+                            shortcut_fired = True
+                            shortcut_count += 1
+
+                if shortcut_fired:
+                    # Update MM state even during shortcuts
+                    pred, cert, _ = engine.predict_delta(obs_before, executed)
+                    lp, cert_after = engine.compute_learning_progress(obs_before, executed, obs, reward)
+                    prev_mm_certainty = cert_after
+                    prev_learning_progress = lp
+                    prev_predicted_pain = obs_before[:6] + pred[:6] if len(pred) >= 6 else obs_before[:6].copy()
+                    continue
+
+                # 4. Thinking (MCTS) — only reached if no shortcut fired
                 if tree is not None:
                     thinking_analysis = tree.think(obs_before, engine)
                     org.thinking_channels = thinking_analysis
 
-                # Policy decides the action — no oracle
+                # 5. Normal policy action selection
                 window = org.get_observation_window()
                 policy_action, _ = model.predict(window)
 
-                # Oracle provides the training target (what SHOULD have been done)
                 optimal = org.compute_optimal_actions(env, step, npc=npc)
 
                 sp_windows.append(window.copy())
                 sp_targets.append(optimal.copy())
 
-                # Exploration on the policy's action
                 r = rng.random()
                 if r < PROBE_RATE_FLOOR:
                     executed = np.zeros(num_actions, dtype=np.int32)
@@ -617,6 +702,17 @@ def generate_training_data_self_play(num_bootstrap=50, num_self_play=200,
                 if hasattr(engine, 'observe_npc'):
                     engine.observe_npc(obs)
                 prev_learning_progress = lp
+
+                # 6. Procedural memory: index peaks and replay
+                reward_delta = reward - (float(np.mean(obs_before[:6])) if len(obs_before) >= 6 else 0)
+                if reward_delta > 0.5:
+                    log_idx = len(global_log) + len(sp_log)
+                    peak_index.add(reward_delta, log_idx, executed, obs_before)
+                if replay_engine.should_replay(obs, step):
+                    replay_engine.replay(engine, step)
+                    motor_store.extract_sequences(
+                        org.experience_log, peak_index, engine.encoder,
+                        cog_detector, core_obs_dim)
 
                 prev_predicted_pain = obs_before[:6] + pred[:6] if len(pred) >= 6 else obs_before[:6].copy()
                 prev_action_hash = action_to_hash(executed)
@@ -654,8 +750,14 @@ def generate_training_data_self_play(num_bootstrap=50, num_self_play=200,
                 global_log, engine.encoder, engine.store,
                 steps_per_episode=steps_per_episode)
 
+        # Evict stale motor sequences and report
+        motor_store.evict_stale(iteration, max_staleness=20)
+        ms = motor_store.get_stats()
         print(f"  Store: {engine.store.total_count} mappings, "
               f"avg reward: {np.mean(iter_rewards):.1f}")
+        print(f"  Motor store: {ms['total_entries']} sequences across "
+              f"{ms['num_types']} types, fired={ms['total_fired']}, "
+              f"success={ms['success_rate']:.2f}, shortcuts={shortcut_count}")
 
     return X, Y, Z, global_log, engine, model
 

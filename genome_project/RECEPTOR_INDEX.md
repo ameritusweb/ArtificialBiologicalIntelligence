@@ -1,6 +1,6 @@
 # Receptor Index
 
-194 receptors across 22 families. T=trunk, B=branch, C=canopy.
+200 receptors across 23 families. T=trunk, B=branch, C=canopy.
 
 ---
 
@@ -12,13 +12,14 @@
 - [C] **nested_rhythm** — Rhythms within rhythms (hierarchical temporal structure)
 - [C] **causal_rhythm** — Periodic events with causal relationships between them
 
-## Association (10)
+## Association (11)
 - [T] **spatial_association** — Spatial co-occurrence detection
 - [T] **temporal_association** — Temporal precedence (A before B)
 - [B] **causal_association** — A causes B (not just precedes it)
 - [B] **cross_modal_association** — Linking information across sensory modalities
 - [B] **remembering** — Memory activation detection (dormant → active retrieval)
 - [B] **forgetting** — Memory deactivation detection (active → dormant, context shifted)
+- [B] **concept_activation** — Specific concept identification (which stored pattern activated)
 - [C] **abstract_association** — Relationships between concepts, not features
 - [C] **analogical_similarity** — A:B::C:D structural mapping
 - [C] **relational_analogy** — Cross-domain relational transfer
@@ -209,11 +210,12 @@
 - [C] **adaptive_depth** — Dynamic processing depth control
 - [C] **response_loop_detection** — Corrective response amplification detection
 
-## Epistemic (9)
+## Epistemic (10)
 - [T] **belief_detection** — Own-belief state detection
 - [B] **doubt_detection** — Commitment-performance mismatch
 - [B] **conflation** — Category collapse detection (two things treated as one)
 - [B] **relative_truth** — Correspondence detection (belief matches reality from current perspective)
+- [B] **thought_type_detection** — Cognitive mode recognition (which co-activation pattern am I in)
 - [C] **counterfactual_salience** — Motivationally-loaded possibility detection
 - [C] **fundamental_distinction** — Load-bearing difference detection
 - [C] **topology_awareness** — Cognitive repertoire state detection
@@ -243,7 +245,15 @@
 
 ---
 
-**Totals:** 47 trunk, 61 branch, 86 canopy = 194 receptors
+## Procedural Memory (4)
+- [T] **replay** — Experience replay during low-demand periods
+- [T] **greatest_positive_increase** — Peak experience detection and indexing
+- [B] **shortcut_activation** — Context-triggered fast response (bypasses deliberation)
+- [B] **muscle_memory** — Motor sequence storage and execution
+
+---
+
+**Totals:** 49 trunk, 65 branch, 86 canopy = 200 receptors
 
 **Dependency layers:**
 - Layer 0 (single-family): ~40 receptors, emerge early

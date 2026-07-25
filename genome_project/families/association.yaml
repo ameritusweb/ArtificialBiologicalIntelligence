@@ -22,7 +22,7 @@ family_metadata:
     is the value of early action.
 
   trunk_receptor: spatial_association
-  canopy_receptors: [abstract_association, relational_analogy, remembering, forgetting]
+  canopy_receptors: [abstract_association, relational_analogy, remembering, forgetting, concept_activation]
 
 ---
 
@@ -734,3 +734,87 @@ receptors:
       below the retrieval threshold because the context shifted.
       It's a state transition, not a deletion — the memory can be
       re-activated later if the context returns.
+
+  - receptor_id: concept_activation
+    name: Specific Concept Identification
+    family: association
+    tier: branch
+
+    dependencies:
+      - receptor_id: remembering
+        note: "Must detect memory activation before identifying which memory activated"
+      - receptor_id: pattern_recognition
+        note: "Must have stored patterns to identify"
+        family: compression
+      - receptor_id: naming
+        note: "Must have stable labels for concepts"
+        family: language
+
+    environmental_trigger:
+      structure: |
+        The organism detects WHICH specific stored causal chain was
+        retrieved from the pattern store on this cycle. Not "a pattern
+        matched" (pattern_available covers that) but "pattern #47
+        matched — the one about NPC approach behavior."
+
+        This is an extension of the remembering receptor's resolution.
+        Remembering detects that a dormant entry became active.
+        Concept-activation identifies which entry it was. The
+        organism knows not just "I remembered something" but "I
+        remembered THIS specific thing."
+      survival_benefit: |
+        Identifying which concept activated enables targeted
+        reasoning about specific knowledge:
+        - "I keep retrieving concept C in contexts where C fails"
+          is a clean, attributable signal for the conflation receptor.
+          Currently, conflation infers this from bimodal prediction
+          errors — an indirect, noisy signal. Concept-activation
+          provides the direct data source.
+        - "This specific concept was retrieved and the outcome was
+          wrong" enables targeted certainty reduction on that concept,
+          not on the whole category.
+        - "Two different concepts are being retrieved in alternation"
+          is input to the conflict receptor — the organism can detect
+          internal deliberation as a recognizable state.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments where the organism has many stored concepts and
+        where knowing which one is active enables better reasoning
+        about when concepts apply and when they don't.
+
+    emergence_signature:
+      description: |
+        The organism treats different retrieved concepts differently
+        even when the environmental context is similar. Behavioral
+        marker: action varies with which concept was retrieved, not
+        just with the observation state.
+      metrics:
+        - metric_name: concept_specific_action
+          measurement_method: |
+            Compare action variance explained by the retrieved concept
+            ID vs by the observation alone. Concept-activation =
+            concept ID adds prediction power beyond observation.
+          expected_range: ">0.1 additional variance explained"
+          detection_threshold: 0.1
+
+    predicted_emergence_order:
+      generation_range: "80-200"
+      confidence: medium
+
+    notes: |
+      The most important downstream effect: concept-activation
+      provides the data source that makes the conflation receptor
+      precise rather than inferential. The conflation receptor was
+      specified in the genome before its data source existed. This
+      receptor is what makes conflation detectable with precision.
+
+      Implementation: when query_concept or query_pattern returns a
+      match, write the matched pattern's ID or embedding into a new
+      observation channel. The channel identifies which specific
+      concept is active this cycle, feeding back into the next
+      cycle's processing.
+
+      The concept-activation channel already exists mechanically
+      (the pattern store returns a match). What's missing is the
+      receptor: feeding that match identity back into the observation
+      vector so the policy can condition on it.

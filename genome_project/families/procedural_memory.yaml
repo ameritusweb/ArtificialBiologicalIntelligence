@@ -1,0 +1,299 @@
+# Procedural Memory Family
+# Fast-path action retrieval that bypasses deliberation
+
+family_metadata:
+  name: Procedural Memory
+  description: |
+    Receptors that enable the organism to store, retrieve, and execute
+    successful action sequences without full deliberation. The fast-path
+    system that complements the MCTS thinking substrate — when deliberation
+    is the problem (anxiety loop, metabolic cost, time pressure), these
+    receptors provide an alternative route from recognition to action.
+
+    The four receptors form a pipeline: replay finds what worked,
+    greatest_positive_increase flags the best of what worked, muscle_memory
+    stores the sequence, shortcut fires it when the thought-type receptor
+    recognizes the relevant situation.
+
+  evolutionary_thesis: |
+    Deliberation is expensive — metabolically (thinking costs energy),
+    temporally (the environment moves while you think), and sometimes
+    counterproductive (the anxiety loop is fed by deliberation). An
+    organism that can bypass deliberation for well-practiced responses
+    in recognized situations has a survival advantage in any environment
+    where speed or cognitive stability matters.
+
+    The selection pressure: environments where the metabolic cost of
+    thinking is non-trivial (heritable thinking_budget already shows
+    organisms evolving lower budgets), where some situations recur
+    reliably enough to justify stored responses, and where the anxiety
+    loop (pain<->conflict) would be broken by doing rather than thinking.
+
+  trunk_receptor: replay
+  canopy_receptors: [shortcut_activation, muscle_memory]
+
+---
+
+receptors:
+  - receptor_id: replay
+    name: Experience Replay Detection
+    family: procedural_memory
+    tier: trunk
+
+    dependencies:
+      - receptor_id: remembering
+        note: "Must detect memory activation"
+        family: association
+      - receptor_id: pattern_recognition
+        note: "Must recognize recurring patterns in experience"
+        family: compression
+
+    environmental_trigger:
+      structure: |
+        The organism replays a stored experience sequence during
+        low-demand periods — re-experiencing a successful episode
+        from the experience log and reinforcing the mental model
+        entries that produced it. Not retrieving a single memory
+        (remembering covers that) but replaying a sequence of
+        actions and observations in order.
+
+        The experience log already exists and is append-only. Replay
+        reads from it during episodes rather than only between
+        generations during mental model rebuilds. No new storage
+        required — this is a scheduling mechanism over existing data.
+
+        Fires during periods when MCTS converges quickly (thinking
+        has spare capacity) or when the organism is in a stable,
+        low-threat state where rehearsal is cheap.
+      survival_benefit: |
+        Replay strengthens successful strategies within a lifetime
+        rather than waiting for the next generation's mental model
+        rebuild. An organism that replays its best sequences between
+        challenges has a more robust mental model than one that only
+        learns forward.
+      metabolic_cost: low
+      selection_pressure: |
+        Environments with intermittent challenges separated by
+        stable periods — where there's time to rehearse between
+        threats.
+
+    emergence_signature:
+      description: |
+        During low-demand periods (low pain, low conflict, high
+        energy), the organism's mental model certainty increases
+        on entries from past successful episodes without new
+        environmental experience supporting the increase.
+      metrics:
+        - metric_name: idle_certainty_increase
+          measurement_method: |
+            During low-threat periods, measure certainty changes on
+            entries associated with past high-reward episodes. Replay
+            = certainty increases without corresponding environmental
+            confirmation.
+          expected_range: ">0.05 certainty increase during idle"
+          detection_threshold: 0.05
+
+    predicted_emergence_order:
+      generation_range: "30-80"
+      confidence: medium
+
+    notes: |
+      The simplest of the four. No new architecture — just reading
+      from the experience log during episodes. The scheduling
+      decision (when to replay) is the only new logic required.
+
+  - receptor_id: greatest_positive_increase
+    name: Peak Experience Detection
+    family: procedural_memory
+    tier: trunk
+
+    dependencies:
+      - receptor_id: replay
+        note: "Must replay experience before identifying peaks"
+      - receptor_id: satisfaction
+        note: "Must detect goal achievement"
+        family: regulatory
+
+    environmental_trigger:
+      structure: |
+        The organism detects which specific actions produced the
+        largest reward improvements in its experience history and
+        prioritizes them for retrieval and replay. Not just that
+        an outcome was good (satisfaction covers that) but that
+        this specific action in this specific context produced the
+        BIGGEST positive change the organism has ever experienced.
+
+        Implementation: tag experience log entries with their reward
+        delta at write time. Maintain a sorted index of highest-delta
+        entries. Expose as a retrieval pathway — when the organism
+        is stuck (frustration receptor firing), query the greatest-
+        positive-increase index for its best historical moves.
+      survival_benefit: |
+        When stuck in a bad state (pain, conflict, anxiety loop),
+        the organism can retrieve its historically most successful
+        actions rather than searching from scratch. The greatest
+        hits are the first things to try when nothing else is working.
+      metabolic_cost: low
+      selection_pressure: |
+        Environments where the organism periodically gets stuck and
+        where past successes are relevant to current problems.
+
+    emergence_signature:
+      description: |
+        When the organism enters a frustration state (high effort,
+        no progress), it retrieves and attempts actions from its
+        highest-reward historical entries rather than random
+        exploration.
+      metrics:
+        - metric_name: frustration_triggered_replay
+          measurement_method: |
+            During frustration periods, measure whether the organism's
+            actions correlate with its top-reward historical entries
+            more than with random historical entries.
+          expected_range: ">0.2 correlation with peak entries"
+          detection_threshold: 0.2
+
+    predicted_emergence_order:
+      generation_range: "40-100"
+      confidence: medium
+
+    notes: |
+      No new architecture — it's an index over the existing experience
+      log. The index is a read structure over existing data, maintained
+      at write time (tag each entry with its reward delta).
+
+  - receptor_id: shortcut_activation
+    name: Context-Triggered Fast Response
+    family: procedural_memory
+    tier: branch
+
+    dependencies:
+      - receptor_id: thought_type_detection
+        note: "Must recognize which cognitive mode to shortcut from"
+        family: epistemic
+      - receptor_id: greatest_positive_increase
+        note: "Must know which responses to shortcut to"
+      - receptor_id: muscle_memory
+        note: "Must have stored sequences to execute"
+
+    environmental_trigger:
+      structure: |
+        The organism detects a recognized situation (thought-type
+        receptor fires on a known pattern) and fires a pre-learned
+        response without running the full deliberation pipeline.
+        A third pathway alongside the fast (MLP reflex) and slow
+        (transformer deliberation): thought_type → stored_response.
+
+        The router needs a new input (current thought type) and a
+        new output (shortcut available / not available). When a
+        shortcut is available and the situation matches, the
+        organism bypasses both MLP and transformer entirely.
+      survival_benefit: |
+        Speed and cognitive stability. The anxiety loop is fed by
+        deliberation — the organism thinks about the conflict, which
+        produces more conflict, which produces more thinking. A
+        shortcut breaks the loop by acting without thinking. The
+        organism does something that worked before without engaging
+        the deliberation system that feeds the problem.
+      metabolic_cost: low
+      selection_pressure: |
+        Environments where speed matters (time-critical responses)
+        or where deliberation is counterproductive (anxiety loop,
+        overthinking).
+
+    emergence_signature:
+      description: |
+        In recognized situations, the organism's response latency
+        decreases and the MCTS tree is not expanded (thinking
+        substrate reports low visit counts). The organism acts
+        before it thinks.
+      metrics:
+        - metric_name: recognition_bypasses_deliberation
+          measurement_method: |
+            In situations matching a high-confidence thought type,
+            measure whether MCTS visit counts are lower than in
+            unrecognized situations. Shortcut = lower thinking in
+            recognized situations.
+          expected_range: ">30% reduction in MCTS visits"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "100-250"
+      confidence: low
+
+    notes: |
+      Requires a router extension — a third pathway in the
+      HierarchicalPolicy. The router currently chooses between
+      fast (MLP) and slow (transformer). Shortcuts add: fast,
+      slow, or stored. The decision depends on thought_type_id
+      and whether a stored response exists for that type.
+
+  - receptor_id: muscle_memory
+    name: Motor Sequence Storage
+    family: procedural_memory
+    tier: branch
+
+    dependencies:
+      - receptor_id: greatest_positive_increase
+        note: "Must identify which sequences to store"
+      - receptor_id: proprioception
+        note: "Must sense own motor output to store it"
+        family: interaction
+      - receptor_id: replay
+        note: "Must replay sequences to consolidate them"
+
+    environmental_trigger:
+      structure: |
+        The organism stores a successful action sequence as a
+        named motor pattern that can be executed without
+        deliberation. Not the policy network's implicit encoding
+        (which is distributed in weights and not addressable) but
+        an explicit sequence: [action_1, action_2, ..., action_n]
+        tagged with the context in which it succeeded.
+
+        Requires a new data structure alongside the mental model
+        and experience log: the motor sequence store. Each entry
+        maps context_embedding → action_sequence → outcome.
+      survival_benefit: |
+        Muscle memory provides the fastest possible response — no
+        deliberation, no retrieval, just execution. For frequently
+        encountered situations with known good responses, this is
+        both faster and cheaper than any other action selection
+        mechanism.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments where the same situations recur frequently and
+        where response speed matters. The metabolic cost of the
+        motor store is justified by the metabolic savings from not
+        running MCTS on situations with known solutions.
+
+    emergence_signature:
+      description: |
+        Frequently repeated action sequences become stereotyped —
+        the organism executes the same sequence of actions in the
+        same order when it recognizes a recurring context, with
+        decreasing variability over time.
+      metrics:
+        - metric_name: sequence_stereotypy
+          measurement_method: |
+            In recurring contexts (same thought type, similar
+            observation), measure the edit distance between the
+            organism's action sequences across occurrences.
+            Muscle memory = decreasing edit distance over time.
+          expected_range: ">30% edit distance reduction"
+          detection_threshold: 0.3
+
+    predicted_emergence_order:
+      generation_range: "80-200"
+      confidence: low
+
+    notes: |
+      The most architecturally demanding receptor. Requires a new
+      storage structure (motor sequence store) separate from both
+      the policy network and the mental model. The store maps
+      context → sequence → outcome, and entries are created by
+      the replay + greatest_positive_increase pipeline.
+
+      Implementation order: replay and greatest_positive_increase
+      first (no new architecture), then shortcuts (router extension),
+      then muscle_memory (new store). Each builds on the previous.

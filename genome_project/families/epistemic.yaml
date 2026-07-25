@@ -40,7 +40,7 @@ family_metadata:
     allocated.
 
   trunk_receptor: belief_detection
-  canopy_receptors: [counterfactual_salience, fundamental_distinction, topology_awareness, absolute_truth, epistemic_strategy]
+  canopy_receptors: [counterfactual_salience, fundamental_distinction, topology_awareness, absolute_truth, epistemic_strategy, thought_type_detection]
 
 ---
 
@@ -781,6 +781,93 @@ receptors:
       distinction builds more robust knowledge than one that treats
       all truths as context-dependent.
 
+  - receptor_id: thought_type_detection
+    name: Cognitive Mode Recognition
+    family: epistemic
+    tier: branch
+
+    dependencies:
+      - receptor_id: meta_observation
+        note: "Must observe own observation process"
+        family: observation
+      - receptor_id: pattern_recognition
+        note: "Must detect repeating patterns — applied here to own cognitive states"
+        family: compression
+      - receptor_id: topology_awareness
+        note: "Must detect own cognitive repertoire to recognize modes within it"
+
+    environmental_trigger:
+      structure: |
+        The organism detects that its current co-activation pattern —
+        the specific combination of active receptors right now —
+        matches a pattern it has been in before. Not the individual
+        channels (mm_certainty, conflict, thinking channels already
+        report those as scalars) but the combination as a recognized
+        object: "I am in the pain-conflict-low-energy pattern again."
+
+        This is an extension of existing cognitive self-observation,
+        not a new capability. The current channels give scalar
+        summaries of cognitive state. This receptor gives pattern-level
+        recognition — the same distinction as knowing you're in pain
+        vs knowing you're in the specific kind of pain that comes
+        from a particular source.
+      survival_benefit: |
+        The thought type becomes a context for the mental model.
+        predict_delta can be conditioned not just on the world state
+        but on which kind of thinking the organism is doing. The
+        organism builds causal mappings about its own thought types:
+        "thought pattern 47 leads to good outcomes in environment A
+        but bad outcomes in environment B."
+
+        Most critically: the anxiety loop (pain<->conflict
+        amplification, T21/T23) becomes a named pattern the organism
+        can detect and act on. Without thought-type detection, the
+        organism can be in the loop and can't recognize it as a
+        state. With it, the loop is a thought type the organism
+        can learn to exit.
+      metabolic_cost: moderate
+      selection_pressure: |
+        Environments where the organism's cognitive mode affects
+        outcomes and where recognizing which mode it's in enables
+        better mode selection.
+
+    emergence_signature:
+      description: |
+        The organism's behavior changes based on which co-activation
+        pattern it's in, beyond what the individual channels predict.
+        Behavioral marker: action at time t is better predicted by
+        the full co-activation pattern at t than by any single channel.
+      metrics:
+        - metric_name: pattern_vs_scalar_prediction
+          measurement_method: |
+            Compare action prediction from the full co-activation
+            pattern (281 types) vs from the best single scalar channel.
+            Thought-type detection = pattern prediction exceeds scalar.
+          expected_range: ">0.1 prediction improvement"
+          detection_threshold: 0.1
+
+    predicted_emergence_order:
+      generation_range: "100-250"
+      confidence: medium
+
+    notes: |
+      The co-activation logger found 281 unique thought types in
+      6,000 steps. These are already computable from the 175-dim
+      observation vector. What's missing is the receptor: a channel
+      that carries the thought-type ID, feeding back into the next
+      cycle. The codebook exists. It just doesn't feed back.
+
+      Provides the data source for T23's self-damping mechanism:
+      the anxiety loop becomes a recognizable thought type that the
+      organism can learn to exit. Also provides higher-resolution
+      input to the conflation receptor: two thought types that
+      produce different outcomes despite appearing similar.
+
+      Implementation: maintain a running codebook of co-activation
+      patterns. Each step, match the current activation vector
+      against the codebook. Write the matched type ID (or embedding)
+      into a new observation channel.
+
   - receptor_id: epistemic_strategy
     name: Deliberate Epistemic State Management
     family: epistemic
@@ -793,6 +880,8 @@ receptors:
         note: "Must find load-bearing differences before managing epistemic states strategically"
       - receptor_id: topology_awareness
         note: "Must detect own cognitive repertoire before managing it strategically"
+      - receptor_id: thought_type_detection
+        note: "Must recognize cognitive modes before managing them"
       - receptor_id: relative_truth
         note: "Must detect correspondence before managing epistemic states"
       - receptor_id: self_regulation

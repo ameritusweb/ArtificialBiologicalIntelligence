@@ -683,6 +683,23 @@ class MentalModelEngine:
         avg_cert = float(np.mean([e.certainty for e, _ in results]))
         return predicted, avg_cert, len(results)
 
+    def predict_delta_from_embedding(self, embedding, action, top_k=10):
+        """Predict delta using a pre-computed embedding. Avoids redundant embed calls."""
+        ah = action_to_hash(action)
+        results = self.store.query(ah, embedding, top_k, family_manager=self.family_manager)
+        if not results:
+            cdim = getattr(self, 'core_obs_dim', CORE_OBS_DIM)
+            return np.zeros(cdim), 0.0, 0
+        scores = np.maximum(np.array([s for _, s in results]), 0.0)
+        total = scores.sum()
+        if total < 1e-8:
+            cdim = getattr(self, 'core_obs_dim', CORE_OBS_DIM)
+            return np.zeros(cdim), 0.0, 0
+        weights = scores / total
+        predicted = sum(w * e.delta for (e, _), w in zip(results, weights))
+        avg_cert = float(np.mean([e.certainty for e, _ in results]))
+        return predicted, avg_cert, len(results)
+
     def predict_delta_batch(self, obs_before, actions, top_k=10):
         """Predict deltas for multiple actions from the same observation.
 

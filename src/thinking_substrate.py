@@ -16,7 +16,7 @@ from mental_model import action_to_hash
 
 class ThinkingNode:
     __slots__ = ('obs', 'action', 'parent', 'children',
-                 'visit_count', 'value_sum', 'prior')
+                 'visit_count', 'value_sum', 'prior', '_embedding')
 
     def __init__(self, obs, action=None, parent=None, prior=0.0):
         self.obs = obs
@@ -26,6 +26,13 @@ class ThinkingNode:
         self.visit_count = 0
         self.value_sum = 0.0
         self.prior = prior
+        self._embedding = None
+
+    def get_embedding(self, engine):
+        if self._embedding is None:
+            self._embedding = engine.encoder.embed(
+                engine._core_obs(self.obs))
+        return self._embedding
 
     def value(self):
         if self.visit_count == 0:
@@ -77,6 +84,8 @@ class ThinkingTree:
         self._ema_var = np.ones(NUM_THINKING_CHANNELS)
         self._ema_alpha = ema_alpha
         self._ema_count = 0
+        self._channel_log = []
+        self._logging = False
 
     def think(self, obs, engine, candidate_actions=None):
         """Run MCTS from current observation. Returns analysis channels."""
@@ -85,6 +94,7 @@ class ThinkingTree:
             return self._last_analysis
 
         self.root = ThinkingNode(obs)
+        self._rollout_max_depth = 0
 
         if candidate_actions is None:
             store_count = engine.store.total_count
@@ -103,6 +113,8 @@ class ThinkingTree:
             self._backpropagate(node, value)
 
         raw = self._analyze()
+        if self._logging:
+            self._channel_log.append(raw.copy())
         if self._use_ema:
             self._last_analysis = self._ema_normalize(raw)
         else:
@@ -184,21 +196,26 @@ class ThinkingTree:
 
     def _rollout(self, node, engine, candidate_actions, depth=0):
         if depth >= self.max_depth:
+            self._rollout_max_depth = max(getattr(self, '_rollout_max_depth', 0), depth)
             return self._evaluate(node.obs)
 
         if not candidate_actions:
+            self._rollout_max_depth = max(getattr(self, '_rollout_max_depth', 0), depth)
             return self._evaluate(node.obs)
 
         action = candidate_actions[np.random.randint(len(candidate_actions))]
-        pred_delta, cert, n = engine.predict_delta(node.obs, action)
-        if n == 0 or cert < 0.2:
+        emb = node.get_embedding(engine)
+        pred_delta, cert, n = engine.predict_delta_from_embedding(emb, action)
+        if n == 0 or cert < 0.15:
+            self._rollout_max_depth = max(getattr(self, '_rollout_max_depth', 0), depth)
             return self._evaluate(node.obs)
 
         next_obs = node.obs.copy()
         cdim = min(len(pred_delta), len(next_obs))
         next_obs[:cdim] += pred_delta[:cdim]
 
-        if cert < 0.4:
+        if np.random.random() > cert:
+            self._rollout_max_depth = max(getattr(self, '_rollout_max_depth', 0), depth + 1)
             return self._evaluate(next_obs)
 
         rollout_node = ThinkingNode(next_obs, action=action, parent=node)
@@ -274,11 +291,39 @@ class ThinkingTree:
         if len(visits) > 0:
             channels[4] = float(np.mean(visits < 2))
 
-        # 5: depth_reached — deepest path (normalized)
-        max_depth = self._tree_depth(self.root)
-        channels[5] = min(1.0, max_depth / max(self.max_depth, 1))
+        # 5: depth_reached — deepest rollout path (normalized)
+        # Uses _rollout_max_depth which tracks the actual deepest rollout
+        # across all simulations in this think() call, not just the tree structure
+        channels[5] = min(1.0, self._rollout_max_depth / max(self.max_depth, 1))
 
         return np.clip(channels, -1.0, 1.0)
+
+    def start_logging(self):
+        self._logging = True
+        self._channel_log = []
+
+    def stop_logging(self):
+        self._logging = False
+
+    def get_channel_stats(self):
+        """Return per-channel mean, std, min, max from logged data."""
+        if not self._channel_log:
+            return None
+        arr = np.array(self._channel_log)
+        names = ['best_value', 'visit_entropy', 'value_convergence',
+                 'path_divergence', 'underexplored', 'depth_reached']
+        stats = {}
+        for i, name in enumerate(names):
+            col = arr[:, i]
+            stats[name] = {
+                'mean': round(float(np.mean(col)), 4),
+                'std': round(float(np.std(col)), 4),
+                'min': round(float(np.min(col)), 4),
+                'max': round(float(np.max(col)), 4),
+                'nonzero_frac': round(float(np.mean(col > 0.01)), 4),
+            }
+        stats['n_samples'] = len(self._channel_log)
+        return stats
 
     def _ema_normalize(self, raw):
         """Normalize raw analysis channels against running EMA statistics.
