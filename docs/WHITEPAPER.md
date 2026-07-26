@@ -229,15 +229,17 @@ Each receptor entry specifies: what environmental structure it detects, why dete
 
 ## 10. Academic Validation
 
-The ABI whitepaper's core claims find substantial support across four distinct research communities — none of which have unified them the way ABI does:
+The ABI whitepaper's core claims find substantial support across five distinct research communities — none of which have unified them the way ABI does:
+
+**Umwelt theory provides the central concept.** Jakob von Uexküll (1909) proposed that every organism inhabits a subjective world — the Umwelt — defined by what its receptors can separate. A tick's world contains warmth, butyric acid, and touch. A dog's world is dominated by smell. These aren't different sensitivities to the same world — they're different worlds, because each organism lives in the quotient of physical reality by its receptor topology. ERTI formalizes this: the organism's Umwelt is R^n/~_{R_t}, the observation space quotiented by receptor equivalence. Two states that no receptor separates are the same point in the organism's world. Adding receptors refines the topology — the organism's world gains resolution. Von Uexküll proposed this philosophically. ERTI computes it, derives it from selection pressure, and measures how it changes across generations. The 340-dim observation vector with 200 receptor channels IS the computed Umwelt — every receptor feeding back every cycle.
 
 **Grounded cognition is empirically established.** Barsalou's program (Annual Review of Psychology, 2008) and O'Regan & Noe's sensorimotor contingency theory (BBS, 2001) demonstrate that cognition operates through modal systems grounded in perception and action — not amodal symbols. This is the academic foundation for ABI's claim that concepts exist in the world's causal structure.
 
-**Active inference formalizes the receptor loop.** Friston's free energy framework unifies perception and action under a single objective, produces intrinsic exploration as an emergent property — closely paralleling ABI's forward-feedback receptor architecture.
+**Active inference formalizes the receptor loop.** Friston's free energy framework unifies perception and action under a single objective, produces intrinsic exploration as an emergent property — closely paralleling ABI's forward-feedback receptor architecture. The serialization thesis extends Friston: organisms don't just minimize prediction error, they manufacture prediction opportunities through sequential processing architecture.
 
 **Current AI follows an "inverse phylogeny."** Multiple sources (Trends in Cognitive Sciences, 2023; Royal Society, 2024) confirm that starting from language rather than sensorimotor grounding is a fundamental limitation, not a training gap. Passive scaling is characterized as "intrinsically limited."
 
-**No existing program unifies these threads.** The embodied cognition, active inference, and evolutionary robotics communities each work on pieces of what ABI integrates. The receptor topology as a single generative mechanism — from grounding through compartmentalization to language — appears to be a novel synthesis.
+**No existing program unifies these threads.** The embodied cognition, active inference, and evolutionary robotics communities each work on pieces of what ABI integrates. The receptor topology as a single generative mechanism — from grounding through compartmentalization to language — appears to be a novel synthesis. Von Uexküll gave the concept. Friston gave the dynamics. Barsalou gave the grounding. ERTI gives the computable form and derives the whole structure from selection pressure rather than asserting it from observation.
 
 ---
 
