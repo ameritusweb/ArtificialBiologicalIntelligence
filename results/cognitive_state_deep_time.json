@@ -1,0 +1,112 @@
+[
+  {
+    "generation": 0,
+    "avg_fitness": 3525.9,
+    "num_discovered": 59,
+    "unique_patterns": 163,
+    "pain_rate": 0.511,
+    "conflict_rate": 0.537,
+    "pain_conflict_lift": 1.566,
+    "anxiety_loop": true,
+    "codebook_size": 44
+  },
+  {
+    "generation": 1,
+    "avg_fitness": 2062.7,
+    "num_discovered": 56,
+    "unique_patterns": 230,
+    "pain_rate": 0.298,
+    "conflict_rate": 0.275,
+    "pain_conflict_lift": 2.778,
+    "anxiety_loop": true,
+    "codebook_size": 77
+  },
+  {
+    "generation": 2,
+    "avg_fitness": -68.5,
+    "num_discovered": 54,
+    "unique_patterns": 170,
+    "pain_rate": 0.493,
+    "conflict_rate": 0.344,
+    "pain_conflict_lift": 1.727,
+    "anxiety_loop": true,
+    "codebook_size": 93
+  },
+  {
+    "generation": 3,
+    "avg_fitness": 1672.5,
+    "num_discovered": 54,
+    "unique_patterns": 248,
+    "pain_rate": 0.45,
+    "conflict_rate": 0.417,
+    "pain_conflict_lift": 1.941,
+    "anxiety_loop": true,
+    "codebook_size": 104
+  },
+  {
+    "generation": 4,
+    "avg_fitness": 2712.2,
+    "num_discovered": 54,
+    "unique_patterns": 132,
+    "pain_rate": 0.172,
+    "conflict_rate": 0.289,
+    "pain_conflict_lift": 2.944,
+    "anxiety_loop": true,
+    "codebook_size": 113
+  },
+  {
+    "generation": 5,
+    "avg_fitness": 2870.2,
+    "num_discovered": 54,
+    "unique_patterns": 205,
+    "pain_rate": 0.166,
+    "conflict_rate": 0.381,
+    "pain_conflict_lift": 2.626,
+    "anxiety_loop": true,
+    "codebook_size": 122
+  },
+  {
+    "generation": 6,
+    "avg_fitness": 1953.0,
+    "num_discovered": 52,
+    "unique_patterns": 270,
+    "pain_rate": 0.361,
+    "conflict_rate": 0.29,
+    "pain_conflict_lift": 2.203,
+    "anxiety_loop": true,
+    "codebook_size": 133
+  },
+  {
+    "generation": 7,
+    "avg_fitness": 3158.4,
+    "num_discovered": 55,
+    "unique_patterns": 293,
+    "pain_rate": 0.248,
+    "conflict_rate": 0.311,
+    "pain_conflict_lift": 2.687,
+    "anxiety_loop": true,
+    "codebook_size": 141
+  },
+  {
+    "generation": 8,
+    "avg_fitness": 150.2,
+    "num_discovered": 51,
+    "unique_patterns": 247,
+    "pain_rate": 0.656,
+    "conflict_rate": 0.566,
+    "pain_conflict_lift": 1.403,
+    "anxiety_loop": false,
+    "codebook_size": 154
+  },
+  {
+    "generation": 9,
+    "avg_fitness": 2160.6,
+    "num_discovered": 52,
+    "unique_patterns": 252,
+    "pain_rate": 0.366,
+    "conflict_rate": 0.415,
+    "pain_conflict_lift": 2.086,
+    "anxiety_loop": true,
+    "codebook_size": 158
+  }
+]

@@ -1,0 +1,1647 @@
+[
+  {
+    "generation": 0,
+    "total_steps": 4000,
+    "unique_patterns": 160,
+    "pain_conflict_lift": 1.566,
+    "anxiety_loop": true,
+    "pain_to_conflict_lift": 1.567,
+    "conflict_to_pain_lift": 1.555,
+    "top_coactivations": [
+      {
+        "a": "pain",
+        "b": "conflict",
+        "lift": 1.566,
+        "coact_rate": 0.43,
+        "conditional_ab": 0.841,
+        "conditional_ba": 0.801
+      },
+      {
+        "a": "npc_proximity",
+        "b": "npc_speed",
+        "lift": 1.311,
+        "coact_rate": 0.299,
+        "conditional_ab": 0.719,
+        "conditional_ba": 0.547
+      },
+      {
+        "a": "npc_proximity",
+        "b": "npc_erraticism",
+        "lift": 1.305,
+        "coact_rate": 0.392,
+        "conditional_ab": 0.941,
+        "conditional_ba": 0.544
+      },
+      {
+        "a": "npc_speed",
+        "b": "npc_erraticism",
+        "lift": 1.283,
+        "coact_rate": 0.507,
+        "conditional_ab": 0.926,
+        "conditional_ba": 0.703
+      },
+      {
+        "a": "endorphin",
+        "b": "optimism",
+        "lift": 1.258,
+        "coact_rate": 0.64,
+        "conditional_ab": 0.987,
+        "conditional_ba": 0.816
+      }
+    ],
+    "top_sequences": [
+      {
+        "from": "prediction_error",
+        "to": "energy",
+        "p_given": 0.429,
+        "p_base": 0.02,
+        "lift": 21.429
+      },
+      {
+        "from": "prediction_error",
+        "to": "pain",
+        "p_given": 1.0,
+        "p_base": 0.511,
+        "lift": 1.955
+      },
+      {
+        "from": "prediction_error",
+        "to": "conflict",
+        "p_given": 1.0,
+        "p_base": 0.537,
+        "lift": 1.862
+      },
+      {
+        "from": "npc_emission",
+        "to": "npc_speed",
+        "p_given": 0.927,
+        "p_base": 0.548,
+        "lift": 1.692
+      },
+      {
+        "from": "npc_emission",
+        "to": "npc_proximity",
+        "p_given": 0.677,
+        "p_base": 0.417,
+        "lift": 1.625
+      }
+    ],
+    "recurring_patterns": [
+      {
+        "channels": [
+          "endorphin",
+          "chemical",
+          "fatigue",
+          "optimism",
+          "goal_persistence",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 297,
+        "frequency": 0.074
+      },
+      {
+        "channels": [
+          "pain",
+          "endorphin",
+          "temperature",
+          "chemical",
+          "fatigue",
+          "optimism",
+          "goal_persistence",
+          "conflict",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 270,
+        "frequency": 0.068
+      },
+      {
+        "channels": [
+          "pain",
+          "temperature",
+          "chemical",
+          "fatigue",
+          "npc_proximity",
+          "npc_speed",
+          "npc_erraticism",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 216,
+        "frequency": 0.054
+      }
+    ],
+    "activation_rates": {
+      "pain": 0.511,
+      "endorphin": 0.649,
+      "temperature": 0.832,
+      "chemical": 0.947,
+      "fatigue": 0.967,
+      "energy": 0.02,
+      "npc_proximity": 0.417,
+      "npc_speed": 0.548,
+      "npc_erraticism": 0.721,
+      "npc_emission": 0.024,
+      "optimism": 0.784,
+      "goal_persistence": 0.809,
+      "conflict": 0.537,
+      "think_best_value": 0.989,
+      "think_visit_entropy": 1.0,
+      "think_value_convergence": 1.0,
+      "think_path_divergence": 0.742,
+      "think_underexplored": 1.0,
+      "think_depth_reached": 1.0
+    }
+  },
+  {
+    "generation": 1,
+    "total_steps": 4000,
+    "unique_patterns": 188,
+    "pain_conflict_lift": 2.645,
+    "anxiety_loop": true,
+    "pain_to_conflict_lift": 2.633,
+    "conflict_to_pain_lift": 2.624,
+    "top_coactivations": [
+      {
+        "a": "pain",
+        "b": "conflict",
+        "lift": 2.645,
+        "coact_rate": 0.215,
+        "conditional_ab": 0.7,
+        "conditional_ba": 0.812
+      },
+      {
+        "a": "endorphin",
+        "b": "conflict",
+        "lift": 1.646,
+        "coact_rate": 0.17,
+        "conditional_ab": 0.436,
+        "conditional_ba": 0.642
+      },
+      {
+        "a": "npc_proximity",
+        "b": "npc_emission",
+        "lift": 1.53,
+        "coact_rate": 0.08,
+        "conditional_ab": 0.27,
+        "conditional_ba": 0.454
+      },
+      {
+        "a": "npc_speed",
+        "b": "npc_emission",
+        "lift": 1.468,
+        "coact_rate": 0.141,
+        "conditional_ab": 0.259,
+        "conditional_ba": 0.801
+      },
+      {
+        "a": "chemical",
+        "b": "npc_emission",
+        "lift": 1.382,
+        "coact_rate": 0.141,
+        "conditional_ab": 0.244,
+        "conditional_ba": 0.796
+      }
+    ],
+    "top_sequences": [
+      {
+        "from": "prediction_error",
+        "to": "energy",
+        "p_given": 0.2,
+        "p_base": 0.022,
+        "lift": 9.195
+      },
+      {
+        "from": "energy",
+        "to": "npc_proximity",
+        "p_given": 0.839,
+        "p_base": 0.297,
+        "lift": 2.828
+      },
+      {
+        "from": "pain",
+        "to": "conflict",
+        "p_given": 0.697,
+        "p_base": 0.265,
+        "lift": 2.633
+      },
+      {
+        "from": "conflict",
+        "to": "pain",
+        "p_given": 0.805,
+        "p_base": 0.307,
+        "lift": 2.624
+      },
+      {
+        "from": "prediction_error",
+        "to": "endorphin",
+        "p_given": 1.0,
+        "p_base": 0.39,
+        "lift": 2.564
+      }
+    ],
+    "recurring_patterns": [
+      {
+        "channels": [
+          "pain",
+          "endorphin",
+          "temperature",
+          "fatigue",
+          "optimism",
+          "goal_persistence",
+          "conflict",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 259,
+        "frequency": 0.065
+      },
+      {
+        "channels": [
+          "temperature",
+          "chemical",
+          "fatigue",
+          "npc_speed",
+          "npc_erraticism",
+          "npc_emission",
+          "optimism",
+          "goal_persistence",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 205,
+        "frequency": 0.051
+      },
+      {
+        "channels": [
+          "temperature",
+          "chemical",
+          "fatigue",
+          "npc_proximity",
+          "npc_speed",
+          "npc_erraticism",
+          "npc_emission",
+          "optimism",
+          "goal_persistence",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 146,
+        "frequency": 0.036
+      }
+    ],
+    "activation_rates": {
+      "pain": 0.307,
+      "endorphin": 0.39,
+      "temperature": 0.973,
+      "chemical": 0.576,
+      "fatigue": 0.969,
+      "energy": 0.022,
+      "npc_proximity": 0.297,
+      "npc_speed": 0.545,
+      "npc_erraticism": 0.625,
+      "npc_emission": 0.177,
+      "optimism": 0.708,
+      "goal_persistence": 0.726,
+      "conflict": 0.265,
+      "think_best_value": 0.915,
+      "think_visit_entropy": 1.0,
+      "think_value_convergence": 1.0,
+      "think_path_divergence": 0.909,
+      "think_underexplored": 1.0,
+      "think_depth_reached": 1.0
+    }
+  },
+  {
+    "generation": 2,
+    "total_steps": 4000,
+    "unique_patterns": 228,
+    "pain_conflict_lift": 1.573,
+    "anxiety_loop": true,
+    "pain_to_conflict_lift": 1.562,
+    "conflict_to_pain_lift": 1.572,
+    "top_coactivations": [
+      {
+        "a": "endorphin",
+        "b": "goal_persistence",
+        "lift": 2.49,
+        "coact_rate": 0.179,
+        "conditional_ab": 0.96,
+        "conditional_ba": 0.464
+      },
+      {
+        "a": "endorphin",
+        "b": "optimism",
+        "lift": 2.443,
+        "coact_rate": 0.178,
+        "conditional_ab": 0.956,
+        "conditional_ba": 0.455
+      },
+      {
+        "a": "optimism",
+        "b": "goal_persistence",
+        "lift": 2.107,
+        "coact_rate": 0.318,
+        "conditional_ab": 0.812,
+        "conditional_ba": 0.824
+      },
+      {
+        "a": "pain",
+        "b": "conflict",
+        "lift": 1.573,
+        "coact_rate": 0.409,
+        "conditional_ab": 0.699,
+        "conditional_ba": 0.92
+      },
+      {
+        "a": "endorphin",
+        "b": "conflict",
+        "lift": 1.542,
+        "coact_rate": 0.128,
+        "conditional_ab": 0.686,
+        "conditional_ba": 0.287
+      }
+    ],
+    "top_sequences": [
+      {
+        "from": "prediction_error",
+        "to": "energy",
+        "p_given": 0.143,
+        "p_base": 0.013,
+        "lift": 11.204
+      },
+      {
+        "from": "endorphin",
+        "to": "goal_persistence",
+        "p_given": 0.965,
+        "p_base": 0.386,
+        "lift": 2.504
+      },
+      {
+        "from": "goal_persistence",
+        "to": "endorphin",
+        "p_given": 0.461,
+        "p_base": 0.186,
+        "lift": 2.476
+      },
+      {
+        "from": "optimism",
+        "to": "endorphin",
+        "p_given": 0.456,
+        "p_base": 0.186,
+        "lift": 2.446
+      },
+      {
+        "from": "endorphin",
+        "to": "optimism",
+        "p_given": 0.945,
+        "p_base": 0.391,
+        "lift": 2.415
+      }
+    ],
+    "recurring_patterns": [
+      {
+        "channels": [
+          "temperature",
+          "chemical",
+          "fatigue",
+          "npc_speed",
+          "npc_erraticism",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 170,
+        "frequency": 0.043
+      },
+      {
+        "channels": [
+          "pain",
+          "temperature",
+          "chemical",
+          "fatigue",
+          "npc_proximity",
+          "npc_speed",
+          "npc_erraticism",
+          "conflict",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 163,
+        "frequency": 0.041
+      },
+      {
+        "channels": [
+          "pain",
+          "temperature",
+          "chemical",
+          "fatigue",
+          "npc_proximity",
+          "npc_erraticism",
+          "npc_emission",
+          "conflict",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 141,
+        "frequency": 0.035
+      }
+    ],
+    "activation_rates": {
+      "pain": 0.585,
+      "endorphin": 0.186,
+      "temperature": 0.934,
+      "chemical": 0.709,
+      "fatigue": 0.969,
+      "energy": 0.013,
+      "npc_proximity": 0.408,
+      "npc_speed": 0.664,
+      "npc_erraticism": 0.853,
+      "npc_emission": 0.254,
+      "optimism": 0.391,
+      "goal_persistence": 0.386,
+      "conflict": 0.445,
+      "think_best_value": 0.704,
+      "think_visit_entropy": 1.0,
+      "think_value_convergence": 1.0,
+      "think_path_divergence": 0.995,
+      "think_underexplored": 0.903,
+      "think_depth_reached": 1.0
+    }
+  },
+  {
+    "generation": 3,
+    "total_steps": 4000,
+    "unique_patterns": 252,
+    "pain_conflict_lift": 1.887,
+    "anxiety_loop": true,
+    "pain_to_conflict_lift": 1.876,
+    "conflict_to_pain_lift": 1.874,
+    "top_coactivations": [
+      {
+        "a": "pain",
+        "b": "conflict",
+        "lift": 1.887,
+        "coact_rate": 0.386,
+        "conditional_ab": 0.826,
+        "conditional_ba": 0.882
+      },
+      {
+        "a": "endorphin",
+        "b": "npc_emission",
+        "lift": 1.509,
+        "coact_rate": 0.066,
+        "conditional_ab": 0.156,
+        "conditional_ba": 0.638
+      },
+      {
+        "a": "endorphin",
+        "b": "optimism",
+        "lift": 1.487,
+        "coact_rate": 0.417,
+        "conditional_ab": 0.988,
+        "conditional_ba": 0.628
+      },
+      {
+        "a": "endorphin",
+        "b": "goal_persistence",
+        "lift": 1.394,
+        "coact_rate": 0.411,
+        "conditional_ab": 0.973,
+        "conditional_ba": 0.589
+      },
+      {
+        "a": "endorphin",
+        "b": "think_best_value",
+        "lift": 1.348,
+        "coact_rate": 0.42,
+        "conditional_ab": 0.995,
+        "conditional_ba": 0.57
+      }
+    ],
+    "top_sequences": [
+      {
+        "from": "energy",
+        "to": "npc_emission",
+        "p_given": 0.311,
+        "p_base": 0.103,
+        "lift": 3.009
+      },
+      {
+        "from": "pain",
+        "to": "conflict",
+        "p_given": 0.821,
+        "p_base": 0.438,
+        "lift": 1.876
+      },
+      {
+        "from": "conflict",
+        "to": "pain",
+        "p_given": 0.876,
+        "p_base": 0.468,
+        "lift": 1.874
+      },
+      {
+        "from": "energy",
+        "to": "endorphin",
+        "p_given": 0.77,
+        "p_base": 0.422,
+        "lift": 1.824
+      },
+      {
+        "from": "prediction_error",
+        "to": "npc_proximity",
+        "p_given": 1.0,
+        "p_base": 0.568,
+        "lift": 1.76
+      }
+    ],
+    "recurring_patterns": [
+      {
+        "channels": [
+          "pain",
+          "endorphin",
+          "temperature",
+          "fatigue",
+          "npc_proximity",
+          "npc_speed",
+          "npc_erraticism",
+          "optimism",
+          "goal_persistence",
+          "conflict",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 188,
+        "frequency": 0.047
+      },
+      {
+        "channels": [
+          "pain",
+          "temperature",
+          "chemical",
+          "fatigue",
+          "npc_proximity",
+          "npc_speed",
+          "npc_erraticism",
+          "conflict",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 183,
+        "frequency": 0.046
+      },
+      {
+        "channels": [
+          "pain",
+          "endorphin",
+          "temperature",
+          "chemical",
+          "fatigue",
+          "npc_proximity",
+          "npc_speed",
+          "npc_erraticism",
+          "optimism",
+          "goal_persistence",
+          "conflict",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 180,
+        "frequency": 0.045
+      }
+    ],
+    "activation_rates": {
+      "pain": 0.468,
+      "endorphin": 0.422,
+      "temperature": 1.0,
+      "chemical": 0.637,
+      "fatigue": 0.967,
+      "energy": 0.015,
+      "npc_proximity": 0.568,
+      "npc_speed": 0.75,
+      "npc_erraticism": 0.852,
+      "npc_emission": 0.103,
+      "optimism": 0.664,
+      "goal_persistence": 0.698,
+      "conflict": 0.438,
+      "think_best_value": 0.738,
+      "think_visit_entropy": 1.0,
+      "think_value_convergence": 1.0,
+      "think_path_divergence": 0.951,
+      "think_underexplored": 1.0,
+      "think_depth_reached": 1.0
+    }
+  },
+  {
+    "generation": 4,
+    "total_steps": 4000,
+    "unique_patterns": 143,
+    "pain_conflict_lift": 2.738,
+    "anxiety_loop": true,
+    "pain_to_conflict_lift": 2.7,
+    "conflict_to_pain_lift": 2.759,
+    "top_coactivations": [
+      {
+        "a": "pain",
+        "b": "conflict",
+        "lift": 2.738,
+        "coact_rate": 0.128,
+        "conditional_ab": 0.782,
+        "conditional_ba": 0.448
+      }
+    ],
+    "top_sequences": [
+      {
+        "from": "prediction_error",
+        "to": "energy",
+        "p_given": 1.0,
+        "p_base": 0.014,
+        "lift": 70.175
+      },
+      {
+        "from": "prediction_error",
+        "to": "conflict",
+        "p_given": 1.0,
+        "p_base": 0.285,
+        "lift": 3.503
+      },
+      {
+        "from": "npc_emission",
+        "to": "conflict",
+        "p_given": 0.893,
+        "p_base": 0.285,
+        "lift": 3.127
+      },
+      {
+        "from": "conflict",
+        "to": "npc_emission",
+        "p_given": 0.13,
+        "p_base": 0.042,
+        "lift": 3.086
+      },
+      {
+        "from": "prediction_error",
+        "to": "pain",
+        "p_given": 0.5,
+        "p_base": 0.164,
+        "lift": 3.053
+      }
+    ],
+    "recurring_patterns": [
+      {
+        "channels": [
+          "endorphin",
+          "temperature",
+          "chemical",
+          "fatigue",
+          "npc_proximity",
+          "npc_speed",
+          "npc_erraticism",
+          "optimism",
+          "goal_persistence",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 444,
+        "frequency": 0.111
+      },
+      {
+        "channels": [
+          "temperature",
+          "chemical",
+          "fatigue",
+          "npc_proximity",
+          "npc_speed",
+          "npc_erraticism",
+          "optimism",
+          "goal_persistence",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 368,
+        "frequency": 0.092
+      },
+      {
+        "channels": [
+          "temperature",
+          "fatigue",
+          "npc_proximity",
+          "npc_speed",
+          "npc_erraticism",
+          "optimism",
+          "goal_persistence",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 255,
+        "frequency": 0.064
+      }
+    ],
+    "activation_rates": {
+      "pain": 0.164,
+      "endorphin": 0.522,
+      "temperature": 0.909,
+      "chemical": 0.559,
+      "fatigue": 0.967,
+      "energy": 0.014,
+      "npc_proximity": 0.754,
+      "npc_speed": 0.649,
+      "npc_erraticism": 0.861,
+      "npc_emission": 0.042,
+      "optimism": 0.919,
+      "goal_persistence": 0.917,
+      "conflict": 0.285,
+      "think_best_value": 0.932,
+      "think_visit_entropy": 1.0,
+      "think_value_convergence": 1.0,
+      "think_path_divergence": 0.973,
+      "think_underexplored": 1.0,
+      "think_depth_reached": 1.0
+    }
+  },
+  {
+    "generation": 5,
+    "total_steps": 4000,
+    "unique_patterns": 180,
+    "pain_conflict_lift": 3.182,
+    "anxiety_loop": true,
+    "pain_to_conflict_lift": 3.149,
+    "conflict_to_pain_lift": 3.177,
+    "top_coactivations": [
+      {
+        "a": "pain",
+        "b": "conflict",
+        "lift": 3.182,
+        "coact_rate": 0.144,
+        "conditional_ab": 1.0,
+        "conditional_ba": 0.458
+      },
+      {
+        "a": "npc_emission",
+        "b": "conflict",
+        "lift": 2.964,
+        "coact_rate": 0.051,
+        "conditional_ab": 0.932,
+        "conditional_ba": 0.162
+      },
+      {
+        "a": "pain",
+        "b": "npc_proximity",
+        "lift": 1.662,
+        "coact_rate": 0.103,
+        "conditional_ab": 0.714,
+        "conditional_ba": 0.239
+      },
+      {
+        "a": "npc_proximity",
+        "b": "npc_speed",
+        "lift": 1.591,
+        "coact_rate": 0.33,
+        "conditional_ab": 0.768,
+        "conditional_ba": 0.683
+      },
+      {
+        "a": "npc_proximity",
+        "b": "npc_erraticism",
+        "lift": 1.417,
+        "coact_rate": 0.381,
+        "conditional_ab": 0.886,
+        "conditional_ba": 0.608
+      }
+    ],
+    "top_sequences": [
+      {
+        "from": "prediction_error",
+        "to": "npc_emission",
+        "p_given": 1.0,
+        "p_base": 0.055,
+        "lift": 18.265
+      },
+      {
+        "from": "prediction_error",
+        "to": "energy",
+        "p_given": 0.2,
+        "p_base": 0.015,
+        "lift": 12.903
+      },
+      {
+        "from": "energy",
+        "to": "npc_emission",
+        "p_given": 0.419,
+        "p_base": 0.055,
+        "lift": 7.659
+      },
+      {
+        "from": "npc_emission",
+        "to": "energy",
+        "p_given": 0.11,
+        "p_base": 0.015,
+        "lift": 7.07
+      },
+      {
+        "from": "prediction_error",
+        "to": "pain",
+        "p_given": 1.0,
+        "p_base": 0.144,
+        "lift": 6.944
+      }
+    ],
+    "recurring_patterns": [
+      {
+        "channels": [
+          "endorphin",
+          "temperature",
+          "chemical",
+          "fatigue",
+          "npc_proximity",
+          "npc_speed",
+          "npc_erraticism",
+          "optimism",
+          "goal_persistence",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 398,
+        "frequency": 0.1
+      },
+      {
+        "channels": [
+          "temperature",
+          "chemical",
+          "fatigue",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 193,
+        "frequency": 0.048
+      },
+      {
+        "channels": [
+          "temperature",
+          "chemical",
+          "fatigue",
+          "npc_proximity",
+          "npc_speed",
+          "npc_erraticism",
+          "optimism",
+          "goal_persistence",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 188,
+        "frequency": 0.047
+      }
+    ],
+    "activation_rates": {
+      "pain": 0.144,
+      "endorphin": 0.534,
+      "temperature": 1.0,
+      "chemical": 0.616,
+      "fatigue": 0.97,
+      "energy": 0.015,
+      "npc_proximity": 0.429,
+      "npc_speed": 0.483,
+      "npc_erraticism": 0.625,
+      "npc_emission": 0.055,
+      "optimism": 0.801,
+      "goal_persistence": 0.832,
+      "conflict": 0.314,
+      "think_best_value": 0.785,
+      "think_visit_entropy": 1.0,
+      "think_value_convergence": 1.0,
+      "think_path_divergence": 0.974,
+      "think_underexplored": 0.99,
+      "think_depth_reached": 1.0
+    }
+  },
+  {
+    "generation": 6,
+    "total_steps": 4000,
+    "unique_patterns": 288,
+    "pain_conflict_lift": 2.115,
+    "anxiety_loop": true,
+    "pain_to_conflict_lift": 2.063,
+    "conflict_to_pain_lift": 2.134,
+    "top_coactivations": [
+      {
+        "a": "pain",
+        "b": "conflict",
+        "lift": 2.115,
+        "coact_rate": 0.225,
+        "conditional_ab": 0.61,
+        "conditional_ba": 0.779
+      },
+      {
+        "a": "endorphin",
+        "b": "think_best_value",
+        "lift": 1.639,
+        "coact_rate": 0.29,
+        "conditional_ab": 0.944,
+        "conditional_ba": 0.504
+      },
+      {
+        "a": "endorphin",
+        "b": "optimism",
+        "lift": 1.498,
+        "coact_rate": 0.298,
+        "conditional_ab": 0.968,
+        "conditional_ba": 0.461
+      },
+      {
+        "a": "endorphin",
+        "b": "goal_persistence",
+        "lift": 1.49,
+        "coact_rate": 0.302,
+        "conditional_ab": 0.983,
+        "conditional_ba": 0.458
+      },
+      {
+        "a": "optimism",
+        "b": "goal_persistence",
+        "lift": 1.404,
+        "coact_rate": 0.599,
+        "conditional_ab": 0.926,
+        "conditional_ba": 0.908
+      }
+    ],
+    "top_sequences": [
+      {
+        "from": "energy",
+        "to": "npc_proximity",
+        "p_given": 0.794,
+        "p_base": 0.369,
+        "lift": 2.148
+      },
+      {
+        "from": "conflict",
+        "to": "pain",
+        "p_given": 0.786,
+        "p_base": 0.368,
+        "lift": 2.134
+      },
+      {
+        "from": "pain",
+        "to": "conflict",
+        "p_given": 0.595,
+        "p_base": 0.288,
+        "lift": 2.063
+      },
+      {
+        "from": "energy",
+        "to": "npc_emission",
+        "p_given": 0.286,
+        "p_base": 0.155,
+        "lift": 1.846
+      },
+      {
+        "from": "energy",
+        "to": "think_best_value",
+        "p_given": 1.0,
+        "p_base": 0.576,
+        "lift": 1.737
+      }
+    ],
+    "recurring_patterns": [
+      {
+        "channels": [
+          "pain",
+          "temperature",
+          "chemical",
+          "fatigue",
+          "npc_speed",
+          "npc_erraticism",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 249,
+        "frequency": 0.062
+      },
+      {
+        "channels": [
+          "temperature",
+          "chemical",
+          "fatigue",
+          "npc_speed",
+          "npc_erraticism",
+          "optimism",
+          "goal_persistence",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 139,
+        "frequency": 0.035
+      },
+      {
+        "channels": [
+          "endorphin",
+          "temperature",
+          "fatigue",
+          "npc_proximity",
+          "npc_speed",
+          "npc_erraticism",
+          "optimism",
+          "goal_persistence",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 125,
+        "frequency": 0.031
+      }
+    ],
+    "activation_rates": {
+      "pain": 0.368,
+      "endorphin": 0.307,
+      "temperature": 0.872,
+      "chemical": 0.787,
+      "fatigue": 0.968,
+      "energy": 0.016,
+      "npc_proximity": 0.369,
+      "npc_speed": 0.707,
+      "npc_erraticism": 0.87,
+      "npc_emission": 0.155,
+      "optimism": 0.646,
+      "goal_persistence": 0.659,
+      "conflict": 0.288,
+      "think_best_value": 0.576,
+      "think_visit_entropy": 1.0,
+      "think_value_convergence": 1.0,
+      "think_path_divergence": 0.815,
+      "think_underexplored": 0.988,
+      "think_depth_reached": 1.0
+    }
+  },
+  {
+    "generation": 7,
+    "total_steps": 4000,
+    "unique_patterns": 254,
+    "pain_conflict_lift": 2.546,
+    "anxiety_loop": true,
+    "pain_to_conflict_lift": 2.549,
+    "conflict_to_pain_lift": 2.51,
+    "top_coactivations": [
+      {
+        "a": "pain",
+        "b": "conflict",
+        "lift": 2.546,
+        "coact_rate": 0.175,
+        "conditional_ab": 0.727,
+        "conditional_ba": 0.614
+      },
+      {
+        "a": "chemical",
+        "b": "conflict",
+        "lift": 1.366,
+        "coact_rate": 0.224,
+        "conditional_ab": 0.39,
+        "conditional_ba": 0.784
+      },
+      {
+        "a": "pain",
+        "b": "chemical",
+        "lift": 1.298,
+        "coact_rate": 0.18,
+        "conditional_ab": 0.745,
+        "conditional_ba": 0.313
+      },
+      {
+        "a": "npc_proximity",
+        "b": "conflict",
+        "lift": 1.209,
+        "coact_rate": 0.244,
+        "conditional_ab": 0.345,
+        "conditional_ba": 0.855
+      }
+    ],
+    "top_sequences": [
+      {
+        "from": "prediction_error",
+        "to": "energy",
+        "p_given": 0.222,
+        "p_base": 0.021,
+        "lift": 10.84
+      },
+      {
+        "from": "prediction_error",
+        "to": "pain",
+        "p_given": 1.0,
+        "p_base": 0.241,
+        "lift": 4.145
+      },
+      {
+        "from": "pain",
+        "to": "conflict",
+        "p_given": 0.728,
+        "p_base": 0.286,
+        "lift": 2.549
+      },
+      {
+        "from": "conflict",
+        "to": "pain",
+        "p_given": 0.605,
+        "p_base": 0.241,
+        "lift": 2.51
+      },
+      {
+        "from": "prediction_error",
+        "to": "npc_emission",
+        "p_given": 0.333,
+        "p_base": 0.165,
+        "lift": 2.02
+      }
+    ],
+    "recurring_patterns": [
+      {
+        "channels": [
+          "endorphin",
+          "temperature",
+          "fatigue",
+          "npc_proximity",
+          "npc_speed",
+          "npc_erraticism",
+          "optimism",
+          "goal_persistence",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 358,
+        "frequency": 0.089
+      },
+      {
+        "channels": [
+          "endorphin",
+          "temperature",
+          "chemical",
+          "fatigue",
+          "npc_proximity",
+          "npc_speed",
+          "npc_erraticism",
+          "optimism",
+          "goal_persistence",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 253,
+        "frequency": 0.063
+      },
+      {
+        "channels": [
+          "endorphin",
+          "temperature",
+          "chemical",
+          "fatigue",
+          "npc_proximity",
+          "npc_erraticism",
+          "optimism",
+          "goal_persistence",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 188,
+        "frequency": 0.047
+      }
+    ],
+    "activation_rates": {
+      "pain": 0.241,
+      "endorphin": 0.6,
+      "temperature": 0.826,
+      "chemical": 0.574,
+      "fatigue": 0.967,
+      "energy": 0.021,
+      "npc_proximity": 0.707,
+      "npc_speed": 0.727,
+      "npc_erraticism": 0.862,
+      "npc_emission": 0.165,
+      "optimism": 0.879,
+      "goal_persistence": 0.883,
+      "conflict": 0.286,
+      "think_best_value": 0.791,
+      "think_visit_entropy": 1.0,
+      "think_value_convergence": 1.0,
+      "think_path_divergence": 0.97,
+      "think_underexplored": 1.0,
+      "think_depth_reached": 1.0
+    }
+  },
+  {
+    "generation": 8,
+    "total_steps": 4000,
+    "unique_patterns": 292,
+    "pain_conflict_lift": 1.377,
+    "anxiety_loop": false,
+    "pain_to_conflict_lift": 0,
+    "conflict_to_pain_lift": 0,
+    "top_coactivations": [
+      {
+        "a": "endorphin",
+        "b": "optimism",
+        "lift": 2.134,
+        "coact_rate": 0.241,
+        "conditional_ab": 0.946,
+        "conditional_ba": 0.543
+      },
+      {
+        "a": "endorphin",
+        "b": "goal_persistence",
+        "lift": 1.758,
+        "coact_rate": 0.202,
+        "conditional_ab": 0.793,
+        "conditional_ba": 0.447
+      },
+      {
+        "a": "optimism",
+        "b": "goal_persistence",
+        "lift": 1.758,
+        "coact_rate": 0.351,
+        "conditional_ab": 0.793,
+        "conditional_ba": 0.779
+      },
+      {
+        "a": "pain",
+        "b": "conflict",
+        "lift": 1.377,
+        "coact_rate": 0.504,
+        "conditional_ab": 0.749,
+        "conditional_ba": 0.927
+      },
+      {
+        "a": "endorphin",
+        "b": "npc_proximity",
+        "lift": 1.31,
+        "coact_rate": 0.089,
+        "conditional_ab": 0.352,
+        "conditional_ba": 0.333
+      }
+    ],
+    "top_sequences": [
+      {
+        "from": "prediction_error",
+        "to": "energy",
+        "p_given": 0.4,
+        "p_base": 0.026,
+        "lift": 15.094
+      },
+      {
+        "from": "endorphin",
+        "to": "npc_emission",
+        "p_given": 0.158,
+        "p_base": 0.044,
+        "lift": 3.615
+      },
+      {
+        "from": "npc_emission",
+        "to": "endorphin",
+        "p_given": 0.903,
+        "p_base": 0.255,
+        "lift": 3.548
+      },
+      {
+        "from": "endorphin",
+        "to": "optimism",
+        "p_given": 0.948,
+        "p_base": 0.443,
+        "lift": 2.139
+      },
+      {
+        "from": "npc_emission",
+        "to": "optimism",
+        "p_given": 0.943,
+        "p_base": 0.443,
+        "lift": 2.127
+      }
+    ],
+    "recurring_patterns": [
+      {
+        "channels": [
+          "pain",
+          "temperature",
+          "chemical",
+          "fatigue",
+          "npc_speed",
+          "npc_erraticism",
+          "conflict",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 322,
+        "frequency": 0.081
+      },
+      {
+        "channels": [
+          "pain",
+          "temperature",
+          "chemical",
+          "fatigue",
+          "npc_speed",
+          "npc_erraticism",
+          "conflict",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 153,
+        "frequency": 0.038
+      },
+      {
+        "channels": [
+          "pain",
+          "temperature",
+          "chemical",
+          "fatigue",
+          "npc_erraticism",
+          "conflict",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 122,
+        "frequency": 0.03
+      }
+    ],
+    "activation_rates": {
+      "pain": 0.673,
+      "endorphin": 0.255,
+      "temperature": 0.881,
+      "chemical": 0.688,
+      "fatigue": 0.966,
+      "energy": 0.026,
+      "npc_proximity": 0.269,
+      "npc_speed": 0.76,
+      "npc_erraticism": 0.849,
+      "npc_emission": 0.044,
+      "optimism": 0.443,
+      "goal_persistence": 0.451,
+      "conflict": 0.544,
+      "think_best_value": 0.413,
+      "think_visit_entropy": 1.0,
+      "think_value_convergence": 1.0,
+      "think_path_divergence": 0.97,
+      "think_underexplored": 1.0,
+      "think_depth_reached": 1.0
+    }
+  },
+  {
+    "generation": 9,
+    "total_steps": 4000,
+    "unique_patterns": 386,
+    "pain_conflict_lift": 2.453,
+    "anxiety_loop": true,
+    "pain_to_conflict_lift": 2.439,
+    "conflict_to_pain_lift": 2.447,
+    "top_coactivations": [
+      {
+        "a": "pain",
+        "b": "conflict",
+        "lift": 2.453,
+        "coact_rate": 0.302,
+        "conditional_ab": 0.924,
+        "conditional_ba": 0.801
+      },
+      {
+        "a": "pain",
+        "b": "npc_emission",
+        "lift": 2.048,
+        "coact_rate": 0.09,
+        "conditional_ab": 0.276,
+        "conditional_ba": 0.669
+      },
+      {
+        "a": "npc_emission",
+        "b": "conflict",
+        "lift": 1.838,
+        "coact_rate": 0.093,
+        "conditional_ab": 0.693,
+        "conditional_ba": 0.248
+      },
+      {
+        "a": "endorphin",
+        "b": "npc_emission",
+        "lift": 1.665,
+        "coact_rate": 0.097,
+        "conditional_ab": 0.225,
+        "conditional_ba": 0.717
+      },
+      {
+        "a": "endorphin",
+        "b": "think_best_value",
+        "lift": 1.435,
+        "coact_rate": 0.334,
+        "conditional_ab": 0.776,
+        "conditional_ba": 0.618
+      }
+    ],
+    "top_sequences": [
+      {
+        "from": "prediction_error",
+        "to": "energy",
+        "p_given": 0.2,
+        "p_base": 0.031,
+        "lift": 6.4
+      },
+      {
+        "from": "prediction_error",
+        "to": "pain",
+        "p_given": 1.0,
+        "p_base": 0.327,
+        "lift": 3.063
+      },
+      {
+        "from": "prediction_error",
+        "to": "conflict",
+        "p_given": 1.0,
+        "p_base": 0.377,
+        "lift": 2.654
+      },
+      {
+        "from": "conflict",
+        "to": "pain",
+        "p_given": 0.799,
+        "p_base": 0.327,
+        "lift": 2.447
+      },
+      {
+        "from": "pain",
+        "to": "conflict",
+        "p_given": 0.919,
+        "p_base": 0.377,
+        "lift": 2.439
+      }
+    ],
+    "recurring_patterns": [
+      {
+        "channels": [
+          "endorphin",
+          "temperature",
+          "chemical",
+          "fatigue",
+          "npc_erraticism",
+          "optimism",
+          "goal_persistence",
+          "think_best_value",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_underexplored",
+          "think_depth_reached"
+        ],
+        "count": 165,
+        "frequency": 0.041
+      },
+      {
+        "channels": [
+          "temperature",
+          "chemical",
+          "fatigue",
+          "npc_proximity",
+          "npc_speed",
+          "npc_erraticism",
+          "optimism",
+          "goal_persistence",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_path_divergence",
+          "think_depth_reached"
+        ],
+        "count": 153,
+        "frequency": 0.038
+      },
+      {
+        "channels": [
+          "temperature",
+          "chemical",
+          "fatigue",
+          "npc_speed",
+          "npc_erraticism",
+          "optimism",
+          "goal_persistence",
+          "think_visit_entropy",
+          "think_value_convergence",
+          "think_depth_reached"
+        ],
+        "count": 107,
+        "frequency": 0.027
+      }
+    ],
+    "activation_rates": {
+      "pain": 0.327,
+      "endorphin": 0.43,
+      "temperature": 0.988,
+      "chemical": 0.724,
+      "fatigue": 0.967,
+      "energy": 0.031,
+      "npc_proximity": 0.453,
+      "npc_speed": 0.679,
+      "npc_erraticism": 0.841,
+      "npc_emission": 0.135,
+      "optimism": 0.638,
+      "goal_persistence": 0.666,
+      "conflict": 0.377,
+      "think_best_value": 0.54,
+      "think_visit_entropy": 1.0,
+      "think_value_convergence": 1.0,
+      "think_path_divergence": 0.836,
+      "think_underexplored": 0.779,
+      "think_depth_reached": 0.989
+    }
+  }
+]

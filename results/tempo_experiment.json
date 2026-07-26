@@ -1,0 +1,164 @@
+{
+  "slow": [
+    {
+      "generation": 0,
+      "tempo": "slow",
+      "avg_fitness": -4877.4,
+      "num_discovered": 57,
+      "avg_thinking_budget": 24.0,
+      "avg_thinking_cost": 0.001,
+      "avg_merge_threshold": 0.9,
+      "thinking_pcorr": 0.1758,
+      "depth_reached": 0.0
+    },
+    {
+      "generation": 5,
+      "tempo": "slow",
+      "avg_fitness": -8228.9,
+      "num_discovered": 53,
+      "avg_thinking_budget": 22.5,
+      "avg_thinking_cost": 0.001503,
+      "avg_merge_threshold": 0.87,
+      "thinking_pcorr": 0.2655,
+      "depth_reached": 0.0
+    },
+    {
+      "generation": 10,
+      "tempo": "slow",
+      "avg_fitness": -5890.8,
+      "num_discovered": 59,
+      "avg_thinking_budget": 19.8,
+      "avg_thinking_cost": 0.001147,
+      "avg_merge_threshold": 0.878,
+      "thinking_pcorr": 0.1827,
+      "depth_reached": 0.0
+    },
+    {
+      "generation": 15,
+      "tempo": "slow",
+      "avg_fitness": -258.7,
+      "num_discovered": 57,
+      "avg_thinking_budget": 18.0,
+      "avg_thinking_cost": 0.00135,
+      "avg_merge_threshold": 0.8336,
+      "thinking_pcorr": 0.2531,
+      "depth_reached": 0.0
+    },
+    {
+      "generation": 20,
+      "tempo": "slow",
+      "avg_fitness": -9660.7,
+      "num_discovered": 56,
+      "avg_thinking_budget": 12.0,
+      "avg_thinking_cost": 0.001218,
+      "avg_merge_threshold": 0.8502,
+      "thinking_pcorr": 0.116,
+      "depth_reached": 0.0
+    },
+    {
+      "generation": 25,
+      "tempo": "slow",
+      "avg_fitness": -5240.9,
+      "num_discovered": 54,
+      "avg_thinking_budget": 17.2,
+      "avg_thinking_cost": 0.002689,
+      "avg_merge_threshold": 0.8525,
+      "thinking_pcorr": 0.2295,
+      "depth_reached": 0.0
+    },
+    {
+      "generation": 29,
+      "tempo": "slow",
+      "avg_fitness": -4918.6,
+      "num_discovered": 50,
+      "avg_thinking_budget": 16.8,
+      "avg_thinking_cost": 0.001971,
+      "avg_merge_threshold": 0.8413,
+      "thinking_pcorr": 0.1426,
+      "depth_reached": 0.0
+    }
+  ],
+  "fast": [
+    {
+      "generation": 0,
+      "tempo": "fast",
+      "avg_fitness": -3312.6,
+      "num_discovered": 57,
+      "avg_thinking_budget": 24.0,
+      "avg_thinking_cost": 0.001,
+      "avg_merge_threshold": 0.9,
+      "thinking_pcorr": 0.2088,
+      "depth_reached": 0.0
+    },
+    {
+      "generation": 5,
+      "tempo": "fast",
+      "avg_fitness": -8256.9,
+      "num_discovered": 56,
+      "avg_thinking_budget": 21.0,
+      "avg_thinking_cost": 0.000894,
+      "avg_merge_threshold": 0.9021,
+      "thinking_pcorr": 0.2362,
+      "depth_reached": 0.0
+    },
+    {
+      "generation": 10,
+      "tempo": "fast",
+      "avg_fitness": -4545.6,
+      "num_discovered": 57,
+      "avg_thinking_budget": 17.8,
+      "avg_thinking_cost": 0.000374,
+      "avg_merge_threshold": 0.9154,
+      "thinking_pcorr": 0.1041,
+      "depth_reached": 0.0
+    },
+    {
+      "generation": 15,
+      "tempo": "fast",
+      "avg_fitness": -465.9,
+      "num_discovered": 57,
+      "avg_thinking_budget": 15.2,
+      "avg_thinking_cost": 0.000593,
+      "avg_merge_threshold": 0.8657,
+      "thinking_pcorr": 0.2688,
+      "depth_reached": 0.0
+    },
+    {
+      "generation": 20,
+      "tempo": "fast",
+      "avg_fitness": -4406.3,
+      "num_discovered": 49,
+      "avg_thinking_budget": 13.5,
+      "avg_thinking_cost": 0.000749,
+      "avg_merge_threshold": 0.8774,
+      "thinking_pcorr": 0.066,
+      "depth_reached": 0.0
+    },
+    {
+      "generation": 25,
+      "tempo": "fast",
+      "avg_fitness": -5990.5,
+      "num_discovered": 42,
+      "avg_thinking_budget": 19.0,
+      "avg_thinking_cost": 0.002421,
+      "avg_merge_threshold": 0.8869,
+      "thinking_pcorr": 0.3651,
+      "depth_reached": 0.0
+    },
+    {
+      "generation": 29,
+      "tempo": "fast",
+      "avg_fitness": -4588.6,
+      "num_discovered": 48,
+      "avg_thinking_budget": 17.8,
+      "avg_thinking_cost": 0.001768,
+      "avg_merge_threshold": 0.8844,
+      "thinking_pcorr": 0.2903,
+      "depth_reached": 0.0
+    }
+  ],
+  "slow_final_budget": 16.8,
+  "fast_final_budget": 17.8,
+  "slow_depth_ever": false,
+  "fast_depth_ever": false
+}
