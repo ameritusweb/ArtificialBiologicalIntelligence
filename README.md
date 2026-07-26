@@ -181,7 +181,7 @@ A 6-limbed organism in a 2D liquid environment learns to navigate pain/endorphin
 - **Cross-modal objects** — sources with correlated pain + temperature + chemical signatures
 - **Territorial environment** — ownership boundary receptor with unattributable delayed penalties
 
-### The Genome Project (23 families, 200 receptors)
+### The Genome Project (23 families + deep canopy, 214 receptors)
 A formal specification of the receptor search space — the periodic table of cognitive capabilities:
 
 | Family | Receptors | From -> To |
@@ -209,6 +209,9 @@ A formal specification of the receptor search space — the periodic table of co
 | Language | 3 | Naming -> self-talk -> referential grounding |
 | Bridging | 4 | Mimicry -> trust -> executability -> translation |
 | Procedural Memory | 4 | Replay -> peak experience -> shortcut activation -> muscle memory |
+| Deep Canopy (L3) | 8 | Meta-analogy, strategic deception, institutional design, recursive planning, epistemic humility, norm internalization, causal model revision, tool chain |
+| Deep Canopy (L4) | 4 | Paradigm detection, recursive self-modification, cooperative institution, abstract tool design |
+| Deep Canopy (L5) | 2 | Formal self-theory, civilizational ratchet |
 
 ### Key Empirical Results
 
