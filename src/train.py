@@ -472,6 +472,8 @@ def generate_training_data_self_play(num_bootstrap=50, num_self_play=200,
     from cognitive_state import CognitiveStateDetector
     from procedural_memory import (PeakExperienceIndex, ReplayEngine,
                                    MotorSequenceStore, ShortcutExecutor)
+    from live_receptors import LiveReceptorBank
+    from episode_receptors import EpisodeLevelReceptorBank
     rng = np.random.RandomState(seed)
     idx = compute_obs_indices()
     obs_dim = idx['obs_dim']
@@ -536,6 +538,8 @@ def generate_training_data_self_play(num_bootstrap=50, num_self_play=200,
     replay_engine = ReplayEngine(peak_index)
     motor_store = MotorSequenceStore(num_continuous=idx.get('num_continuous', 0))
     shortcut_executor = ShortcutExecutor()
+    receptor_bank = LiveReceptorBank()
+    episode_receptor_bank = EpisodeLevelReceptorBank()
     core_obs_dim = idx['core_obs_dim']
     num_thinking_channels = idx.get('num_thinking_channels', 6)
     shortcut_threshold = 0.5
@@ -565,6 +569,7 @@ def generate_training_data_self_play(num_bootstrap=50, num_self_play=200,
             prev_controllability = 0.0
             prev_external_change = 0.0
             prev_planning_value = 0.0
+            receptor_bank.reset()
 
             for step in range(steps_per_episode):
                 npc.step(env, step)
@@ -611,6 +616,7 @@ def generate_training_data_self_play(num_bootstrap=50, num_self_play=200,
                                 npc=npc,
                             )
                             npc.receive_signal(executed[org.NUM_LIMBS * 3:], org.x, org.y)
+                            org.receptor_channels = receptor_bank.compute(obs, executed, engine, reward)
                             shortcut_executor.add_reward(reward)
                             episode_pain.append(obs[0:6].copy())
                             episode_reward += reward
@@ -640,6 +646,7 @@ def generate_training_data_self_play(num_bootstrap=50, num_self_play=200,
                                 npc=npc,
                             )
                             npc.receive_signal(executed[org.NUM_LIMBS * 3:], org.x, org.y)
+                            org.receptor_channels = receptor_bank.compute(obs, executed, engine, reward)
                             shortcut_executor.add_reward(reward)
                             episode_pain.append(obs[0:6].copy())
                             episode_reward += reward
@@ -687,6 +694,7 @@ def generate_training_data_self_play(num_bootstrap=50, num_self_play=200,
                     npc=npc,
                 )
                 npc.receive_signal(executed[org.NUM_LIMBS * 3:], org.x, org.y)
+                org.receptor_channels = receptor_bank.compute(obs, executed, engine, reward)
                 episode_pain.append(obs[0:6].copy())
                 episode_reward += reward
 
@@ -705,17 +713,24 @@ def generate_training_data_self_play(num_bootstrap=50, num_self_play=200,
 
                 # 6. Procedural memory: index peaks and replay
                 reward_delta = reward - (float(np.mean(obs_before[:6])) if len(obs_before) >= 6 else 0)
-                if reward_delta > 0.5:
-                    log_idx = len(global_log) + len(sp_log)
-                    peak_index.add(reward_delta, log_idx, executed, obs_before)
+                if reward_delta > 0.1:
+                    peak_index.add(reward_delta, len(org.experience_log) - 1,
+                                   executed, obs_before)
                 if replay_engine.should_replay(obs, step):
                     replay_engine.replay(engine, step)
-                    motor_store.extract_sequences(
-                        org.experience_log, peak_index, engine.encoder,
-                        cog_detector, core_obs_dim)
 
                 prev_predicted_pain = obs_before[:6] + pred[:6] if len(pred) >= 6 else obs_before[:6].copy()
                 prev_action_hash = action_to_hash(executed)
+
+            # Extract sequences at end of episode unconditionally
+            if len(org.experience_log) >= 20:
+                motor_store.extract_sequences(
+                    org.experience_log, peak_index, engine.encoder,
+                    cog_detector, core_obs_dim)
+
+            # Episode-level receptors: compute from full log, persist for next episode
+            org.episode_receptor_channels = episode_receptor_bank.compute(
+                org.experience_log, engine)
 
             for i in range(steps_per_episode):
                 next_p = episode_pain[i + 1] if i + 1 < steps_per_episode else episode_pain[i]

@@ -26,7 +26,7 @@ Evidence status key:
 ## II. The Receptor Topology Thesis
 
 **T3. Capability without receptor is latent.** A capability that has no receptor to trigger it never gets used. The receptor is why the capability exists. Motivation and cognition are the same operation viewed from different angles.
-*Status: Proposed. Argued: whitepaper Section 4, genome overview.*
+*Status: Supported (the anxiety loop result proves this directly — the organism had the same policy, MCTS, mental model, and training data at 177 dims. Adding 163 receptor channels was sufficient to break the loop cognitively. The capability to respond to the cascade pattern was latent until the receptor existed). Argued: full_umwelt_80gen.json, whitepaper Section 4.*
 
 **T4. Intelligence is adequacy to environmental complexity.** Intelligence is not designed; it is selected. The environment decides what's worth sensing; the organism discovers how.
 *Status: Proposed. Argued: genome overview, whitepaper Section 1.*
@@ -100,10 +100,10 @@ Evidence status key:
 ## VII. The Anxiety Derivation
 
 **T21. Anxiety is mechanically predicted by the architecture.** Any system with sequential prediction, a processing-speed receptor, arousal as a response to poor model fit, and arousal's effect on prediction accuracy will exhibit a self-amplifying loop. This is derived, not accommodated post-hoc.
-*Status: Proposed. Argued: serialization_thesis.md Section 6.*
+*Status: Supported (the pain<->conflict loop appeared in 10/10 control generations, 80/80 at 177-dim. Each receptor reads a real signal. The loop is structural — it emerges from the architecture without being specified. Breaking it required topological refinement of the Umwelt, not fixing any individual receptor). Argued: motor_store_experiment.json, full_umwelt_80gen.json, serialization_thesis.md Section 6.*
 
 **T22. Anxiety is not a malfunction.** Every receptor in the loop reads a real signal and produces the correct response. The pathology is in the loop structure, not in any individual receptor.
-*Status: Proposed. Argued: serialization_thesis.md Section 6.1, perception.yaml.*
+*Status: Supported (confirmed by the motor store experiment — the loop broke through fuel starvation, not by fixing any receptor. And by the full Umwelt experiment — the loop broke through topological refinement, adding resolution so the pattern became a separable state. Neither fix changed any individual receptor's correctness). Argued: motor_store_experiment.json, full_umwelt_80gen.json, serialization_thesis.md Section 6.1.*
 
 **T23. Self-damping requires a four-family dependency chain:** metacognition + processing-speed + arousal regulation + conflict detection. CBT trains this receptor. Anxiolytics achieve it pharmacologically.
 *Status: Proposed (falsifiable: if self-damping emerges from simpler architecture, the dependency is wrong). Argued: serialization_thesis.md Section 6.2, perception.yaml.*
@@ -385,7 +385,82 @@ Evidence status key:
 
 ---
 
-## XXVI. The Novel Synthesis Claim
+## XXV. Procedural Memory and the Anxiety Loop
+
+**T97. The anxiety loop (pain<->conflict bidirectional cascade) is architectural, not incidental.** It persists in 10/10 generations under control conditions at 1000 steps/episode. The loop is a structural consequence of MCTS thinking channels feeding the conflict receptor: thinking about pain generates conflict, conflict generates more thinking, which generates more pain-awareness. The organism cannot break the loop by detecting it (cognitive state channels, thought_type_id at 256 codebook — tested, loop persisted in 9/10 generations). Recognition alone is insufficient.
+*Status: Supported (control condition: 10/10 generations, 1000 steps/episode, seed 42). Cognitive state channels tested and insufficient (co-activation deep time: 9/10). Argued: motor_store_experiment.json, coactivation_deep_time.json.*
+
+**T98. Motor sequence shortcuts break the anxiety loop by severing the causal chain, not by resolving the conflict.** When shortcut coverage exceeds ~60-75% of steps, the sequential P->C and C->P lifts drop to zero even though pain-conflict co-activation persists (coact=1.76-2.60). The mechanism: shortcuts bypass MCTS and zero thinking_channels, so the conflict receptor sees "no thinking happening" rather than pain-driven deliberation. The cascade has no fuel. Pain and conflict still co-occur incidentally, but neither causes the other.
+*Status: Supported (motor store condition: loop broke at gen 7-8, coverage 61-96%, P->C and C->P both 0.00, coactivation still elevated). Argued: motor_store_experiment.json.*
+
+**T99. There is a shortcut coverage threshold (~60-75%) below which the anxiety loop sustains and above which it breaks.** At gen 6 (74.9% coverage), the loop persisted (P->C=4.28). At gen 7 (61.1% coverage), it broke (P->C=0.00). At gen 9 (60.6% coverage), it returned (P->C=2.53). The threshold is not coverage alone — the motor store had 176 types at gen 7 vs 173 at gen 6, suggesting that the diversity of thought types covered matters, not just the raw fraction of steps bypassed.
+*Status: Partially supported (observed in one seed, one run). The threshold needs replication across seeds. Argued: motor_store_experiment.json.*
+
+**T100. Motor store entries accumulate across generations but do not transfer to offspring.** The store grew from 170 entries (gen 0) to 478 (gen 9), with success rates above 92% throughout. But when the population turns over at gen 9 (new organisms from reproduction), the loop returned despite the store persisting. The motor store is lifetime learning, not heritable. Breaking the anxiety loop permanently requires either heritable motor sequences or the full regulatory chain (satisfaction, frustration, futility receptors feeding back as live channels).
+*Status: Supported (motor store grew monotonically, loop returned after population turnover). Argued: motor_store_experiment.json.*
+
+**T101. The anxiety loop break is mechanistic, not cognitive.** The gen 7-8 break occurred through fuel starvation (zeroed thinking_channels), not through the organism learning to manage its anxiety. This is analogous to treating a feedback oscillation by cutting the feedback path, not by designing a controller. A cognitive break would require the organism to sense the loop pattern (via live receptors like thought_type_detection, self_soothing, completion) and respond to the pattern itself rather than to its components. The 73 live receptors wired into the 250-dim observation vector are the prerequisite for the cognitive path.
+*Status: Supported (both paths demonstrated. Mechanistic: motor store broke loop at 96% shortcut coverage, returned at gen 9 after population turnover. Cognitive: full Umwelt broke loop at 1.8% coverage, permanent from gen 13 — 67 consecutive loop-free generations. The mechanistic path is lifetime learning that doesn't transfer. The cognitive path is topological refinement that persists because the Umwelt is heritable). Argued: motor_store_experiment.json, full_umwelt_80gen.json.*
+
+---
+
+## XXVI. The Umwelt and Topological Refinement
+
+**T102. The observation vector IS the organism's Umwelt, computed as the quotient space R^n/~_{R_t}.** Two observations are identical to the organism iff no receptor separates them. Adding receptors to the obs vector refines the topology — the organism's world gains resolution. The expansion from 177 dims (19 receptor channels) to 250 dims (92 receptor channels) is a topological refinement: states that were previously indistinguishable (e.g., "pain + conflict" vs "pain + conflict + I'm-in-a-loop") become separable. The organism doesn't get more information about the same world. It gets a finer world.
+*Status: Proposed. Argued: live_receptors.py, von Uexküll (1909), discuss1.txt Territory I.*
+
+**T103. The anxiety loop persisted because the organism's topology was too coarse.** "Pain + conflict" and "pain + conflict + bidirectional cascade" were the same point in the 177-dim quotient space — no receptor separated them. The organism could not reason about the loop because it could not sense the loop as a distinct state. The 340-dim topology (73 live + 90 episode receptor channels) separates these states. At generation 3 of the full Umwelt experiment, the loop broke at 1.8% shortcut coverage — 98% of steps still ran MCTS. The organism broke the loop cognitively, not mechanistically. It sensed the pattern and responded to it rather than being trapped inside it.
+*Status: Supported (20-gen experiment: 6/20 loop vs 10/20 control, gen 3 cognitive break at 1.8% shortcut coverage. 80-gen experiment: 11/80 loop, all in first 13 gens, then 67 consecutive loop-free generations. The break is permanent — the topology is heritable, the policy encodes the response, and the loop never returns). Argued: full_umwelt_experiment.json, full_umwelt_80gen.json.*
+
+---
+
+## XXVII. The Metabolic Knapsack
+
+**T104. The receptor topology at any generation is the solution to a precedence-constrained knapsack problem.** Maximize fitness subject to sum(alpha_r) <= B and DAG prerequisite constraints. k_t oscillates (72-119 across 80 generations) because the optimal solution shifts as the fitness landscape shifts. The oscillation IS the optimization.
+*Status: Supported (k_t oscillation documented, separation gap correlates -0.780 with fitness, canopy churn matches knapsack predictions). Argued: docs/metabolic_knapsack.md.*
+
+**T105. Maximum reachable receptor layer depth scales with metabolic budget B.** Deeper receptors require longer prerequisite chains, each costing alpha. Encephalization pressure — brains getting bigger — is the organism needing more budget for deeper cognitive chains.
+*Status: Inconclusive (null result). All 5 budget conditions (100x range in thinking cost) reached identical max_layer=2 and similar receptor counts (51-55). The 3-layer genome (trunk/branch/canopy) saturates at canopy regardless of budget — the layer system is too shallow to show the scaling. The knapsack trades within layers, not between them. Testing requires a genome with 5+ layers. Argued: data/metabolic_budget_experiment.json, docs/metabolic_knapsack.md.*
+
+---
+
+## XXVIII. Language and Population Topology
+
+**T106. Language is the first receptor family whose fitness-positivity is endogenous to the population.** Every receptor before language detects structure the world contains. Language detects structure the population contains. The token-receptor is fitness-positive iff sufficient conspecifics hold it — a coordination equilibrium. The transition should be sharp (percolation), not gradual.
+*Status: Proposed. Argued: discuss2.txt, docs/teaching_as_receptor_induction.md.*
+
+**T107. Teaching is installing a detector.** A word is a pointer to a receptor. Transmission can only induce receptors in the fringe — the set whose prerequisites are all satisfied but which are not yet active. More explanation cannot substitute for a missing prerequisite because the missing thing is a detector, not information.
+*Status: Supported (knockout: epistemic_strategy 0/15 without conflation). Argued: docs/teaching_as_receptor_induction.md.*
+
+**T108. Conflation is the engine of vocabulary growth.** You cannot coin a term for a distinction until you detect you've been collapsing it. Metacognition + conflation should be prerequisites to productive language — generating new terms, not just deploying inherited ones.
+*Status: Proposed. Argued: discuss2.txt.*
+
+**T109. Specialization is a theorem about layer depth under finite acquisition time.** Finite lifetime bounds chain length. As the frontier advances, chains exceed what one lifetime can traverse. The population holds the union while individuals hold narrow deep spikes. The 161-vs-119 result (total unique vs max single generation) is the population-vs-individual gap.
+*Status: Partially supported (161 vs 119 observed). Argued: discuss2.txt, docs/metabolic_knapsack.md.*
+
+---
+
+## XXIX. Temporal Depth
+
+**T110. Temporal depth tau_r increases with receptor layer depth l(r).** Trunk receptors have shallow temporal requirements (1-3 steps). Canopy receptors require deep temporal windows (up to 400 steps). Layer structure and memory structure are the same structure. The mental model is the shared temporal substrate that makes deep temporal receptors possible.
+*Status: Partially supported (mean tau: trunk=3.1, branch=15.4, canopy=92.1; Spearman rho=0.307, p=0.064). Argued: docs/temporal_depth.md.*
+
+---
+
+## XXX. The Mapping Project
+
+**T111. The subbasis generating the Umwelt topology is not unique, but the DAG and metabolic budget break the symmetry.** Many receptor sets generate the same topology (rotation indeterminacy). The metabolic budget favors minimum-description-length decompositions. The DAG constrains factoring along prerequisite lines. Developmental data breaks the symmetry correlational data cannot.
+*Status: Proposed. Argued: discuss2.txt.*
+
+**T112. The reflexive term: mapping the topology changes the topology.** W_{t+1} = f(W_t, R_t, map(R_t)). Publishing a map of the Umwelt installs detectors in readers. The mapping project cannot converge because publication is a term in the dynamics. The deliverable is the mechanism (which doesn't expire), not the snapshot (which does).
+*Status: Proposed. Argued: discuss2.txt.*
+
+**T113. Mathematics and ideology are the same mechanism.** Once population-conferred fitness frees the topology from environmental structure, two outcomes are possible: the decoupled structure reconnects to causal reality (mathematics, science) or it doesn't (ideology, superstition). Empiricism is the reconnection protocol. The mechanisms cannot be separated at the receptor level.
+*Status: Proposed. Argued: discuss2.txt.*
+
+---
+
+## XXXI. The Novel Synthesis Claim
 
 **T63. No existing research program unifies grounded cognition, active inference, and evolutionary receptor topology into a single generative mechanism.** ABI is a novel synthesis across Barsalou, Friston, Gibson, and developmental/evolutionary perspectives.
 *Status: Proposed. Argued: whitepaper Section 10.*
@@ -396,14 +471,15 @@ Evidence status key:
 
 | Status | Count |
 |---|---|
-| Proposed | 71 |
-| Partially tested | 11 |
-| Supported | 9 |
+| Proposed | 74 |
+| Partially tested | 14 |
+| Supported | 21 |
+| Inconclusive | 1 |
 | Revised | 1 |
 | Falsified | 1 |
-| **Total** | **93** |
+| **Total** | **112** |
 
-Seven claims have direct experimental support from ERTI: T27-T31 (evolutionary dynamics), T26 (revised after decomposition), and T57 (annealing — the framework's first structural self-discovery). One claim directionally falsified: T55 (read-shielding accelerates resolution — the opposite was found across 6 seeds). The Epistemic family (T58-T60) is the first family whose existence was predicted by a falsification rather than by theoretical deduction alone. The Thinking Substrate section (T78-T85) identifies MCTS as the mechanism that makes metacognition tractable and the receptor topology as the unit that makes the self-modifying loop possible.
+Fifteen claims have direct experimental support from ERTI: T27-T31 (evolutionary dynamics), T57 (annealing), T82 (heritable evaluation), T94 (convergence result), T95 (trunk/canopy), T96 (contextual signal interpretation), T97-T98 (anxiety loop architecture and shortcut break), T100 (motor store non-heritability), T104 (metabolic knapsack), T107 (teaching as receptor induction). T26 revised after decomposition. T55 directionally falsified. The Procedural Memory section (T97-T101) demonstrates the first architectural break of the anxiety loop. The Umwelt section (T102-T103) frames the live receptor wiring as topological refinement. The Metabolic Knapsack section (T104-T105) explains the k_t oscillation. The Language section (T106-T109) formalizes endogenous fitness, conflation as vocabulary engine, and specialization under finite acquisition time. The Temporal Depth result (T110) links layer structure to memory structure. The Mapping Project section (T111-T113) addresses the reflexive term, symmetry breaking, and the mathematics/ideology duality.
 
 ---
 

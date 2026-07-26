@@ -557,7 +557,9 @@ class Organism:
         extra_dims = dims - 2
         self.NUM_THINKING_CHANNELS = 6
         self.NUM_COGNITIVE_STATE_CHANNELS = 2
-        self.OBS_DIM = 13 * self.NUM_LIMBS + 4 * num_joints + 82 + extra_dims * 2 + self.NUM_LIMBS + 3 + self.NUM_THINKING_CHANNELS + self.NUM_COGNITIVE_STATE_CHANNELS
+        self.NUM_LIVE_RECEPTOR_CHANNELS = 73
+        self.NUM_EPISODE_RECEPTOR_CHANNELS = 90
+        self.OBS_DIM = 13 * self.NUM_LIMBS + 4 * num_joints + 82 + extra_dims * 2 + self.NUM_LIMBS + 3 + self.NUM_THINKING_CHANNELS + self.NUM_COGNITIVE_STATE_CHANNELS + self.NUM_LIVE_RECEPTOR_CHANNELS + self.NUM_EPISODE_RECEPTOR_CHANNELS
         self.ENERGY_OBS_INDEX = 6 * self.NUM_LIMBS
         self.CORE_OBS_DIM = 9 * self.NUM_LIMBS + 42
         self.x = 10.0
@@ -602,6 +604,8 @@ class Organism:
         self.concept_match = 0.0
         self.concept_quality = 0.0
         self.thinking_channels = np.zeros(self.NUM_THINKING_CHANNELS)
+        self.receptor_channels = np.zeros(self.NUM_LIVE_RECEPTOR_CHANNELS)
+        self.episode_receptor_channels = np.zeros(self.NUM_EPISODE_RECEPTOR_CHANNELS)
         self.thought_type_id = 0.0
         self.concept_id = 0.0
         self.physics_mode = False
@@ -1018,6 +1022,8 @@ class Organism:
             np.array([self.carried_mass, self.contact_count, self.contact_force]),
             self.thinking_channels,
             np.array([self.thought_type_id, self.concept_id]),
+            self.receptor_channels,
+            self.episode_receptor_channels,
         ])
         self.history.append(obs)
 

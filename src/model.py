@@ -70,7 +70,11 @@ def compute_obs_indices(num_limbs=6, num_segments=1, dims=2, continuous_actions=
     NUM_THINKING_CHANNELS = 6
     cognitive_state_start = thinking_start + NUM_THINKING_CHANNELS
     NUM_COGNITIVE_STATE_CHANNELS = 2  # thought_type_id, concept_id
-    obs_dim = cognitive_state_start + NUM_COGNITIVE_STATE_CHANNELS
+    NUM_LIVE_RECEPTOR_CHANNELS = 73
+    receptor_start = cognitive_state_start + NUM_COGNITIVE_STATE_CHANNELS
+    NUM_EPISODE_RECEPTOR_CHANNELS = 90
+    episode_receptor_start = receptor_start + NUM_LIVE_RECEPTOR_CHANNELS
+    obs_dim = episode_receptor_start + NUM_EPISODE_RECEPTOR_CHANNELS
     L = total_limbs
     pain_start = 0
     endorphin_start = L
@@ -119,6 +123,10 @@ def compute_obs_indices(num_limbs=6, num_segments=1, dims=2, continuous_actions=
         'num_thinking_channels': NUM_THINKING_CHANNELS,
         'cognitive_state_start': cognitive_state_start,
         'num_cognitive_state_channels': NUM_COGNITIVE_STATE_CHANNELS,
+        'receptor_start': receptor_start,
+        'num_live_receptor_channels': NUM_LIVE_RECEPTOR_CHANNELS,
+        'episode_receptor_start': episode_receptor_start,
+        'num_episode_receptor_channels': NUM_EPISODE_RECEPTOR_CHANNELS,
         'total_limbs': total_limbs,
         'num_segments': num_segments,
         'num_joints': num_joints,
