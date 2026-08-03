@@ -26,7 +26,7 @@ Evidence status key:
 ## II. The Receptor Topology Thesis
 
 **T3. Capability without receptor is latent.** A capability that has no receptor to trigger it never gets used. The receptor is why the capability exists. Motivation and cognition are the same operation viewed from different angles.
-*Status: Supported (the anxiety loop result proves this directly — the organism had the same policy, MCTS, mental model, and training data at 177 dims. Adding 163 receptor channels was sufficient to break the loop cognitively. The capability to respond to the cascade pattern was latent until the receptor existed). Argued: full_umwelt_80gen.json, whitepaper Section 4.*
+*Status: Supported (the anxiety loop result proves this directly — the organism had the same policy, MCTS, mental model, and training data at 177 dims. Adding 163 receptor channels was sufficient to break the loop cognitively. The capability to respond to the cascade pattern was latent until the receptor existed. Random-channel control confirms: 163 channels of noise (20/20 loop) and shuffled receptors (3/3 loop) do NOT break the loop. The effect is receptor-specific, not dimensional). Argued: full_umwelt_80gen.json, random_channel_control.json, whitepaper Section 4.*
 
 **T4. Intelligence is adequacy to environmental complexity.** Intelligence is not designed; it is selected. The environment decides what's worth sensing; the organism discovers how.
 *Status: Proposed. Argued: genome overview, whitepaper Section 1.*
@@ -400,7 +400,7 @@ Evidence status key:
 *Status: Supported (motor store grew monotonically, loop returned after population turnover). Argued: motor_store_experiment.json.*
 
 **T101. The anxiety loop break is mechanistic, not cognitive.** The gen 7-8 break occurred through fuel starvation (zeroed thinking_channels), not through the organism learning to manage its anxiety. This is analogous to treating a feedback oscillation by cutting the feedback path, not by designing a controller. A cognitive break would require the organism to sense the loop pattern (via live receptors like thought_type_detection, self_soothing, completion) and respond to the pattern itself rather than to its components. The 73 live receptors wired into the 250-dim observation vector are the prerequisite for the cognitive path.
-*Status: Supported (both paths demonstrated. Mechanistic: motor store broke loop at 96% shortcut coverage, returned at gen 9 after population turnover. Cognitive: full Umwelt broke loop at 1.8% coverage, permanent from gen 13 — 67 consecutive loop-free generations. The mechanistic path is lifetime learning that doesn't transfer. The cognitive path is topological refinement that persists because the Umwelt is heritable). Argued: motor_store_experiment.json, full_umwelt_80gen.json.*
+*Status: Supported (both paths demonstrated. Mechanistic: motor store broke loop at 96% shortcut coverage, returned at gen 9 after population turnover. Cognitive: full Umwelt broke loop at 1.8% coverage, permanent from gen 13 — 67 consecutive loop-free generations. Random-channel control: noise 20/20 loop, shuffled 3/3 loop — the break requires receptor content, not added dimensionality). Argued: motor_store_experiment.json, full_umwelt_80gen.json, random_channel_control.json.*
 
 ---
 
@@ -410,7 +410,7 @@ Evidence status key:
 *Status: Proposed. Argued: live_receptors.py, von Uexküll (1909), discuss1.txt Territory I.*
 
 **T103. The anxiety loop persisted because the organism's topology was too coarse.** "Pain + conflict" and "pain + conflict + bidirectional cascade" were the same point in the 177-dim quotient space — no receptor separated them. The organism could not reason about the loop because it could not sense the loop as a distinct state. The 340-dim topology (73 live + 90 episode receptor channels) separates these states. At generation 3 of the full Umwelt experiment, the loop broke at 1.8% shortcut coverage — 98% of steps still ran MCTS. The organism broke the loop cognitively, not mechanistically. It sensed the pattern and responded to it rather than being trapped inside it.
-*Status: Supported (20-gen experiment: 6/20 loop vs 10/20 control, gen 3 cognitive break at 1.8% shortcut coverage. 80-gen experiment: 11/80 loop, all in first 13 gens, then 67 consecutive loop-free generations. The break is permanent — the topology is heritable, the policy encodes the response, and the loop never returns). Argued: full_umwelt_experiment.json, full_umwelt_80gen.json.*
+*Status: Supported (20-gen experiment: 6/20 loop vs 10/20 control, gen 3 cognitive break at 1.8% shortcut coverage. 80-gen experiment: 11/80 loop, all in first 13 gens, then 67 consecutive loop-free generations. Random-channel control: 23/23 loop with noise/shuffled channels — confirming the break requires the specific receptor content, not added dimensionality. The effect is topological refinement, not capacity). Argued: full_umwelt_experiment.json, full_umwelt_80gen.json, random_channel_control.json.*
 
 ---
 
@@ -460,7 +460,63 @@ Evidence status key:
 
 ---
 
-## XXXI. The Novel Synthesis Claim
+## XXXI. Infinite Color and Theory Generation
+
+**T114. Theories are common patterns in the causal mental model that have survived across contexts. A confirmed theory is a receptor — a pattern promoted into the observation vector because it reliably predicts. Theory generation and testing are not separate subsystems — they are what receptor topology intelligence does naturally.** The mental model accumulates patterns (theories form). Receptor discovery finds which patterns hold across contexts (theories get tested). The receptor topology feeds confirmed patterns back as observation (confirmed theories reshape attention, enabling new theories). The anxiety loop is a pattern with overwhelming support whose confirmation recreates the conditions that confirm it.
+*Status: Foundation. IC-5 null result confirmed this is not about thought-type persistence — it's about pattern support in the mental model. Argued: docs/infinite_color_and_subconscious_theory.md.*
+
+**T115. The effective input space has combinatorially many "colors" — co-activation patterns across the receptor topology. Attention and focus scale with the number of distinguishable colors, not with the number of input dimensions.** Adding receptors adds colors that make previously-identical states distinguishable, reducing the search space for attention.
+*Status: Proposed. Supported directionally by the cognitive break result (gen 3, 1.8% coverage). Argued: docs/infinite_color_and_subconscious_theory.md.*
+
+**T116. Attention is which colors the organism paints onto incoming sensory data. A color matters when it resolves a conflation — when it makes two previously-identical situations distinguishable.** A color that resolves no conflation is metabolic waste. A color that resolves many conflations is a trunk receptor — invariant because the conflations it resolves exist in every environment. The activation manager controls metabolic cost, not attention. Attention is which augmented reality overlays the organism has available, determined by which receptors exist and which conflations they resolve.
+*Status: Revised. Original claim (attention = receptor count selection) refuted by IC-1: cap_73 broke the anxiety loop later than cap_10 because count doesn't matter, coverage of the right conflations does. Argued: docs/infinite_color_and_subconscious_theory.md.*
+
+**T117. Language is protocol theory discovery, not capability construction.** A word is a confirmed protocol pattern: "emit X → partner enters state Y." Language emerges when population density crosses the threshold where protocol patterns can accumulate enough cross-context support to become receptors (percolation).
+*Status: Proposed. Argued: docs/infinite_color_and_subconscious_theory.md.*
+
+**T118. Sound has infinite colors, the same way vision does.** A phoneme is a receptor — a detection condition that separates sounds the language distinguishes. Learning a language is acquiring phoneme-receptors.
+*Status: Proposed. Argued: docs/infinite_color_and_subconscious_theory.md.*
+
+**T119. Language requires three systems operating on the same infinite-color principle.** Sound receptors (distinguish tokens), situation receptors (distinguish referents), and protocol patterns (link the two). If any is missing, language doesn't emerge.
+*Status: Proposed. Argued: docs/infinite_color_and_subconscious_theory.md.*
+
+**T120. A sentence is a collage — a composite activation pattern across the listener's receptor topology.** Meaning is the co-activation pattern, not the words. Poetry sustains multiple competing pattern matches simultaneously.
+*Status: Proposed. Argued: docs/infinite_color_and_subconscious_theory.md.*
+
+**T121. Processing follows the receptor topology, not the input geometry.** One processor per color group (receptor equivalence class), not one per location. Resolution-independent.
+*Status: Proposed. Argued: docs/infinite_color_and_subconscious_theory.md.*
+
+**T122. Visual processing is Euler-based flow prediction error, not feature extraction.** N Euler steps = N color layers per transformation. Edges, objects, faces, depth emerge as characteristic flow failure patterns.
+*Status: Proposed. Argued: docs/infinite_color_and_subconscious_theory.md.*
+
+**T123. Every visual concept is a characteristic flow prediction failure pattern.** The visual genome is a list of ways the flow prediction can fail that have fitness consequences.
+*Status: Proposed. Argued: docs/infinite_color_and_subconscious_theory.md.*
+
+**T124. Language comprehension is flow prediction error across Euler steps of processing.** Poetry is smooth low-level flow with broken semantic flow. Puns fork. Irony reverses. Jargon produces absent flow.
+*Status: Proposed. Argued: docs/infinite_color_and_subconscious_theory.md.*
+
+---
+
+## XXXII. Automatic Receptor Discovery
+
+**T125. Automatic receptor discovery via conflation-driven decision ensembles.** When the organism detects conflation (same receptor pattern, different outcomes), a tree ensemble (GBM or NODE) trained on continuous receptor values finds the decision boundary that separates the conflated cases. That boundary becomes a new receptor. The process is open-ended: each new receptor can trigger further conflations at finer resolution, driving iterative refinement of the Umwelt. The genome provides the seed receptors; everything after is discovered from the organism's own confusion.
+*Status: Proposed. Argued: docs/automatic_receptor_discovery.md.*
+
+**T126. Conceptual intelligence is environmental structure made visible through receptor topology.** Concepts are not invented by the organism — they are detections of causal structure already present in the environment. "Lunar cycle" is not an abstraction the organism constructs; it is a receptor that separates situations where the moon's phase produces different survival outcomes. The concept IS the receptor. The intelligence is in the match between the organism's topology and the environment's causal layout. An organism without the receptor doesn't have a poor model of the moon — the moon doesn't exist in its Umwelt. Adding the receptor doesn't improve the model. It creates a new reality. This is why different environments produce different intelligences (T4): the concepts available to the organism are bounded by the causal structure the environment contains.
+*Status: Foundation. Extends T4 (intelligence as adequacy) and T5 (evolving input structure). Argued: theories.md.*
+
+**T127. The Cartographical Theory: understanding is mapping the processing space.** The organism understands something by discovering the space of possible processing orders for it — how many stages, what sequence, what predictions between stages. Each ordering produces a different prediction profile. The collection of all profiles — which orderings predict well, which predict badly, which cluster together, which are independent — IS a structural map of the input. The asymmetries reveal causal direction (pitch constrains phonemes but not vice versa). The clusters reveal coupled variables (light and temperature in the sun-moon cycle). The independent axes reveal factorization (CO2 and light in photosynthesis). This mechanism is domain-independent: the same substrate applied to any input — mother's voice, lunar cycles, images, social dynamics — produces a structural map of that input. The organism's intelligence is the richness of its processing space map. More receptors add dimensions to the processing space, revealing more structure about anything the organism encounters. The serialization thesis (T8-T11) describes one point in the processing space. This theory says understanding is the whole space.
+**T129. Algorithmic gradient: structural diff as the optimization direction.** The tree diff between two programs is a discrete analog of a gradient — it tells you what changed, where, and how. By recording (structural_change, metric_delta) pairs in the mental model, the organism builds an explicit, persistent, queryable record of how program-space changes affect survival metrics. This IS intuition: pattern-matching against a history of structural changes and their consequences. The organism generalizes across changes ("increasing radius at depth 2 hurts in predator situations"), develops second-order intuition ("changes in this region of program space reliably produce this kind of response"), and plans in program space and action space simultaneously through the same predict_delta mechanism. Metacognition with teeth — reflecting on the actual causal structure of how its own learning works.
+*Status: Proposed. The mental model stores (state, structural_change) → (metric_delta, certainty) using the same schema as (state, action) → (receptor_change, certainty). Same certainty mechanism, same curiosity, same conflation detection. Argued: theories.md.*
+
+**T128. Epistemic impermanence: the organism learns the rhythm of representational drift.** If visual feature representations shift periodically (freeze-unfreeze developmental cycles), the organism learns that its visual causal chains have a half-life. Curiosity begins firing BEFORE prediction accuracy drops — because the organism has learned from experience that what it currently sees reliably will eventually stop being reliable. This is a meta-receptor: not detecting drift directly, but learning the temporal pattern of drift from survival experience. Biological visual systems have critical periods for the same reason — stability windows exist so downstream learning can consolidate before the next representational shift. The organism holds its visual knowledge with appropriate uncertainty not because it was told to, but because it experienced drift cycles.
+*Status: Proposed. Testable via freeze-unfreeze protocol on visual trunk. Prediction: after K cycles, curiosity fires anticipatorily before trunk unfreezes. Argued: theories.md.*
+
+*Status: Foundation. EMPIRICALLY CONFIRMED: (1) Voice differentiation through E-profiles (mother vs father diff=0.459, P8 frequency|diff differentiates most). (2) Cartography experiment: evolved processing orders beat fixed in all 3 environments (predator +913, food_color +1041, social_voice +1019). Social correctly selected phase_first. (3) Staged pipeline evolution: evolved removal weights beat fixed (predator +241, social +439). Different environments evolve different removal strategies. (4) Geometry > prediction: eigen-only (3,339) beats eigen+model (3,236), mapping store redundant. Unifies T8-T11, T122, T125, T126. Provides the mechanism that makes FEP's objective achievable without local minima traps. Argued: docs/cartographical_theory.md.*
+
+---
+
+## XXXIII. The Novel Synthesis Claim
 
 **T63. No existing research program unifies grounded cognition, active inference, and evolutionary receptor topology into a single generative mechanism.** ABI is a novel synthesis across Barsalou, Friston, Gibson, and developmental/evolutionary perspectives.
 *Status: Proposed. Argued: whitepaper Section 10.*
@@ -471,15 +527,16 @@ Evidence status key:
 
 | Status | Count |
 |---|---|
-| Proposed | 74 |
+| Foundation | 3 |
+| Proposed | 87 |
 | Partially tested | 14 |
 | Supported | 21 |
 | Inconclusive | 1 |
 | Revised | 1 |
 | Falsified | 1 |
-| **Total** | **112** |
+| **Total** | **128** |
 
-Fifteen claims have direct experimental support from ERTI: T27-T31 (evolutionary dynamics), T57 (annealing), T82 (heritable evaluation), T94 (convergence result), T95 (trunk/canopy), T96 (contextual signal interpretation), T97-T98 (anxiety loop architecture and shortcut break), T100 (motor store non-heritability), T104 (metabolic knapsack), T107 (teaching as receptor induction). T26 revised after decomposition. T55 directionally falsified. The Procedural Memory section (T97-T101) demonstrates the first architectural break of the anxiety loop. The Umwelt section (T102-T103) frames the live receptor wiring as topological refinement. The Metabolic Knapsack section (T104-T105) explains the k_t oscillation. The Language section (T106-T109) formalizes endogenous fitness, conflation as vocabulary engine, and specialization under finite acquisition time. The Temporal Depth result (T110) links layer structure to memory structure. The Mapping Project section (T111-T113) addresses the reflexive term, symmetry breaking, and the mathematics/ideology duality.
+Fifteen claims have direct experimental support from ERTI: T27-T31 (evolutionary dynamics), T57 (annealing), T82 (heritable evaluation), T94 (convergence result), T95 (trunk/canopy), T96 (contextual signal interpretation), T97-T98 (anxiety loop architecture and shortcut break), T100 (motor store non-heritability), T104 (metabolic knapsack), T107 (teaching as receptor induction). T26 revised after decomposition. T55 directionally falsified. T116 revised: attention = which colors resolve conflations, confirmed by IC-1 (cap_73 broke loop later than cap_10). Three foundation theories: T114 (theory generation through receptor topology), T126 (concepts as environmental structure), T127 (Cartographical Theory — empirically confirmed). The Infinite Color section (T114-T124) unifies theory generation, attention, language, and visual/auditory processing. The Automatic Receptor Discovery section (T125) provides the mechanism for self-refining perception. The Cartographical Theory (T127) — confirmed by voice differentiation, cartography experiment (evolved > fixed in all 3 environments), staged pipeline evolution (different environments evolve different removal strategies), and geometry > prediction (eigen-only beats eigen+model). The no-transformer result (eigen coder surpassed transformer at 1.11 ratio) confirms the policy IS the mental model (T114). The geometry carries more signal than explicit prediction — the mapping store is redundant.
 
 ---
 
