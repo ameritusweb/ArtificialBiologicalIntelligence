@@ -91,7 +91,7 @@ The key principle: **capability without receptor is latent and never gets used.*
 
 **Probe-Gated Inheritance**: Topology bias is gated by a constitutional probe budget. The organism must actually probe and explore the environment to validate inherited priors — inheritance accelerates but doesn't bypass the need for grounded experience. The probe rate floor lives outside the genome and cannot be selected to zero.
 
-**Genome Project**: The formal specification of the receptor search space — 200 receptors across 23 families. The periodic table of cognitive capabilities. Each receptor entry specifies what environmental structure it detects, what survival cost the organism pays for missing it, and what must already exist before it can emerge. The genome project is load-bearing on environmental design: the 200 receptors are 200 environmental design requirements.
+**Genome Project**: The formal specification of the receptor search space — 227 receptors across 24 families (including proprioception). The periodic table of cognitive capabilities. Each receptor entry specifies what environmental structure it detects, what survival cost the organism pays for missing it, and what must already exist before it can emerge. The genome project is the seed, not the ceiling — automatic receptor discovery (T125) finds new receptors beyond the genome through conflation-driven tree ensembles.
 
 **Invariant Trunk**: The set of receptors that emerge in every environment regardless of tier or complexity. 18 receptors are invariant across all 8 physics-world tiers — these are the strongest candidates for universal cognitive primitives.
 
@@ -102,6 +102,12 @@ The key principle: **capability without receptor is latent and never gets used.*
 **Per-Receptor Pipeline Architecture**: Every receptor family has its own evolved temporal decomposition strategy, optimized for the prediction structure of its specific domain. Pain processes coarse-to-fine-to-contextual; curiosity processes novelty-to-relevance-to-strategy.
 
 **Annealing Discovery (T57)**: The framework's first structural self-discovery. Releasing certainty on conflict entries (annealing) produces more genuine conflict resolutions than protecting them (shielding). Conflict resolution works by releasing commitment, not by protecting it. Supported across 6 seeds, pre-registered as rival to T55 (which was directionally falsified).
+
+**The Cartographical Theory (T127)**: Understanding is mapping the space of possible processing orders. The organism discovers the structure of any input — sound, light, touch — by exploring different ways of processing it and recording which processing choices produce which prediction profiles. The map of the processing space IS the understanding. Different environments select for different maps. Cartography solves FEP's local minima problem: the organism avoids getting trapped by mapping the global landscape instead of following local gradients. Empirically confirmed across voice differentiation, visual classification, and three survival environments.
+
+**Theory Generation Through Receptor Topology (T114)**: Theories are common patterns in the causal mental model that survive across contexts. A confirmed theory IS a receptor — promoted into the observation vector because it reliably predicts. Theory generation and testing are not separate subsystems — they are what receptor topology intelligence does naturally. The policy IS the mental model. The no-transformer organism confirmed this: 0.93-1.11x of transformer fitness with no trained policy, just causal patterns from experience.
+
+**Unified Wave Processing**: Sound and light are both waves. One STFT pipeline processes all modalities — amplitude, frequency, phase decomposition applied identically to audio (2 receptor points), visual (64 spatial points), and touch (6 limb points). The organism discovers modality-specific structure from the signal's own properties, not from designed feature extractors.
 
 ---
 
@@ -181,7 +187,7 @@ A 6-limbed organism in a 2D liquid environment learns to navigate pain/endorphin
 - **Cross-modal objects** — sources with correlated pain + temperature + chemical signatures
 - **Territorial environment** — ownership boundary receptor with unattributable delayed penalties
 
-### The Genome Project (23 families + deep canopy, 214 receptors)
+### The Genome Project (24 families + deep canopy, 227 receptors)
 A formal specification of the receptor search space — the periodic table of cognitive capabilities:
 
 | Family | Receptors | From -> To |
@@ -208,6 +214,7 @@ A formal specification of the receptor search space — the periodic table of co
 | Logic | 6 | Semantic relations -> transitivity -> conjunction -> quantifier -> contradiction -> it_follows |
 | Language | 3 | Naming -> self-talk -> referential grounding |
 | Bridging | 4 | Mimicry -> trust -> executability -> translation |
+| Proprioception | 13 | Joint limit -> movement onset -> contact -> resistance -> velocity -> effort -> coordination -> body boundary -> postural state -> movement anticipation -> haptic recognition |
 | Procedural Memory | 4 | Replay -> peak experience -> shortcut activation -> muscle memory |
 | Deep Canopy (L3) | 8 | Meta-analogy, strategic deception, institutional design, recursive planning, epistemic humility, norm internalization, causal model revision, tool chain |
 | Deep Canopy (L4) | 4 | Paradigm detection, recursive self-modification, cooperative institution, abstract tool design |
@@ -240,15 +247,29 @@ A formal specification of the receptor search space — the periodic table of co
 - **Anxiety loop (T21)**: pain<->conflict bidirectional cascade present in 10/10 generations under control conditions (340-dim, 1000 steps/episode). Motor store shortcuts broke it mechanistically at gen 7-8 (96% coverage, fuel starvation) but it returned at gen 9 (population turnover). Full Umwelt (340-dim obs with all 200 receptors live) broke it **cognitively** at gen 3 (1.8% shortcut coverage, 98% of steps still ran MCTS) and **permanently** — 67 consecutive loop-free generations from gen 13 to gen 79. The topology was too coarse at 177 dims to separate "pain + conflict" from "pain + conflict + cascade." At 340 dims, those became distinct states in the quotient space. The break is permanent because the topology is heritable but the motor store isn't (T102-T103 confirmed).
 - **281 unique thought types**: co-activation codebook of 256 patterns fills across 10 generations; distinct cognitive modes emerge and persist across evolutionary selection.
 - **contextual_signal_interpretation**: learned in-lifetime, preserved by evolution. Not genetically evolved — the first receptor confirmed as epigenetically transmitted (T96).
+- **Eigen coder surpassed transformer (1.11x)**: Replacing the 256-entry codebook (thought_type_id) with a 5-bit eigenvalue-based structural fingerprint, the no-transformer organism achieved 1.11x the transformer's fitness — the first time the organism beat supervised learning using only its mental model + MCTS. The geometry of the activation pattern carries more signal than explicit causal predictions.
+- **Geometry > prediction**: Eigen-only (3,339 fitness) beats eigen+model (3,236). The mapping store is redundant — the structural geometry of receptor activations carries the prediction. The organism navigates by reading the terrain, not consulting a database.
+- **No-transformer organism**: At 120 generations with incremental mental model (frozen encoder) and confidence-based action selection, achieves 0.93x transformer fitness at gen 70-79 and still improving. The policy IS the mental model (T114 confirmed).
+- **Receptor count doesn't matter (IC-1)**: cap_73 broke the anxiety loop LATER than cap_10 (13/20 vs 8/20 loop gens). It's which receptors resolve which conflations, not how many. T116 revised.
+- **More MCTS = more loops (IC-2)**: 4 sims: 8/20 loop gens. 64 sims: 17/20 loop gens. Deeper search finds the pain-conflict pattern more reliably and confirms it more thoroughly.
+- **Anxiety loop transition is a phase transition**: P->C lift goes from 2-8 to 0.0 in one generation. No gradual resolution. Motor store shortcut coverage crossing ~4000 triggers the split. The loop is a local minimum that dissolves when the organism stops reinforcing it.
+- **Cartographical Theory confirmed (T127)**: Evolved processing orders beat fixed in all 3 test environments (predator +913, food_color +1041, social_voice +1019). Social correctly selected phase_first processing. Staged pipeline evolution: different environments evolve different removal strategies (predator→low-frequency, social→high+low).
+- **Unified wave processor**: One STFT→patches→flow pipeline processes audio, visual, and touch. Same architecture for all modalities. The organism doesn't know which is "sound" and which is "light" — modality-specific structure emerges from the signal's own properties.
+- **Voice differentiation through processing space**: Mother vs father voices differentiated (diff=0.459) through E-profile comparison. Program P8 (frequency|diff→frequency) differentiates most — the father's pitch changes are more self-predictable than the mother's.
+- **FlatE visual benchmark**: FlatE (iprocess step 55 architecture) achieves 0.740 on 20-class animal classification. FlatE+ERTI with MCTS how-space achieves top-2=0.729, approaching FlatE's top-1. Per-class MCTS trees accumulate processing-space knowledge across training.
 
 ### Theories Index
 
-93 formal theoretical claims indexed in `theories.md`:
-- 9 supported by experimental evidence
-- 11 partially tested
-- 1 revised after controlled decomposition
+126 formal theoretical claims indexed in `theories.md`:
+- 3 foundation (T114: theory generation through receptor topology; T126: concepts as environmental structure; T127: Cartographical Theory)
+- 21 supported by experimental evidence
+- 14 partially tested
+- 1 inconclusive
+- 1 revised (T116: attention = which colors resolve conflations, not receptor count)
 - 1 directionally falsified (T55, replaced by T57 annealing)
-- 71 proposed with falsification criteria
+- 85 proposed with falsification criteria
+
+Key additions (T114-T127): infinite color theory, theory generation as natural consequence of receptor topology, language as protocol pattern discovery, Euler-based flow matching for visual/auditory processing, automatic receptor discovery via conflation-driven decision ensembles (T125), concepts as environmental structure made visible through receptors (T126), and the Cartographical Theory — understanding is mapping the space of possible processing orders; the organism discovers structure by exploring which processing choices produce which prediction profiles (T127, empirically confirmed).
 
 ---
 
@@ -310,6 +331,20 @@ python cross_env_transfer.py       # Cross-environment transfer experiment
 python order_swap_experiment.py    # Explore-first vs accuracy-first ordering
 python prerequisite_knockout.py    # Prerequisite knockout experiment
 python elicitation_necessity.py    # Targeted elicitation for specific receptors
+python no_transformer_test.py     # No-transformer feasibility (mental model as policy)
+python ic1_receptor_count_sweep.py # IC-1: receptor count vs performance
+python ic2_mcts_theory_rate.py    # IC-2: MCTS simulation count vs loops
+python geometry_vs_prediction_test.py  # Eigen-only vs model: geometry carries prediction
+python cartography_experiment.py  # T127: evolved processing orders vs fixed
+python staged_evolution_experiment.py  # Staged pipeline with heritable removal weights
+python erti_visual_benchmark.py   # FlatE + ERTI vs CNN on 20-class animals
+```
+
+### Wave processing (unified audio/visual/touch)
+```bash
+python test_wave_integration.py   # Unified wave processor with all modalities
+python test_staged_differentiation.py  # Voice/sound/visual differentiation via staged pipeline
+python test_receptor_tree.py      # Automatic receptor discovery via GBM
 ```
 
 ### Scale testing
@@ -322,30 +357,50 @@ python scaling.py              # Limb count, segments, 3D, diversity, generation
 ## Architecture
 
 ```
-340-dim observation vector --> HierarchicalPolicy --> 22-bit action vector
+400-dim observation vector --> HierarchicalPolicy --> 22-bit action vector
            |                        |
      ThinkingTree             +-----+-----+
      (MCTS 24 sims)           |     |     |
      6 receptor channels  FastPath SlowPath Router
-           |              (reflex) (transformer)
-     CognitiveState           |     |     |
-     (256 codebook)    -> ArbitrationHead <-+
-     2 receptor channels (5 group weights)
+           |              (reflex) (transformer*)
+     EigenCoder               |     |     |
+     (5-bit structural   -> ArbitrationHead <-+
+      fingerprint)       (5 group weights)
            |                      |
      MotorSequenceStore     Blended output
      (shortcuts bypass          |
       MCTS when confident) +---------+---------+
-                           |         |         |
-                     18 muscle  4 emission  Mental Model
-                     (6x3)     (signals)   (26K+ mappings)
+           |               |         |         |
+     ConflationCollector  18 muscle  4 emission  Mental Model
+     (GBM discovers     (6x3)     (signals)   (26K+ mappings)
+      new receptors)         |
+           |          WaveProcessor
+     MCTS HowSpace    (unified audio/visual/touch
+     (explores         STFT pipeline — same
+      processing       architecture for all
+      programs on      modalities)
+      wave-encoded
+      sensory data)
+
+* Transformer is optional. The no-transformer organism (mental model +
+  MCTS + eigen coder) achieves 0.93x of transformer fitness and surpasses
+  it at 1.11x with the eigen coder. The policy IS the mental model.
 ```
 
-### Observation Vector (340 dims)
+### Observation Vector (400 dims)
 **Base sensory + computed (177):** Pain(6), endorphin(6), temperature(6), chemical(6), pressure(6), fatigue(6), energy(1), temporal aversion(6), receptor gain(6), pain memory(25), distance sensing(16), prediction error(6), mental model features(4), pattern features(2), kinematics(2), limb deviations(6), efference copy(22), agency(3), object proximity(3), object responding(3), NPC obs(12), optimism(2), conflict(3), concepts(2), grip state(6), physics(3), thinking channels(6), cognitive state(2)
 
-**Live receptors (73, per-step):** causal_inference, counterfactual_reasoning, multiple_hypotheses, intervention_planning, self_model, context_conditioned_arbitration, regret, multiple_receptor_types, metacognition, stress_detection, receptor_propagation, emotional_intelligence, pattern_recognition, compression_gain, concept_formation, concept_grounding, chunking, compression_receptor, mental_model_confidence, prediction_accuracy, pipeline_detection, prediction_architecture_awareness, staged_processing, prediction_branching, processing_speed, adaptive_depth, belief_detection, doubt_detection, counterfactual_salience, ratio_detection, proof_structure, necessity_detection, formal_composition, part_whole_detection, organizational_mirror, grip_affordance, semantic_relation, static_repetition, rhythm, rhythmic_pattern, nested_rhythm, causal_rhythm, basic_sensorimotor_loop, coincidence_detection, precedence_detection, probabilistic_causation, causal_graph_reasoning, agency_salience, curiosity, rhythm_entrainment, self_soothing, social_coregulation, self_model_applied_to_others, categorical_compression, completion, change_detection, absence_observation, comparative_observation, boundary_detection, exception_detection, rule_extraction, rule_revision, exhaustive_search, org_boundary_detection, capability_change_detection, developmental_trajectory, lever_affordance, contact_response, push_affordance, environmental_trend_detection, cross_pipeline_prediction, epistemic_strategy, transitivity
+**Live receptors (86, per-step):** *73 original:* causal_inference, counterfactual_reasoning, multiple_hypotheses, intervention_planning, self_model, context_conditioned_arbitration, regret, multiple_receptor_types, metacognition, stress_detection, receptor_propagation, emotional_intelligence, pattern_recognition, compression_gain, concept_formation, concept_grounding, chunking, compression_receptor, mental_model_confidence, prediction_accuracy, pipeline_detection, prediction_architecture_awareness, staged_processing, prediction_branching, processing_speed, adaptive_depth, belief_detection, doubt_detection, counterfactual_salience, ratio_detection, proof_structure, necessity_detection, formal_composition, part_whole_detection, organizational_mirror, grip_affordance, semantic_relation, static_repetition, rhythm, rhythmic_pattern, nested_rhythm, causal_rhythm, basic_sensorimotor_loop, coincidence_detection, precedence_detection, probabilistic_causation, causal_graph_reasoning, agency_salience, curiosity, rhythm_entrainment, self_soothing, social_coregulation, self_model_applied_to_others, categorical_compression, completion, change_detection, absence_observation, comparative_observation, boundary_detection, exception_detection, rule_extraction, rule_revision, exhaustive_search, org_boundary_detection, capability_change_detection, developmental_trajectory, lever_affordance, contact_response, push_affordance, environmental_trend_detection, cross_pipeline_prediction, epistemic_strategy, transitivity. *13 proprioception:* joint_limit, movement_onset, contact, resistance, grip_state_proprio, velocity, effort, postural_change, coordination, body_boundary, postural_state, movement_anticipation, haptic_recognition
 
 **Episode receptors (90, per-episode):** dynamic_repetition, cross_modal_association, abstract_association, relational_analogy, multiple_sensor_modalities, perceptual_similarity, functional_similarity, categorical_perception, analogical_similarity, structural_similarity, structural_invariance, prototype_formation, causal_association, common_cause_detection, hidden_confounder_detection, causal_chains, tool_use, environmental_manipulation, distributed_agency, niche_construction, long_range_causation, attention_control, self_regulation, prediction_accuracy, value_hierarchy, long_term_planning, arousal_regulation, ritual_formation, pattern_based_resolution, other_detection, behavioral_prediction, theory_of_mind, perspective_taking, intention_recognition, belief_attribution, social_learning, cultural_transmission, deception_detection, nested_theory_of_mind, spatial_reasoning, bias_as_compression, analogy, analogy_receptor, language_grounding, simplified_shared_signals, hierarchical_abstraction, constraint_shape, shaped_absence, missing_piece_located, relational_observation, selective_observation, cross_modal_observation, meta_observation, rule_generalization, rule_composition, optimization, theory_formation, structural_invariance_math, functional_organization, hierarchical_structure_detection, relational_structure_detection, system_detection, growth_tracking, identity_continuity, metamorphic_planning, response_recognition, affordance_transfer, composite_affordance, proprioception, environmental_modification, environmental_change_detection, modification_attribution, deliberate_complexification, developmental_environment_engineering, pipeline_optimization, response_loop_detection, conflation, fundamental_distinction, conjunction, quantifier, contradiction, it_follows, naming, self_talk, referential_grounding, mimicry, trust, executability, translation, ownership_boundary
+
+**Discovered receptor slots (20, auto-populated):** Reserved for receptors discovered automatically via conflation-driven GBM (T125). When the organism treats two situations as the same color but gets different outcomes, a tree ensemble finds the continuous receptor value boundary that separates them. That boundary becomes a new receptor. Slots fill over generations as the organism discovers its own perception.
+
+**Audio wave channels (12):** MCTS how-space profile or staged pipeline scores from audio input processed through the unified wave processor (STFT → mel patches → prediction effectiveness measurement).
+
+**Visual wave channels (12):** FlatE E-profile features or MCTS how-space profile from visual input. FlatE: 4-layer CNN trunk → 8 sigmoid maps → DiffEProfile (ridge R²) + BandedCoherence (spectral coherence) = 168-dim E-profile, compressed to 12 channels.
+
+**Crossmodal channels (3):** Temporal coupling, asymmetry, and independence between audio and visual modalities.
 
 ### Staged Processing Pipeline
 ```
