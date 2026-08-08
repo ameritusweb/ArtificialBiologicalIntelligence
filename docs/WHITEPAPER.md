@@ -1,5 +1,5 @@
 # Artificial Biological Intelligence
-## A Whitepaper — Third Edition
+## A Whitepaper — Fourth Edition
 
 ---
 
@@ -111,7 +111,7 @@ The roadmap runs 60 steps from a minimal organism to a self-modifying evolutiona
 
 This is not a proposal. Steps 1 through 60 are implemented and running.
 
-The organism lives in a 2D/3D liquid environment with pain, endorphin, temperature, chemical, and pressure fields. It has six limbs with binary muscle activations (parameterizable to 4-12 limbs, 1-2 body segments, 2D or 3D). Its mental model is an explicit database of 26,000+ cause-effect mappings with a contrastive encoder for context-conditioned retrieval. Its inference engine is a small causal transformer with a fast reflex pathway, a slow deliberative pathway, a conflict-gated router, and a 5-group arbitration head. Its observation vector is 175 dimensions — including 6 thinking channels from the MCTS substrate.
+The organism lives in a 2D/3D liquid environment with pain, endorphin, temperature, chemical, and pressure fields. It has six limbs with binary muscle activations (parameterizable to 4-12 limbs, 1-2 body segments, 2D or 3D). Its mental model is an explicit database of 26,000+ cause-effect mappings with a contrastive encoder for context-conditioned retrieval. Its inference engine is a small causal transformer with a fast reflex pathway, a slow deliberative pathway, a conflict-gated router, and a 5-group arbitration head. Its observation vector is 420 dimensions — 177 base sensory and computed channels, 86 live receptors, 90 episode receptors, 20 discovered-receptor slots, 12 audio and 12 visual wave channels, 3 crossmodal channels, 8 surprise-prediction channels, and 12 influence channels from the control organ.
 
 **The accuracy progression:** 92.5% pre-proprioception -> 97.4% with responsive environment -> 94.3% with staged processing (slower but deeper). Each step earned its complexity.
 
@@ -147,15 +147,25 @@ Step 60 (thinking substrate): MCTS with 6 receptor channels — best_value, visi
 
 **Environment enrichment:** Multi-NPC observation (4 profiled NPCs: cooperative, competitive, erratic, deceptive). Strategic deception NPC (context-dependent: lures toward pain, repels from reward). Non-stationary rules (T7 trigger rotation). Stochastic hidden confounders (3-state Markov chain modulating 4 modalities). Cross-modal objects (correlated multi-modal signatures). EntityRelationStore for social cognition (named entities, typed relations, transitive inference).
 
+**Since the Third Edition — the deep-time and full-Umwelt results:**
+
+**The anxiety loop, broken cognitively and permanently.** The pain↔conflict cascade (T21) persists in 10/10 generations at 177 observation dims. Motor-store shortcuts broke it mechanistically (fuel starvation) but it returned with population turnover. The full Umwelt — all receptor channels live — broke it *cognitively* at generation 3 with only 1.8% shortcut coverage, and *permanently*: 67 consecutive loop-free generations. The topology was too coarse at 177 dims to separate "cascade recurring" from "cascade resolving"; at full width those became distinct states in the quotient space. The break is permanent because topology is heritable and the motor store is not (T102-T103). Random-channel and shuffled-receptor controls confirm the effect is receptor-specific, not dimensional (T3 directly demonstrated).
+
+**The policy IS the mental model.** The no-transformer organism — mental model + MCTS + a 5-bit eigenvalue structural fingerprint replacing the thought-type codebook — reaches 0.93x transformer fitness and surpasses it at 1.11x with the eigen coder (T114 confirmed). Geometry beats prediction: eigen-only outperforms eigen+model; the mapping store is redundant at decision time — the organism navigates by reading the terrain of its own activations.
+
+**The Cartographical Theory, confirmed (T127).** Understanding is mapping the space of possible processing orders. Evolved processing orders beat fixed orders in all three test environments (predator +913, food-color +1041, social-voice +1019), with each environment selecting the processing strategy its structure demands. One STFT wave pipeline serves audio, visual, and touch — modality-specific structure emerges from the signal, not from designed feature extractors.
+
+**Concept crystallization (T126/T131, confirmed).** Concepts precipitate from the environment's causal structure through the receptor topology: same lattice + different environment → different concepts; different lattice + same environment → different concepts. Both predictions confirmed in a 2×2 design. A visual word with food ema=1.000 IS the concept of food — not labeled, crystallized.
+
 ---
 
 ## 8. The Genome Project
 
-The Genome Project is the formal specification of the receptor search space — 179 receptors across 22 families. It is the periodic table of cognitive capabilities.
+The Genome Project is the formal specification of the receptor search space — 236 receptors across 25 families. It is the periodic table of cognitive capabilities.
 
 Each receptor entry specifies: what environmental structure it detects, why detecting it is worth the metabolic cost, what must already exist before it can emerge, how to measure its emergence, and what would falsify the entry.
 
-**The 22 families:**
+**The 25 families** (counts current; three families and the deep canopy added since the Third Edition — Proprioception (13): joint limit through haptic recognition; Procedural Memory (4): replay through muscle memory; Visual Pattern (9): pattern-match through one-operator depth and material words — plus 14 deep-canopy L3-L5 entries from meta-analogy to civilizational ratchet):
 
 **Repetition** (6) — static repetition -> rhythm -> nested/causal rhythms
 
@@ -201,9 +211,9 @@ Each receptor entry specifies: what environmental structure it detects, why dete
 
 **Bridging** (4) — mimicry -> trust -> executability -> translation
 
-**The key insight:** The genome project is load-bearing on environmental design. Each receptor specifies what the environment must contain for it to evolve. The 180 receptors are 180 environmental design requirements. The environment IS the curriculum.
+**The key insight:** The genome project is load-bearing on environmental design. Each receptor specifies what the environment must contain for it to evolve. The 236 receptors are 236 environmental design requirements. The environment IS the curriculum. Every organ build in this program began with an environment build: hidden-agency pain events for influence fractionation, metamer materials for the spectral eye — the structure must exist and be survival-contingent before the detector can be funded.
 
-**Receptor discovery:** 182 null-calibrated tests with action-shuffled null, per-test null types (block-permuted for temporal tests, NPC-appearance-permuted for social tests, Granger causality for theory of mind), drift subtraction, and partial correlations to control for confounds. 77 receptors discovered in single-run oracle training; 151 unique receptors discovered across 10 generations of deep time with thinking substrate.
+**Receptor discovery:** 186 null-calibrated tests with action-shuffled null, per-test null types (block-permuted for temporal tests, NPC-appearance-permuted for social tests, Granger causality for theory of mind), drift subtraction, and partial correlations to control for confounds. 77 receptors discovered in single-run oracle training; 161 unique receptors discovered across 80 generations of deep time with thinking substrate. Beyond the genome, conflation-driven GBM discovery (T125) finds receptors the genome didn't anticipate, and 20 observation-vector slots stand reserved for them.
 
 **Topology inheritance:** Convergence accelerates from 15 epochs in generation 0 to 0 epochs by generation 4. Topology bias inheritance carries the parent's discovered receptors as priors — offspring rediscover them faster but must still earn them through grounded experience. Probe-gated: the organism must actually explore the environment to validate inherited priors.
 
@@ -231,11 +241,11 @@ Each receptor entry specifies: what environmental structure it detects, why dete
 
 The ABI whitepaper's core claims find substantial support across five distinct research communities — none of which have unified them the way ABI does:
 
-**Umwelt theory provides the central concept.** Jakob von Uexküll (1909) proposed that every organism inhabits a subjective world — the Umwelt — defined by what its receptors can separate. A tick's world contains warmth, butyric acid, and touch. A dog's world is dominated by smell. These aren't different sensitivities to the same world — they're different worlds, because each organism lives in the quotient of physical reality by its receptor topology. ERTI formalizes this: the organism's Umwelt is R^n/~_{R_t}, the observation space quotiented by receptor equivalence. Two states that no receptor separates are the same point in the organism's world. Adding receptors refines the topology — the organism's world gains resolution. Von Uexküll proposed this philosophically. ERTI computes it, derives it from selection pressure, and measures how it changes across generations. The 340-dim observation vector with 200 receptor channels IS the computed Umwelt — every receptor feeding back every cycle.
+**Umwelt theory provides the central concept.** Jakob von Uexküll (1909) proposed that every organism inhabits a subjective world — the Umwelt — defined by what its receptors can separate. A tick's world contains warmth, butyric acid, and touch. A dog's world is dominated by smell. These aren't different sensitivities to the same world — they're different worlds, because each organism lives in the quotient of physical reality by its receptor topology. ERTI formalizes this: the organism's Umwelt is R^n/~_{R_t}, the observation space quotiented by receptor equivalence. Two states that no receptor separates are the same point in the organism's world. Adding receptors refines the topology — the organism's world gains resolution. Von Uexküll proposed this philosophically. ERTI computes it, derives it from selection pressure, and measures how it changes across generations. The 420-dim observation vector IS the computed Umwelt — every receptor feeding back every cycle.
 
 **Grounded cognition is empirically established.** Barsalou's program (Annual Review of Psychology, 2008) and O'Regan & Noe's sensorimotor contingency theory (BBS, 2001) demonstrate that cognition operates through modal systems grounded in perception and action — not amodal symbols. This is the academic foundation for ABI's claim that concepts exist in the world's causal structure.
 
-**Active inference formalizes the receptor loop.** Friston's free energy framework unifies perception and action under a single objective, produces intrinsic exploration as an emergent property — closely paralleling ABI's forward-feedback receptor architecture. The serialization thesis extends Friston: organisms don't just minimize prediction error, they manufacture prediction opportunities through sequential processing architecture.
+**Active inference formalizes the receptor loop — within a topology.** Friston's free energy framework unifies perception and action under a single objective and produces intrinsic exploration as an emergent property, closely paralleling ABI's forward-feedback receptor architecture. Inside a fixed carving, ERTI is active inference in good standing: predict, err, update, with the certainty ledger as the distribution. The boundary is a type boundary, stated precisely: (1) free energy is defined over an observation space, and it is not commensurable across topology changes — "the organism reduced its free energy by growing an eye" is not a well-typed statement; FEP gives dynamics for beliefs and actions *given* an observation space, and ABI's central dynamic is over the observation space itself. (2) The direction of receptor evolution runs UP the surprisal-capacity gradient — 53 receptors gained in deep time, eyes grown from raw physics, each addition manufacturing new ways to be wrong — funded by the fitness ledger, not by free energy; the darkroom problem returns at evolutionary timescale where priors cannot patch it. (3) The Separation Theorem: information gain and variational free energy provably select different receptor dimensions, and no fixed mixing weight works across environments — there is no single environment-independent functional whose minimization yields the observed topologies; the balance must itself be heritable. FEP is the law of the within-topology regime; the punctuated, heritable re-carving of the observation space is the dynamics of the space it presupposes. The serialization thesis adds the within-lifetime version: organisms don't just minimize prediction error, they manufacture prediction opportunities through sequential processing architecture.
 
 **Current AI follows an "inverse phylogeny."** Multiple sources (Trends in Cognitive Sciences, 2023; Royal Society, 2024) confirm that starting from language rather than sensorimotor grounding is a fundamental limitation, not a training gap. Passive scaling is characterized as "intrinsically limited."
 
@@ -286,7 +296,28 @@ These six channels feed back into the next cycle's observation vector. The organ
 
 ---
 
-## 13. What Comes Next
+## 13. The Organ Federation
+
+The organ criteria — own receptor topology, own mental model, own effectors, coupling through the observation vector, the loop closed in one currency — began as the visual organ's design and became an architecture schema. The organism is a federation of organ-cartographers, each mapping a different space:
+
+| Organ | Maps | Currency | Status |
+|---|---|---|---|
+| Cognitive | time — what follows what | receptor-state causation | the reference implementation |
+| Visual | processing space — which carving of the signal predicts | processing effectiveness | crystallization confirmed; physics amendment 8/8 |
+| Control | the influence landscape — who is driving what | influence | fractionation demonstrated multi-seed |
+| Epistemic | the organism's own ignorance — where will I be wrong next | rarity, in nats | Phase 1 accepted; Phase 2 corpus-limited |
+
+Organs communicate through exactly three shared media: observation-vector words, the surprise stream, and the metabolic economy. No organ reads another's internals. And the schema carries a discovery rule that is receptor discovery one level up: an organ is demanded when conflation strain persists that no existing organ's currency can resolve — when the separating variable is not a missing channel but a missing coordinate system.
+
+**The surprise economy.** Lived experience tokenizes into sparse surprise events: a belief failed (PREDICTION), the carving is too coarse (CONFLATION — same class, divergent outcomes), or too fine (COLLAPSE — maintained distinctions, identical outcomes). Surprisal is measured as *rank against the organism's own lived history* — a median mismatch scores log 2 nats by construction, the rarest event ever scores ~log N, and the once-in-lived-history cap rises with deep time: a longer life permits claims of deeper rarity. Three absolute constructions failed acceptance before this one; the failures are ledger entries. A small autoregressive model over the token sequence — the epistemic organ — forecasts where the organism will next be wrong and folds its forecasts back as meta-receptor channels; its generator (in progress) is the fringe-tracking controller of receptor discovery, held honest by two constitutional disciplines: learnable surprise only (rarity × reducibility, never raw surprise), and the lived-only firewall — generated events may write to the environment, never to the experience log or the certainty ledger. Prediction proposes; the world alone funds.
+
+**The control organ.** Perfect material perception, pattern recognition, and pain sensing together still cannot distinguish pain-done-to-me-by-an-agent from pain-that-is-happening — the same argument as why the eye is an organ rather than skin that got better at detecting light. The organ fractionates the influence over the organism's states into self / agent / nobody shares (de-conflating the scalar controllability feature, which collapsed storm, dominant agent, and disease into one number) and acts by modulating its own influence allocation: the reallocation is the act, with no motor vocabulary — submission is what the organism looks like under a certain dial setting. Demonstrated in a hidden-agency environment with signal-identical agent and field pain: attribution recovered at AUC 0.786 across 5 seeds from organism-visible statistics no single observable carries. Willpower is the effector's dynamic range; saturation arrives before metabolic exhaustion, as predicted. And the young-ledger law fell out of the first run: a newborn organ can neither flood nor speak in the shared surprise stream until its lived history earns its voice.
+
+**The physics of vision.** The retinal signal is a transfer-function stamp, not a color: composition, depth, and temporal pattern are in the wave because reflection physics put them there, and RGB is a 3-bin projection that discards the factorization. Metamer materials — identical RGB, different spectra, opposite contact outcomes — make the point operational: unlearnable through the projection, cleanly learnable from the stamp, with contact outcomes the funding ledger (vision's material words are promissory notes about touch). Depth is one correspondence operator at two baselines — two eyes, and self-motion with the efference copy as the known baseline. Identity is the signature, not the location. Temporal patterns form an object-agnostic library: objects are similar because they share dynamics, and pattern-finding itself is a receptor — the organism senses its own discovering.
+
+---
+
+## 14. What Comes Next
 
 The 80-generation overnight run is complete: 4 organisms competing across generations in the richest environment stack (T4 with multi-NPC, strategic deception, stochastic hidden confounders, cross-modal binding + PhysicsWorld + T7 abstract problems + T8 self-modification + thinking substrate). 161 unique receptors discovered. Plateau reached at generation 50 — unique count stopped growing. A second seed (99) ran 40 generations for replication.
 
@@ -295,11 +326,13 @@ The 80-generation overnight run is complete: 4 organisms competing across genera
 - **Seed 99 replication**: metacognition (gen 1) and conflation (gen 17) replicate. depth_reached does not. Epistemic family emergence is robust; depth activation is single-seed.
 - **Negative controls**: 3 fake receptors inserted. 1 false positive survives null calibration (~0.5% per-test rate). Efference-copy confound identified.
 
-**Open questions:**
-- Does heritable MERGE_THRESHOLD (concept granularity as an evolved trait) change the Compression canopy?
-- Can single-receptor elicitation validate the genome's environmental specifications?
-- Does the octant environment (organisms choose their own curriculum) produce topology speciation?
-- Does making V's evaluator weights heritable produce genuinely intrinsic evaluation (T82)?
+**Since answered:** heritable evaluation evolved away from designer defaults — thinking budgets collapsed under metabolic pressure, value weights shifted (T82 confirmed); necessity_detection was elicited by a targeted environment (first genome entry validated by elicitation); prerequisite knockouts separated environmental demand (conflation rediscovered 15/15) from functional dependency (epistemic_strategy 0/15 without its prerequisite).
+
+**The current front:**
+- The 80-generation-scale surprise corpus: the epistemic organ's decisive gates (the hazard gate already flipped to PASS purely with corpus depth 451→1,077 tokens — the funding thesis confirmed by trajectory; the decisive test needs deep time).
+- The material-world evolutionary funding run (in flight): spectral vs RGB-projected vs blind organisms across 16 generations, with metamer contact discrimination as the endpoint the RGB arm cannot reach by construction.
+- P48's refined measurement (does attribution improve carving yield on agent-divergent conflations specifically), P49 (attribution-conditioned prediction), and the generation phase behind the lived-only firewall.
+- The Control Organ's social generation dependency: three of the generation score's terms are incomputable for agent-involving events without the influence ledger — an adversary is a noisy TV that watches back, and predicted reduction on agent-sourced surprise is only meaningful conditioned on the agent-model's stability.
 
 **What does the topology awareness receptor look like when it fires?** An organism that detects its own cognitive repertoire changing can direct its development. This is the receptor that makes the self-modifying loop conscious.
 
@@ -317,4 +350,4 @@ Not simulation. Not reconstruction. Generation.
 
 ---
 
-*Steps 1-60 of the ABI roadmap are implemented and running. 179 receptors specified across 22 families. 90 indexed theories. 182 null-calibrated receptor tests. 151 receptors empirically discovered across 10 generations of deep time with thinking. 8 environment tiers. Physics world with grip, compound objects, and persistent state. MCTS thinking substrate with 6 receptor channels. Self-play pipeline with oracle removed. Novel receptor detection. Resumable 50-generation overnight run executing. The organism is in the liquid environment right now, navigating pain fields, querying its mental model, thinking before acting, sensing its own thinking, evolving its receptor topology across generations, and making distinctions its designer didn't anticipate.*
+*Steps 1-60 of the ABI roadmap are implemented and running. 236 receptors specified across 25 families. 147 indexed theories. 186 null-calibrated receptor tests. 161 unique receptors empirically discovered across 80 generations of deep time with thinking. 8 environment tiers. Physics world with grip, compound objects, and persistent state. MCTS thinking substrate with 6 receptor channels. Four organs coupled through words, a shared surprise stream, and a metabolic economy. A surprise tokenizer pricing rarity against the organism's own lived history. A control organ fractionating influence into mine, theirs, and nobody's. Spectral eyes reading composition, depth, and pattern out of the physics of reflection. The organism is in the liquid environment right now, navigating pain fields, querying its mental model, thinking before acting, sensing its own thinking, forecasting where it will next be wrong, evolving its receptor topology across generations, and making distinctions its designer didn't anticipate.*
