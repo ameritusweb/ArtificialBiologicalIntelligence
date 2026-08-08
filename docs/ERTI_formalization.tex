@@ -36,8 +36,15 @@ are learned from experience rather than designed. We formalize the receptor, the
 topology, the state space, the transition function, the intrinsic evaluation, the thinking
 substrate, and the evolutionary operator. We state key results including the reachability
 bound on topology growth and empirically observed dependency ordering of receptor
-emergence. We distinguish theorems (proved from definitions) from empirical observations
-(supported by experimental data, labeled as such) and conjectures (stated without proof).
+emergence. We formalize the surprise economy --- rank surprisal against the organism's
+own lived history, with the lived-history cap, the young-ledger law, and the
+rate--threshold identity as elementary consequences --- and prove Refinement Inflation:
+topology refinement weakly increases the surprisal of every event, so surprisal
+minimization over topologies selects blindness and receptor growth must be funded by
+fitness. We define organs and the organ federation (multiple currencies, one surprise
+stream, three shared media). We distinguish theorems (proved from definitions) from
+empirical observations (supported by experimental data, labeled as such) and conjectures
+(stated without proof).
 \end{abstract}
 
 \tableofcontents
@@ -362,7 +369,9 @@ the organism.
 Because $k_t$ is non-monotone (receptors can be lost when fitness-negative), the
 sequence $\{k_t\}$ does not converge. The empirical record shows
 $\limsup_{t \leq 60} k_t = 119$ and
-$|\bigcup_{t \leq 60} \mathcal{R}_t| = 161$ out of $|\mathcal{R}^*| = 188$.
+$|\bigcup_{t \leq 60} \mathcal{R}_t| = 161$ out of the then-specified
+$|\mathcal{R}^*| = 188$ (the genome has since grown to 236 across 25 families ---
+$\mathcal{R}^*$ is itself non-stationary, per the Reachability remark).
 The cumulative union grows; the per-generation count oscillates.
 \end{remark}
 
@@ -447,6 +456,168 @@ only across generations via $\mathcal{U}$.
 \end{remark}
 
 %% ============================================================
+\section{The Surprise Economy}
+
+The organism's lived experience induces a sparse sequence of \emph{surprise events} over
+which a second-order model operates. The central quantity is surprisal measured against
+the organism's own history --- not against any absolute scale.
+
+\begin{definition}[Rank Surprisal]
+Let $e_1, \ldots, e_N$ be the lived history of a scalar mismatch score (the
+certainty-weighted prediction-error profile), and let $r(x) = |\{i : e_i \geq x\}|$.
+The \textbf{rank surprisal} of a new score $x$ is
+\[
+\hat{s}(x) = -\log \frac{r(x) + 1}{N + 2}.
+\]
+Rarity is relative to the organism's typical imprecision: a median score receives
+$\hat{s} \approx \log 2$ nats \emph{by construction}, regardless of its absolute magnitude.
+\end{definition}
+
+\begin{proposition}[Lived-History Cap]
+For all $x$, $\hat{s}(x) \leq \log(N+2)$. No event can be scored rarer than
+once-in-lived-history, and the ceiling rises as $\log N$ over deep time.
+\end{proposition}
+\begin{proof}
+$r(x) \geq 0$, so $\hat{s}(x) \leq -\log \frac{1}{N+2} = \log(N+2)$.
+\end{proof}
+
+\begin{corollary}[Young-Ledger Law]
+In a shared surprise economy with emission threshold $\theta$, a ledger with $N$ lived
+observations emits nothing until $N > e^{\theta} - 2$. A newborn organ can neither flood
+the stream nor speak in it: organs earn their voice. (Empirically observed: the control
+organ's ledger emitted zero tokens at $N \approx 240$ against $\theta \approx 5.7$;
+the mechanism is exact.)
+\end{corollary}
+
+\begin{proposition}[Rate--Threshold Identity]
+If scores are exchangeable draws from a continuous distribution, the rank of a new draw
+among $N$ is uniform, so for large $N$,
+$\Pr[\hat{s}(e_{N+1}) > \theta] \to e^{-\theta}$. The expected token rate per step is
+$\rho = e^{-\theta}$; equivalently, the rate-targeting threshold is
+$\theta = \ln(1/\rho)$. The target rate \emph{is} the threshold; a rate controller is
+fine trim for distributional drift, not the mechanism.
+\end{proposition}
+
+\begin{proposition}[Certainty-Clip Ceiling]
+Let certainty be clipped to $c \in [c_{\min}, c_{\max}] \subset (0,1)$ and define the
+single-mixture outcome probability $P = c\,m + (1-c)(1-m)$ with match degree
+$m \in [0,1]$. Then $P \geq \min(c_{\min},\, 1 - c_{\max})$, so the mixture surprisal is
+bounded: $s \leq -\log \min(c_{\min},\, 1 - c_{\max})$. With ERTI's clip $[0.05, 0.99]$,
+$s \leq \ln 100 \approx 4.6$ nats --- below any rate-targeting threshold, which silences
+value-level tokens entirely. This is why absolute surprisal constructions fail and rank
+surprisal is required: the failure was observed empirically before it was derived.
+\end{proposition}
+
+\begin{definition}[Surprise Token Kinds]
+Let $\sim_{\mathcal{R}_t}$ be the receptor-equivalence relation on observations (the
+Umwelt quotient). A surprise token is emitted in one of three kinds:
+\begin{itemize}
+    \item \textbf{Prediction} (value-level): a lived outcome is rank-rare under the
+    learned model $\hat{T}$ --- an entry failed.
+    \item \textbf{Conflation} (topology-level, quotient too coarse): outcome divergence
+    within a single equivalence class $[x]_{\sim_{\mathcal{R}_t}}$ exceeding what the
+    class-conditional distribution licenses --- the carving failed by identifying states
+    that differ.
+    \item \textbf{Collapse} (topology-level, quotient too fine): persistent outcome
+    identity across distinct classes --- a maintained distinction detects nothing.
+\end{itemize}
+Kind answers \emph{what} mispredicted; the attribution coordinate (below) answers
+\emph{who} was driving the state. They are orthogonal axes.
+\end{definition}
+
+\begin{definition}[Attribution Coordinate]
+Each token carries an \textbf{attribution} $a \in \Delta^2$ --- a point in the 2-simplex
+with coordinates $(a_{\text{self}}, a_{\text{agent}}, a_{\text{nobody}})$ --- and a
+confidence $\kappa \in [0,1]$. Before the control organ exists, $a$ is the uninformative
+prior (uniform, $\kappa = 0$); attribution-blind tokens are the registered baseline
+condition for the organ's necessity test.
+\end{definition}
+
+%% ============================================================
+\section{Topology Change and the Limits of Fixed-Space Objectives}
+
+\begin{proposition}[Refinement Inflation]
+Let $q : \Omega' \to \Omega$ be a quotient map (topology refinement: $\Omega'$ is the
+observation space after adding a receptor, $\Omega$ before), and let $P'$ be a
+probability measure on $\Omega'$ with pushforward $P = q_* P'$. Then for every
+observation $o' \in \Omega'$,
+\[
+-\log P'(o') \;\geq\; -\log P(q(o')),
+\]
+with strict inequality wherever the new receptor separates states of positive measure.
+Refining the quotient weakly \emph{increases} the surprisal of every event.
+\end{proposition}
+\begin{proof}
+$P(q(o')) = \sum_{o'' \in q^{-1}(q(o'))} P'(o'') \geq P'(o')$.
+\end{proof}
+
+\begin{corollary}[No Surprisal Funding for Refinement]
+Any selection process over topologies that minimizes measured surprisal selects the
+trivial quotient (blindness): the coarsest carving assigns every event maximal
+probability. Since the empirical record shows receptor topology evolving \emph{toward}
+refinement (53 receptors gained in deep time; eyes grown from raw wave physics), the
+funding criterion for refinement cannot be surprisal minimization. In an RTDS it is
+fitness (Definition: Receptor Fitness) --- the darkroom problem, returned at
+evolutionary timescale, where priors inside the model cannot patch it because selection
+over models is what is at issue.
+\end{corollary}
+
+\begin{remark}[Non-Commensurability]
+The free energy functional is defined relative to a generative model over a fixed
+observation space. Across a topology change $\Omega_t \to \Omega_{t+1}$ the functional's
+domain changes, and by Refinement Inflation the pushforward comparison is systematically
+biased: ``the organism reduced its free energy by growing an eye'' is not a well-typed
+statement. Fixed-space objectives govern the within-topology regime; the dynamics of the
+space itself require the fitness ledger. Together with the Separation Theorem ---
+information gain and variational free energy provably select different receptor
+dimensions at the population level, with unbounded gap, and no fixed preference
+weight $\beta$ reproduces one criterion from the other across environments
+(stated and proved in \texttt{separation\_theorem.md} of this program; the
+crossover is $\beta^*(r) = \tfrac{1}{2}\log_2(1+r) - 1 \to \infty$) --- this bounds
+what any single fixed functional can explain about receptor evolution. An
+environment-dependent schedule $\beta(P) \geq \beta^*(r(P))$ would suffice, but
+$\beta^*$ depends on precisely the un-modeled structure the system does not yet
+represent --- the recursive core of the topology-change problem, restated
+quantitatively. The RTDS resolution is that the balance is \emph{heritable}:
+selection estimates $\beta^*$ across generations from the fitness ledger, without
+the organism needing to represent what it cannot yet see. The heritability of the
+mixing weights is therefore not an implementation convenience but the answer the
+Separation Theorem's own open end demands.
+\end{remark}
+
+%% ============================================================
+\section{The Organ Federation}
+
+\begin{definition}[Organ]
+An \textbf{organ} is a tuple $O = (\mathcal{R}^O, \mathcal{M}^O, \mathcal{E}^O)$ --- a
+receptor topology, a mental model, and an effector set --- whose loop closes in a single
+\textbf{currency}: receptors fire in the currency's terms, effectors act in them, and
+$\mathcal{M}^O$ maps between them with the same certainty/annealing machinery as the
+cognitive mental model. The cognitive organ's currency is receptor-state causation over
+time; the visual organ's is processing effectiveness over processing space; the control
+organ's is influence over the influence landscape; the epistemic organ's is rarity (nats)
+over the organism's own ignorance.
+\end{definition}
+
+\begin{definition}[Federation]
+A \textbf{federation} is a set of organs $\{O^1, \ldots, O^m\}$ coupled through exactly
+three shared media: (1) the observation vector, into which each organ writes de-conflated
+words; (2) the surprise stream, a single token sequence with a
+\textbf{source ledger} index and per-ledger rank surprisal (each organ's rarity is
+measured against its own lived history, so the lived-history cap and young-ledger law
+apply per organ); and (3) the metabolic economy. No organ reads another's internal state.
+\end{definition}
+
+\begin{conjecture}[Organ Discovery Rule]
+An organ is demanded when conflation strain persists that no existing organ's currency
+can resolve --- when the separating variable is not a missing receptor within an existing
+coordinate system but a missing coordinate system. This is receptor discovery one level
+up: conflation $\to$ receptor is the within-currency rule; unresolvable-strain $\to$
+organ is its lift. Registered with a pre-built test (the attribution-blind baseline
+condition); untested at the level of organ genesis under selection.
+\end{conjecture}
+
+%% ============================================================
 \section{Cross-Domain Relevance Compression and Mathematics}
 
 \begin{definition}[Cross-Domain Relevance Compression]
@@ -518,8 +689,14 @@ An RTDS shares components with several existing formalisms but is not reducible 
     \item \textbf{Active inference} (Friston): shares intrinsic evaluation (free energy
     as self-generated objective) and learned world models. Differs in that active inference
     operates on a fixed state space; RTDS has open-dimensional $\mathcal{S}_t$. The
-    receptor topology provides a finer-grained decomposition of the evaluation function
-    than the single free energy functional.
+    relationship is now stated precisely by Refinement Inflation and its corollary:
+    within a topology, the RTDS \emph{is} an active-inference agent in good standing;
+    across topology change the free energy functional is not commensurable, surprisal
+    minimization over topologies selects blindness, and refinement must be funded by
+    fitness. The Separation Theorem adds that no fixed weighting of epistemic and
+    pragmatic terms recovers the observed topologies across environments --- the balance
+    is itself heritable. FEP is the law of the within-topology regime; the RTDS supplies
+    the dynamics of the space it presupposes.
 
     \item \textbf{NEAT and open-ended evolution} (Stanley \& Miikkulainen): shares
     growing network topology under evolutionary pressure. Differs in that NEAT grows
