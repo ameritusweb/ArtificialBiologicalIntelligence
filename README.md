@@ -91,7 +91,7 @@ The key principle: **capability without receptor is latent and never gets used.*
 
 **Probe-Gated Inheritance**: Topology bias is gated by a constitutional probe budget. The organism must actually probe and explore the environment to validate inherited priors — inheritance accelerates but doesn't bypass the need for grounded experience. The probe rate floor lives outside the genome and cannot be selected to zero.
 
-**Genome Project**: The formal specification of the receptor search space — 227 receptors across 24 families (including proprioception). The periodic table of cognitive capabilities. Each receptor entry specifies what environmental structure it detects, what survival cost the organism pays for missing it, and what must already exist before it can emerge. The genome project is the seed, not the ceiling — automatic receptor discovery (T125) finds new receptors beyond the genome through conflation-driven tree ensembles.
+**Genome Project**: The formal specification of the receptor search space — 236 receptors across 25 families (including proprioception and the visual pattern family). The periodic table of cognitive capabilities. Each receptor entry specifies what environmental structure it detects, what survival cost the organism pays for missing it, and what must already exist before it can emerge. The genome project is the seed, not the ceiling — automatic receptor discovery (T125) finds new receptors beyond the genome through conflation-driven tree ensembles.
 
 **Invariant Trunk**: The set of receptors that emerge in every environment regardless of tier or complexity. 18 receptors are invariant across all 8 physics-world tiers — these are the strongest candidates for universal cognitive primitives.
 
@@ -187,7 +187,22 @@ A 6-limbed organism in a 2D liquid environment learns to navigate pain/endorphin
 - **Cross-modal objects** — sources with correlated pain + temperature + chemical signatures
 - **Territorial environment** — ownership boundary receptor with unattributable delayed penalties
 
-### The Genome Project (24 families + deep canopy, 227 receptors)
+### The Surprise Economy (NEXT_SURPRISE Phases 1-2)
+- **SurpriseTokenizer** — lived experience tokenizes into sparse surprise events at ~3.5/1000 steps: PREDICTION (a belief failed), CONFLATION (the carving is too coarse: same class, divergent outcomes), COLLAPSE (too fine: distinct classes, persistently identical outcomes). Surprisal is rank-rarity in nats against the organism's own lived history; the PI controller adapts only the threshold, never the magnitudes. **Phase 1 ACCEPTED** across 3 environments (stable rates, magnitudes commensurable at p50 ratio 1.06, collector conflations reconstructed, realized reduction +4.9 nats on revisit).
+- **NextSurpriseModel** — a small causal model over the token sequence (hazard, kind, family, magnitude, reduce, carve heads) with fold-back channels obs[400:408]. Phase 2 built and integrated; gates corpus-limited (hazard NLL flipped to PASS purely with corpus depth 451→1,077 tokens; decisive gating awaits the 80-generation-scale corpus).
+- Tokens carry an **attribution coordinate** and a **source ledger** (COGNITIVE | CONTROL | VISUAL) — one surprise stream, many organs.
+
+### The Control Organ
+- **InfluenceReceptorBank** — fractionation of the efference residual into self / agent / nobody shares by conditional statistics; 12 influence words at obs[408:420]. Validated in the hidden-agency environment (signal-identical agent/field pain pulses): agent attribution recovered at **AUC 0.786 across 5 seeds** from organism-visible data alone, beating every single-feature oracle bound.
+- **ControlOrganEngine** — a second mental model in influence currency (modulation delta → landscape delta, certainty; same annealing machinery) with capacity-bounded allocation effectors {monitor, contest, withdraw}. Monitoring = statistical precision; contest = thinking budget; saturation = willpower depletion before metabolic exhaustion (P5, observed). Allocation is metered — the cost flows into lived reward, so the organ learns its own economics.
+- The **young-ledger law** (T139): a newborn organ's ledger cannot exceed log N nats — organs earn their voice in the shared stream.
+
+### The Physics of Vision (visual physics amendment, 8/8 accepted)
+- **Material-stamped waves** — 8-band spectral materials with per-band reflectance, roughness-as-texture, view-dependent specularity, temporal behaviors (blink, band-shift, pulse), and metamer pairs: identical RGB projection, different spectra, opposite contact outcomes. "It's not RGB": spectral features separate metamers at 0.76-0.85 vs 0.58-0.65 through the projection, and predict contact outcomes at 0.86-0.92 while RGB sits at the majority baseline. The material-less falsifier holds.
+- **Ray-cast spectral eyes** — egocentric perspectival retinas at a fixed baseline; disparity is physically real. **One correspondence operator, two baselines**: stereo, and self-motion parallax with the efference copy as the known baseline (quality ordering confirmed: stereo 0.79 > parallax 0.34 > mono-static 0.32).
+- **Object-agnostic pattern library** — temporal signatures detached from their carriers; pattern-finding and pattern-matching are RECEPTORS (the organism senses itself discovering); objects are similar because they share dynamics. Supplies the object-detached signature capability the control organ's type-level threat models require.
+
+### The Genome Project (25 families + deep canopy, 236 receptors)
 A formal specification of the receptor search space — the periodic table of cognitive capabilities:
 
 | Family | Receptors | From -> To |
@@ -216,6 +231,7 @@ A formal specification of the receptor search space — the periodic table of co
 | Bridging | 4 | Mimicry -> trust -> executability -> translation |
 | Proprioception | 13 | Joint limit -> movement onset -> contact -> resistance -> velocity -> effort -> coordination -> body boundary -> postural state -> movement anticipation -> haptic recognition |
 | Procedural Memory | 4 | Replay -> peak experience -> shortcut activation -> muscle memory |
+| Visual Pattern | 9 | Pattern match -> novelty-as-receptor -> signature tracking -> one-operator depth -> material words -> shared dynamics |
 | Deep Canopy (L3) | 8 | Meta-analogy, strategic deception, institutional design, recursive planning, epistemic humility, norm internalization, causal model revision, tool chain |
 | Deep Canopy (L4) | 4 | Paradigm detection, recursive self-modification, cooperative institution, abstract tool design |
 | Deep Canopy (L5) | 2 | Formal self-theory, civilizational ratchet |
@@ -257,19 +273,31 @@ A formal specification of the receptor search space — the periodic table of co
 - **Unified wave processor**: One STFT→patches→flow pipeline processes audio, visual, and touch. Same architecture for all modalities. The organism doesn't know which is "sound" and which is "light" — modality-specific structure emerges from the signal's own properties.
 - **Voice differentiation through processing space**: Mother vs father voices differentiated (diff=0.459) through E-profile comparison. Program P8 (frequency|diff→frequency) differentiates most — the father's pitch changes are more self-predictable than the mother's.
 - **FlatE visual benchmark**: FlatE (iprocess step 55 architecture) achieves 0.740 on 20-class animal classification. FlatE+ERTI with MCTS how-space achieves top-2=0.729, approaching FlatE's top-1. Per-class MCTS trees accumulate processing-space knowledge across training.
+- **Rank-rarity is the only surviving surprisal construction (T138)**: three absolute constructions failed acceptance with identified mechanisms (certainty-clip ceiling, quality-vs-rarity saturation, unsupported parametric tails). Surprise = rank against the organism's own lived mismatch distribution; the lived-history cap and the threshold's meaning are intrinsic.
+- **The corpus-depth thesis, confirmed by trajectory**: the surprise-grammar hazard gate moved FAIL→PASS purely by growing the token corpus 451→1,077 — the predictor's claims are funded by lived depth, exactly as designed.
+- **Fractionation without ground truth**: the control organ recovers who-is-driving-this at AUC 0.786 (5 seeds) from conditional statistics no single observable carries — the organ criteria's "not derivable from other receptors" claim, demonstrated mechanically.
+- **Emergent posture**: under a striking NPC the allocation organ converged to full withdrawal, unscripted — retreat learned from lived reward through the control store. Hyperactive agency detection appeared in solitary settings exactly as P4 predicts.
+- **Metamers make the projection lethal**: materials with identical RGB and opposite outcomes are unlearnable through the projection (RGB = majority baseline) and cleanly learnable from the stamp — the operational content of "it's not RGB, it's much richer."
+- **Depth as one operator**: stereo and efference-baselined parallax are the same signature-correspondence computation; parallax required accumulated motion baselines and static world structure (rocks don't move — mobility is a material property), and the moving-object confound is itself a receptor opportunity.
 
 ### Theories Index
 
-126 formal theoretical claims indexed in `theories.md`:
-- 3 foundation (T114: theory generation through receptor topology; T126: concepts as environmental structure; T127: Cartographical Theory)
-- 21 supported by experimental evidence
-- 14 partially tested
+147 formal theoretical claims indexed in `theories.md`:
+- 4 foundation (T114: theory generation through receptor topology; T126: concepts as environmental structure; T127: Cartographical Theory; T133: receptor-environment-manifestation)
+- 28 supported by experimental evidence
+- 20 partially tested
 - 1 inconclusive
 - 1 revised (T116: attention = which colors resolve conflations, not receptor count)
 - 1 directionally falsified (T55, replaced by T57 annealing)
-- 85 proposed with falsification criteria
+- 92 proposed with falsification criteria
 
-Key additions (T114-T127): infinite color theory, theory generation as natural consequence of receptor topology, language as protocol pattern discovery, Euler-based flow matching for visual/auditory processing, automatic receptor discovery via conflation-driven decision ensembles (T125), concepts as environmental structure made visible through receptors (T126), and the Cartographical Theory — understanding is mapping the space of possible processing orders; the organism discovers structure by exploring which processing choices produce which prediction profiles (T127, empirically confirmed).
+Key additions (T114-T133): infinite color theory, theory generation as natural consequence of receptor topology, language as protocol pattern discovery, automatic receptor discovery via conflation-driven decision ensembles (T125), concepts as environmental structure made visible through receptors (T126), the Cartographical Theory (T127, empirically confirmed), the visual organ and crystallization theory of concept genesis (T130-T132, confirmed), and the manifestation-diversity grounding condition (T133).
+
+Key additions (T134-T148) — the surprise economy and the organ federation:
+- **The Surprise Economy (T134-T139):** the organism's lived experience tokenizes into a sparse sequence of surprise events — value-level (a belief failed) and topology-level (a carving failed: conflation exposed, or a dead distinction collapsed). Surprisal is measured as RANK against the organism's own lived history (T138, supported — a median mismatch scores log 2 nats by construction; the once-in-lived-history cap and the threshold's meaning fall out intrinsically). A small autoregressive model over this sequence unifies the meta-receptor tier (T134), its generator is the fringe-tracking controller of receptor discovery (T135), the lived-only firewall is a theorem candidate (T136 — imagined outcomes updating certainty = private ideology), and the surprise sequence has a learnable grammar shadowing the environment's prerequisite structure (T137, partially tested — the kind-level grammar beat marginals; hazard flipped to PASS purely with corpus depth). The young-ledger law (T139, supported): a newborn organ can neither flood nor speak in the shared stream until its lived history earns its voice.
+- **Attributed surprise and the Control Organ (T140-T143):** every surprise carries an attribution coordinate — what share of the influence over the mispredicted state was mine, another agent's, nobody's. The control organ senses the influence landscape (fractionation of the efference residual) and acts by modulating its own influence allocation — the reallocation IS the act, no motor compilation. Fractionation demonstrated at AUC 0.786 across 5 seeds from organism-visible statistics alone, beating every single-feature bound (T143, partially tested). The adversarial regime (T141): beyond learnable structure and irreducible noise sits adversarially re-randomized structure — the noisy TV that watches back.
+- **The Organ Federation (T144):** the organism is a federation of organ-cartographers — cognition maps time, vision maps processing space, control maps the influence landscape, the epistemic organ maps the organism's own ignorance — coupled only through observation-vector words, the shared surprise stream, and the metabolic economy. Organ discovery is receptor discovery one level up: an organ is demanded when conflation strain resists every existing currency.
+- **The Physics of Vision (T145-T148):** the retinal signal is a transfer-function stamp, not a color — composition, depth, and temporal pattern are in the wave because reflection physics put them there; RGB is a 3-bin projection that discards the factorization (T145, supported: metamer materials — identical RGB, different spectra, opposite outcomes — separable from the stamp at 0.76-0.85 vs 0.58-0.65 through the projection; contact outcomes predictable from spectra while RGB sits at the majority baseline; the material-less falsifier holds). Depth is one correspondence operator at two baselines — stereo, and self-motion parallax with the efference copy as the known baseline (T146). Identity is the signature, not the location (T147). Temporal patterns form an object-agnostic library; objects are similar because they share dynamics (T148).
 
 ---
 
@@ -357,7 +385,7 @@ python scaling.py              # Limb count, segments, 3D, diversity, generation
 ## Architecture
 
 ```
-400-dim observation vector --> HierarchicalPolicy --> 22-bit action vector
+420-dim observation vector --> HierarchicalPolicy --> 22-bit action vector
            |                        |
      ThinkingTree             +-----+-----+
      (MCTS 24 sims)           |     |     |
@@ -387,7 +415,7 @@ python scaling.py              # Limb count, segments, 3D, diversity, generation
   it at 1.11x with the eigen coder. The policy IS the mental model.
 ```
 
-### Observation Vector (400 dims)
+### Observation Vector (420 dims)
 **Base sensory + computed (177):** Pain(6), endorphin(6), temperature(6), chemical(6), pressure(6), fatigue(6), energy(1), temporal aversion(6), receptor gain(6), pain memory(25), distance sensing(16), prediction error(6), mental model features(4), pattern features(2), kinematics(2), limb deviations(6), efference copy(22), agency(3), object proximity(3), object responding(3), NPC obs(12), optimism(2), conflict(3), concepts(2), grip state(6), physics(3), thinking channels(6), cognitive state(2)
 
 **Live receptors (86, per-step):** *73 original:* causal_inference, counterfactual_reasoning, multiple_hypotheses, intervention_planning, self_model, context_conditioned_arbitration, regret, multiple_receptor_types, metacognition, stress_detection, receptor_propagation, emotional_intelligence, pattern_recognition, compression_gain, concept_formation, concept_grounding, chunking, compression_receptor, mental_model_confidence, prediction_accuracy, pipeline_detection, prediction_architecture_awareness, staged_processing, prediction_branching, processing_speed, adaptive_depth, belief_detection, doubt_detection, counterfactual_salience, ratio_detection, proof_structure, necessity_detection, formal_composition, part_whole_detection, organizational_mirror, grip_affordance, semantic_relation, static_repetition, rhythm, rhythmic_pattern, nested_rhythm, causal_rhythm, basic_sensorimotor_loop, coincidence_detection, precedence_detection, probabilistic_causation, causal_graph_reasoning, agency_salience, curiosity, rhythm_entrainment, self_soothing, social_coregulation, self_model_applied_to_others, categorical_compression, completion, change_detection, absence_observation, comparative_observation, boundary_detection, exception_detection, rule_extraction, rule_revision, exhaustive_search, org_boundary_detection, capability_change_detection, developmental_trajectory, lever_affordance, contact_response, push_affordance, environmental_trend_detection, cross_pipeline_prediction, epistemic_strategy, transitivity. *13 proprioception:* joint_limit, movement_onset, contact, resistance, grip_state_proprio, velocity, effort, postural_change, coordination, body_boundary, postural_state, movement_anticipation, haptic_recognition
@@ -401,6 +429,10 @@ python scaling.py              # Limb count, segments, 3D, diversity, generation
 **Visual wave channels (12):** FlatE E-profile features or MCTS how-space profile from visual input. FlatE: 4-layer CNN trunk → 8 sigmoid maps → DiffEProfile (ridge R²) + BandedCoherence (spectral coherence) = 168-dim E-profile, compressed to 12 channels.
 
 **Crossmodal channels (3):** Temporal coupling, asymmetry, and independence between audio and visual modalities.
+
+**Surprise prediction channels (8, obs[400:408]):** The next-surprise machine's fold-back — expected surprisal of the next surprise (nats), expected horizon, predicted family, predicted reducibility, the predictor's own recent error (channel 404: the surprise model being surprised — the grammar-breaking signal), setpoint deviation, and the topology-level pair: predicted carving strain and carving yield. Meta-receptors in the strict sense: they enter obs, never the value function.
+
+**Influence channels (12, obs[408:420]):** The control organ's words — fractionation of influence over the organism's states into self / agent / nobody shares (de-conflating the scalar controllability feature), attribution confidence, dominant-agent share and trend, exertion level, the genome seed receptors exertion_effect and shared_fate, futility in influence currency, commitment concentration, and source stability.
 
 ### Staged Processing Pipeline
 ```
@@ -448,7 +480,7 @@ For a formal mathematical treatment of the Receptor-Topological Dynamical System
 ```
 abi/
 +-- src/                            # Core implementation
-|   +-- environment.py              # Organism, NPC, Environment (340-dim obs)
+|   +-- environment.py              # Organism, NPC, Environment (420-dim obs)
 |   +-- model.py                    # HierarchicalPolicy (fast/slow/router/arbitration/staged)
 |   +-- train.py                    # Training: augmented, closed-loop, self-play
 |   +-- mental_model.py             # Causal mental model (encoder, mappings, patterns, entity store)
@@ -483,11 +515,17 @@ abi/
 |   +-- scaling.py                  # Scaling experiments (limbs, segments, 3D)
 |   +-- grounding.py                # Grounded language dictionary
 |   +-- llm_grounding.py            # LLM grounding bridge
+|   +-- surprise_log.py             # Surprise tokenizer: rank-rarity surprisal, 3 kinds, ledgers
+|   +-- next_surprise.py            # NextSurpriseModel (6 heads) + fold-back channels
+|   +-- influence_organ.py          # Control organ: fractionation + allocation effectors
+|   +-- hidden_agency_env.py        # Signal-identical agent/field pain (P48 harness)
+|   +-- wave_materials.py           # 8-band materials, metamers, ray-cast spectral eyes
+|   +-- visual_pattern_library.py   # Blobs, one-operator correspondence, pattern library
 +-- genome_project/                 # Receptor search space specification
 |   +-- families/                   # 23 receptor family YAMLs (200 receptors)
 |   +-- schemas/                    # Receptor schema definition
 |   +-- docs/                       # Cross-family dependencies, overview
-+-- theories.md                     # 93 indexed theoretical claims with status
++-- theories.md                     # 147 indexed theoretical claims with status
 +-- serialization_thesis.md         # The serialization thesis (standalone paper)
 +-- visualization/                  # Three.js organism visualization
 +-- docs/                           # Whitepaper, roadmap, framework documents
