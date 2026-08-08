@@ -1,0 +1,50 @@
+receptor_id: value_hierarchy
+family: meta-motivational
+tier: canopy
+stage: 9
+
+conceptual_space: |
+  Detects a consistent priority ordering among competing values or goals.
+  Food is important but survival trumps food. Exploration is valuable but
+  not when offspring need protection. The boundary separates hierarchical
+  value ordering (stable, consistent priority structure) from situational
+  preference (varying priorities without stable ranking) or single-value
+  optimization (only one thing matters). The concept is the stable ordering
+  itself — the structure that resolves value conflicts consistently.
+
+manifestations:
+  - id: survival_trumps_food
+    description: Organism is hungry and food is available but a predator is near — survival value consistently overrides food value, producing flight instead of foraging regardless of hunger intensity
+    survival_relevance: Consistent value hierarchy prevents hunger from overriding survival in dangerous situations, ensuring the organism is alive to eat later rather than eating and dying now
+    what_fires: Two competing value signals (hunger, threat) simultaneously active, with a consistent priority structure resolving the conflict in favor of the higher-ranked value across repeated instances
+
+  - id: offspring_over_self_feeding
+    description: Organism is hungry but offspring are also hungry — parental care value consistently ranks above self-feeding, producing offspring-directed foraging before self-consumption
+    survival_relevance: Stable reproductive value hierarchy ensures offspring survival is prioritized over immediate self-comfort, optimizing lineage fitness across generations
+    what_fires: Self-oriented and offspring-oriented value signals competing, with a stable hierarchical ordering consistently resolving in favor of offspring care across varying contexts
+
+  - id: group_safety_over_individual_opportunity
+    description: Individual foraging opportunity exists but the group is in danger — organism consistently chooses to contribute to group defense over individual food gain, reflecting group-safety above individual-opportunity
+    survival_relevance: Stable prioritization of group safety enables reliable coalition behavior, making the organism a trustworthy group member whose cooperation is worth reciprocating
+    what_fires: Individual-benefit and group-benefit values competing, resolved by a stable hierarchical ordering that consistently favors group welfare when both are in conflict
+
+  - id: three_level_hierarchy_resolution
+    description: Organism simultaneously faces offspring-care, self-feeding, and exploration impulses — it resolves the three-way conflict through a consistent ordering: offspring first, self-feeding second, exploration last
+    survival_relevance: Multi-level hierarchies enable resolution of complex three-or-more-way value conflicts without oscillation or paralysis, producing decisive action in complex situations
+    what_fires: Three or more competing value signals simultaneously active, resolved through a consistent multi-level priority ordering that produces the same resolution across repeated instances
+
+  - id: hierarchy_maintained_under_pressure
+    description: Under extreme hunger, organism still prioritizes offspring care — the value hierarchy holds even when the lower-ranked value reaches extreme intensity, demonstrating structural stability
+    survival_relevance: Hierarchy stability under pressure prevents value inversions during crises, when inconsistent behavior would be most costly — the ordering works precisely when tested hardest
+    what_fires: A lower-ranked value at extreme intensity failing to override a higher-ranked value, demonstrating that the hierarchy is structural rather than merely reflecting default intensity differences
+
+anti_manifestations:
+  - id: situational_preference_shift
+    description: Organism sometimes prioritizes food over exploration and sometimes the reverse, depending on recent events — there is no stable ordering, just context-dependent preference
+    why_should_not_fire: Shifting preferences without stable structure is situational decision-making, not hierarchical ordering — the resolution varies with context rather than following a consistent ranking
+    distinguishes: Value hierarchy (stable consistent ordering) vs situational preference (priorities that shift based on recent context without structural consistency)
+
+  - id: single_value_dominance
+    description: Organism is in pure survival mode — only escape matters, no other values are competing — there is no hierarchy because only one value is active
+    why_should_not_fire: A single dominant value involves no conflict resolution and no ordering — hierarchy requires at least two competing values resolved by a priority structure
+    distinguishes: Value hierarchy (stable ordering among competing values) vs single-value dominance (one value active with no competition to resolve)

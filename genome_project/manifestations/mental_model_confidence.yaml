@@ -1,0 +1,130 @@
+receptor_id: mental_model_confidence
+family: compression
+tier: branch
+stage: 3
+
+conceptual_space: |
+  How confident the mental model is in its predictions overall. Not the
+  accuracy of any single prediction — the aggregate state of the model.
+  "I know this territory well" vs "I am in unfamiliar ground." The boundary
+  is meta-cognitive model state: the organism's assessment of its own
+  model quality across the current context, not the outcome of any
+  particular prediction.
+
+manifestations:
+  - id: home_territory_high_confidence
+    description: |
+      Organism is in its well-explored home territory. It has accurate
+      models of food locations, predator schedules, thermal zones, and
+      terrain features. Every prediction it makes here tends to be correct.
+      The mental model's aggregate confidence is high — the organism
+      "knows this place."
+    survival_relevance: |
+      High model confidence in home territory enables fast, decisive
+      action without deliberation. The organism can allocate cognitive
+      resources to novel challenges rather than re-verifying known facts.
+      Confidence enables efficiency.
+    what_fires: |
+      Aggregate prediction variance across the model is low. The model's
+      uncertainty estimates for the current context are uniformly small.
+      Meta-cognitive state: "my model is reliable here."
+
+  - id: new_biome_low_confidence
+    description: |
+      Organism has crossed into a biome it has never visited. The plants
+      are unfamiliar, the terrain structure is different, and no learned
+      patterns apply. The mental model has no trained weights for this
+      context. Aggregate confidence is low — the organism knows it does
+      not know.
+    survival_relevance: |
+      Low model confidence signals the need for cautious, exploratory
+      behavior. An organism that recognizes its own ignorance moves
+      slowly, tests surfaces before committing weight, and maintains
+      escape routes. Meta-ignorance is protective.
+    what_fires: |
+      Aggregate prediction variance across the model is high. The model's
+      uncertainty estimates for the current context are uniformly large.
+      Meta-cognitive state: "my model is unreliable here."
+
+  - id: confidence_after_learning_burst
+    description: |
+      Organism spent many episodes learning a new zone. Initially
+      confidence was low. After extensive exploration, food sources are
+      mapped, threat patterns are learned, and terrain is familiar. Model
+      confidence has risen from low to high over the learning period.
+      The organism now trusts its predictions in this zone.
+    survival_relevance: |
+      Rising model confidence tracks successful learning. The organism
+      can shift from exploratory to exploitative behavior as confidence
+      grows, extracting more resources per unit time in zones where the
+      model is trusted.
+    what_fires: |
+      Aggregate uncertainty metric has decreased over recent episodes.
+      Model confidence is trending upward. The meta-cognitive state
+      registers transition from uncertain to confident.
+
+  - id: confidence_shaken_by_violations
+    description: |
+      Organism was highly confident in its territory model, but three
+      consecutive predictions failed — food did not appear where expected,
+      a predator appeared where none had been, and a path was blocked by
+      new terrain. Aggregate confidence drops sharply. The model that was
+      trusted is now suspected to be stale.
+    survival_relevance: |
+      Detecting confidence collapse prevents continued reliance on a
+      broken model. An organism that notices "my model is suddenly wrong
+      about everything" switches to cautious exploration mode before
+      the stale model leads to fatal errors.
+    what_fires: |
+      Aggregate prediction error has spiked across multiple domains
+      simultaneously. Model confidence drops — the meta-cognitive state
+      shifts from "reliable" to "suspect." Confidence revision downward.
+
+  - id: mixed_confidence_partial_knowledge
+    description: |
+      Organism is in a zone where it knows the terrain well but has
+      never seen the NPCs that recently arrived. Spatial model confidence
+      is high. Social model confidence is low. Aggregate confidence is
+      moderate — the organism trusts some of its models but not others.
+    survival_relevance: |
+      Mixed confidence enables selective behavior: exploit known terrain
+      confidently while treating NPC encounters with caution. The organism
+      can simultaneously be bold about navigation and careful about
+      social interaction.
+    what_fires: |
+      Aggregate confidence is moderate because some model domains show
+      low variance (terrain) while others show high variance (social).
+      The meta-cognitive state is heterogeneous — confident in parts,
+      uncertain in others.
+
+anti_manifestations:
+  - id: single_prediction_outcome
+    description: |
+      Organism predicted food at a location and was correct. This single
+      successful prediction does not, by itself, constitute high model
+      confidence. The organism might have gotten lucky, or this might be
+      the only thing it knows in an otherwise unknown territory.
+    why_should_not_fire: |
+      Mental model confidence is aggregate, not per-prediction. A single
+      correct prediction could occur even in a fundamentally broken model.
+      Confidence is about the overall state of knowledge, not one data point.
+    distinguishes: |
+      Model confidence is AGGREGATE model state. Prediction accuracy is
+      per-prediction. One correct prediction is prediction_accuracy, not
+      mental_model_confidence. The receptor measures the forest, not
+      individual trees.
+
+  - id: confidence_about_others_model
+    description: |
+      Organism observes that another agent seems confident — moving
+      decisively, not hesitating, taking direct paths. The observer infers
+      that the OTHER agent has high model confidence. But the observer's
+      own model confidence is unchanged — this is a social observation.
+    why_should_not_fire: |
+      Mental model confidence is about the organism's OWN model state.
+      Observing that another agent appears confident is behavioral
+      prediction or theory of mind, not self-referential model confidence.
+    distinguishes: |
+      This receptor is meta-cognitive and self-referential. It measures
+      the organism's own model quality assessment. Another agent's
+      apparent confidence is a different signal entirely.

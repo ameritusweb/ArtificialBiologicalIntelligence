@@ -1,0 +1,114 @@
+receptor_id: grip_affordance
+family: interaction
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Detects that an object has grippability as an intrinsic property — it can be
+  picked up, held, and carried by the agent. Small objects with graspable
+  dimensions afford gripping; large, heavy, or slippery objects do not. The
+  boundary is the affordance of portable manipulation: can this object be seized,
+  lifted, and transported? This is read from the object's size relative to the
+  agent's manipulators, its apparent weight, and its surface properties.
+
+manifestations:
+  - id: small_stone_on_ground
+    description: |
+      A palm-sized smooth stone lies on the ground. It is smaller than the
+      agent's grip span, appears to have moderate weight, and its rounded
+      shape fits naturally into a cupped grasp. The object looks grippable.
+    survival_relevance: |
+      Identifying grippable objects enables tool use — a palm-sized stone
+      is a projectile, a hammer, a nutcracker. Reading grip affordance
+      precedes all portable tool use.
+    what_fires: |
+      Object size within grip span + moderate apparent weight + graspable
+      geometry. Dimensional fit between object and manipulator signals
+      grippability.
+
+  - id: thin_stick_on_branch
+    description: |
+      A thin straight stick, roughly two body-lengths long and finger-width
+      in diameter, lies broken on a low branch. Its narrow diameter affords
+      wrapping a grip around it, and its low weight means it can be lifted
+      and carried one-handed.
+    survival_relevance: |
+      Stick-shaped grippable objects are probes, weapons, and levers. Reading
+      the grip affordance of elongated objects opens a major tool category.
+    what_fires: |
+      Narrow diameter (graspable circumference) + low apparent mass + rigid
+      structure. The object's cross-section fits the manipulator's closure.
+
+  - id: berry_cluster_reachable
+    description: |
+      A small cluster of berries hangs at the agent's reach height. Each
+      berry is small enough to pinch between two digits, and the cluster
+      stem is thin enough to grip and pull. Both individual berries and the
+      cluster unit afford gripping.
+    survival_relevance: |
+      Food acquisition requires grip affordance detection — can this be
+      plucked, pulled, or pinched free? Berries that afford gripping are
+      immediately harvestable.
+    what_fires: |
+      Very small object size + negligible weight + stem/stalk providing a
+      grip point. Fine-motor grip affordance for food items.
+
+  - id: dead_bird_on_ground
+    description: |
+      A small dead bird lies on a rock. Its body is compact enough to be
+      grasped in one grip, light enough to lift easily, and its feathered
+      surface provides friction for holding. The object affords picking up
+      and carrying.
+    survival_relevance: |
+      Carrion and prey items must be transportable. Reading grip affordance
+      on animal bodies determines whether food can be carried to safety
+      for consumption.
+    what_fires: |
+      Body size within grasp range + low mass + sufficient surface texture
+      for friction. Organic object with portable dimensions.
+
+  - id: flat_leaf_on_water
+    description: |
+      A broad flat leaf floats on a puddle's surface. It is thin, light,
+      and its edge can be pinched between digits. Despite being wet and
+      flexible, it affords gripping at the edge and lifting out of the water.
+    survival_relevance: |
+      Grippable flat objects serve as containers, covers, and wrapping
+      material. Detecting grip affordance in non-rigid objects expands
+      the manipulable resource set.
+    what_fires: |
+      Thin edge (pinchable) + negligible weight + sufficient rigidity to
+      maintain shape during lift. Grip affordance despite non-standard
+      (flat, flexible) geometry.
+
+anti_manifestations:
+  - id: large_boulder_on_hillside
+    description: |
+      A boulder three times the agent's body width sits on a hillside. Its
+      surface is smooth granite with no protrusions or edges to grip. Even
+      if the agent could somehow close around it, the mass would prevent
+      lifting. The object does not afford gripping in any configuration.
+    why_should_not_fire: |
+      The object exceeds grip span by a large margin, has no graspable
+      features, and its mass prohibits lifting. All cues indicate zero
+      grip affordance. Size alone disqualifies it.
+    distinguishes: |
+      Grip affordance requires dimensional compatibility between object
+      and manipulator. Objects that vastly exceed the agent's grip span
+      fall outside the grippable category regardless of other properties.
+
+  - id: wet_mossy_log
+    description: |
+      A thick log covered in wet moss lies across a stream. Its diameter
+      is larger than the agent's grip span, its surface is slimy with
+      algae, and its saturated weight is enormous. The agent's manipulators
+      would slide off without purchase.
+    why_should_not_fire: |
+      Three grip-defeating properties converge: excessive diameter (cannot
+      close grip around it), slippery surface (no friction for holding),
+      and excessive weight (cannot lift even with grip). The object does
+      not afford gripping.
+    distinguishes: |
+      Grip affordance requires sufficient friction and manageable dimensions.
+      Objects that defeat grip through surface properties (slippery) in
+      addition to size and weight are strongly non-grippable.

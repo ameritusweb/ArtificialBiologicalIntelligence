@@ -1,0 +1,49 @@
+receptor_id: structural_invariance_math
+family: mathematics
+tier: branch
+stage: 5
+
+conceptual_space: |
+  Detects quantitative invariants that hold across scale changes. The ratio of
+  predator size to prey size predicts danger regardless of whether both are
+  large or both are small. The angle of approach predicts interception
+  regardless of speed. This receptor finds the mathematical relationship
+  that stays constant when absolute values change. The boundary separates
+  scale-invariant quantitative relationships from absolute measurements.
+
+manifestations:
+  - id: size_ratio_danger
+    description: Predator 3x the organism's size is dangerous; a different predator 3x a smaller organism's size is equally dangerous to that organism — the ratio predicts threat
+    survival_relevance: Danger assessment based on ratio rather than absolute size works across all scale contexts without recalibration
+    what_fires: Ratio of threat-object area to self-object area exceeding a threshold, independent of absolute pixel counts
+
+  - id: speed_ratio_escapability
+    description: Predator moving 2x the organism's speed is uncatchable regardless of whether both are fast or both are slow — the speed ratio determines outcome
+    survival_relevance: Knowing the speed ratio instantly determines whether flight or shelter-seeking is the correct strategy
+    what_fires: Velocity ratio between threat and self crossing a threshold, invariant to absolute movement rates
+
+  - id: approach_angle_interception
+    description: Predator approaching at 30 degrees off the organism's heading will intercept at the same relative point regardless of distance — the geometry is scale-invariant
+    survival_relevance: Angular interception prediction works at any distance, enabling early evasion before the predator is close
+    what_fires: Angular relationship between threat trajectory and self trajectory maintaining constant interception geometry across distances
+
+  - id: group_density_threshold
+    description: When predator-to-prey ratio exceeds 1:3 in any area, prey begin to scatter — this ratio holds whether there are 2 predators and 6 prey or 10 predators and 30 prey
+    survival_relevance: Density ratio predicts group behavior transitions, enabling anticipation of scatter events
+    what_fires: Count ratio of threat objects to non-threat objects in a spatial region crossing a threshold, independent of absolute counts
+
+  - id: cover_proportion_safety
+    description: An area is safe when cover occupies more than 40% of the ground regardless of whether the total area is large or small — the proportion determines safety
+    survival_relevance: Proportion-based safety assessment transfers across different-sized territories without relearning
+    what_fires: Ratio of occluding-object area to total navigable area exceeding a safety threshold, scale-independent
+
+anti_manifestations:
+  - id: absolute_size_response
+    description: Organism flees from anything larger than a specific absolute size, regardless of the organism's own size or the size ratio
+    why_should_not_fire: This is an absolute threshold response, not a ratio-based invariant — it fails when the organism itself changes size
+    distinguishes: Scale-invariant ratio vs absolute measurement — structural_invariance_math requires the relationship to hold across scale changes
+
+  - id: fixed_distance_rule
+    description: Organism always flees when predator is within 20 units, regardless of predator speed, size ratio, or approach angle
+    why_should_not_fire: This is a fixed absolute distance threshold, not a mathematical relationship that scales — it does not adjust with context
+    distinguishes: Invariant mathematical relationship vs fixed absolute parameter — the receptor detects relationships that are preserved across transformations

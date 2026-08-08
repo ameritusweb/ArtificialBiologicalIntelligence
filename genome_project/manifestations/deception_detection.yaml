@@ -1,0 +1,162 @@
+receptor_id: deception_detection
+family: social
+tier: canopy
+stage: 7
+
+conceptual_space: |
+  Detects that an agent's external signal does not match its actual
+  internal state or intention. An NPC emits a calm signal (relaxed
+  posture, slow movement) while simultaneously approaching in a way
+  consistent with attack preparation (flanking angle, closing distance).
+  The boundary separates honest signaling (signal matches intent) from
+  deceptive signaling (signal contradicts intent). The critical signal
+  is the mismatch between what the agent communicates and what the
+  agent's behavior pattern reveals about its true state.
+
+manifestations:
+  - id: calm_signal_aggressive_approach
+    description: |
+      An NPC approaches the organism while displaying calm social
+      signals — slow movement, non-threatening posture, averted gaze.
+      But the NPC's path is a flanking arc that positions it between
+      the organism and its escape route. The organism detects the
+      mismatch: the signal says peaceful, the spatial behavior says
+      predatory.
+    survival_relevance: |
+      Detecting the signal-behavior mismatch enables preemptive
+      evasion before the attack is launched. An organism that trusts
+      the calm signal and waits for the approach to complete is
+      trapped. One that detects the flanking trajectory despite the
+      peaceful signal escapes in time.
+    what_fires: |
+      Social signal (calm display) contradicted by spatial behavior
+      (flanking approach, escape route closure). Two channels of
+      information — one communicative, one behavioral — generating
+      conflicting predictions about the agent's intent. The
+      inter-channel contradiction fires deception detection.
+
+  - id: food_sharing_lure
+    description: |
+      An NPC offers food by placing it on the ground and stepping
+      back — a typical sharing gesture. But the NPC positions the
+      food near a concealed hazard (pitfall, thorny trap) and
+      watches with unusual intensity. The sharing signal is genuine
+      in form but the placement and monitoring behavior suggest
+      the food is bait.
+    survival_relevance: |
+      Recognizing baiting behavior disguised as sharing prevents
+      the organism from walking into traps. The survival cost of
+      missing a genuine sharing opportunity is low; the cost of
+      falling into a trap is potentially fatal.
+    what_fires: |
+      Prosocial signal (food offering) combined with contextual
+      anomalies (hazard-adjacent placement, unusual vigilance by
+      the offerer) that contradict genuine sharing intent. The
+      anomalies in the context surrounding a normal-looking signal
+      fire deception detection.
+
+  - id: false_alarm_call_to_steal_food
+    description: |
+      NPC-A emits a predator alarm call. Other organisms flee,
+      abandoning their food. NPC-A does not flee but instead
+      approaches the abandoned food and eats it. The organism
+      observes this sequence and recognizes: the alarm call was
+      false — emitted not because a predator was present but to
+      trigger flight in others and access their food.
+    survival_relevance: |
+      Recognizing false alarm calls prevents wasteful flight
+      responses and protects resources from social parasitism.
+      The organism learns to evaluate alarm calls against the
+      caller's subsequent behavior rather than responding
+      automatically.
+    what_fires: |
+      Danger signal (alarm call) followed by the signaler's own
+      behavior contradicting the signal (not fleeing, approaching
+      food). The signaler's failure to act on its own warning,
+      combined with the signaler benefiting from others' response,
+      fires deception detection.
+
+  - id: feigned_injury_distraction
+    description: |
+      NPC-B suddenly displays signs of injury — limping, falling,
+      emitting distress signals — while the organism approaches
+      NPC-B's nest area. The organism notices that NPC-B moves away
+      from the nest while displaying injury, drawing attention and
+      pursuit away from the nest site. When the organism follows,
+      NPC-B recovers instantly and moves normally.
+    survival_relevance: |
+      Detecting feigned injury prevents the organism from being
+      led away from valuable resources (nest contents, territory)
+      by a performance. It also reveals the nest location as
+      something worth protecting, providing information even as
+      the deception is detected.
+    what_fires: |
+      Injury signal (limping, distress) that terminates abruptly
+      when the tactical goal (luring away from nest) is achieved.
+      The sudden recovery contradicts genuine injury, and the
+      spatial pattern (leading AWAY from valuable location) reveals
+      the signal's strategic function.
+
+  - id: submissive_display_before_ambush
+    description: |
+      NPC-C approaches the organism displaying submissive signals
+      — lowered posture, averted gaze, slow approach — typical of
+      a subordinate seeking proximity. Once within striking distance,
+      NPC-C suddenly attacks with full force. The organism recognizes
+      in retrospect (or in subsequent encounters) that the submissive
+      display was deceptive, designed to close distance without
+      triggering defensive response.
+    survival_relevance: |
+      Recognizing submissive-display-before-attack enables the
+      organism to maintain defensive readiness even during apparently
+      peaceful approaches. The survival cost of being suspicious of
+      genuine submission is social tension; the cost of trusting
+      deceptive submission is injury or death.
+    what_fires: |
+      Social subordination signal (submissive display) followed by
+      aggressive action (attack) from the same agent, revealing
+      that the signal was strategically deployed to suppress the
+      target's defensive response. The submission-to-attack
+      transition in the same agent fires.
+
+anti_manifestations:
+  - id: honest_distress_signal
+    description: |
+      An NPC is genuinely injured — limping consistently, unable
+      to flee effectively, emitting distress sounds. Its behavior
+      is consistent with the injury across all channels: movement
+      is impaired, it seeks shelter, it does not recover when the
+      organism moves away. All signals match the apparent state.
+    why_should_not_fire: |
+      This is honest signaling — the distress signal matches the
+      actual state. All behavioral channels are consistent with
+      genuine injury. Deception detection requires a mismatch
+      between signal and actual state. When all channels agree
+      and behavior is consistent over time, there is no deception
+      to detect.
+    distinguishes: |
+      Cross-channel consistency (all signals agree with observed
+      state) versus cross-channel mismatch (communicative signal
+      contradicts behavioral or contextual evidence). The mismatch
+      is the boundary.
+
+  - id: incompetent_but_honest_sharing
+    description: |
+      An NPC attempts to share food but accidentally places it
+      near a hazard. The NPC shows no unusual monitoring behavior,
+      does not position itself advantageously, and appears genuinely
+      confused when the organism hesitates. The bad placement is
+      accidental, not strategic.
+    why_should_not_fire: |
+      This is honest but clumsy behavior, not deception. The NPC's
+      intent (sharing) matches its signal (offering food), and the
+      hazardous placement lacks the contextual markers of deception
+      (strategic positioning, unusual vigilance, benefit to the
+      signaler). Deception requires intentional signal-state
+      mismatch, not accidental bad outcomes from honest intent.
+    distinguishes: |
+      Accidental bad outcome from honest intent (no signal-state
+      mismatch, no strategic benefit to signaler) versus intentional
+      deception (deliberate signal-state mismatch for strategic
+      benefit). Intent and strategic benefit are the boundary
+      markers.

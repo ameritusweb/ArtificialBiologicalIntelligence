@@ -1,0 +1,49 @@
+receptor_id: exception_detection
+family: formalization
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Observation violates an extracted pattern. The organism has built a
+  regularity ("round things roll," "red berries taste sweet," "predators
+  come from downwind") and now encounters a specific instance that breaks
+  the rule. Not just surprise or novelty — requires an existing pattern
+  AND a concrete violation. The boundary: pattern-violating observation,
+  not mere unfamiliarity.
+
+manifestations:
+  - id: non_rolling_sphere
+    description: Organism has learned that round stones roll down slopes. It pushes a round clay ball and it sticks in place — round but does not roll
+    survival_relevance: Exceptions to physical rules reveal hidden properties (stickiness, weight) that matter for tool use and navigation
+    what_fires: Predicted outcome (rolling) from learned pattern (round + slope = roll) contradicted by observed outcome (stationary) — pattern-violation signal
+
+  - id: bitter_red_berry
+    description: Organism has eaten many red berries that were sweet. It bites a red berry from a new bush and it is intensely bitter
+    survival_relevance: Exceptions to food-safety patterns can prevent poisoning if the organism updates its model
+    what_fires: Expected taste (sweet) from pattern (red berry = sweet) contradicted by actual taste (bitter) — gustatory pattern-violation signal
+
+  - id: friendly_predator_shape
+    description: Organism has learned to flee from large four-legged animals. A large four-legged animal approaches and drops food instead of attacking
+    survival_relevance: Recognizing exceptions to threat patterns can unlock new resource opportunities (symbiosis, commensalism)
+    what_fires: Expected behavior (attack) from pattern (large quadruped = threat) contradicted by observed behavior (food deposit) — threat-model violation signal
+
+  - id: sinking_wood
+    description: Organism has learned that sticks float on water. It drops a dark, dense piece of ironwood into a pond and it sinks immediately
+    survival_relevance: Exceptions to buoyancy rules matter for water crossing and tool selection
+    what_fires: Expected outcome (float) from pattern (wood + water = floats) contradicted by observed outcome (sinks) — physics-model violation signal
+
+  - id: silent_rustling_bush
+    description: Organism has learned that rustling bushes contain prey animals. It investigates a rustling bush and finds nothing — the wind caused the movement
+    survival_relevance: Recognizing false positives in hunting patterns prevents wasted energy and missed opportunities elsewhere
+    what_fires: Expected cause (prey) from pattern (rustling bush = animal inside) contradicted by observed cause (wind, no animal) — causal-model violation signal
+
+anti_manifestations:
+  - id: novel_object
+    description: Organism encounters a shiny metallic object it has never seen before — no existing pattern applies to it
+    why_should_not_fire: Novelty without pattern violation is not an exception. The organism has no rule about metallic objects to violate
+    distinguishes: Exception detection requires an existing pattern being broken, not encountering something outside all known patterns
+
+  - id: consistent_variation
+    description: Organism notices that some rocks are grey and some are brown, which it has seen many times before
+    why_should_not_fire: Known variation within a category is already part of the pattern — rocks come in different colors and always have
+    distinguishes: Exception detection fires on violations of the learned rule, not on expected within-category variance

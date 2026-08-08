@@ -1,0 +1,50 @@
+receptor_id: translation
+family: bridging
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detects mappings between the organism's own internal vocabulary (receptor
+  activations, labels, concepts) and the signals or vocabularies used by
+  other organisms or other parts of its own processing. The boundary is
+  between encountering a foreign signal and establishing a verified
+  correspondence between that signal and something in the organism's own
+  representational system. Fires when the organism recognizes that an
+  external or unfamiliar encoding maps onto a concept it already possesses.
+
+manifestations:
+  - id: other_organism_signal_mapping
+    description: Another organism emits signal-7 consistently when food is nearby. The focal organism detects that signal-7 from the other reliably co-occurs with its own food-proximity receptors firing. It establishes the mapping -- "their signal-7 means my concept 'food-nearby.'" The foreign signal now activates the organism's own food-seeking behavior.
+    survival_relevance: Leveraging other organisms' signals extends the focal organism's detection range. If another organism has already detected food, translating its signal saves the focal organism the cost of independent search.
+    what_fires: Repeated co-occurrence between a foreign signal and a specific pattern of the organism's own receptor activations, reaching a threshold where the foreign signal alone begins to activate the corresponding internal concept.
+
+  - id: cross_modality_translation
+    description: The organism's visual system encodes a particular predator as a specific shape pattern. Its auditory system encodes the same predator as a specific call pattern. It detects that these two encodings, from different processing pipelines, refer to the same entity -- establishing an internal translation between visual-predator-code and auditory-predator-code.
+    survival_relevance: Cross-modal translation lets the organism recognize a threat detected in one modality using knowledge acquired in another. Hearing the predator call activates the full threat response even if the predator is not yet visible.
+    what_fires: Detection that two distinct internal encodings from different processing pipelines consistently co-refer to the same external entity, established through repeated co-occurrence of the two codes with the same environmental referent.
+
+  - id: historical_vocabulary_update
+    description: The organism's old internal label for a particular territory was "safe-ground." After environmental changes introduced new threats, the same territory now activates threat receptors. The organism detects that its historical label no longer translates to the current receptor reality -- "safe-ground" in its old vocabulary maps to "contested-territory" in its current vocabulary.
+    survival_relevance: Failing to update translations between old and new internal vocabularies causes the organism to act on stale mappings. Detecting the translation failure prevents it from treating a now-dangerous area as safe based on an outdated label.
+    what_fires: Comparison between a stored label's historical receptor activation profile and its current receptor activation profile, revealing that the same label now maps to a different concept than it originally did.
+
+  - id: group_convention_acquisition
+    description: The organism joins a new group that uses a specific alarm call the organism has never heard before. After observing that this call reliably precedes the group fleeing from aerial threats, the organism maps the unfamiliar call to its own concept of "aerial-predator-warning." It has learned the group's convention by translating it into its own terms.
+    survival_relevance: Joining a new group without understanding its communication conventions leaves the organism unable to benefit from collective vigilance. Translating group signals into personal concepts integrates the organism into the group's early-warning system.
+    what_fires: A novel external signal that initially activates no internal concept, followed by repeated observations of the signal's behavioral context, until the organism establishes a stable mapping between the signal and an existing internal concept.
+
+  - id: self_to_other_expression_mapping
+    description: The organism wants to communicate "danger ahead" to an ally but realizes the ally does not respond to its standard danger signal. It observes that the ally responds to a different signal pattern for threat. The organism detects the mapping between its own danger expression and the ally's threat-reception channel, enabling it to translate its warning into the ally's vocabulary.
+    survival_relevance: Cooperative survival depends on successful communication. When organisms use different signal vocabularies, the ability to translate one's own expression into the other's reception vocabulary enables effective warning and coordination.
+    what_fires: Detection that the organism's outgoing signal does not produce the expected response in the receiver, followed by identification of which alternative signal pattern does produce the correct response, establishing an output translation mapping.
+
+anti_manifestations:
+  - id: mimicry_without_understanding
+    description: The organism learns to reproduce another organism's signal-7 perfectly -- it can emit the exact same pattern. But it has not established what signal-7 means in its own receptor vocabulary. It can copy the signal without translating its content. This is imitation of form, not translation of meaning.
+    why_should_not_fire: Translation requires establishing a semantic mapping -- the foreign signal must be connected to the organism's own concepts. Reproducing a signal's form without mapping it to internal meaning is mimicry, not translation. The organism can say the word without knowing what it means.
+    distinguishes: Whether the organism has established a meaning mapping between the foreign signal and its own conceptual vocabulary (translation) versus merely reproducing the signal's physical form without semantic connection (mimicry).
+
+  - id: coincidental_co_occurrence
+    description: Another organism happens to make a specific sound at the same time the focal organism detects food, but this co-occurrence happens only once. The organism notes the coincidence but does not establish a translation because a single co-occurrence does not confirm a reliable mapping -- it could be accidental.
+    why_should_not_fire: Translation requires repeated, reliable co-occurrence that establishes a stable mapping. A single coincidental pairing does not provide sufficient evidence that the foreign signal systematically corresponds to an internal concept. The organism correctly withholds translation until the mapping is confirmed across multiple instances.
+    distinguishes: Whether the co-occurrence between foreign signal and internal concept is reliable and repeated (supporting translation) versus isolated and potentially accidental (insufficient evidence for a stable mapping).

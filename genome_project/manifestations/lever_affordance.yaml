@@ -1,0 +1,48 @@
+receptor_id: lever_affordance
+family: interaction
+tier: canopy
+stage: 5
+
+conceptual_space: |
+  Detects mechanical advantage — a long object resting on a fulcrum point that
+  can amplify applied force. A stick on a rock can move a heavy object that
+  direct pushing cannot. The boundary separates genuine force amplification
+  through mechanical advantage from simple pushing, pulling, or direct
+  contact manipulation.
+
+manifestations:
+  - id: stick_on_rock_lever
+    description: Long branch resting on a rock near a heavy obstacle — pressing the far end would move the obstacle with amplified force
+    survival_relevance: Moving heavy objects to create shelter or clear escape routes becomes possible with mechanical advantage
+    what_fires: Elongated rigid object with a contact point (fulcrum) between its ends, one end near a heavy target — geometry enables force multiplication
+
+  - id: log_pry_barrier
+    description: A log wedged under the edge of a fallen slab — levering the log upward would lift the slab enough to pass underneath
+    survival_relevance: Creating passage through blocked escape routes can mean the difference between escape and capture
+    what_fires: Rigid object inserted under heavy object with a pivot point, where downward force on the free end produces upward displacement of the load
+
+  - id: branch_catapult_arrangement
+    description: Flexible branch bent under a rock with a small object on the free end — releasing the rock would fling the object
+    survival_relevance: Launching projectiles at predators or toward distant targets extends the organism's effective range of interaction
+    what_fires: Bent elastic object constrained at one point with stored potential energy, where releasing the constraint converts to kinetic energy with amplification
+
+  - id: rock_on_ledge_tipping
+    description: Large rock balanced on the edge of a slope — small force applied to one side would cause it to roll downhill with much greater energy
+    survival_relevance: Triggering a rockfall toward a predator converts a small push into a massive defensive response
+    what_fires: Heavy object at an unstable equilibrium point where minimal input force triggers gravitational potential energy release far exceeding the input
+
+  - id: wedge_splitting_force
+    description: Thin rock inserted into a crack in a larger structure — hammering the wedge amplifies force perpendicular to the crack, splitting the structure
+    survival_relevance: Splitting barriers or creating openings in structures enables access to shelter or food sources otherwise inaccessible
+    what_fires: Tapered rigid object in a narrow gap where force along the taper axis is redirected and amplified perpendicular to the gap walls
+
+anti_manifestations:
+  - id: direct_push
+    description: Organism pushes a rock directly with its body — force output equals force input with no mechanical advantage
+    why_should_not_fire: No amplification mechanism exists — the force applied is the force delivered, with no lever, fulcrum, or mechanical transformation
+    distinguishes: Mechanical advantage vs direct force application — lever_affordance requires a mechanism that multiplies force
+
+  - id: stick_as_extension
+    description: Organism uses a stick to reach food in a crevice — the stick extends reach but does not amplify force
+    why_should_not_fire: The stick serves as a reach extender, not a force multiplier — no fulcrum, no mechanical advantage
+    distinguishes: Reach extension vs force amplification — lever_affordance is specifically about multiplying force through mechanical arrangement

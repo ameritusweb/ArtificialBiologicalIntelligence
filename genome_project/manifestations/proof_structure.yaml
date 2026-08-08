@@ -1,0 +1,50 @@
+receptor_id: proof_structure
+family: mathematics
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detects chains of necessary truths where each step guarantees the next -- the
+  recognition that a sequence of reasoning steps forms a valid deductive chain
+  in which the conclusion is forced by the premises. The boundary is between a
+  sequence of plausible-sounding steps (where each SEEMS to follow) and a sequence
+  where each step NECESSARILY follows from the previous ones. This requires the
+  organism to model its own reasoning process and verify that each link in the
+  chain is a necessary entailment, not just a probable inference.
+
+manifestations:
+  - id: spatial_deduction_chain
+    description: The organism reasons: (1) the exit is north of the barrier, (2) the barrier is impassable, (3) the only path north crosses the bridge, (4) therefore reaching the exit REQUIRES crossing the bridge. Each step is verified against the spatial model, and the conclusion is forced by the chain.
+    survival_relevance: Valid deduction chains allow the organism to reach conclusions about situations it has not directly experienced. If the chain is valid, the conclusion is as certain as the premises. This extends the organism's knowledge without requiring empirical testing of every specific scenario.
+    what_fires: The organism constructs a multi-step reasoning sequence where each step's output is the next step's input. At each junction, it verifies that the entailment is necessary (not just probable). The proof structure receptor fires when the chain is complete and every link has been validated as necessary -- the conclusion could not be otherwise given the premises.
+
+  - id: elimination_proof
+    description: The organism needs to find food and there are exactly 3 possible locations. It checks location 1 -- empty. Checks location 2 -- empty. It recognizes that the food MUST be at location 3 without checking, because the exhaustive elimination of alternatives forces the conclusion. This is a complete proof by elimination.
+    survival_relevance: Proof by elimination allows the organism to save the cost of checking the final option when all others have been eliminated. More importantly, it provides certainty about the conclusion -- the food is not probably at location 3 but necessarily at location 3, given the premises that there are exactly 3 locations and 2 are empty.
+    what_fires: The organism establishes the complete set (exactly 3 locations). It verifies each elimination step (locations 1 and 2 are confirmed empty). The proof structure receptor fires when the elimination is exhaustive and the conclusion is forced -- one location remains and it must contain the food. Each step (set-completeness, individual elimination, forced conclusion) is a necessary link.
+
+  - id: contradiction_detection
+    description: The organism's spatial model says corridor A leads north. Its experience says following corridor A led south. It detects that both cannot be true -- if the model is correct, experience should confirm north; if experience is correct, the model is wrong. The contradiction itself is a valid deductive conclusion that forces model revision.
+    survival_relevance: Detecting contradictions in one's own reasoning is a critical self-monitoring capability. A contradiction means at least one premise is false, and the proof structure that reveals the contradiction is itself valid -- the organism can be CERTAIN that something is wrong, even if it doesn't yet know what.
+    what_fires: The organism constructs two reasoning chains that lead to contradictory conclusions from a shared set of premises. The proof structure receptor fires on the recognition that the contradiction is logically valid -- given these premises, the contradiction necessarily follows, which means at least one premise must be revised. The structure of the proof is sound even though the content reveals an error.
+
+  - id: transitive_chain_verification
+    description: The organism knows (1) safe zones connect only to other safe zones or to buffer zones, (2) buffer zones connect to danger zones, (3) it is currently in a safe zone. It deduces that danger is at least 2 zones away -- safe to buffer to danger. It verifies each link: safe connects to safe-or-buffer (verified), buffer connects to danger (verified), therefore minimum distance to danger is 2 transitions.
+    survival_relevance: Multi-step safety reasoning allows the organism to assess threat proximity without direct exposure. If the chain is valid, the organism can confidently remain in its current zone knowing that danger is at least 2 transitions away. This confidence is proportional to the validity of the chain, not just the organism's feeling of safety.
+    what_fires: The organism chains zone-connectivity rules into a multi-step deduction about threat distance. Each rule is verified independently. The transitive chain is checked for completeness -- no missing links, no assumed connections. The proof structure receptor fires on the verified chain, confirming that the safety conclusion is as reliable as the individual rules.
+
+  - id: self_referential_proof_audit
+    description: The organism has constructed a complex reasoning chain about the best foraging strategy. Before acting on it, it reviews the chain itself -- checking each step for necessary entailment versus assumed entailment. It finds that step 3 assumes food distribution is uniform, which has not been verified. The proof has a gap. The organism identifies the gap and either fills it with evidence or flags the conclusion as provisional.
+    survival_relevance: Auditing one's own proof structures is the highest form of self-modeling in the reasoning domain. An organism that can check its OWN reasoning chains for validity can distinguish between conclusions it should act on with confidence and conclusions that rest on unverified assumptions. This is meta-cognitive quality control.
+    what_fires: The organism reviews its own reasoning chain step by step, checking each entailment for necessity. At step 3, it detects a gap -- the step requires an assumption that has not been established as a premise. The proof structure receptor fires in an audit mode -- not validating a complete proof but detecting an INCOMPLETE proof and identifying exactly where the chain breaks.
+
+anti_manifestations:
+  - id: plausible_narrative
+    description: The organism constructs an explanation for why food is more common in the east -- "the east gets more light, light helps plants grow, plants produce food." Each step SOUNDS reasonable but none is verified as necessary. Light MIGHT help growth and growth MIGHT produce food, but these are plausible connections, not necessary entailments.
+    why_should_not_fire: A plausible narrative where each step seems reasonable is not a proof structure. Proof requires each step to NECESSARILY follow from the previous one. "Light might help growth" is a hypothesis, not an entailment. The narrative might be entirely correct but it is not a proof -- it is a story whose steps could each be otherwise.
+    distinguishes: Necessary entailment versus plausible connection. Proof structure requires that each step could not be otherwise given the previous steps. A plausible story allows each step to be otherwise -- it just happens to seem reasonable.
+
+  - id: statistical_argument
+    description: The organism reasons: "I found food in the east 9 out of 10 times, so I should go east." This is a valid statistical inference but not a proof. The conclusion is probable, not necessary. The 10th time contradicts the conclusion, showing it admits exceptions. A proof admits no exceptions.
+    why_should_not_fire: Statistical arguments establish probability, not necessity. A proof structure requires that the conclusion could not be otherwise given the premises. A 90% success rate establishes high probability but explicitly allows for the 10% failure case. Proof structure fires on necessary chains, not probable ones.
+    distinguishes: Necessary entailment (admits no exceptions) versus statistical inference (admits exceptions at known rates). Both are valid reasoning, but only the former constitutes a proof structure.

@@ -1,0 +1,48 @@
+receptor_id: curiosity
+family: meta-motivational
+tier: trunk
+stage: 2
+
+conceptual_space: |
+  Learning progress salience. Fires where the organism's mental model is
+  updating most — where prediction error leads to genuine model improvement.
+  Not novelty alone (new but uninformative), not confusion (high error but
+  no learning). The concept is the RATE of model improvement at a given
+  focus point.
+
+manifestations:
+  - id: food_timing_learning
+    description: Organism's prediction of food spawn timing improves from 40% to 70% accuracy over 5 encounters at a location
+    survival_relevance: Rapid learning progress at this location means investing attention here yields the most knowledge per step
+    what_fires: Prediction error is decreasing — learning curve has steep negative slope at current focus
+
+  - id: predator_pattern_insight
+    description: After 3 encounters, organism suddenly predicts predator patrol route — error drops from 0.8 to 0.2
+    survival_relevance: Rapid threat-model improvement means continued observation here has high survival payoff
+    what_fires: Large drop in prediction error at current attentional focus — model is updating fast
+
+  - id: thermal_cycle_discovery
+    description: Organism is in the process of learning the thermal oscillation period — each cycle observation refines the model
+    survival_relevance: Learning the thermal rhythm enables preemptive shelter-seeking — high value per observation
+    what_fires: Variance in period estimate is shrinking rapidly — model converging
+
+  - id: new_zone_exploration
+    description: Organism enters unexplored region where every step teaches something — map model expanding rapidly
+    survival_relevance: High information gain per step means exploration here is maximally efficient
+    what_fires: Model-update magnitude per step is high and sustained — learning progress rate is above baseline
+
+  - id: npc_behavior_decoding
+    description: Organism is figuring out what triggers NPC aggression — each experiment refines the behavioral model
+    survival_relevance: Understanding NPC triggers enables safe coexistence — learning progress here prevents future harm
+    what_fires: Causal model of NPC behavior is updating with decreasing residual error per interaction
+
+anti_manifestations:
+  - id: pure_novelty_no_learning
+    description: Random noise in a sensor channel — every reading is surprising but no pattern emerges, no model improves
+    why_should_not_fire: High prediction error but zero learning progress — noise is not learnable
+    distinguishes: Curiosity requires LEARNING PROGRESS, not just surprise or novelty
+
+  - id: fully_learned_environment
+    description: Organism can perfectly predict everything at a location — food timing, temperature, threats all modeled
+    why_should_not_fire: No model improvement possible — prediction error is already near zero
+    distinguishes: Curiosity requires room for MODEL IMPROVEMENT, not just presence in a known environment

@@ -1,0 +1,46 @@
+receptor_id: change_detection
+family: observation
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Something is different from what it was. The most primitive observation.
+  Not WHAT changed, not WHY — just that the current state differs from the
+  previous state. The boundary: change vs stability.
+
+manifestations:
+  - id: thermal_shift
+    description: Temperature at organism's location rises from 0.3 to 0.7
+    survival_relevance: Thermal change precedes environmental hazard
+    what_fires: Absolute difference between consecutive thermal readings
+
+  - id: light_change
+    description: Ambient brightness drops suddenly (shadow of predator passing overhead)
+    survival_relevance: Sudden darkness signals threat above
+    what_fires: Luminance delta exceeds threshold
+
+  - id: chemical_gradient
+    description: Chemical concentration in the environment shifts as organism moves
+    survival_relevance: Chemical change indicates entering toxic or food-rich zone
+    what_fires: Chemical channel delta between steps
+
+  - id: pressure_onset
+    description: Contact pressure appears on a limb that previously had none
+    survival_relevance: Something just touched the organism — could be threat or object
+    what_fires: Pressure channel goes from zero to non-zero
+
+  - id: sound_onset
+    description: Ambient noise level changes from quiet to loud (or loud to quiet)
+    survival_relevance: Sudden sound change signals new agent or event
+    what_fires: Auditory amplitude delta
+
+anti_manifestations:
+  - id: stable_high
+    description: Temperature is consistently high across many steps
+    why_should_not_fire: No change occurred — the state is constant, just extreme
+    distinguishes: Change detection is about DELTA, not about absolute level
+
+  - id: gradual_drift
+    description: Temperature drifts 0.001 per step over 500 steps
+    why_should_not_fire: Below detection threshold — noise, not signal
+    distinguishes: Change must be salient enough to matter for survival

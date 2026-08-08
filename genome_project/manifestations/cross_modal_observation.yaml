@@ -1,0 +1,48 @@
+receptor_id: cross_modal_observation
+family: observation
+tier: canopy
+stage: 5
+
+conceptual_space: |
+  Detects that information from different sensory modalities refers to the
+  same entity or event. A predator's growl and its visual movement are two
+  signals from one threat. The boundary separates genuine cross-modal binding
+  (multiple senses confirming one source) from coincidental co-occurrence of
+  unrelated signals across modalities.
+
+manifestations:
+  - id: growl_plus_visual_movement
+    description: Auditory threat signal (growl) and visual movement signal (large object approaching) are spatially and temporally aligned — same predator detected through two senses
+    survival_relevance: Cross-modal confirmation increases detection confidence and provides richer threat characterization than either sense alone
+    what_fires: Auditory signal and visual signal with matching spatial origin and temporal onset, binding into a single unified threat representation
+
+  - id: vibration_plus_visual_approach
+    description: Ground vibration increasing in intensity correlates with visual detection of a large object growing in the visual field — same approaching entity detected through substrate and sight
+    survival_relevance: Vibration can detect approach before visual confirmation — cross-modal binding confirms the threat earlier than either sense independently
+    what_fires: Vibrational signal intensity and visual object size both increasing with correlated rates and originating from the same direction — bound as one approaching entity
+
+  - id: splash_sound_plus_water_disturbance
+    description: Sound of water impact and visual disturbance on water surface occur simultaneously from the same location — one event detected through hearing and vision
+    survival_relevance: Cross-modal binding of water events reveals prey, predator, or environmental events at water sources with higher confidence
+    what_fires: Auditory impact signal and visual surface disturbance with matching location and timing — bound as single event producing both signals
+
+  - id: scent_gradient_plus_visual_track
+    description: Chemical gradient increasing in a direction that aligns with visual tracks or disturbed terrain — same entity's passage detected through smell and sight
+    survival_relevance: Cross-modal confirmation of a trail provides directional information and recency estimate exceeding either modality alone
+    what_fires: Chemical concentration gradient and visual surface disturbance aligned along the same spatial path — bound as evidence of a single entity's passage
+
+  - id: thermal_signature_plus_movement
+    description: Heat signal and visual movement signal originating from the same location — the warm object is the moving object, confirming a living entity
+    survival_relevance: Cross-modal binding of heat and motion distinguishes living threats from wind-moved objects or sun-warmed rocks
+    what_fires: Thermal signal and motion signal spatially coincident, with the thermal signature consistent with a biological source — bound as one living entity
+
+anti_manifestations:
+  - id: coincidental_sound_and_movement
+    description: A rock falls (visual movement) at the same time wind makes a noise from a different direction — two unrelated events happening simultaneously
+    why_should_not_fire: The spatial origins do not match — the visual and auditory signals come from different locations and have no common source
+    distinguishes: Cross-modal binding (same source) vs temporal coincidence (different sources) — cross_modal_observation requires spatial and causal coherence
+
+  - id: single_modality_rich_signal
+    description: A predator is detected through vision alone with multiple visual features (color, shape, movement) — rich characterization but not cross-modal
+    why_should_not_fire: Multiple features within a single modality is not cross-modal observation — all the information comes from vision
+    distinguishes: Cross-modal (multiple senses) vs within-modal feature richness (multiple features, one sense) — the receptor requires at least two distinct sensory modalities

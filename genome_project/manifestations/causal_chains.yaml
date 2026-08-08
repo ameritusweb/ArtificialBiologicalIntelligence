@@ -1,0 +1,129 @@
+receptor_id: causal_chains
+family: causality
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Detects multi-step transitive causation: A causes B, and B in turn
+  causes C. The organism traces a causal pathway through intermediate
+  objects or events. The boundary separates single-step causation
+  (A causes B, full stop) from chained causation (A causes B causes C,
+  where B is both effect and cause). Requires linking two or more
+  causal relationships into a sequential chain.
+
+manifestations:
+  - id: push_rock_hits_stick_stick_falls_into_water
+    description: |
+      The organism pushes a rock on a ledge. The rock slides and
+      strikes a balanced stick. The stick topples off the ledge and
+      falls into a stream below, creating a partial dam that slows
+      water flow.
+    survival_relevance: |
+      Recognizing causal chains enables predicting distal consequences
+      of actions. The organism's push ultimately affected water flow
+      three steps removed — understanding this chain enables
+      intentional indirect effects.
+    what_fires: |
+      Three linked causal events: push causes rock-slide, rock-slide
+      causes stick-topple, stick-topple causes water-damming. Each
+      link is causal (intervention at any point would break the
+      downstream chain). The transitive linking of multiple causal
+      steps fires.
+
+  - id: breaking_branch_drops_nest_eggs_attract_predator
+    description: |
+      The organism breaks a dead branch for use as a tool. The branch
+      held a bird nest that falls. Eggs spill on the ground. The egg
+      scent attracts a ground predator to the area within minutes.
+    survival_relevance: |
+      Understanding unintended causal chains enables avoidance of
+      dangerous indirect consequences. Breaking a branch is safe;
+      the chained consequence of attracting a predator is not.
+    what_fires: |
+      Chain: break branch causes nest fall, nest fall causes egg
+      spill, egg spill causes predator attraction. The organism's
+      single action propagated through three intermediate objects
+      to produce a distal threat. Multi-link causal chain fires.
+
+  - id: digging_hole_diverts_rainwater_erodes_bank
+    description: |
+      The organism digs a shallow trench to access roots. When rain
+      falls, water collects in the trench and flows along it. The
+      flowing water erodes soft soil at the trench's end, creating
+      a small gully that exposes more roots.
+    survival_relevance: |
+      Recognizing that digging can chain through water flow to produce
+      erosion that reveals food enables intentional landscape
+      engineering through indirect causal chains.
+    what_fires: |
+      Chain: dig trench causes water channeling (during rain), water
+      channeling causes soil erosion, erosion causes root exposure.
+      The temporal gaps between links (rain must intervene) do not
+      break the chain — the organism traces A through B through C
+      to D. Multi-step transitive causation fires.
+
+  - id: moving_stone_exposes_insects_attracts_bird
+    description: |
+      The organism flips a large flat stone to find grubs underneath.
+      The exposed grubs begin moving on the surface. A bird swoops
+      down to feed on the exposed grubs, landing near the organism.
+    survival_relevance: |
+      Understanding that flipping stones chains to insect exposure
+      chains to bird attraction can be exploited — the organism
+      can flip stones intentionally to attract birds if birds are
+      the desired resource.
+    what_fires: |
+      Chain: flip stone causes grub exposure, grub exposure causes
+      bird arrival. The organism's action on object A (stone)
+      produced a change in object B (grubs' visibility) that caused
+      a change involving object C (bird's position). Two-link
+      causal chain through different objects fires.
+
+  - id: piling_leaves_creates_warmth_attracts_snake
+    description: |
+      The organism gathers dry leaves into a pile for warmth during
+      cold. The decomposing leaf pile generates heat. The warmth
+      attracts a cold-seeking snake that burrows into the pile.
+    survival_relevance: |
+      Understanding that comfort-seeking behavior chains through
+      thermal effects to predator attraction enables risk assessment
+      of seemingly benign actions.
+    what_fires: |
+      Chain: pile leaves causes decomposition heat, decomposition
+      heat causes snake attraction. The organism's construction
+      action produced a physical change (warmth) that caused a
+      biological response (snake arrival). Two-link chain through
+      a physical intermediate fires.
+
+anti_manifestations:
+  - id: push_rock_rock_rolls_single_step
+    description: |
+      The organism pushes a rock and it rolls downhill, coming to
+      rest against a tree. The rock's movement is the direct and
+      only consequence. Nothing further happens.
+    why_should_not_fire: |
+      This is single-step causation: A (push) causes B (roll). There
+      is no B-causes-C link. Causal chains require at least two
+      causal links in sequence. A single cause-effect pair, no matter
+      how clear, is causal inference, not a causal chain.
+    distinguishes: |
+      Single-step causation (A causes B, terminus) versus multi-step
+      chained causation (A causes B causes C). The chain receptor
+      requires the effect to become a cause of something further.
+
+  - id: two_independent_effects_of_one_action
+    description: |
+      The organism strikes a hollow log. The strike produces a loud
+      sound and also dislodges bark. Sound and bark-dislodging both
+      result from the strike, but the sound did not cause the bark
+      to dislodge, nor did the bark cause the sound.
+    why_should_not_fire: |
+      This is causal branching (one cause, two independent effects),
+      not causal chaining (one cause, one effect that causes another).
+      A causes B and A causes C, but B does not cause C. The effects
+      are parallel, not sequential. Causal chains require transitive
+      propagation, not fan-out.
+    distinguishes: |
+      Causal branching (A causes B and C independently) versus causal
+      chaining (A causes B, B causes C transitively). The chain
+      receptor requires serial propagation, not parallel effects.

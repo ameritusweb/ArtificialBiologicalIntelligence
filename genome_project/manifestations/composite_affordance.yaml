@@ -1,0 +1,50 @@
+receptor_id: composite_affordance
+family: interaction
+tier: canopy
+stage: 9
+
+conceptual_space: |
+  Detects that combining two or more objects creates an affordance that neither
+  possesses alone. Stick + rock = hammer. Vine + branch = snare. The boundary
+  separates composite affordance (emergent action possibility from combination)
+  from single-object affordance (what one object enables) or co-located objects
+  (objects near each other without combinatorial potential). The concept is
+  combinatorial affordance — the detection that combination creates new
+  possibilities.
+
+manifestations:
+  - id: stick_plus_rock_hammer
+    description: Neither a stick nor a rock alone can crack a hard-shelled food source — but the organism detects that combining stick-as-handle with rock-as-head creates a hammering tool that can crack the shell
+    survival_relevance: Composite affordance detection opens access to food sources that no single available object can exploit, multiplying the organism's effective tool repertoire combinatorially
+    what_fires: Two objects each perceived with their individual affordances, plus a novel composite affordance detected from their combination that neither possesses alone — the composite is the emergent signal
+
+  - id: vine_plus_branch_snare
+    description: A vine is flexible but has no structure, a branch is rigid but cannot bind — the organism detects that combining vine-as-binding with branch-as-frame creates a snare for catching prey
+    survival_relevance: Composite snare affordance enables passive prey capture, extending foraging capacity beyond active pursuit through a manufactured tool from available materials
+    what_fires: Two objects with complementary properties detected as combinable into a functional tool, with the combined affordance (trapping) absent from either component's individual affordance profile
+
+  - id: leaf_plus_bark_container
+    description: A large leaf is waterproof but unshaped, bark is rigid but permeable — combining leaf-as-lining with bark-as-frame creates a water container that neither alone provides
+    survival_relevance: Composite container affordance enables water transport, extending the organism's range beyond immediate water source proximity through manufactured carrying capacity
+    what_fires: Two objects with complementary physical properties detected as combinable into a functional container, with the composite affordance (water holding and transport) emergent from the combination
+
+  - id: thorn_plus_vine_fishing_tool
+    description: A thorn can hook but cannot reach into water, a vine can extend but cannot hook — combining thorn-as-hook with vine-as-line creates a fishing tool
+    survival_relevance: Composite fishing tool affordance enables access to aquatic food resources that are otherwise inaccessible from shore, expanding the organism's ecological niche
+    what_fires: Two objects perceived with complementary functional properties, with the combination detected as enabling a new action (fishing) that neither object affords alone
+
+  - id: multiple_rocks_as_wall
+    description: A single rock provides partial cover, but the organism detects that arranging multiple rocks creates a continuous wall — the composite affordance of collective arrangement exceeds any single rock's protective value
+    survival_relevance: Composite structural affordance enables manufactured shelter from available materials, providing protection that requires recognizing the combinatorial potential of multiple identical objects
+    what_fires: Multiple objects of the same type detected as combinable into an arrangement with an emergent affordance (continuous barrier) that exceeds the sum of individual affordances
+
+anti_manifestations:
+  - id: single_object_affordance
+    description: Organism detects that a heavy rock can be dropped on a hard-shelled food source to crack it — this is a single-object affordance, not a composite requiring combination with another object
+    why_should_not_fire: Single-object affordance involves one object's action possibility — composite affordance requires detecting that combination creates something neither object has alone
+    distinguishes: Composite affordance (emergent from combination of multiple objects) vs single-object affordance (action possibility inherent in one object)
+
+  - id: co_located_objects_no_combination
+    description: A stick and a rock are near each other but the organism does not detect any combinatorial potential — it perceives two separate objects with their individual affordances, not a potential composite
+    why_should_not_fire: Spatial co-location without detected combinatorial potential is not composite affordance — the combination must be perceived as creating new action possibilities
+    distinguishes: Composite affordance (combination creates emergent action possibility) vs co-location (objects near each other without detected combinatorial potential)

@@ -1,0 +1,49 @@
+receptor_id: instruction_source_discrimination
+family: social
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detects whether the source of an instruction or behavioral suggestion has a track
+  record that warrants compliance. The boundary is between sources whose past guidance
+  correlated with survival outcomes versus sources with no such track record or with
+  a history of misleading signals. This receptor requires the organism to maintain an
+  internal model of WHO told it WHAT and WHETHER following that guidance led to good
+  outcomes -- a meta-cognitive ledger of instructor reliability.
+
+manifestations:
+  - id: proven_leader_novel_command
+    description: The organism receives a movement directive from an agent whose previous 5 instructions all led to food or safety. The current instruction is unfamiliar -- move toward a region the organism has never explored.
+    survival_relevance: Following proven sources into unknown territory is how organisms extend their range without paying full exploration cost. Ignoring reliable sources wastes accumulated social knowledge.
+    what_fires: High correlation score in the internal source-reliability model between this agent's identity signature and positive outcomes, combined with novelty signal from the destination.
+
+  - id: stranger_danger_familiar_advice
+    description: An unfamiliar agent suggests the organism take a route the organism already knows is safe. The advice happens to be correct but comes from an unverified source.
+    survival_relevance: Even correct advice from unknown sources should not update the reliability model upward without verification. The organism must detect that the source lacks a track record, not just that the content seems plausible.
+    what_fires: Source-identity lookup returns no match in the reliability ledger. Content-plausibility is high but source-confidence remains at baseline. The discrimination is between content quality and source quality.
+
+  - id: formerly_reliable_now_degraded
+    description: An agent that guided the organism to food 8 times has now given 3 consecutive instructions that led to empty zones or mild danger. The organism must detect that its internal reliability score for this source should be decaying.
+    survival_relevance: Source reliability is not permanent. Organisms that cannot update their trust models when a source degrades will follow bad guidance off a cliff. This requires modeling change in another agent over time.
+    what_fires: The reliability score for this source crosses below a threshold where the organism's compliance probability should decrease. The receptor detects the discrepancy between stored high-reliability and recent low-outcome correlation.
+
+  - id: conflicting_sources_rank_resolution
+    description: Two agents give contradictory instructions simultaneously. Agent A has a reliability score of 0.9, Agent B has 0.6. The organism must resolve the conflict by weighting source reliability, not content plausibility.
+    survival_relevance: In ambiguous situations, source discrimination is the tiebreaker. Organisms that resolve conflicts by reliability weighting rather than random choice or content analysis alone make systematically better decisions under uncertainty.
+    what_fires: Conflict detection between two active instruction streams, followed by retrieval and comparison of source-reliability scores. The higher-reliability source's instruction gets compliance weight proportional to the score differential.
+
+  - id: self_as_unreliable_source
+    description: The organism's own past decisions in this zone led to poor outcomes 4 out of 5 times. It now faces a choice in the same zone and must recognize that ITS OWN internal guidance for this context is an unreliable source.
+    survival_relevance: The most important source to evaluate is the self. An organism that cannot flag its own judgment as unreliable in specific contexts will repeat the same mistakes. Self-source discrimination is the highest form of this receptor.
+    what_fires: The reliability ledger includes self-as-source entries. Retrieval shows low outcome correlation for self-generated decisions in this spatial-contextual signature. The receptor fires to suppress default self-trust and elevate openness to external guidance.
+
+anti_manifestations:
+  - id: novel_agent_neutral_context
+    description: An unfamiliar agent is present in the environment but has not issued any instructions. The organism simply detects a new social entity nearby.
+    why_should_not_fire: No instruction has been issued, so there is nothing to evaluate for source reliability. This is social detection, not source discrimination. The receptor requires an active guidance signal to evaluate.
+    distinguishes: Presence of an instruction or guidance signal versus mere presence of a social agent. Source discrimination requires something to discriminate about.
+
+  - id: instruction_content_evaluation
+    description: The organism receives an instruction and evaluates whether the CONTENT of the instruction makes sense given its spatial model -- e.g., "go north" when north is a wall. It rejects the instruction based on content impossibility.
+    why_should_not_fire: This is content evaluation, not source evaluation. The organism is checking whether the instruction is physically possible, not whether the instructor is reliable. An unreliable source could give a physically valid instruction, and a reliable source could give one that seems implausible but works.
+    distinguishes: Source reliability modeling versus content plausibility checking. This receptor tracks WHO, not WHAT.

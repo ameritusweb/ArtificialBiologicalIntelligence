@@ -1,0 +1,133 @@
+receptor_id: compression_gain
+family: compression
+tier: trunk
+stage: 2
+
+conceptual_space: |
+  Bits saved by using a compressed representation vs raw data. The concept
+  is information efficiency — how much the organism's internal model reduces
+  the description length of its experience. High compression gain means the
+  model captures regularities that make the world cheaper to represent.
+  The boundary is the ratio of raw information to compressed information.
+  Not prediction quality — representation efficiency.
+
+manifestations:
+  - id: pattern_replaces_enumeration
+    description: |
+      Organism has visited a food source 20 times and observed that food
+      appears every 30 steps. Instead of storing 20 individual timestamps,
+      the model stores one rule: "food spawns at intervals of 30." The
+      raw data was 20 numbers; the compressed representation is one number
+      and a rule. Massive compression gain.
+    survival_relevance: |
+      Compression gain frees cognitive resources. An organism that compresses
+      "20 food observations" into "one rule" has freed storage for learning
+      other patterns. Efficient representation enables faster scaling of
+      knowledge across environments.
+    what_fires: |
+      Description length of experience under the model is much shorter
+      than description length of raw observations. The ratio of raw bits
+      to model bits is large. Information efficiency metric is high.
+
+  - id: category_formation_compresses
+    description: |
+      Organism has encountered 15 different small objects that can be
+      gripped, thrown, and used to crack shells. Instead of maintaining
+      15 separate object representations with individual affordance lists,
+      the model forms a category "tool-stones" and stores affordances once.
+      15 descriptions compressed to one category plus membership.
+    survival_relevance: |
+      Category formation is a primary compression mechanism. An organism
+      that categorizes can apply learned affordances to new instances
+      without re-learning. Compression gain from categorization scales
+      with category size.
+    what_fires: |
+      Multiple similar representations collapsed into one prototype plus
+      deviation. The total representation cost dropped when the category
+      was formed. Compression gain from abstraction.
+
+  - id: spatial_map_vs_step_memory
+    description: |
+      Organism has explored a terrain over 500 steps. Instead of storing
+      a sequence of 500 position-observation pairs, the model builds a
+      spatial map — a 2D structure where each location stores its features.
+      The map representation is far smaller than the sequential history
+      and enables lookup by location rather than by time.
+    survival_relevance: |
+      Spatial compression (map vs history) enables navigation without
+      replaying all past experience. The organism can query "what is at
+      location X" directly rather than scanning 500 memories. This
+      compression gain makes large-territory navigation tractable.
+    what_fires: |
+      Structured representation (map) encodes the same information as
+      sequential record at much lower cost. The compression gain is the
+      difference between history length and map description length.
+
+  - id: no_compression_random_noise
+    description: |
+      Organism observes a sensor channel that produces genuinely random
+      values each step. No pattern, no regularity, no compressible
+      structure. The model cannot find a shorter description than storing
+      each value individually. Compression gain is zero — raw data and
+      compressed data are the same length.
+    survival_relevance: |
+      Zero compression gain is informative: it signals that this input
+      channel contains no learnable structure. The organism should stop
+      investing cognitive resources in trying to model it and attend
+      elsewhere. Compression gain of zero is a "give up" signal.
+    what_fires: |
+      Description length under model equals description length of raw
+      data. No bits saved. The compression ratio is 1:1. Information
+      efficiency metric is at minimum.
+
+  - id: hierarchical_compression
+    description: |
+      Organism has learned that predator patrol routes follow a pattern,
+      and that the pattern itself changes seasonally. Instead of storing
+      patrol routes per season, the model stores: (1) a route-generation
+      rule, and (2) a seasonal modifier. Two compact rules replace a
+      large table of season-route pairs. Multi-level compression gain.
+    survival_relevance: |
+      Hierarchical compression enables modeling of complex, structured
+      environments with minimal representation cost. Organisms that
+      compress hierarchically can model deeper regularities than those
+      limited to flat pattern matching.
+    what_fires: |
+      Model applies compression at multiple levels of abstraction.
+      Each level reduces description length further. The total compression
+      gain is the product of gains at each level. Multi-scale efficiency.
+
+anti_manifestations:
+  - id: accurate_but_uncompressed
+    description: |
+      Organism has memorized the exact sequence of 100 environmental
+      events by rote. Its predictions are perfect because it has seen
+      this sequence before and stored every step. But the representation
+      is the same length as the raw data — no generalization, no pattern
+      extraction, just brute-force memorization.
+    why_should_not_fire: |
+      Prediction accuracy can be high without compression gain. Memorizing
+      raw data achieves perfect prediction but zero compression. This
+      receptor measures representation EFFICIENCY, not prediction quality.
+    distinguishes: |
+      Compression gain is about shorter descriptions, not accurate
+      predictions. A lookup table that stores every observation achieves
+      zero compression gain despite potentially perfect accuracy.
+
+  - id: lossy_oversimplification
+    description: |
+      Organism applies an overly simple model that ignores important
+      variation. It treats all NPCs as identical, losing the distinction
+      between predators and prey. The representation is very short, but
+      it discards survival-critical information. The "compression" is
+      actually information loss.
+    why_should_not_fire: |
+      Compression gain requires lossless or near-lossless compression.
+      Discarding survival-relevant distinctions is not genuine compression
+      gain — it is harmful information loss. True compression preserves
+      the information while reducing the representation.
+    distinguishes: |
+      Compression gain is bits saved WITHOUT losing important information.
+      Lossy simplification that discards critical distinctions is model
+      degradation, not compression. The boundary is between efficient
+      representation and destructive simplification.

@@ -1,0 +1,131 @@
+receptor_id: grip_state_proprio
+family: proprioception
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Detects whether the organism's grip effectors are currently engaged —
+  are the digits closed around something? This is not about what is being
+  held or whether the object affords gripping. It is the proprioceptive
+  sense of one's own grip state: fingers curled and under tension (gripping)
+  versus fingers relaxed and open (not gripping). The boundary is the
+  binary state of the effector itself — engaged or disengaged.
+
+manifestations:
+  - id: gripping_tree_branch
+    description: |
+      The organism hangs from a branch by one forelimb. The fingers are
+      curled tightly around the branch, flexor muscles under sustained
+      tension, each digit pressing inward against the bark. The
+      proprioceptive signal is unambiguous: the grip effector is fully
+      engaged. Fingers closed, muscles loaded, grip active.
+    survival_relevance: |
+      Knowing that you are currently gripping is essential for arboreal
+      locomotion. An organism that loses track of its own grip state
+      risks releasing a branch mid-climb without intending to.
+    what_fires: |
+      Digit flexor muscles under sustained tension. Joint angles in
+      fingers at flexion values consistent with enclosing an object.
+      Contact pressure on palmar surfaces. Grip state: engaged.
+
+  - id: carrying_stone_in_hand
+    description: |
+      The organism walks across a rocky plain holding a smooth stone in
+      its right hand. The fingers are wrapped around the stone, thumb
+      opposing the other digits, moderate flexor tension maintaining
+      the grip. The proprioceptive sense is continuous awareness that
+      something is held — the hand is not free, the grip is on.
+    survival_relevance: |
+      Awareness of grip state while carrying tools or weapons enables
+      readiness assessment. The organism knows it is already holding
+      something and must release it before gripping something else.
+    what_fires: |
+      Moderate sustained digit flexion. Contact pressure between digits
+      and object. Thumb in opposition. Continuous muscle tension in
+      hand and forearm flexors. Grip state: engaged.
+
+  - id: clamping_jaw_on_prey
+    description: |
+      The organism has caught a fish and holds it crosswise in its jaws.
+      The jaw muscles are clamped with sustained force, teeth pressing
+      into the fish's body, mandible locked in a partially closed
+      position. The proprioceptive signal from the jaw is clear: the
+      oral grip effector is engaged and loaded.
+    survival_relevance: |
+      Jaw grip state awareness prevents premature release of caught
+      prey. The organism must maintain active jaw engagement during
+      transport to a safe eating location.
+    what_fires: |
+      Jaw adductor muscles under sustained high tension. Mandible angle
+      partially closed with object between dental surfaces. Contact
+      pressure on teeth and palate. Jaw grip state: engaged.
+
+  - id: toes_gripping_wet_rock
+    description: |
+      The organism climbs a waterfall-splashed boulder. Its hind toes
+      curl inward, gripping the rough rock surface for traction. Each
+      toe is flexed and pressing downward with active muscular force —
+      not just resting on the surface but actively clutching it. The
+      foot grip effectors are engaged.
+    survival_relevance: |
+      Toe grip state on slippery surfaces determines fall risk. The
+      organism must know whether its feet are actively gripping or
+      merely resting, especially on wet, angled terrain where passive
+      contact provides no traction.
+    what_fires: |
+      Toe flexor muscles under active tension. Digit angles in tight
+      flexion. Pressure concentrated at toe tips against substrate.
+      Foot grip state: engaged.
+
+  - id: both_hands_gripping_opponent
+    description: |
+      Two organisms are grappling. The organism has both forelimbs
+      locked around the opponent — left hand gripping the scruff, right
+      hand gripping a forelimb. Both hands are maximally engaged, all
+      digits under high tension, grip as tight as possible. The
+      proprioceptive signal is bilateral grip engagement at maximum
+      intensity.
+    survival_relevance: |
+      Bilateral grip state awareness during combat determines what
+      actions are available. Both hands occupied means no free limb
+      for striking. The organism must know its own grip state to plan
+      its next move.
+    what_fires: |
+      All digit flexors bilaterally at high tension. Maximum grip force
+      in both hands. Contact pressure on all palmar surfaces. Bilateral
+      grip state: fully engaged.
+
+anti_manifestations:
+  - id: hand_open_and_relaxed
+    description: |
+      The organism stands with arms at its sides. Both hands are open,
+      fingers extended and relaxed, palms facing the thighs. No flexor
+      tension in the digits, no contact pressure on the palmar surfaces.
+      The hands are completely disengaged — not holding anything, not
+      gripping anything, not even partially closed.
+    why_should_not_fire: |
+      The grip effector is in its disengaged state. No flexor tension,
+      no digit closure, no contact pressure. Grip_state_proprio detects
+      the engaged state; a fully open, relaxed hand is the baseline
+      against which engagement is measured.
+    distinguishes: |
+      Grip engaged (digits flexed under tension around something) versus
+      grip disengaged (digits extended and relaxed). The receptor fires
+      on the engaged state, not the resting state.
+
+  - id: fingers_curled_loosely_during_sleep
+    description: |
+      The organism is sleeping on its side. Its fingers are loosely
+      curled in the natural resting posture of sleep — slightly flexed
+      but with no muscular tension, no object between them, no contact
+      pressure. The hand looks partially closed but the muscles are
+      completely slack.
+    why_should_not_fire: |
+      Passive finger curl without muscular engagement is not gripping.
+      Grip_state_proprio requires active flexor tension and contact
+      pressure against an object or surface. Slack digits in a relaxed
+      curl are not an engaged grip effector.
+    distinguishes: |
+      Active grip (muscle tension + contact pressure + object engagement)
+      versus passive flexion posture (no tension, no object, no active
+      hold). The muscle tension component is critical.

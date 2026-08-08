@@ -1,0 +1,164 @@
+receptor_id: processing_speed
+family: perception
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detect poor model-environment fit by monitoring the organism's own processing
+  latency. When the organism is processing slowly -- taking too long to categorize,
+  decide, or respond -- it signals that the current receptor topology is not well
+  matched to the environment's demands. The boundary is between processing speed
+  as a background constant and processing speed as an informative signal about
+  the adequacy of one's own cognitive architecture for the current environment.
+
+manifestations:
+  - id: overwhelmed_by_novelty
+    description: |
+      The organism enters a radically unfamiliar environment. Every stimulus
+      requires effortful categorization -- nothing falls into existing templates.
+      Decision latency spikes. The processing-speed receptor fires: "I'm
+      processing slowly because nothing here matches my existing categories.
+      My topology was built for a different environment. I need to either
+      simplify my processing (fall back to coarser categories) or invest
+      in building new categories for this territory."
+    survival_relevance: |
+      Processing slowdown in a novel environment means delayed threat response,
+      missed opportunities, and cognitive exhaustion. Detecting the slowdown
+      allows the organism to consciously adopt a simplified processing strategy
+      for safety while gradually building appropriate categories, rather than
+      trying to apply full processing depth to a mismatched environment.
+    what_fires: |
+      Decision latency exceeding baseline by a significant margin across
+      multiple stimulus categories simultaneously. The receptor fires not on
+      a single slow decision but on a systemic processing slowdown, encoding
+      "global model-environment mismatch -- processing architecture not
+      adapted to current environment."
+
+  - id: familiar_become_slow
+    description: |
+      The organism is in a previously familiar environment that has changed
+      subtly. Trees are the same but the undergrowth is different; paths exist
+      but lead to new places. The organism's stored models partially match but
+      require constant correction. Processing speed degrades not because
+      everything is novel but because everything is ALMOST-BUT-NOT-QUITE
+      familiar. The processing-speed receptor fires: "I'm slower than I should
+      be here. My old model is close enough to engage but wrong enough to need
+      constant correction. That's worse than pure novelty."
+    survival_relevance: |
+      Near-miss familiarity is more dangerous than pure novelty because the
+      organism engages its stored models confidently but they produce errors.
+      Detecting the processing slowdown in a "should-be-familiar" environment
+      alerts the organism that its stored model is stale and needs rebuilding
+      rather than patching.
+    what_fires: |
+      Processing latency increase in a context tagged as "familiar" in the
+      organism's spatial model. The receptor fires when processing speed in
+      a known territory drops below the expected speed for that familiarity
+      level, encoding "familiarity-processing mismatch -- stored model
+      degraded."
+
+  - id: social_complexity_overload
+    description: |
+      The organism finds itself in a group larger than it has previously
+      navigated. Tracking alliances, dominance relationships, and behavioral
+      predictions for this many individuals exceeds its social processing
+      bandwidth. Social decisions take much longer. The processing-speed
+      receptor fires: "I can't track this many relationships at this speed.
+      My social processing topology is undersized for this group."
+    survival_relevance: |
+      Social processing overload leads to costly errors -- misreading
+      alliances, failing to notice dominance challenges, responding to the
+      wrong social signals. Detecting the overload allows the organism to
+      simplify its social model (track only the most critical relationships)
+      rather than attempting and failing at comprehensive social computation.
+    what_fires: |
+      Social-decision latency scaling nonlinearly with group size. The receptor
+      fires when the organism's social processing time per interaction exceeds
+      a threshold, encoding "social processing bandwidth exceeded -- simplify
+      or disengage."
+
+  - id: multi_threat_processing_lag
+    description: |
+      The organism faces simultaneous threats from multiple directions -- a
+      predator in front, an environmental hazard (rising water) behind, and
+      a territorial competitor flanking. Processing the optimal response to
+      all three simultaneously creates a bottleneck. The processing-speed
+      receptor fires: "I can't process all these threats at the speed the
+      situation demands. My processing is too slow for this complexity level.
+      I need to triage -- pick the most critical threat and respond to that."
+    survival_relevance: |
+      Multi-threat environments demand rapid triage. An organism that tries
+      to fully process all threats simultaneously may be too slow to respond
+      to any of them. Detecting its own processing lag allows it to
+      deliberately drop lower-priority threat processing and commit to the
+      most critical response.
+    what_fires: |
+      Parallel threat-processing queue depth exceeding capacity, producing
+      observable response delay. The receptor fires when multiple threat
+      signals compete for processing and total response latency exceeds
+      the environment's action-deadline, encoding "processing bottleneck
+      under multi-threat -- triage required."
+
+  - id: diminishing_processing_returns
+    description: |
+      The organism has been deliberating about a foraging decision for an
+      extended period. Each additional moment of deliberation produces
+      marginally less improvement in decision quality but the organism
+      continues processing. The processing-speed receptor fires from the
+      other direction: "I'm processing more than the decision warrants.
+      My processing speed is fine but my processing DEPTH exceeds what this
+      decision needs. I'm burning cognitive energy on diminishing returns."
+    survival_relevance: |
+      Over-processing wastes time and cognitive resources on decisions that
+      are already good enough. In a survival environment, the opportunity
+      cost of extended deliberation (missed other opportunities, delayed
+      action) can exceed the benefit of marginal decision improvement.
+    what_fires: |
+      Decision-quality convergence with continued processing investment. The
+      receptor monitors the marginal improvement in decision confidence per
+      unit of processing time. When the marginal gain drops below a threshold,
+      the receptor fires encoding "processing depth exceeds decision value --
+      act on current model."
+
+anti_manifestations:
+  - id: deliberate_slow_processing
+    description: |
+      The organism encounters a complex but familiar situation -- choosing
+      between two known foraging routes that differ in risk-reward profile.
+      It processes slowly because the decision is genuinely difficult and
+      worth careful evaluation. The slowness reflects decision complexity,
+      not model-environment mismatch. The organism's processing architecture
+      is well-suited to this environment; the decision simply requires thought.
+    why_should_not_fire: |
+      Processing-speed detection targets processing slowness that indicates
+      architectural mismatch -- the organism's topology being wrong for the
+      environment. Deliberate slow processing of a genuinely complex decision
+      in a well-understood environment is appropriate cognitive investment,
+      not a signal of poor fit. The receptor should fire on systemic slowdown
+      from misfit, not on thoughtful deliberation from complexity.
+    distinguishes: |
+      Source of slowness: architectural mismatch with the environment (true)
+      vs. appropriate deliberation depth for a complex decision (anti). The
+      receptor detects that the architecture is wrong for the environment,
+      not that the decision is hard.
+
+  - id: fatigue_slowdown
+    description: |
+      The organism has been active for an extended period and all processing
+      has slowed uniformly -- reaction times are longer, categorization is
+      sluggish, decisions take longer. This is metabolic fatigue, not
+      model-environment mismatch. The organism's topology is fine for this
+      environment; its energy reserves are simply depleted.
+    why_should_not_fire: |
+      Fatigue-related processing slowdown is a metabolic signal, not an
+      architectural signal. The processing-speed receptor detects mismatch
+      between the organism's cognitive architecture and the environment's
+      demands. When the architecture is appropriate but the organism lacks
+      the energy to run it at speed, the correct signal is "rest," not
+      "reconfigure." Confusing the two would lead to unnecessary architectural
+      restructuring when sleep is the actual solution.
+    distinguishes: |
+      Cause of slowdown: cognitive architecture mismatch with environment
+      demands (true) vs. metabolic depletion reducing processing speed
+      uniformly (anti). Architecture mismatch produces domain-specific
+      slowdown; fatigue produces uniform slowdown.

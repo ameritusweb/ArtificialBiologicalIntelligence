@@ -1,0 +1,142 @@
+receptor_id: spatial_reasoning
+family: social
+tier: branch
+stage: 4
+
+conceptual_space: |
+  Reasoning about spatial relationships between agents and objects. Not
+  simple proximity detection — structured reasoning about relative positions,
+  between-ness, line-of-sight, flanking, interposition, and spatial
+  consequences of movement. "NPC is between me and food." "If I move left,
+  the rock will block the predator's view." The boundary is relational
+  spatial inference, not just location awareness.
+
+manifestations:
+  - id: agent_between_self_and_food
+    description: |
+      Organism detects food ahead but a dominant conspecific is positioned
+      directly between the organism and the food source. The spatial
+      reasoning fires: "the other agent is interposed between me and the
+      resource." This is not just knowing where the food is and where the
+      agent is — it is computing the BETWEEN relationship and its
+      consequence (the agent blocks direct access).
+    survival_relevance: |
+      Spatial interposition reasoning prevents walking into confrontation.
+      An organism that computes "another agent is between me and the food"
+      can plan a flanking route rather than a direct approach, avoiding
+      conflict with a dominant individual.
+    what_fires: |
+      Spatial relationship computation: agent A is on the line segment
+      between self and target. The receptor computes relative positions
+      and detects the blocking/interposition geometry. Relational
+      spatial inference, not just position tracking.
+
+  - id: predator_flanking_angle
+    description: |
+      Organism detects a predator approaching from an angle. The spatial
+      reasoning computes that the predator's trajectory will intersect the
+      organism's escape route to the nearest shelter. "If I run straight
+      to the cave, the predator will cut me off." The reasoning is about
+      trajectory intersection — predicted spatial coincidence in the future.
+    survival_relevance: |
+      Computing trajectory intersection enables escape route selection.
+      An organism that reasons about spatial interception chooses escape
+      paths that do not converge with the predator's approach vector.
+      Spatial reasoning about future positions saves lives.
+    what_fires: |
+      Trajectory projection computation: predator's movement vector
+      intersects organism's planned path at a future point. The receptor
+      reasons about spatial relationships that do not yet exist but will
+      exist given current velocities.
+
+  - id: line_of_sight_occlusion
+    description: |
+      Organism is being watched by a predator from across a clearing.
+      A large rock is positioned to the organism's left. The spatial
+      reasoning computes that moving behind the rock would break the
+      predator's line of sight. "The rock, if I position it between me
+      and the predator, occludes me from view."
+    survival_relevance: |
+      Line-of-sight reasoning enables use of environmental features as
+      cover. An organism that computes occlusion geometry can use terrain
+      to become invisible to threats without actually fleeing the area.
+      Spatial reasoning converts environment into tactical advantage.
+    what_fires: |
+      Occlusion geometry computation: placing object C on the line between
+      self and agent A blocks visual channel. The receptor reasons about
+      three-body spatial relationships and their perceptual consequences.
+
+  - id: group_encirclement_detection
+    description: |
+      Three conspecifics are positioned around the organism in a rough
+      triangle — one ahead, one to the left, one to the right. The spatial
+      reasoning computes that the organism is semi-enclosed. Escape routes
+      are limited to the rear. The spatial relationship is not with any
+      single agent but with the GROUP configuration — the encirclement
+      geometry.
+    survival_relevance: |
+      Detecting encirclement from spatial positions of multiple agents
+      enables early escape before the encirclement closes. An organism
+      that reasons about multi-agent spatial configurations can identify
+      tactical disadvantage before it becomes inescapable.
+    what_fires: |
+      Multi-agent spatial configuration computation: agents at positions
+      that collectively constrain the organism's movement options. The
+      receptor reasons about the CONFIGURATION of positions, not
+      individual distances. Group geometry analysis.
+
+  - id: shortcut_through_gap
+    description: |
+      Organism is pursuing food. The direct path is long — around a dense
+      thicket. But the organism detects a narrow gap in the thicket that
+      would provide a shorter path. The spatial reasoning computes:
+      "the gap creates a shortcut — the through-gap distance is less than
+      the around-thicket distance." This is path-length comparison through
+      spatial structure analysis.
+    survival_relevance: |
+      Shortcut detection through spatial reasoning enables energy-efficient
+      navigation. An organism that reasons about path lengths through
+      spatial structures can minimize transit time and energy expenditure,
+      especially when evading threats or racing competitors to resources.
+    what_fires: |
+      Path-length computation through spatial structure: gap/opening
+      creates a path shorter than the default route. The receptor reasons
+      about distance through vs distance around an obstacle. Spatial
+      optimization inference.
+
+anti_manifestations:
+  - id: simple_proximity_no_reasoning
+    description: |
+      Organism detects that another agent is nearby — distance is small.
+      But there is no relational computation: no between-ness, no
+      occlusion, no trajectory intersection, no group geometry. Just
+      "that agent is close." This is proximity detection, not spatial
+      reasoning.
+    why_should_not_fire: |
+      Spatial reasoning requires RELATIONAL computation — relationships
+      between positions, not just positions themselves. Detecting that
+      something is near is basic proximity, not reasoning about spatial
+      structure. No relational inference occurred.
+    distinguishes: |
+      Spatial reasoning computes RELATIONSHIPS between spatial positions
+      (between, occluded-by, intersects-path-of, encloses). Simple
+      proximity is a single distance measurement with no relational
+      structure.
+
+  - id: memorized_route_no_inference
+    description: |
+      Organism follows a memorized route to a food source — turn left at
+      the rock, go straight past the tree, arrive at the berry bush. This
+      is spatial memory and route following, but no spatial reasoning is
+      occurring. The organism is replaying a stored sequence, not computing
+      spatial relationships in real time.
+    why_should_not_fire: |
+      Spatial reasoning is real-time relational inference about current
+      spatial configurations. Following a memorized route is spatial
+      memory retrieval, not reasoning. No novel spatial relationships
+      are being computed.
+    distinguishes: |
+      Reasoning requires NOVEL inference from current spatial data.
+      Memory retrieval replays stored sequences. An organism can navigate
+      perfectly via memory without reasoning about any spatial
+      relationships in the current scene.

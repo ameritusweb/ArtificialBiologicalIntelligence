@@ -1,0 +1,139 @@
+receptor_id: belief_detection
+family: epistemic
+tier: Trunk
+stage: 11
+
+conceptual_space: |
+  Detect own beliefs AS beliefs -- representations held to be true that could be
+  false. The boundary is between acting on a belief transparently (the world simply
+  IS that way) and recognizing that one holds a model of the world that is distinct
+  from the world itself. This receptor fires when the organism treats its own
+  internal representation as a hypothesis rather than as ground truth, enabling
+  verification-seeking behavior.
+
+manifestations:
+  - id: verify_food_belief
+    description: |
+      The organism has a stored model that food exists behind a particular barrier.
+      Rather than committing fully to the costly action of breaching the barrier,
+      it recognizes this as a belief -- "I think food is there" -- and seeks indirect
+      evidence first: sniffing, listening, checking for tracks. The belief is held
+      as a revisable proposition, not an unquestioned fact.
+    survival_relevance: |
+      Treating beliefs as beliefs allows evidence-gathering before commitment.
+      The organism saves energy and avoids danger by testing its model before
+      staking survival on it. Organisms that cannot distinguish belief from
+      reality overcommit to incorrect models.
+    what_fires: |
+      A stored prediction activates with moderate confidence while the organism is
+      positioned to act on it. The belief-detection receptor fires when the organism
+      generates verification-seeking behavior rather than direct execution --
+      encoding "this is my model, not confirmed reality."
+
+  - id: recognize_outdated_map
+    description: |
+      The organism returns to a territory it navigated weeks ago. Its stored spatial
+      model says the water source is north. But it detects that its model is from a
+      previous season -- "I believed the water was there, but conditions have changed."
+      It treats the stored map as a potentially outdated belief rather than current
+      truth and allocates extra attention to spatial updating.
+    survival_relevance: |
+      Environments change. An organism that can tag its own representations with
+      temporal validity -- recognizing that a belief formed in the past may not hold
+      in the present -- avoids navigating by obsolete maps.
+    what_fires: |
+      Temporal-context mismatch: the belief-detection receptor fires when a stored
+      spatial or resource model activates but the temporal metadata indicates
+      significant elapsed time since last confirmation. Signal encodes
+      "belief present but freshness uncertain."
+
+  - id: source_attribution
+    description: |
+      The organism encounters a clearing and feels safe. The belief-detection receptor
+      activates because the organism traces this safety-belief to its source: it
+      feels safe because no threat was encountered the LAST time, not because of any
+      current evidence. It recognizes the belief as inference-from-absence rather
+      than perception-of-safety, and maintains elevated vigilance despite the
+      feeling of safety.
+    survival_relevance: |
+      Beliefs formed from absence of evidence ("nothing bad happened last time")
+      are weaker than beliefs from positive evidence. An organism that can detect
+      the source of its own beliefs weights them appropriately, avoiding the trap
+      of confusing "I didn't see danger" with "there is no danger."
+    what_fires: |
+      The belief-detection receptor performs source tracing: when a confidence
+      signal activates, the receptor checks whether the supporting evidence is
+      direct (sensory confirmation) or indirect (absence, inference, memory).
+      It fires when the source is indirect, encoding "belief is inferential."
+
+  - id: belief_conflict
+    description: |
+      The organism holds two beliefs simultaneously: "this area is safe" (from
+      repeated visits) and "predators have been active nearby" (from recent scent
+      detection). Rather than one belief silently overriding the other, the
+      belief-detection receptor flags both as beliefs in tension. The organism
+      experiences the conflict as informative -- "I hold contradictory beliefs,
+      which means at least one is wrong."
+    survival_relevance: |
+      Undetected belief conflicts produce erratic behavior -- the organism
+      oscillates between models without understanding why. Detecting belief
+      conflict as belief conflict allows systematic resolution: gather evidence
+      to determine which belief is more accurate.
+    what_fires: |
+      Two stored models for the same context produce incompatible predictions.
+      The belief-detection receptor fires when the contradiction is between
+      internal models rather than between a model and sensory input, encoding
+      "internal model conflict -- resolution needed."
+
+  - id: distinguish_perception_from_expectation
+    description: |
+      The organism is foraging and spots a pattern that matches "ripe fruit." But
+      the belief-detection receptor activates because the organism recognizes that
+      it has been hungry for hours and its expectation of food may be biasing its
+      perception. It detects the possibility that it is seeing what it believes
+      rather than what is there, and approaches with verification rather than
+      immediate consumption.
+    survival_relevance: |
+      Hungry organisms hallucinate food. Organisms that can detect their own
+      motivational bias -- recognizing that desire is shaping perception -- avoid
+      consuming toxic look-alikes and wasting energy on false positives.
+    what_fires: |
+      The belief-detection receptor monitors for correlation between drive states
+      (hunger, thirst) and perceptual confidence. When high drive coincides with
+      high perceptual confidence for drive-relevant stimuli, the receptor fires
+      with "possible motivation-perception contamination."
+
+anti_manifestations:
+  - id: direct_sensory_response
+    description: |
+      The organism smells a predator directly upwind. The threat is immediate,
+      sensory, and unambiguous. The organism freezes and then flees. There is no
+      moment where it treats the predator's presence as a "belief" -- the predator
+      is simply there, detected through primary sensory channels with high
+      certainty.
+    why_should_not_fire: |
+      Belief-detection is not required when perception is direct and unambiguous.
+      The organism is not holding a model of reality -- it is perceiving reality.
+      The receptor fires for representations-held-as-true, not for transparent
+      perceptions that require no epistemic framing.
+    distinguishes: |
+      Epistemic status: direct perception (anti) vs. held representation (true).
+      The boundary is whether the organism is relating to a model or to an
+      unmediated sensory signal.
+
+  - id: habitual_preference
+    description: |
+      The organism consistently turns left at a fork because left has historically
+      led to food. This is a behavioral tendency shaped by reinforcement, not a
+      belief the organism holds and could examine. It does not think "I believe
+      left is better" -- it simply goes left, driven by accumulated reward history
+      rather than an explicit representational commitment.
+    why_should_not_fire: |
+      Habits operate below the level of belief. They are behavioral dispositions,
+      not propositional attitudes. The organism is not holding a model it could
+      question -- it is executing a reinforced pattern. Belief-detection requires
+      a representation explicit enough to be examined and potentially revised.
+    distinguishes: |
+      Representational explicitness: implicit behavioral tendency (anti) vs.
+      explicit held model (true). Beliefs can be questioned; habits are simply
+      executed.

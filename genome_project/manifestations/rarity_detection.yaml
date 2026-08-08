@@ -1,0 +1,135 @@
+receptor_id: rarity_detection
+family: observation
+tier: branch
+stage: 4
+
+conceptual_space: |
+  NPC has never before emitted this signal combination. The concept
+  is detecting events at the extreme tail of the KNOWN distribution
+  — globally rare events, not just agent-specific anomalies. The
+  boundary separates rarity from anomaly: anomaly is "unusual for
+  THIS agent" while rarity is "unusual in the organism's entire
+  experience." Rarity uses the global distribution of all observed
+  events across all agents and all time.
+
+manifestations:
+  - id: novel_signal_combination
+    description: |
+      NPC-A emits a signal pattern that combines high-frequency
+      emission with backward movement. The organism has observed
+      hundreds of emissions and hundreds of movements across all
+      NPCs but has never seen this specific combination. The event
+      is at the extreme tail of the global distribution.
+    survival_relevance: |
+      Globally rare events may signal unprecedented environmental
+      conditions or novel agent capabilities. They demand attention
+      because existing behavioral policies have never been tested
+      against this input.
+    what_fires: |
+      Event falls in the extreme tail of the global distribution
+      of all observed events. Not agent-specific anomaly but
+      globally unprecedented combination. Rarity threshold exceeded
+      across entire experience base.
+
+  - id: unprecedented_interaction_type
+    description: |
+      Two NPCs make simultaneous contact and then remain stationary
+      together for many timesteps. The organism has never observed
+      simultaneous mutual contact followed by joint stillness in
+      any agent pair. This interaction type is globally novel.
+    survival_relevance: |
+      A never-before-seen interaction type may represent a new
+      social behavior (coalition formation, mating, cooperation)
+      that restructures the social environment. Detection enables
+      rapid learning about new social dynamics.
+    what_fires: |
+      Interaction pattern has zero or near-zero prior observations
+      in the global distribution of all pairwise interactions.
+      Novel interaction type detected at extreme tail.
+
+  - id: environmental_response_never_seen
+    description: |
+      NPC-B approaches a wall and the wall moves. The organism has
+      seen hundreds of agent-wall interactions and the wall has never
+      moved before. The environmental response is globally rare —
+      no agent has ever produced this outcome.
+    survival_relevance: |
+      Rare environmental responses may reveal hidden affordances.
+      If one agent can move a wall, perhaps the organism can too.
+      Detection of unprecedented outcomes enables new capability
+      discovery.
+    what_fires: |
+      Agent-environment interaction produces an outcome that has
+      never been observed across all agent-environment interactions.
+      Zero prior count in the global outcome distribution fires
+      rarity detection.
+
+  - id: extreme_speed_never_observed
+    description: |
+      NPC-C moves at a speed three times faster than any agent the
+      organism has ever observed. The speed value is not just unusual
+      for this agent — it is outside the range of all observed speeds
+      from all agents across all time.
+    survival_relevance: |
+      Extremely rare speed values may indicate an agent capability
+      that existing escape or pursuit strategies cannot handle. The
+      organism's behavioral policies may be inadequate for this
+      speed class.
+    what_fires: |
+      Observed value exceeds the maximum of the global distribution
+      for that dimension. Not a deviation from one agent's baseline
+      but an extension of the known RANGE across all agents.
+
+  - id: unique_spatial_configuration
+    description: |
+      Five NPCs simultaneously converge on a single point from five
+      different directions. The organism has never observed more than
+      two agents converging simultaneously. The spatial configuration
+      is globally unprecedented in terms of agent count and symmetry.
+    survival_relevance: |
+      Large-scale coordination events may indicate collective
+      behavior the organism has never encountered. The social
+      dynamics at a five-agent convergence may differ qualitatively
+      from two-agent interactions.
+    what_fires: |
+      Spatial configuration of agents falls outside the envelope of
+      all previously observed configurations. Count, geometry, or
+      simultaneity exceeds global historical maximum. Configuration
+      rarity fires.
+
+anti_manifestations:
+  - id: agent_specific_anomaly_not_global_rarity
+    description: |
+      NPC-D usually takes the left path but today takes the right
+      path. However, many other NPCs have taken the right path
+      before. This is anomalous for NPC-D specifically but not rare
+      in the global distribution — right-path-taking is common.
+    why_should_not_fire: |
+      The event is unusual for this agent but not unusual in the
+      organism's overall experience. Rarity detection uses the
+      GLOBAL distribution. Taking the right path has many prior
+      observations from other agents. This is statistical_anomaly,
+      not rarity.
+    distinguishes: |
+      Statistical anomaly uses agent-specific baselines. Rarity
+      detection uses the global distribution across all agents and
+      all time. An event can be anomalous for one agent but common
+      globally, or rare globally but not anomalous for the specific
+      agent that produced it.
+
+  - id: repeated_rare_event
+    description: |
+      The first time NPC-E moved a wall, it was rare. But NPC-E has
+      now moved walls on ten separate occasions. Wall-moving is no
+      longer at the tail of the global distribution — it has entered
+      the known repertoire of observed events.
+    why_should_not_fire: |
+      Rarity is about the current state of the global distribution.
+      Once an event has been observed many times, it migrates from
+      the tail to the body of the distribution. Former rarity does
+      not sustain detection — the distribution updates.
+    distinguishes: |
+      Rarity detection is sensitive to the CURRENT distribution,
+      which updates with each observation. Events that were once
+      rare become common through repetition. The receptor stops
+      firing as the event count grows.

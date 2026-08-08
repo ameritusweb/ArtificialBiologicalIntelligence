@@ -1,0 +1,48 @@
+receptor_id: functional_organization
+family: organization
+tier: canopy
+stage: 5
+
+conceptual_space: |
+  Detects arrangements that exist because of what they DO — rocks arranged
+  as a windbreak, logs positioned to channel prey, debris forming a shelter.
+  The arrangement serves a purpose, and the purpose explains the arrangement.
+  The boundary separates purposeful configuration from random arrangement or
+  purely structural pattern without function.
+
+manifestations:
+  - id: rock_windbreak
+    description: Rocks arranged in a curved line that blocks wind from one direction — the arrangement creates a sheltered zone behind it
+    survival_relevance: Recognizing functional arrangements allows the organism to use environmental structures for protection without building them
+    what_fires: Spatial configuration of static objects whose geometry creates a measurable environmental effect — reduced particle movement or wave intensity on one side
+
+  - id: predator_funnel_trap
+    description: Predator has positioned debris to create a narrowing channel that guides prey toward a dead end — arrangement serves the predator's hunting function
+    survival_relevance: Recognizing that an arrangement serves a predatory function prevents walking into a constructed trap
+    what_fires: Converging spatial arrangement of objects creating a narrowing passage, with a threat object positioned at the narrow end
+
+  - id: natural_dam_food_concentration
+    description: Fallen logs across a water flow create a dam that concentrates food particles at the barrier — the arrangement produces a foraging opportunity
+    survival_relevance: Recognizing the functional arrangement reveals a reliable food concentration point
+    what_fires: Barrier objects spanning a flow path with accumulation of small positive-value objects on the upstream side
+
+  - id: elevated_lookout_position
+    description: A particular rock formation creates a high point with clear sightlines in all directions — the arrangement functions as a surveillance platform
+    survival_relevance: Identifying functionally organized lookout points provides strategic advantage for threat detection
+    what_fires: Elevated surface with unobstructed visual field in multiple directions — the geometry specifically enables observation
+
+  - id: debris_shelter_construction
+    description: Another organism has piled materials to create overhead cover with side walls — an intentionally constructed shelter
+    survival_relevance: Recognizing constructed shelter means recognizing that another organism is nearby AND that the structure can be used for cover
+    what_fires: Non-natural arrangement of objects forming enclosure geometry — overhead cover, lateral barriers, entry point — too ordered for random accumulation
+
+anti_manifestations:
+  - id: random_rock_scatter
+    description: Rocks scattered across an area by geological processes with no functional arrangement — they happen to be there without serving any purpose
+    why_should_not_fire: The arrangement has no function — rocks are randomly distributed and their configuration does not create any useful effect
+    distinguishes: Purposeful arrangement vs random placement — functional_organization requires the configuration to serve a detectable purpose
+
+  - id: beautiful_but_functionless_pattern
+    description: Rocks arranged in a visually striking spiral pattern by water erosion — geometrically organized but serving no survival function
+    why_should_not_fire: The arrangement has structure but no function — it does not create shelter, concentrate food, channel movement, or serve any purpose
+    distinguishes: Structural pattern vs functional organization — this receptor requires purpose, not just non-random arrangement

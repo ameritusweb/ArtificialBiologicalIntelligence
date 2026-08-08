@@ -1,0 +1,47 @@
+receptor_id: rhythm
+family: repetition
+tier: branch
+stage: 2
+
+conceptual_space: |
+  Stimulus repeats with regular temporal interval. The concept is periodicity —
+  WHEN it recurs, not just THAT it recurs. A rhythm has a beat, a cycle length,
+  a predictable next-occurrence. The boundary: periodic recurrence vs aperiodic
+  or irregular recurrence.
+
+manifestations:
+  - id: day_night_cycle
+    description: Light level peaks every 100 steps and troughs every 100 steps — perfect sinusoidal cycle
+    survival_relevance: Predicting light/dark transitions enables proactive shelter-seeking before nightfall
+    what_fires: Consistent inter-event interval in luminance channel — period detected with low variance
+
+  - id: predator_patrol
+    description: Threat NPC passes through organism's zone every 60 steps with +/- 3 step jitter
+    survival_relevance: Knowing the patrol interval allows safe foraging windows between passes
+    what_fires: Regular temporal spacing between threat-channel activations at a given location
+
+  - id: thermal_oscillation
+    description: Temperature oscillates between 0.2 and 0.8 with a period of 40 steps — warm-cool-warm-cool
+    survival_relevance: Anticipating thermal peaks allows preemptive movement to buffer zones
+    what_fires: Periodic signal in thermal channel with stable frequency across multiple cycles
+
+  - id: food_spawn_rhythm
+    description: New food patches appear every 120 steps across the environment — harvest windows are predictable
+    survival_relevance: Timing foraging to spawn cycles maximizes energy intake per unit effort
+    what_fires: Regular interval between resource-availability events detected over 4+ cycles
+
+  - id: tidal_chemical_pulse
+    description: Chemical concentration in the environment rises and falls with a 200-step period — like tides
+    survival_relevance: Predicting chemical peaks allows avoidance of toxic concentrations
+    what_fires: Low-variance inter-peak interval in chemical channel across sustained observation
+
+anti_manifestations:
+  - id: irregular_recurrence
+    description: Food appears at steps 20, 95, 130, 400, 410 — it recurs but with no consistent interval
+    why_should_not_fire: Recurrence without periodicity — no predictable timing
+    distinguishes: Rhythm requires REGULAR temporal interval, not just repeated occurrence
+
+  - id: single_period_observed
+    description: Temperature peaks at step 50 and again at step 100 — only one interval observed
+    why_should_not_fire: One interval is not enough to establish periodicity — could be coincidence
+    distinguishes: Rhythm requires multiple cycles to confirm the period is real, not a one-time gap

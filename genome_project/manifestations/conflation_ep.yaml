@@ -1,0 +1,184 @@
+receptor_id: conflation_ep
+family: epistemic
+tier: branch
+stage: 11
+
+conceptual_space: |
+  Detects that two concepts the organism has been treating as one are
+  actually distinct, based on evidence accumulated across an entire
+  episode. A creature has been treating "dark places" as a single
+  concept, but across the episode, dark-caves consistently yield
+  mushrooms while dark-thickets consistently harbor snakes — the
+  single category masks two phenomena with different causal structures.
+  The boundary separates genuine conflation detection (accumulated
+  divergent evidence splits a category) from mere variation within a
+  coherent category.
+  NOTE: this is the episode-level version - measures across an entire
+  episode rather than at a single step. The conflation becomes apparent
+  only after many observations reveal systematic divergence within what
+  was treated as a unified concept.
+
+manifestations:
+  - id: dark_places_splits_into_caves_and_thickets
+    description: |
+      A creature has a single internal category for "dark places" and
+      applies the same cautious-approach behavior to all of them.
+      Across an episode of exploring many dark locations, a pattern
+      emerges: dark enclosed spaces (caves) consistently contain edible
+      fungi and cool shelter, while dark overgrown spaces (thickets)
+      consistently contain biting insects and tangled obstacles. The
+      outcomes diverge systematically — the single "dark places"
+      category is masking two distinct phenomena with opposite
+      survival implications. By episode end, the accumulated evidence
+      forces a category split.
+    survival_relevance: |
+      Maintaining a conflated category causes the organism to apply
+      the wrong behavioral strategy half the time. Splitting "dark
+      places" into caves and thickets enables approach behavior for
+      beneficial caves and avoidance behavior for dangerous thickets,
+      doubling the accuracy of the organism's responses.
+    what_fires: |
+      Episode-accumulated within-category outcome divergence. A single
+      category's members consistently split into two subgroups with
+      statistically distinct outcome distributions. The divergence
+      score across the episode exceeds the threshold for category
+      coherence, triggering conflation detection.
+
+  - id: fast_movers_splits_into_predators_and_prey
+    description: |
+      A young creature has a single alarm response to "fast-moving
+      things." Across an episode, it encounters many fast movers.
+      Some fast movers (predators) pursue the creature, while other
+      fast movers (fleeing prey) move away from the creature. The
+      behavioral response to each should be opposite — flee from
+      pursuers, chase fleeing prey. The single "fast-moving threat"
+      category conflated two things with opposite optimal responses.
+      The accumulated directional evidence across the episode reveals
+      the conflation.
+    survival_relevance: |
+      Conflating predators and prey under "fast movers" causes the
+      organism to flee from food and sometimes approach danger. De-
+      conflation enables opposite and correct behavioral responses
+      to each, simultaneously improving both safety and nutrition.
+    what_fires: |
+      Episode-accumulated evidence that a single behavioral category
+      ("fast movers") contains members requiring opposite responses.
+      Direction-of-movement relative to self consistently splits the
+      category into pursue-self and flee-from-self subgroups with
+      divergent optimal responses.
+
+  - id: bitter_taste_splits_into_toxic_and_medicinal
+    description: |
+      A creature avoids all bitter-tasting plants under a single
+      "bitter means dangerous" category. Across a long episode of
+      foraging, it inadvertently consumes small amounts of several
+      bitter plants. Some cause illness (confirming the category),
+      but others consistently reduce inflammation after injuries.
+      The "bitter" category conflates genuinely toxic compounds with
+      medicinal ones. The accumulated health outcome data across
+      many bitter-plant encounters forces the distinction.
+    survival_relevance: |
+      De-conflating toxic-bitter from medicinal-bitter opens access
+      to natural pharmaceuticals that the blanket avoidance rule was
+      blocking. The organism gains the ability to self-medicate
+      while still avoiding genuinely toxic plants.
+    what_fires: |
+      Episode-accumulated outcome divergence within the "bitter
+      taste" category. Some bitter-plant encounters consistently
+      correlate with illness; others consistently correlate with
+      recovery. The within-category outcome variance exceeds the
+      coherence threshold, signaling conflation.
+
+  - id: loud_sounds_splits_into_threat_and_opportunity
+    description: |
+      A creature startles at all loud sounds — crashing trees,
+      animal roars, waterfall thunder — treating them as a single
+      threat category. Across an episode, accumulated evidence
+      reveals that falling-tree sounds consistently precede access
+      to grubs in exposed wood, waterfall sounds consistently
+      indicate reliable water sources, while animal roars do
+      indicate genuine danger. The "loud sound" category conflated
+      threat signals with resource signals. Episode-length evidence
+      of divergent outcomes forces the split.
+    survival_relevance: |
+      Blanket alarm response to loud sounds causes the organism to
+      flee from food sources and water access. De-conflation enables
+      selective alarm (roars) while converting crash and waterfall
+      sounds into approach signals, expanding the organism's
+      resource access without reducing threat sensitivity.
+    what_fires: |
+      Episode-accumulated divergent outcome profiles within a single
+      perceptual category. "Loud sounds" members consistently split
+      into threat-associated and resource-associated subgroups. The
+      survival-outcome distributions diverge beyond the category
+      coherence threshold across accumulated episode evidence.
+
+  - id: warm_surfaces_splits_into_sun_warmed_and_geothermal
+    description: |
+      A creature seeks warm surfaces for thermoregulation, treating
+      all warm rocks as equivalent. Across an episode spanning a
+      full day cycle, sun-warmed rocks cool at night and are safe to
+      sleep on, while geothermal rocks remain hot through the night
+      and can cause burns during sleep. The same surface temperature
+      during daytime observations masked two fundamentally different
+      heat sources with different temporal profiles and different
+      safety characteristics. Episode-length temporal evidence
+      reveals the conflation.
+    survival_relevance: |
+      Conflating sun-warmed and geothermal surfaces risks burns
+      during overnight resting. De-conflation enables the creature
+      to select safe resting surfaces (sun-warmed, which will cool)
+      while using geothermal surfaces only for brief daytime warming
+      — appropriate behavior matched to heat source type.
+    what_fires: |
+      Episode-accumulated temporal divergence within a single
+      category. "Warm surfaces" members show consistent differences
+      in temporal behavior — some cool predictably, others maintain
+      heat. The temporal outcome profiles diverge systematically
+      across the episode, revealing two distinct underlying
+      mechanisms conflated under one category.
+
+anti_manifestations:
+  - id: within_category_normal_variation
+    description: |
+      A creature has a category for "edible berries" and across an
+      episode encounters berries of different sizes, sweetness levels,
+      and colors — all within the normal range. Some are sweeter than
+      others, some are larger. But all are edible and nutritious, and
+      the variation does not predict different outcomes. The category
+      is coherent despite internal variation.
+    why_should_not_fire: |
+      Normal within-category variation is not conflation. Variation
+      that does not predict different outcomes or require different
+      responses does not indicate that two distinct concepts are
+      being merged. Conflation requires that the merged subcategories
+      have systematically different causal structures or optimal
+      responses, not just different surface features.
+    distinguishes: |
+      Outcome-relevant category splits (subcategories predict
+      different outcomes) versus outcome-irrelevant variation
+      (subcategories differ in surface features but predict the
+      same outcomes). Conflation detection requires divergent
+      outcome distributions, not mere perceptual variety.
+
+  - id: context_dependent_outcome_from_single_concept
+    description: |
+      A creature's "running" behavior sometimes leads to successful
+      escape and sometimes leads to exhaustion. The outcomes vary,
+      but the variation is explained by context (distance to shelter,
+      predator speed) not by conflation. "Running" is a coherent
+      single concept whose outcomes depend on context, not two
+      different concepts masquerading as one.
+    why_should_not_fire: |
+      Context-dependent outcome variation within a single concept
+      is not conflation. When a third variable (context) explains
+      the outcome divergence, the category itself may be coherent.
+      Conflation requires that the category members themselves
+      belong to fundamentally different types, not that the same
+      type produces different results in different contexts.
+    distinguishes: |
+      Category incoherence (members are fundamentally different
+      types) versus context dependence (same type produces different
+      outcomes depending on external conditions). Conflation fires
+      when the split is intrinsic to the category members, not
+      explained by external context.

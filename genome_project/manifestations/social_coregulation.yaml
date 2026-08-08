@@ -1,0 +1,50 @@
+receptor_id: social_coregulation
+family: regulatory
+tier: canopy
+stage: 8
+
+conceptual_space: |
+  Detects when two organisms synchronize their regulatory patterns, achieving
+  mutual state regulation that neither could accomplish alone. Joint calming,
+  coordinated arousal modulation, shared rhythm entrainment for stress reduction.
+  The boundary separates coregulation (bidirectional mutual state influence
+  producing a shared regulatory outcome) from one-directional social influence
+  or independent parallel regulation. The concept is mutual state regulation —
+  two organisms' regulatory systems coupled into a single functional unit.
+
+manifestations:
+  - id: mutual_calming_after_threat
+    description: Two organisms huddle after predator encounter — each one's decreasing stress signals reduce the other's arousal, producing faster calming than either achieves alone
+    survival_relevance: Coregulated calming restores baseline arousal faster, reducing the metabolic cost of sustained stress and enabling return to productive behavior sooner
+    what_fires: Bidirectional regulatory coupling detected — each organism's state change drives the other's state change in a convergent loop, with the pair reaching baseline faster than individuals
+
+  - id: synchronized_vigilance_cycling
+    description: Two organisms alternate vigilance and rest — when one watches, the other rests, coordinated through mutual state signals so each sustains lower average arousal
+    survival_relevance: Synchronized vigilance cycling gives both organisms more rest time without reducing collective threat detection, optimizing the energy-safety tradeoff
+    what_fires: Two regulatory systems operating in coordinated anti-phase, with each organism's state driving the other's complementary state through communicated regulatory signals
+
+  - id: joint_arousal_escalation
+    description: Before group hunt, organisms' mutual signals progressively escalate each other's arousal to the optimal action threshold — synchronized ramping that neither would achieve alone
+    survival_relevance: Coordinated arousal escalation ensures the group reaches action-readiness simultaneously, preventing premature or asynchronous action that reduces hunt success
+    what_fires: Bidirectional positive regulatory coupling detected — each organism's increasing arousal signals drive the other's arousal up, with the pair reaching a synchronized peak
+
+  - id: parent_offspring_regulation
+    description: Parent organism modulates its signal patterns to match and then gradually shift offspring's arousal state — offspring's responses in turn signal regulatory state back to parent
+    survival_relevance: Coregulated development teaches offspring regulatory patterns through guided mutual interaction rather than requiring independent self-regulation capacity from birth
+    what_fires: Bidirectional regulatory exchange where one agent leads and the other follows, with the follower's state feedback modifying the leader's regulatory output
+
+  - id: communal_sleep_regulation
+    description: Group organisms' breathing and movement patterns synchronize during rest — individual deviations are dampened by the group's collective rhythm, producing deeper shared rest
+    survival_relevance: Synchronized group rest achieves deeper recovery states through collective rhythm stabilization, and any individual's alarm response instantly propagates as a waking signal
+    what_fires: Multiple organisms' regulatory oscillations phase-locking through mutual sensory coupling, with individual deviation being pulled back toward the group pattern
+
+anti_manifestations:
+  - id: one_directional_calming
+    description: One organism's calm presence reduces another's stress, but the stressed organism's state has no effect on the calm one — the influence flows in only one direction
+    why_should_not_fire: Unidirectional influence is social regulation but not coregulation — there is no mutual coupling, only one organism's state driving the other's
+    distinguishes: Coregulation (bidirectional mutual state influence) vs unidirectional social regulation (one organism's state affecting another without reciprocal influence)
+
+  - id: independent_parallel_calming
+    description: Two organisms both calm down after a threat, at similar rates, while near each other — but each is self-regulating independently, not mutually influencing each other's state
+    why_should_not_fire: Parallel independent regulation happens to produce similar trajectories but involves no coupling — removing one organism would not change the other's regulatory trajectory
+    distinguishes: Coregulation (coupled mutual influence producing shared trajectory) vs independent regulation (parallel self-regulation without causal coupling)

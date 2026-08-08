@@ -1,0 +1,50 @@
+receptor_id: transitivity
+family: logic
+tier: branch
+stage: 8
+
+conceptual_space: |
+  Detects valid inference through a chain of relations. If A dominates B
+  and B dominates C, then A dominates C — without requiring direct observation
+  of A and C interacting. The boundary separates transitive inference (deriving
+  new relations by chaining known ones) from direct observation (seeing the
+  relation firsthand) or mere association (A and C co-occurring without
+  inferential linkage). The concept is the chain itself — the logical bridge
+  across intermediate steps.
+
+manifestations:
+  - id: dominance_chain
+    description: Organism has observed Alpha defeat Beta, and Beta defeat Gamma — when Alpha and Gamma meet for the first time, organism predicts Alpha dominates Gamma without direct evidence
+    survival_relevance: Transitive dominance inference prevents costly challenges against stronger opponents and enables strategic alliance choices without requiring every pair to fight
+    what_fires: Two known directed relations sharing a middle term activate a third inferred relation between the endpoints, with no direct observational basis for the inferred relation
+
+  - id: food_chain_inference
+    description: Organism knows hawks eat snakes and snakes eat mice — infers that hawks are an indirect threat to the mouse population without observing hawk-mouse interaction
+    survival_relevance: Transitive ecological reasoning enables anticipation of indirect effects — decline in hawks means more snakes means fewer mice means less food competition
+    what_fires: Two predation relations chained through a shared intermediate, producing an inferred indirect relationship between non-adjacent links
+
+  - id: spatial_transitivity
+    description: Organism knows food is north of shelter and shelter is north of water — infers food is north of water without traveling the full route, enabling efficient path planning
+    survival_relevance: Spatial chain inference enables route planning and shortcut discovery without exhaustive exploration, saving energy and reducing exposure
+    what_fires: Two spatial relations sharing a common reference point chain to produce a derived spatial relation between the endpoints
+
+  - id: communicated_chain
+    description: Agent A communicates "wolves are near the ridge," Agent B communicates "the ridge is near our nest" — organism infers wolves are near the nest through communicated chain
+    survival_relevance: Chaining communicated spatial relations extends threat awareness beyond any single agent's perceptual range, enabling collective vigilance
+    what_fires: Two relations received from different communication sources chain through a shared referent, producing an inferred relation not directly communicated by either source
+
+  - id: trust_transitivity
+    description: Organism trusts Agent A, Agent A trusts Agent B — organism extends partial trust to Agent B through the chain, adjusting cooperation accordingly
+    survival_relevance: Transitive trust enables cooperation with unfamiliar agents through trusted intermediaries, expanding the effective social network without direct experience
+    what_fires: Two trust relations chaining through an intermediate agent, producing a derived (potentially attenuated) trust relation with a novel agent
+
+anti_manifestations:
+  - id: direct_observation_no_chain
+    description: Organism directly observes Alpha defeat Gamma in a fight — the dominance relation is established through firsthand evidence, not through any inferential chain
+    why_should_not_fire: The relation is directly observed, not transitively inferred — there is no intermediate link and no chain reasoning involved
+    distinguishes: Transitive inference (derived through chaining intermediate relations) vs direct observation (relation established through firsthand evidence)
+
+  - id: invalid_chain_different_relations
+    description: Organism knows A is larger than B and B is faster than C — attempts to conclude "A is faster than C" but the chain uses different relation types that do not support transitive inference
+    why_should_not_fire: Transitivity requires the same relation type across the chain — mixing "larger than" with "faster than" produces an invalid inference, not a genuine transitive chain
+    distinguishes: Valid transitive chain (same relation type throughout) vs invalid cross-relation chain (different relation types that do not compose)

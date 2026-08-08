@@ -1,0 +1,129 @@
+receptor_id: movement_onset
+family: proprioception
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Detects the transition from stillness to movement in the organism's own
+  limbs. Not the movement itself — the START of movement. A limb that was
+  stationary begins to change position. The boundary is the zero-crossing
+  of velocity: angular velocity goes from zero to nonzero. This is the
+  proprioceptive "something just started happening in my body."
+
+manifestations:
+  - id: leg_begins_step
+    description: |
+      The organism has been standing still on a riverbank, scanning for
+      fish. After a long pause, the right hind leg lifts off the ground
+      and swings forward — the first movement in many seconds. The
+      transition from planted stillness to airborne swing is sharp and
+      unmistakable. A limb that was part of the ground-contact pattern
+      has just entered motion.
+    survival_relevance: |
+      Detecting movement onset in one's own limbs enables motor sequencing.
+      The organism needs to know when a step actually begins to coordinate
+      the next limb in the gait cycle.
+    what_fires: |
+      Joint angular velocity transitions from zero to nonzero after a
+      period of stillness. Rate of change of limb position crosses the
+      zero threshold in the positive direction.
+
+  - id: jaw_opens_to_bite
+    description: |
+      The organism has been stalking prey with jaw clamped shut, body
+      frozen. The instant it strikes, the jaw begins to open — mandible
+      dropping from its closed resting state. That first degree of jaw
+      opening is movement onset: the transition from clenched stillness
+      to active gape.
+    survival_relevance: |
+      Jaw movement onset marks the commitment point of a strike. Detecting
+      the start of one's own bite enables coordination between jaw timing
+      and head lunge — mistiming wastes the ambush.
+    what_fires: |
+      Jaw joint angle begins increasing from closed baseline. Angular
+      velocity of mandible transitions from zero to positive. Onset
+      signal after sustained jaw stillness.
+
+  - id: tail_begins_sweep
+    description: |
+      The organism has been resting with its tail draped motionless over
+      a log. A biting insect lands on the tail tip. The tail suddenly
+      begins to sweep sideways — the first movement in minutes. The
+      transition from limp rest to active lateral motion is the onset
+      event.
+    survival_relevance: |
+      Reflexive movement onset detection tells the organism that an
+      automatic response has been triggered. Awareness of involuntary
+      movement onset enables distinguishing reflexes from intentional
+      actions.
+    what_fires: |
+      Tail joint angular velocity jumps from zero to significant lateral
+      velocity. Movement onset after prolonged stillness. The transition
+      is abrupt, not gradual.
+
+  - id: forelimb_lifts_from_rest
+    description: |
+      The organism has been lying on its side, forelimbs tucked against
+      its chest. It decides to investigate a nearby sound. The right
+      forelimb begins to extend outward — the first motion of waking.
+      Muscles that were dormant just fired; a limb that was inert is
+      now in transit.
+    survival_relevance: |
+      Movement onset after rest marks the transition from vulnerable
+      stillness to active capability. Detecting that one's own limbs
+      have begun moving confirms the body is responding to the motor
+      command to mobilize.
+    what_fires: |
+      Forelimb joint angles begin changing from static rest position.
+      Multiple joint velocities cross zero simultaneously as the limb
+      unfolds. Onset detected across the kinematic chain.
+
+  - id: fingers_begin_to_close
+    description: |
+      The organism's hand hovers open above a small insect on a leaf.
+      The fingers have been splayed and motionless, positioned for a
+      grab. Then the digits begin to curl inward — the onset of the
+      grasping motion. Each finger transitions from stationary to
+      closing in rapid succession.
+    survival_relevance: |
+      Grip onset timing determines catch success. Detecting the exact
+      moment one's own fingers begin closing enables calibration of
+      grasp timing relative to prey movement.
+    what_fires: |
+      Digit joint angles begin decreasing from open position. Angular
+      velocity of finger joints transitions from zero to flexion
+      velocity. Sequential onset across multiple digits.
+
+anti_manifestations:
+  - id: ongoing_rhythmic_walking
+    description: |
+      The organism is mid-stride in a steady walk. Limbs are cycling
+      through their gait pattern continuously. The right leg swings
+      forward as it has been doing for the last twenty steps. There
+      is movement, but no onset — the motion never stopped. This is
+      sustained locomotion, not a transition from stillness.
+    why_should_not_fire: |
+      Movement onset requires a preceding period of stillness. In
+      continuous locomotion, limb velocity never reaches zero between
+      cycles. There is no still-to-moving transition to detect.
+    distinguishes: |
+      Onset (zero-to-nonzero velocity transition) versus continuation
+      (sustained nonzero velocity). Movement_onset fires at the boundary
+      between rest and action, not during ongoing motion.
+
+  - id: passive_limb_displaced_by_current
+    description: |
+      The organism is resting in a stream with one forelimb dangling
+      in the water. The current pushes the limp limb downstream,
+      causing it to drift sideways. The limb is moving, but the
+      organism did not initiate the motion — it was passively displaced
+      by an external force.
+    why_should_not_fire: |
+      The limb moved but the organism did not generate the movement.
+      Movement_onset is proprioceptive self-detection: it registers
+      the organism's own motor-initiated transitions, not passive
+      displacement by environmental forces.
+    distinguishes: |
+      Self-initiated movement onset versus passive displacement. The
+      presence of a motor command preceding the velocity change is
+      what distinguishes true onset from being pushed.

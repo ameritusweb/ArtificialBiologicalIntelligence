@@ -1,0 +1,139 @@
+receptor_id: selective_observation
+family: observation
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Detects the condition where the agent's current need state drives preferential
+  observation of specific environmental features. Hungry agents look for food-
+  colored objects. Threatened agents look for movement. Thirsty agents scan for
+  reflective surfaces. The boundary is need-driven filtering: the agent's internal
+  state determines what it observes, not just what is present. This differs from
+  attention_control in that it is about what the agent CHOOSES to look at, not
+  suppressing what it has already perceived. Selective observation is upstream —
+  it determines where the sensors point.
+
+manifestations:
+  - id: hunger_drives_food_search
+    description: |
+      The agent is hungry and entering a new clearing. Multiple objects are
+      present: grey rocks, green foliage, brown bark, and scattered among
+      them, small red and purple objects (berries). The agent's gaze
+      preferentially sweeps to the red and purple objects first, skipping
+      the rocks and bark. Hunger is driving the observation toward food-
+      relevant colors and shapes.
+    survival_relevance: |
+      Need-driven observation efficiency means the hungry agent finds food
+      faster by looking in the right places for the right features instead
+      of randomly surveying everything.
+    what_fires: |
+      Active hunger state + visual field containing multiple object categories
+      + observation pattern biased toward food-relevant features (color, size,
+      shape of edible items). Internal need is steering sensory sampling.
+
+  - id: threat_drives_movement_scanning
+    description: |
+      The agent recently heard a predator call and is now on high alert,
+      crossing an open area with scattered bushes and rocks. Its observation
+      pattern shifts to rapid scanning for movement — any motion in the
+      peripheral visual field gets immediate observation priority. Static
+      objects (rocks, logs, plants) are skipped in the scanning pattern.
+    survival_relevance: |
+      When threatened, detecting motion is the highest-value observation.
+      Need-driven filtering toward movement maximizes the probability of
+      detecting an approaching predator before it reaches striking range.
+    what_fires: |
+      Active threat/fear state + visual field with mixed static and
+      potentially moving elements + observation pattern biased toward
+      motion detection. Danger state is steering sensory sampling toward
+      movement.
+
+  - id: thirst_drives_water_search
+    description: |
+      The agent is dehydrated and traversing a rocky landscape. Its
+      observation pattern preferentially targets reflective surfaces,
+      dark patches in low terrain, and areas where vegetation is greener
+      (indicating water proximity). It looks downhill, into crevices,
+      at shiny patches — all water-relevant features — while ignoring
+      food sources and shelter opportunities it would normally notice.
+    survival_relevance: |
+      Thirst-driven observation narrows the search to water-relevant
+      environmental cues, dramatically increasing search efficiency for
+      the most urgently needed resource.
+    what_fires: |
+      Active thirst state + varied terrain with multiple feature types +
+      observation biased toward water indicators (reflectivity, low ground,
+      green vegetation, dampness). Thirst is filtering what gets observed.
+
+  - id: shelter_need_drives_structure_search
+    description: |
+      Rain begins falling and the agent needs shelter. Its observation
+      pattern shifts to overhanging rocks, dense tree canopy, hollow logs,
+      and cave-like openings. It scans above and to the sides for overhead
+      cover, ignoring food items and ground-level features it would
+      normally examine. The shelter need is redirecting where the agent
+      looks.
+    survival_relevance: |
+      When exposure is the immediate threat, selectively observing
+      shelter-relevant features (overhangs, cavities, dense canopy)
+      enables rapid refuge location.
+    what_fires: |
+      Active shelter/comfort need + environmental features at multiple
+      levels (ground, mid-level, canopy, geological) + observation biased
+      toward overhead and enclosed structures. Exposure need steering
+      sensory orientation upward and toward enclosures.
+
+  - id: social_need_drives_conspecific_search
+    description: |
+      The agent has been isolated and is motivated to find others of its
+      kind. Entering a mixed environment with various animals, plants, and
+      objects, its observation preferentially targets shapes and movement
+      patterns that match conspecific body plans. A distant figure with
+      the right proportions gets immediate observation priority over
+      closer objects that do not match. The social need is filtering
+      observation toward species-relevant features.
+    survival_relevance: |
+      Social species depend on group membership for safety and reproduction.
+      Need-driven observation toward conspecific features enables reunion
+      with the group when separated.
+    what_fires: |
+      Active social/affiliation need + visual field with multiple entity
+      types + observation biased toward species-typical body shape, size,
+      and movement pattern. Social need is steering sensory sampling
+      toward conspecific indicators.
+
+anti_manifestations:
+  - id: undirected_idle_scanning
+    description: |
+      The agent is well-fed, hydrated, safe, and resting in familiar
+      territory. It idly looks around at various objects — a rock, a tree,
+      a bird flying past, clouds — with no preferential bias. No internal
+      need is driving the observation pattern. It is scanning broadly
+      without filtering.
+    why_should_not_fire: |
+      Selective observation requires a need state that biases what gets
+      observed. When no need is active, the agent samples the environment
+      without preferential filtering. Idle scanning is observation without
+      selectivity — the defining feature is absent.
+    distinguishes: |
+      Need-driven selective observation versus need-free idle perception.
+      The receptor detects the presence of need-based filtering, not the
+      act of looking itself.
+
+  - id: reflexive_startle_orientation
+    description: |
+      A loud crash occurs behind the agent. It reflexively whips its head
+      toward the sound source. This is not need-driven selective observation
+      — it is an involuntary orienting reflex triggered by a sudden intense
+      stimulus. The agent did not choose to observe the crash location based
+      on an internal need; it was compelled by stimulus intensity.
+    why_should_not_fire: |
+      Selective observation is need-driven and voluntary — the internal
+      state determines where to look. Reflexive startle orientation is
+      stimulus-driven and involuntary — the external event commandeers
+      attention. The direction of causation is reversed: inside-out versus
+      outside-in.
+    distinguishes: |
+      Endogenous need-driven observation selection (inside-out) versus
+      exogenous stimulus-driven attention capture (outside-in). Selective
+      observation is the former; startle reflex is the latter.

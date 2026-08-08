@@ -1,0 +1,49 @@
+receptor_id: optimization
+family: formalization
+tier: canopy
+stage: 5
+
+conceptual_space: |
+  Detects that a superior solution exists to replace an inferior cached one.
+  A new escape route is shorter than the stored one. A new food source is
+  richer than the known one. The receptor fires when a direct comparison
+  reveals the new option dominates the old on the relevant metric. The
+  boundary separates genuine improvement detection from lateral alternatives
+  or noise-driven apparent differences.
+
+manifestations:
+  - id: shorter_escape_route
+    description: New escape route discovered that reaches safety in fewer steps than the currently cached route — direct improvement on the primary metric
+    survival_relevance: A shorter escape route means faster safety, which directly translates to higher survival probability during pursuit
+    what_fires: New route evaluation producing a metric (distance, time) that strictly dominates the cached route's metric on the same dimension
+
+  - id: richer_food_source
+    description: New food patch discovered with higher density than the currently known best — more food per unit foraging effort
+    survival_relevance: Higher-density food sources reduce time exposed while foraging, improving both nutritional and safety outcomes
+    what_fires: New resource evaluation exceeding the stored best resource on yield-per-effort metric — clear quantitative superiority
+
+  - id: safer_shelter_location
+    description: New shelter found with better cover, more escape routes, and closer food access than current cached shelter — dominates on multiple metrics
+    survival_relevance: Superior shelter improves baseline survival across rest periods — a high-leverage optimization
+    what_fires: New shelter evaluation exceeding cached shelter on protection, escape access, and resource proximity metrics simultaneously
+
+  - id: faster_threat_detection_position
+    description: New vantage point discovered that detects approaching predators earlier than current lookout position — more warning time
+    survival_relevance: Earlier detection provides more time for optimal response selection rather than forced emergency reactions
+    what_fires: New position evaluation showing longer detection lead time compared to cached lookout position — improvement on the early-warning metric
+
+  - id: more_efficient_foraging_route
+    description: New foraging circuit that visits the same food sources with less total travel distance — same output with less input
+    survival_relevance: Reduced travel distance means less exposure time and less energy expenditure for the same nutritional return
+    what_fires: New route producing equivalent resource collection with lower cost metric (distance, time, energy) compared to cached foraging route
+
+anti_manifestations:
+  - id: lateral_alternative
+    description: New escape route is the same length as the cached one but goes in a different direction — different but not better
+    why_should_not_fire: The new option does not dominate the old on any metric — it is a lateral alternative, not an optimization
+    distinguishes: Strict improvement vs equivalent alternative — optimization requires the new option to be measurably superior, not just different
+
+  - id: noise_driven_apparent_improvement
+    description: New food source appeared richer on one visit but this was due to random variation — subsequent visits show it is equivalent to the cached source
+    why_should_not_fire: The apparent superiority was noise, not a genuine improvement — the new option does not reliably dominate the old
+    distinguishes: Reliable improvement vs stochastic variation — optimization requires consistent superiority, not one lucky observation

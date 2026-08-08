@@ -1,0 +1,49 @@
+receptor_id: modification_attribution
+family: env. augmentation
+tier: branch
+stage: 3
+
+conceptual_space: |
+  "I moved that" vs "the river moved it." Attributing environmental changes
+  to self-caused vs externally-caused origins. Not controllability (which
+  is about whether the self CAN influence the world in general) — this is
+  specifically about tracing a SPECIFIC observed environmental modification
+  back to its causal source: did I do this, or did something else?
+  The boundary: causal attribution of observed environmental changes.
+
+manifestations:
+  - id: self_moved_rock
+    description: Organism pushes a rock to block a den entrance, leaves, returns and sees the rock in place. It recognizes "I put that there" — the rock's position is self-caused
+    survival_relevance: Knowing which modifications are self-caused prevents treating one's own constructions as threats or anomalies
+    what_fires: Memory of own action (pushing rock to location) matches current environmental state (rock at location) — self-attribution signal for environmental modification
+
+  - id: wind_toppled_branch
+    description: Organism returns to a path and finds a large branch blocking it. No memory of moving this branch — and wind has been strong. The modification is attributed to external cause (wind)
+    survival_relevance: Correctly attributing branch movement to wind (vs predator) determines whether the area is safe to enter
+    what_fires: Environmental change (branch in new position) with no self-action memory and presence of external force (wind) — external-attribution signal
+
+  - id: rival_dug_hole
+    description: Organism finds a freshly dug hole near its food cache. It did not dig this hole. Another organism's claw marks are visible. The modification is attributed to an external agent
+    survival_relevance: Attributing digging to a rival signals cache theft and triggers defensive caching behavior
+    what_fires: Environmental modification (hole) with no self-action memory and evidence of other-agent cause (claw marks) — external-agent-attribution signal
+
+  - id: self_bent_grass
+    description: Organism walks through tall grass, turns around, and sees a flattened trail behind it. It recognizes this trail as its own creation
+    survival_relevance: Recognizing self-made trails prevents circular navigation and enables intentional path-marking
+    what_fires: Temporal correspondence between own movement (walking through grass) and observed modification (flattened trail) — self-attribution of path creation
+
+  - id: flood_rearranged_stones
+    description: Organism had arranged stones in a line near a stream to mark a food location. After a flood, the stones are scattered downstream. It attributes the rearrangement to the flood, not to its own or another agent's action
+    survival_relevance: Attributing marker disruption to flood vs rival determines whether landmarks are unreliable vs deliberately sabotaged
+    what_fires: Known self-arrangement (stones in line) now disrupted, with evidence of impersonal force (flood marks, downstream displacement pattern) — impersonal-external-attribution signal
+
+anti_manifestations:
+  - id: controllability_test
+    description: Organism pushes various objects to learn which ones it CAN move vs which are fixed — exploring its own causal power in general
+    why_should_not_fire: This is controllability — testing whether the self can influence the world. Modification attribution is about tracing an ALREADY-OBSERVED change back to its source
+    distinguishes: Modification attribution requires an observed environmental change and the question "who/what caused this," not "can I cause changes"
+
+  - id: change_detection_only
+    description: Organism notices that a log has moved from one side of a clearing to the other since yesterday
+    why_should_not_fire: Noticing the change is change_detection. Attribution would require the additional step of determining WHETHER self, another agent, or a natural force caused the movement
+    distinguishes: Modification attribution is the causal source assignment, not the mere detection that something changed

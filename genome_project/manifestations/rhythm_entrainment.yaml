@@ -1,0 +1,47 @@
+receptor_id: rhythm_entrainment
+family: regulatory
+tier: branch
+stage: 2
+
+conceptual_space: |
+  Synchronize own behavior to external rhythmic pattern. The concept is
+  synchronization — aligning internal action timing to detected external
+  periodicity. Not just detecting rhythm (that's the rhythm receptor) —
+  MATCHING one's own timing to it.
+
+manifestations:
+  - id: forage_on_food_cycle
+    description: Food spawns every 120 steps — organism synchronizes its foraging trips to arrive just as food appears
+    survival_relevance: Synchronized foraging eliminates wasted trips to empty patches — maximal energy efficiency
+    what_fires: Organism's action period matches detected environmental period — phase-locked behavior to resource cycle
+
+  - id: hide_on_predator_patrol
+    description: Predator passes every 60 steps — organism times its shelter-seeking to coincide with predator's arrival window
+    survival_relevance: Synchronized hiding means zero exposure during threat windows — survival through temporal alignment
+    what_fires: Organism's shelter-seeking period locked to detected threat cycle — behavioral phase alignment
+
+  - id: thermal_activity_sync
+    description: Temperature oscillates with 100-step period — organism is active during warm phases and rests during cold phases
+    survival_relevance: Synchronized activity pattern minimizes thermoregulatory cost — work when it's warm, rest when it's cold
+    what_fires: Organism's activity/rest cycle frequency matches environmental thermal oscillation frequency
+
+  - id: movement_to_tidal_chemical
+    description: Chemical tides have 200-step period — organism moves to safe zones before toxic peaks and returns during clean phases
+    survival_relevance: Phase-locked movement to chemical cycle eliminates toxic exposure entirely
+    what_fires: Organism's spatial behavior oscillates at same frequency as chemical cycle with appropriate phase offset
+
+  - id: light_cycle_entrainment
+    description: Day/night cycle of 100 steps — organism's metabolic behavior (eat during day, conserve during night) locks to light rhythm
+    survival_relevance: Entrained circadian-like behavior optimizes energy use across the environmental cycle
+    what_fires: Multiple behavioral channels (activity, consumption, exploration) phase-locked to luminance cycle
+
+anti_manifestations:
+  - id: rhythm_detection_without_sync
+    description: Organism detects that food spawns every 120 steps but continues foraging at random times unrelated to the cycle
+    why_should_not_fire: The rhythm is detected but behavior is not synchronized to it — detection without entrainment
+    distinguishes: Rhythm entrainment requires BEHAVIORAL SYNCHRONIZATION, not just rhythm detection
+
+  - id: coincidental_timing
+    description: Organism happens to arrive at food just as it spawns once — but this was not timed, just luck
+    why_should_not_fire: Single coincidence is not synchronization — no ongoing phase-locked behavioral pattern
+    distinguishes: Entrainment requires SUSTAINED phase-locked behavior across multiple cycles, not one lucky arrival

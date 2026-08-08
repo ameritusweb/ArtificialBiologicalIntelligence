@@ -1,0 +1,137 @@
+receptor_id: environmental_manipulation
+family: agency
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Detects persistent restructuring of the spatial layout of objects in
+  the environment. Moving rocks to form a barrier, arranging sticks
+  into a shelter frame, clearing a path by relocating debris. The
+  boundary separates momentary object manipulation (pick up, use, drop)
+  from persistent environmental restructuring (the layout is different
+  after the organism leaves, and the difference serves a purpose). The
+  restructuring outlasts the action that created it.
+
+manifestations:
+  - id: rock_barrier_construction
+    description: |
+      The organism carries six heavy rocks one at a time to a narrow
+      passage between two boulders. It stacks and arranges them to
+      close the gap, creating a wall that blocks wind and prevents
+      predator entry. The wall remains after the organism stops
+      building.
+    survival_relevance: |
+      Persistent barriers provide ongoing protection without
+      continuous effort. The restructured environment defends the
+      organism even when it is sleeping or away.
+    what_fires: |
+      Multiple objects repositioned from scattered locations to a
+      structured configuration. The new spatial layout is stable
+      (rocks do not return to original positions) and serves a
+      function (blockage). Persistent spatial restructuring signal
+      fires.
+
+  - id: clearing_debris_to_create_path
+    description: |
+      A route between the organism's den and a water source is
+      blocked by fallen branches, thorny plants, and loose rocks.
+      The organism systematically moves each obstruction to the
+      sides, creating a clear walking path. The path remains
+      clear for repeated use.
+    survival_relevance: |
+      Persistent path creation reduces travel time and energy
+      expenditure on repeated journeys. The environmental
+      modification benefits every future traversal.
+    what_fires: |
+      Multiple objects relocated from a linear zone to the
+      periphery, creating a persistent functional space (clear
+      path) that did not exist before. The spatial layout is
+      permanently altered by the organism's actions.
+
+  - id: arranging_flat_stones_as_stepping_stones
+    description: |
+      A muddy depression lies between the organism's rest site
+      and a food source. The organism collects flat stones from
+      a nearby area and places them in a line across the mud,
+      creating a series of stepping stones. The stones remain
+      in place across multiple crossings.
+    survival_relevance: |
+      Persistent crossing infrastructure prevents energy-costly
+      mud traversal and reduces exposure to parasites or cold.
+      The restructuring benefits accumulate over time.
+    what_fires: |
+      Objects (flat stones) transported from source locations and
+      arranged in a functional spatial pattern (line across mud).
+      The arrangement persists and serves repeated functional use.
+      Environmental restructuring beyond momentary manipulation.
+
+  - id: building_leaf_and_branch_rain_shelter
+    description: |
+      The organism collects fallen branches and leans them against
+      a rock face to create a frame. It then layers large leaves
+      over the branches to create a waterproof canopy. The shelter
+      persists through multiple rain events.
+    survival_relevance: |
+      Shelter construction is a paradigmatic example of persistent
+      environmental manipulation. The restructured environment
+      provides thermoregulation and weather protection continuously.
+    what_fires: |
+      Multiple objects (branches, leaves) collected from dispersed
+      locations and assembled into a persistent structure with
+      emergent properties (rain deflection) that no individual
+      object possessed. Complex spatial restructuring fires.
+
+  - id: food_cache_pit_construction
+    description: |
+      The organism digs a pit, lines it with flat stones to prevent
+      soil moisture from spoiling food, places collected nuts and
+      dried berries inside, then covers the pit with a large flat
+      rock and disguises it with scattered leaves. The cache
+      persists as a food reserve for days.
+    survival_relevance: |
+      Persistent food storage through environmental modification
+      enables temporal decoupling of foraging from consumption.
+      The restructured environment preserves resources across time.
+    what_fires: |
+      Environment permanently modified through digging, object
+      placement (stone lining, cover rock), and camouflage
+      (scattered leaves). The modification creates a functional
+      storage structure that persists and serves a purpose beyond
+      the construction episode.
+
+anti_manifestations:
+  - id: picking_up_and_eating_a_berry
+    description: |
+      The organism picks a berry from a bush and eats it. The bush
+      has one fewer berry but the environment's spatial layout is
+      essentially unchanged. No restructuring occurred — an object
+      was consumed.
+    why_should_not_fire: |
+      This is momentary object manipulation for immediate
+      consumption, not persistent environmental restructuring.
+      The spatial layout of the environment is not meaningfully
+      altered. No structure was created, no persistent change in
+      object arrangement serves a future function.
+    distinguishes: |
+      Momentary manipulation with consumption (object removed from
+      environment) versus persistent restructuring (objects
+      rearranged to create lasting functional changes). The
+      receptor requires the restructuring to outlast the action.
+
+  - id: throwing_rock_at_predator
+    description: |
+      The organism picks up a rock and throws it at an approaching
+      predator. The rock lands somewhere in the field. The
+      environment's spatial layout has changed trivially (one rock
+      moved) but not in any persistent functional way.
+    why_should_not_fire: |
+      This is momentary defensive action using an object. The rock's
+      new position serves no ongoing function — it was not placed
+      deliberately to create a persistent structure. Environmental
+      manipulation requires intentional restructuring that creates
+      lasting functional changes, not incidental object displacement.
+    distinguishes: |
+      Incidental object displacement (rock thrown, lands randomly)
+      versus intentional persistent restructuring (objects arranged
+      into functional configurations). The receptor requires
+      purposeful spatial rearrangement with lasting function.

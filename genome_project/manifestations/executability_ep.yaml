@@ -1,0 +1,185 @@
+receptor_id: executability_ep
+family: bridging
+tier: canopy
+stage: 11
+
+conceptual_space: |
+  Detects whether a plan that seemed feasible in theory is actually
+  executable in practice, based on evidence accumulated across an
+  entire episode of attempted execution. A creature planned a route
+  through a valley — across the episode, it discovers that the river
+  is uncrossable, the canyon walls are too steep, and the food caches
+  it planned to use are empty. The plan looked good on paper but fails
+  in reality. The boundary separates genuine executability assessment
+  (plan components tested against real-world constraints) from
+  theoretical planning or wishful thinking.
+  NOTE: this is the episode-level version - measures across an entire
+  episode rather than at a single step. Executability is assessed by
+  accumulated evidence from attempted implementation, not from a
+  single feasibility check.
+
+manifestations:
+  - id: migration_route_proves_impassable
+    description: |
+      A creature plans a migration route based on distant observation:
+      cross the river at the narrows, traverse the ridge, descend to
+      the valley, follow the stream to the wintering grounds. Across
+      an episode of actual travel, it discovers step by step: the
+      narrows are flooded and uncrossable, the ridge is covered in
+      impassable ice, the valley descent is blocked by a rockslide,
+      and the stream has dried up. Each step of attempted execution
+      reveals another plan component that fails against reality. By
+      episode end, accumulated execution failures demonstrate the
+      plan is not executable.
+    survival_relevance: |
+      Detecting plan non-executability early enables the organism to
+      abandon the plan and switch to alternatives before committing
+      too many resources. An organism that persists with an
+      unexecutable plan wastes energy, time, and potentially gets
+      stranded in dangerous territory.
+    what_fires: |
+      Episode-accumulated plan-component failure count exceeds
+      threshold. Multiple plan steps have been attempted and failed
+      against real-world constraints. The ratio of failed-to-
+      attempted components indicates the plan is not executable
+      as designed.
+
+  - id: hunting_strategy_succeeds_step_by_step
+    description: |
+      A creature formulates a hunting plan: locate the herd, approach
+      from downwind, use the ravine as cover, isolate a weak member,
+      drive it toward the dead-end canyon. Across an episode of
+      execution, each component succeeds: the herd is found at the
+      predicted location, the wind direction allows downwind approach,
+      the ravine provides adequate cover, a limping individual is
+      identifiable, and the dead-end canyon funnels effectively. The
+      accumulated evidence of component-by-component success confirms
+      the plan's real-world executability.
+    survival_relevance: |
+      Confirming executability mid-plan enables the organism to
+      commit resources with increasing confidence. Each successful
+      component is evidence that the remaining components will also
+      succeed, justifying the energy investment of continued
+      execution rather than premature abandonment.
+    what_fires: |
+      Episode-accumulated plan-component success count exceeds
+      confirmation threshold. Multiple plan steps have been executed
+      and succeeded. The ratio of succeeded-to-attempted components
+      indicates the plan is executable as designed.
+
+  - id: nest_construction_reveals_material_shortage
+    description: |
+      A creature plans to build a nest requiring specific materials:
+      long flexible twigs for the frame, soft moss for insulation,
+      clay for waterproofing, and thorny branches for defense. Across
+      an episode of gathering, it finds abundant twigs and moss but
+      discovers that clay is only available far away and thorny
+      branches are monopolized by territorial neighbors. The plan
+      is partially executable — some components succeed, others fail.
+      The accumulated evidence enables a nuanced executability
+      assessment and plan modification.
+    survival_relevance: |
+      Partial executability assessment enables intelligent plan
+      modification rather than binary succeed-or-abandon decisions.
+      The creature can substitute materials, modify the design, or
+      adjust the timeline based on which specific components are
+      available and which are not.
+    what_fires: |
+      Episode-accumulated mixed results across plan components.
+      Some components succeed easily, others fail or require
+      excessive cost. The executability signal encodes not just
+      pass/fail but a component-level feasibility profile enabling
+      targeted plan revision.
+
+  - id: social_alliance_plan_meets_reality
+    description: |
+      A creature plans a social strategy: ally with individual A to
+      challenge dominant individual B, then use the new status to
+      access the preferred feeding area. Across an episode of social
+      interactions, it discovers step by step that individual A is
+      actually allied with B, that B is stronger than estimated, that
+      the feeding area is defended by a third party not in the
+      original plan, and that a different alliance with individual C
+      would have been more feasible. The social plan's executability
+      is systematically tested and found wanting.
+    survival_relevance: |
+      Social plans involve agents with their own goals, making
+      executability assessment critical. The organism discovers that
+      social reality is more complex than its model predicted,
+      enabling model update and strategy revision before a costly
+      confrontation with an unexpected alliance.
+    what_fires: |
+      Episode-accumulated social plan component failures. Assumed
+      alliances, estimated power differentials, and predicted
+      territorial access all tested against reality and found
+      inaccurate. The plan-to-reality mismatch score across the
+      episode exceeds the executability failure threshold.
+
+  - id: seasonal_food_storage_plan_validated
+    description: |
+      A creature plans a winter food storage strategy: cache nuts in
+      three locations at different elevations, ensure each cache is
+      above the flood line, protect caches with covering material,
+      and space visits to prevent cache-site scent trails that
+      attract thieves. Across an episode of implementation, each
+      component is tested: nut availability is sufficient for three
+      caches, the selected sites are indeed above observed water
+      levels, covering material is available, and spaced visits are
+      achievable within the creature's daily range. Accumulated
+      evidence confirms end-to-end executability.
+    survival_relevance: |
+      Validated food storage plans provide winter survival insurance.
+      Confirming executability during the preparation season, when
+      alternative strategies are still possible, is far more valuable
+      than discovering failure during winter when options are limited
+      and energy reserves are low.
+    what_fires: |
+      Episode-accumulated evidence of successful plan-component
+      execution across all stages of a multi-component plan.
+      Resource availability, site suitability, material access,
+      and behavioral feasibility all confirmed through actual
+      testing. Full-plan executability score exceeds confidence
+      threshold.
+
+anti_manifestations:
+  - id: theoretical_plan_never_tested
+    description: |
+      A creature formulates an elaborate migration plan by observing
+      the landscape from a high vantage point. The plan seems logical
+      — cross there, climb here, descend there. But the creature has
+      not attempted any component of the plan. It has only thought
+      about it. The plan may well be executable, but no execution
+      evidence exists.
+    why_should_not_fire: |
+      Executability requires evidence from attempted execution, not
+      theoretical assessment. A plan that has never been tested
+      against reality has unknown executability. This receptor
+      measures accumulated execution evidence, and no evidence
+      has accumulated. Theoretical feasibility is a different
+      signal than demonstrated executability.
+    distinguishes: |
+      Theoretical feasibility (plan looks good in the model) versus
+      demonstrated executability (plan components have been tested
+      against real-world constraints). This episode-level receptor
+      requires accumulated evidence from actual execution attempts.
+
+  - id: single_step_succeeded_plan_untested
+    description: |
+      A creature's plan has five components. One component has been
+      tested and succeeded — the creature successfully crossed the
+      river. But the remaining four components are untested. The
+      single success is encouraging but does not constitute episode-
+      level executability assessment for the whole plan.
+    why_should_not_fire: |
+      One successful component does not demonstrate plan-level
+      executability. The episode-level receptor requires accumulated
+      evidence across multiple plan components to assess overall
+      feasibility. A single data point, even positive, is
+      insufficient for the episode-level signal. This is a step-
+      level success, not an episode-level executability assessment.
+    distinguishes: |
+      Step-level component success (one piece works) versus episode-
+      level plan executability (accumulated evidence across many
+      components confirms or denies overall feasibility). The
+      episode-level receptor requires breadth of testing, not a
+      single positive result.

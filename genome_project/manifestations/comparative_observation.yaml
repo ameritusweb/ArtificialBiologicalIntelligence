@@ -1,0 +1,48 @@
+receptor_id: comparative_observation
+family: observation
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Compare current state to prior state or expected state. Not just noticing
+  change (that's change_detection) but explicitly representing BOTH states
+  and the relationship between them. "This patch has less food than before."
+  "This rock is bigger than that rock." The boundary: explicit comparison
+  between two represented states, not mere detection of difference.
+
+manifestations:
+  - id: depleted_patch
+    description: Organism returns to a berry bush it fed from yesterday and finds fewer berries than before
+    survival_relevance: Recognizing resource depletion guides foraging decisions — leave for richer patch
+    what_fires: Stored representation of prior berry count compared against current count yields "less than" signal
+
+  - id: grown_obstacle
+    description: A thornbush that previously allowed passage has grown thicker — the gap between branches is narrower than last visit
+    survival_relevance: Comparing passage width to body size and prior experience prevents getting stuck or injured
+    what_fires: Stored spatial gap measurement from prior encounter compared to current measurement yields "smaller than" signal
+
+  - id: predator_size_comparison
+    description: Two predators visible simultaneously — one is noticeably larger than the other
+    survival_relevance: Comparing threat sizes determines which escape route to avoid
+    what_fires: Side-by-side spatial extent of two threat objects produces relative magnitude signal
+
+  - id: water_level_drop
+    description: A pond the organism drinks from has visibly lower water level than three visits ago
+    survival_relevance: Declining water source means the organism must find alternatives before it dries up
+    what_fires: Stored water-edge position compared to current water-edge position yields "receded" signal
+
+  - id: tool_effectiveness
+    description: Organism uses a short stick to reach food behind a gap, then finds a longer stick and reaches food more easily
+    survival_relevance: Comparing tool outcomes drives selection of better tools
+    what_fires: Effort-to-reward ratio of current tool compared to stored ratio of prior tool yields "better" signal
+
+anti_manifestations:
+  - id: simple_change_noticed
+    description: Organism steps from a warm zone into a cold zone and reacts to the temperature shift
+    why_should_not_fire: This is change_detection — the organism reacts to a delta, not to an explicit representation of "warmer vs cooler" held in comparison
+    distinguishes: Comparative observation requires holding two states simultaneously and evaluating their relationship, not just reacting to a transition
+
+  - id: preference_without_comparison
+    description: Organism always approaches the nearest food source without evaluating whether it is larger or smaller than alternatives
+    why_should_not_fire: Proximity-based approach is a fixed heuristic, not a comparison of properties between objects
+    distinguishes: Comparison requires evaluating a shared dimension across two or more represented entities

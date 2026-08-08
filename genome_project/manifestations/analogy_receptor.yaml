@@ -1,0 +1,156 @@
+receptor_id: analogy_receptor
+family: compression
+tier: canopy
+stage: 6
+
+conceptual_space: |
+  Detects structural similarity across different receptor firing
+  patterns from different domains. The predator-prey dynamic mirrors
+  the poison-food dynamic: in both, approach yields reward with risk,
+  avoidance yields safety with missed opportunity, and the key
+  variable is a hidden property (speed, toxicity) not visible at
+  first glance. The boundary separates surface similarity (both are
+  red, both are round) from structural mapping (both have the same
+  relational pattern despite different surface features). This is
+  cross-domain analogical reasoning at the meta-receptor level.
+
+manifestations:
+  - id: predator_prey_mirrors_poison_food
+    description: |
+      The organism has learned the predator-prey structure: approach
+      a moving entity, risk being attacked, potential reward (meat)
+      if successful. It encounters a new domain — foraging unknown
+      plants: approach a colorful berry, risk being poisoned,
+      potential reward (nutrition) if safe. The receptor firing
+      pattern (approach-risk-reward with hidden variable) is
+      structurally identical across both domains despite completely
+      different surface features.
+    survival_relevance: |
+      Recognizing the structural parallel enables transfer of
+      caution strategies from one domain to another. The careful-
+      approach-then-test strategy learned with predators applies
+      to unknown foods without re-learning from scratch.
+    what_fires: |
+      Two receptor firing patterns from different domains that
+      share relational structure (approach-risk-reward-hidden-
+      variable) despite sharing no surface features. The
+      structural mapping across domains fires the analogy signal.
+
+  - id: nest_defense_mirrors_food_caching
+    description: |
+      Defending a nest from intruders has the structure: identify
+      valuable resource, select concealed location, monitor for
+      threats, respond to incursion. Food caching has the same
+      structure: identify valuable resource (food), select concealed
+      location (cache site), monitor for theft, respond to pilfering.
+      The domains differ but the protect-conceal-monitor-respond
+      pattern is identical.
+    survival_relevance: |
+      Recognizing the structural parallel enables the organism to
+      apply nest-defense strategies to food caching and vice versa.
+      Innovations in one domain (better concealment) transfer to
+      the other without independent discovery.
+    what_fires: |
+      Matching relational structure (protect-conceal-monitor-respond)
+      across two domains with different objects (nest vs. food,
+      intruder vs. pilferer). The four-step structural isomorphism
+      fires despite zero surface overlap.
+
+  - id: water_flow_mirrors_animal_migration
+    description: |
+      Water flows downhill along paths of least resistance, pools
+      at low points, and follows seasonal patterns (rain increases
+      flow). Animal herds move along paths of least resistance
+      (flat terrain), congregate at resource-rich areas, and follow
+      seasonal patterns (food availability shifts movement). The
+      organism recognizes the shared structure: flow-along-gradient,
+      accumulate-at-basins, seasonal-modulation.
+    survival_relevance: |
+      Using water-flow knowledge to predict animal movement (or
+      vice versa) expands the organism's predictive capacity far
+      beyond each domain in isolation. Finding water routes may
+      predict migration paths.
+    what_fires: |
+      Structural mapping between physical flow dynamics and
+      biological movement dynamics. Three-element relational
+      structure (gradient-following, accumulation, seasonal
+      modulation) matches across domains with no surface
+      similarity.
+
+  - id: dominance_hierarchy_mirrors_tool_quality
+    description: |
+      In a social group, dominant individuals displace subordinates
+      from resources: A displaces B, B displaces C, but C cannot
+      displace A — a transitive ordering. Among tools, a hard stone
+      breaks a softer stone, the softer stone breaks wood, but wood
+      cannot break the hard stone — the same transitive ordering.
+      The organism recognizes the shared relational structure.
+    survival_relevance: |
+      Recognizing transitive ordering as a domain-general structure
+      enables the organism to predict outcomes in new domains
+      by testing just a few pairwise relationships rather than
+      exhaustively testing all combinations.
+    what_fires: |
+      Transitive relational structure (A > B > C, where > means
+      displaces/breaks) appearing in both social and physical
+      domains. The abstract relational pattern matches despite
+      completely different entities and mechanisms.
+
+  - id: seasonal_cycle_mirrors_day_night_cycle
+    description: |
+      Day-night has structure: gradual transition (dawn), peak
+      activity period (midday), gradual transition (dusk), low
+      activity period (night), repeat. Seasonal cycle has the
+      same structure: gradual transition (spring), peak period
+      (summer), gradual transition (autumn), low period (winter),
+      repeat. The organism recognizes the shared cyclical structure
+      at two different timescales.
+    survival_relevance: |
+      Recognizing the shared cyclical structure enables the organism
+      to apply within-day timing strategies to within-year timing.
+      "Forage during peak, shelter during low" works at both
+      timescales through analogical transfer.
+    what_fires: |
+      Cyclical pattern (gradual-rise, peak, gradual-fall, trough)
+      matching across two temporal domains with vastly different
+      timescales. The structural periodicity matches despite
+      different specific signals and durations.
+
+anti_manifestations:
+  - id: two_red_berries_look_alike
+    description: |
+      The organism encounters two berry species that are both red,
+      both round, both found on bushes. They look very similar.
+      One is sweet, the other is bitter. The similarity is in
+      surface features (color, shape, location) not in relational
+      structure.
+    why_should_not_fire: |
+      This is perceptual similarity — shared surface features —
+      not analogy. Analogy requires structural or relational
+      correspondence across domains with DIFFERENT surface
+      features. Two things that look alike are similar, not
+      analogous. The analogy receptor fires on structural
+      mapping, not feature overlap.
+    distinguishes: |
+      Surface similarity (shared perceptual features within the
+      same domain) versus structural analogy (shared relational
+      pattern across different domains with different features).
+      Same-domain feature matching is not analogy.
+
+  - id: same_predator_attacks_twice
+    description: |
+      The organism is chased by the same predator species in two
+      different locations. The experiences are similar because
+      they involve the same type of entity doing the same type
+      of thing. The organism recognizes the repeated pattern.
+    why_should_not_fire: |
+      This is pattern recognition within a single domain — the
+      same type of event recurring. Analogy requires mapping
+      across DIFFERENT domains where the entities and mechanisms
+      differ but the relational structure matches. Same-domain
+      repetition is generalization, not analogy.
+    distinguishes: |
+      Within-domain generalization (same type of event recurs)
+      versus cross-domain analogy (different types of events
+      share relational structure). The domain boundary crossing
+      is essential for analogy.

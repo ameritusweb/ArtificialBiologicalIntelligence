@@ -1,0 +1,199 @@
+receptor_id: ownership_boundary_ep
+family: social
+tier: branch
+stage: 4
+
+conceptual_space: |
+  Detects patterns of resource ownership and control that emerge across
+  an entire episode of social observation. Not a single possession
+  event, but accumulated evidence of who consistently controls which
+  resources — the ownership map of a social landscape. A creature
+  observes many resource interactions across an episode and builds a
+  picture: this individual controls the water hole, that one controls
+  the fruit tree, and the third controls the sleeping ledge. The
+  boundary separates genuine ownership patterns (consistent control
+  across multiple interactions) from transient possession or
+  coincidental proximity.
+  NOTE: this is the episode-level version - measures across an entire
+  episode rather than at a single step. Ownership boundaries crystallize
+  as many resource-control interactions are observed and consistent
+  patterns emerge.
+
+manifestations:
+  - id: territorial_resource_map_emerges
+    description: |
+      A creature new to an area observes many resource-access
+      interactions across an episode. Over dozens of encounters, a
+      clear pattern emerges: individual A consistently displaces
+      others from the northern water hole and always drinks first.
+      Individual B consistently occupies the large sleeping cave
+      and chases away intruders. Individual C controls the termite
+      mound and monopolizes feeding there. By episode end, the
+      creature has built a map of who owns what — a resource
+      ownership topology that predicts who will defend what and
+      where conflicts will occur.
+    survival_relevance: |
+      Knowing the ownership map prevents costly confrontations. A
+      creature that knows individual A controls the water hole will
+      wait for A to finish rather than challenge, approach when A
+      is absent, or find alternative water. The ownership map
+      enables strategic resource access without triggering
+      territorial defense.
+    what_fires: |
+      Episode-accumulated individual-resource control associations.
+      The same individual consistently controls the same resource
+      across multiple observations. Ownership confidence for
+      specific individual-resource pairs exceeds the stability
+      threshold, indicating a reliable ownership boundary.
+
+  - id: communal_versus_private_resources_distinguished
+    description: |
+      Across an episode, a creature observes that some resources
+      are freely accessed by all group members (the open grazing
+      area, the drinking stream, the shade trees) while others
+      are defended by specific individuals (nesting hollows, food
+      caches, favored resting spots). The accumulated evidence
+      creates a map with two types of zones: communal resources
+      where approach is always safe, and private resources where
+      approach triggers defense. The communal/private distinction
+      emerges from patterns of defense-versus-tolerance across
+      many interactions.
+    survival_relevance: |
+      Distinguishing communal from private resources enables
+      efficient foraging and resting without social conflict. The
+      organism can freely access communal resources while approaching
+      private ones only through appropriate social channels
+      (requesting access, waiting for the owner to leave, or
+      engaging in reciprocal exchange).
+    what_fires: |
+      Episode-accumulated evidence that some resources are accessed
+      by all without defense (communal signal) while others trigger
+      consistent defense by specific individuals (private signal).
+      The defense-pattern distribution across resources creates a
+      bimodal pattern separating communal from owned resources.
+
+  - id: ownership_hierarchy_within_group
+    description: |
+      Across an episode, a creature observes many displacement
+      interactions at resources. A pattern emerges: dominant
+      individuals own the best resources (most food-rich patches,
+      most sheltered sleeping sites, cleanest water). Subordinate
+      individuals own lower-quality resources or none at all.
+      The ownership map correlates with the dominance hierarchy —
+      ownership boundaries reflect social rank. This episode-level
+      pattern reveals that resource ownership is not random but
+      structured by social position.
+    survival_relevance: |
+      Understanding that ownership correlates with dominance enables
+      the organism to predict who controls what without testing
+      every resource boundary. If a high-ranking individual
+      approaches a resource, it likely owns it. This social
+      shortcut prevents costly confrontations with dominant
+      resource owners.
+    what_fires: |
+      Episode-accumulated correlation between individual social
+      rank and resource quality across the ownership map. High-rank
+      individuals consistently control high-quality resources.
+      The rank-resource correlation exceeds the structured-ownership
+      threshold, indicating systematic rather than random ownership
+      allocation.
+
+  - id: ownership_transfer_after_status_change
+    description: |
+      Across an episode, a creature observes a status change within
+      the group — a dominant individual is injured and loses
+      confrontations. Progressively, resources previously controlled
+      by this individual are claimed by others. The injured
+      individual's water hole is taken over by a rival, its sleeping
+      site is occupied, its favored food patch is no longer defended.
+      The ownership map reorganizes following the status change.
+      Episode-level tracking reveals the cascading ownership
+      transfers.
+    survival_relevance: |
+      Detecting ownership reorganization after status changes
+      creates opportunity. The organism can claim resources that
+      are briefly undefended during the transition, or avoid
+      resources where new owners are aggressively establishing
+      control. Tracking ownership dynamics is as important as
+      tracking static ownership.
+    what_fires: |
+      Episode-accumulated evidence of ownership boundary shifts
+      correlated with a status change event. Previously stable
+      individual-resource associations dissolve and reform with
+      new individuals. The ownership map instability score following
+      a social status perturbation exceeds the reorganization
+      detection threshold.
+
+  - id: offspring_inherit_parental_resource_zones
+    description: |
+      Across an episode spanning a developmental period, a creature
+      observes that offspring gradually establish control over
+      resources adjacent to their parent's territory. The parent
+      tolerates offspring presence in their resource zone, and other
+      group members defer to offspring near the parent's territory
+      but not elsewhere. By episode end, the offspring has ownership
+      over a small zone that extends the parent's territory. The
+      episode reveals inheritance-like ownership transmission — a
+      pattern of ownership boundary expansion through kinship.
+    survival_relevance: |
+      Recognizing kinship-based ownership inheritance enables the
+      organism to predict where new ownership boundaries will form.
+      Offspring of territory-holders are more likely to establish
+      adjacent territories than unrelated individuals, which
+      affects the organism's own territorial expansion strategy
+      and alliance planning.
+    what_fires: |
+      Episode-accumulated evidence of ownership boundary
+      establishment correlated with kinship and proximity to
+      parental territory. New ownership claims by offspring succeed
+      near parental zones but fail elsewhere. The kinship-ownership
+      correlation across the episode exceeds the inheritance
+      detection threshold.
+
+anti_manifestations:
+  - id: transient_possession_not_ownership
+    description: |
+      A creature observes an individual eating at a food source.
+      The individual happens to be there, eats, and leaves. Another
+      individual then uses the same food source without any
+      confrontation. The first individual's use was transient
+      possession — occupying a resource momentarily — not ownership.
+      No defense, no consistent control, no displacement of others.
+      Across the episode, many individuals use this resource without
+      any showing consistent control.
+    why_should_not_fire: |
+      Transient use is not ownership. Ownership requires consistent
+      control — repeated access by the same individual, defense
+      against others, displacement of competitors. A single or
+      occasional use without defense is possession, not ownership.
+      The episode-level receptor requires accumulated evidence of
+      consistent control patterns, not single observations of use.
+    distinguishes: |
+      Ownership (consistent control, defense, displacement across
+      multiple observations) versus transient possession (momentary
+      use without defense or consistent access patterns). The
+      episode-level receptor requires repeated control evidence,
+      not single-instance possession.
+
+  - id: proximity_without_control
+    description: |
+      An individual is frequently observed near a water source
+      across the episode — it sleeps nearby, passes by often, and
+      rests in the shade nearby. But it does not control access to
+      the water. Other individuals drink freely without displacement
+      or confrontation. The individual is proximate to the resource
+      but does not own it. Proximity frequency is high but control
+      behavior is absent.
+    why_should_not_fire: |
+      Spatial proximity to a resource is not ownership. Ownership
+      requires control behavior — active defense, priority access,
+      displacement of others. An individual that happens to live
+      near a resource but does not control it is a neighbor, not an
+      owner. The episode-level receptor requires evidence of control
+      patterns, not just spatial association.
+    distinguishes: |
+      Ownership (behavioral control over resource access) versus
+      proximity (spatial association without control behavior).
+      Frequent co-location with a resource without any defense,
+      displacement, or priority-access behavior does not constitute
+      ownership evidence.

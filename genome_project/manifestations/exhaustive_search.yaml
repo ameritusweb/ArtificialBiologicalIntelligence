@@ -1,0 +1,50 @@
+receptor_id: exhaustive_search
+family: mathematics
+tier: canopy
+stage: 9
+
+conceptual_space: |
+  Detects that all possibilities in a search space have been checked and none
+  satisfies the goal. Every path has been tried and none works — a different
+  approach is needed. The boundary separates exhaustive search completion
+  (verified coverage of the entire space) from premature termination (giving
+  up before all options are checked) or continued search (still exploring).
+  The concept is detecting search completion — the confident determination
+  that the current approach space has been fully explored without success.
+
+manifestations:
+  - id: all_exits_blocked
+    description: Organism has checked every exit from a trapped area — north, south, east, west, and up — all are blocked by predators or obstacles, confirming no viable escape exists through direct routes
+    survival_relevance: Confirmed exhaustive search triggers strategy shift — digging, hiding, or waiting — rather than wasteful re-checking of routes already verified as blocked
+    what_fires: A search process that has systematically covered every element of a bounded search space, with each element confirmed as non-viable, and the space confirmed as fully covered
+
+  - id: all_food_sources_depleted
+    description: Organism has visited every known food location in its territory and confirmed each is depleted — the exhaustive check triggers migration to a new territory rather than continued local search
+    survival_relevance: Confirmed resource exhaustion prevents starvation from futile re-searching of depleted areas, redirecting energy to territory expansion or migration
+    what_fires: Systematic coverage of all elements in a known set (food locations), each confirmed as non-viable, with the set boundary confirmed as the complete inventory
+
+  - id: all_group_members_checked
+    description: Organism seeking an ally has assessed every group member's willingness to cooperate — none is willing, confirming that coalition formation requires a different approach or a different group
+    survival_relevance: Exhaustive social search prevents futile repeated solicitation and enables strategic pivots — solitary strategy, different group, or changed offer
+    what_fires: Every element in a bounded social set (group members) assessed for a criterion (cooperation willingness), all negative, with the set confirmed as completely enumerated
+
+  - id: all_tool_combinations_tested
+    description: Organism has tried every available tool on a sealed food source — pushing, prying, striking, dropping — none works, triggering a search for a new tool type or a different food source
+    survival_relevance: Confirmed exhaustion of the tool repertoire prevents repetitive failed attempts and triggers creative search for novel solutions or alternative goals
+    what_fires: Systematic application of every element in a bounded action repertoire to a problem, each confirmed as unsuccessful, with the repertoire confirmed as fully enumerated
+
+  - id: all_hiding_spots_checked_by_predator
+    description: Organism detects that a predator has systematically checked every hiding spot in the area — the organism must flee rather than hide because the search space for concealment is exhausted
+    survival_relevance: Detecting an adversary's exhaustive search enables the organism to abandon hiding strategy before being found, switching to flight while escape routes still exist
+    what_fires: Detection that another agent has systematically covered a bounded search space, making the organism's concealment strategy non-viable because the space has been exhausted
+
+anti_manifestations:
+  - id: giving_up_before_exhaustion
+    description: Organism has checked three of seven known food locations and found them empty — it gives up and migrates, but four locations remain unchecked
+    why_should_not_fire: Premature termination is not exhaustive search — the search space has not been fully covered, and viable options may remain among the unchecked elements
+    distinguishes: Exhaustive search (all elements of bounded space verified) vs premature termination (search abandoned before full coverage)
+
+  - id: unbounded_exploration
+    description: Organism is exploring new territory with no map of the total area — it has searched extensively but cannot determine whether the full space has been covered
+    why_should_not_fire: Exhaustive search requires a bounded space whose completeness can be verified — exploration of an unknown-sized space cannot confirm exhaustion
+    distinguishes: Exhaustive search (bounded space fully covered) vs open-ended exploration (unknown space size makes completeness unverifiable)

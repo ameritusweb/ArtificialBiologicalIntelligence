@@ -1,0 +1,49 @@
+receptor_id: self_talk
+family: language
+tier: Branch
+stage: 11
+
+conceptual_space: |
+  Detects the organism's use of internally rehearsed, grounded linguistic
+  labels to hold a multi-step plan stable during execution. The boundary is
+  between passively having a plan and actively narrating steps to oneself
+  using words that connect to real receptor activations. Fires when the
+  organism generates internal sequential language that scaffolds action
+  across time -- the words serve as anchors that prevent plan drift.
+
+manifestations:
+  - id: sequential_narration
+    description: The organism faces a foraging task requiring three actions in order -- move left past the barrier, wait for the patrol predator to pass, then push the rock off the food cache. It internally rehearses "left, wait, push" and each word activates the motor and perceptual receptors associated with that action.
+    survival_relevance: Without internal rehearsal, the organism might execute the first step and then lose track of subsequent steps when new stimuli compete for attention. Self-talk holds the full plan in working memory.
+    what_fires: Sequential generation of grounded labels (each label activating its associated receptor cluster) timed to precede the corresponding action, with the full sequence generated before the first action begins.
+
+  - id: corrective_renarration
+    description: Mid-execution of a plan to "climb, jump, grab," the organism completes the climb but finds the jump distance is farther than expected. It internally re-narrates "climb -- done, long-jump, grab" -- updating the second label to carry revised distance information while preserving the overall sequence.
+    survival_relevance: Plans that cannot be verbally updated mid-execution become brittle. Corrective self-talk lets the organism adapt without losing the global plan structure.
+    what_fires: Re-generation of a previously rehearsed label sequence with one or more labels modified, where the modified labels activate an updated receptor pattern while the overall sequential structure is preserved.
+
+  - id: inhibitory_labeling
+    description: The organism spots food in a dangerous location and internally says "no-go" to itself, associating the inhibitory label with the approach motor pattern. The label suppresses the automatic approach response and holds the organism in place while it searches for an alternative path.
+    survival_relevance: Automatic approach responses to food can be lethal in dangerous areas. A grounded inhibitory label gives the organism a mechanism to override impulse with plan.
+    what_fires: Generation of a negation-tagged label that binds to and suppresses a motor activation pattern that would otherwise fire, sustained across multiple timesteps while the organism maintains its alternative-seeking state.
+
+  - id: tempo_pacing
+    description: The organism must cross an open area with periodic predator sweeps. It internally counts "go-go-go-stop-go-go-go-stop" matching the predator's timing pattern. Each "go" and "stop" label is grounded in locomotion and freezing receptors respectively.
+    survival_relevance: Timing-critical survival actions require internal pacing mechanisms. Rhythmic self-talk provides a temporal scaffold that keeps the organism synchronized with environmental cycles.
+    what_fires: Rhythmic generation of alternating grounded labels that match an external temporal pattern, with each label triggering its associated motor state at the correct phase of the environmental cycle.
+
+  - id: delegation_narration
+    description: The organism is coordinating with an ally and internally rehearses "I go high, they go low" -- using self-talk to maintain its own role assignment within a joint plan. The labels "high" and "low" are grounded in spatial receptors, and "I" versus "they" are grounded in self-other distinction.
+    survival_relevance: In cooperative action, losing track of one's own role collapses coordination. Self-talk that explicitly labels "my part" versus "their part" prevents role confusion under stress.
+    what_fires: Generation of agent-tagged action labels where self-referencing labels activate motor planning receptors and other-referencing labels activate social prediction receptors, maintaining role boundaries within a shared plan.
+
+anti_manifestations:
+  - id: ungrounded_repetition
+    description: The organism internally repeats the sound pattern "left-left-left" but the repetition does not connect to any motor or spatial receptors -- it is a pure phonological loop with no grounding. The word has become detached from its meaning through mechanical repetition.
+    why_should_not_fire: Self-talk requires grounded labels -- words that activate their associated receptor chains. Ungrounded repetition is verbal noise, not plan scaffolding. The labels must connect to something real in the organism's perceptual-motor system.
+    distinguishes: Whether the internally generated label activates its associated receptor cluster (grounded) versus being a pure pattern with no downstream receptor activation (ungrounded).
+
+  - id: post_hoc_narration
+    description: The organism completes a complex action sequence successfully through pure habit, then afterward internally narrates "I went left, waited, pushed" -- describing what already happened rather than scaffolding what is about to happen.
+    why_should_not_fire: Self-talk as a planning scaffold must precede or accompany action. Post-hoc narration is retrospective description, not prospective rehearsal. It does not hold a plan stable because the plan has already executed.
+    distinguishes: Temporal relationship between the internal narration and the action -- self-talk fires before or during execution to scaffold it, not after execution to describe it.

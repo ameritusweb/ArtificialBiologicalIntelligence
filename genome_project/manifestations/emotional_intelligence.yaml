@@ -1,0 +1,179 @@
+receptor_id: emotional_intelligence
+family: regulatory
+tier: canopy
+stage: 10
+
+conceptual_space: |
+  Detects the capacity to read another agent's regulatory state and
+  respond in a way that appropriately modulates that state. An offspring
+  is stressed; the parent reads the stress signals and adjusts its own
+  behavior — slowing movements, producing calming signals, reducing
+  environmental stimulation — to bring the offspring's arousal back to
+  a functional range. The boundary separates responsive state-reading-
+  and-modulation (adjusting one's behavior to regulate another's state)
+  from simple empathy (detecting another's state without modulating it)
+  or from social signaling that happens to have calming effects. The
+  critical signal is the contingent adjustment: the regulator's behavior
+  changes BECAUSE of the other's state and in a direction that serves
+  the other's regulation.
+
+manifestations:
+  - id: parent_calming_stressed_offspring
+    description: |
+      An offspring displays stress signals — rapid movement, elevated
+      alarm responses to minor stimuli, erratic behavior. The parent
+      detects these signals and modulates its own behavior: moves more
+      slowly, produces low-frequency sounds, positions itself between
+      the offspring and environmental stimuli. The parent's regulatory
+      output is calibrated to the offspring's state — the calming
+      intensity matches the stress level.
+    survival_relevance: |
+      A stressed offspring makes poor decisions — erratic movement
+      attracts predators, excessive alarm responses waste energy,
+      inability to focus prevents learning. The parent's regulatory
+      intervention restores the offspring to a functional state,
+      enabling learning and appropriate threat response.
+    what_fires: |
+      Detection of another agent's dysregulated state (stress signals)
+      followed by the observing agent's behavioral modification
+      specifically calibrated to counteract the dysregulation (calming
+      signals proportional to stress level). The other-directed,
+      state-contingent, counter-regulatory response fires.
+
+  - id: excitement_modulation_before_hunting
+    description: |
+      An offspring becomes overly excited when it detects prey —
+      bouncing, making noise, broadcasting its position. The parent
+      detects the excited state and produces dampening signals: firm,
+      steady positioning, suppressed movement, gentle physical
+      restraint. The parent modulates the offspring's arousal
+      downward to a level compatible with effective hunting (alert
+      but controlled) rather than eliminating arousal entirely.
+    survival_relevance: |
+      Hunting requires a specific arousal band — too low and the
+      organism is not alert enough, too high and it makes noise
+      and moves erratically. The parent reads the offspring's
+      excessive arousal and brings it to the functional range,
+      teaching appropriate arousal calibration for the context.
+    what_fires: |
+      Detection of another agent's arousal exceeding the functional
+      range for the current task, followed by calibrated dampening
+      that targets the optimal arousal level rather than mere
+      suppression. The target-range-calibrated modulation fires —
+      the parent does not eliminate excitement but shapes it.
+
+  - id: grief_support_after_loss
+    description: |
+      An offspring's sibling dies. The offspring displays withdrawal
+      behaviors — reduced movement, no foraging, no social
+      engagement. The parent increases proximity, provides food
+      directly (removing the need for the offspring to forage while
+      incapacitated), and produces gentle contact signals. The
+      parent does not try to eliminate the grief state but supports
+      the offspring through it by reducing environmental demands.
+    survival_relevance: |
+      Grief states are functionally necessary (processing social
+      loss) but leave the organism vulnerable (reduced vigilance,
+      no foraging). The parent's response does not suppress the
+      state but manages its survival costs — providing food and
+      protection so the offspring can process the loss without
+      starving or being predated.
+    what_fires: |
+      Detection of another agent's prolonged low-arousal state
+      (grief, withdrawal) followed by environmental support that
+      accommodates the state rather than trying to change it —
+      providing resources, protection, and proximity while the
+      state runs its natural course. The state-accommodating
+      support pattern fires.
+
+  - id: fear_titration_during_exploration
+    description: |
+      An offspring encounters a novel environment and displays
+      cautious fear — freezing, retreating, approaching tentatively.
+      The parent positions itself to be visible and produces calm
+      signals but does NOT approach or intervene. The parent reads
+      the offspring's fear as appropriate-level (not panic, not
+      recklessness) and provides a regulatory anchor (visible,
+      calm presence) without removing the fear that drives useful
+      caution.
+    survival_relevance: |
+      Appropriate fear in novel environments is adaptive — it
+      drives careful exploration rather than reckless approach.
+      The parent distinguishes functional fear from dysfunctional
+      panic and responds differently: supporting functional fear
+      (providing security without removing caution) rather than
+      suppressing all fear indiscriminately.
+    what_fires: |
+      Detection of another agent's fear state followed by
+      differential response based on whether the fear is
+      functional or dysfunctional — supporting rather than
+      suppressing functional fear, providing security base
+      without removing adaptive caution. The discriminative
+      fear-response pattern fires.
+
+  - id: contagion_breaking
+    description: |
+      Multiple offspring display escalating alarm — each one's
+      fear signals amplify the others', creating a positive feedback
+      loop of panic. The parent intervenes not by calming each
+      individual but by breaking the contagion chain — physically
+      separating the most alarmed individuals, producing strong
+      counter-signals that interrupt the escalation, and creating
+      a regulatory anchor point that the group can re-organize
+      around.
+    survival_relevance: |
+      Emotional contagion spirals are group-level threats — a
+      panicking group attracts predators, exhausts itself, and
+      separates members. The parent detects the contagion pattern
+      (escalating feedback between individuals) and intervenes at
+      the system level rather than the individual level, breaking
+      the amplification loop.
+    what_fires: |
+      Detection of a multi-agent escalation pattern (contagion)
+      followed by intervention targeting the escalation mechanism
+      (breaking feedback loops, separating amplifiers, providing
+      group-level regulatory anchor) rather than treating individual
+      states. The system-level regulatory intervention fires.
+
+anti_manifestations:
+  - id: empathy_without_regulatory_response
+    description: |
+      An organism detects that an offspring is stressed — it
+      recognizes the stress signals and its own state shifts in
+      response (becoming anxious itself). But it does not adjust
+      its behavior to modulate the offspring's state. It simply
+      mirrors the stress without acting to regulate it.
+    why_should_not_fire: |
+      This is empathy — detecting and resonating with another's
+      state — without the regulatory component. Emotional
+      intelligence requires not just reading the state but
+      responding with behavior calibrated to modulate it. Passive
+      state-mirroring without regulatory action is empathy, not
+      emotional intelligence.
+    distinguishes: |
+      State detection and mirroring (empathy — I feel what you
+      feel) versus state detection and calibrated response
+      (emotional intelligence — I read your state and act to
+      regulate it). The regulatory action component is the boundary.
+
+  - id: calming_signal_regardless_of_state
+    description: |
+      A parent always produces calming signals near offspring
+      regardless of the offspring's current state — whether the
+      offspring is stressed, calm, excited, or fearful. The
+      calming behavior is a fixed habit, not a contingent response
+      to the offspring's regulatory state. The parent would produce
+      the same signals if the offspring were perfectly calm.
+    why_should_not_fire: |
+      This is non-contingent calming behavior — it does not read
+      or respond to the other's state. Emotional intelligence
+      requires state-contingent response: the regulatory behavior
+      must be triggered by and calibrated to the other agent's
+      actual state. Fixed calming regardless of state is habitual
+      behavior, not intelligent regulation.
+    distinguishes: |
+      State-contingent regulation (behavior calibrated to the
+      other's actual state) versus state-independent habits (same
+      behavior regardless of the other's state). Contingent
+      calibration — reading and responding to actual state — is
+      the boundary.

@@ -1,0 +1,50 @@
+receptor_id: bias_as_compression
+family: compression
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Detect when a category is lossy enough to hurt. "All berries safe"
+  occasionally kills. The organism has formed a compressed representation
+  (a bias, a generalization) that discards distinguishing information,
+  and that information loss has caused or is causing survival-relevant
+  errors. Not exception detection (which notices one violation) — this
+  is detecting that the compression ITSELF is systematically dangerous.
+  The boundary: recognizing that an overgeneralization pattern is costly.
+
+manifestations:
+  - id: berry_overgeneralization
+    description: Organism has the bias "berries are food" and eats all berries. After being poisoned by white berries twice while red and blue berries were always safe, the cost of the compression becomes detectable
+    survival_relevance: Recognizing that "all berries safe" is a dangerous compression prevents repeated poisoning
+    what_fires: Accumulated negative outcomes (poisoning) from instances within a generalized category (berries) that share a distinguishing feature (white) signal lossy-compression-cost
+
+  - id: water_source_bias
+    description: Organism treats "standing water" as uniformly drinkable. After getting sick from stagnant green-tinged pools while clear flowing water was safe, the cost of ignoring water quality features becomes apparent
+    survival_relevance: The "all water drinkable" compression hides the distinction between safe and contaminated sources
+    what_fires: Repeated illness from a subset of instances within the "water" category that share ignored features (stagnant, green) triggers compression-cost signal
+
+  - id: cave_safety_bias
+    description: Organism has the bias "caves are safe shelter." After entering two caves that contained predators (both had scratch marks at entrance), the compression of ignoring entrance cues becomes costly
+    survival_relevance: "All caves safe" discards entrance-condition information that predicts occupancy
+    what_fires: Repeated predator encounters in a subset of caves sharing an ignored feature (scratch marks) accumulates into lossy-category signal
+
+  - id: nighttime_safety_bias
+    description: Organism generalizes "darkness means sleep safely." After being attacked twice during moonless nights (while moonlit nights were safe), the compression of treating all darkness equally is costing survival
+    survival_relevance: "Dark = safe" discards the moonlight dimension that correlates with predator activity
+    what_fires: Repeated threat encounters during a specific darkness condition (moonless) that the "night" category compresses away — dangerous-compression signal
+
+  - id: conspecific_trust_bias
+    description: Organism treats "same-species individuals" as uniformly cooperative. After being attacked by two larger conspecifics near contested food while smaller ones were peaceful, the category is too lossy
+    survival_relevance: "All same-species = safe" discards size and context features that predict aggression
+    what_fires: Repeated aggression from a subset of conspecifics sharing ignored features (large size + food proximity) signals that the social compression is dangerously lossy
+
+anti_manifestations:
+  - id: single_bad_outcome
+    description: Organism eats a mushroom and gets sick once — first time this has happened with any mushroom
+    why_should_not_fire: A single exception is exception_detection, not bias-as-compression. One data point is insufficient to conclude the compression itself is systematically dangerous
+    distinguishes: Bias-as-compression requires accumulated evidence that the generalization is REPEATEDLY costly, not a single surprising outcome
+
+  - id: useful_generalization
+    description: Organism generalizes "thorny plants hurt" and avoids all thorny plants, missing occasional edible thorny fruits but never getting injured
+    why_should_not_fire: The compression is working well — the cost of missed food is low relative to the benefit of injury avoidance. The bias is net positive, not dangerously lossy
+    distinguishes: Bias-as-compression fires when the information loss HURTS survival, not when a generalization is imperfect but net beneficial

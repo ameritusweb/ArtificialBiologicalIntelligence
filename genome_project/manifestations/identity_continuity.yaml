@@ -1,0 +1,51 @@
+receptor_id: identity_continuity
+family: self-augmentation
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detects the thread of continuity that persists through transformation -- the
+  recognition that despite extensive changes in knowledge, capability, and even
+  strategy, there is a continuous entity that underwent those changes. The boundary
+  is between change that constitutes growth of the SAME organism versus change so
+  radical that continuity has been broken. This requires the organism to model its
+  own history of transformations and identify what has persisted through them --
+  not resisting change (that is identity_preservation) but TRACKING identity
+  through change.
+
+manifestations:
+  - id: transformed_but_continuous
+    description: The organism has changed dramatically over 200 generations -- different movement strategies, different spatial models, different risk preferences. But it can trace each change as a response to specific experiences. It recognizes that the entity which learned the east wall in generation 10 is the same entity that now navigates the entire map, just developed further.
+    survival_relevance: Continuity tracking enables the organism to claim and build on its full developmental history. An organism that cannot recognize itself as the same entity that had earlier experiences will waste those experiences rather than integrating them into a coherent developmental narrative that informs future decisions.
+    what_fires: Self-model contains a temporal chain of state transitions, each linked to the causal experience that drove it. The chain is unbroken -- every current capability can be traced back through a sequence of modifications to an earlier state. The continuity receptor fires on the recognition that this chain exists and is intact.
+
+  - id: skill_origin_tracing
+    description: The organism executes a complex navigation maneuver and can trace its origin -- this move combines a wall-following behavior learned in episode 30, a timing adjustment from episode 85, and a risk calculation from episode 150. The skill is new but its components have a history.
+    survival_relevance: Tracing skill origins allows the organism to understand which past experiences contributed to current capabilities. This enables intelligent decisions about which experiences to seek more of and which developmental paths were most productive. It also prevents the organism from overvaluing recent learning and discarding the foundations it was built on.
+    what_fires: Skill decomposition shows the current behavior is composed of identifiable sub-skills, each with a traceable acquisition history. The continuity receptor fires on the recognition that the current self is a composition of past selves' acquisitions -- the thread of identity runs through the component history.
+
+  - id: post_crisis_reintegration
+    description: The organism survived a catastrophic event that disrupted many of its behavioral patterns. In the aftermath, it is rebuilding its strategy set. It recognizes that the entity rebuilding is the same one that had the pre-crisis strategies -- the crisis did not create a new organism, it damaged an existing one that is now repairing.
+    survival_relevance: Post-crisis, organisms that maintain identity continuity can access pre-crisis knowledge and rebuild from it rather than starting from scratch. The recognition that "I am the same organism that knew those things" enables retrieval of damaged but not destroyed knowledge.
+    what_fires: Self-model shows a disruption event with pre-disruption and post-disruption states. Despite the disruption, core self-identification markers persist -- the same spatial anchor points, the same basic perceptual categories, the same body-model. The continuity receptor fires on the persistence of these markers through the disruption.
+
+  - id: divergent_path_recognition
+    description: The organism encounters a situation identical to one it faced 100 episodes ago but responds completely differently. It recognizes both that it has changed and that the entity which responded differently before is the same entity responding now. The change is growth, not replacement.
+    survival_relevance: Recognizing that different responses to the same situation reflect growth rather than incoherence allows the organism to trust its current response as an improvement rather than doubting it as a contradiction. This is essential for confident decision-making in a developing organism.
+    what_fires: Situation-matching detects the environmental repeat. Response-comparison detects the behavioral difference. Self-model traces the causal chain of experiences between then and now that produced the change. The continuity receptor fires on the coherent causal narrative connecting old-response to new-response through accumulated experience.
+
+  - id: future_self_projection
+    description: The organism considers a developmental investment -- spending energy now on exploring a dangerous area to build knowledge for later. It models its future self as the same entity that will benefit from this investment. The continuity assumption makes the investment rational.
+    survival_relevance: Investment in future capability only makes sense if the organism models itself as continuous with its future self. Without identity continuity, there is no reason to sacrifice present resources for future benefit -- the beneficiary would be a stranger. This receptor provides the bridge that makes developmental planning rational.
+    what_fires: Future-state modeling projects the organism's current self forward in time with additional knowledge or capability. The continuity receptor fires on the recognition that this projected future entity is the same self -- it will inherit current knowledge, benefit from current investments, and be the continuous extension of the present organism.
+
+anti_manifestations:
+  - id: mere_memory_retrieval
+    description: The organism remembers that food was found at a specific location. It retrieves this memory and acts on it. This is using past information but does not involve any recognition of self-continuity -- it is simply accessing stored data.
+    why_should_not_fire: Memory retrieval uses past information without any meta-cognitive recognition of the self that stored it. The organism is not tracking its own identity through change -- it is just reading from a data store. Identity continuity requires awareness of the SELF that had the experience, not just the experience content.
+    distinguishes: Self-aware identity tracking versus passive memory access. Continuity requires the organism to model itself as a persistent entity, not just to retrieve stored data.
+
+  - id: clone_recognition
+    description: The organism encounters another organism with very similar behavioral patterns -- possibly a descendant or a convergently evolved individual. It recognizes the behavioral similarity but does not experience identity continuity with this other organism. Similar patterns do not create shared identity.
+    why_should_not_fire: Behavioral similarity between two organisms is not identity continuity. Continuity requires an unbroken causal chain of experience connecting past and present states of the SAME organism. Two organisms that behave similarly have no such chain -- they are separate entities that happen to resemble each other. The continuity receptor tracks causal history, not behavioral similarity.
+    distinguishes: Causal continuity of a single entity versus similarity between separate entities. Identity is not pattern-matching -- it is history-tracking.

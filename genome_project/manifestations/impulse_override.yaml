@@ -1,0 +1,128 @@
+receptor_id: impulse_override
+family: meta-motivational
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Detects the condition where an immediate motivated action should be inhibited
+  because executing it now would produce a worse outcome than waiting. Food is
+  visible but a predator guards the path — wait. Prey is close but not yet in
+  optimal striking range — hold. The boundary is the inhibition of a present
+  impulse for a future benefit. The agent has a drive to act NOW and detects
+  that suppressing that drive leads to a better outcome. This is not about
+  having no impulse — it is about having one and overriding it.
+
+manifestations:
+  - id: food_behind_predator
+    description: |
+      A cluster of ripe fruit is visible on the ground beyond a clearing
+      where a large predator is resting. The agent is hungry and the food
+      is desirable, but the direct path crosses the predator's alert zone.
+      The impulse to approach the food must be overridden until the predator
+      moves or sleeps.
+    survival_relevance: |
+      Impulse override in the presence of danger is among the highest-stakes
+      inhibition scenarios. Acting on hunger impulse here means death.
+      Waiting means eventual safe access to the food.
+    what_fires: |
+      Active drive state (hunger) + visible goal object (fruit) + detected
+      threat blocking access (predator). Approach impulse present AND
+      threat-based inhibition signal simultaneously active. Conflict
+      between drive and danger.
+
+  - id: prey_not_yet_in_range
+    description: |
+      A small animal is approaching the agent's position but is still
+      several body-lengths away. The agent has a hunting impulse — strike
+      now — but the prey is too far for a reliable capture. Waiting for
+      it to come closer increases capture probability dramatically.
+    survival_relevance: |
+      Premature strike wastes energy and alerts prey. Impulse override
+      allows the prey to enter optimal range, converting a low-probability
+      attempt into a high-probability capture.
+    what_fires: |
+      Active drive (hunger/hunting) + visible target (prey) + suboptimal
+      conditions for action (too far). Impulse to act present but outcome
+      modeling indicates waiting improves success probability.
+
+  - id: ripe_fruit_above_unstable_branch
+    description: |
+      Ripe fruit hangs from a thin branch extending over a steep drop. The
+      agent could reach it by climbing out onto the branch, but the branch
+      is visibly bending. The impulse to grab the fruit must be overridden
+      by the risk of falling. Better to wait and find fruit elsewhere or
+      use a tool to reach it.
+    survival_relevance: |
+      Overriding food-acquisition impulse when the access path is dangerous
+      prevents injury. The fruit is not worth a broken limb from a fall.
+    what_fires: |
+      Active drive (hunger) + visible goal (fruit) + dangerous access
+      conditions (unstable branch, height). Desire to acquire is present
+      but environmental risk signals inhibition.
+
+  - id: contested_water_source
+    description: |
+      A pool of fresh water is visible, and the agent is thirsty. However,
+      a group of larger animals is currently drinking from the same pool.
+      Approaching now would trigger a confrontation the agent would likely
+      lose. The impulse to drink must be overridden until the group departs.
+    survival_relevance: |
+      Overriding thirst impulse when a resource is contested by stronger
+      competitors avoids injury. The water will still be there after the
+      group leaves.
+    what_fires: |
+      Active drive (thirst) + visible resource (water) + social threat
+      (dominant competitors at resource). Approach impulse conflicts with
+      competitive threat assessment.
+
+  - id: escape_route_through_thorns
+    description: |
+      The agent hears a predator approaching from behind. The nearest
+      escape route passes through a dense thicket of thorny branches.
+      The impulse to flee immediately through the thorns must be modulated
+      — a calmer assessment reveals an open path slightly further to the
+      left that avoids the thorns entirely. Overriding panic-driven
+      flight for a two-second delay yields a better escape route.
+    survival_relevance: |
+      Even in flight scenarios, impulse override improves outcomes. The
+      panicked route causes injury; the delayed route is faster and safer.
+      Brief inhibition of panic yields superior escape.
+    what_fires: |
+      Active flight drive (fear) + available immediate action (flee through
+      thorns) + better alternative requiring brief delay (open path nearby).
+      Impulse to take first available action conflicts with detection of
+      superior delayed alternative.
+
+anti_manifestations:
+  - id: no_impulse_present
+    description: |
+      The agent is well-fed, hydrated, and resting in a safe location. It
+      sees a berry bush in the distance. There is no hunger drive and no
+      impulse to approach the bush. The agent simply remains resting because
+      there is nothing to override.
+    why_should_not_fire: |
+      Impulse override requires an active impulse to suppress. When no drive
+      is pushing the agent toward action, there is no override occurring —
+      just inaction from absence of motivation. Doing nothing because you
+      do not want anything is not impulse control.
+    distinguishes: |
+      The presence of an active impulse being suppressed versus the absence
+      of any impulse. Override requires something to override. Passive
+      contentment is not inhibitory control.
+
+  - id: immediate_action_is_optimal
+    description: |
+      A small prey animal is directly in front of the agent at point-blank
+      range, unaware of the agent's presence. There is no predator, no
+      obstacle, no competing threat. The optimal action is to strike
+      immediately — delay would only allow the prey to detect the agent
+      and flee.
+    why_should_not_fire: |
+      When immediate action IS the optimal strategy, acting on impulse is
+      correct, not something to override. Impulse override fires when
+      delay improves outcomes. Here, delay worsens outcomes. The impulse
+      and the optimal strategy are aligned.
+    distinguishes: |
+      Situations where impulse and optimal action conflict (override needed)
+      versus situations where impulse and optimal action align (no override
+      needed). The receptor detects the conflict, not the action.

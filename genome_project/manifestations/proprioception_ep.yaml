@@ -1,0 +1,190 @@
+receptor_id: proprioception_ep
+family: interaction
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Summarizes aggregate proprioceptive history across an entire episode
+  — how much the body moved, what configurations were used, what was
+  the movement vocabulary. Not a single body-position reading, but
+  the episode's movement fingerprint: total displacement, range of
+  postures, repetition of specific actions, limb usage patterns,
+  fatigue accumulation. The boundary separates episode-level body
+  usage summary from moment-to-moment proprioception.
+  NOTE: this is the episode-level version - measures across an entire
+  episode rather than at a single step. Proprioception here is the
+  aggregate body-usage profile: total work done, posture diversity,
+  movement patterns, and physical state trajectory across the episode.
+
+manifestations:
+  - id: high_displacement_diverse_posture_episode
+    description: |
+      Across an episode, a creature traverses long distances over
+      varied terrain: climbing steep rocks (all four limbs gripping),
+      swimming across a stream (paddling configuration), sprinting
+      across open ground (full extension gallop), crawling through
+      dense undergrowth (compressed low-profile posture), and
+      balancing along a narrow ridge (precise single-file steps).
+      The episode's proprioceptive summary shows high total
+      displacement, many distinct posture configurations used,
+      diverse limb recruitment patterns, and moderate-to-high
+      fatigue accumulation across all limb groups.
+    survival_relevance: |
+      Tracking aggregate body usage enables fatigue management and
+      injury prevention. An episode with high displacement and
+      diverse posture usage signals that all limb groups have been
+      stressed and rest is needed broadly. The proprioceptive
+      summary enables recovery planning — which muscle groups need
+      rest, whether overall energy reserves are depleted.
+    what_fires: |
+      Episode-accumulated total displacement exceeds high-movement
+      threshold. Posture diversity index (number of distinct
+      configurations used) is high. Limb usage distribution shows
+      broad recruitment across all limbs. Fatigue accumulation
+      signal is elevated across multiple body segments.
+
+  - id: repetitive_single_action_episode
+    description: |
+      Across an episode, a creature performs the same action hundreds
+      of times: digging at a burrow entrance. The proprioceptive
+      history shows low total displacement (stayed in one place),
+      low posture diversity (same digging stance throughout), high
+      repetition count for one specific action pattern (dig-scoop-
+      push-back), and highly asymmetric limb usage (forelimbs
+      exhausted, hindlimbs fresh). The episode's movement fingerprint
+      is narrow and repetitive — the opposite of diverse terrain
+      traversal.
+    survival_relevance: |
+      Detecting repetitive single-action episodes enables targeted
+      recovery and injury prevention. The overused forelimbs need
+      rest; the underused hindlimbs are available for other tasks.
+      Repetitive stress on one body part signals increased injury
+      risk. The organism can adjust subsequent behavior to
+      distribute load more evenly.
+    what_fires: |
+      Episode-accumulated low displacement, low posture diversity,
+      high action repetition count for a single pattern, and
+      asymmetric limb usage. The repetition index exceeds the
+      single-action threshold while the diversity index falls
+      below the varied-activity threshold.
+
+  - id: minimal_movement_extended_stillness
+    description: |
+      Across an episode, a creature remains nearly motionless —
+      hiding in a concealment spot while a predator patrols nearby.
+      The proprioceptive summary shows near-zero displacement,
+      extremely low posture diversity (one sustained crouching
+      position), no limb recruitment for locomotion, but sustained
+      isometric muscle tension in the limbs maintaining the crouch.
+      Fatigue accumulates not from movement but from sustained static
+      hold. The episode's movement fingerprint is minimal activity
+      with high static load.
+    survival_relevance: |
+      Extended stillness produces a different fatigue profile than
+      active movement — isometric hold exhausts specific muscles
+      without the recovery benefits of movement-driven blood flow.
+      Detecting the sustained-stillness episode enables the organism
+      to prioritize movement and stretching afterward to restore
+      circulation and prevent cramping.
+    what_fires: |
+      Episode-accumulated near-zero displacement, minimal posture
+      transitions, but elevated static muscle tension signals. The
+      stillness duration exceeds the extended-stillness threshold
+      while displacement remains below the minimal-movement
+      threshold. Isometric fatigue accumulation without kinetic
+      activity triggers the sustained-stillness profile.
+
+  - id: progressive_fatigue_trajectory
+    description: |
+      Across an episode, a creature's movement quality degrades
+      progressively. Early in the episode: long strides, fluid
+      transitions, precise foot placement. Mid-episode: stride
+      length shortens, transitions become jerky, occasional
+      stumbles. Late-episode: minimal displacement per effort,
+      frequent rest pauses, imprecise movements. The proprioceptive
+      trajectory shows a clear fatigue arc — progressive degradation
+      of movement quality metrics across the episode, reflecting
+      accumulated physical depletion.
+    survival_relevance: |
+      Tracking the fatigue trajectory enables anticipatory rest.
+      An organism that monitors its movement quality degradation
+      can choose to rest or shelter BEFORE reaching the dangerous
+      late-episode state where imprecise movements increase injury
+      and predation risk. The trajectory shape predicts how much
+      activity remains before critical fatigue.
+    what_fires: |
+      Episode-accumulated degradation of movement quality metrics.
+      Stride length, transition smoothness, and foot placement
+      precision all decline across the episode's time course. The
+      fatigue trajectory slope exceeds the progressive-degradation
+      threshold, indicating systematic energy depletion rather than
+      momentary tiredness.
+
+  - id: novel_body_configuration_discovered
+    description: |
+      Across an episode, a creature encounters a novel physical
+      challenge — navigating a narrow gap between two rocks — and
+      discovers a body configuration it has never used before:
+      rotating its shoulders while keeping hips aligned, a
+      contortion that allows passage through the gap. The episode's
+      proprioceptive history includes this new entry in the body
+      configuration vocabulary. The episode adds to the organism's
+      lifetime repertoire of known postures and movement patterns.
+    survival_relevance: |
+      Expanding the body configuration vocabulary increases the
+      organism's physical capability range. A new posture discovered
+      under pressure becomes available for future challenges.
+      Episode-level tracking of novel configurations enables the
+      organism to recognize when its movement vocabulary has grown
+      — a signal that the episode was physically educational.
+    what_fires: |
+      Episode-accumulated posture history contains a configuration
+      not present in the prior movement vocabulary. The novel
+      configuration appears, is used successfully, and is distinct
+      from all previously recorded postures. The novelty signal for
+      body configuration fires at the episode level when the
+      movement repertoire has expanded.
+
+anti_manifestations:
+  - id: momentary_stretch_not_episode_summary
+    description: |
+      A creature stretches after waking up — extending all limbs
+      to full reach, arching its back, yawning. This is a single
+      proprioceptive event, not an episode-level body usage summary.
+      The stretch provides a moment-to-moment proprioceptive
+      reading but does not constitute an accumulated movement
+      history or fatigue profile across the episode.
+    why_should_not_fire: |
+      The episode-level proprioception receptor summarizes aggregate
+      body usage across the entire episode, not individual movement
+      events. A single stretch is a step-level proprioceptive
+      reading. The episode-level receptor requires accumulated
+      evidence: total displacement, posture diversity over time,
+      fatigue trajectory, and movement pattern statistics.
+    distinguishes: |
+      Episode-level proprioceptive summary (aggregate body usage
+      fingerprint across many steps) versus step-level proprioception
+      (single body position or movement event). The episode receptor
+      fires on accumulated statistics, not individual readings.
+
+  - id: external_movement_observation_not_self
+    description: |
+      A creature watches another animal traverse varied terrain —
+      climbing, swimming, running. It observes the other animal's
+      movement patterns in detail. But this is visual observation
+      of another organism's movements, not proprioceptive data from
+      the creature's own body. The creature itself remained
+      stationary throughout, watching from a ledge.
+    why_should_not_fire: |
+      Proprioception is self-referential body awareness, not
+      observation of others' movements. Watching another creature
+      move provides visual information about movement but does not
+      generate proprioceptive data. The episode-level proprioception
+      receptor tracks the organism's OWN body usage history, not
+      observed movement of others.
+    distinguishes: |
+      Self-proprioception (own body movement and position data
+      accumulated across the episode) versus external movement
+      observation (visual tracking of another organism's movements).
+      Proprioception is first-person body awareness, not third-
+      person motion observation.

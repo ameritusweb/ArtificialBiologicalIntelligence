@@ -1,0 +1,131 @@
+receptor_id: metacognition
+family: meta-motivational
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detect and model own cognitive process in real time. The organism observes which
+  of its own receptors are firing, predicts which will fire next, and uses that
+  self-model to guide behavior. The boundary is between reacting to the world and
+  reasoning about one's own reasoning -- between first-order perception and
+  second-order awareness of how one is perceiving. This receptor fires when the
+  organism's internal state becomes an object of its own attention, not merely a
+  driver of behavior.
+
+manifestations:
+  - id: scout_from_uncertainty
+    description: |
+      The organism approaches a dark opening. Multiple threat-receptors activate
+      at low confidence. Instead of freezing or fleeing, the organism notices its
+      own uncertainty -- "I don't know what's in there" -- and initiates a scouting
+      behavior specifically to resolve the ambiguity in its own internal model.
+    survival_relevance: |
+      An organism that can detect its own uncertainty and act to resolve it gathers
+      information strategically rather than wasting energy on blanket avoidance or
+      stumbling into danger through ignorance of its own ignorance.
+    what_fires: |
+      Multiple receptors activate simultaneously at sub-threshold confidence levels.
+      The metacognition receptor detects this pattern of distributed low-confidence
+      activation and produces a signal encoding "current model is insufficient --
+      information-gathering action warranted."
+
+  - id: predict_own_fear
+    description: |
+      The organism is navigating toward a known food source but the path passes near
+      a territory where it was previously attacked. Before reaching the danger zone,
+      the organism predicts that its own threat receptors will spike, plans a wider
+      route in advance, and adjusts pace -- all before any threat signal actually fires.
+    survival_relevance: |
+      Predicting one's own future cognitive states allows preemptive behavioral
+      adjustment. The organism avoids the metabolic cost of a full fear response and
+      the poor decision-making that accompanies panic by routing around its own
+      predicted alarm.
+    what_fires: |
+      Spatial-context receptors activate for the upcoming terrain. The metacognition
+      receptor cross-references this with stored receptor-activation histories for
+      that location, generating a predicted-activation pattern. The mismatch between
+      current calm and predicted alarm produces the metacognitive signal.
+
+  - id: recognize_exploration_mode
+    description: |
+      The organism has been foraging in a familiar area with diminishing returns. It
+      notices that its own behavior has shifted from exploit to explore -- movements
+      are wider, attention is less focused, novelty receptors are more active. It
+      recognizes this shift as a cognitive mode change and leans into it, seeking
+      unfamiliar terrain rather than fighting the drift.
+    survival_relevance: |
+      Recognizing one's own cognitive mode allows the organism to align behavior with
+      that mode rather than generating internal conflict. Exploration is more efficient
+      when the organism knows it is exploring and commits resources accordingly.
+    what_fires: |
+      Pattern-shift detection: the metacognition receptor monitors the ratio of
+      novelty-seeking to reward-exploiting receptor activations over a time window.
+      When the ratio crosses a threshold shift, the receptor fires with a signal
+      encoding "mode transition detected: explore."
+
+  - id: detect_rumination_loop
+    description: |
+      The organism has been circling the same area for an extended period. The same
+      sequence of receptors fires repeatedly -- approach, hesitate, retreat, approach.
+      The metacognition receptor detects this cycling pattern in its own activation
+      history and flags it: "I'm stuck in a loop. This pattern is not converging."
+    survival_relevance: |
+      Rumination loops burn energy without progress. Detecting that one's own cognitive
+      process is cycling allows the organism to break the pattern -- try a novel action,
+      disengage entirely, or shift to a different goal.
+    what_fires: |
+      Temporal autocorrelation in receptor activation sequences. The metacognition
+      receptor maintains a buffer of recent activation patterns and detects when
+      the sequence repeats with high fidelity across multiple cycles, producing a
+      "stuck loop" signal.
+
+  - id: calibrate_confidence
+    description: |
+      The organism makes a prediction -- "food is behind this barrier" -- and acts on
+      it. The prediction fails. The metacognition receptor not only registers the
+      failure but tracks that this is the third consecutive prediction failure in
+      this context, generating a signal that its confidence calibration for this
+      domain is broken and needs recalibration.
+    survival_relevance: |
+      Knowing that your confidence is miscalibrated is qualitatively different from
+      knowing a single prediction was wrong. It triggers systematic model revision
+      rather than one-off correction, preventing repeated costly errors.
+    what_fires: |
+      Prediction-error accumulation in a context-specific register. The metacognition
+      receptor fires not on individual prediction errors but when the running error
+      rate exceeds the organism's expressed confidence level for that context --
+      a confidence-accuracy mismatch signal.
+
+anti_manifestations:
+  - id: simple_surprise
+    description: |
+      The organism rounds a corner and encounters an unexpected object. Novelty
+      receptors fire. The organism startles, reorients, and investigates. At no
+      point does it reason about its own reasoning -- it simply processes the new
+      stimulus and responds.
+    why_should_not_fire: |
+      This is first-order novelty processing, not second-order self-modeling. The
+      organism is surprised by the world, not by the state of its own cognition.
+      Metacognition requires the organism's own cognitive state to become the
+      object of attention, not merely the environmental stimulus.
+    distinguishes: |
+      Object of attention: world-state (anti) vs. own-cognitive-state (true).
+      Simple surprise processes external novelty; metacognition processes internal
+      model quality.
+
+  - id: learned_avoidance
+    description: |
+      The organism has learned to avoid a dangerous area through repeated negative
+      experience. It approaches the area, threat receptors fire from conditioned
+      association, and it turns away. The avoidance is automatic and well-calibrated
+      but the organism never examines why it is avoiding or whether the avoidance
+      is still warranted.
+    why_should_not_fire: |
+      Conditioned avoidance operates at the level of stimulus-response. The organism
+      is using its cognitive machinery but not observing or reasoning about it. The
+      threat receptors drive behavior directly without the organism modeling its own
+      fear as an object of attention.
+    distinguishes: |
+      Transparency vs. opacity of own cognition: in learned avoidance the cognitive
+      process is transparent (seen through, not seen). Metacognition requires the
+      process itself to become opaque -- visible, examinable, potentially revisable.

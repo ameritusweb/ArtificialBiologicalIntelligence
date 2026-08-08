@@ -1,0 +1,179 @@
+receptor_id: formal_composition
+family: mathematics
+tier: canopy
+stage: 12
+
+conceptual_space: |
+  Detects the combination of two proven structures into a new provably
+  valid structure — creating novel knowledge from existing proven
+  knowledge through formal composition rather than empirical discovery.
+  The organism knows that structure A has property X (proven), and
+  structure B has property Y (proven), and recognizes that combining
+  A and B in a specific way yields a new structure C with property Z
+  that is provably valid from the properties of A and B alone. The
+  boundary separates formal composition (guaranteed-valid combination
+  of proven components) from empirical combination (combining things
+  and testing whether it works) or from simple aggregation (putting
+  things together without deriving new properties). The critical
+  signal is that the validity of the new structure is DERIVED from
+  the validity of its components, not tested empirically.
+
+manifestations:
+  - id: combining_two_safe_routes_into_novel_safe_route
+    description: |
+      The organism knows that route A from location 1 to location 2
+      is safe (proven through extensive use — no predators). It knows
+      that route B from location 2 to location 3 is safe (similarly
+      proven). It composes A and B to derive: the combined route from
+      location 1 to location 3 via location 2 is safe — without ever
+      having traversed the full route. The safety of the composition
+      is derived from the safety of the components, not empirically
+      tested.
+    survival_relevance: |
+      Formal composition of proven routes enables the organism to
+      navigate novel long-distance paths without the risk of
+      empirical exploration. Each component is proven; the
+      composition inherits the proof. This extends the organism's
+      safe territory far beyond individually tested paths.
+    what_fires: |
+      Two independently proven structures (safe routes) combined
+      via a formally valid operation (sequential composition through
+      a shared point) to produce a new structure (longer safe route)
+      whose property (safety) is derived from the components' proven
+      properties. The derived-validity-from-components pattern fires.
+
+  - id: combining_causal_rules_into_novel_prediction
+    description: |
+      The organism has a proven causal rule: "rain causes the river
+      to rise" (Rule 1). It has another proven rule: "river rising
+      causes the low-path to flood" (Rule 2). It composes these into
+      a novel prediction: "rain will cause the low-path to flood" —
+      a causal chain it has never directly observed. The prediction's
+      validity is formally derived from the transitivity of causation
+      across two proven rules.
+    survival_relevance: |
+      Composing causal rules enables prediction of consequences
+      several steps removed from the initial cause — without
+      waiting to observe each step. The organism can prepare for
+      the low-path flooding when it starts raining, before any
+      river rise is detectable, because the causal chain is
+      formally composed.
+    what_fires: |
+      Two proven causal rules composed via causal transitivity to
+      produce a novel causal prediction that has never been directly
+      observed. The prediction's validity is derived from the
+      structure of the composition (transitive chaining) and the
+      proven status of each component rule. The formal-causal-
+      composition fires.
+
+  - id: combining_category_memberships_for_novel_inference
+    description: |
+      The organism knows: "all organisms in category X have property
+      P" (proven through observation). It knows: "organism Q belongs
+      to category X" (proven through direct observation of Q's
+      features). It derives: "organism Q has property P" — without
+      ever observing property P in organism Q directly. The inference
+      is formally valid from category membership and category
+      properties.
+    survival_relevance: |
+      Formal inference from category membership enables prediction
+      about individuals based on category knowledge — the organism
+      can know that novel organism Q is dangerous (property P)
+      before experiencing Q's danger directly, because Q belongs
+      to a category whose members are all dangerous.
+    what_fires: |
+      A category-property rule combined with a category-membership
+      fact to derive a property attribution for a specific
+      individual — without direct observation of that individual's
+      property. The validity is structural (syllogistic) rather
+      than empirical. The formal-categorical-composition fires.
+
+  - id: combining_structural_transformations
+    description: |
+      The organism knows that transformation T1 (applied to any
+      structure with property A) produces a structure with property
+      B. It knows that transformation T2 (applied to any structure
+      with property B) produces a structure with property C. It
+      composes T1 and T2 into a novel transformation T3 that takes
+      any structure with property A directly to a structure with
+      property C — having never applied this combined transformation
+      before. The composition's validity is derived from the
+      component transformations' proven properties.
+    survival_relevance: |
+      Composing transformations creates novel capabilities that
+      transcend any single learned transformation. The organism
+      can achieve outcomes it has never achieved before by formally
+      chaining proven transformation steps, extending its
+      behavioral repertoire without empirical trial.
+    what_fires: |
+      Two proven transformations composed into a novel transformation
+      whose output properties are derived from the component
+      transformations' proven input-output relationships. The
+      composite transformation has never been applied but is
+      provably valid. The transformation-composition fires.
+
+  - id: combining_exclusion_rules_for_novel_impossibility
+    description: |
+      The organism knows: "nothing with property A can survive in
+      environment E" (proven). It knows: "organism R has property A"
+      (proven). It derives: "organism R cannot survive in environment
+      E" — a novel impossibility statement about a specific case
+      derived from a general rule and a specific fact. It has never
+      seen organism R in environment E, but the impossibility is
+      formally certain.
+    survival_relevance: |
+      Deriving impossibilities without empirical testing enables
+      the organism to rule out options without costly
+      experimentation. Knowing that a competitor CANNOT follow it
+      into a specific environment (because of formally derived
+      incompatibility) creates guaranteed-safe refuge without
+      empirical testing of the competitor's limits.
+    what_fires: |
+      A general exclusion rule combined with a specific fact to
+      derive a novel impossibility for a specific case. The
+      impossibility is not observed but formally derived — the
+      organism knows it without testing. The derived-impossibility
+      fires.
+
+anti_manifestations:
+  - id: empirical_combination_with_testing
+    description: |
+      The organism combines two food-processing techniques (soaking
+      then heating) and tests whether the combination works by
+      trying it. The combination might work — or it might not (the
+      techniques might interfere). The organism does not know the
+      result until empirical testing. It tries and observes rather
+      than deriving the outcome from the components' properties.
+    why_should_not_fire: |
+      This is empirical combination — the organism does not know
+      whether the composition will work until it tests it. Formal
+      composition requires that the result's validity is DERIVED
+      from the components' proven properties before any testing.
+      If testing is required to know the outcome, the composition
+      is empirical, not formal.
+    distinguishes: |
+      Empirical combination (try it and see if it works) versus
+      formal composition (derive that it must work from proven
+      component properties). The source of validity — testing
+      versus derivation — is the boundary.
+
+  - id: simple_aggregation_without_emergent_property
+    description: |
+      The organism gathers multiple safe food items into a pile.
+      The pile is just the items together — no new property emerges
+      from the combination. The organism did not derive anything
+      new from the composition. It has more food, not a new kind
+      of knowledge or capability.
+    why_should_not_fire: |
+      This is aggregation, not formal composition. The combination
+      does not produce a new structure with a new property derived
+      from the components. It is simply more of the same thing.
+      Formal composition requires that the combination yields a
+      novel property (or novel knowledge) that is formally derived
+      from the properties of the components — not just more of
+      them together.
+    distinguishes: |
+      Simple aggregation (more of the same, no emergent property)
+      versus formal composition (novel property derived from
+      component properties). The emergence of a new, derived
+      property is the boundary.

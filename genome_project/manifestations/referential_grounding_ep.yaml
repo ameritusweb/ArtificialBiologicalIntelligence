@@ -1,0 +1,199 @@
+receptor_id: referential_grounding_ep
+family: language
+tier: canopy
+stage: 11
+
+conceptual_space: |
+  Detects whether symbolic references successfully map to concrete
+  referents across an entire episode. A creature has learned labels
+  for things — "the big rock," "the sweet bush," "the fast one."
+  Across an episode of using these labels to guide behavior, the
+  organism assesses: do these labels actually connect to identifiable
+  real-world entities, or have some become ungrounded — pointing to
+  things that no longer exist, were misidentified, or never had a
+  clear physical referent? The boundary separates grounded reference
+  (symbol maps to verifiable entity) from ungrounded reference
+  (symbol points to nothing concrete).
+  NOTE: this is the episode-level version - measures across an entire
+  episode rather than at a single step. Grounding verification
+  requires many reference-use instances to accumulate, revealing
+  which symbols are reliably grounded and which are floating.
+
+manifestations:
+  - id: all_spatial_labels_verified
+    description: |
+      A creature navigates using cached spatial labels: "the split
+      tree," "the mossy boulder," "the sandy bend." Across an episode
+      of traveling to labeled locations, every label maps to a real,
+      identifiable landmark. The split tree is where the label says
+      it is. The mossy boulder is recognizable. The sandy bend is
+      still sandy. Each label-to-referent mapping is tested through
+      actual navigation and confirmed. By episode end, the spatial
+      vocabulary is fully grounded — every symbol points to something
+      real and findable.
+    survival_relevance: |
+      Verified referential grounding means the organism can trust
+      its spatial vocabulary for navigation, communication, and
+      planning. A fully grounded set of landmark labels enables
+      efficient route planning and reliable communication about
+      locations with other organisms.
+    what_fires: |
+      Episode-accumulated label-to-referent verification rate at
+      or near 100 percent. Every spatial label used during the
+      episode successfully mapped to an identifiable, verifiable
+      physical entity. The grounding confidence across all tested
+      labels exceeds the full-verification threshold.
+
+  - id: social_labels_partially_ungrounded
+    description: |
+      A creature uses labels for social roles: "the protector,"
+      "the food-finder," "the lookout." Across an episode of social
+      interactions, some labels map clearly to specific individuals
+      — "the protector" is always the same large male who intervenes
+      in conflicts. But "the food-finder" does not consistently map
+      to any single individual — sometimes one creature finds food,
+      sometimes another. The label exists but has no stable concrete
+      referent. The episode reveals partial grounding: some social
+      labels are grounded in specific individuals, others are
+      floating abstractions without consistent physical referents.
+    survival_relevance: |
+      Partially ungrounded social labels can cause behavioral
+      errors. If the organism expects "the food-finder" to lead it
+      to food but the label does not map to a specific individual,
+      the organism cannot act on this label effectively. Detecting
+      ungrounded labels enables the organism to either find a
+      referent or dissolve the unhelpful category.
+    what_fires: |
+      Episode-accumulated mixed grounding results across labels.
+      Some labels consistently map to identifiable referents; others
+      fail to map consistently. The grounding score varies across
+      the label set, with some labels below the grounding threshold.
+      The partial-grounding signal fires with a per-label grounding
+      map.
+
+  - id: temporal_labels_lose_referent
+    description: |
+      A creature uses temporal labels: "the warm time" (morning sun
+      on the eastern slope), "the quiet time" (midday when predators
+      rest), "the feeding time" (late afternoon insect emergence).
+      Across an episode spanning a day with unusual weather, the
+      temporal labels fail. Overcast skies eliminate the warm eastern
+      slope experience. A restless predator disrupts the "quiet
+      time." Rain suppresses insect emergence, eliminating "feeding
+      time." The temporal vocabulary that was grounded in normal
+      conditions has lost its referents under changed conditions.
+      Episode-level evidence reveals conditional grounding failure.
+    survival_relevance: |
+      Temporal labels that lose their referents cause scheduling
+      errors. An organism waiting for "the quiet time" to cross
+      open ground may wait indefinitely if the conditions producing
+      that quiet period are absent. Detecting grounding failure
+      enables the organism to switch from label-based to direct-
+      observation-based decision-making.
+    what_fires: |
+      Episode-accumulated temporal label verification failures.
+      Labels that normally map to identifiable time-associated
+      experiences fail to produce their expected referents across
+      the episode. The grounding failure rate for temporal labels
+      exceeds the instability threshold, indicating environmental
+      conditions have decoupled the labels from their referents.
+
+  - id: abstract_label_acquires_grounding
+    description: |
+      A creature has an inherited alarm signal — a specific call
+      that triggers flight behavior. The call is innate; the creature
+      has always responded to it but has never identified what the
+      call refers to. Across an episode, the creature observes
+      multiple contexts where the call is produced: always when a
+      large shadow passes overhead, always followed by a raptor
+      sighting. By episode end, the abstract alarm signal has
+      acquired grounding — it now maps to a specific referent
+      (raptor overhead). The symbol that was behaviorally potent
+      but referentially ungrounded has become grounded through
+      accumulated evidence.
+    survival_relevance: |
+      Grounding an abstract signal in a concrete referent enables
+      the organism to go beyond reflexive response. Instead of
+      just fleeing when the call sounds, the organism can now look
+      up and verify, can produce the call itself when it spots a
+      raptor, and can teach the association to others. Grounding
+      transforms reflexive response into informed behavior.
+    what_fires: |
+      Episode-accumulated referent-identification evidence for a
+      previously ungrounded symbol. The symbol consistently co-
+      occurs with a specific identifiable stimulus across many
+      instances. The symbol-to-referent association confidence
+      exceeds the grounding-acquisition threshold.
+
+  - id: label_referent_mismatch_accumulates
+    description: |
+      A creature learned the label "safe cave" for a specific cave
+      that was previously safe. Across an episode, it visits the
+      cave multiple times and finds: a snake inside, flooding from
+      rain, a collapsed entrance, and signs of predator occupation.
+      Each visit reveals a mismatch between the label ("safe") and
+      the referent's actual properties (dangerous). The accumulated
+      mismatches across the episode reveal that the label is
+      actively misleading — the symbol-to-referent mapping is
+      semantically broken even though the physical referent still
+      exists.
+    survival_relevance: |
+      A semantically broken label is worse than an ungrounded one.
+      An ungrounded label simply fails to guide behavior; a
+      misgrounded label actively misguides it. Detecting accumulated
+      label-referent semantic mismatch enables the organism to
+      relabel (rename the cave to reflect its current properties)
+      rather than continuing to trust a misleading label.
+    what_fires: |
+      Episode-accumulated semantic mismatch between label properties
+      and referent properties. The label's semantic content (safe)
+      contradicts the referent's observed properties (dangerous)
+      across multiple verification instances. The mismatch score
+      exceeds the relabeling threshold.
+
+anti_manifestations:
+  - id: metaphorical_use_not_grounding_failure
+    description: |
+      A creature uses the territorial call "mine" when guarding a
+      food source. Later in the episode, a juvenile uses the same
+      "mine" call while playing with a stick — the stick is not a
+      food source and there is no real territorial claim. This could
+      look like a grounding failure — "mine" used for a non-owned
+      object. But the juvenile is using the call metaphorically or
+      playfully, extending the symbol to a new context. The original
+      grounding of "mine" to territorial claims remains intact.
+    why_should_not_fire: |
+      Metaphorical or playful extension of a symbol is not grounding
+      failure. The original symbol-to-referent mapping remains
+      intact; the symbol is being extended to a new domain. This is
+      productive language use, not referential breakdown. Grounding
+      failure requires that the original mapping has become
+      unreliable, not that the symbol has found additional uses.
+    distinguishes: |
+      Referential grounding failure (the symbol no longer reliably
+      maps to its established referent) versus productive reference
+      extension (the symbol is used in a new context while its
+      original mapping remains intact). Extension adds; failure
+      loses.
+
+  - id: referent_ambiguity_not_ungroundedness
+    description: |
+      A creature uses the label "the tall one" and in the current
+      group, two individuals are similarly tall. The label is
+      ambiguous — it could refer to either individual — but it is
+      not ungrounded. Both potential referents are real, identifiable
+      entities. The label has too many referents rather than too few.
+      This is an ambiguity problem, not a grounding problem.
+    why_should_not_fire: |
+      Referential ambiguity (multiple real referents) is different
+      from referential ungroundedness (no real referent). The
+      grounding receptor detects whether symbols map to concrete
+      reality at all. Ambiguity means the symbol maps to reality
+      too broadly; ungroundedness means it does not map to reality
+      at all. Both are problems, but they are different problems.
+    distinguishes: |
+      Ungrounded reference (symbol points to nothing concrete)
+      versus ambiguous reference (symbol points to multiple concrete
+      entities). Ambiguity preserves grounding — the symbol reaches
+      reality — while adding a different problem: which specific
+      real-world entity is intended.

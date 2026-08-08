@@ -1,0 +1,170 @@
+receptor_id: cultural_transmission
+family: social
+tier: canopy
+stage: 10
+
+conceptual_space: |
+  Detects knowledge that persists across generations through intentional
+  passing rather than independent rediscovery. A grandmother's escape
+  route, never independently found, is still used ten generations later
+  because each generation deliberately taught it to the next. The boundary
+  separates knowledge that MUST have been transmitted (too complex or
+  context-specific to rediscover) from knowledge that could have been
+  independently acquired. The critical signal is the presence of knowledge
+  whose origin predates any living individual's experience, maintained
+  only through a chain of intentional transmission.
+
+manifestations:
+  - id: ancestral_escape_route_still_in_use
+    description: |
+      An organism uses a specific, non-obvious escape route — through a
+      narrow gap behind a rock formation — that it has never needed to
+      discover itself. Its parent demonstrated this route, who learned
+      it from its parent. The route was originally discovered by an
+      ancestor many generations ago during a now-extinct predator threat.
+      No living organism has the context that made the route discoverable;
+      it persists only because each generation taught the next.
+    survival_relevance: |
+      Escape routes that require specific environmental knowledge (hidden
+      passages, timing-dependent paths) are too costly to rediscover
+      under pursuit pressure. Cultural transmission preserves survival
+      knowledge across generations without requiring each individual
+      to pay the discovery cost, which may be fatal.
+    what_fires: |
+      Knowledge in use by the organism whose origin cannot be traced to
+      the organism's own experience or any living individual's discovery.
+      The knowledge has the signature of multi-generational transmission:
+      it references environmental features the organism has not
+      independently explored and solves problems it has not independently
+      faced. The beyond-individual-origin signal fires.
+
+  - id: food_processing_technique_across_generations
+    description: |
+      A specific food source is toxic when raw but edible after a
+      multi-step processing sequence: soak in running water for a
+      period, then dry, then crack in a specific way. No single
+      organism discovered this entire sequence — it was assembled
+      across generations and transmitted as a complete protocol.
+      Offspring who skip any step get sick. The full technique is
+      taught as a unit by each generation.
+    survival_relevance: |
+      Multi-step processing techniques that took generations to
+      assemble represent enormous accumulated survival knowledge.
+      Losing the transmission chain means losing the entire technique,
+      requiring dangerous re-experimentation with toxic materials
+      across multiple generations.
+    what_fires: |
+      A complex behavioral sequence in use whose components could
+      not have been assembled through any single individual's
+      trial-and-error (the full sequence requires combining steps
+      whose individual discovery required different contexts). The
+      assembled-across-generations complexity signature fires.
+
+  - id: territorial_boundary_knowledge
+    description: |
+      The organism avoids a specific territory boundary that no
+      living organism has ever tested. The boundary was established
+      after a lethal conflict several generations ago. Knowledge of
+      the boundary — and the consequences of crossing it — has been
+      transmitted parent-to-offspring through deliberate warning
+      demonstrations at the boundary edge, not through any living
+      organism's experience of the original conflict.
+    survival_relevance: |
+      Territorial boundaries established by historical conflict
+      contain lethal knowledge — the cost of rediscovery is death.
+      Cultural transmission of boundary locations preserves the
+      lesson from the original conflict without requiring each
+      generation to experience it.
+    what_fires: |
+      Behavioral avoidance of a specific location paired with
+      transmitted knowledge about consequences that no living
+      organism has experienced directly. The avoidance is not based
+      on personal experience or observable threat but on inherited
+      warning knowledge from a chain of prior generations. The
+      inherited-warning-without-direct-experience pattern fires.
+
+  - id: seasonal_migration_timing
+    description: |
+      The organism begins migration at a specific environmental cue
+      (a particular plant's bloom stage) that correlates with safe
+      passage timing through a dangerous terrain. The correlation
+      was discovered by distant ancestors through costly experience
+      and transmitted as a rule: "when X blooms, move." No living
+      organism understands WHY this timing works — the causal link
+      involves predator breeding cycles several territories away —
+      but the rule persists because it works and is taught faithfully.
+    survival_relevance: |
+      Migration timing rules that correlate with distant, non-obvious
+      environmental variables represent survival knowledge too
+      complex for individual discovery. The organism that follows
+      the transmitted rule survives; the one that ignores it and
+      relies on local information encounters the predator breeding
+      season.
+    what_fires: |
+      A behavioral rule in use whose causal basis is opaque to the
+      organism applying it — the rule works but the organism cannot
+      explain why from its own experience. The rule has been received
+      from the prior generation as an unquestioned protocol. The
+      opaque-but-functional transmitted-rule pattern fires.
+
+  - id: medicinal_plant_knowledge
+    description: |
+      An organism, when injured, seeks out a specific plant and
+      applies it to the wound. This plant is not the closest option,
+      not the most obvious, and its medicinal properties are not
+      discoverable through casual contact. The organism's parent
+      demonstrated this treatment during the organism's youth. The
+      parent learned from its parent. The original discoverer is
+      long dead, but the knowledge chain persists.
+    survival_relevance: |
+      Medicinal knowledge that required some ancestor's costly
+      experimentation (trying plants, some toxic, until one worked)
+      is a survival asset that no individual can efficiently
+      rediscover. The transmission chain is the medicine itself —
+      without it, each generation starts from scratch with injured
+      trial-and-error.
+    what_fires: |
+      Organism performing a non-obvious therapeutic behavior that
+      it was taught, not discovered. The behavior involves selecting
+      a specific resource from many similar options based on
+      transmitted knowledge rather than personal experimentation.
+      The taught-not-discovered, specific-selection pattern fires.
+
+anti_manifestations:
+  - id: independently_discovered_food_source
+    description: |
+      An organism discovers a new food source by exploring an
+      unfamiliar area. It finds berries, tastes them, and learns
+      they are edible through its own direct experience. No other
+      organism demonstrated or taught this — the organism explored,
+      experimented, and learned on its own.
+    why_should_not_fire: |
+      This is individual discovery through personal experience, not
+      cultural transmission. The knowledge originates in the organism's
+      own exploration and does not involve any transmission chain.
+      Cultural transmission requires knowledge that was received from
+      a prior generation rather than independently acquired.
+    distinguishes: |
+      Independently acquired knowledge (origin is the organism's own
+      experience) versus culturally transmitted knowledge (origin is
+      a transmission chain from prior generations). The source of
+      the knowledge — self versus inherited chain — is the boundary.
+
+  - id: genetically_encoded_behavior
+    description: |
+      All organisms of this species avoid a specific stimulus (bright
+      red coloration) without any teaching. Even organisms raised in
+      complete isolation from others display the avoidance. The
+      behavior is innate — encoded genetically, not culturally.
+    why_should_not_fire: |
+      This is genetic transmission, not cultural transmission. The
+      avoidance behavior requires no teaching chain and appears in
+      every individual regardless of social learning opportunities.
+      Cultural transmission specifically involves knowledge that
+      would be lost if the teaching chain were broken — genetically
+      encoded behavior persists without any transmission.
+    distinguishes: |
+      Genetically encoded (persists without teaching, present in
+      isolated individuals) versus culturally transmitted (requires
+      an unbroken chain of intentional passing, lost if chain breaks).
+      Dependence on a social transmission chain is the boundary.

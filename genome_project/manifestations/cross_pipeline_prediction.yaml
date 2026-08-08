@@ -1,0 +1,151 @@
+receptor_id: cross_pipeline_prediction
+family: sequential
+tier: canopy
+stage: 6
+
+conceptual_space: |
+  Detects agreement or disagreement between what one processing
+  pipeline predicts and what another pipeline actually finds. The
+  visual pipeline says the area is safe (no visible threats), but
+  the auditory pipeline detects danger sounds (growling). The
+  boundary is inter-pipeline: one modality or processing stream
+  generates an expectation, and a different modality or stream
+  produces a conflicting or confirming signal. The critical signal
+  is the comparison BETWEEN pipelines, not within a single one.
+
+manifestations:
+  - id: visual_safe_auditory_danger
+    description: |
+      The organism enters a clearing. Visual processing shows open
+      space, good visibility, no visible threats — predicting safety.
+      Auditory processing detects a low growl from dense brush at
+      the clearing's edge — predicting danger. The two pipelines
+      generate contradictory predictions about the same environment.
+    survival_relevance: |
+      Cross-pipeline disagreement is a critical survival signal.
+      Relying on vision alone would lead the organism into danger.
+      The ability to detect that one pipeline contradicts another
+      triggers heightened caution and further investigation.
+    what_fires: |
+      One pipeline (visual) generates a safety prediction while
+      a different pipeline (auditory) generates a danger prediction
+      about the same spatial context. The inter-pipeline
+      contradiction fires the cross-pipeline prediction signal.
+
+  - id: smell_predicts_food_vision_confirms
+    description: |
+      The organism detects a sweet fruity smell carried by wind
+      from the east. Olfactory processing predicts food in that
+      direction. The organism moves east and visual processing
+      confirms — a fruit-bearing tree is visible. The two
+      pipelines agree: olfactory predicted, visual confirmed.
+    survival_relevance: |
+      Cross-pipeline agreement strengthens confidence. When smell
+      predicted food and vision confirmed it, the organism can
+      commit to approach with high confidence rather than cautious
+      investigation. Agreement between independent sources
+      reduces uncertainty.
+    what_fires: |
+      One pipeline (olfactory) generates a prediction (food to
+      the east) and a different pipeline (visual) subsequently
+      confirms it. The inter-pipeline agreement fires the cross-
+      pipeline prediction signal with a confirmation valence.
+
+  - id: tactile_warns_visual_contradicts
+    description: |
+      The organism steps onto ground that feels unstable and
+      spongy through tactile processing — predicting a sinkhole
+      or bog. Visual processing shows the ground appearing firm
+      and dry with solid-looking soil. Tactile prediction of
+      danger contradicts visual prediction of safety.
+    survival_relevance: |
+      Concealed ground hazards are invisible but detectable by
+      touch. The cross-pipeline disagreement signals that the
+      visually safe appearance is unreliable, prioritizing the
+      tactile warning and preventing the organism from committing
+      weight to unstable ground.
+    what_fires: |
+      Tactile pipeline predicts danger (unstable ground) while
+      visual pipeline predicts safety (solid appearance). The
+      modality-to-modality contradiction on the same object
+      fires cross-pipeline disagreement.
+
+  - id: motion_detection_predicts_stationary_object_is_alive
+    description: |
+      The organism's motion-detection pipeline registers subtle
+      rhythmic movement (breathing) from what the object-recognition
+      pipeline classifies as a rock or log — a stationary object.
+      Motion processing predicts a living entity; form processing
+      predicts an inanimate object. The two pipelines disagree on
+      the fundamental category.
+    survival_relevance: |
+      Camouflaged predators exploit the disconnect between form
+      and motion processing. Detecting that motion says "alive"
+      while form says "object" is a critical deception-detection
+      mechanism that prevents approaching a hiding predator.
+    what_fires: |
+      Motion-detection pipeline and object-classification pipeline
+      generate contradictory categorizations of the same entity.
+      One says living, the other says inanimate. The categorical
+      disagreement between processing streams fires.
+
+  - id: memory_predicts_current_perception_differs
+    description: |
+      The organism's memory-based prediction pipeline expects a
+      water source at a familiar location (it has been there many
+      times). Current visual and auditory processing find no water
+      — the stream has dried up. The memory-based expectation
+      contradicts current perceptual input across multiple current
+      pipelines.
+    survival_relevance: |
+      Detecting that remembered predictions fail against current
+      reality enables rapid updating of environmental models.
+      The organism learns that this water source is no longer
+      reliable and must seek alternatives, rather than repeatedly
+      returning to a dry location.
+    what_fires: |
+      Memory-based prediction pipeline generates an expectation
+      (water here) that current perceptual pipelines (visual,
+      auditory) contradict (no water present). The cross-pipeline
+      disagreement between prediction-from-memory and current-
+      perception fires.
+
+anti_manifestations:
+  - id: single_pipeline_uncertainty
+    description: |
+      The organism sees an ambiguous shape in dim light. The visual
+      pipeline alone is uncertain — the shape could be a predator
+      or a rock. The organism feels visual uncertainty but no other
+      pipeline has weighed in.
+    why_should_not_fire: |
+      This is within-pipeline ambiguity, not cross-pipeline
+      prediction. Only one processing stream is involved and it
+      is internally uncertain. Cross-pipeline prediction requires
+      TWO different pipelines generating predictions that can be
+      compared. A single uncertain pipeline is ambiguity detection,
+      not inter-pipeline comparison.
+    distinguishes: |
+      Within-pipeline uncertainty (one stream is internally
+      ambiguous) versus cross-pipeline prediction (two different
+      streams generate comparable predictions). The inter-pipeline
+      comparison is the boundary.
+
+  - id: consistent_multisensory_experience
+    description: |
+      The organism sees a waterfall, hears the rushing water, and
+      feels mist on its skin. All three pipelines deliver consistent
+      information about the same object in the normal course of
+      perception. There is no prediction or expectation involved —
+      just simultaneous multisensory input.
+    why_should_not_fire: |
+      This is basic multisensory integration — multiple senses
+      perceiving the same stimulus simultaneously. Cross-pipeline
+      prediction requires one pipeline to PREDICT what another
+      will find, with the comparison being between a prediction
+      and an observation. Passive co-registration of consistent
+      sensory input is binding, not cross-pipeline prediction.
+    distinguishes: |
+      Multisensory binding (multiple senses co-register the same
+      stimulus) versus cross-pipeline prediction (one pipeline's
+      prediction is compared against another's finding). The
+      predictive-then-compare structure is the boundary.

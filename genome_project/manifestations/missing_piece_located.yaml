@@ -1,0 +1,48 @@
+receptor_id: missing_piece_located
+family: compression
+tier: canopy
+stage: 5
+
+conceptual_space: |
+  Detects that a gap-filler has been identified — the specific object or
+  condition that fills a previously detected shaped absence. Found the rock
+  that blocks the north-side gap. Found the food type that satisfies the
+  specific nutritional deficiency. The boundary separates finding something
+  that matches a specific gap from finding something generally useful.
+
+manifestations:
+  - id: rock_fills_north_gap
+    description: A movable rock of the right size is spotted that would fit the northern cover gap — the specific gap-filler for the identified shaped absence
+    survival_relevance: Locating the exact piece that completes protection converts a vulnerability into a solution — immediate actionable improvement
+    what_fires: Object detected whose dimensions, position, and movability match the specifications of a previously identified shaped absence — gap-filler correspondence
+
+  - id: eastern_tunnel_found
+    description: A tunnel opening to the east is discovered — it fills the specific gap of no eastern escape route when a predator approaches from the east
+    survival_relevance: The discovered escape route directly addresses the identified vulnerability, transforming the organism's survival options
+    what_fires: Escape path detected in the specific direction where escape was previously absent — the solution matches the shape of the identified gap
+
+  - id: energy_food_discovered
+    description: Energy-dense food source found when the specific nutritional gap was energy deficiency — the food type matches the specific lack
+    survival_relevance: Finding the specific lacking resource type resolves the nutritional gap more efficiently than finding more of what is already sufficient
+    what_fires: Resource signal matching the specific unsatisfied nutritional channel — the found item corresponds to the identified deficiency, not general food availability
+
+  - id: sentinel_recruit_identified
+    description: Another organism suitable for the scout role is identified — filling the specific social role vacancy in the group
+    survival_relevance: Completing the group's functional organization by filling the specific missing role improves collective survival capacity
+    what_fires: Entity detected whose behavioral capabilities match the specifications of the identified social role vacancy — the individual fits the gap
+
+  - id: midday_vigilance_solution
+    description: A high vantage point is discovered that enables midday surveillance — filling the identified temporal gap in threat monitoring
+    survival_relevance: The discovered position specifically addresses the time window when monitoring was absent, completing coverage
+    what_fires: Environmental feature discovered that enables the specific function that was identified as missing — temporal coverage gap can be filled
+
+anti_manifestations:
+  - id: useful_but_unmatched
+    description: A large food cache is found, but the organism's specific gap was cover, not food — the discovery is valuable but does not fill the identified gap
+    why_should_not_fire: The found item does not match the shape of the current absence — it is generally useful but not the specific missing piece
+    distinguishes: Gap-matching discovery vs generally useful discovery — missing_piece_located requires correspondence between what was found and what was specifically missing
+
+  - id: partial_fit
+    description: A small rock is found that would partially block the northern gap but is too small to fully fill it — close but not a complete match
+    why_should_not_fire: The candidate does not fully satisfy the gap specification — it reduces the absence but does not complete it
+    distinguishes: Complete gap-filler vs partial match — the receptor fires when the found item fully addresses the identified shaped absence

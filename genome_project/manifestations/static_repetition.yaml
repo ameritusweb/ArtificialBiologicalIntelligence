@@ -1,0 +1,47 @@
+receptor_id: static_repetition
+family: repetition
+tier: trunk
+stage: 2
+
+conceptual_space: |
+  Same stimulus at the same location repeatedly. "This happened before, here."
+  The concept is location-bound recurrence — the same thing keeps appearing
+  in the same place. The boundary: repeated-at-location vs novel-at-location.
+  Not dynamic repetition (same stimulus at different locations).
+
+manifestations:
+  - id: food_patch_regrows
+    description: Food appears at position (12,8) on steps 50, 150, 250 — same spot each time
+    survival_relevance: Knowing a location reliably produces food means the organism can return to harvest
+    what_fires: Same stimulus type detected at same spatial coordinates across multiple episodes
+
+  - id: thermal_vent_pulses
+    description: A heat spike occurs at coordinate (5,20) every ~80 steps — always that exact location
+    survival_relevance: Predictable hazard location allows avoidance planning and safe pathing
+    what_fires: Repeated above-threshold thermal reading at identical spatial position
+
+  - id: predator_den_returns
+    description: NPC threat appears at the same map corner after each withdrawal — it keeps coming back to its spot
+    survival_relevance: Identifying a predator's home location enables permanent avoidance of that zone
+    what_fires: Threat-channel activation at same coordinates across multiple encounters
+
+  - id: water_source_persistence
+    description: Hydration signal detected at position (15,15) on steps 30, 90, 200, 310 — always there
+    survival_relevance: Reliable water source is a survival anchor for route planning
+    what_fires: Same resource signal at same location across temporally separated encounters
+
+  - id: shelter_spot_reliability
+    description: Low-threat, stable-temperature zone at (3,3) provides safety every time organism visits
+    survival_relevance: Knowing where safety reliably exists enables retreat behavior under stress
+    what_fires: Consistent protective conditions at same spatial coordinates across visits
+
+anti_manifestations:
+  - id: food_at_different_spots
+    description: Food appears at (12,8), then (4,19), then (20,1) — same stimulus but different locations each time
+    why_should_not_fire: Stimulus recurs but not at the same location — this is dynamic repetition
+    distinguishes: Static repetition requires LOCATION-BOUND recurrence, not just stimulus recurrence
+
+  - id: different_stimuli_same_spot
+    description: Position (10,10) produces heat on step 50, food on step 150, sound on step 250
+    why_should_not_fire: Location recurs but the stimulus changes — no single stimulus repeats at this spot
+    distinguishes: Static repetition requires the SAME stimulus recurring, not just any activity at a location

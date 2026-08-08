@@ -1,0 +1,50 @@
+receptor_id: meta_planning
+family: meta-motivational
+tier: canopy
+stage: 9
+
+conceptual_space: |
+  Detects the need to plan which cognitive mode to operate in, rather than
+  planning within a mode. "For the building phase, I need patience-mode; for
+  escape, I need speed-mode." The boundary separates meta-planning (planning
+  over cognitive configurations) from object-level planning (choosing actions
+  within a fixed cognitive mode) or mode switching without planning (reactive
+  shifts). The concept is deliberate cognitive mode selection — choosing how
+  to think, not just what to do.
+
+manifestations:
+  - id: patience_mode_for_construction
+    description: Before beginning a multi-episode shelter construction, organism deliberately shifts into patience-mode — suppressing food-seeking urgency, extending temporal discount horizon, activating persistence patterns
+    survival_relevance: Meta-planning the cognitive mode for construction prevents premature abandonment due to hunger signals that would be appropriate in foraging mode but counterproductive in building mode
+    what_fires: Deliberate pre-task cognitive reconfiguration — temporal discounting parameters, impulse thresholds, and persistence settings adjusted before the task begins, based on planning about what mode the task requires
+
+  - id: speed_mode_for_escape
+    description: Organism detects an approaching threat and plans to switch into speed-mode — suppressing deliberative processing, widening perceptual attention, activating reactive motor patterns — before the escape actually begins
+    survival_relevance: Pre-planned cognitive mode selection for escape reduces the latency of switching, enabling faster escape than reactive mode-switching triggered by the threat itself
+    what_fires: Anticipatory cognitive reconfiguration based on predicted task demands — the organism plans the mode shift before the triggering situation fully materializes
+
+  - id: exploration_vs_exploitation_mode_selection
+    description: Organism assesses resource state and deliberately selects exploration-mode (wide search, high curiosity, tolerance for uncertainty) vs exploitation-mode (narrow focus, efficient extraction) based on strategic assessment
+    survival_relevance: Deliberate explore-exploit mode selection matches cognitive configuration to resource landscape, preventing wasteful exploration in rich environments or futile exploitation in depleted ones
+    what_fires: Strategic assessment of environmental state producing a deliberate choice between cognitive modes, with the mode selection itself being the planned decision rather than an automatic response
+
+  - id: social_mode_planning
+    description: Before entering a social negotiation, organism plans to be in cooperative-mode rather than competitive-mode — adjusting trust parameters, communication patterns, and conflict thresholds based on strategic social reasoning
+    survival_relevance: Pre-planned social cognitive mode enables strategic relationship management, choosing cooperation or competition based on long-term social modeling rather than reactive affect
+    what_fires: Deliberate social-cognitive reconfiguration planned before the social interaction, with the mode choice based on strategic assessment of the social landscape and relationship goals
+
+  - id: sequential_mode_planning
+    description: Organism plans a multi-phase strategy — first exploration-mode to find resources, then patience-mode to construct a cache, then vigilance-mode to guard it — sequencing cognitive modes across the plan
+    survival_relevance: Sequential mode planning enables complex multi-phase strategies that require different cognitive configurations at each stage, orchestrated as a unified meta-plan
+    what_fires: A planned sequence of cognitive mode transitions tied to successive phases of a multi-step plan, with each mode selected to match its phase's demands
+
+anti_manifestations:
+  - id: reactive_mode_switch
+    description: Organism is calmly foraging and a predator appears — it instantly switches to escape mode without any pre-planning of the cognitive shift, driven purely by the stimulus
+    why_should_not_fire: Reactive mode switching is triggered by the stimulus itself, not planned in advance — there is no meta-level planning about which cognitive mode to adopt
+    distinguishes: Meta-planning (deliberate pre-planned cognitive mode selection) vs reactive switching (stimulus-driven mode change without advance planning)
+
+  - id: action_planning_within_fixed_mode
+    description: Organism in foraging-mode plans which food sources to visit in what order — this is object-level planning within a fixed cognitive mode, not planning over modes
+    why_should_not_fire: Planning actions within a mode is object-level planning — the cognitive configuration itself is not being planned or selected
+    distinguishes: Meta-planning (planning which cognitive mode to operate in) vs object-level planning (planning actions within a given cognitive mode)

@@ -1,0 +1,169 @@
+receptor_id: adaptive_depth
+family: perception
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Adjust processing depth to match the demands of the current situation. The
+  organism detects whether it should engage shallow/fast processing or deep/slow
+  processing and actively allocates cognitive resources accordingly. The boundary
+  is between fixed-depth processing (applying the same cognitive effort to every
+  situation) and dynamic depth allocation (investing more cognition where it pays
+  and less where it doesn't). This receptor fires when the organism detects a
+  mismatch between the processing depth it is applying and the depth the current
+  situation warrants.
+
+manifestations:
+  - id: simple_situation_over_processed
+    description: |
+      The organism is in a well-known area performing a routine foraging task.
+      There are no threats, no novel stimuli, no complex decisions. But it notices
+      it is engaging full deliberative processing -- evaluating each plant as if
+      for the first time, scanning for threats with full vigilance, treating every
+      sound as potentially significant. The adaptive-depth receptor fires:
+      "This situation is simple and well-understood. I'm burning full cognitive
+      resources on a problem that needs only pattern-matching. Switch to fast path."
+    survival_relevance: |
+      Cognitive resources are metabolically expensive. An organism that applies
+      maximum processing depth to routine situations exhausts itself and has
+      nothing left when genuine complexity appears. Detecting over-processing
+      allows resource conservation for when depth is actually needed.
+    what_fires: |
+      High processing investment with low decision uncertainty. The receptor
+      monitors the ratio of cognitive effort to decision difficulty. When effort
+      is high but novelty, threat, and ambiguity signals are all low, the receptor
+      fires encoding "processing depth exceeds situation complexity -- downshift
+      to fast processing."
+
+  - id: complex_situation_under_processed
+    description: |
+      The organism enters a territory where an old predator territory overlaps
+      with a new food source. Multiple factors interact: the predator's likely
+      patrol schedule, the food's availability window, the organism's current
+      energy state, and the availability of escape routes. But the organism is
+      processing at shallow depth -- making a quick gut-level decision without
+      integrating these factors. The adaptive-depth receptor fires: "This
+      situation has interacting variables I'm not processing. My fast-path
+      decision will miss critical interactions. Engage full deliberation."
+    survival_relevance: |
+      Under-processing complex situations produces decisions that ignore
+      critical variable interactions. The organism walks into a predator's
+      path because it processed food-availability and threat-schedule
+      independently rather than jointly. Detecting under-processing for the
+      current complexity level triggers deeper analysis.
+    what_fires: |
+      Multiple active receptor signals from different domains with unprocessed
+      interaction terms. The receptor detects that the organism is making
+      decisions based on individual signals without computing their
+      interactions, despite the interactions being decision-relevant.
+      Encoding: "unprocessed variable interactions -- upshift to deliberative
+      processing."
+
+  - id: depth_transition_on_threat_change
+    description: |
+      The organism is foraging on fast-path processing when it detects a faint
+      ambiguous signal -- possibly a predator, possibly wind. The adaptive-depth
+      receptor fires to initiate a depth transition: "Ambiguous threat detected.
+      Current shallow processing is insufficient to resolve this ambiguity.
+      Shift to deep processing for threat assessment while maintaining fast-path
+      for immediate escape readiness." The organism splits its processing:
+      deep analysis of the ambiguous signal, fast-path for motor readiness.
+    survival_relevance: |
+      The ability to dynamically shift processing depth on threat detection
+      allows the organism to resolve ambiguity without sacrificing response
+      readiness. Fixed-depth organisms either under-analyze threats (staying
+      shallow) or over-commit to analysis (going deep but losing motor
+      readiness).
+    what_fires: |
+      Ambiguity spike in a threat-relevant channel while current processing
+      depth is shallow. The receptor fires when the gap between current depth
+      and required depth for ambiguity resolution crosses a threshold, encoding
+      "depth transition warranted -- split processing between deep analysis
+      and fast motor readiness."
+
+  - id: depth_recovery_after_crisis
+    description: |
+      The organism has just survived a threat encounter. It is still in
+      maximum-depth, maximum-vigilance processing mode -- scanning every input
+      at full resolution, treating every stimulus as potentially dangerous.
+      The threat has passed but processing depth remains elevated. The
+      adaptive-depth receptor fires: "The crisis is over. Sustained maximum
+      processing depth is now a liability -- I'm exhausting myself and I'm
+      so vigilant that I'm seeing threats in neutral stimuli. Downshift to
+      normal depth with elevated baseline."
+    survival_relevance: |
+      Post-crisis processing depth that fails to recover causes hypervigilance,
+      cognitive exhaustion, and false-positive threat detection. The organism
+      wastes resources and makes avoidance errors (treating food as threats)
+      because its processing depth is stuck at crisis levels. Detecting the
+      mismatch between sustained high depth and reduced actual danger allows
+      graduated recovery.
+    what_fires: |
+      Sustained high processing depth with declining threat signals over time.
+      The receptor fires when processing depth remains at crisis levels for
+      a duration after the last confirmed threat signal, encoding "processing
+      depth stuck above current threat level -- initiate graduated downshift."
+
+  - id: meta_depth_allocation
+    description: |
+      The organism faces a day with multiple tasks: forage in a known area
+      (simple), navigate a new river crossing (complex), and return through
+      a territory with unpredictable competitors (moderate). The adaptive-depth
+      receptor fires at the PLANNING level: "I should allocate minimal
+      processing to the familiar foraging, deep processing to the river
+      crossing, and moderate-with-reserve for the competitor territory. If I
+      spend my cognitive budget evenly, I'll over-process the easy parts and
+      under-process the hard parts."
+    survival_relevance: |
+      Strategic depth allocation across a sequence of tasks prevents cognitive
+      budget misallocation. The organism that applies uniform depth exhausts
+      itself on easy tasks and has insufficient depth for hard ones. Planning
+      depth allocation in advance allows budgeting cognitive resources like
+      any other scarce survival resource.
+    what_fires: |
+      Upcoming task-sequence recognition with heterogeneous complexity. The
+      receptor fires when the organism can forecast a sequence of situations
+      with varying complexity, encoding "pre-allocate depth budget -- save
+      deep processing for complex segments, use fast-path for known segments."
+
+anti_manifestations:
+  - id: fixed_difficulty_sustained_depth
+    description: |
+      The organism is in an environment with a consistent, moderate level of
+      complexity. The demands haven't changed -- it's been moderately
+      challenging throughout. The organism is applying a consistent, moderate
+      level of processing depth that matches the consistent demands. There is
+      no mismatch between depth applied and depth warranted because both have
+      been stable.
+    why_should_not_fire: |
+      Adaptive-depth fires on MISMATCHES between applied depth and warranted
+      depth. When the organism is already well-calibrated to a stable level
+      of environmental complexity, there is no adaptation needed. The receptor
+      adds value during transitions -- when complexity changes or when the
+      organism's depth allocation fails to track changing demands. Steady-state
+      calibration is not a mismatch.
+    distinguishes: |
+      Dynamic mismatch vs. steady-state calibration: well-matched depth in a
+      stable environment (anti) vs. depth-demand mismatch requiring adjustment
+      (true). The receptor detects the need to CHANGE depth, not the current
+      level of depth.
+
+  - id: difficulty_not_depth
+    description: |
+      The organism encounters a physically demanding task -- climbing a steep
+      terrain, swimming against a current. The task requires physical effort
+      and motor precision but not increased cognitive processing depth. The
+      organism's muscles are taxed but its categorization, decision-making,
+      and threat assessment are all straightforward. It knows what to do;
+      doing it is simply hard.
+    why_should_not_fire: |
+      Adaptive-depth is about COGNITIVE processing depth, not physical
+      effort or task difficulty in general. A physically hard task that is
+      cognitively simple does not require deeper processing -- it requires
+      more physical resources. Confusing physical difficulty with cognitive
+      complexity would lead the organism to waste cognitive resources
+      deliberating about a task that needs muscle, not thought.
+    distinguishes: |
+      Cognitive complexity vs. physical difficulty: physically demanding but
+      cognitively simple task (anti) vs. cognitively complex task requiring
+      deeper processing to handle variable interactions and ambiguity (true).

@@ -1,0 +1,147 @@
+receptor_id: body_boundary
+family: proprioception
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Detects the spatial extent of the organism's own body — where the self
+  ends and the world begins. This is the integrated contact-and-position
+  map that defines "me" versus "not me." The boundary is the surface
+  envelope of the organism: everything inside the skin is self, everything
+  outside is environment. This receptor integrates limb positions and
+  contact signals to maintain a real-time map of the body's spatial
+  footprint in the world.
+
+manifestations:
+  - id: squeezing_through_narrow_gap
+    description: |
+      The organism pushes between two close-set boulders. Both flanks
+      are in simultaneous contact with rock — pressure on the left side,
+      pressure on the right side, the gap barely wider than the body.
+      The organism's bilateral contact map reveals its own width: the
+      body extends exactly from left-rock-contact to right-rock-contact.
+      The boundary of self is pressed against the world on both sides.
+    survival_relevance: |
+      Knowing one's own body width determines which gaps can be
+      traversed. An organism that misjudges its spatial extent gets
+      stuck in crevices — vulnerable to predators, unable to reach
+      food on the other side.
+    what_fires: |
+      Bilateral simultaneous contact along the full length of the
+      torso. Contact surfaces define the body's lateral extent. Body
+      width fully mapped by the gap between contact surfaces. Body
+      boundary: spatially constrained.
+
+  - id: submerging_in_water
+    description: |
+      The organism wades into a deep pool. As it lowers itself, the
+      water line rises along its body — first ankles, then belly, then
+      chest, then neck. At each depth, the contact boundary between
+      body and water defines exactly how much of the organism is
+      submerged. The water wraps around the body's contour, tracing
+      its shape in three dimensions.
+    survival_relevance: |
+      Tracking the submersion boundary tells the organism how much of
+      itself is underwater. This determines buoyancy, available
+      breathing clearance, and the transition point between wading and
+      swimming.
+    what_fires: |
+      Expanding contact envelope as water rises along body. Contact
+      map progressively defining the submerged body surface. Body
+      boundary clearly delineated by the water-air interface on skin.
+
+  - id: curling_into_tight_ball
+    description: |
+      The organism curls into a defensive ball — head tucked, limbs
+      drawn in, tail wrapped around. As the body compresses, limb
+      surfaces contact torso surfaces: knees against chest, forearms
+      against thighs, chin against knees. The body boundary shrinks
+      to a compact sphere. Internal surfaces that were separated are
+      now touching each other — the spatial extent of self has
+      contracted to minimum volume.
+    survival_relevance: |
+      Knowing the body's contracted boundary informs defensive posture
+      effectiveness. The organism must verify that no extremities
+      protrude beyond the armored ball — exposed fingers or tail tips
+      are vulnerable to biting predators.
+    what_fires: |
+      Self-contact across multiple body surface pairs. Limb-to-torso
+      contact signals compressing the body envelope. Spatial extent
+      of self at minimum. Body boundary: contracted to minimum volume.
+
+  - id: reaching_maximum_extension
+    description: |
+      The organism stretches to its maximum size — all limbs extended
+      outward, spine elongated, head and tail at maximum distance
+      from the center of mass. The body occupies its largest possible
+      spatial envelope. Fingertips, toes, head, and tail mark the
+      extreme boundaries of self. No further expansion is possible.
+    survival_relevance: |
+      Knowing maximum body extent determines reach envelope, threat
+      display size, and territory marking range. An organism that
+      knows its own maximum span can accurately judge whether a gap
+      is jumpable or a branch is reachable.
+    what_fires: |
+      All limbs at or near joint limits in extension. Maximum distance
+      between extremity position sensors. Body envelope at maximum
+      volume. No self-contact between limbs. Body boundary: maximum
+      spatial extent.
+
+  - id: feeling_body_outline_against_den_floor
+    description: |
+      The organism lies in a shallow depression it dug as a sleeping
+      hollow. The curved earth presses against the belly, sides, and
+      haunches — the ground conforms to the body's ventral and lateral
+      contour. The contact map from the ground precisely traces the
+      shape of the organism's underside, defining where the body
+      meets the earth across its full resting outline.
+    survival_relevance: |
+      Feeling the body's outline against a resting surface confirms
+      fit. A sleeping hollow that matches the body's contour provides
+      thermal insulation and concealment. Sensing the contact boundary
+      verifies the den is the right size and shape.
+    what_fires: |
+      Distributed ventral and lateral contact tracing body contour.
+      Ground contact map outlining the body's underside shape.
+      Continuous contact boundary matching body geometry. Body
+      boundary defined by ground-contact envelope.
+
+anti_manifestations:
+  - id: seeing_own_shadow
+    description: |
+      The organism stands in bright sunlight and observes its own
+      shadow projected on the ground ahead. The shadow has the outline
+      of the body, but it is not the body — it is a visual projection
+      with no tactile reality. Nothing is touching the organism at
+      the shadow's location. The shadow maps the body's silhouette
+      but provides no proprioceptive boundary information.
+    why_should_not_fire: |
+      Body_boundary is defined by actual contact and proprioceptive
+      position data, not visual projections. The shadow shows where
+      light is blocked but does not represent where the body physically
+      is in contact-space. No tactile or positional signal originates
+      from the shadow.
+    distinguishes: |
+      Physical body boundary (contact + proprioception) versus visual
+      body representation (shadow, reflection). Body_boundary is
+      grounded in tactile and positional data, not visual proxies.
+
+  - id: holding_a_stick
+    description: |
+      The organism grips a long stick. The stick extends the reach of
+      the forelimb by two body-lengths. The far end of the stick can
+      poke things the organism cannot touch directly. But the stick
+      is not part of the body — it is a held object. The body boundary
+      ends at the fingertips where skin meets stick. The stick is
+      world, not self.
+    why_should_not_fire: |
+      The stick extends functional reach but does not extend the body
+      boundary. Body_boundary tracks where the organism's physical
+      body actually is — its skin surface, its limb positions. A held
+      tool is outside the body boundary even though it is controlled
+      by the body.
+    distinguishes: |
+      Body boundary (where the physical organism ends) versus
+      functional reach (how far the organism can affect things). Tools
+      extend reach without extending the body. The skin surface is
+      the boundary.

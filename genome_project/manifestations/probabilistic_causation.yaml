@@ -1,0 +1,137 @@
+receptor_id: probabilistic_causation
+family: causality
+tier: canopy
+stage: 6
+
+conceptual_space: |
+  Detects that a causal relationship is stochastic rather than
+  deterministic. A causes B not always but with some probability.
+  The same action, same context, same visible conditions — yet
+  sometimes the outcome occurs and sometimes it does not. The
+  boundary separates deterministic causation (A always produces B)
+  from probabilistic causation (A produces B some fraction of the
+  time). The critical signal is reliable but partial contingency
+  across repeated identical interventions.
+
+manifestations:
+  - id: berry_sometimes_toxic
+    description: |
+      The organism eats identical-looking berries from the same bush.
+      Three times it feels fine. The fourth time it becomes sick.
+      It eats again — fine. Again — sick. Over many trials, roughly
+      30% of consumption events produce illness despite no visible
+      difference between berries.
+    survival_relevance: |
+      Recognizing probabilistic toxicity prevents both over-avoidance
+      (never eating a mostly-safe food source) and reckless consumption
+      (assuming safety after a few good outcomes). Calibrated caution
+      enables optimal foraging under uncertainty.
+    what_fires: |
+      Repeated identical interventions (eat same berry type) producing
+      variable outcomes (fine vs. sick) at a stable ratio. The
+      inconsistency across trials with no detectable difference in
+      conditions fires the probabilistic causation signal.
+
+  - id: fishing_spot_variable_yield
+    description: |
+      The organism visits the same pool at the same time of day and
+      uses the same technique. Sometimes it catches fish, sometimes
+      not. Over twenty visits, roughly half are successful. No
+      observable variable distinguishes success from failure.
+    survival_relevance: |
+      Understanding that this foraging site yields probabilistically
+      enables rational time allocation — visiting often enough to
+      exploit the expected yield without over-investing in any single
+      attempt.
+    what_fires: |
+      Consistent action in consistent observable conditions producing
+      variable outcomes at a roughly stable rate. The organism cannot
+      find any hidden variable that explains the variance, signaling
+      inherent stochasticity in the causal link.
+
+  - id: predator_chase_sometimes_succeeds
+    description: |
+      The organism observes a predator chasing prey. Sometimes the
+      predator catches the prey, sometimes the prey escapes. The
+      predator uses the same approach each time. Over many observations,
+      the catch rate is roughly 40%. Neither predator nor prey visibly
+      changes strategy.
+    survival_relevance: |
+      Calibrating escape probability enables rational risk assessment.
+      The organism learns that being chased is dangerous but not
+      certain death — worth fighting or fleeing rather than freezing
+      in despair, but not worth ignoring.
+    what_fires: |
+      Same cause (predator chase) producing variable outcomes
+      (catch vs. escape) across many observations. The ratio
+      stabilizes without the organism identifying any deterministic
+      factor that separates successes from failures.
+
+  - id: seed_germination_unpredictable
+    description: |
+      The organism buries seeds in the same soil, same depth, same
+      location. Some germinate within days, others never sprout.
+      Across many plantings, roughly 60% germinate. No visible
+      characteristic distinguishes seeds that will grow from those
+      that will not.
+    survival_relevance: |
+      Probabilistic germination knowledge enables the organism to
+      plant more seeds than needed (over-sowing strategy), rather
+      than planting exactly the needed number and starving when
+      some fail.
+    what_fires: |
+      Identical interventions (plant seed) in identical conditions
+      producing binary outcomes (grows vs. does not) at a stable
+      probability. The irreducible variance despite controlled
+      conditions fires.
+
+  - id: shelter_collapse_in_storms
+    description: |
+      The organism builds shelters of similar quality. During storms
+      of similar intensity, some shelters hold and others collapse.
+      Over many storm-shelter pairings, roughly 25% collapse. No
+      visible construction difference predicts which ones fail.
+    survival_relevance: |
+      Understanding probabilistic structural failure motivates
+      building redundant shelters or reinforcing beyond minimum
+      sufficiency. Deterministic thinking would either under-build
+      (it held last time) or over-build (it failed, so add ten
+      times more material).
+    what_fires: |
+      Same construction facing same conditions, with variable
+      outcomes at a stable rate. The organism's inability to
+      predict individual outcomes despite predicting the overall
+      rate signals probabilistic causation.
+
+anti_manifestations:
+  - id: rock_always_falls_when_dropped
+    description: |
+      The organism drops a rock from a height. It falls every time
+      without exception. Across dozens of trials in varying
+      conditions, the outcome is perfectly deterministic.
+    why_should_not_fire: |
+      This is deterministic causation. The outcome occurs 100% of
+      the time under the same intervention. Probabilistic causation
+      requires variable outcomes from identical causes — here there
+      is no variance to detect.
+    distinguishes: |
+      Deterministic causation (outcome occurs every time) versus
+      probabilistic causation (outcome occurs some fraction of
+      the time). Zero variance means no probability signal.
+
+  - id: different_berries_different_outcomes
+    description: |
+      The organism eats red berries and feels fine. It eats blue
+      berries and gets sick. Red always safe, blue always toxic.
+      The outcomes vary but the inputs visibly differ.
+    why_should_not_fire: |
+      This is deterministic causation with a visible distinguishing
+      feature (color). Probabilistic causation requires identical
+      observable inputs producing variable outcomes. Here the
+      variance is fully explained by an observable variable —
+      there is no residual stochasticity.
+    distinguishes: |
+      Explained variance (outcomes differ because inputs visibly
+      differ) versus unexplained variance (outcomes differ despite
+      identical observable inputs). Only the latter fires
+      probabilistic causation.

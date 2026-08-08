@@ -1,0 +1,48 @@
+receptor_id: absence_observation
+family: observation
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Expected thing is missing. Not "something changed" but "something that
+  SHOULD be here ISN'T." Requires a prediction or memory of what belongs
+  in a location or context. Food WAS here, now it's gone. The nest SHOULD
+  have eggs, but they're missing. The boundary: detecting the non-presence
+  of a specifically expected entity.
+
+manifestations:
+  - id: stolen_cache
+    description: Organism returns to a rock where it cached three nuts yesterday and finds the space under the rock empty
+    survival_relevance: Detecting stolen food caches reveals competitor presence and triggers re-caching behavior
+    what_fires: Memory of "nuts at rock location" compared to empty observation produces mismatch-on-expected-object signal
+
+  - id: missing_landmark
+    description: Organism navigates toward a tall distinctive tree it uses as a waypoint, but the tree has fallen — the expected landmark is absent from the skyline
+    survival_relevance: Missing navigation landmarks require switching to alternative orientation strategy before getting lost
+    what_fires: Expected visual feature at stored location fails to match — absence signal on predicted landmark
+
+  - id: vanished_prey
+    description: Organism was stalking a rabbit near a burrow entrance. It looks away briefly, looks back, and the rabbit is gone — the burrow entrance is empty
+    survival_relevance: Prey disappearance into a burrow means the hunt at this location has failed, so energy should be redirected
+    what_fires: Tracked object at predicted location fails to appear — expected-object-absent signal fires
+
+  - id: missing_companion
+    description: Organism wakes in a shared den and the usual second occupant is not present in its sleeping spot
+    survival_relevance: Missing group member may signal predation, requiring increased vigilance
+    what_fires: Expected social agent at habitual location not detected — companion-absent signal
+
+  - id: dry_water_source
+    description: Organism arrives at a stream bed where water always flows and finds only dry rocks
+    survival_relevance: Absence of a critical resource at a reliable location is an emergency requiring immediate search for alternatives
+    what_fires: Expected resource (water) at high-confidence location produces zero signal — resource-absent alarm
+
+anti_manifestations:
+  - id: never_was_there
+    description: Organism explores a new cave and finds no food inside
+    why_should_not_fire: There was no expectation of food in an unfamiliar location — absence requires a prior expectation or memory
+    distinguishes: Absence observation requires a prediction of presence that goes unmet, not merely encountering an empty space
+
+  - id: depleted_gradually
+    description: Organism watches a pile of seeds shrink one-by-one as birds eat them over an hour
+    why_should_not_fire: The organism observes continuous depletion, not a sudden absence — the seeds are still partially present and their reduction is witnessed
+    distinguishes: Absence is about an expected thing being GONE, not about watching a quantity decrease in real time

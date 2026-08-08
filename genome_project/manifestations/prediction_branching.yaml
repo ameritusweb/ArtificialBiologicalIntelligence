@@ -1,0 +1,48 @@
+receptor_id: prediction_branching
+family: perception
+tier: branch
+stage: 2
+
+conceptual_space: |
+  Fork processing paths when predictions conflict. High prediction error
+  triggers a slow, deliberative processing path. Low prediction error allows
+  the fast, cached processing path. The concept is the routing decision
+  itself — the organism's ability to allocate processing resources based
+  on prediction confidence.
+
+manifestations:
+  - id: novel_threat_slow_path
+    description: Organism encounters NPC with unfamiliar behavior pattern — prediction error is high, triggering slow deliberative assessment instead of cached response
+    survival_relevance: Allocating more processing to unpredictable threats prevents reliance on wrong cached response
+    what_fires: Prediction error on current stimulus exceeds branching threshold — processing routed to slow/deliberative path
+
+  - id: familiar_food_fast_path
+    description: Organism detects well-known food signature — prediction error near zero, fast cached approach behavior executed without deliberation
+    survival_relevance: Fast-path for familiar stimuli frees processing resources for monitoring novel threats simultaneously
+    what_fires: Prediction error on current stimulus below branching threshold — processing routed to fast/cached path
+
+  - id: ambiguous_signal_escalation
+    description: Sensor reading could match either "food" or "trap" pattern — models conflict, prediction error is high, slow path activated for disambiguation
+    survival_relevance: Ambiguity demands careful processing — fast-path response to ambiguous signal could be fatal
+    what_fires: Multiple competing predictions with similar confidence — high entropy triggers slow-path routing
+
+  - id: routine_navigation_autopilot
+    description: Organism traverses familiar path to shelter — all predictions confirmed, fast-path maintains course without deliberative involvement
+    survival_relevance: Autopilot for familiar routes conserves cognitive resources for threat detection
+    what_fires: Continuous low prediction error during sequential behavior — sustained fast-path processing
+
+  - id: environmental_regime_shift
+    description: Established thermal cycle suddenly breaks — prediction error spikes, triggering slow-path reassessment of all environmental models
+    survival_relevance: Regime change invalidates cached models — slow path needed to rebuild accurate predictions
+    what_fires: Previously reliable prediction suddenly fails — error spike triggers global slow-path activation
+
+anti_manifestations:
+  - id: uniform_processing_depth
+    description: Organism processes all stimuli with equal deliberation — no fast path for familiar, no slow path for novel
+    why_should_not_fire: No branching is occurring — processing is uniform regardless of prediction error level
+    distinguishes: Prediction branching requires DIFFERENTIAL processing allocation based on error magnitude
+
+  - id: error_without_routing
+    description: Organism experiences high prediction error but continues using the same cached behavior without switching to deliberation
+    why_should_not_fire: Error detected but no routing decision made — behavior unchanged by error magnitude
+    distinguishes: Prediction branching requires the error to CAUSE a processing path change, not just be detected

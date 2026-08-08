@@ -1,0 +1,47 @@
+receptor_id: relational_observation
+family: observation
+tier: trunk
+stage: 2
+
+conceptual_space: |
+  Observe RELATIONSHIPS between entities, not just entities. "A is bigger
+  than B," "X is closer to Y than to Z," "P happened before Q." The concept
+  is the relation itself — the comparison, the ordering, the spatial or
+  temporal arrangement between two or more observed things.
+
+manifestations:
+  - id: closer_to_food_than_threat
+    description: Food is 5 steps away, threat is 15 steps away — organism detects the relative proximity relationship
+    survival_relevance: Knowing relative distances enables "grab food before threat arrives" decisions
+    what_fires: Spatial relationship computed between organism-food distance and organism-threat distance
+
+  - id: bigger_npc_dominates
+    description: NPC-A (large) displaces NPC-B (small) from food — organism observes the dominance relationship between them
+    survival_relevance: Understanding inter-NPC dominance hierarchy informs which NPCs to avoid and which are safe
+    what_fires: Behavioral outcome between two entities encoded as relational property (A > B in dominance)
+
+  - id: hotter_than_yesterday
+    description: Current temperature is higher than same-phase temperature in previous cycle — relative temporal comparison
+    survival_relevance: Trend detection across cycles enables anticipation of escalating conditions
+    what_fires: Same-dimension comparison between current value and stored reference value from previous cycle
+
+  - id: food_between_threats
+    description: Food patch is spatially between two threat zones — organism observes the "between" spatial relationship
+    survival_relevance: Recognizing containment/between relationships enables risk assessment for approach routes
+    what_fires: Spatial arrangement relationship computed across three entities (threat-food-threat topology)
+
+  - id: sequence_ordering
+    description: Chemical spike occurs, then temperature drops, then NPC appears — organism detects the ordering A-before-B-before-C
+    survival_relevance: Relational ordering enables multi-step prediction — early signals predict late events
+    what_fires: Temporal ordering relationship encoded between three sequential events
+
+anti_manifestations:
+  - id: entity_detection_alone
+    description: Organism detects "there is food" and "there is a threat" — two entities noted but no relationship between them computed
+    why_should_not_fire: These are independent observations, not a relational observation — no comparison made
+    distinguishes: Relational observation requires computing a RELATIONSHIP between entities, not just detecting entities
+
+  - id: absolute_measurement
+    description: Organism detects "temperature is 0.7" — a single property of a single thing, no comparison
+    why_should_not_fire: Absolute measurement of one entity is not relational — no second entity or reference point
+    distinguishes: Relational observation requires AT LEAST TWO things being compared or related

@@ -1,0 +1,136 @@
+receptor_id: agency_salience
+family: agency
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Detects the motivational pull toward situations where the organism has
+  high controllability — where objects are within reach, manipulable,
+  and responsive to action. The concept is not control itself but the
+  SEEKING of control: the salience of manipulable configurations, the
+  preference for positions near movable objects, the drive to approach
+  high-agency situations. The boundary separates the motivational signal
+  (seeking controllability) from the capacity signal (having control).
+
+manifestations:
+  - id: approach_cluster_of_loose_objects
+    description: |
+      The organism is in an open field with two areas visible: one
+      with bare ground, another with scattered loose rocks, sticks,
+      and seed pods. The organism moves toward the area with
+      manipulable objects despite no immediate need for any of them.
+    survival_relevance: |
+      Seeking proximity to manipulable resources before a specific
+      need arises is pre-adaptive. The organism positions itself
+      where future tool use, shelter building, or defense is
+      possible.
+    what_fires: |
+      Attentional and motivational bias toward the spatial region
+      containing multiple discrete, movable objects. The cluster
+      of manipulable items is salient — it draws approach behavior
+      independent of any particular goal.
+
+  - id: preference_for_position_near_movable_rocks
+    description: |
+      The organism is choosing a resting spot. Two ledges offer
+      similar shelter. One has several loose stones within reach;
+      the other has only fixed, embedded boulders. The organism
+      chooses the ledge with loose stones.
+    survival_relevance: |
+      Resting near movable objects provides options for defense
+      (throwing rocks at predators), construction (blocking
+      entrance), and future tool use. The preference reflects
+      agency-seeking.
+    what_fires: |
+      Comparative evaluation of two locations based on object
+      manipulability. The location with higher controllability
+      (loose, movable objects) is preferred even though the
+      primary function (resting shelter) is equivalent.
+
+  - id: return_to_high_agency_location
+    description: |
+      The organism previously spent time in an area with fallen
+      branches, vine material, and flat stones — a resource-rich
+      area for manipulation. After being displaced by weather, it
+      returns to this specific area rather than exploring new
+      territory.
+    survival_relevance: |
+      Returning to known high-controllability zones provides
+      reliable access to manipulable resources. The return
+      behavior is driven by the salience of remembered agency
+      potential.
+    what_fires: |
+      Memory-driven approach behavior toward a location encoded
+      as having high manipulation potential. The motivational
+      pull is toward controllability itself, not toward any
+      specific object or resource at the location.
+
+  - id: discomfort_in_barren_featureless_space
+    description: |
+      The organism enters a flat sandy area with no objects —
+      no rocks, sticks, plants, or debris. Despite adequate food
+      and water nearby, it exhibits restlessness, increased
+      scanning, and motivation to leave the barren area.
+    survival_relevance: |
+      Low-controllability environments leave the organism
+      vulnerable — no tools for defense, no materials for shelter,
+      no objects to manipulate for any purpose. The discomfort
+      signal drives the organism toward richer environments.
+    what_fires: |
+      Aversive motivational signal in response to environmental
+      scarcity of manipulable objects. The absence of controllable
+      elements generates a drive to seek higher-agency locations.
+      Not danger detection — agency deficit detection.
+
+  - id: exploration_biased_toward_object_dense_areas
+    description: |
+      The organism is exploring new territory. Its path consistently
+      bends toward areas where discrete objects (fallen logs,
+      rock piles, brush) are visible, bypassing open grassland
+      even when the grass areas offer clearer sight lines.
+    survival_relevance: |
+      Exploration biased toward object-dense areas maximizes
+      discovery of manipulable resources. The organism samples
+      environments with higher agency potential preferentially.
+    what_fires: |
+      Exploratory movement pattern shows systematic bias toward
+      regions with higher object density and manipulability.
+      The spatial foraging strategy weights controllability as
+      a factor independent of food or safety.
+
+anti_manifestations:
+  - id: successfully_controlling_an_object
+    description: |
+      The organism picks up a rock and uses it to crack open a
+      nut successfully. It is in full control of the tool and
+      the outcome. The manipulation is executed skillfully.
+    why_should_not_fire: |
+      This is exercising control, not seeking it. Agency salience
+      is the motivational signal that draws the organism toward
+      controllable situations. Once control is being exercised,
+      the relevant receptor is controllability, not agency
+      salience. The drive to approach has been fulfilled.
+    distinguishes: |
+      Motivation to seek control (agency salience) versus
+      execution of control (controllability). The salience
+      receptor fires on approach and preference, not on
+      successful manipulation.
+
+  - id: avoiding_a_dangerous_manipulable_object
+    description: |
+      A venomous snake is coiled near the organism — technically
+      a manipulable discrete object, but the organism avoids it
+      rather than approaching. The object's danger overrides any
+      agency-seeking signal.
+    why_should_not_fire: |
+      Agency salience is a tendency to seek controllable
+      situations, but it is not an override of survival signals.
+      A dangerous object may be manipulable but approaching it
+      is threat-relevant, not agency-relevant. The receptor
+      fires on controllability as an attractor, which threat
+      signals can suppress.
+    distinguishes: |
+      Controllability as motivational attractor (agency salience)
+      versus controllability as threat assessment (danger
+      evaluation). Objects that are manipulable but dangerous
+      activate threat systems, not agency-seeking.

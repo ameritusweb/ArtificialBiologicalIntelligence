@@ -1,0 +1,49 @@
+receptor_id: it_follows
+family: logic
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detects valid deductive inference within the organism's own belief system.
+  The boundary is between conclusions that logically follow from held premises
+  and conclusions that are merely associated, correlated, or hoped for.
+  Fires when the organism recognizes that given what it already holds as true,
+  a new conclusion is necessarily true -- not probably, not hopefully, but
+  unavoidably entailed by its existing beliefs.
+
+manifestations:
+  - id: universal_instantiation
+    description: The organism holds "all red things in this environment have caused pain" and currently perceives "this object is red." It detects that "this object will cause pain" follows necessarily from its two held beliefs. The conclusion is not a guess -- it is entailed.
+    survival_relevance: Drawing valid inferences from general rules and specific observations lets the organism anticipate harm before contact. The speed of deduction versus waiting for direct experience is often the difference between injury and avoidance.
+    what_fires: A universally quantified belief (all X are Y) combined with a categorization of a specific instance as X, producing an activation of Y for that instance with the certainty marker indicating logical entailment rather than probabilistic prediction.
+
+  - id: chain_inference
+    description: The organism holds "predators follow prey trails" and "I am leaving a prey trail." It detects the chain inference -- "therefore, a predator may follow ME." The conclusion was not directly observed or even predicted by pattern-matching; it was derived by connecting two separate beliefs through a shared term.
+    survival_relevance: Chain inferences let the organism reason about threats it has never directly experienced by connecting knowledge from different domains. This extends the organism's threat model beyond its direct experience.
+    what_fires: Two beliefs sharing a middle term (A implies B, B applies to self) chaining to produce a new belief (A applies to self), detected when the shared term is recognized as the bridge and the conclusion is generated with entailment status.
+
+  - id: elimination_inference
+    description: The organism knows food is in one of three locations. It has checked two and found nothing. It detects that the food must be in the third location -- not because it has evidence of food there, but because the alternatives are exhausted. The conclusion follows from the structure of the situation.
+    survival_relevance: Elimination reasoning lets the organism navigate efficiently by ruling out possibilities rather than searching exhaustively. In time-constrained foraging, deducing the remaining location saves critical energy.
+    what_fires: An exhaustive set of possibilities with all but one eliminated by observation, producing activation of the remaining possibility with certainty derived from the elimination structure rather than from direct evidence.
+
+  - id: contrapositive_detection
+    description: The organism holds "if an area has food, it has bird activity." It observes an area with no bird activity. It detects the contrapositive -- "therefore, this area has no food" -- and redirects its search. The absence of the consequent entails the absence of the antecedent.
+    survival_relevance: Contrapositive reasoning lets the organism use negative evidence productively. Instead of searching every area for food directly, it can rule out foodless areas by observing the absence of indicators, massively reducing search cost.
+    what_fires: A conditional belief (if P then Q) combined with observation of not-Q, producing activation of not-P with entailment certainty. The organism recognizes the logical structure rather than merely noting the absence.
+
+  - id: transitivity_application
+    description: The organism holds "I am faster than creature A" and "creature A is faster than creature B." It detects that "I am faster than creature B" follows necessarily. It has never raced creature B, but the conclusion is entailed by the transitive structure of "faster than."
+    survival_relevance: Transitive inference about relative capabilities lets the organism assess threats and opportunities involving entities it has never directly compared. It can confidently engage or flee based on derived knowledge.
+    what_fires: Two relational beliefs sharing a common term in a transitive relation (aRb and bRc), producing the derived relation (aRc) with the organism recognizing that the conclusion's certainty comes from the relation's transitive property, not from direct observation.
+
+anti_manifestations:
+  - id: correlation_mistaken_as_entailment
+    description: The organism has noticed that rain often precedes predator activity. Today it is raining. The organism feels strongly that predators will be active. But "rain often precedes predator activity" is a correlation, not a universal rule -- the conclusion does not logically follow. It is probable, not entailed.
+    why_should_not_fire: Deductive inference requires that the conclusion is necessarily true given the premises. Statistical correlation supports probabilistic prediction, not logical entailment. "Often" is not "always," so the conclusion could be false even with the premise true.
+    distinguishes: Whether the major premise is a universal rule (all X are Y) supporting deduction, versus a statistical regularity (X often correlates with Y) supporting only probabilistic inference.
+
+  - id: wishful_derivation
+    description: The organism holds "I need food to survive" and "there is food across the river." It concludes "therefore I can cross the river." The conclusion feels urgent and motivated, but it does not follow from the premises -- need does not entail capability. The organism's desire for the conclusion is driving the inference, not logic.
+    why_should_not_fire: Valid deduction requires the conclusion to be structurally entailed by the premises. "I need X" and "X is at location Y" does not entail "I can reach Y." The apparent inference is driven by motivational pressure, not logical structure. The premises do not contain information about the organism's river-crossing capability.
+    distinguishes: Whether the conclusion is structurally entailed by the premises (valid deduction) versus motivated by the organism's needs or desires and merely dressed in the appearance of logical necessity (wishful reasoning).

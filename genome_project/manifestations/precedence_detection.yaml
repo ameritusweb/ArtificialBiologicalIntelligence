@@ -1,0 +1,46 @@
+receptor_id: precedence_detection
+family: causality
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  A comes before B consistently. Temporal ORDER matters — A predicts B but
+  B does not predict A. The boundary: directional sequence vs reversible
+  co-occurrence.
+
+manifestations:
+  - id: push_before_movement
+    description: Organism pushes object → object moves. Never: object moves → organism pushed
+    survival_relevance: Directional order establishes which is cause and which is effect
+    what_fires: Consistent A→B ordering, not B→A
+
+  - id: wound_before_pain
+    description: Contact with sharp object precedes pain, not pain precedes contact
+    survival_relevance: Knowing what PRECEDES pain enables avoidance of the cause
+    what_fires: Consistent temporal ordering of injury then pain
+
+  - id: approach_before_capture
+    description: Predator approaches THEN captures, never captures then approaches
+    survival_relevance: Detecting the approach phase enables escape before capture
+    what_fires: Approach consistently precedes danger with directional asymmetry
+
+  - id: effort_before_fatigue
+    description: High muscle activity precedes fatigue increase, not vice versa
+    survival_relevance: Knowing that effort causes fatigue enables energy budgeting
+    what_fires: Efference precedes fatigue with consistent direction
+
+  - id: signal_before_response
+    description: Organism emits signal → NPC changes behavior. Not: NPC changes → organism emitted
+    survival_relevance: Knowing that MY signal caused THEIR response enables intentional communication
+    what_fires: Emission precedes behavioral change with directional consistency
+
+anti_manifestations:
+  - id: bidirectional
+    description: Organism and NPC exchange signals — each responds to the other equally
+    why_should_not_fire: No clear directional precedence — mutual causation
+    distinguishes: Precedence requires asymmetric temporal ordering
+
+  - id: coincidence_not_order
+    description: Pain and heat co-occur but neither consistently precedes the other
+    why_should_not_fire: Simultaneous events have no precedence relationship
+    distinguishes: Precedence is about ORDER, coincidence is about co-occurrence

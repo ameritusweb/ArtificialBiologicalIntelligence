@@ -1,0 +1,137 @@
+receptor_id: mimicry
+family: bridging
+tier: trunk
+stage: 4
+
+conceptual_space: |
+  NPC reaches food via a novel path; the organism reproduces the motor
+  sequence. The concept is see-then-do: observation-to-motor mapping.
+  Watching another agent perform an action and translating the observed
+  movement into the organism's own motor commands. The boundary is
+  between observational learning (copying observed actions) and
+  independent discovery (finding the same action through trial and
+  error). Mimicry requires that the organism's action was CAUSED by
+  observing the other agent's action.
+
+manifestations:
+  - id: path_copying
+    description: |
+      NPC-A navigates a novel route through a maze to reach food.
+      The organism has never taken this route. After observing NPC-A,
+      the organism reproduces the same sequence of turns to reach
+      the food via the same path.
+    survival_relevance: |
+      Copying successful navigation sequences is faster than
+      independent exploration. The organism acquires a proven route
+      without paying the cost of trial-and-error pathfinding.
+    what_fires: |
+      Organism's motor sequence following observation matches the
+      observed agent's motor sequence. Temporal order: observation
+      first, reproduction second. The organism's path was not in
+      its repertoire before observation.
+
+  - id: action_on_object_reproduction
+    description: |
+      NPC-B pushes a rock to create a bridge over a gap, then
+      crosses. The organism has never pushed a rock for this purpose.
+      After observing NPC-B, the organism pushes a different rock
+      to bridge a different gap using the same push-then-cross
+      sequence.
+    survival_relevance: |
+      Copying tool-use sequences from others accelerates capability
+      acquisition. Each novel tool technique observed and reproduced
+      expands the organism's action repertoire without individual
+      discovery cost.
+    what_fires: |
+      Organism performs an action sequence on an object that matches
+      the structure of an action sequence it observed another agent
+      perform. The action-object pairing was new to the organism
+      before observation.
+
+  - id: social_signal_reproduction
+    description: |
+      NPC-C emits a specific signal pattern and receives a favorable
+      response from NPC-D (NPC-D moves aside, granting access to
+      food). The organism observes this exchange and then emits the
+      same signal pattern when approaching NPC-D.
+    survival_relevance: |
+      Copying effective social signals enables the organism to
+      participate in established communication protocols without
+      having to discover them independently through costly trial
+      and error.
+    what_fires: |
+      Organism's emission pattern matches a pattern it observed
+      another agent use successfully. The emission was not in the
+      organism's repertoire before observation. Observation-to-
+      emission mapping fires.
+
+  - id: avoidance_behavior_copying
+    description: |
+      NPC-E approaches a region, appears to detect something, and
+      rapidly retreats. The organism has no direct information about
+      the region. After observing NPC-E's retreat, the organism
+      avoids the region — reproducing the avoidance behavior without
+      personal experience of the threat.
+    survival_relevance: |
+      Copying avoidance behaviors enables vicarious threat learning.
+      The organism avoids a danger without ever experiencing it
+      directly, potentially preventing damage or death.
+    what_fires: |
+      Organism reproduces another agent's avoidance motor pattern
+      without direct experience of the avoided stimulus. The
+      avoidance was triggered by observation of the other agent's
+      retreat, not by personal detection of the threat.
+
+  - id: feeding_technique_adoption
+    description: |
+      NPC-F uses an unusual approach angle and specific movement
+      pattern to access food in a difficult location. The organism
+      has failed to access this food using its default approach.
+      After watching NPC-F succeed, the organism adopts NPC-F's
+      approach angle and movement pattern, successfully accessing
+      the food.
+    survival_relevance: |
+      Copying successful techniques from more experienced agents
+      overcomes the organism's own behavioral limitations. This is
+      the core survival advantage of social learning — leveraging
+      others' discoveries.
+    what_fires: |
+      Organism's new motor strategy matches observed agent's strategy.
+      The organism had a prior strategy that failed; the new strategy
+      was adopted after observation. Observation-to-motor conversion
+      plus strategy replacement fires.
+
+anti_manifestations:
+  - id: convergent_discovery
+    description: |
+      NPC-G takes a leftward path to food. The organism independently
+      discovers the same leftward path through its own exploration,
+      without having observed NPC-G. Both agents happen to find the
+      same solution, but the organism's discovery was independent.
+    why_should_not_fire: |
+      Mimicry requires that the organism's action was CAUSED by
+      observing the other agent. Independent discovery of the same
+      action is convergent solution-finding, not imitation. The
+      causal chain (observation leads to reproduction) is absent.
+    distinguishes: |
+      Mimicry requires a causal link: observation THEN reproduction.
+      Same action without prior observation is independent discovery.
+      The distinguishing factor is whether the organism observed the
+      other agent performing the action before it performed it.
+
+  - id: behavioral_prediction_without_reproduction
+    description: |
+      The organism watches NPC-H take a specific path and accurately
+      predicts NPC-H will take the same path next time. But the
+      organism never takes that path itself — it just predicts
+      NPC-H's behavior without copying it.
+    why_should_not_fire: |
+      Mimicry requires motor reproduction, not just observational
+      prediction. The organism predicted the agent's behavior but
+      did not MAP that behavior into its own motor commands. Knowing
+      what another agent does is not the same as doing it.
+    distinguishes: |
+      Mimicry is observation-to-MOTOR mapping. Behavioral prediction
+      is observation-to-PREDICTION mapping. The output domain
+      differs: mimicry produces motor commands, prediction produces
+      expectations. Both start with observation but end differently.

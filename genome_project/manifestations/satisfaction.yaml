@@ -1,0 +1,48 @@
+receptor_id: satisfaction
+family: regulatory
+tier: branch
+stage: 5
+
+conceptual_space: |
+  Detects that a goal has been successfully completed — the predator was evaded,
+  the food was reached, the shelter was secured. The active drive that was
+  motivating behavior has been resolved. The boundary separates genuine goal
+  completion (the need that drove behavior is now met) from partial progress
+  or temporary relief that does not resolve the underlying drive.
+
+manifestations:
+  - id: predator_evaded_food_reached
+    description: Successfully escaped predator pursuit and reached a food source — both the safety and hunger drives resolved in sequence
+    survival_relevance: Satisfaction signal redirects effort from completed goals to remaining unmet needs, preventing wasted persistence on solved problems
+    what_fires: Threat level dropping to zero AND resource acquisition signal firing — the motivating drives that were active are now both resolved
+
+  - id: shelter_secured
+    description: Found and occupied suitable shelter with cover, escape routes, and protection — the shelter-seeking drive is fulfilled
+    survival_relevance: Recognizing shelter satisfaction prevents continued unnecessary searching and allows transitioning to rest or other activities
+    what_fires: Shelter quality signals exceeding the threshold that was driving search behavior — the drive state that motivated shelter-seeking is now quenched
+
+  - id: successful_food_cache
+    description: Gathered surplus food and stored it in a secure location — the caching drive is complete
+    survival_relevance: Completing the cache allows shifting from hoarding behavior to other priorities without lingering caching motivation
+    what_fires: Food storage signals confirming successful caching at a secure location — the surplus-anxiety drive that motivated caching is resolved
+
+  - id: territory_established
+    description: Marked and defended a territory successfully — the territorial drive is satisfied with a stable, recognized boundary
+    survival_relevance: Territorial satisfaction prevents over-investment in boundary maintenance and frees resources for foraging and rest
+    what_fires: Territorial integrity signals stable over multiple cycles without challenges — the territorial defense drive has achieved its maintenance threshold
+
+  - id: social_position_secured
+    description: Successfully established a functional role within a group — accepted by others and contributing effectively
+    survival_relevance: Social satisfaction prevents continued costly signaling and posturing, enabling cooperative behavior to begin
+    what_fires: Social acceptance signals and functional contribution signals both active — the social integration drive is resolved
+
+anti_manifestations:
+  - id: partial_escape
+    description: Organism increased distance from predator but the predator is still pursuing — threat is reduced but not resolved
+    why_should_not_fire: The safety drive is not satisfied — partial progress toward a goal is not completion, and premature satisfaction would cause fatal complacency
+    distinguishes: Goal completion vs progress toward goal — satisfaction requires the driving need to be fully resolved, not merely reduced
+
+  - id: temporary_food_access
+    description: Organism found food but a predator is approaching the food location — food is accessible momentarily but the situation is not resolved
+    why_should_not_fire: The food drive may be partially met but the safety drive is now active — overall goal state is not satisfied when a new threat emerges
+    distinguishes: Genuine resolution vs unstable temporary state — satisfaction requires that the resolved state is stable, not immediately threatened

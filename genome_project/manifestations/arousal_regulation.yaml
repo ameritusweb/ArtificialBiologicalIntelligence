@@ -1,0 +1,48 @@
+receptor_id: arousal_regulation
+family: regulatory
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Matching energy output to situational demands. High arousal when fleeing,
+  low arousal when foraging safely. The concept is the MATCH or MISMATCH
+  between current arousal level and what the situation requires — not
+  arousal level itself. The boundary: appropriate vs inappropriate arousal
+  for the current context.
+
+manifestations:
+  - id: escape_arousal_match
+    description: Predator detected, organism mobilizes maximum muscle output and heightened senses
+    survival_relevance: High arousal during threat enables survival through speed and vigilance
+    what_fires: High arousal level concurrent with high threat signals — match detected
+
+  - id: foraging_calm_match
+    description: Safe environment with food nearby, organism operates at low steady energy output
+    survival_relevance: Low arousal during safety conserves energy for future threats
+    what_fires: Low arousal level concurrent with low threat and resource-present signals — match detected
+
+  - id: over_aroused_foraging
+    description: No threat present but organism maintains sprint-level energy expenditure while feeding
+    survival_relevance: Wasted energy during safe periods shortens survival window
+    what_fires: High arousal concurrent with low-threat signals — MISMATCH detected
+
+  - id: under_aroused_threat
+    description: Predator approaching but organism maintains resting-level muscle output
+    survival_relevance: Insufficient response to danger leads to capture and death
+    what_fires: Low arousal concurrent with high-threat signals — MISMATCH detected
+
+  - id: arousal_transition
+    description: Threat appears during foraging — organism ramps arousal from low to high within steps
+    survival_relevance: Speed of arousal transition determines escape success
+    what_fires: Arousal change rate relative to threat onset timing — transition appropriateness
+
+anti_manifestations:
+  - id: high_arousal_alone
+    description: Organism is highly aroused — but context is unknown
+    why_should_not_fire: Arousal level without situational context has no match/mismatch to detect
+    distinguishes: Arousal regulation is about the RELATIONSHIP between arousal and demand, not arousal magnitude
+
+  - id: threat_detection_alone
+    description: Predator is detected — but organism's arousal state is not measured
+    why_should_not_fire: Knowing the situation without knowing the organism's response cannot assess match
+    distinguishes: Regulation requires BOTH the current state and the situational demand to evaluate fit

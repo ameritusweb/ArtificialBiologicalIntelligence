@@ -1,0 +1,173 @@
+receptor_id: theory_formation
+family: formalization
+tier: canopy
+stage: 6
+
+conceptual_space: |
+  Detects the organization of multiple rules, exceptions, and
+  observations into a coherent explanatory framework. Individual
+  rules exist — "moving things are dangerous," "stationary things
+  are safe" — but exceptions arise: "that stationary thing was a
+  trap." Theory formation unifies these into a framework that
+  handles the exceptions: "moving = dangerous, stationary = safe,
+  UNLESS stationary + concealed + near trail = trap." The boundary
+  separates having a collection of independent rules from having
+  an integrated framework where rules interact and exceptions are
+  systematically explained.
+
+manifestations:
+  - id: predator_behavior_theory
+    description: |
+      The organism has learned: (1) large moving animals are
+      dangerous, (2) animals that run away are not dangerous,
+      (3) but some animals that run away then circle back to
+      ambush. It integrates these into a framework: animals are
+      dangerous when they have pursuit capability AND intent,
+      not dangerous when they flee genuinely, and the circling-
+      back behavior indicates deceptive flight. The theory
+      handles the exception (fleeing animal that is actually
+      dangerous) by adding the "deceptive flight" concept.
+    survival_relevance: |
+      An integrated predator theory enables prediction of novel
+      predator behaviors. When encountering a new animal that
+      runs but keeps visual contact, the theory predicts ambush
+      risk — even though this specific combination was never
+      directly experienced.
+    what_fires: |
+      Multiple rules about the same domain (animal danger) that
+      individually produce contradictory predictions for some
+      cases (fleeing should mean safe, but this fleeing animal
+      is dangerous) being unified into a framework that resolves
+      the contradiction through a higher-order concept (deceptive
+      flight). The resolution of inter-rule conflict fires.
+
+  - id: seasonal_food_availability_theory
+    description: |
+      The organism knows: (1) berries appear after rain, (2) but
+      not all rain produces berries, (3) berries appear only after
+      warm rain, not cold rain, (4) but even warm rain fails if
+      the ground is already saturated. It integrates these into
+      a theory: berry production requires warm rain on unsaturated
+      soil, explaining all observed successes and failures through
+      two interacting variables (temperature, soil moisture).
+    survival_relevance: |
+      The integrated theory enables predictive foraging. After
+      warm rain on dry soil, the organism can confidently travel
+      to berry patches. After cold rain or rain on saturated soil,
+      it allocates foraging effort elsewhere — saving energy
+      through accurate prediction.
+    what_fires: |
+      Multiple conditional rules about the same outcome (berry
+      availability) that interact in complex ways (warm AND
+      unsaturated needed) being organized into a single
+      explanatory framework that accounts for all observed
+      successes and failures. The multi-variable integration fires.
+
+  - id: shelter_effectiveness_theory
+    description: |
+      The organism has observed: (1) caves protect from rain,
+      (2) but some caves flood, (3) elevated caves do not flood,
+      (4) but elevated caves are cold, (5) small elevated caves
+      retain heat. It forms a theory: optimal shelter requires
+      elevation (prevents flooding) AND small volume (retains
+      heat) AND overhead cover (blocks rain). Each rule alone
+      is insufficient — the theory specifies their interaction.
+    survival_relevance: |
+      The multi-factor shelter theory enables rapid evaluation
+      of new shelter candidates without trial-and-error in each
+      one. The organism can assess elevation, size, and cover
+      at a glance and predict shelter effectiveness before
+      committing.
+    what_fires: |
+      Multiple independent observations about shelter quality
+      being organized into an integrated framework where each
+      factor's contribution is understood in relation to the
+      others. The multi-factor interaction model — not just a
+      list of individual rules — fires theory formation.
+
+  - id: social_conflict_resolution_theory
+    description: |
+      The organism observes: (1) displaying aggression makes
+      subordinates retreat, (2) but not if the subordinate is
+      near its nest, (3) and displaying submission to dominants
+      prevents attack, (4) but not if the dominant is guarding
+      food. It integrates these into a theory: social signals
+      are effective except when territorial or resource motivation
+      overrides social hierarchy. The theory predicts when normal
+      social rules will and will not apply.
+    survival_relevance: |
+      A social conflict theory enables the organism to predict
+      when standard social strategies will fail and switch to
+      alternative tactics. Near another's nest, aggression display
+      is predicted to fail, so avoidance is chosen instead.
+    what_fires: |
+      Social rules with context-dependent exceptions being unified
+      into a framework that explains the exceptions through a
+      higher-order principle (motivational override). The
+      principle that predicts when rules break fires theory
+      formation.
+
+  - id: water_source_reliability_theory
+    description: |
+      The organism knows: (1) streams flow after rain, (2) but
+      some streams are permanent, (3) permanent streams come from
+      underground sources, (4) underground sources fail during
+      extended drought, (5) but deep underground sources survive
+      drought. It forms a theory: water reliability depends on
+      source depth — surface rain is ephemeral, shallow
+      underground is seasonal, deep underground is perennial.
+      A single variable (source depth) explains the entire
+      gradient of reliability.
+    survival_relevance: |
+      The unified water theory enables drought planning. The
+      organism prioritizes learning locations of deep-source
+      streams because the theory predicts these will be the last
+      to fail. This forward-looking resource management is
+      impossible with individual disconnected rules.
+    what_fires: |
+      Multiple water-reliability observations organized by a
+      single explanatory variable (source depth) that accounts
+      for all observed variation. The identification of an
+      underlying explanatory dimension that unifies disparate
+      observations fires.
+
+anti_manifestations:
+  - id: list_of_independent_rules
+    description: |
+      The organism knows several food rules: "red berries are
+      sweet," "mushrooms near logs are edible," "roots near water
+      are nutritious." These are separate rules about separate
+      food types with no interaction or shared explanatory
+      framework. Each rule stands independently.
+    why_should_not_fire: |
+      This is a rule collection, not a theory. The rules do not
+      interact, do not explain each other, and do not share an
+      underlying principle that handles exceptions. Theory
+      formation requires integration — rules that modify each
+      other or are unified by a higher-order concept. Independent
+      rules are just a list.
+    distinguishes: |
+      Rule collection (independent rules stored separately) versus
+      theory (integrated framework where rules interact, exceptions
+      are explained by higher-order principles, and predictions
+      emerge from the framework rather than individual rules).
+      Integration is the boundary.
+
+  - id: single_conditional_rule
+    description: |
+      The organism learns: "if it rains AND the ground is warm,
+      mushrooms appear." This is a single multi-condition rule.
+      It has no exceptions, no competing rules, and no need for
+      a unifying framework.
+    why_should_not_fire: |
+      This is a compound conditional rule, not a theory. A theory
+      requires multiple rules that must be organized relative to
+      each other, with exceptions handled by higher-order
+      principles. A single rule, even a complex one, is just a
+      rule — there is nothing to integrate, no contradictions
+      to resolve, no exceptions to explain.
+    distinguishes: |
+      Single compound rule (one if-then with multiple conditions)
+      versus theory (multiple rules organized into a framework
+      that resolves conflicts and handles exceptions). The multi-
+      rule integration requirement is the boundary.

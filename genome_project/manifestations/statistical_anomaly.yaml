@@ -1,0 +1,129 @@
+receptor_id: statistical_anomaly
+family: observation
+tier: branch
+stage: 4
+
+conceptual_space: |
+  NPC usually approaches food but today it's circling the perimeter.
+  The concept is detecting when observed behavior deviates from the
+  established distribution for that specific agent. Not detecting rare
+  events in general (rarity_detection) but detecting that THIS agent
+  is doing something unusual FOR THIS AGENT. The boundary is agent-
+  specific deviation from the agent's own baseline, not deviation
+  from global norms.
+
+manifestations:
+  - id: route_deviation
+    description: |
+      NPC-A has taken the same path to food 20 consecutive times.
+      On trial 21, NPC-A takes a completely different route. The
+      behavior is far outside NPC-A's established behavioral
+      distribution at this decision point.
+    survival_relevance: |
+      When a predictable agent becomes unpredictable, something has
+      changed — in the agent's internal state or in the environment.
+      Either way, the organism's behavioral predictions need updating.
+    what_fires: |
+      Agent's action falls in the extreme tail of that agent's
+      observed behavioral distribution for this context. Deviation
+      from agent-specific baseline exceeds threshold.
+
+  - id: activity_timing_shift
+    description: |
+      NPC-B always forages during one phase of the cycle and rests
+      during another. Today NPC-B is foraging during its usual rest
+      phase. The temporal pattern violation is anomalous for this
+      specific agent.
+    survival_relevance: |
+      Schedule violations may indicate environmental change (food
+      scarcity forcing unusual foraging times) or agent state change
+      (injury, heightened need). Both are survival-relevant
+      information.
+    what_fires: |
+      Agent's temporal activity pattern deviates from its
+      established rhythm. Behavior that was time-locked is now
+      occurring out of phase. Agent-specific temporal anomaly
+      detected.
+
+  - id: social_behavior_change
+    description: |
+      NPC-C has consistently avoided NPC-D for many episodes. Today
+      NPC-C is approaching NPC-D directly. The social behavior is
+      anomalous relative to NPC-C's established interaction pattern
+      with NPC-D.
+    survival_relevance: |
+      Changes in social dynamics signal alliance formation, dominance
+      shifts, or environmental pressures that alter behavioral
+      strategies. The organism must update its social model.
+    what_fires: |
+      Agent's social behavior toward a specific other agent deviates
+      from the established pairwise interaction pattern. Agent-to-
+      agent behavioral baseline is violated.
+
+  - id: emission_pattern_change
+    description: |
+      NPC-E typically emits calm, regular signals. Today its
+      emissions are rapid, intense, and irregular — a pattern
+      NPC-E has never displayed before. The emission profile is
+      anomalous for this specific agent.
+    survival_relevance: |
+      Sudden emission changes may signal danger detection, internal
+      state crisis, or environmental change that the organism has
+      not yet perceived directly. Anomalous emissions are an
+      indirect alert.
+    what_fires: |
+      Agent's emission pattern deviates from its historical emission
+      profile. Signal characteristics (frequency, amplitude, timing)
+      fall outside the agent's established emission distribution.
+
+  - id: speed_anomaly
+    description: |
+      NPC-F moves at a consistent speed across dozens of observations.
+      Today NPC-F is moving at half its usual speed despite no
+      visible obstacle or terrain change. The speed is anomalous
+      for this agent in this context.
+    survival_relevance: |
+      Speed changes without environmental cause may indicate injury,
+      exhaustion, or carrying a resource. All affect how the organism
+      should interact with this agent.
+    what_fires: |
+      Agent's movement speed deviates significantly from its
+      established speed distribution for this environmental context.
+      Speed change cannot be attributed to terrain or obstacle.
+      Agent-specific motor anomaly detected.
+
+anti_manifestations:
+  - id: novel_agent_first_observation
+    description: |
+      A never-before-seen NPC appears and takes an unusual path.
+      There is no established behavioral distribution for this
+      agent. The behavior cannot be anomalous because there is no
+      baseline to deviate from.
+    why_should_not_fire: |
+      Statistical anomaly requires deviation from an established
+      distribution. For a novel agent, there is no distribution.
+      The first observation IS the beginning of the distribution,
+      not a deviation from it.
+    distinguishes: |
+      Anomaly detection requires a BASELINE. Novel agents have no
+      baseline. This distinguishes statistical anomaly from rarity
+      detection — rarity uses a global distribution, anomaly uses
+      an agent-specific distribution.
+
+  - id: gradual_behavioral_drift
+    description: |
+      NPC-G's preferred path has slowly shifted over 50 episodes —
+      each step is only slightly different from the last. No single
+      observation is anomalous relative to the recent distribution,
+      even though the current path differs greatly from the path
+      50 episodes ago.
+    why_should_not_fire: |
+      Each individual observation is within the expected range of
+      the recent distribution. The drift is gradual, not sudden.
+      Statistical anomaly detects SUDDEN deviation, not cumulative
+      trend. Trend detection is a different function.
+    distinguishes: |
+      Statistical anomaly detects sudden departures from the
+      established distribution. Gradual drift updates the
+      distribution continuously and never produces a spike.
+      Anomaly is about surprise, not about long-term change.

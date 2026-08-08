@@ -1,0 +1,133 @@
+receptor_id: velocity
+family: proprioception
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Detects the speed of the organism's own limb movements — how fast joints
+  are changing angle. Not the direction of movement, not the destination,
+  not whether movement just started — the rate. Fast swing versus slow
+  creep. The boundary is the magnitude of angular velocity in the limbs:
+  high rate of change versus low rate of change. This is the speedometer
+  of the body's own motion.
+
+manifestations:
+  - id: fast_strike_at_prey
+    description: |
+      The organism's forelimb snaps forward to swat a fleeing lizard.
+      The movement is explosive — shoulder, elbow, and wrist extend in
+      a rapid cascade that completes in a fraction of a second. Joint
+      angles change at the maximum rate the organism can produce. The
+      limb velocity is at its peak.
+    survival_relevance: |
+      Detecting high limb velocity confirms that a strike is being
+      executed at combat speed. Prey capture success correlates with
+      strike velocity — the organism needs to know whether it is
+      swinging fast enough to catch.
+    what_fires: |
+      Joint angular velocity at or near maximum across the forelimb
+      kinematic chain. Rate of angle change high at shoulder, elbow,
+      and wrist simultaneously. Speed signal: fast.
+
+  - id: slow_cautious_reach
+    description: |
+      The organism extends its forelimb slowly toward an unfamiliar
+      object — a coiled shape that might be a snake. The arm creeps
+      forward millimeter by millimeter, elbow straightening at a barely
+      perceptible rate. The movement is deliberate and controlled —
+      minimum velocity, maximum caution.
+    survival_relevance: |
+      Detecting low limb velocity confirms cautious approach mode. When
+      exploring potential threats, the organism must verify it is
+      actually moving slowly enough to react if the object strikes.
+    what_fires: |
+      Joint angular velocity at very low values. Rate of angle change
+      minimal but nonzero. Sustained slow extension. Speed signal:
+      very slow.
+
+  - id: rapid_leg_cycling_in_sprint
+    description: |
+      The organism flees from a predator at full sprint. All four limbs
+      cycle through their stride pattern at maximum frequency — each
+      leg extending and flexing in rapid succession. The angular
+      velocity at every joint is high, and the cycle rate is at its
+      physiological ceiling. The entire body is moving its limbs as
+      fast as they can go.
+    survival_relevance: |
+      Detecting maximum limb velocity during flight confirms the
+      organism is at full sprint. If velocity readings show the limbs
+      are cycling below maximum, more speed may be available. At
+      maximum, this is all the organism has.
+    what_fires: |
+      All limb joints at high angular velocity. Rapid oscillation
+      between flexion and extension. Cycle frequency at maximum.
+      Speed signal across all limbs: maximum.
+
+  - id: moderate_walking_pace
+    description: |
+      The organism walks along a forest trail at a comfortable,
+      unhurried pace. The legs swing through their gait cycle at a
+      moderate rate — not rushed, not creeping. Joint angles change
+      at an intermediate velocity that could be sustained for long
+      distances. The movement speed is in the middle of the range.
+    survival_relevance: |
+      Detecting moderate velocity confirms energy-efficient travel.
+      An organism that can sense it is at its sustainable cruising
+      speed can maintain long-distance foraging without exhaustion.
+    what_fires: |
+      Joint angular velocities at intermediate values across all
+      limbs. Gait cycle frequency moderate. Rate of angle change
+      consistent and sustainable. Speed signal: moderate.
+
+  - id: fast_head_turn
+    description: |
+      A loud crack sounds to the left. The organism whips its head
+      toward the sound — neck muscles firing to rotate the skull as
+      quickly as possible. The cervical joints change angle at near-
+      maximum velocity. The head rotation is fast, urgent, reflexive.
+    survival_relevance: |
+      Detecting rapid head-turn velocity confirms that an orienting
+      reflex executed at full speed. Fast head turns are threat
+      responses — the organism needs to know it responded at
+      appropriate urgency.
+    what_fires: |
+      Cervical joint angular velocity at high value. Rate of head
+      rotation near maximum. Rapid angle change in neck joints.
+      Speed signal for head movement: fast.
+
+anti_manifestations:
+  - id: stationary_limb_under_load
+    description: |
+      The organism braces its forelimb against a rock face, holding
+      its body weight while climbing. The arm is under enormous
+      muscular tension, trembling with effort — but it is not moving.
+      Joint angles are constant. There is force and effort but zero
+      velocity. The limb is locked in an isometric hold.
+    why_should_not_fire: |
+      No velocity exists. Angular velocity is zero despite high
+      force output. Velocity detects rate of movement, not force
+      of holding. A stationary limb has no speed to detect regardless
+      of how much effort is involved.
+    distinguishes: |
+      Movement speed (angular velocity) versus force output (effort).
+      Velocity is purely kinematic — it measures how fast joints are
+      changing angle, not how hard muscles are working at a fixed angle.
+
+  - id: limb_direction_change
+    description: |
+      The organism swings its forelimb from left to right, then
+      reverses direction and swings it right to left. At the reversal
+      point, the velocity momentarily hits zero before rebuilding in
+      the opposite direction. The movement changes direction but the
+      speeds before and after the reversal are identical. The
+      directional information is changing but the speed magnitude is
+      not.
+    why_should_not_fire: |
+      Velocity detects speed magnitude, not direction. A direction
+      reversal at the same speed does not represent a velocity change.
+      This receptor reads the speedometer, not the compass — it does
+      not distinguish leftward from rightward, only fast from slow.
+    distinguishes: |
+      Speed magnitude versus direction of movement. Velocity as defined
+      here is scalar — the rate of angular change without regard for
+      the sign of that change.

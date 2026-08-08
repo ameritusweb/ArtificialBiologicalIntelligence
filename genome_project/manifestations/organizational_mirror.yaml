@@ -1,0 +1,180 @@
+receptor_id: organizational_mirror
+family: organization
+tier: canopy
+stage: 12
+
+conceptual_space: |
+  Detects the organism's own receptor topology — seeing its own
+  cognitive architecture AS a structured system with trunk, branch,
+  and canopy layers, with specific organizational properties
+  (hierarchy, modularity, connectivity patterns). The organism does
+  not merely use its receptors; it detects THAT it has receptors
+  organized in a particular way, and sees that organization as an
+  object of perception. The boundary separates using one's cognitive
+  architecture (all receptors do this) from perceiving one's cognitive
+  architecture AS a system with structure. The critical signal is the
+  organism modeling its own processing organization as an entity it
+  can examine.
+
+manifestations:
+  - id: detecting_own_hierarchical_processing
+    description: |
+      The organism notices that its responses to a complex situation
+      unfold in layers — first raw sensory registration (trunk-level),
+      then pattern extraction (branch-level), then abstract
+      interpretation (canopy-level). It detects this layered
+      processing not as transparent cognition but as a structural
+      fact about itself: "I process in layers, and the layers have
+      a specific order." The architecture becomes visible to itself.
+    survival_relevance: |
+      Knowing that one's own processing has hierarchical structure
+      enables meta-cognitive strategy — the organism can attend to
+      different layers for different purposes (raw signals when speed
+      matters, abstract patterns when accuracy matters). Self-
+      architectural awareness enables deliberate cognitive strategy
+      selection.
+    what_fires: |
+      The organism's processing of its own processing — detecting
+      the layered structure of its own response to stimuli. The
+      organism represents its own hierarchy (trunk-branch-canopy)
+      as a structural fact rather than merely operating through it.
+      The self-architecture-as-object-of-perception pattern fires.
+
+  - id: detecting_own_modularity
+    description: |
+      The organism notices that its social processing and its
+      spatial processing operate somewhat independently — it can
+      track a predator's location while simultaneously reading a
+      group member's emotional state, and the two streams do not
+      interfere. It detects that its cognitive architecture has
+      modular structure: separable processing streams that can
+      operate in parallel. The modularity is perceived, not just
+      utilized.
+    survival_relevance: |
+      Detecting own modularity enables strategic multi-tasking —
+      the organism can consciously allocate independent processing
+      streams to parallel tasks because it knows its architecture
+      supports parallel operation. Without this awareness, the
+      organism cannot deliberately exploit its own parallel
+      processing capacity.
+    what_fires: |
+      The organism detecting the independence of its own processing
+      streams — noticing that different receptor families operate
+      in parallel without interference. The self-modularity
+      detection fires when the organism represents its own
+      architectural feature (parallel independent streams) as a
+      fact about itself.
+
+  - id: detecting_own_blind_spots
+    description: |
+      The organism encounters a situation and notices that it
+      CANNOT process a certain dimension — it lacks the receptor
+      for some aspect of the situation. It does not merely fail to
+      detect; it detects its own failure to detect. It sees a gap
+      in its own receptor topology and represents that gap as a
+      structural feature of its architecture: "I have no way to
+      process this kind of information."
+    survival_relevance: |
+      Knowing what you cannot perceive is more valuable than
+      unknowingly missing it. An organism that detects its own
+      blind spots can compensate — seeking information from others,
+      being cautious in blind-spot domains, or developing workaround
+      strategies. Undetected blind spots produce confident errors.
+    what_fires: |
+      The organism detecting an absence in its own processing
+      capacity — representing a gap in its receptor topology as a
+      structural fact. This is not merely failing to process
+      (which is invisible) but detecting the failure as an
+      architectural feature. The self-gap-detection fires.
+
+  - id: detecting_own_processing_biases
+    description: |
+      The organism notices that it consistently overweights recent
+      information and underweights older information — not because
+      recent information IS more important but because its processing
+      architecture has a recency bias. It detects this as a structural
+      property of its system: "My architecture processes recent
+      signals more strongly than older ones, which sometimes produces
+      wrong conclusions."
+    survival_relevance: |
+      Detecting own systematic biases enables correction — the
+      organism can deliberately re-weight old information when it
+      recognizes its architecture underweights it. Without this
+      self-detection, biases operate invisibly and produce
+      systematically distorted judgments.
+    what_fires: |
+      The organism modeling a systematic distortion in its own
+      processing as an architectural property rather than a feature
+      of the world. The organism distinguishes "the world changed"
+      from "my system overweights change signals." The self-bias-
+      as-architectural-feature detection fires.
+
+  - id: detecting_own_receptor_interactions
+    description: |
+      The organism notices that activating one receptor (e.g.,
+      stress_detection) systematically suppresses another receptor
+      (e.g., curiosity). It detects this not as "stress reduces
+      curiosity" (a world-fact) but as "my stress receptor
+      inhibits my curiosity receptor" (an architecture-fact). It
+      sees the interaction as a wiring property of its own system
+      that could, in principle, be different.
+    survival_relevance: |
+      Detecting inter-receptor interactions enables the organism
+      to anticipate and manage its own state transitions. Knowing
+      that stress suppresses curiosity allows deliberate strategies:
+      managing stress BEFORE an exploration task, or recognizing
+      that suppressed curiosity during stress is architectural,
+      not informational.
+    what_fires: |
+      The organism modeling causal interactions between its own
+      receptors as architectural features — representing the
+      influence pathways within its own processing system. The
+      organism maps its internal wiring as a system diagram rather
+      than experiencing it as transparent processing. The self-
+      wiring-model pattern fires.
+
+anti_manifestations:
+  - id: using_architecture_without_seeing_it
+    description: |
+      The organism processes a complex situation through all its
+      hierarchical layers — trunk-level registration, branch-level
+      patterns, canopy-level abstractions — and responds effectively.
+      But it does not represent its own processing structure as an
+      object of perception. It uses the architecture without seeing
+      the architecture. Processing occurs but is transparent — the
+      organism looks THROUGH its receptors at the world, not AT
+      its receptors as a system.
+    why_should_not_fire: |
+      This is normal receptor operation, not organizational mirror.
+      All receptors operate through the architecture; organizational
+      mirror requires perceiving the architecture itself as an
+      object. Using cognition is not the same as modeling cognition.
+      The organism processes effectively but has no representation
+      of its own processing structure.
+    distinguishes: |
+      Using cognitive architecture transparently (looking through
+      it at the world) versus perceiving cognitive architecture as
+      a system (looking at it as a structural object). The
+      architecture-as-object-of-perception is the boundary — mere
+      use is not self-perception.
+
+  - id: modeling_another_organisms_cognition
+    description: |
+      The organism models how another organism processes information
+      — predicting that the other's stress will suppress its
+      curiosity, or that the other has a blind spot in some domain.
+      The organism has a detailed model of another's cognitive
+      architecture but has not turned that modeling capacity on
+      its own architecture.
+    why_should_not_fire: |
+      This is theory of mind about another's processing, not
+      organizational mirror of one's own. The organism models
+      another's architecture but not its own. Organizational mirror
+      specifically requires self-directed architectural perception
+      — seeing one's OWN receptor topology as a system. Other-
+      modeling is a different (and earlier) capacity.
+    distinguishes: |
+      Other-directed cognitive modeling (representing another's
+      architecture) versus self-directed cognitive modeling
+      (representing one's own architecture). The self-referential
+      direction — turning the modeling on oneself — is the boundary.

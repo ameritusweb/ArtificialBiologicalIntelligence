@@ -1,0 +1,48 @@
+receptor_id: self_soothing
+family: regulatory
+tier: branch
+stage: 2
+
+conceptual_space: |
+  Self-generated regulatory patterns WITHOUT external scaffold. The concept
+  is internally generated calming — the organism produces its own stress
+  reduction through self-initiated behavior, not by finding an external
+  resource or stimulus that reduces stress. The source of regulation is
+  internal, not environmental.
+
+manifestations:
+  - id: rhythmic_pacing
+    description: Under stress with no shelter available, organism begins repetitive back-and-forth movement — stress decreases from the regularity itself
+    survival_relevance: Self-generated calming prevents panic paralysis when no external refuge exists
+    what_fires: Organism initiates repetitive self-generated behavior AND stress metrics decrease without external state change
+
+  - id: stillness_under_threat
+    description: Threat is present but distant — organism voluntarily freezes and reduces activity, internal stress drops through self-imposed calm
+    survival_relevance: Self-regulated stillness reduces energy expenditure and threat visibility simultaneously
+    what_fires: Organism self-initiates behavioral suppression AND internal regulatory channels stabilize without external intervention
+
+  - id: post_escape_deceleration
+    description: After fleeing threat, organism gradually self-decelerates from sprint to walk to rest — internally paced wind-down
+    survival_relevance: Self-regulated recovery prevents energy crash that would leave organism vulnerable to next threat
+    what_fires: Organism's activity level decreases in self-generated steps — no external prompt for each deceleration stage
+
+  - id: familiar_route_during_stress
+    description: Under high stress, organism retraces a well-known path — the predictability of self-chosen familiar movement reduces anxiety
+    survival_relevance: Self-generated predictability substitutes for environmental safety when environment is threatening
+    what_fires: Organism self-selects low-uncertainty behavior AND stress metrics decrease from the predictability itself
+
+  - id: metabolic_self_regulation
+    description: After energy depletion, organism self-reduces activity rate below what the environment demands — internal conservation mode
+    survival_relevance: Self-imposed conservation prevents fatal depletion when external resources are unavailable
+    what_fires: Organism internally downregulates activity independent of external triggers AND energy loss rate decreases
+
+anti_manifestations:
+  - id: shelter_provides_relief
+    description: Organism enters a warm shelter and stress drops — the stress reduction came from the external environment, not self-generated behavior
+    why_should_not_fire: External scaffold (shelter) provided the regulation — organism did not generate the calming itself
+    distinguishes: Self-soothing requires the regulatory effect to come from SELF-GENERATED behavior, not external conditions
+
+  - id: food_restores_calm
+    description: Organism eats food and hunger-stress drops — the regulation came from an external resource
+    why_should_not_fire: External resource (food) resolved the stress state — this is environmental regulation, not self-regulation
+    distinguishes: Self-soothing is about regulation WITHOUT external input, not consuming resources that fix the problem

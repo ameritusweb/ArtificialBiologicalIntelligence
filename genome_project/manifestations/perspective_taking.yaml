@@ -1,0 +1,129 @@
+receptor_id: perspective_taking
+family: social
+tier: branch
+stage: 4
+
+conceptual_space: |
+  NPC can't see the food behind the wall, but the organism can. The
+  concept is modeling what the OTHER agent can and cannot perceive
+  from THEIR position — not from the organism's position. The boundary
+  separates self-perspective from other-perspective: the organism
+  must represent that what IT can see is not necessarily what the
+  OTHER agent can see. This requires maintaining two simultaneous
+  perceptual models — own and other's.
+
+manifestations:
+  - id: occluded_resource
+    description: |
+      The organism can see a food source behind a wall. NPC-A is on
+      the other side of the wall and cannot see the food from its
+      position. The organism models that NPC-A does NOT know about
+      this food — NPC-A's perceptual field does not include it.
+    survival_relevance: |
+      Knowing that a competitor doesn't know about a resource gives
+      the organism an information advantage. It can approach the food
+      without expecting competition from that agent.
+    what_fires: |
+      Resource is in organism's perceptual field but occluded from
+      another agent's perceptual field by an obstacle. Organism
+      represents the asymmetry: "I see it, they don't."
+
+  - id: visible_from_both
+    description: |
+      A food source is in open terrain visible to both the organism
+      and NPC-B. The organism models that NPC-B CAN see the food
+      and therefore may compete for it. No information advantage
+      exists.
+    survival_relevance: |
+      Knowing that a competitor shares the same perceptual access
+      means competition is expected. The organism must factor in
+      the other agent's likely approach when planning its own.
+    what_fires: |
+      Resource is in both organism's and other agent's perceptual
+      fields with no occlusion. Organism models shared awareness:
+      "We both see it."
+
+  - id: agent_behind_organism
+    description: |
+      NPC-C is behind the organism's position. The organism can see
+      a hazard ahead. NPC-C, facing the same direction from behind,
+      can also see the hazard — it has the same forward view. The
+      organism models that NPC-C shares its forward percept.
+    survival_relevance: |
+      Knowing what following agents can see helps predict their
+      behavior. If NPC-C can see the same hazard, it will likely
+      also avoid it — the organism won't be pushed into danger by
+      an uninformed follower.
+    what_fires: |
+      Other agent's position and orientation grant it a perceptual
+      field that overlaps with the organism's. Organism models
+      shared visibility of specific environmental features based on
+      geometry.
+
+  - id: npc_lacks_recent_information
+    description: |
+      NPC-D was in an area when a food source existed there. NPC-D
+      then moved away. While NPC-D was gone, the food was consumed
+      by another agent. The organism models that NPC-D still
+      "believes" the food is there — NPC-D's last observation is
+      outdated.
+    survival_relevance: |
+      Predicting that an agent will return to a depleted resource
+      (because it doesn't know it's gone) enables the organism to
+      anticipate the agent's wasted trip and avoid competing for
+      a phantom resource.
+    what_fires: |
+      Other agent's perceptual history diverges from current reality.
+      Organism models the temporal gap: agent's last observation of
+      a location is stale. Agent's "belief" about the location
+      differs from current ground truth.
+
+  - id: ambush_awareness
+    description: |
+      The organism is behind a wall. NPC-E is approaching from the
+      other side. The organism models that NPC-E cannot see the
+      organism — the organism is occluded from NPC-E's perceptual
+      field. The organism has perceptual advantage.
+    survival_relevance: |
+      Knowing that another agent cannot see the organism enables
+      ambush-style resource acquisition or avoidance. The organism
+      can remain hidden because it models the other's visual
+      limitations.
+    what_fires: |
+      Organism is in other agent's blind spot (occluded by obstacle
+      or outside perceptual range). Organism models: "They can't
+      see me." Perceptual asymmetry favoring organism detected.
+
+anti_manifestations:
+  - id: assuming_shared_percept
+    description: |
+      The organism can see a food source. NPC-F is far away with
+      multiple walls between it and the food. The organism assumes
+      NPC-F can also see the food because the organism can see it.
+      This is failure of perspective taking — egocentric projection.
+    why_should_not_fire: |
+      Perspective taking requires modeling the OTHER agent's
+      perceptual field as distinct from one's own. Assuming the
+      other sees what you see is the absence of perspective taking,
+      not an instance of it.
+    distinguishes: |
+      True perspective taking maintains TWO perceptual models
+      simultaneously. Egocentric projection maintains only one
+      (own) and attributes it to others. The receptor fires on
+      the representation of DIFFERENCE, not on assumption of
+      sameness.
+
+  - id: self_occlusion_awareness
+    description: |
+      The organism is behind a wall and cannot see what's on the
+      other side. It models its OWN perceptual limitation. No other
+      agent is involved in this modeling.
+    why_should_not_fire: |
+      Modeling one's own perceptual limitations is self-awareness,
+      not perspective taking. Perspective taking specifically requires
+      modeling ANOTHER agent's perceptual field. Modeling "I can't
+      see" is not the same as modeling "they can't see."
+    distinguishes: |
+      Perspective taking is about modeling the OTHER's perception.
+      Self-perceptual-limitation awareness is about modeling one's
+      OWN perception. Different agent, different receptor.

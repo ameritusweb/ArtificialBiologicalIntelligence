@@ -1,0 +1,49 @@
+receptor_id: naming
+family: language
+tier: trunk
+stage: 8
+
+conceptual_space: |
+  Detects that a persistent label has been attached to a grounded concept,
+  creating a stable reference that survives across episodes. "Danger" refers
+  to the same threat concept whether encountered now or recalled later. The
+  boundary separates stable naming (consistent reference across contexts)
+  from transient emissions (signals that do not persist as labels). The
+  concept is the stability of reference itself, not the emission act.
+
+manifestations:
+  - id: predator_label_reuse
+    description: Organism emits a specific signal pattern when a predator appears, and the same signal is recognized by others across multiple episodes — the label "predator" persists as a stable reference
+    survival_relevance: Persistent labels allow accumulated knowledge about predators to be stored and retrieved by name, enabling faster coordinated responses
+    what_fires: A signal pattern that consistently co-occurs with the same grounded concept activation across multiple encounters, with recognition by both emitter and receiver
+
+  - id: location_naming
+    description: A specific call pattern becomes the persistent label for a food-rich location — organisms use this label to coordinate movement toward that place across days
+    survival_relevance: Named locations allow spatial knowledge to be communicated without requiring direct sensory access, enabling planning and coordination
+    what_fires: A signal pattern that reliably activates the same spatial concept in both emitter and receiver, stable across temporal gaps between visits
+
+  - id: danger_concept_across_contexts
+    description: The label "danger" refers to the same threat concept whether the organism is near water, in forest, or on open ground — the reference is context-independent
+    survival_relevance: Context-independent labels allow threat knowledge to transfer across environments without re-learning, accelerating survival responses in novel settings
+    what_fires: A single signal pattern activating the same grounded threat concept regardless of current environmental context, with the concept-label binding remaining stable
+
+  - id: individual_identification
+    description: Each organism in the group has a persistent label — a specific call pattern that refers to that individual across encounters and seasons
+    survival_relevance: Named individuals enable relationship tracking, reputation, and targeted communication, which are foundations for cooperative survival strategies
+    what_fires: A unique signal pattern consistently associated with a specific other-agent representation, recognized across temporal gaps and environmental changes
+
+  - id: resource_type_labeling
+    description: Different food types each receive distinct persistent labels — "berries" vs "roots" vs "fish" — and these labels activate different foraging strategies when communicated
+    survival_relevance: Named resource categories allow organisms to communicate not just that food exists but what kind, enabling appropriate preparation and tool selection
+    what_fires: Distinct signal patterns each stably bound to a different grounded resource concept, with the label-concept pairing consistent across episodes and agents
+
+anti_manifestations:
+  - id: alarm_call_no_persistence
+    description: Organism emits a loud vocalization when startled that causes others to flee, but the call has no consistent referent — it is a reflexive emission tied to arousal, not a label for a concept
+    why_should_not_fire: The signal is a transient arousal discharge, not a persistent label bound to a grounded concept — it does not refer to the same thing across episodes
+    distinguishes: Stable reference (same label activates same concept across contexts) vs reflexive emission (arousal-driven signal with no persistent conceptual binding)
+
+  - id: mimicry_without_meaning
+    description: Organism copies another's call pattern perfectly but does not associate the pattern with any grounded concept — the label is reproduced without referential binding
+    why_should_not_fire: The signal pattern exists but lacks the concept-label binding that defines naming — it is phonological mimicry without semantic reference
+    distinguishes: True naming (label stably bound to grounded concept) vs imitation (reproduced signal without referential content)

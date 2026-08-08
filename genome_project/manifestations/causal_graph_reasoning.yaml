@@ -1,0 +1,51 @@
+receptor_id: causal_graph_reasoning
+family: causality
+tier: canopy
+stage: 9
+
+conceptual_space: |
+  Detects full causal graph structure with multiple paths, confounders, and
+  mediators. Food access depends on tide AND season AND predator absence AND
+  tool availability — these factors interact through a graph with convergent
+  paths, common causes, and indirect effects. The boundary separates graph
+  reasoning (multiple interacting causal paths with structural relationships)
+  from single causal chains (linear A-causes-B) or simple conjunction (multiple
+  factors without structural relationships). The concept is the graph itself —
+  the structural pattern of causal interdependencies.
+
+manifestations:
+  - id: foraging_causal_graph
+    description: Food access depends on tide (direct), season (moderates tide quality), predator activity (blocks access), and tool readiness (enables extraction) — organism represents these as an interacting causal graph, not independent factors
+    survival_relevance: Causal graph reasoning enables identification of intervention points — changing tool readiness removes one bottleneck even when tide and season are fixed
+    what_fires: Multiple causal factors represented with their structural relationships — convergent causes, mediators, and moderators — forming a graph structure rather than independent linear chains
+
+  - id: disease_confounder_detection
+    description: Organism notices both lethargy and food-avoidance co-occur near a particular plant — but detects that both are caused by a common upstream factor (toxin exposure), not that lethargy causes food-avoidance
+    survival_relevance: Confounder detection prevents false causal beliefs that would lead to ineffective interventions — treating lethargy would not restore appetite because neither causes the other
+    what_fires: Two correlated outcomes traced to a shared upstream cause in the causal graph, with the direct causal link between the outcomes identified as absent despite their correlation
+
+  - id: mediated_causation
+    description: Rain does not directly bring food — rain causes plant growth, plant growth attracts insects, insects attract prey — organism represents the full mediation chain and knows interrupting any link breaks the chain
+    survival_relevance: Understanding mediated causation identifies which links are fragile — if insects are absent despite plant growth, rain will not bring prey this time
+    what_fires: A causal path with multiple mediating steps, where the organism represents each intermediate link and can detect when the chain is broken at any point
+
+  - id: multiple_sufficient_paths
+    description: Organism can obtain water from the stream (path 1) or from dew collection (path 2) or from fruit moisture (path 3) — it represents these as alternative sufficient causal paths to the same outcome
+    survival_relevance: Representing multiple sufficient paths provides robustness — when one path is blocked, the organism can immediately switch to an alternative without re-deriving the causal structure
+    what_fires: Multiple distinct causal paths converging on the same outcome node in the causal graph, with each path independently sufficient and the organism tracking which paths are currently viable
+
+  - id: interaction_effect_detection
+    description: Tool use helps foraging and low tide helps foraging, but tool use during low tide produces far more food than either factor alone would predict — the organism detects the super-additive interaction
+    survival_relevance: Interaction effects reveal optimal timing strategies — combining factors that interact positively multiplies rather than merely adds their benefits
+    what_fires: Two causal factors with an interaction term detected in the causal graph — their combined effect differs from the sum of individual effects, and this structural interaction is represented
+
+anti_manifestations:
+  - id: single_linear_chain
+    description: Organism understands that rain causes river rise causes flooding — a simple linear causal chain with no branches, confounders, or alternative paths
+    why_should_not_fire: A linear chain is a degenerate graph with no structural complexity — no confounders, no convergent causes, no alternative paths, just A to B to C
+    distinguishes: Causal graph (multiple interacting paths with structural relationships) vs linear chain (single unbranched causal sequence)
+
+  - id: list_of_factors_without_structure
+    description: Organism knows food access depends on tide, season, and predator activity, but represents these as an unstructured list of relevant factors without specifying how they interact
+    why_should_not_fire: An unstructured list of factors is not a causal graph — the structural relationships (confounding, mediation, interaction) between factors are absent
+    distinguishes: Causal graph reasoning (factors connected by structural relationships) vs factor listing (relevant variables identified without specified causal structure)

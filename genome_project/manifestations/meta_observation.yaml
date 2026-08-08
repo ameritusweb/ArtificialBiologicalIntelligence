@@ -1,0 +1,49 @@
+receptor_id: meta_observation
+family: observation
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detects the organism observing its own observation -- turning attention
+  onto what it is attending to and evaluating whether its current
+  attentional allocation is appropriate. The boundary is between simply
+  observing the environment and stepping back to observe the pattern of
+  one's own observation. Fires when the organism notices what it is
+  noticing and questions whether that noticing is serving its goals.
+
+manifestations:
+  - id: attention_audit
+    description: The organism realizes it has been fixated on a potential predator for an extended period while completely ignoring the food source it was originally tracking. It observes its own observation -- "I am attending to predator and ignoring food" -- and evaluates whether this allocation is correct given its current energy state and the predator's actual threat level.
+    survival_relevance: Attentional fixation on one stimulus at the expense of others can be lethal. An organism that notices its own fixation can consciously redirect attention to neglected but survival-critical inputs before the neglect becomes costly.
+    what_fires: Detection that the organism's attentional resources are concentrated on one stimulus category while another category relevant to current goals has received zero attention for an extended period, combined with an evaluative comparison of the two categories' relative importance.
+
+  - id: novelty_bias_detection
+    description: The organism notices that every time a novel stimulus appears, its attention snaps to it immediately, abandoning whatever it was previously processing. It observes this pattern in its own observation -- "I keep getting pulled by novelty" -- and evaluates whether the novelty bias is serving it or whether the abandoned observations were more important.
+    survival_relevance: Novelty bias is useful in exploration but dangerous during exploitation. An organism that detects its own novelty bias can override it when sustained attention to a known stimulus is more valuable than investigating every new signal.
+    what_fires: Pattern detection across multiple recent attention shifts showing that the trigger was novelty (unfamiliarity) rather than relevance (goal-alignment), with the organism recognizing the pattern as a property of its own attentional system rather than a property of the environment.
+
+  - id: confirmation_observation_detected
+    description: The organism is searching for food and notices that it keeps looking in locations where it previously found food, ignoring novel locations. It observes its own search pattern and detects that its observation is biased toward confirming its existing food-location beliefs rather than testing them. It is observing what it expects rather than what is actually there.
+    survival_relevance: Confirmation-biased observation causes the organism to miss food sources in new locations and over-exploit depleted old ones. Detecting the bias in its own observation lets it deliberately introduce exploratory looking.
+    what_fires: Detection that the organism's observational sampling is statistically skewed toward hypothesis-confirming locations or features, recognized by comparing actual observation targets against what an unbiased sampling strategy would cover.
+
+  - id: granularity_mismatch
+    description: The organism is scanning a landscape at a broad, coarse level -- looking for large-scale threats. It then notices that the task it is performing (finding small edible seeds) requires fine-grained observation, not broad scanning. It detects a mismatch between the granularity of its observation and the granularity its current task demands.
+    survival_relevance: Observing at the wrong granularity wastes effort and misses targets. An organism scanning for large threats will overlook small food items, and one focused on small details will miss approaching predators. Meta-observation catches the mismatch.
+    what_fires: Comparison between the spatial or temporal resolution of the organism's current observational mode and the resolution required by its active task or goal, revealing a mismatch where the observation is too coarse or too fine for what it is trying to detect.
+
+  - id: observation_fatigue_awareness
+    description: The organism has been maintaining vigilant observation of a threat corridor for an extended period. It detects that its own observation quality is degrading -- reaction times are slowing, peripheral detection is narrowing, and it is occasionally missing stimuli it would normally catch. It observes its observation deteriorating.
+    survival_relevance: Undetected observation fatigue is a silent vulnerability. The organism believes it is vigilant but is actually compromised. Detecting the degradation lets it either rest, switch to a lower-demand observation mode, or retreat to a safer position where degraded vigilance is less dangerous.
+    what_fires: Comparison between the organism's current observation performance metrics (detection rate, reaction time, coverage breadth) and its baseline performance, revealing a sustained decline that indicates observation fatigue rather than environmental change.
+
+anti_manifestations:
+  - id: routine_attention_shift
+    description: The organism shifts its attention from food to a sudden loud noise, then back to food after determining the noise is harmless. This is a normal attention shift driven by environmental stimulus, not meta-observation. The organism redirected attention appropriately but did not step back to evaluate its attentional pattern.
+    why_should_not_fire: Meta-observation requires the organism to observe its own observation as an object of analysis. A routine attention shift in response to a stimulus is first-order observation operating normally. The organism attended to the noise, not to the fact that it attended to the noise.
+    distinguishes: Whether the organism is evaluating its own attentional pattern (meta-observation -- second-order) versus simply shifting attention in response to stimuli (first-order observation operating normally without self-examination).
+
+  - id: environmental_monitoring_report
+    description: The organism's internal state monitoring system reports "visual processing active, auditory processing active, threat detection nominal." This is a systems status report -- a readout of which channels are operational. It is not the organism questioning whether its observation is appropriate, just confirming that the machinery is running.
+    why_should_not_fire: Meta-observation is not a status report on processing channels. It is an evaluative act where the organism questions whether what it is observing is what it should be observing. Knowing that your visual system is active is not the same as questioning whether you are looking at the right thing.
+    distinguishes: Whether the organism is evaluating the appropriateness and quality of its observational focus (meta-observation) versus merely reporting which sensory channels are currently active (systems monitoring without evaluative content).

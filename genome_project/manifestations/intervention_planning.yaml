@@ -1,0 +1,147 @@
+receptor_id: intervention_planning
+family: causality
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Detects the formation of multi-step plans to test or exploit known
+  causal relationships. Not just knowing that A causes B, but planning
+  a sequence of actions to verify causation or to use causal knowledge
+  to achieve a goal. The boundary separates causal knowledge (knowing
+  A causes B) from causal exploitation (planning steps to use or test
+  that knowledge). Requires prospective action sequencing based on
+  causal models.
+
+manifestations:
+  - id: plan_to_test_water_diversion
+    description: |
+      The organism suspects that removing a mud dam will flood a
+      downstream ant colony, exposing larvae for eating. It plans:
+      (1) position itself downstream near the colony, (2) send a
+      rock rolling into the dam from uphill to break it, (3) wait
+      for water to expose larvae, (4) collect larvae. It then
+      executes steps 1 through 4 in sequence.
+    survival_relevance: |
+      Multi-step intervention planning converts causal understanding
+      into reliable food access. The organism does not just know
+      the causal chain — it designs an action sequence to exploit it.
+    what_fires: |
+      Prospective representation of a multi-step action sequence
+      where each step is chosen because of its known causal
+      consequences. The planning precedes execution and involves
+      ordering actions based on causal dependencies.
+
+  - id: plan_trap_using_bait_and_barrier
+    description: |
+      The organism knows that placing berries attracts small prey
+      and that a circle of rocks restricts movement. It plans:
+      (1) arrange rocks in a C-shape with one opening, (2) place
+      berries inside the enclosure, (3) hide near the opening,
+      (4) close the opening when prey enters. Execution follows
+      this planned sequence.
+    survival_relevance: |
+      Trap construction requires planning multiple interventions
+      that exploit separate causal relationships (bait attracts,
+      barriers constrain) in coordinated sequence. This is
+      hunting beyond reactive pursuit.
+    what_fires: |
+      Multiple causal relationships (berries cause attraction,
+      rocks cause movement restriction) are combined into a
+      coordinated plan with temporal ordering. The plan exists
+      before execution and specifies which interventions in
+      which sequence.
+
+  - id: plan_to_verify_food_safety
+    description: |
+      The organism finds unfamiliar red berries. It plans a test:
+      (1) place one berry near a frequently visited small animal
+      path, (2) observe whether animals eat it, (3) if eaten,
+      observe whether the animal shows distress, (4) only then
+      eat the berries itself. Each step is designed to test a
+      causal hypothesis before committing.
+    survival_relevance: |
+      Planning a safety test before consuming unknown food prevents
+      poisoning. The multi-step plan uses another animal as a
+      causal probe — does eating cause harm?
+    what_fires: |
+      A deliberate sequence of actions designed to test a causal
+      hypothesis (berry causes harm or not). Each step is
+      contingent on the outcome of the previous step. The plan
+      structure precedes and guides execution.
+
+  - id: plan_to_redirect_predator
+    description: |
+      The organism knows that scent trails attract predators and
+      that water disrupts scent. It plans: (1) drag a scented
+      object (old food) in a false trail leading away from its
+      den, (2) wade through a stream to break its own scent trail,
+      (3) approach den from downwind. Each step exploits a known
+      causal relationship to achieve the goal of safe return.
+    survival_relevance: |
+      Predator evasion through planned multi-step scent manipulation
+      requires combining causal knowledge about scent tracking,
+      water disruption, and wind direction into a coherent plan.
+    what_fires: |
+      Three separate causal relationships (scent causes tracking,
+      water causes scent disruption, wind direction causes scent
+      dispersal) are assembled into a sequential plan. The
+      planning phase represents and orders interventions before
+      execution.
+
+  - id: plan_sequential_food_cache_defense
+    description: |
+      The organism has a food cache being raided by competitors.
+      It plans: (1) move the real cache to a new hidden location,
+      (2) leave a small decoy cache at the old location with
+      low-value items, (3) place thorny branches around the decoy
+      to discourage lingering, (4) create a disguised path to the
+      real cache. Each step uses causal knowledge about competitor
+      behavior.
+    survival_relevance: |
+      Food security through planned deception requires modeling
+      competitors' causal responses to stimuli (food presence,
+      pain from thorns) and sequencing interventions accordingly.
+    what_fires: |
+      Multi-step plan combining causal predictions about competitor
+      behavior (they go to food, thorns cause avoidance, hidden
+      paths prevent discovery). Steps are ordered by causal
+      dependency and planned before execution.
+
+anti_manifestations:
+  - id: reactive_single_step_intervention
+    description: |
+      The organism sees a predator approaching and pushes a rock
+      to block the path. This is a single action exploiting one
+      known causal relationship (rock in path causes blockage)
+      executed reactively in the moment.
+    why_should_not_fire: |
+      This is reactive single-step causal exploitation, not
+      multi-step intervention planning. There is no prospective
+      sequencing of multiple actions based on causal models. The
+      organism responded to an immediate threat with one causal
+      action. Intervention planning requires designing a sequence
+      of steps in advance.
+    distinguishes: |
+      Reactive single-action causal use versus prospective
+      multi-step causal planning. The planning receptor requires
+      advance representation of sequenced interventions, not
+      in-the-moment application of one causal fact.
+
+  - id: knowing_causation_without_planning_to_use_it
+    description: |
+      The organism has learned that shaking a particular tree
+      causes fruit to drop. It knows this causal relationship
+      well. But right now it walks past the tree without shaking
+      it, intending nothing. The knowledge exists but no plan
+      to exploit it is formed.
+    why_should_not_fire: |
+      This is causal knowledge without planning. The organism
+      knows A causes B but has not constructed a plan to use
+      this knowledge. Intervention planning requires active
+      construction of a future action sequence based on causal
+      models, not mere possession of causal knowledge.
+    distinguishes: |
+      Possessing causal knowledge (knowing A causes B) versus
+      planning to exploit causal knowledge (designing steps to
+      use or test the A-B relationship). The receptor fires on
+      plan formation, not knowledge storage.

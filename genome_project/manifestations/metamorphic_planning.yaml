@@ -1,0 +1,51 @@
+receptor_id: metamorphic_planning
+family: self-augmentation
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detects opportunities to plan and execute deliberate developmental trajectories --
+  not just responding to the environment but designing a sequence of experiences
+  intended to transform the organism's own capabilities over time. The boundary is
+  between reactive adaptation (changing because the environment demands it) and
+  proactive self-development (changing because the organism has identified a target
+  capability and designed a path to reach it). This requires the organism to model
+  its current capabilities, envision a target state, and plan the experiential
+  sequence that bridges them.
+
+manifestations:
+  - id: targeted_skill_acquisition
+    description: The organism identifies that reaching a high-reward area requires a precise jumping capability it lacks. It designs a training regimen -- practicing jumps of increasing height in a safe area near its home zone, gradually building the skill before attempting the real challenge.
+    survival_relevance: Targeted skill acquisition through planned practice is vastly more efficient than random exploration. The organism must model the gap between its current capability and the target capability, then design a gradient of experiences that bridges the gap without catastrophic risk.
+    what_fires: Self-capability model identifies current jump height as insufficient for target. Goal-model specifies required jump height. Planning system generates a sequence of intermediate challenges with increasing difficulty. The metamorphic planning receptor fires on the coherent plan structure -- current state, target state, and designed experiential pathway connecting them.
+
+  - id: generational_capability_investment
+    description: The organism recognizes that its descendants will face a challenge it cannot solve -- a barrier that requires social coordination skills the organism has only begun developing. It invests in social behaviors now, not for its own benefit, but to establish behavioral patterns that descendants can inherit and refine over 10 generations.
+    survival_relevance: Multi-generational planning extends the organism's developmental horizon beyond its own lifespan. Recognizing that certain capabilities require more developmental time than one lifetime allows the organism to begin developmental sequences that only pay off for descendants.
+    what_fires: Self-capability model shows current skills insufficient for a known challenge. Developmental trajectory model shows the skill cannot be acquired within remaining lifespan. But lineage-projection model shows descendants could reach the capability if the current organism establishes the foundational behaviors. The metamorphic planning receptor fires on the multi-generational plan structure.
+
+  - id: deliberate_weakness_exposure
+    description: The organism identifies that its navigation in dark zones is poor because it has been avoiding dark zones. It deliberately enters dark zones during low-risk periods to build dark-navigation skills, accepting short-term performance costs for long-term capability gains.
+    survival_relevance: Avoiding weaknesses preserves short-term performance but guarantees long-term vulnerability. The organism must detect its own capability gaps and design experiences that address them, even when those experiences are initially costly. This is self-directed developmental planning.
+    what_fires: Self-capability model identifies dark-zone navigation as a weakness. Risk-assessment identifies low-risk windows for training. Planning system generates a training schedule -- enter dark zones during safe periods, gradually increase difficulty. The metamorphic planning receptor fires on the deliberate, planned exposure to a weakness for developmental purposes.
+
+  - id: cognitive_infrastructure_building
+    description: The organism realizes that its decision-making in complex environments is slow because it evaluates options sequentially. It spends episodes deliberately practicing parallel evaluation in simple environments where the cost of errors is low, building the cognitive infrastructure to handle complex decisions faster.
+    survival_relevance: Meta-cognitive skill development -- improving HOW the organism thinks, not just WHAT it knows -- is the highest-leverage developmental investment. Building cognitive infrastructure in safe practice environments allows the organism to upgrade its processing before facing situations that demand it.
+    what_fires: Self-model of cognitive processes identifies sequential evaluation as a bottleneck. Target state is parallel evaluation capability. Training environment is identified as having low error cost. The metamorphic planning receptor fires on a plan that targets the organism's OWN cognitive architecture for improvement -- changing not what it knows but how it processes.
+
+  - id: staged_environmental_mastery
+    description: The organism faces a vast, complex environment. Rather than exploring randomly, it designs a staged mastery plan -- fully map and master zone A, then use zone A as a safe base while exploring zone B, then master A+B before attempting zone C. Each stage builds the foundation for the next.
+    survival_relevance: Staged mastery plans minimize risk while maximizing cumulative capability. The organism must model the environment's structure, assess which areas are prerequisite for which others, and design a sequence that respects these dependencies. This is self-directed curriculum design.
+    what_fires: Environmental model identifies zones of increasing difficulty. Self-capability model assesses current mastery of each zone. Planning system generates an ordered sequence where mastery of each zone provides the skills or safe base needed for the next. The metamorphic planning receptor fires on the staged, dependency-respecting developmental plan.
+
+anti_manifestations:
+  - id: reactive_adaptation
+    description: The environment changes and the organism adapts -- it adjusts its foraging route because the old route no longer has food. This is appropriate adaptation but is reactive, not planned. The organism did not design a trajectory of self-transformation; it simply responded to changed conditions.
+    why_should_not_fire: Reactive adaptation is driven by environmental pressure, not by an internally generated developmental plan. The organism is not modeling its own capability trajectory and designing experiences to alter it -- it is adjusting to external changes. Metamorphic planning requires internal goal-setting about what the organism wants to BECOME, not just what it needs to DO right now.
+    distinguishes: Internally generated developmental planning versus externally driven adaptation. The key dimension is whether the organism is designing its own transformation or responding to environmental demands.
+
+  - id: accidental_skill_acquisition
+    description: While exploring a new area for food, the organism happens to develop better climbing skills because the terrain required climbing. It did not plan to develop climbing skills -- the skill acquisition was a side effect of food-seeking behavior.
+    why_should_not_fire: Accidental skill acquisition lacks the key element of metamorphic planning -- the deliberate design of an experiential sequence targeted at capability development. The organism gained a skill but did not plan to gain it, did not model the gap, and did not design the training sequence. The skill acquisition was incidental to another goal, not the goal itself.
+    distinguishes: Deliberate, planned self-development versus incidental learning during other activities. Metamorphic planning requires the developmental outcome to be the INTENDED purpose of the behavior, not a side effect.

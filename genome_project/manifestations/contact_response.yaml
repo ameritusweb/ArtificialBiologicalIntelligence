@@ -1,0 +1,111 @@
+receptor_id: contact_response
+family: interaction
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Detects that deliberate exploratory contact with an object produces a state
+  change in that object beyond simple displacement. Touching a mushroom releases
+  spores. Pressing a berry bursts it. Poking a hedgehog makes spines extend. The
+  boundary is contact-triggered state change: the object transforms, emits, opens,
+  or reveals something as a direct consequence of being touched. This is more
+  specific than response_recognition — not just "it moved" but "it changed state."
+
+manifestations:
+  - id: mushroom_spore_release
+    description: |
+      The agent pokes a round puffball mushroom on the forest floor. A cloud
+      of brown spores erupts from the top of the mushroom, dispersing into
+      the air. The contact triggered an emission that was not visible before.
+    survival_relevance: |
+      Contact-triggered emissions reveal hidden properties of objects. Some
+      emissions are toxic. Learning that contact causes state change enables
+      cautious exploration.
+    what_fires: |
+      Agent makes deliberate contact with object; object emits previously
+      contained substance (spores). Contact → emission state change.
+
+  - id: berry_bursts_on_squeeze
+    description: |
+      The agent grips a ripe dark berry between two digits. The skin ruptures
+      and red juice runs out, staining the agent's grip surface. The berry
+      transitioned from intact to ruptured upon contact pressure.
+    survival_relevance: |
+      Knowing that contact pressure changes object state informs food
+      processing — ripe berries burst easily, unripe ones resist, informing
+      edibility assessment.
+    what_fires: |
+      Agent applies grip pressure to object; object ruptures and releases
+      internal contents. Contact → structural failure and content release.
+
+  - id: insect_curls_when_touched
+    description: |
+      The agent touches a small segmented creature resting on a log. The
+      creature immediately curls into a tight ball, presenting a hard
+      exterior shell where legs were visible moments before. Contact
+      triggered a defensive transformation.
+    survival_relevance: |
+      Contact-triggered defensive responses reveal that an entity is alive
+      and reactive. The state change (open → curled) indicates the thing
+      has behavioral repertoire.
+    what_fires: |
+      Agent contacts entity; entity changes morphological state (extended →
+      curled). Deliberate touch produced visible body reconfiguration.
+
+  - id: mud_reveals_object
+    description: |
+      The agent presses a finger into a mud-covered mound. The pressure
+      displaces the mud layer and reveals a hard white object underneath —
+      a bone. Contact with the surface uncovered a hidden object beneath.
+    survival_relevance: |
+      Exploratory contact that reveals hidden objects enables resource
+      discovery. What looks like featureless ground may contain useful
+      materials.
+    what_fires: |
+      Agent applies contact pressure to surface; surface layer deforms to
+      reveal previously hidden content. Contact → concealment state change.
+
+  - id: seedpod_opens_on_press
+    description: |
+      The agent squeezes a dried elongated pod hanging from a branch. The
+      pod splits along a seam and small round seeds scatter outward. The
+      contact triggered the pod to transition from closed to open, releasing
+      its contents.
+    survival_relevance: |
+      Contact-triggered opening reveals food resources (seeds) that are
+      invisible inside intact containers. Exploratory manipulation unlocks
+      hidden nutrition.
+    what_fires: |
+      Agent applies pressure to enclosed object; object opens along structural
+      weakness and releases contents. Contact → opening and dispersal.
+
+anti_manifestations:
+  - id: rock_slides_no_state_change
+    description: |
+      The agent pushes a round stone and it rolls across flat ground. The
+      stone moved position but did not change state — it is still the same
+      stone, same shape, same surface. Nothing was released, revealed, or
+      transformed.
+    why_should_not_fire: |
+      Displacement is not state change. The rock responded to force (which
+      is response_recognition territory) but did not undergo any internal
+      transformation. Contact_response requires the object to change what
+      it is or what it contains, not merely where it is.
+    distinguishes: |
+      Positional change (displacement) versus state change (emission,
+      rupture, transformation, revelation). Contact_response is about the
+      latter exclusively.
+
+  - id: fruit_ripens_over_time
+    description: |
+      A green fruit hanging on a branch slowly turns red over several days.
+      The agent observes the color change but did not touch the fruit. The
+      state change occurred through internal biological processes, not
+      contact.
+    why_should_not_fire: |
+      No contact was involved. The state change was autonomous, driven by
+      the object's internal processes. Contact_response requires that the
+      agent's deliberate touch was the proximate cause of the change.
+    distinguishes: |
+      Contact-triggered state change versus autonomous state change. The
+      causal role of the agent's touch is the defining criterion.

@@ -1,0 +1,50 @@
+receptor_id: nested_rhythm
+family: repetition
+tier: canopy
+stage: 9
+
+conceptual_space: |
+  Detects multi-scale periodicity — rhythms nested within rhythms. Daily tide
+  within seasonal food cycle, hourly vigilance within daily foraging pattern.
+  The boundary separates nested temporal structure (periodicities at different
+  scales that relate to each other) from single-scale rhythm (one periodic
+  pattern) or unstructured temporal variation. The concept is the nesting
+  itself — the detection that a fast cycle operates within a slow cycle, and
+  that their relationship matters.
+
+manifestations:
+  - id: tidal_within_seasonal
+    description: Daily tide cycle determines when shore food is accessible, but seasonal variation shifts which tide windows are richest — the organism tracks both the daily and seasonal rhythm and their interaction
+    survival_relevance: Nested rhythm detection enables optimal foraging timing that accounts for both fast and slow cycles, avoiding waste at daily-correct but seasonally-poor windows
+    what_fires: Two periodic patterns at different timescales both detected, with their phase relationship tracked — the fast cycle's value depends on the slow cycle's current phase
+
+  - id: vigilance_within_foraging
+    description: Within each daily foraging bout, the organism cycles through brief vigilance-forage alternation — the fast vigilance rhythm is nested within the slower daily foraging window
+    survival_relevance: Nested vigilance cycling optimizes the safety-foraging tradeoff within each activity window, while the higher-level cycle determines when foraging windows occur
+    what_fires: A fast oscillation detected within a slow oscillation, with the fast cycle's parameters (frequency, duration) modulated by the slow cycle's current phase
+
+  - id: predator_patrol_within_weather_cycle
+    description: Predators patrol more frequently during clear weather periods, which follow a multi-day weather cycle — organism tracks both the patrol frequency and the weather periodicity
+    survival_relevance: Understanding that predator threat follows a fast cycle nested in a slow weather cycle enables proactive risk management at both timescales
+    what_fires: A short-period threat pattern with its intensity modulated by a longer-period environmental cycle — the nested structure is detected as a coherent multi-scale temporal pattern
+
+  - id: breeding_within_migration
+    description: Breeding episodes follow a multi-day cycle nested within the annual migration cycle — breeding only occurs during specific phases of the migration, creating a temporally structured reproductive window
+    survival_relevance: Nested reproductive timing ensures breeding occurs during the migration phase with optimal resource availability, not just at any breeding-interval timepoint
+    what_fires: A medium-frequency reproductive cycle detected as active only during specific phases of a low-frequency migratory cycle — the nesting constraint is represented
+
+  - id: social_interaction_within_group_cycle
+    description: Individual social interactions follow rapid cycles within the group's slower activity cycle — intense social negotiation during regrouping phases, quiet during dispersed foraging phases
+    survival_relevance: Understanding social interaction timing within group cycles enables strategic timing of cooperative bids and conflict resolution
+    what_fires: Fast social oscillations detected as phase-locked to a slower group-level activity cycle, with the social rhythm's character changing based on the group cycle's phase
+
+anti_manifestations:
+  - id: single_scale_rhythm
+    description: Organism tracks a daily foraging rhythm — food is available at the same time each day — but detects no higher or lower frequency cycle modulating it
+    why_should_not_fire: A single periodic pattern, however reliable, is not a nested rhythm — there is no second timescale and no inter-scale relationship to detect
+    distinguishes: Nested rhythm (multiple scales with inter-scale relationship) vs single rhythm (one periodic pattern without nesting structure)
+
+  - id: two_independent_rhythms
+    description: Organism tracks both a daily tide cycle and a multi-day weather cycle, but the two cycles have no relationship — tide quality does not depend on weather phase
+    why_should_not_fire: Two independent rhythms co-existing is not nesting — nesting requires that the fast cycle's properties depend on the slow cycle's phase
+    distinguishes: Nested rhythm (fast cycle modulated by slow cycle) vs independent co-occurring rhythms (multiple periodicities without inter-scale dependence)

@@ -1,0 +1,155 @@
+receptor_id: counterfactual_salience
+family: epistemic
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detect non-actual possibilities that are worth investigating -- counterfactuals
+  that matter for survival even though they are not currently real. The boundary is
+  between dismissing non-actual states as irrelevant and recognizing that a specific
+  non-actual possibility carries enough weight to warrant cognitive investment. This
+  receptor fires when the organism identifies a counterfactual scenario whose
+  implications, if true, would significantly alter its behavior -- making it worth
+  the cost of investigation even though the scenario is not the current best model.
+
+manifestations:
+  - id: what_if_wrong_about_safety
+    description: |
+      The organism has settled into a sheltered location it believes is safe.
+      All current evidence supports this belief. But the counterfactual-salience
+      receptor fires: "What if I'm wrong about this location? What if the
+      safety I'm perceiving is because the predator hasn't found this spot YET,
+      not because it CAN'T? The consequence of being wrong is death -- that
+      counterfactual is worth investigating." The organism begins testing escape
+      routes even from a position of apparent safety.
+    survival_relevance: |
+      High-stakes counterfactuals justify investigation even when current
+      evidence supports the default model. The cost of checking escape routes
+      is small; the cost of being wrong about safety without an exit plan is
+      total. This receptor enables asymmetric risk reasoning.
+    what_fires: |
+      A high-confidence safety assessment combined with a high-consequence
+      failure mode. The receptor computes the product of (1 - confidence) and
+      consequence magnitude. When the expected cost of the counterfactual being
+      true exceeds a threshold despite low probability, the receptor fires
+      encoding "low-probability high-consequence scenario -- investigate."
+
+  - id: alternative_prey_identity
+    description: |
+      The organism has been tracking what it believes is prey based on movement
+      patterns. The counterfactual-salience receptor fires: "What if this isn't
+      prey? What if the movement pattern I'm tracking belongs to a predator
+      that mimics prey behavior? I've committed significant energy to this
+      pursuit -- if the counterfactual is true, I'm running toward danger."
+      The organism pauses to gather disambiguating evidence.
+    survival_relevance: |
+      Predator-prey mimicry is a real ecological phenomenon. The organism that
+      never entertains the counterfactual "what if this isn't what I think it is"
+      is vulnerable to deception. The counterfactual is salient because its
+      implications completely reverse the optimal behavior.
+    what_fires: |
+      A classification with moderate-to-high confidence where the most likely
+      alternative classification implies radically different optimal behavior.
+      The receptor fires when the behavioral difference between the leading
+      hypothesis and the second-best hypothesis is large, encoding
+      "alternative interpretation is behaviorally critical."
+
+  - id: missed_connection_possibility
+    description: |
+      The organism has been treating two environmental features as independent --
+      a water source and a predator patrol route. The counterfactual-salience
+      receptor fires: "What if these are connected? What if the predator patrols
+      this route BECAUSE of the water source? If that's true, my 'safe' water
+      access strategy is actually a pattern the predator is exploiting." The
+      organism varies its water-access timing to test the connection.
+    survival_relevance: |
+      Undetected correlations in the environment create systematic vulnerability.
+      The counterfactual "what if these things are related?" is salient whenever
+      the hypothetical connection would reveal a hidden pattern that a competitor
+      or predator could exploit.
+    what_fires: |
+      Two independently modeled features whose co-occurrence frequency, if
+      examined, would suggest correlation. The receptor fires when the organism's
+      model treats features as independent but available data, if re-examined
+      under the counterfactual of connection, would produce a different pattern.
+
+  - id: what_if_model_is_inverted
+    description: |
+      The organism has been approaching areas of high activity, interpreting
+      activity as a sign of resource availability. The counterfactual-salience
+      receptor fires: "What if high activity means the resources are ALMOST GONE,
+      not that they're abundant? What if I should be looking for quiet areas
+      where resources haven't been found yet?" The organism tests by checking
+      a quiet area to compare yields.
+    survival_relevance: |
+      Model inversion -- the possibility that a reliable signal means the
+      opposite of what the organism assumes -- is a catastrophic failure mode
+      that is invisible from within the inverted model. The counterfactual
+      "what if my signal is backwards?" deserves investigation because it
+      would explain systematic underperformance.
+    what_fires: |
+      Consistent strategy with below-expected returns. The receptor fires when
+      the counterfactual of inverting a key signal mapping would explain an
+      otherwise puzzling pattern of results, encoding "inversion counterfactual
+      is explanatorily powerful -- worth testing."
+
+  - id: path_not_taken_matters
+    description: |
+      The organism chose the left fork three days ago and has been in
+      increasingly sparse territory. The counterfactual-salience receptor fires
+      not with regret but with information: "The right fork remains unexplored.
+      If the right fork leads to the kind of territory I need, my current
+      position -- deep into the left path -- means the cost of switching is
+      growing every day. The counterfactual matters NOW because the opportunity
+      to switch is decaying." The organism decides whether to backtrack before
+      the option closes entirely.
+    survival_relevance: |
+      Counterfactuals with time-sensitive option value demand attention even if
+      the current path is adequate. The value of investigating the counterfactual
+      is not just about the alternative's quality but about the closing window
+      for accessing it. Delayed investigation may mean permanent loss of the
+      option.
+    what_fires: |
+      A decision node whose unchosen branch remains unevaluated, combined with
+      increasing cost of reversal over time. The receptor fires when the option
+      value of the unchosen path is decaying, encoding "unexplored alternative
+      with closing window -- decision point approaching."
+
+anti_manifestations:
+  - id: idle_fantasy
+    description: |
+      The organism is resting in a safe location and idly processes scenarios:
+      "What if I could fly? What if food grew on every surface?" These are
+      non-actual possibilities, but they have no survival-relevant implications
+      and no testable predictions. They are imaginative play, not salient
+      counterfactuals.
+    why_should_not_fire: |
+      Counterfactual salience requires that the non-actual possibility carry
+      actionable implications -- that investigating or acting on it could change
+      the organism's survival prospects. Idle fantasies with no connection to
+      testable reality and no behavioral implications are not salient
+      counterfactuals; they are noise in the simulation system.
+    distinguishes: |
+      Actionability: idle/untestable fantasy (anti) vs. specific counterfactual
+      with testable implications and behavioral consequences (true). Salience
+      requires that the counterfactual, if true, would change what the organism
+      should do.
+
+  - id: exhaustive_worry
+    description: |
+      The organism generates an endless stream of "what if" scenarios: what if
+      this is poison, what if that sound is a predator, what if the weather
+      shifts, what if the water is contaminated. Every possibility is treated
+      as worth investigating, with no prioritization by consequence magnitude
+      or probability. The organism is paralyzed by comprehensive worry rather
+      than focused on the counterfactuals that actually matter.
+    why_should_not_fire: |
+      Counterfactual salience is SELECTIVE -- it identifies specific non-actual
+      possibilities whose consequence-weighted probability justifies cognitive
+      investment. Exhaustive worry treats all counterfactuals as equal, which
+      is the opposite of salience detection. The receptor should fire for the
+      critical few, not for the anxious many.
+    distinguishes: |
+      Selectivity: undifferentiated worry treating all possibilities as equal
+      (anti) vs. targeted identification of specific high-stakes counterfactuals
+      that warrant investigation (true). Salience requires discrimination.

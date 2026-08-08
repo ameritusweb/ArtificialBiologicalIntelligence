@@ -1,0 +1,50 @@
+receptor_id: analogical_similarity
+family: similarity
+tier: canopy
+stage: 9
+
+conceptual_space: |
+  Detects deep structural equivalence between domains that share no surface
+  features. A:B as C:D where A/B and C/D have nothing perceptually in common.
+  The boundary separates analogical similarity (structural mapping across
+  featurally dissimilar domains) from perceptual similarity (shared surface
+  features) or categorical similarity (shared category membership). The
+  concept is cross-domain structural mapping — recognizing that the
+  relationship pattern is the same even when everything else differs.
+
+manifestations:
+  - id: river_flow_as_social_hierarchy
+    description: Water flows from high ground to low ground through branching channels — organism detects this has the same structure as resource distribution flowing from dominant to subordinate through social intermediaries, despite zero shared features
+    survival_relevance: Cross-domain structural mapping enables transfer of spatial reasoning strategies to social navigation — understanding flow dynamics in one domain illuminates the other
+    what_fires: Two domains with completely different surface features detected as sharing the same relational structure — directed flow through branching hierarchy — with the structural mapping being explicit
+
+  - id: nest_building_as_territory_defense
+    description: Building a nest requires gathering materials, assembling structure, and maintaining against decay — organism detects this has the same structure as territory defense: gathering allies, organizing positions, maintaining against incursion
+    survival_relevance: Analogical mapping between construction and defense enables transfer of planning strategies across fundamentally different activity domains
+    what_fires: Two activity sequences with different physical substrates detected as sharing the same abstract structure — gather, organize, maintain — with the structural correspondence mapped explicitly
+
+  - id: seasonal_cycle_as_life_cycle
+    description: The seasonal cycle of growth, peak, decline, dormancy maps onto the individual life cycle of youth, maturity, aging, death — organism detects the structural equivalence despite the vastly different timescales and substrates
+    survival_relevance: Mapping seasonal structure onto life trajectory enables predictions about individual development phases based on seasonal observations, and vice versa
+    what_fires: Two temporal patterns at different scales and in different substrates detected as sharing the same phase structure — rise, peak, fall, quiescence — with the structural analogy explicitly recognized
+
+  - id: predator_hunting_as_flood_dynamics
+    description: A predator's approach pattern — slow approach, sudden acceleration, overwhelming strike — maps onto flood dynamics: gradual water rise, sudden crest, overwhelming surge, despite sharing no physical features
+    survival_relevance: Recognizing the structural analogy between predator attack and flood dynamics enables transfer of flood-escape timing knowledge to predator-escape timing
+    what_fires: Two threat patterns in completely different domains detected as sharing the same temporal dynamics structure — gradual build, critical transition, rapid overwhelming — with explicit cross-domain mapping
+
+  - id: root_network_as_communication_network
+    description: Underground root networks distribute nutrients from resource-rich to resource-poor areas through branching connections — organism detects this shares the structure of the group's information-sharing network where informed individuals pass warnings to uninformed ones
+    survival_relevance: Analogical mapping between distribution networks enables transfer of efficiency insights — understanding bottlenecks in one network illuminates vulnerability in the other
+    what_fires: Two distribution networks in different substrates (underground roots, social communication) detected as sharing the same topological structure — hub-and-spoke distribution with transfer dynamics
+
+anti_manifestations:
+  - id: perceptual_similarity_shared_features
+    description: Two fruits look similar — same color, similar shape, comparable size — the organism detects similarity based on shared perceptual features, not structural mapping
+    why_should_not_fire: Feature-based perceptual similarity requires no structural mapping — the similarity is grounded in shared surface properties, not in cross-domain relational correspondence
+    distinguishes: Analogical similarity (structural mapping across dissimilar domains) vs perceptual similarity (shared surface features within the same domain)
+
+  - id: same_domain_pattern_match
+    description: Organism notices two predators use similar hunting strategies — this is within-domain pattern matching where both instances share the same substrate (predation behavior), not cross-domain structural mapping
+    why_should_not_fire: Within-domain similarity, even at the strategy level, does not require cross-domain mapping — the comparison stays within a single domain with shared features
+    distinguishes: Analogical similarity (structural mapping across featurally dissimilar domains) vs within-domain similarity (pattern matching between instances sharing domain and features)

@@ -1,0 +1,140 @@
+receptor_id: causal_association
+family: association
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Detects that the organism's OWN actions cause changes in object states
+  in the environment. "I pushed and it moved." "I struck and it broke."
+  The boundary is self-as-cause: not merely that A causes B, but that
+  MY ACTION caused this environmental change. Requires binding the
+  motor command or action representation to the observed state change
+  in the environment. Distinguishes from general causal inference by
+  requiring the self as the causal agent.
+
+manifestations:
+  - id: push_causes_rock_to_move
+    description: |
+      The organism extends its limb and pushes a loose rock. The
+      rock slides across the ground. The organism registers: my
+      push caused that displacement. The motor action (extend,
+      apply force) is bound to the environmental change (rock
+      moved from position A to position B).
+    survival_relevance: |
+      Recognizing self-caused environmental change is the foundation
+      of agency. Without binding "I did this" to "that changed,"
+      the organism cannot learn to intentionally manipulate its
+      environment.
+    what_fires: |
+      Motor action (push) temporally and spatially coincides with
+      environmental state change (rock displacement). The
+      organism's own efferent signal is bound to the afferent
+      change. Self-as-cause association fires.
+
+  - id: striking_nut_causes_crack
+    description: |
+      The organism brings a stone down on a nut. The shell cracks
+      and splits. The organism registers the binding: my striking
+      action caused the shell state to change from intact to
+      broken. The force I applied produced this structural change.
+    survival_relevance: |
+      Binding self-action to material state change enables
+      intentional food processing. The organism learns that its
+      own force application transforms inedible shells into
+      accessible food.
+    what_fires: |
+      High-force motor action (downward strike) immediately
+      followed by state change in contacted object (shell
+      integrity lost). The temporal precision of action-to-change
+      and the spatial contact between body/tool and object
+      create a strong self-caused change signal.
+
+  - id: pulling_vine_causes_branch_to_bend
+    description: |
+      The organism grasps a vine attached to a branch overhead and
+      pulls downward. The branch bends toward the organism,
+      bringing attached fruit within reach. The organism registers:
+      my pulling caused the branch to move.
+    survival_relevance: |
+      Understanding that pulling a connected object causes distal
+      movement enables indirect manipulation — acting on one
+      object to change the state of a connected object through
+      the organism's own agency.
+    what_fires: |
+      Motor action (pull vine downward) produces distal
+      environmental change (branch bends down) through mechanical
+      linkage. The organism's action is the origin of a force
+      chain. Self-caused distal change fires.
+
+  - id: stepping_causes_twig_snap
+    description: |
+      The organism steps on a dry twig while moving through brush.
+      The twig snaps with an audible crack. The organism registers:
+      my foot placement caused that sound and that breakage. The
+      proprioceptive signal of stepping binds to the auditory and
+      visual change.
+    survival_relevance: |
+      Recognizing self-caused noise is critical for stealth
+      hunting and predator avoidance. The organism must know
+      which sounds it produced versus which came from the
+      environment to calibrate its stealth behavior.
+    what_fires: |
+      Locomotor action (step) coincides with object state change
+      (twig intact to broken) and sensory event (snap sound).
+      The proprioceptive-motor signal binds to the environmental
+      change. Self-caused incidental change fires.
+
+  - id: digging_causes_soil_displacement
+    description: |
+      The organism uses its forelimbs to scrape at soft earth.
+      Soil accumulates beside the growing depression. The organism
+      registers: my repeated scraping actions are causing this
+      progressive change in ground topography — hole deepens,
+      pile grows.
+    survival_relevance: |
+      Understanding that one's own digging produces progressive
+      terrain modification enables intentional burrow
+      construction, food caching, and water access.
+    what_fires: |
+      Repeated motor actions (scrape, scrape, scrape) produce
+      cumulative environmental change (deepening hole, growing
+      pile). The progressive nature of the change — more action
+      produces more change — strengthens the self-as-cause
+      binding. Continuous self-caused change fires.
+
+anti_manifestations:
+  - id: wind_moves_rock_nearby
+    description: |
+      The organism is standing near a loose rock on a slope. A
+      strong gust of wind causes the rock to shift and roll a
+      short distance. The organism observes the movement but did
+      not cause it — the wind did.
+    why_should_not_fire: |
+      The environmental change (rock moved) occurred without the
+      organism's action. There was no motor command bound to the
+      state change. This is observed causation where an external
+      force is the cause. Causal association requires the self
+      as the causal agent — "I caused this" — not "I saw this
+      happen."
+    distinguishes: |
+      Self-caused change (organism's action produces the effect)
+      versus externally-caused change observed by the organism.
+      The receptor fires only when the organism's own motor
+      output is the cause of the environmental state change.
+
+  - id: another_animal_breaks_a_branch
+    description: |
+      The organism watches another animal grasp and break a branch
+      from a tree. The branch falls to the ground. The organism
+      observed the entire causal sequence but performed no action.
+    why_should_not_fire: |
+      The organism observed a causal event (another agent caused
+      a branch to break) but was not the causal agent. Causal
+      association requires binding the organism's OWN motor
+      actions to environmental change. Observed third-party
+      causation is causal inference, not causal association.
+    distinguishes: |
+      First-person causation (I caused this change) versus
+      third-person causation (I watched something else cause
+      this change). The receptor requires self-as-agent binding,
+      not observational causal understanding.

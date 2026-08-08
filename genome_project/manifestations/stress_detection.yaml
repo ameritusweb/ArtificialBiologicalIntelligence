@@ -1,0 +1,47 @@
+receptor_id: stress_detection
+family: regulatory
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Sustained compound threat state — multiple negative signals co-occurring
+  and persisting over time. High pain AND low energy simultaneously, not
+  just one or the other. The boundary: compound sustained crisis vs single
+  transient hardship.
+
+manifestations:
+  - id: wounded_and_starving
+    description: Organism has taken damage (pain > 0.6) AND energy is depleted (< 0.2) for 30+ steps
+    survival_relevance: Compound vulnerability demands behavioral mode shift — hide, don't explore
+    what_fires: Pain and energy channels both in danger zone simultaneously across sustained window
+
+  - id: poisoned_exhaustion
+    description: Chemical exposure causes ongoing pain while sustained movement has drained energy
+    survival_relevance: Continuing current behavior guarantees death — must break current pattern
+    what_fires: Toxic pain signal AND low energy co-present for extended duration
+
+  - id: predator_chase_depletion
+    description: Fleeing predator for many steps — high pain from attacks AND energy draining from sprint
+    survival_relevance: Cannot sustain flight — must switch strategy (hide, fight, or accept)
+    what_fires: Sustained co-occurrence of threat-pain and energy-depletion over escape duration
+
+  - id: thermal_damage_with_fatigue
+    description: Extreme cold causes tissue damage while energy reserves are too low to generate heat
+    survival_relevance: Cannot thermoregulate — requires shelter-seeking as emergency override
+    what_fires: Temperature-induced pain AND sub-threshold energy persisting across many steps
+
+  - id: social_threat_while_weakened
+    description: NPC aggression ongoing while organism is already injured and low on energy
+    survival_relevance: Compounding threats with no reserves signals maximum vulnerability
+    what_fires: Social threat channel AND pain channel AND low energy all elevated over sustained period
+
+anti_manifestations:
+  - id: momentary_pain_spike
+    description: Sharp pain from stepping on object — high pain for 2 steps, energy is fine
+    why_should_not_fire: Transient single-channel signal, not sustained compound state
+    distinguishes: Stress requires SUSTAINED duration AND multiple simultaneous negative signals
+
+  - id: tired_but_safe
+    description: Energy is very low after long foraging, but no pain or threat present
+    why_should_not_fire: Single deficit without compound threat — rest solves this
+    distinguishes: Stress requires the COMPOUND nature — multiple channels in crisis simultaneously

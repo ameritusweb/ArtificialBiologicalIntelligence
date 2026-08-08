@@ -1,0 +1,102 @@
+receptor_id: response_recognition
+family: interaction
+tier: trunk
+stage: 3
+
+conceptual_space: |
+  Detects whether an object in the environment responds to the agent's contact
+  or force. When pushed, does it move? When struck, does it change? The boundary
+  is responsiveness itself: the environment reacts to the agent's action. A rock
+  slides when kicked; a cliff face does not budge. This receptor classifies objects
+  along the responsive-unresponsive axis. It does not care what the response is —
+  only that there is one.
+
+manifestations:
+  - id: rock_slides_on_push
+    description: |
+      The agent pushes a loose stone on flat ground. The stone slides forward
+      several body-lengths. The object responded to the applied force with
+      visible displacement.
+    survival_relevance: |
+      Knowing which objects respond to force is foundational for tool use,
+      path-clearing, and environmental manipulation.
+    what_fires: |
+      Agent applies force to object; object changes position. Action-consequence
+      pair detected: push → displacement.
+
+  - id: branch_bends_on_weight
+    description: |
+      The agent steps onto a thin branch spanning a gap. The branch bows
+      downward under the agent's weight. The object deformed in response to
+      applied load.
+    survival_relevance: |
+      Detecting structural responsiveness prevents falls — a branch that bends
+      may break. Responsiveness signals fragility.
+    what_fires: |
+      Agent applies weight/force to object; object deforms visibly. The
+      environment changed state in direct response to agent action.
+
+  - id: water_ripples_on_touch
+    description: |
+      The agent touches the surface of a still pool. Ripples radiate outward
+      from the contact point. The water surface responded to the touch with
+      a visible disturbance pattern.
+    survival_relevance: |
+      Responsive surfaces reveal material properties — water responds
+      differently than ice or mud, informing traversal decisions.
+    what_fires: |
+      Agent contacts surface; surface produces visible change (ripples) at
+      and around contact point. Contact → state change detected.
+
+  - id: prey_flees_on_approach
+    description: |
+      The agent moves toward a small animal resting on a rock. When the agent
+      gets within two body-lengths, the animal bolts. The entity in the
+      environment responded to the agent's proximity with escape behavior.
+    survival_relevance: |
+      Responsive entities (prey that flees, predators that charge) require
+      fundamentally different strategies than inert objects.
+    what_fires: |
+      Agent acts (approaches); environmental entity changes state (flees).
+      Agent action produced environmental response, even without direct contact.
+
+  - id: sand_compresses_underfoot
+    description: |
+      The agent walks across a sandy patch. Each step leaves an impression —
+      the sand compresses and retains the footprint shape. The substrate
+      responded to pressure with permanent deformation.
+    survival_relevance: |
+      Responsive substrates affect locomotion efficiency and leave tracking
+      information. Knowing ground responsiveness guides path selection.
+    what_fires: |
+      Agent applies force (stepping); substrate deforms and retains change.
+      Persistent visible evidence of environmental responsiveness.
+
+anti_manifestations:
+  - id: cliff_face_no_movement
+    description: |
+      The agent pushes against a large cliff face with full force. Nothing
+      happens. No displacement, no deformation, no change of any kind. The
+      cliff is utterly unresponsive to the agent's action.
+    why_should_not_fire: |
+      The object did not respond. No state change occurred as a consequence
+      of the agent's action. Response_recognition requires detected change
+      following agent action.
+    distinguishes: |
+      The presence versus absence of any environmental response to agent
+      action. Unresponsive objects are the negative class this receptor
+      must exclude.
+
+  - id: leaf_falls_independently
+    description: |
+      A leaf detaches from a tree and drifts to the ground while the agent
+      watches from a distance. The agent did not touch, push, or approach
+      the tree. The leaf fell on its own due to wind.
+    why_should_not_fire: |
+      The change was not a response to the agent's action. The leaf moved,
+      but the agent caused nothing. Response_recognition requires a
+      detected link between agent action and environmental change.
+    distinguishes: |
+      Environmental change that is a response to agent action versus
+      environmental change that occurs independently. Only the former
+      constitutes responsiveness.

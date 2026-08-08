@@ -1,0 +1,120 @@
+receptor_id: basic_sensorimotor_loop
+family: association
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Action produces sensation. The most primitive agency loop: motor output
+  generates sensory input. Extend arm, feel contact. Push ground, feel
+  resistance. The boundary is the closed loop between efferent command and
+  afferent return — not just sensing, not just acting, but the coupling
+  between the two.
+
+manifestations:
+  - id: limb_extension_contact
+    description: |
+      Organism extends a forelimb forward and the limb tip contacts a solid
+      surface. The motor command to extend produces a tactile signal on the
+      distal surface. Retract the limb and the tactile signal ceases. Extend
+      again and the contact returns, same location, same pressure.
+    survival_relevance: |
+      The most basic demonstration that the organism's actions produce
+      sensory consequences. Without this loop, there is no foundation for
+      any intentional interaction with the environment.
+    what_fires: |
+      Motor command issued → temporally coupled sensory return within one
+      timestep. The latency between efferent output and afferent input is
+      near-zero, and the sensory modality changes only when the motor
+      command changes.
+
+  - id: locomotion_ground_feel
+    description: |
+      Organism pushes against the ground with legs. Each push produces a
+      proprioceptive signal of resistance and a shift in the visual field.
+      Stop pushing and both signals cease. The ground pushes back exactly
+      when the organism pushes down.
+    survival_relevance: |
+      Locomotion is the most survival-critical sensorimotor loop. Every
+      step that produces expected ground feedback confirms the organism
+      can navigate. Without this loop, movement is random flailing.
+    what_fires: |
+      Rhythmic motor output produces rhythmic sensory return. Each push
+      cycle generates a paired resistance signal and position update.
+      The loop frequency matches the motor frequency exactly.
+
+  - id: vocalization_hearing
+    description: |
+      Organism contracts vocal muscles and simultaneously hears a sound.
+      The sound onset is perfectly locked to the motor command. Different
+      muscle contractions produce different sounds, and the organism hears
+      each variation in real time as it produces it.
+    survival_relevance: |
+      Hearing one's own vocalizations is the foundation for vocal learning,
+      alarm calls, and eventually communication. The motor-auditory loop
+      enables calibration of signal production.
+    what_fires: |
+      Motor command to vocal apparatus → immediate auditory signal with
+      spectral properties that correlate with the specific motor pattern.
+      The coupling is instantaneous and deterministic.
+
+  - id: jaw_bite_pressure
+    description: |
+      Organism closes jaw on a food item. The motor command to close jaw
+      muscles produces pressure signals from the mouth surface. Harder
+      bite produces stronger pressure. Release and the pressure vanishes.
+      The sensory magnitude tracks the motor magnitude continuously.
+    survival_relevance: |
+      Feeding requires real-time sensorimotor coupling. Bite force must
+      be calibrated to food hardness — too soft and nutrition is missed,
+      too hard and teeth break. The loop enables adaptive feeding.
+    what_fires: |
+      Graded motor output produces graded sensory return. The pressure
+      signal is a continuous function of the motor command magnitude,
+      not binary. Proportional coupling between action and sensation.
+
+  - id: tail_sweep_water_resistance
+    description: |
+      Aquatic organism sweeps tail laterally and feels water resistance
+      against the tail surface. Faster sweeps produce stronger resistance.
+      Reversing the sweep reverses the resistance direction. The hydrodynamic
+      feedback is immediate and directionally coupled to the motor pattern.
+    survival_relevance: |
+      Aquatic locomotion depends on feeling the medium respond to movement.
+      The tail-water loop is how swimming organisms calibrate propulsion
+      efficiency and detect current changes.
+    what_fires: |
+      Motor command with directional and magnitude components produces
+      sensory return with matching directional and magnitude components.
+      Vector coupling — not just presence/absence but direction-matched
+      feedback.
+
+anti_manifestations:
+  - id: passive_sensation_no_action
+    description: |
+      Organism is resting motionless and a warm breeze contacts its skin.
+      The tactile and thermal signals arrive without any motor command
+      preceding them. The sensation is real but the organism did nothing
+      to produce it.
+    why_should_not_fire: |
+      Sensorimotor loop requires both motor output and sensory return.
+      Sensation without action is pure perception, not a closed loop.
+      There is no efferent-afferent coupling to detect.
+    distinguishes: |
+      The loop requires the ACTION component. Passive sensation, no matter
+      how vivid, is not sensorimotor coupling. The motor command must
+      precede and cause the sensory return.
+
+  - id: action_no_feedback
+    description: |
+      Organism extends limb into empty space — no contact, no resistance,
+      no temperature change. The motor command executes but produces no
+      sensory consequence beyond proprioception of the limb position itself.
+      The action occurred but the environment provided no feedback.
+    why_should_not_fire: |
+      Sensorimotor loop requires sensory return from the environment, not
+      just proprioceptive confirmation that the limb moved. Action into
+      void produces no environmental feedback to close the loop.
+    distinguishes: |
+      The loop requires ENVIRONMENTAL sensory return, not just internal
+      proprioception. The organism must feel something beyond its own
+      body state changing.

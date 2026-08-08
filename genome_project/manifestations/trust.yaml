@@ -1,0 +1,138 @@
+receptor_id: trust
+family: bridging
+tier: branch
+stage: 4
+
+conceptual_space: |
+  NPC-A's calm signal reliably precedes safety; NPC-B's doesn't. The
+  concept is per-source reliability calibration: tracking whether a
+  specific agent's signals accurately predict outcomes, and adjusting
+  the weight given to that agent's future signals accordingly. The
+  boundary is between treating all sources equally and differentiating
+  sources by reliability. Trust is not about whether the organism LIKES
+  the agent — it is about whether the agent's signals are PREDICTIVE.
+
+manifestations:
+  - id: reliable_safety_signal
+    description: |
+      NPC-A emits a calm signal before entering a region. Every time
+      NPC-A has emitted this signal, the region has indeed been safe.
+      After multiple confirmations, the organism gives high weight
+      to NPC-A's calm signals — following NPC-A into signaled-safe
+      areas without independent verification.
+    survival_relevance: |
+      Trusting reliable sources saves verification costs. The organism
+      can exploit NPC-A's superior perception or knowledge without
+      duplicating the sensing effort, freeing resources for other
+      tasks.
+    what_fires: |
+      Specific agent's signal-to-outcome prediction accuracy exceeds
+      threshold over multiple observations. High reliability score
+      for this source causes increased weight on this source's
+      future signals.
+
+  - id: unreliable_alarm_signal
+    description: |
+      NPC-B frequently emits alarm signals, but the organism has
+      learned that NPC-B's alarms rarely correspond to actual threats.
+      Out of ten alarms, only one preceded real danger. The organism
+      now discounts NPC-B's alarm signals.
+    survival_relevance: |
+      Discounting unreliable alarm sources prevents the organism from
+      wasting energy on false alarms. Responding to every alarm
+      regardless of source reliability is metabolically expensive
+      and behaviorally disruptive.
+    what_fires: |
+      Specific agent's signal-to-outcome prediction accuracy falls
+      below threshold. Low reliability score for this source causes
+      decreased weight on this source's future signals. Distrust
+      as calibrated low-trust.
+
+  - id: domain_specific_trust
+    description: |
+      NPC-C's food-location signals are highly reliable — following
+      NPC-C's signals to food sources has been consistently rewarding.
+      But NPC-C's hazard-avoidance signals are unreliable — NPC-C
+      avoids areas that turn out to be safe. The organism trusts
+      NPC-C about food but not about threats.
+    survival_relevance: |
+      Domain-specific trust enables the organism to extract value
+      from partially reliable sources. An agent can be an expert in
+      one domain and unreliable in another. Per-domain calibration
+      maximizes information extraction.
+    what_fires: |
+      Source reliability differs across signal domains. High accuracy
+      in one domain, low accuracy in another. Trust score is
+      maintained per-source AND per-domain, not just per-source.
+
+  - id: trust_erosion
+    description: |
+      NPC-D was previously reliable — its calm signals accurately
+      predicted safety for many episodes. Recently, NPC-D's signals
+      have become inaccurate — two consecutive calm signals preceded
+      dangerous situations. The organism's trust in NPC-D decreases.
+    survival_relevance: |
+      Trust must be dynamic. If a previously reliable source becomes
+      unreliable (due to environmental change, agent state change,
+      or deliberate deception), the organism must update or risk
+      following bad information into danger.
+    what_fires: |
+      Source's recent prediction accuracy drops below its historical
+      average. Trust score for this source decreases in response to
+      recent disconfirmations, even though cumulative accuracy may
+      still be high. Recency-weighted reliability update fires.
+
+  - id: trust_transfer_from_association
+    description: |
+      NPC-E is novel — the organism has no reliability data on it.
+      But NPC-E consistently associates with NPC-A, whose signals
+      are highly trusted. The organism assigns initial moderate trust
+      to NPC-E based on its association with the trusted NPC-A,
+      pending direct verification.
+    survival_relevance: |
+      For novel agents, association-based trust priors provide a
+      starting point better than zero information. Agents that
+      associate with reliable sources may share some reliability
+      characteristics.
+    what_fires: |
+      Novel agent has no direct reliability record but associates
+      with an agent that has a high trust score. Initial trust prior
+      is set based on association strength and associated agent's
+      trust level. Association-based trust initialization fires.
+
+anti_manifestations:
+  - id: familiarity_without_reliability
+    description: |
+      NPC-F has been present in the environment for a long time and
+      the organism has observed NPC-F frequently. The organism
+      "knows" NPC-F well. But NPC-F's signals have never been
+      particularly accurate — they are no better than chance at
+      predicting outcomes.
+    why_should_not_fire: |
+      Trust is reliability calibration, not familiarity. A well-known
+      agent whose signals are not predictive should not be trusted.
+      Exposure duration and observation count do not constitute trust.
+    distinguishes: |
+      Trust is measured by SIGNAL-TO-OUTCOME prediction accuracy,
+      not by familiarity, proximity, or exposure duration. A familiar
+      but unreliable agent deserves low trust. An unfamiliar but
+      accurate agent deserves high trust.
+
+  - id: positive_interaction_without_signal_accuracy
+    description: |
+      NPC-G never emits threatening signals and the organism has
+      never been harmed near NPC-G. The organism has positive
+      associations with NPC-G. But NPC-G has also never emitted
+      information-bearing signals that could be evaluated for
+      accuracy — NPC-G is simply passive and non-threatening.
+    why_should_not_fire: |
+      Trust requires signal-to-outcome evaluation. An agent that
+      emits no information-bearing signals cannot be evaluated for
+      reliability. Absence of negative interaction is not evidence
+      of signal reliability — it is absence of data. Trust requires
+      positive evidence of accuracy, not just absence of harm.
+    distinguishes: |
+      Trust requires testable predictions from the source. A non-
+      threatening but non-communicative agent provides no basis for
+      reliability calibration. Safety from an agent is not the same
+      as trust in an agent's signals.

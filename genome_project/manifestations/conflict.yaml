@@ -1,0 +1,47 @@
+receptor_id: conflict
+family: meta-motivational
+tier: trunk
+stage: 2
+
+conceptual_space: |
+  Competing receptor activations demanding incompatible actions. The concept
+  is the competition itself — two or more drives simultaneously active, each
+  calling for a different behavioral response, and they cannot both be
+  satisfied. Not either drive alone — the TENSION between them.
+
+manifestations:
+  - id: hunger_vs_danger
+    description: Food source is adjacent to a predator — hunger drive says approach, threat drive says flee — cannot do both
+    survival_relevance: Detecting the conflict itself enables deliberation rather than oscillating between incompatible impulses
+    what_fires: Simultaneous high activation of approach-reward and avoidance-threat receptors with opposing action implications
+
+  - id: explore_vs_exploit
+    description: Known food source is nearby (exploit) but unexplored region might have better food (explore) — can only go one direction
+    survival_relevance: Explicit conflict signal prevents the organism from dithering — forces a resolution mechanism
+    what_fires: Curiosity/exploration drive and energy-conservation/exploitation drive both above threshold simultaneously
+
+  - id: rest_vs_forage
+    description: Energy is low (rest drive high) but food is available right now and may not be later (forage drive high)
+    survival_relevance: Without conflict detection, organism might rest and miss the food, or forage and collapse
+    what_fires: Regulatory rest-drive and appetitive foraging-drive both demanding immediate action in opposite directions
+
+  - id: social_approach_vs_threat
+    description: NPC could be beneficial (social approach drive) or hostile (threat avoidance drive) — ambiguous signal
+    survival_relevance: Conflict detection triggers cautious assessment behavior rather than full approach or full flee
+    what_fires: Social-approach receptors and threat-avoidance receptors co-activated above conflict threshold
+
+  - id: shelter_vs_resources
+    description: Storm approaching (seek shelter drive) but organism just found a rich food patch (stay and harvest drive)
+    survival_relevance: Detecting the time-pressure conflict enables prioritization rather than paralysis
+    what_fires: Safety-seeking and resource-harvesting drives both active with mutually exclusive spatial requirements
+
+anti_manifestations:
+  - id: single_strong_drive
+    description: Organism is very hungry and food is available with no threats nearby — only hunger drive is active
+    why_should_not_fire: No competing drive — there is a clear, uncontested action. No conflict exists
+    distinguishes: Conflict requires MULTIPLE competing drives, not a single dominant motivation
+
+  - id: compatible_drives
+    description: Organism is both cold and hungry, and warm food is available — both drives point to the same action (approach food)
+    why_should_not_fire: Both drives recommend the same behavior — no incompatibility, no conflict
+    distinguishes: Conflict requires drives that demand INCOMPATIBLE actions, not drives that align

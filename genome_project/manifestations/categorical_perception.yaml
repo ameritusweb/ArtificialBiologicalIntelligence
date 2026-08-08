@@ -1,0 +1,47 @@
+receptor_id: categorical_perception
+family: similarity
+tier: branch
+stage: 2
+
+conceptual_space: |
+  Sharp category boundaries in perceptual space. Within-category differences
+  are compressed (0.6 and 0.65 feel "the same"), between-category differences
+  are exaggerated (0.49 and 0.51 feel "completely different"). The concept is
+  the boundary itself — the discontinuity in perceived similarity.
+
+manifestations:
+  - id: hot_vs_cold_boundary
+    description: Thermal readings 0.48 and 0.52 feel categorically different (cold vs hot) despite tiny physical gap
+    survival_relevance: Categorical boundary at thermal midpoint triggers different survival behaviors — seek warmth vs seek shade
+    what_fires: Stimuli near a learned boundary produce maximally different behavioral responses despite minimal feature distance
+
+  - id: safe_vs_dangerous_npc
+    description: NPC with aggression=0.44 treated as safe; NPC with aggression=0.46 treated as threat — sharp cutoff
+    survival_relevance: Binary threat categorization enables fast fight-or-flight without analog deliberation
+    what_fires: Response discontinuity — small change in input near boundary causes large change in output classification
+
+  - id: food_vs_poison_threshold
+    description: Chemical signature 0.39 categorized as edible, 0.41 categorized as toxic — compressed within, exaggerated across
+    survival_relevance: Survival demands crisp food/poison discrimination at the boundary, not graded assessment
+    what_fires: Within-category pairs (0.30 vs 0.39) produce less discrimination than across-boundary pairs (0.39 vs 0.41)
+
+  - id: light_vs_dark_categorical
+    description: Luminance values 0.1-0.4 all perceived as "dark" (compressed); 0.5-0.9 all perceived as "light" — boundary near 0.45
+    survival_relevance: Day vs night categorization triggers mode-switching independent of exact brightness
+    what_fires: Discrimination function shows step-change at boundary — flat within categories, steep between
+
+  - id: near_vs_far_threat
+    description: Distance=14 and distance=16 from threat feel the same (far); distance=9 and distance=11 feel categorically different (near vs safe)
+    survival_relevance: Crisp proximity boundary for threats enables decisive escape initiation without dithering
+    what_fires: Behavioral response magnitude shows sharp transition at critical distance threshold
+
+anti_manifestations:
+  - id: linear_gradient_response
+    description: Organism's avoidance response scales linearly with threat distance — 10% per unit closer, no sharp transition
+    why_should_not_fire: No category boundary exists — response is smoothly graded, not discontinuous
+    distinguishes: Categorical perception requires a SHARP boundary with compression/exaggeration, not linear scaling
+
+  - id: perceptual_similarity_without_boundary
+    description: Organism recognizes that thermal=0.6 and thermal=0.65 are similar, but also recognizes 0.5 and 0.55 as similar — no boundary between them
+    why_should_not_fire: This is perceptual similarity (everything similar to neighbors), not categorical perception
+    distinguishes: Categorical perception requires an asymmetry — similar WITHIN category but different ACROSS boundary

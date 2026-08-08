@@ -1,0 +1,149 @@
+receptor_id: belief_attribution
+family: social
+tier: branch
+stage: 7
+
+conceptual_space: |
+  Detects that another agent holds a belief that differs from reality.
+  The classic structure is the false belief: an NPC observed food placed
+  at location A, then the food was moved to location B while the NPC
+  was absent. The NPC will go to location A (where it believes the food
+  is) not location B (where the food actually is). The boundary separates
+  predicting behavior from current reality (the food is at B, so the NPC
+  will go to B) from predicting behavior from the agent's BELIEF state
+  (the NPC last saw food at A, so it will go to A). The concept is that
+  agents act on beliefs, not on reality, and beliefs can be wrong.
+
+manifestations:
+  - id: classic_false_belief_food_moved
+    description: |
+      NPC-A sees food placed at location X and leaves the area. While
+      NPC-A is gone, the food is moved to location Y. NPC-A returns
+      and heads toward location X, not location Y. The organism
+      predicts this — NPC-A believes the food is at X because that
+      is where NPC-A last observed it.
+    survival_relevance: |
+      Predicting where competitors will search based on their beliefs
+      (not current reality) enables the organism to exploit belief-
+      reality gaps. It can take food from location Y knowing NPC-A
+      will waste time searching location X.
+    what_fires: |
+      An agent acting on outdated information when the organism knows
+      the current state differs. The divergence between the agent's
+      belief (food at X) and reality (food at Y) combined with the
+      agent's behavior matching its belief (going to X) fires.
+
+  - id: npc_avoids_cleared_danger
+    description: |
+      NPC-B saw a predator in a cave and fled. The predator later
+      left the cave (the organism witnessed its departure). NPC-B
+      continues to avoid the cave. The organism recognizes that
+      NPC-B still believes the predator is there because NPC-B did
+      not witness the departure.
+    survival_relevance: |
+      Understanding that NPC-B avoids the cave based on a false
+      belief (predator still there) lets the organism exploit the
+      now-safe cave without competition from NPC-B. It can also
+      predict NPC-B's behavior in other contexts where NPC-B has
+      outdated threat information.
+    what_fires: |
+      An agent avoiding a location based on a belief (danger there)
+      that the organism knows to be false (danger departed). The
+      agent's behavior is consistent with its belief state, not
+      with current reality.
+
+  - id: npc_searches_wrong_container
+    description: |
+      NPC-C watches the organism place a tool in container A. The
+      organism later moves the tool to container B when NPC-C is
+      not looking. NPC-C approaches and opens container A. The
+      organism predicted this because NPC-C's belief about the
+      tool's location is based on what NPC-C last observed.
+    survival_relevance: |
+      Predicting search behavior based on others' beliefs enables
+      strategic concealment. The organism can hide valued resources
+      by moving them after a competitor observes the initial
+      placement, knowing the competitor will search the wrong
+      location.
+    what_fires: |
+      Another agent searching a location consistent with its belief
+      (tool in A) when reality differs (tool in B). The organism's
+      ability to predict the wrong search from the agent's
+      information state fires belief attribution.
+
+  - id: npc_offers_spoiled_food_unknowingly
+    description: |
+      NPC-D collected food and cached it. The food spoiled while
+      NPC-D was elsewhere. NPC-D returns and offers the food to
+      the organism as a social gesture. The organism recognizes
+      that NPC-D genuinely believes the food is still good — it is
+      not deception but a false belief about the food's current state.
+    survival_relevance: |
+      Distinguishing innocent false belief from intentional
+      deception enables appropriate social responses. The organism
+      can decline the food without treating NPC-D as a threat,
+      preserving a valuable social relationship while avoiding
+      the spoiled food.
+    what_fires: |
+      An agent acting on a belief about an object's state (food is
+      good) that reality contradicts (food is spoiled), where the
+      agent's behavior (offering) is consistent with its belief
+      rather than with deceptive intent. Belief-action alignment
+      without reality alignment fires.
+
+  - id: npc_waits_at_dry_water_source
+    description: |
+      NPC-E travels to a water source that the organism knows has
+      dried up (the organism visited it recently). NPC-E arrives
+      and waits expectantly, then shows confusion. The organism
+      predicted the waiting behavior because NPC-E's last visit
+      was when water was still flowing — NPC-E held a now-false
+      belief about water availability.
+    survival_relevance: |
+      Predicting others' resource-seeking failures based on their
+      outdated beliefs enables competitive advantage. The organism
+      can direct its own foraging to current water sources while
+      competitors waste effort on dry ones.
+    what_fires: |
+      An agent traveling to and expecting a resource based on a
+      belief (water here) that is no longer true (water gone).
+      The expectation-violation visible in the agent's behavior
+      (waiting, confusion) confirms the belief-reality gap.
+
+anti_manifestations:
+  - id: npc_goes_to_actual_food_location
+    description: |
+      NPC-F sees food placed at location X. The food remains at
+      location X. NPC-F goes to location X and finds the food.
+      The NPC's belief matches reality — it acts correctly.
+    why_should_not_fire: |
+      This is behavior consistent with a TRUE belief. Belief
+      attribution as a distinct signal requires detecting that
+      an agent's belief DIFFERS from reality. When belief and
+      reality align, behavior is equally well explained by
+      responding to current reality directly — no belief modeling
+      is needed. The diagnostic power of belief attribution lies
+      in the false-belief case.
+    distinguishes: |
+      True belief (agent's belief matches reality, behavior is
+      explainable without belief modeling) versus false belief
+      (agent's belief diverges from reality, behavior is only
+      explainable through belief modeling). The divergence is
+      the diagnostic boundary.
+
+  - id: organism_predicts_own_mistake
+    description: |
+      The organism itself placed food at location A and forgot it
+      moved the food to location B. It goes to location A and is
+      surprised. This is the organism's own false belief about
+      its own prior action.
+    why_should_not_fire: |
+      This is self-error, not belief attribution. Belief attribution
+      models OTHER agents' mental states. The organism's own
+      memory failure is a different cognitive function — error
+      detection or memory monitoring — not social cognition about
+      others' beliefs.
+    distinguishes: |
+      Self-directed error detection (own belief was wrong) versus
+      other-directed belief attribution (modeling another agent's
+      belief as wrong). The other-agent requirement is the boundary.

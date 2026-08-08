@@ -1,0 +1,48 @@
+receptor_id: rhythmic_pattern
+family: repetition
+tier: canopy
+stage: 5
+
+conceptual_space: |
+  Detects rhythm that contains internal structure — not just periodicity but
+  pattern WITHIN the period. A predator sweep that goes fast-fast-slow is not
+  merely periodic; it has a signature tempo shape. The boundary is between
+  bare repetition (same interval, same event) and structured repetition
+  (the repeating unit itself has sub-parts with distinct timing).
+
+manifestations:
+  - id: predator_sweep_signature
+    description: Predator patrols with a fast-fast-slow sweep pattern that repeats every cycle through the hunting ground
+    survival_relevance: Recognizing the internal structure of the patrol lets the organism predict the slow phase and move during it
+    what_fires: Three-beat movement signal where intervals 1-2 are short and interval 2-3 is long, repeating across multiple cycles
+
+  - id: gallop_gait_recognition
+    description: Large predator approaching with a gallop rhythm — two quick footfalls then a longer aerial phase — repeating
+    survival_relevance: Gallop rhythm means full-speed pursuit; distinguishing it from trot rhythm determines flee urgency
+    what_fires: Visual oscillation pattern with paired rapid vertical displacements followed by a sustained glide, repeating
+
+  - id: pack_coordination_cadence
+    description: Three predators take turns lunging — A-B-pause-C-A-B-pause-C — a structured rotation
+    survival_relevance: Understanding the rotation pattern reveals which predator strikes next and when the pause window opens
+    what_fires: Spatial movement bursts from distinct sources following a fixed sub-sequence with embedded pause, cycling
+
+  - id: wave_driven_cover_cycle
+    description: Waves wash over rocks in a pattern of two quick splashes then one slow surge, cyclically revealing and hiding food
+    survival_relevance: Timing movement to the slow surge phase allows safe food retrieval between exposure windows
+    what_fires: Visual occlusion-reveal events with short-short-long timing structure repeating across wave cycles
+
+  - id: prey_scatter_pattern
+    description: Group of small prey flee in bursts — dart-dart-freeze-dart-dart-freeze — a structured escape rhythm
+    survival_relevance: Recognizing the freeze phase in prey scatter reveals when prey are stationary and catchable
+    what_fires: Multiple small movement signals with paired rapid displacements and periodic stillness, repeating
+
+anti_manifestations:
+  - id: metronome_repetition
+    description: Predator paces back and forth at perfectly even intervals with no internal structure to the period
+    why_should_not_fire: The repetition has no sub-pattern — each cycle is a single uniform event at constant tempo
+    distinguishes: Internal structure vs bare periodicity — rhythmic_pattern requires pattern WITHIN the repeating unit
+
+  - id: random_burst_timing
+    description: Predator moves in bursts of varying length with no repeating internal structure — sometimes fast-slow, sometimes slow-fast-fast
+    why_should_not_fire: There is variation in timing but no consistent internal pattern that repeats across cycles
+    distinguishes: Structured repetition vs stochastic variation — the internal pattern must itself be stable and recurring

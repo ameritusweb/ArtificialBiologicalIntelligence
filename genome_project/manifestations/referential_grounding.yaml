@@ -1,0 +1,50 @@
+receptor_id: referential_grounding
+family: language
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detects whether the organism's internal labels (words, symbols, tags)
+  actually connect to active receptor chains versus being empty tokens
+  with no perceptual or functional backing. The boundary is between labels
+  that trace back to real receptor activations (grounded) and labels that
+  the organism uses fluently but which activate nothing downstream (hollow).
+  Fires when the organism verifies -- or discovers a failure in -- the
+  referential chain from word to receptor.
+
+manifestations:
+  - id: verified_danger_chain
+    description: The organism uses the internal label "danger" and traces it to confirm it connects to pain receptors, threat-motion detectors, and elevated arousal states. The chain is intact -- the word activates a real constellation of detectors.
+    survival_relevance: Acting on the word "danger" only works if the word genuinely triggers the protective response cascade. Verifying the chain ensures the organism's language-driven behavior is actually connected to survival-relevant detection.
+    what_fires: Successful trace from a linguistic label through intermediate conceptual representations down to terminal sensory or interoceptive receptors, with activation confirmed at each link in the chain.
+
+  - id: discovered_hollow_label
+    description: The organism has been using the label "safe-zone" for a particular area, but when it traces the reference chain, it finds the label connects to nothing -- no receptor has ever actually fired in that area to confirm safety. The label was adopted from another organism's signal without verification.
+    survival_relevance: Hollow labels create false confidence. An organism that trusts "safe-zone" without receptor backing may relax vigilance in a location that has never been verified as safe, potentially lethally.
+    what_fires: Trace attempt from a linguistic label that terminates without reaching any sensory or interoceptive receptor activation -- the chain is broken or was never established. Detection of the absence of grounding.
+
+  - id: partial_grounding_detected
+    description: The organism's label "food-source" connects to visual-shape receptors (it knows what food looks like) but not to nutritional-outcome receptors (it has never actually eaten from this source). The grounding is partial -- visually grounded but functionally unverified.
+    survival_relevance: Partial grounding can lead to errors where the organism approaches objects that look like food but are toxic. Detecting which parts of the reference chain are grounded and which are gaps allows appropriately cautious behavior.
+    what_fires: Trace from a label that reaches some terminal receptors but fails to reach others that the label's full meaning requires -- a grounding profile with verified links and identifiable gaps.
+
+  - id: grounding_drift_detected
+    description: The organism's label "shelter" used to connect to a specific cave location via spatial receptors. After the cave collapsed, the spatial receptors no longer confirm the location, but the organism still uses "shelter" as if it refers to something real. It detects the drift -- the referent has changed but the label has not updated.
+    survival_relevance: Environmental change can sever previously valid reference chains. Detecting grounding drift prevents the organism from navigating toward shelters that no longer exist or trusting labels whose referents have shifted.
+    what_fires: Comparison between the current receptor activation profile of a label and its historical activation profile, revealing that the terminal receptors no longer confirm what they previously confirmed.
+
+  - id: cross_modal_verification
+    description: The organism's label "predator-call" is grounded in auditory receptors. It verifies grounding by checking whether hearing that sound also activates threat-motion visual receptors through learned association -- confirming the label connects across modalities, not just within one.
+    survival_relevance: Labels grounded in only one modality are fragile. Cross-modal verification confirms that the concept behind the label is robust -- the organism understands "predator" through sound AND sight, not just one channel.
+    what_fires: Activation of a label's primary receptor chain followed by confirmed co-activation in a secondary modality's receptor chain, verifying that the concept bridges sensory channels rather than being modality-locked.
+
+anti_manifestations:
+  - id: fluent_usage_without_verification
+    description: The organism uses the label "territory-boundary" fluently in its internal planning, routing around it consistently. But it has never actually traced whether the label connects to any receptor that has detected a real boundary -- it simply uses the word because it has always used the word.
+    why_should_not_fire: Referential grounding requires active verification of the word-to-receptor chain. Fluent usage of a label is not evidence of grounding -- the organism may be using an inherited or habitual label that has never been checked against actual receptor activation.
+    distinguishes: Whether the organism has actively traced and verified the reference chain versus simply using the label behaviorally without ever checking what, if anything, it connects to.
+
+  - id: emotional_resonance_mistaken_as_grounding
+    description: The organism's label "home" produces a strong positive feeling -- comfort, safety, familiarity. But this emotional response is not the same as verifying that "home" connects to specific spatial, shelter, and resource receptors. The word feels meaningful but the feeling is not a reference chain.
+    why_should_not_fire: Emotional activation by a label is not referential grounding. Grounding requires tracing to perceptual or functional receptors that detect the referent in the world. A warm feeling about "home" does not verify that the word connects to a real, navigable location with confirmed shelter properties.
+    distinguishes: Whether the label activates downstream perceptual or functional receptors that detect the referent (grounding) versus activating only emotional or valence receptors that respond to the label itself (resonance without reference).

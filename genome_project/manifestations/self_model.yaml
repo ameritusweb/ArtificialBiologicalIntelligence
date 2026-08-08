@@ -1,0 +1,118 @@
+receptor_id: self_model
+family: agency
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Internal model of own state and capabilities. "I am here, I can do this,
+  I cannot do that." The organism maintains a running estimate of its own
+  position, energy, health, speed, and action repertoire. The boundary is
+  self-knowledge vs world-knowledge — this receptor fires on updates to the
+  organism's model of itself, not its model of the environment.
+
+manifestations:
+  - id: energy_state_tracking
+    description: |
+      Organism has been moving for many steps without eating. Its internal
+      energy estimate drops steadily. The organism's self-model now includes
+      "I am low energy" — which constrains the set of actions it considers
+      viable. Sprint is no longer in the capability set.
+    survival_relevance: |
+      Accurate self-model of energy state prevents fatal overcommitment.
+      An organism that does not track its own depletion will attempt actions
+      it cannot sustain and die of exhaustion mid-flight from a predator.
+    what_fires: |
+      Internal state variable (energy) updated based on action history.
+      The self-model registers a capability reduction — max speed decreased,
+      action space narrowed. Self-state changed, not world-state.
+
+  - id: injury_capability_update
+    description: |
+      Organism's left forelimb was damaged in a fall. The self-model updates
+      to register reduced grip strength on that side and asymmetric locomotion.
+      The organism now knows "I am slower turning left" and "I cannot grip
+      with full force on that side."
+    survival_relevance: |
+      Post-injury self-model update is critical for survival. An organism
+      that does not register its own damage will attempt movements that
+      fail, exposing it to predation or further injury.
+    what_fires: |
+      Capability parameter changed in self-model. A specific action's
+      expected outcome has been revised downward based on body state change.
+      The update is to the self-model, not the world model.
+
+  - id: position_in_space
+    description: |
+      Organism has navigated through a series of turns and now maintains
+      an estimate of its own position relative to the nest. "I am roughly
+      north-northeast of home, about 40 body-lengths away." The self-model
+      includes spatial coordinates of self within the known map.
+    survival_relevance: |
+      Knowing where you are is the foundation of navigation. Without a
+      self-model that includes position, the organism cannot plan a return
+      path or orient toward known resources.
+    what_fires: |
+      Self-position estimate updated through path integration. The model
+      being updated is "where am I" not "what is there." Egocentric
+      coordinates refreshed after locomotion sequence.
+
+  - id: growth_registered
+    description: |
+      Organism has grown larger over many episodes. Objects that previously
+      could not be moved are now movable. Passages that previously allowed
+      easy transit now require squeezing. The self-model updates body
+      dimensions and force capabilities upward.
+    survival_relevance: |
+      Growing organisms must update their self-model or they will attempt
+      to fit through passages too narrow and fail to exploit newly available
+      force advantages. Self-model accuracy tracks survival.
+    what_fires: |
+      Body parameter in self-model revised upward — size, strength, or
+      reach has increased. The organism's model of its own physical
+      envelope has changed based on accumulated evidence.
+
+  - id: speed_calibration
+    description: |
+      Organism crosses a familiar distance and notices it arrived faster
+      than the self-model predicted. The self-model updates movement speed
+      upward. "I am faster than I thought." Subsequent planning uses the
+      revised speed estimate for timing predictions.
+    survival_relevance: |
+      Accurate speed self-model enables correct timing for interception,
+      escape, and rendezvous. An organism with a stale speed estimate
+      will mistime critical survival maneuvers.
+    what_fires: |
+      Self-model parameter (speed) revised based on discrepancy between
+      predicted and actual traversal time. The correction is to the
+      organism's model of itself, not the terrain model.
+
+anti_manifestations:
+  - id: world_model_update
+    description: |
+      Organism discovers that a previously safe path now contains a
+      predator. This is new information about the environment, not about
+      the organism. The organism's capabilities are unchanged — only the
+      world has changed.
+    why_should_not_fire: |
+      This is a world-model update, not a self-model update. The organism
+      learned something about the environment, not about itself. Its own
+      state, capabilities, and position are unchanged.
+    distinguishes: |
+      Self-model is about the organism's own state and capabilities.
+      World-model is about the environment. This receptor fires only on
+      self-directed updates.
+
+  - id: other_agent_state
+    description: |
+      Organism observes that another creature is limping, moving slowly,
+      and favoring one side. The observer builds a model of the other's
+      injury and reduced capability. But the observer's own self-model
+      is unchanged — it is the other who is injured.
+    why_should_not_fire: |
+      Modeling another agent's state is theory-of-mind or behavioral
+      prediction, not self-model. The organism's own capabilities, energy,
+      and position are unaffected by the other's condition.
+    distinguishes: |
+      Self-model is strictly about the organism's own state. Modeling
+      others' states uses different receptors (other_detection,
+      behavioral_prediction). The boundary is self vs other.

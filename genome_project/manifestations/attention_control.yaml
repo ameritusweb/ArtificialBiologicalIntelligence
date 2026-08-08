@@ -1,0 +1,135 @@
+receptor_id: attention_control
+family: meta-motivational
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Detects the condition where multiple stimuli compete for processing and the
+  agent must suppress irrelevant signals to amplify the relevant one. Three
+  objects are visible — a rock, a berry bush, and a moving shadow — but the
+  agent is hungry, so the berry bush must dominate processing while the rock
+  and shadow are suppressed. The boundary is selective amplification: multiple
+  inputs are present and one must be prioritized based on current goals while
+  others are actively dampened. This is not mere noticing — it is the active
+  management of what gets processed.
+
+manifestations:
+  - id: food_among_distractors
+    description: |
+      The agent is hungry and scanning a cluttered forest floor. Visible
+      objects include fallen leaves, small stones, a beetle, a patch of
+      moss, and partially hidden under a leaf, a cluster of edible seeds.
+      The agent must suppress processing of the irrelevant clutter and
+      amplify the seed signal to guide approach behavior.
+    survival_relevance: |
+      In visually complex environments, food items are rarely the most
+      conspicuous objects. Attention control enables finding resources
+      that camouflage or clutter would otherwise hide.
+    what_fires: |
+      Multiple visual objects competing for processing + active drive state
+      (hunger) + one object matching the drive-relevant category (food).
+      Drive state biases selection: food signal amplified, non-food signals
+      suppressed.
+
+  - id: predator_cue_amid_scenery
+    description: |
+      The agent is traversing an open area with waving grass, scattered
+      rocks, and distant trees. Among the visual noise of wind-blown
+      grass, one patch of movement has a different quality — lateral,
+      deliberate, against the wind direction. The agent must suppress
+      the rhythmic grass motion to amplify the anomalous movement pattern.
+    survival_relevance: |
+      Predator detection in complex visual environments requires
+      suppressing expected patterns (wind-blown grass) to isolate
+      unexpected ones (stalking predator). Attention control is the
+      difference between detecting and missing the threat.
+    what_fires: |
+      Multiple motion signals competing for processing + threat-monitoring
+      goal state + one motion signal with anomalous properties. Background
+      motion suppressed, anomalous motion amplified.
+
+  - id: specific_tool_in_debris
+    description: |
+      The agent needs a sharp-edged stone for cutting. A riverbed is
+      covered with hundreds of stones of various shapes. The agent must
+      suppress processing of round, smooth, and flat stones to selectively
+      attend to angular, sharp-edged ones. The goal (sharp edge) filters
+      the visual field.
+    survival_relevance: |
+      Tool selection from natural materials requires goal-directed visual
+      search. Without attention control, the agent would process every
+      stone equally and fail to efficiently find the one with the needed
+      property.
+    what_fires: |
+      Large set of visually similar objects + specific goal-defined target
+      property (sharp edge). Goal state creates a filter template that
+      amplifies matches and suppresses non-matches.
+
+  - id: track_one_animal_in_group
+    description: |
+      A group of five small prey animals is foraging together. The agent
+      has identified that one — the smallest, at the group's edge — is
+      the most vulnerable target. As the group moves, the agent must
+      track this specific individual while suppressing the visually
+      similar movements of the other four.
+    survival_relevance: |
+      Predatory success requires sustained focus on a selected target
+      within a confusing group. Losing track of the chosen individual
+      among similar-looking group members wastes the targeting investment.
+    what_fires: |
+      Multiple similar-looking moving targets + one selected target with
+      slightly distinguishing features. Sustained amplification of the
+      selected target's signal while suppressing the near-identical signals
+      of non-targets.
+
+  - id: listen_through_noise
+    description: |
+      The agent is near a stream with constant water noise. A faint
+      cracking sound — possibly a large animal stepping on a branch —
+      occurs within the auditory field dominated by water. The agent must
+      suppress the continuous water sound to amplify and evaluate the
+      transient crack.
+    survival_relevance: |
+      Auditory attention control separates signal from noise. Missing a
+      branch-crack that indicates a predator approach because it was
+      masked by water noise could be fatal.
+    what_fires: |
+      Continuous background auditory signal (water) + transient anomalous
+      auditory signal (crack) + threat-monitoring state. Background noise
+      suppressed, transient signal amplified for evaluation.
+
+anti_manifestations:
+  - id: single_stimulus_no_competition
+    description: |
+      The agent is in a bare, empty clearing. There is only one object
+      visible — a single berry bush at the clearing's center. No other
+      stimuli compete for processing. The agent looks at the bush because
+      it is the only thing present.
+    why_should_not_fire: |
+      Attention control requires competition between multiple stimuli and
+      selective amplification of one over others. When only one stimulus
+      exists, there is nothing to suppress and no selection to perform.
+      Looking at the only thing present is not attentional control.
+    distinguishes: |
+      Selective processing among competitors versus default processing
+      of a lone stimulus. Attention control is the management of
+      competition, not mere perception.
+
+  - id: everything_equally_relevant
+    description: |
+      The agent is exploring a new area for the first time. Multiple objects
+      are present — rocks, plants, a water source, potential shelter — and
+      the agent has no specific current need. It scans each object in turn,
+      giving roughly equal processing to each because no drive state biases
+      selection. This is broad surveying, not selective amplification.
+    why_should_not_fire: |
+      Without a biasing drive state or current goal, there is no basis for
+      selective amplification. The agent processes all stimuli approximately
+      equally because all are equally relevant (or irrelevant). Attention
+      control requires a filtering criterion — a reason to amplify one
+      signal over others.
+    distinguishes: |
+      Goal-directed selective processing (attention control) versus
+      undirected broad surveying (general exploration). The former
+      requires a prioritization criterion; the latter treats all
+      inputs as equally processable.

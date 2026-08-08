@@ -1,0 +1,49 @@
+receptor_id: pipeline_optimization
+family: sequential
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detects when the organism's own processing pipeline contains redundant,
+  unnecessary, or reorderable stages that waste time or energy. The boundary
+  is between processing sequences that are already minimal versus those that
+  contain steps which can be skipped, merged, or reordered without losing
+  output fidelity. Fires when the organism recognizes that its own internal
+  computation could reach the same conclusion through a shorter path.
+
+manifestations:
+  - id: redundant_validation
+    description: The organism runs a full threat-assessment scan on an object it already classified as safe two steps ago in the same processing cycle. It notices the repeated computation and flags the second scan as skippable.
+    survival_relevance: Wasted processing time during threat assessment delays response to actual dangers. Eliminating redundant validation frees cycles for novel threat detection.
+    what_fires: Detection of identical input-output mappings at two distinct pipeline stages within a single processing cycle, with no intervening state change that would invalidate the earlier result.
+
+  - id: unnecessary_decomposition
+    description: The organism's visual pipeline breaks a simple uniform surface into sub-regions, analyzes each independently, then reassembles them -- but the surface has no internal boundaries. The organism detects that decomposition added cost without information.
+    survival_relevance: In time-critical foraging, spending cycles decomposing featureless terrain delays detection of food or predators at the periphery.
+    what_fires: A decomposition stage produces sub-results that are identical to each other and to what a single-pass analysis would yield, detected by comparing decomposition output entropy against input entropy.
+
+  - id: stale_preprocessing
+    description: The organism preprocesses sensory input with a noise filter calibrated for a previous environment. In the current low-noise environment, the filter changes nothing but still runs. The organism notices the filter's output equals its input across many episodes.
+    survival_relevance: Running a no-op preprocessing stage burns energy and introduces latency. Recognizing staleness lets the organism skip it until conditions change.
+    what_fires: Sustained identity mapping between a pipeline stage's input and output over a threshold number of consecutive episodes, combined with awareness that the stage was originally calibrated for different conditions.
+
+  - id: reorderable_sequence
+    description: The organism runs edge-detection before color-filtering, but realizes that filtering first would reduce the pixel count that edge-detection must process. It detects that reversing order preserves output but reduces total computation.
+    survival_relevance: Faster visual processing means earlier detection of approaching threats. Optimal ordering of independent stages directly impacts reaction time.
+    what_fires: Recognition that two sequential stages are commutative (order-independent in output) combined with an asymmetry in computational cost that depends on input size, where one ordering reduces downstream load.
+
+  - id: bypass_channel
+    description: The organism processes food-location signals through a full spatial-reasoning module even when the food is directly in front of it and requires no spatial inference. It notices that simple cases could bypass the complex module entirely.
+    survival_relevance: Direct stimulus-response shortcuts for trivial cases free the spatial reasoning module for genuinely complex navigation problems where it is actually needed.
+    what_fires: Detection that a complex processing module is being invoked on inputs that fall below a complexity threshold, where the output is predictable from a simple heuristic that the organism could use instead.
+
+anti_manifestations:
+  - id: essential_stage_mistaken_as_waste
+    description: The organism considers skipping a threat-rechecking stage because the object was classified safe initially. But the environment has moving objects that change threat status mid-pipeline. The recheck catches objects that became dangerous during processing.
+    why_should_not_fire: The second evaluation is not redundant because the underlying state has changed between the two checks. The pipeline stage addresses temporal uncertainty, not computational waste.
+    distinguishes: Whether intervening state change can invalidate an earlier result -- true state change means the "redundant" check is actually load-bearing.
+
+  - id: optimization_beyond_capability
+    description: The organism identifies that its threat-detection pipeline could theoretically be faster if it processed all sensory modalities in parallel rather than sequentially. But its architecture only supports sequential modality processing -- it cannot actually execute the parallel version.
+    why_should_not_fire: Pipeline optimization fires on actionable inefficiencies. Recognizing a theoretically better pipeline that cannot be implemented given current architecture is not optimization -- it is architectural fantasy. Executability receptor territory.
+    distinguishes: Whether the organism can actually implement the identified optimization within its current architecture versus merely imagining an impossible improvement.

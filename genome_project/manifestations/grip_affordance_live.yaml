@@ -1,0 +1,132 @@
+receptor_id: grip_affordance_live
+family: interaction
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Step-level grip affordance. Is the organism currently gripping something?
+  Not the episode-level summary of grip events, but the live, moment-to-
+  moment signal of active grip state. The boundary is temporal grain and
+  current state: this receptor reports whether a grip is happening RIGHT
+  NOW on this step, not whether gripping occurred during the episode or
+  whether an object is grippable.
+
+manifestations:
+  - id: holding_stone_while_walking
+    description: |
+      Organism gripped a palm-sized stone three steps ago and is now
+      carrying it while walking across terrain. On this step, the grip
+      is active — fingers closed around the stone, tactile pressure on
+      the palm surface, weight pulling down on the forelimb. The live
+      grip signal is ON.
+    survival_relevance: |
+      Knowing that a grip is currently active constrains the action space.
+      The occupied manipulator cannot grip another object. The organism
+      must factor the held object's weight into locomotion. Live grip
+      state is essential for real-time action planning.
+    what_fires: |
+      Tactile sensors in the manipulator report sustained contact pressure
+      consistent with a closed grip on an object. The signal is continuous
+      and present this step. Grip state = active.
+
+  - id: just_grasped_food_item
+    description: |
+      Organism has just closed its grip on a berry cluster on this step.
+      The transition from open grip to closed grip occurred at this moment.
+      Tactile sensors register the initial contact and compression of the
+      berries. The live signal transitions from OFF to ON.
+    survival_relevance: |
+      The moment of grip acquisition is critical — it confirms that food
+      retrieval succeeded. The live signal's transition from OFF to ON
+      enables the organism to immediately begin the next action (bring
+      to mouth, carry to safety) without checking whether the grip worked.
+    what_fires: |
+      Grip state transitions from inactive to active on this step. Tactile
+      sensors register onset of sustained contact pressure. The transition
+      itself is the signal — the grip just became active.
+
+  - id: grip_under_load
+    description: |
+      Organism is hanging from a branch by its forelimbs. The grip is
+      active and under significant load — body weight pulling down, muscles
+      straining to maintain closure. The live grip signal is ON and
+      reports high force. This is grip during climbing, not just object
+      manipulation.
+    survival_relevance: |
+      Grip under load during climbing is a survival-critical live signal.
+      If the grip force is approaching failure threshold, the organism
+      must act immediately — find a foothold, shift weight, or prepare
+      for a fall. Real-time grip state monitoring during climbing
+      prevents fatal falls.
+    what_fires: |
+      Manipulator tactile sensors report sustained contact at high force.
+      Grip state = active with load factor above baseline. The live signal
+      includes magnitude information, not just binary on/off.
+
+  - id: grip_slipping
+    description: |
+      Organism is holding a wet, smooth object. On this step, the tactile
+      sensors detect micro-slippage — the object is shifting within the
+      grip. The live grip signal is ON but degrading. The grip is active
+      but at risk of failure.
+    survival_relevance: |
+      Live grip degradation detection enables corrective action before
+      the object is lost. An organism that detects slippage can tighten
+      its grip, reposition its fingers, or set the object down
+      deliberately rather than losing it involuntarily.
+    what_fires: |
+      Grip state = active but with slippage signals — intermittent
+      pressure changes, lateral movement of contact surface. The live
+      signal reports grip quality degradation on this step.
+
+  - id: dual_grip_both_manipulators
+    description: |
+      Organism is holding a stick in one forelimb and a stone in the
+      other. Both manipulators report active grip on this step. The live
+      grip signal is ON for both limbs simultaneously, reporting different
+      objects with different grip properties (wood texture vs stone
+      texture, different weights).
+    survival_relevance: |
+      Dual active grip is a tool-use configuration. Knowing that both
+      manipulators are occupied constrains the action space to zero free
+      grippers — any new grip requires releasing one current grip. This
+      real-time constraint is essential for planning multi-tool actions.
+    what_fires: |
+      Both manipulator channels report sustained contact pressure. Grip
+      state = active on two independent channels simultaneously. The
+      live signal includes per-manipulator state.
+
+anti_manifestations:
+  - id: episode_grip_summary
+    description: |
+      At episode end, the organism computes that it gripped objects 12
+      times during the episode. This summary statistic reflects past grip
+      events but says nothing about whether the organism is gripping
+      anything RIGHT NOW. The hands are currently empty.
+    why_should_not_fire: |
+      The live grip signal reports current step state. An episode summary
+      of past grip events is the grip_affordance receptor (episode-level),
+      not grip_affordance_live. The temporal grain is wrong — this is
+      historical, not current.
+    distinguishes: |
+      grip_affordance_live is a step-level current-state signal.
+      grip_affordance is an episode-level summary. The live receptor asks
+      "am I gripping NOW?" not "how often did I grip this episode?"
+
+  - id: grippable_object_not_gripped
+    description: |
+      A grippable stone lies on the ground within reach. The organism can
+      see its grippable properties — small size, appropriate shape, good
+      surface texture. But the organism has not gripped it. Manipulators
+      are empty. No tactile contact. The object AFFORDS gripping but
+      gripping is NOT HAPPENING.
+    why_should_not_fire: |
+      The live grip signal reports active grip state, not grip affordance
+      detection. An object that could be gripped but is not currently
+      being gripped produces zero live grip signal. Affordance detection
+      is a different receptor; this one reports current action state.
+    distinguishes: |
+      grip_affordance_live = currently gripping. grip_affordance = object
+      is grippable. The live receptor fires on the ACT of gripping, not
+      the POSSIBILITY of gripping. Empty hands with a grippable object
+      nearby means the live signal is OFF.

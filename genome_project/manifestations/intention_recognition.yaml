@@ -1,0 +1,131 @@
+receptor_id: intention_recognition
+family: social
+tier: branch
+stage: 4
+
+conceptual_space: |
+  NPC moving toward food = intends to eat. NPC moving toward organism
+  = intends to interact. The concept is GOAL attribution: inferring
+  what outcome the other agent is pursuing based on its current
+  trajectory and context. Not just predicting what the agent will do
+  next (behavioral prediction) but attributing a PURPOSE to the
+  behavior — the agent is doing X BECAUSE it wants Y. The boundary
+  separates goal-level understanding from action-level prediction.
+
+manifestations:
+  - id: approach_food_means_hunger
+    description: |
+      NPC-A is moving in a direct line toward the nearest food source.
+      Its trajectory is aimed at the food, not at any other target.
+      The organism recognizes the intention: NPC-A wants to eat.
+    survival_relevance: |
+      Recognizing that an approaching agent intends to eat (not
+      fight) allows the organism to decide whether to compete for
+      the food or yield without unnecessary conflict.
+    what_fires: |
+      Agent trajectory vector points toward a specific resource.
+      Goal attribution activates: the behavior is directed AT the
+      resource, implying the agent intends to acquire it. Not just
+      "will arrive" but "wants to arrive."
+
+  - id: approach_organism_means_interaction
+    description: |
+      NPC-B changes course to move directly toward the organism.
+      There is no resource between NPC-B and the organism — the
+      organism IS the target. The organism recognizes the intention:
+      NPC-B wants to interact (or confront).
+    survival_relevance: |
+      Distinguishing "approaching me" from "approaching something
+      near me" is critical for threat assessment. An agent whose
+      goal is the organism itself requires different response than
+      one heading for a nearby food source.
+    what_fires: |
+      Agent trajectory is directed at the organism with no
+      intervening resource target. Approach vector combined with
+      no alternative goal target fires intention-to-interact
+      attribution.
+
+  - id: circling_means_assessment
+    description: |
+      NPC-C moves in an arc around the organism at a constant
+      distance rather than approaching directly or fleeing. The
+      organism recognizes the intention: NPC-C is assessing the
+      organism — gathering information before deciding to approach
+      or flee.
+    survival_relevance: |
+      An assessing agent is in a decision state. The organism's
+      behavior during assessment may determine whether the agent
+      commits to approach or retreat. Recognizing assessment
+      enables strategic signaling.
+    what_fires: |
+      Agent maintains constant distance while changing angle
+      relative to the organism. Neither approach nor retreat:
+      observation posture. Goal attributed as information-gathering
+      rather than resource acquisition or engagement.
+
+  - id: retreat_with_resource_means_hoarding
+    description: |
+      NPC-D acquires food then moves away from all other agents,
+      heading toward an isolated location. The organism recognizes
+      the intention: NPC-D is securing the resource away from
+      competitors, not just eating and leaving.
+    survival_relevance: |
+      Recognizing hoarding intention reveals that pursuit could
+      recover the resource. It also reveals the existence of
+      cache locations the organism could later raid.
+    what_fires: |
+      Agent acquires resource then moves away from all other agents
+      toward isolation. Post-acquisition trajectory directed away
+      from social context. Goal attributed as securing/hoarding,
+      not just consuming.
+
+  - id: interception_trajectory
+    description: |
+      NPC-E is not moving toward where NPC-F currently is, but
+      toward where NPC-F will be if NPC-F continues its current
+      trajectory. The organism observes NPC-E's interception path
+      and recognizes the intention: NPC-E wants to intercept NPC-F.
+    survival_relevance: |
+      Interception trajectories reveal predatory or competitive
+      intent. Recognizing that one agent is trying to intercept
+      another signals conflict the organism may need to avoid or
+      exploit.
+    what_fires: |
+      Agent trajectory aims at predicted future position of another
+      agent rather than current position. Lead-pursuit vector fires
+      interception intention. Goal is the other agent itself, with
+      predictive targeting.
+
+anti_manifestations:
+  - id: movement_without_goal_target
+    description: |
+      NPC-G wanders in a random walk pattern. It sometimes moves
+      toward food, sometimes toward agents, sometimes toward empty
+      space, with no consistent target. Its trajectory does not
+      point at anything specific.
+    why_should_not_fire: |
+      No specific goal target can be identified from the trajectory.
+      Intention recognition requires a trajectory directed at a
+      specific target — without that, there is no goal to attribute.
+      Random movement is goalless.
+    distinguishes: |
+      Intention recognition requires directed trajectory toward a
+      specific target. Undirected movement has no attributable goal.
+      Behavioral prediction might still work (predict random walk)
+      but intention recognition has nothing to fire on.
+
+  - id: behavioral_regularity_without_purpose
+    description: |
+      NPC-H always turns left at the fork. The organism can predict
+      this perfectly. But the left turn doesn't lead to any resource
+      or any agent — it's a behavioral habit without apparent purpose.
+    why_should_not_fire: |
+      Behavioral prediction succeeds here — the organism knows
+      WHAT the agent will do. But intention recognition fails
+      because no GOAL can be attributed. The behavior is predictable
+      but purposeless as far as the observer can tell.
+    distinguishes: |
+      Behavioral prediction asks "what will the agent do next?"
+      Intention recognition asks "what does the agent WANT?" A
+      habit without apparent purpose fires prediction but not
+      intention recognition.

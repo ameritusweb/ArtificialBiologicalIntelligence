@@ -1,0 +1,139 @@
+receptor_id: doubt_detection
+family: epistemic
+tier: Branch
+stage: 11
+
+conceptual_space: |
+  Detect sustained confidence paired with poor performance -- the specific failure
+  mode where the organism THINKS it knows but demonstrably does not. The boundary
+  is between appropriate confidence (high confidence, good outcomes) and
+  miscalibrated confidence (high confidence, bad outcomes). This receptor fires
+  when the organism's expressed certainty diverges from its actual accuracy over
+  a meaningful time window. It is the doubt that should exist but doesn't yet --
+  and the receptor's job is to generate it.
+
+manifestations:
+  - id: confident_foraging_failure
+    description: |
+      The organism has been foraging with high confidence in a familiar territory,
+      selecting food sources decisively and quickly. But over the last several
+      attempts, yields have been poor -- the "reliable" sources are depleted or
+      have shifted. The organism has not updated its confidence despite the string
+      of failures. Doubt-detection fires: "I've been sure about this area but my
+      results say otherwise."
+    survival_relevance: |
+      Unwarranted confidence in a deteriorating environment is a direct path to
+      starvation. The organism needs to detect that its certainty has become
+      decoupled from reality before it exhausts itself pursuing a model that
+      no longer matches the territory.
+    what_fires: |
+      Confidence-accuracy divergence over a rolling window. The receptor tracks
+      the organism's decision confidence at the moment of action and the outcome
+      quality post-action. When confidence remains high but outcome quality drops
+      below a threshold over multiple consecutive episodes, the receptor fires
+      encoding "confidence exceeds accuracy -- model may be stale."
+
+  - id: navigation_overconfidence
+    description: |
+      The organism navigates confidently toward a remembered water source,
+      ignoring unfamiliar landmarks along the way. It arrives at the expected
+      location and finds nothing. This has happened twice now on similar routes.
+      The doubt-detection receptor fires: "I'm navigating as if I know this area,
+      but I keep ending up in the wrong place."
+    survival_relevance: |
+      Confident navigation toward a nonexistent resource wastes time and energy
+      that could be spent on verified alternatives. In arid environments,
+      overconfident navigation toward phantom water sources can be fatal.
+    what_fires: |
+      Spatial prediction error accumulation under high-confidence navigation.
+      The receptor fires when the organism arrives at a confidently-predicted
+      destination and encounters a significant mismatch, especially when this
+      is a repeated pattern in the same navigational context.
+
+  - id: social_misread_streak
+    description: |
+      The organism has been confidently interpreting conspecific signals --
+      approaching when it reads "friendly" and retreating when it reads "hostile."
+      But it has been attacked after approaching three times in recent encounters.
+      Its social signal interpretation confidence remains high despite repeated
+      social prediction failures. Doubt-detection fires: "I think I'm reading
+      them correctly but I keep getting it wrong."
+    survival_relevance: |
+      Misreading social signals while remaining confident in one's reading leads
+      to repeated costly social conflicts. Detecting that one's social model is
+      miscalibrated allows the organism to shift to more cautious social
+      strategies until the model is updated.
+    what_fires: |
+      Social prediction error under maintained social confidence. The receptor
+      tracks the correlation between the organism's confidence in its social
+      readings and the actual outcomes of socially-driven actions, firing when
+      the correlation drops below a threshold over multiple social encounters.
+
+  - id: temporal_pattern_blindness
+    description: |
+      The organism has been timing its activity to a pattern it believes in --
+      foraging at dawn because "that's when food appears." But the seasonal
+      shift has moved peak food availability to midday. The organism keeps
+      returning from dawn foraging with poor results while maintaining its
+      confidence in the dawn timing. Doubt-detection fires: "My timing strategy
+      feels right but my returns have been declining."
+    survival_relevance: |
+      Temporal patterns in resource availability shift with seasons, weather, and
+      competitor behavior. An organism locked into a confident-but-wrong temporal
+      model systematically misses peak opportunity windows.
+    what_fires: |
+      Temporal strategy confidence vs. temporal strategy returns. The receptor
+      monitors whether the organism's temporally-patterned behaviors are
+      producing returns commensurate with the confidence invested in the pattern,
+      firing when returns decline without corresponding confidence reduction.
+
+  - id: skill_plateau_denial
+    description: |
+      The organism has developed a hunting technique it executes confidently. But
+      prey have adapted or the organism's own capabilities have degraded. Success
+      rates have dropped from reliable to occasional, but the organism continues
+      executing the technique with full commitment each time. Doubt-detection
+      fires: "I'm executing this perfectly but it's not working like it used to."
+    survival_relevance: |
+      Skill-confidence that persists past skill-effectiveness creates an efficiency
+      trap. The organism invests maximum effort into a declining strategy when it
+      should be experimenting with alternatives or refining its approach.
+    what_fires: |
+      Execution-quality/outcome-quality divergence. The receptor distinguishes
+      between execution errors (the organism did something wrong) and strategy
+      errors (the organism executed correctly but the strategy no longer works),
+      firing specifically when execution is consistent but outcomes deteriorate.
+
+anti_manifestations:
+  - id: appropriate_confidence
+    description: |
+      The organism forages in a well-known territory with high confidence and
+      consistently finds food. Its confidence is warranted by outcomes. It moves
+      efficiently, selects reliably, and returns with full stores. The confidence-
+      accuracy alignment is strong.
+    why_should_not_fire: |
+      Doubt-detection targets confidence that is MISCALIBRATED -- specifically,
+      overconfidence relative to actual performance. When confidence and
+      performance are aligned, there is nothing to detect. The receptor would
+      generate false doubt, undermining functional expertise.
+    distinguishes: |
+      Confidence-accuracy alignment: calibrated confidence (anti) vs.
+      overconfidence despite failure (true). The receptor fires on the gap
+      between expressed certainty and actual outcomes, not on confidence itself.
+
+  - id: single_prediction_error
+    description: |
+      The organism confidently approaches a known fruit tree and finds it has been
+      stripped by competitors. It registers surprise and adjusts. This is a single
+      prediction error, not a sustained pattern. The organism's overall confidence
+      calibration remains appropriate -- things occasionally go wrong, and it
+      handles the surprise normally.
+    why_should_not_fire: |
+      Doubt-detection requires SUSTAINED divergence between confidence and
+      outcomes, not isolated prediction errors. A single miss in an otherwise
+      well-calibrated model is noise, not signal. Firing on every prediction
+      error would generate pathological self-doubt.
+    distinguishes: |
+      Temporal scope: isolated error (anti) vs. sustained pattern of confident
+      failure (true). The receptor integrates over a meaningful window, not
+      individual events.

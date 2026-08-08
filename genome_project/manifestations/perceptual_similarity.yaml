@@ -1,0 +1,47 @@
+receptor_id: perceptual_similarity
+family: similarity
+tier: trunk
+stage: 2
+
+conceptual_space: |
+  Two stimuli share perceptual features. "These look alike." The concept is
+  feature overlap in sensory channels — similar shapes, intensities, or
+  multi-channel profiles. Not functional similarity (same outcome or same
+  behavioral response) — purely perceptual resemblance.
+
+manifestations:
+  - id: two_warm_patches
+    description: Location A reads thermal=0.7, chemical=0.1; Location B reads thermal=0.68, chemical=0.12
+    survival_relevance: Recognizing perceptual similarity allows generalization — if A was dangerous, B likely is too
+    what_fires: High cosine similarity between multi-channel sensory vectors of two stimuli
+
+  - id: similar_npc_profiles
+    description: NPC-1 and NPC-2 both produce sound=0.5, visual=0.8, movement-pattern=fast — they look alike
+    survival_relevance: Similar-looking agents likely behave similarly — threat assessment transfers
+    what_fires: Feature vector overlap between two entity observations exceeds similarity threshold
+
+  - id: food_lookalikes
+    description: Object A has color=green, size=small, texture=smooth; Object B matches on all three channels
+    survival_relevance: If A was nutritious, B probably is too — enables efficient foraging
+    what_fires: Perceptual feature match across multiple sensory dimensions
+
+  - id: sound_resemblance
+    description: Sound event X has frequency=0.6, amplitude=0.4; Sound event Y has frequency=0.58, amplitude=0.42
+    survival_relevance: Similar sounds may share a common source — wind and predator-breath sound different from each other but similar within type
+    what_fires: Close Euclidean distance in auditory feature space
+
+  - id: terrain_texture_match
+    description: Ground-feel at two different locations produces nearly identical pressure and resistance patterns
+    survival_relevance: Similar terrain predicts similar traversability — if one was muddy and slowed movement, the other will too
+    what_fires: Haptic channel similarity between spatially separated samples
+
+anti_manifestations:
+  - id: same_outcome_different_appearance
+    description: Eating red berries and eating green roots both restore energy to 0.8 — same result, different percept
+    why_should_not_fire: These are functionally similar but perceptually distinct — different channels, different profiles
+    distinguishes: Perceptual similarity is about SENSORY resemblance, not outcome equivalence
+
+  - id: same_location_different_time
+    description: Location (5,5) at step 100 has thermal=0.3; at step 500 it has thermal=0.9
+    why_should_not_fire: Same place but different perceptual profile — the stimuli do not resemble each other
+    distinguishes: Perceptual similarity compares FEATURE vectors, not spatial or temporal identity

@@ -1,0 +1,167 @@
+receptor_id: instruction_detection
+family: social
+tier: branch
+stage: 10
+
+conceptual_space: |
+  Detects that another agent is deliberately teaching the observer —
+  performing actions with pedagogical intent rather than merely performing
+  them for the agent's own purposes. An adult slows its movements, repeats
+  steps, pauses to check the offspring's attention, and adjusts its
+  demonstration based on the learner's response. The boundary separates
+  "I am being taught" (the demonstrator is modifying behavior FOR me)
+  from "I am observing" (the demonstrator is acting for its own reasons
+  and I happen to watch). The critical signal is the demonstrator's
+  behavioral modifications that serve no purpose except to make the
+  action legible to the observer.
+
+manifestations:
+  - id: slowed_demonstration_with_gaze_checking
+    description: |
+      An adult forages for buried food by digging, but performs each
+      digging motion at half speed, pausing between strokes to look
+      back at the watching offspring. The adult repeats the dig-pause-
+      check cycle three times at the same spot despite having already
+      located the food on the first dig. The slowing and repetition
+      serve no foraging purpose — they exist to make the technique
+      visible to the learner.
+    survival_relevance: |
+      Recognizing pedagogical intent enables the offspring to shift
+      into learning mode — attending more carefully, encoding the
+      demonstrated sequence as a technique to replicate rather than
+      just an event to observe. Missing the pedagogical signal means
+      treating teaching as mere behavior, losing the instructional
+      content.
+    what_fires: |
+      Demonstrator behavior modified from its efficient form (slowed,
+      repeated, interspersed with attention-checks toward the observer).
+      The modifications have no functional purpose in the task itself
+      but are oriented toward the observer's comprehension. The
+      pattern of task-irrelevant modifications aimed at the learner
+      fires instruction detection.
+
+  - id: error_correction_during_offspring_attempt
+    description: |
+      Offspring attempts to crack a nut by striking it at the wrong
+      angle. The adult gently repositions the offspring's limb, then
+      demonstrates the correct angle slowly, then steps back. The
+      adult intervenes specifically at the point of error rather than
+      performing the whole task itself. The correction targets the
+      learner's specific mistake.
+    survival_relevance: |
+      Error-specific correction accelerates skill acquisition
+      dramatically compared to trial-and-error or whole-task
+      observation. Detecting that the adult's intervention is
+      corrective (not competitive or aggressive) enables the offspring
+      to accept the physical guidance rather than fleeing or resisting.
+    what_fires: |
+      Adult intervention timed to the offspring's error, physically
+      redirecting the failed attempt, followed by a targeted
+      demonstration of the correct form at the point of failure.
+      The error-contingent, learner-directed intervention pattern fires.
+
+  - id: scaffolded_difficulty_progression
+    description: |
+      An adult first demonstrates opening an easy food container
+      (loose lid), waits for the offspring to succeed, then presents
+      a harder one (tighter lid), then a harder one still (sealed).
+      The adult selects and sequences challenges in order of difficulty
+      rather than presenting whatever is available. The ordering serves
+      the learner's development, not the adult's foraging efficiency.
+    survival_relevance: |
+      Scaffolded progression prevents the learner from facing tasks
+      beyond current capability (which produces frustration and
+      abandonment) or far below capability (which produces no learning).
+      Detecting the scaffolding enables the offspring to trust the
+      difficulty curve rather than seeking its own challenges.
+    what_fires: |
+      Adult presenting tasks in ascending difficulty with progression
+      contingent on learner success. The adult's selection pattern
+      tracks the learner's capability rather than environmental
+      availability. The difficulty-matched, learner-contingent
+      sequencing fires.
+
+  - id: exaggerated_danger_demonstration
+    description: |
+      An adult approaches a known predator area, stops dramatically,
+      displays exaggerated alarm signals while looking between the
+      danger zone and the offspring, then retreats slowly. The alarm
+      is more pronounced and sustained than the adult's normal
+      predator response — it is performed FOR the offspring's benefit,
+      not as a genuine flight-or-fight reaction.
+    survival_relevance: |
+      Exaggerated danger demonstrations teach offspring to recognize
+      threats before the offspring encounters them alone. Detecting
+      that the display is pedagogical (exaggerated, directed at the
+      learner) rather than genuine panic prevents the offspring from
+      simply fleeing and instead enables encoding the danger
+      association with the specific location or stimulus.
+    what_fires: |
+      Adult producing alarm signals with exaggerated intensity and
+      duration while maintaining orientation toward both the danger
+      source and the offspring. The display exceeds normal alarm
+      response magnitude and includes demonstrative components
+      (looking between danger and learner) that serve teaching rather
+      than survival. The exaggerated-and-directed pattern fires.
+
+  - id: patience_during_learner_fumbling
+    description: |
+      An offspring struggles to extract food from a difficult crevice,
+      taking far longer than the adult could. The adult watches without
+      intervening, occasionally repositioning to maintain the
+      offspring's line of sight to the technique demonstration it
+      gave earlier. The adult tolerates the inefficiency — it does
+      not take over despite being able to extract the food in seconds.
+    survival_relevance: |
+      The adult's deliberate non-intervention signals that this is
+      a learning opportunity, not a foraging event. Detecting this
+      patience tells the offspring to persist rather than defer to
+      the adult, building the independent skill that will be needed
+      when no adult is present.
+    what_fires: |
+      Competent adult withholding action while monitoring learner's
+      attempt at a demonstrated task. The adult's restrained
+      observation, combined with subtle positioning to support the
+      attempt, signals pedagogical intent. The competence-withheld-
+      for-learning pattern fires.
+
+anti_manifestations:
+  - id: adult_foraging_normally_while_observed
+    description: |
+      An adult forages at normal speed, using efficient movements,
+      without looking back at the offspring. The offspring happens
+      to be nearby and watches. The adult's behavior is identical
+      to when no offspring is present — no slowing, no repetition,
+      no gaze-checking.
+    why_should_not_fire: |
+      The adult is performing the task for its own purposes with
+      no modifications for the learner's benefit. The offspring may
+      learn from observing (social_learning), but the adult is not
+      teaching. Instruction detection requires the demonstrator to
+      modify behavior with pedagogical intent — task-irrelevant
+      changes oriented toward the learner's comprehension.
+    distinguishes: |
+      Pedagogical modification (behavior altered to serve the learner's
+      understanding) versus incidental observation (learner watches
+      normal behavior). The presence of demonstrator modifications
+      that serve no task purpose but serve comprehension is the boundary.
+
+  - id: adult_competing_for_same_food
+    description: |
+      An adult approaches the same food source as the offspring and
+      extracts food quickly, taking it before the offspring can. The
+      adult's behavior near the offspring involves the same actions
+      as foraging but is competitive, not instructive — the adult
+      is trying to get the food, not show the offspring how.
+    why_should_not_fire: |
+      The adult's actions near the offspring are self-serving
+      (competition for resources), not pedagogical. Even though the
+      offspring can observe the technique, the adult's intent is
+      acquisition, not instruction. There are no learner-directed
+      modifications — no slowing, no checking, no patience. The
+      identical movements serve the adult's own goal.
+    distinguishes: |
+      Competitive self-interest (adult acts to acquire resources)
+      versus pedagogical intent (adult acts to transfer knowledge).
+      The adult's goal orientation — toward resource acquisition
+      versus toward learner comprehension — is the boundary.

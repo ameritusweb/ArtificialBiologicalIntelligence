@@ -1,0 +1,140 @@
+receptor_id: common_cause_detection
+family: causality
+tier: canopy
+stage: 6
+
+conceptual_space: |
+  Detects that two correlated observations A and B are not causally
+  linked to each other but are both effects of a hidden common cause C.
+  The boundary separates genuine A-causes-B reasoning from the recognition
+  that A and B merely co-occur because something else produces both.
+  The critical signal is that intervening on A does not change B, and
+  intervening on B does not change A, yet both reliably appear together
+  — implying a shared upstream source.
+
+manifestations:
+  - id: volcano_warmth_and_food
+    description: |
+      Near a volcanic vent, the organism notices both increased warmth
+      and abundant insect activity (food). Moving to another warm spot
+      (sun-heated rock) shows no insect increase. Moving to a food-rich
+      area (rotting log) shows no warmth increase. But near the vent,
+      both always co-occur. The vent's heat and mineral output cause both.
+    survival_relevance: |
+      Recognizing the shared cause prevents the organism from wasting
+      effort trying to create warmth by gathering insects or attract
+      insects by seeking warmth. It learns to seek the vent itself
+      for both benefits simultaneously.
+    what_fires: |
+      Two correlated signals (warmth, food abundance) that cannot be
+      produced by intervening on either one alone. Repeated failure of
+      A-to-B and B-to-A intervention combined with reliable co-occurrence
+      near a third element fires the common cause signal.
+
+  - id: rain_brings_puddles_and_worms
+    description: |
+      After rainfall, the organism consistently finds both puddles and
+      surfaced worms. It tries splashing water to create puddles — no
+      worms appear. It tries digging to surface worms — no puddles form.
+      But after each rain, both reliably emerge. Rain is the common cause.
+    survival_relevance: |
+      Understanding that rain causes both prevents the organism from
+      trying to produce one by manipulating the other. It learns to
+      exploit the rainy period for both water collection and worm
+      foraging simultaneously.
+    what_fires: |
+      Persistent co-occurrence of two phenomena (puddles, worms) that
+      resists decomposition through intervention. Neither produces
+      the other. The co-occurrence is anchored to a third event (rain)
+      that precedes both.
+
+  - id: territorial_marking_and_fruit_absence
+    description: |
+      The organism notices that territorial scent marks and absence of
+      ground fruit always co-occur in certain zones. It tries adding
+      scent marks elsewhere — fruit remains. It tries removing fruit
+      elsewhere — no scent marks appear. A large territorial animal
+      patrols these zones, both marking and consuming fruit.
+    survival_relevance: |
+      Recognizing the shared cause (territorial animal) lets the
+      organism avoid danger. Without this, it might wrongly conclude
+      scent marks repel fruit or fruit absence attracts markers,
+      missing the predator threat entirely.
+    what_fires: |
+      Two signals (scent marks present, fruit absent) reliably
+      co-occurring in specific locations. Interventions on either
+      signal fail to produce the other. A third agent (territorial
+      animal) is eventually observed associated with both effects.
+
+  - id: smoke_and_fleeing_animals
+    description: |
+      The organism observes that smoke and fleeing animals always
+      appear together. It creates a small controlled fire — smoke
+      rises but nearby animals do not flee (fire is too small to
+      threaten). It startles animals into fleeing elsewhere — no
+      smoke appears. A large wildfire is the common cause of both
+      visible smoke and mass animal flight.
+    survival_relevance: |
+      Recognizing wildfire as the common cause enables the organism
+      to use either signal (smoke or fleeing animals) as evidence
+      of the dangerous shared cause, rather than treating them as
+      causally linked to each other.
+    what_fires: |
+      Co-occurring signals (smoke, animal flight) where small-scale
+      intervention on one fails to produce the other. The scale
+      disparity between the organism's interventions and the natural
+      co-occurrence pattern points to a larger common cause.
+
+  - id: tremor_and_dust_clouds
+    description: |
+      Ground tremors and dust clouds from cliffsides consistently
+      co-occur. The organism stamps the ground (small tremor) — no
+      dust clouds. It throws rocks at cliffs (dust) — no tremors.
+      Underground seismic activity shakes both the ground and the
+      cliff faces simultaneously.
+    survival_relevance: |
+      Understanding that seismic activity causes both signals lets
+      the organism treat either as a warning of the dangerous shared
+      cause. Seeking shelter from rockfall when feeling tremors
+      becomes a rational survival response.
+    what_fires: |
+      Two spatially distributed effects (ground shaking, cliff dust)
+      that co-occur but cannot be produced by intervening on one
+      alone. The simultaneity and spatial separation of effects
+      imply a shared subterranean cause.
+
+anti_manifestations:
+  - id: pushing_rock_causes_splash
+    description: |
+      The organism pushes a rock into a pool. A splash occurs. It
+      pushes again — splash again. It does not push — no splash.
+      Rock-pushing and splashing always co-occur.
+    why_should_not_fire: |
+      This is genuine direct causation, not common cause. The
+      organism's intervention (push) reliably produces the outcome
+      (splash), and withholding the intervention prevents it. There
+      is no hidden third variable — A directly causes B. Common
+      cause detection requires that neither A nor B causes the other.
+    distinguishes: |
+      Direct causation (intervening on A produces B) versus common
+      cause (intervening on A does NOT produce B, yet they co-occur).
+      The intervention test separates the two.
+
+  - id: berry_color_predicts_taste
+    description: |
+      Red berries are consistently sweet. The organism has never
+      tested whether making a berry red would make it sweet or
+      whether making it sweet would turn it red. The correlation
+      is observed but uninvestigated.
+    why_should_not_fire: |
+      This is an uninvestigated correlation that may or may not
+      involve a common cause. Common cause detection requires the
+      organism to have attempted interventions on both variables
+      and found that neither produces the other. Without intervention
+      failure evidence, this remains at the level of correlation
+      observation, not common cause identification.
+    distinguishes: |
+      Observed correlation (A and B co-occur) versus confirmed
+      common cause (A and B co-occur AND intervening on A fails
+      to produce B AND intervening on B fails to produce A). The
+      double intervention failure is required.

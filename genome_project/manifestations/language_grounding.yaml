@@ -1,0 +1,50 @@
+receptor_id: language_grounding
+family: compression
+tier: canopy
+stage: 8
+
+conceptual_space: |
+  Detects the full grounding chain from word to concept to receptor states.
+  A communicated word activates a concept, and that concept traces all the way
+  down to embodied sensory-motor receptor activations. The concept is verified
+  termination — the chain from linguistic signal to grounded experience is
+  complete and unbroken. The boundary separates fully grounded language
+  (word activates concept that terminates in receptor states) from ungrounded
+  symbols (words that float without sensory anchoring).
+
+manifestations:
+  - id: food_word_activates_foraging
+    description: Hearing the communicated label "food-north" activates the food concept, which traces through spatial orientation to directional receptors and foraging motor patterns — the full chain from word to embodied state
+    survival_relevance: Fully grounded language comprehension enables appropriate behavioral responses to communicated information without requiring direct sensory verification first
+    what_fires: Linguistic signal reception activating a named concept, with the concept traced through intermediate representations to active sensory-motor receptor states — the entire chain is present and intact
+
+  - id: danger_word_triggers_embodied_threat
+    description: Hearing "predator" from another organism activates the predator concept, which activates threat-related visual scanning patterns, elevated arousal receptors, and flight-readiness motor states — language reaches the body
+    survival_relevance: Grounded danger language produces survival-appropriate physiological responses before direct threat perception, buying critical preparation time through communicated warning
+    what_fires: A communicated danger label activating a threat concept that traces through arousal regulation and motor preparation to active physiological receptor states
+
+  - id: spatial_description_creates_map
+    description: Hearing "water is past the tall rocks beyond the dead tree" activates sequential spatial concepts, each grounded in visual landmark recognition and directional movement planning — the description builds a grounded spatial model
+    survival_relevance: Grounded spatial language enables navigation to unvisited locations from verbal directions alone, extending the organism's effective range through communicated knowledge
+    what_fires: A sequence of communicated spatial terms each activating grounded spatial concepts, composing into an integrated spatial model anchored in receptor-level landmark and direction representations
+
+  - id: state_word_activates_interoception
+    description: Hearing "exhausted" from another organism activates the exhaustion concept grounded in the listener's own experience of fatigue — the word reaches embodied interoceptive states through empathic grounding
+    survival_relevance: Grounded state language enables assessment of others' condition for cooperative decision-making, such as adjusting group pace for an exhausted member
+    what_fires: A communicated internal-state label activating the corresponding grounded concept through the listener's own interoceptive receptor memory, completing the word-to-body chain
+
+  - id: novel_combination_grounded
+    description: Hearing "big fast predator" combines three grounded concepts into a novel composite — the organism has never encountered this combination but each component traces to grounded receptor states, and the composition inherits grounding
+    survival_relevance: Compositional grounding enables preparation for novel threats described through language, even when the specific combination has never been directly experienced
+    what_fires: Multiple communicated labels each activating independently grounded concepts, with the composite maintaining grounding through each component's receptor-level termination
+
+anti_manifestations:
+  - id: word_recognized_but_ungrounded
+    description: Organism recognizes a communicated pattern as a familiar signal and can even repeat it, but the word activates no grounded concept — it is processed as sound without meaning reaching the body
+    why_should_not_fire: The linguistic signal is received and recognized but the grounding chain terminates at the acoustic level — no concept is activated and no receptor states are engaged
+    distinguishes: Full language grounding (word to concept to receptor states) vs word recognition without grounding (acoustic processing without conceptual or embodied engagement)
+
+  - id: concept_activated_but_chain_broken
+    description: Hearing "predator" activates an abstract predator category but the concept does not trace to any visual, motor, or arousal receptor states — the concept floats without embodied termination
+    why_should_not_fire: The word-to-concept link exists but the concept-to-receptor chain is broken — the grounding is partial, not complete, and the concept lacks embodied termination
+    distinguishes: Full grounding (complete chain to receptor states) vs partial grounding (concept activated but not terminating in embodied receptor activation)

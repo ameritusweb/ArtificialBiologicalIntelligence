@@ -1,0 +1,158 @@
+receptor_id: nested_theory_of_mind
+family: social
+tier: canopy
+stage: 7
+
+conceptual_space: |
+  Detects recursive belief attribution — beliefs about beliefs about
+  beliefs. "I know that NPC-A knows that NPC-B does not know about
+  the food." This goes beyond first-order belief attribution (NPC has
+  a false belief) to second-order and higher (I model what NPC-A
+  models about NPC-B's mental state). The boundary separates modeling
+  another agent's beliefs from modeling another agent's MODEL of a
+  third agent's beliefs. The critical signal is recursive embedding
+  of mental state models.
+
+manifestations:
+  - id: knowing_what_rival_knows_about_ally
+    description: |
+      NPC-A watched NPC-B discover a food cache. The organism saw
+      NPC-A watching NPC-B. Now the organism knows: NPC-A knows that
+      NPC-B knows about the food. The organism can predict that NPC-A
+      will expect NPC-B to visit the cache, and may try to get there
+      first. Two levels of belief modeling: the organism models NPC-A's
+      model of NPC-B's knowledge.
+    survival_relevance: |
+      Predicting competitive dynamics between two other agents enables
+      the organism to exploit their interaction. If NPC-A races to beat
+      NPC-B to the food, both are occupied — the organism can forage
+      elsewhere or take a different resource while both competitors
+      are committed to the food race.
+    what_fires: |
+      Three-agent knowledge tracking: the organism knows X, the organism
+      knows NPC-A knows Y about NPC-B's knowledge state, and the organism
+      uses NPC-A's model of NPC-B to predict NPC-A's behavior. The
+      recursive depth (model of a model) fires.
+
+  - id: knowing_they_dont_know_you_know
+    description: |
+      The organism discovers that NPC-A has been stealing from its
+      food cache. NPC-A does not know the organism has discovered this
+      (the organism observed secretly). The organism models: "NPC-A
+      believes I do not know about the stealing." The organism can now
+      set a trap or change caching behavior without alerting NPC-A
+      that its knowledge state has changed.
+    survival_relevance: |
+      Knowing that another agent has a false belief about YOUR
+      knowledge state creates strategic asymmetry. The organism
+      can act on information that NPC-A does not know the organism
+      possesses, enabling deception, counter-deception, or
+      strategic surprise.
+    what_fires: |
+      The organism models NPC-A's model of the ORGANISM's own
+      knowledge state and recognizes it is incorrect. Recursive
+      modeling: organism knows X, organism models that NPC-A
+      believes organism does NOT know X. The self-referential
+      recursion fires.
+
+  - id: predicting_deception_based_on_knowledge_asymmetry
+    description: |
+      NPC-A knows about a food source. NPC-B asks NPC-A where food
+      is. The organism observes NPC-A direct NPC-B to a wrong
+      location. The organism understands: NPC-A knows the truth,
+      NPC-A knows NPC-B does not know the truth, and NPC-A exploits
+      this knowledge gap to deceive NPC-B. The organism models the
+      deception as a function of nested knowledge states.
+    survival_relevance: |
+      Understanding deception as a product of knowledge asymmetries
+      enables prediction of when deception is likely. Any time one
+      agent knows another lacks information, deception becomes
+      possible — the organism can anticipate and guard against it.
+    what_fires: |
+      Observing one agent (NPC-A) exploiting a modeled knowledge
+      gap in another (NPC-B does not know). The organism must
+      simultaneously track NPC-A's knowledge, NPC-A's model of
+      NPC-B's knowledge, and the action that exploits the gap.
+      Triple-layer tracking fires.
+
+  - id: coordinating_with_ally_about_rival
+    description: |
+      The organism and NPC-C have cooperated before. The organism
+      discovers NPC-D is approaching their shared territory. The
+      organism knows NPC-C does not know about NPC-D's approach.
+      It signals NPC-C, knowing that after the signal, NPC-C will
+      know what the organism knows about NPC-D. The organism models
+      how its communication will change NPC-C's knowledge state
+      and therefore NPC-C's behavior.
+    survival_relevance: |
+      Strategic communication requires modeling how information
+      transfer will change another agent's mental state and
+      therefore its actions. The organism communicates specifically
+      to produce a desired change in NPC-C's belief state, enabling
+      coordinated defense against NPC-D.
+    what_fires: |
+      The organism models NPC-C's current knowledge state (does not
+      know about NPC-D), predicts how communication will change it
+      (will know about NPC-D), and predicts the behavioral
+      consequences of the new knowledge state (defensive action).
+      The prediction chain through knowledge state modification fires.
+
+  - id: bluffing_based_on_what_they_think_you_think
+    description: |
+      The organism encounters a larger NPC-E near a resource. The
+      organism puffs up and displays aggression it does not actually
+      intend to act on. The organism models: "NPC-E thinks I am
+      willing to fight. NPC-E does not know that I know I would lose.
+      NPC-E's model of my confidence is wrong, and I am maintaining
+      NPC-E's false model of my mental state deliberately."
+    survival_relevance: |
+      Bluffing requires modeling what the other agent believes about
+      your internal state and deliberately maintaining their false
+      model. This enables the organism to access resources against
+      stronger competitors by manipulating their model of its
+      intentions, without actual fighting.
+    what_fires: |
+      The organism models NPC-E's model of the organism's own
+      internal state (confidence/willingness to fight), recognizes
+      the model is false, and deliberately maintains the false model
+      through behavior (display) that reinforces it. The deliberate
+      management of another's model of one's own state fires.
+
+anti_manifestations:
+  - id: simple_false_belief_one_level
+    description: |
+      NPC-F believes food is at location A when it is actually at
+      location B. The organism models NPC-F's false belief and
+      predicts NPC-F will go to location A. This is a single level
+      of belief modeling — no recursion.
+    why_should_not_fire: |
+      This is first-order belief attribution, not nested theory of
+      mind. The organism models NPC-F's belief but does not model
+      NPC-F's model of ANOTHER agent's beliefs. Nested theory of
+      mind requires at least two levels of embedded mental state
+      modeling — a model of a model. First-order false belief is
+      handled by belief_attribution.
+    distinguishes: |
+      First-order belief modeling (what does NPC think about the
+      world) versus second-order and higher (what does NPC think
+      about what another NPC thinks). The recursive depth is the
+      boundary — one level is attribution, two or more is nested.
+
+  - id: predicting_behavior_from_visible_state
+    description: |
+      NPC-G is visibly hungry (searching frantically, moving toward
+      known food areas). The organism predicts NPC-G will go to the
+      nearest food source. The prediction is based on observable
+      behavioral cues, not on modeling NPC-G's beliefs about other
+      agents' mental states.
+    why_should_not_fire: |
+      This is behavior prediction from observable state, not nested
+      theory of mind. The organism reads NPC-G's visible motivation
+      and predicts actions from it. No belief modeling is involved
+      at all — let alone recursive belief modeling. Behavioral
+      prediction from cues is a different, simpler capacity.
+    distinguishes: |
+      Observable-state-based prediction (read visible cues, predict
+      behavior) versus nested mental state modeling (model beliefs
+      about beliefs). The presence of invisible mental state modeling
+      at multiple recursive levels is the boundary.

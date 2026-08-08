@@ -1,0 +1,122 @@
+receptor_id: part_whole_detection
+family: organization
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Detects that an object is composed of separable parts that together form a
+  functional or structural whole. Handle + head = hammer. Stem + cap = mushroom.
+  Shell + nut = food unit. The boundary is compositional structure: the object is
+  not monolithic but has identifiable sub-components that relate to each other in
+  an organized way. The parts could potentially be separated, and the whole is
+  more than the sum of its parts.
+
+manifestations:
+  - id: stick_with_stone_head
+    description: |
+      A long stick has a heavy stone lashed to one end with vine fiber. The
+      agent perceives three distinct components — stick shaft, stone head,
+      vine binding — assembled into a single functional tool. Each part is
+      identifiable and potentially separable.
+    survival_relevance: |
+      Detecting compositional structure in tools enables repair (replace the
+      stone), replication (assemble similar components), and functional
+      understanding (the stone provides mass, the stick provides reach).
+    what_fires: |
+      Multiple visually distinct sub-components (different materials, shapes,
+      textures) joined in a non-random spatial arrangement. Parts + binding +
+      organized structure = composite object detected.
+
+  - id: crab_body_and_claws
+    description: |
+      A crab sits on a rock. The agent perceives a central body, two large
+      claws, multiple walking legs, and eye stalks — distinct anatomical
+      parts composing one organism. Each part has different shape and apparent
+      function.
+    survival_relevance: |
+      Decomposing prey into parts informs handling strategy — avoid the
+      claws, target the body. Part-whole detection enables tactical
+      interaction with complex entities.
+    what_fires: |
+      A single entity with multiple visually distinct appendages and regions,
+      each with different geometry. Organized anatomical sub-structure within
+      one bounded organism.
+
+  - id: nest_of_woven_materials
+    description: |
+      A bird's nest sits in a tree fork. The agent perceives interwoven
+      twigs forming a bowl shape, lined with feathers and moss. The nest is
+      a whole composed of many individual twigs, each distinguishable but
+      organized into a coherent structure.
+    survival_relevance: |
+      Recognizing that a complex structure is built from simple parts
+      suggests the possibility of construction — if parts compose wholes,
+      the agent might compose its own structures.
+    what_fires: |
+      Many individual elements (twigs, feathers) arranged in organized
+      spatial pattern forming a recognizable structure. Parts are
+      individually identifiable within a coherent whole.
+
+  - id: fruit_with_shell_and_flesh
+    description: |
+      The agent examines a broken coconut-like fruit. A hard outer shell
+      contains a layer of white flesh surrounding a hollow center with
+      liquid. Three concentric layers — shell, flesh, liquid — compose the
+      whole fruit. Each layer has different texture and function.
+    survival_relevance: |
+      Part-whole detection in food items guides processing — the shell must
+      be removed to access the flesh, the flesh must be separated from the
+      liquid. Knowing an object has internal parts changes handling strategy.
+    what_fires: |
+      Concentric layers of different materials within one object boundary.
+      Internal compositional structure revealed through breakage or cross-
+      section. Multiple distinct materials within a single object.
+
+  - id: flower_petals_stem_center
+    description: |
+      A flower presents distinct structures: a green stem, a ring of colored
+      petals, a central disc with pollen-covered stamens. Each part has
+      different color, texture, and spatial position. The parts radiate from
+      a center in organized geometry.
+    survival_relevance: |
+      Part-whole detection in plants enables selective harvesting — the
+      pollen center attracts insects (food), the petals are different from
+      the nectar source, the stem connects to roots. Each part has distinct
+      utility.
+    what_fires: |
+      Visually distinct components (stem, petals, center) in organized
+      spatial arrangement with radial symmetry. Single organism displaying
+      clear sub-component structure.
+
+anti_manifestations:
+  - id: uniform_stone
+    description: |
+      A smooth river stone sits on the bank. It is a single piece of
+      uniform grey granite — no seams, no distinct sub-regions, no internal
+      structure visible. It is monolithic through and through.
+    why_should_not_fire: |
+      The object has no compositional structure. It is a single uniform
+      piece of material with no identifiable parts. Part-whole detection
+      requires perceiving distinct sub-components within a whole. A
+      monolithic object has no parts to detect.
+    distinguishes: |
+      Compositional structure (multiple distinct parts forming a whole)
+      versus monolithic uniformity (single undifferentiated material).
+      Part-whole detection requires the former.
+
+  - id: pile_of_loose_sticks
+    description: |
+      A heap of sticks has been tossed into a random pile by floodwater.
+      Each stick is separate and the pile has no organized structure — sticks
+      overlap randomly with no functional arrangement. This is an aggregate,
+      not a composite.
+    why_should_not_fire: |
+      Although multiple objects are spatially proximate, they do not compose
+      a structured whole. There is no organized relationship between the
+      parts. A random pile is an aggregate, not a part-whole composition.
+      Part-whole detection requires organized structural or functional
+      relationships between components.
+    distinguishes: |
+      Organized composition (parts with structural/functional relationships)
+      versus random aggregation (objects near each other with no organization).
+      Only organized composition constitutes a whole.

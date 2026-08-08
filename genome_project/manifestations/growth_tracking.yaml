@@ -1,0 +1,47 @@
+receptor_id: growth_tracking
+family: self-augmentation
+tier: branch
+stage: 2
+
+conceptual_space: |
+  Track own capability trajectory over time. "I'm getting better/worse."
+  The concept is the trajectory — the direction and rate of change in
+  the organism's own performance metrics. Not the current capability
+  level — the TREND in capability.
+
+manifestations:
+  - id: improving_foraging_efficiency
+    description: Steps-per-food-unit decreasing across episodes — 80 steps in episode 1, 60 in episode 5, 45 in episode 10
+    survival_relevance: Knowing capability is improving motivates continued use of current strategy rather than abandoning it
+    what_fires: Performance metric shows consistent improvement trend across multiple measurement windows
+
+  - id: declining_escape_success
+    description: Predator escape success rate dropping — 90% in early episodes, 70% mid, 50% recent
+    survival_relevance: Detecting capability decline triggers strategy revision before failure becomes fatal
+    what_fires: Performance metric shows consistent deterioration trend — negative slope in rolling success rate
+
+  - id: faster_pattern_learning
+    description: Time to learn new environmental patterns is decreasing — first pattern took 200 steps to learn, latest took 50
+    survival_relevance: Tracking meta-learning improvement justifies investing in learning over immediate exploitation
+    what_fires: Learning speed metric shows accelerating trend — meta-trajectory is positive
+
+  - id: energy_management_plateau
+    description: Average energy at end of episode has stabilized around 0.6 for 10 consecutive episodes — no longer improving
+    survival_relevance: Plateau detection signals that current strategy has been optimized — growth requires a new approach
+    what_fires: Performance metric shows flat trend — slope near zero across recent measurement window
+
+  - id: expanding_safe_territory
+    description: Amount of explored safe territory growing each episode — 10 cells in episode 1, 30 in episode 5, 60 in episode 10
+    survival_relevance: Growing territory means growing resource access — positive trajectory worth maintaining
+    what_fires: Spatial capability metric shows expansion trend across episodes
+
+anti_manifestations:
+  - id: current_performance_snapshot
+    description: Organism is currently performing well — energy at 0.8, no threats — but no comparison to past performance
+    why_should_not_fire: This is a current state assessment, not a trajectory — no comparison across time
+    distinguishes: Growth tracking requires comparing CURRENT to PAST performance, not just measuring current state
+
+  - id: environmental_change_not_growth
+    description: Organism finds more food this episode because the environment spawned more food, not because the organism got better
+    why_should_not_fire: Improved outcome came from environmental change, not capability change — organism is the same
+    distinguishes: Growth tracking measures change in ORGANISM CAPABILITY, not change in environmental conditions

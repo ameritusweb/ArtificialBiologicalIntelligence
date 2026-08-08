@@ -1,0 +1,49 @@
+receptor_id: executability
+family: bridging
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detects whether the organism's current plan is feasible given its actual
+  capabilities, resources, and state at the moment of execution. The boundary
+  is between plans that the organism can carry out right now and plans that
+  contain steps beyond its current capacity. Fires when the organism checks
+  a plan against its self-model and finds a mismatch between what the plan
+  requires and what the organism can deliver.
+
+manifestations:
+  - id: strength_deficit
+    description: The organism has a plan to escape by pushing a heavy rock aside to reveal a hidden passage. But its current energy reserves are depleted from extended foraging. It checks the plan against its self-model and detects that step 3 (push rock) requires more force than it can currently generate. The plan is valid in structure but not executable now.
+    survival_relevance: Committing to a plan that fails at a critical step wastes the organism's remaining energy and leaves it in a worse position than before. Detecting the deficit before execution allows plan modification or resource gathering first.
+    what_fires: Comparison between a plan step's resource requirement and the organism's current self-model reading of that resource, where the requirement exceeds the available level by a margin that predicts execution failure.
+
+  - id: perceptual_prerequisite_missing
+    description: The organism plans to navigate to a remembered food cache by following visual landmarks. But it is currently in dense fog where visual landmarks are not detectable. It recognizes that its navigation plan depends on a perceptual capability (long-range vision) that is currently unavailable due to environmental conditions.
+    survival_relevance: Executing a vision-dependent plan in fog leads to disorientation and wasted energy. Detecting the perceptual prerequisite failure lets the organism switch to a tactile or memory-based navigation strategy instead.
+    what_fires: A plan step that requires a specific perceptual input being checked against the current state of that perceptual channel, where the channel reports degraded or absent signal, making the step unexecutable through its intended sensory pathway.
+
+  - id: skill_gap_detected
+    description: The organism plans to cross a river by swimming. But its self-model reports that it has never successfully swum -- it has wading experience in shallow water but no deep-water swimming capability. The plan assumes a skill the organism does not possess.
+    survival_relevance: Attempting to swim without swimming capability is potentially fatal. Detecting the skill gap before entering deep water prevents drowning and redirects the organism toward bridge-finding or shallow-crossing alternatives.
+    what_fires: A plan step that requires a specific motor skill being checked against the organism's capability inventory, where the required skill is absent or has only been demonstrated in conditions that do not match the plan's requirements.
+
+  - id: temporal_infeasibility
+    description: The organism plans to forage at three distant locations before nightfall, when predators emerge. It estimates travel and foraging time for each location and detects that completing all three is impossible within the remaining daylight. The plan is valid in sequence but not executable within the time constraint.
+    survival_relevance: Running out of daylight while still in open foraging territory exposes the organism to nocturnal predators. Detecting temporal infeasibility lets the organism prioritize the highest-value locations or reduce the plan to two stops.
+    what_fires: Summation of estimated step durations exceeding the available time window, where the organism's self-model provides duration estimates based on its known movement speed and task completion rates, and the environmental model provides the deadline.
+
+  - id: social_prerequisite_unmet
+    description: The organism plans a cooperative hunt that requires three allies to corner prey. It checks its current social state and detects that only one ally is present and responsive. The plan requires a social configuration that does not currently exist. The strategy is sound but the team is insufficient.
+    survival_relevance: Attempting a cooperative hunt with insufficient allies leads to prey escape and wasted group energy. Detecting the social prerequisite gap lets the organism either recruit more allies or switch to a solo foraging strategy.
+    what_fires: A plan that requires a specific social configuration (number of cooperators, their positions, their willingness) being checked against the current social state, where the required configuration is not met and the deficit is identified.
+
+anti_manifestations:
+  - id: difficulty_mistaken_as_impossibility
+    description: The organism plans to climb a steep hill and its self-model reports that the climb will be very energy-costly and slow. The organism considers flagging the plan as unexecutable. But costly and slow is not the same as impossible -- the organism has the capability, it is just expensive. The plan is executable, just suboptimal.
+    why_should_not_fire: Executability detects plans that CANNOT be carried out, not plans that are merely difficult or costly. A hard climb that the organism can physically complete is executable. The optimization receptor, not executability, handles whether the cost is worth it.
+    distinguishes: Whether the plan step exceeds the organism's capability threshold (unexecutable -- cannot be done) versus falling within capability but at high cost (executable but expensive -- a different evaluation).
+
+  - id: future_capability_assumed
+    description: The organism plans a multi-day journey and checks current food reserves, finding them insufficient for the full trip. But it plans to forage along the way. It considers the plan unexecutable because current reserves are low. However, the plan includes resource-acquisition steps -- it does not require carrying all resources from the start.
+    why_should_not_fire: Executability checks plan steps against current and plan-provided capabilities. If the plan includes intermediate steps that provide the needed resources before the step that requires them, the plan may be executable even though current reserves are insufficient. The check must account for the plan's own resource-generation steps.
+    distinguishes: Whether the capability deficit exists at the point where it is needed (truly unexecutable) versus being resolved by an earlier plan step that provides the missing resource before the step that requires it (executable through self-provisioning).

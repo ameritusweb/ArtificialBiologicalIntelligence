@@ -1,0 +1,148 @@
+receptor_id: relative_truth
+family: epistemic
+tier: Branch
+stage: 11
+
+conceptual_space: |
+  Detect that truth depends on perspective -- that a proposition true from the
+  organism's current vantage point may be false from another. The boundary is
+  between absolute truth (the world IS this way, period) and perspectival truth
+  (the world APPEARS this way from HERE). This receptor fires when the organism
+  recognizes that its own position, state, or history shapes what it takes to be
+  true, and that an entity at a different position would arrive at a different
+  and equally valid truth.
+
+manifestations:
+  - id: vantage_dependent_layout
+    description: |
+      The organism observes from a hilltop that the valley below appears to have
+      one continuous forest. But it recalls that when it was IN the valley, it
+      encountered a clearing in the middle. The relative-truth receptor fires:
+      "From here it looks like solid forest. From below it was clearly broken.
+      Both are true from their vantage points -- my current view is hiding the
+      gap."
+    survival_relevance: |
+      Organisms that treat their current perspective as absolute truth make
+      navigation errors when they move to a new vantage. Recognizing that
+      spatial truth is vantage-dependent allows the organism to integrate
+      multiple perspectives into a richer model rather than overwriting one
+      with the other.
+    what_fires: |
+      A current perceptual model conflicts with a stored perceptual model of
+      the same territory from a different position. The relative-truth receptor
+      fires when both models are internally consistent but mutually contradictory,
+      encoding "both are true from their respective positions."
+
+  - id: resource_relative_to_need
+    description: |
+      The organism, currently satiated, perceives a food cache as unimportant.
+      But it recognizes that its future self -- hungry after a long trek -- will
+      perceive the same cache as critical. The relative-truth receptor fires:
+      "This food is irrelevant to me NOW, but that truth is relative to my
+      current state. My future-state-self would judge differently."
+    survival_relevance: |
+      State-relative valuation, if undetected, causes the organism to ignore
+      future needs when currently satisfied and to overvalue current needs when
+      desperate. Detecting the state-dependence of its own value judgments allows
+      strategic planning across self-states.
+    what_fires: |
+      A valuation signal produces a strong reading while the organism
+      simultaneously models an alternative self-state that would produce the
+      opposite valuation. The receptor fires on the gap between current-state
+      truth and modeled-alternative-state truth.
+
+  - id: competitor_valid_interpretation
+    description: |
+      The organism and a competitor are both approaching a contested resource.
+      From the organism's perspective, it arrived first and the resource is
+      rightfully its own. But it recognizes that the competitor, approaching from
+      the other side, may have an equally valid claim based on its own trajectory.
+      The relative-truth receptor fires: "My claim feels absolute, but from their
+      approach vector, they have the same claim."
+    survival_relevance: |
+      Treating one's own perspective as the only valid one in competitive
+      interactions leads to escalation when de-escalation would be more
+      efficient. Recognizing that the competitor's perspective is internally
+      valid (even if opposed) allows strategic assessment of whether to contest
+      or concede.
+    what_fires: |
+      The organism models the competitor's likely perspective and finds it is
+      internally consistent and incompatible with the organism's own. The
+      receptor fires when the organism generates a valid-but-opposed perspective
+      model, encoding "my truth and their truth are both locally valid."
+
+  - id: context_dependent_danger
+    description: |
+      A narrow passage is dangerous when the organism is alone (ambush risk) but
+      safe when the organism is in a group (collective vigilance). The organism
+      recognizes that "this passage is dangerous" is not an absolute truth but a
+      truth relative to its current social context. The relative-truth receptor
+      fires: "This is dangerous for me-alone but not for me-in-group. The danger
+      is relative to my configuration, not inherent to the passage."
+    survival_relevance: |
+      Context-blind danger assessment causes either excessive avoidance (avoiding
+      the passage even in groups) or excessive risk (entering alone because "it
+      was fine last time" when last time was with the group). Detecting context-
+      relative truth allows accurate risk assessment.
+    what_fires: |
+      A threat assessment signal activates but the organism simultaneously models
+      that the same environment would produce a different threat assessment under
+      different self-configuration (alone vs. grouped, rested vs. fatigued). The
+      receptor fires on the demonstrated context-dependence of the assessment.
+
+  - id: temporal_perspective_shift
+    description: |
+      The organism made a decision yesterday to leave a marginal territory.
+      Today, having found nothing better, the old territory seems much more
+      attractive. The relative-truth receptor fires: "Yesterday that place was
+      clearly not good enough. Today it looks appealing. Neither judgment is
+      wrong -- each is true relative to the information and alternatives available
+      at the time."
+    survival_relevance: |
+      Temporal perspective shift, undetected, produces regret and oscillation.
+      The organism returns to the abandoned territory, then leaves again,
+      endlessly cycling. Detecting that both temporal perspectives were valid
+      in their context allows forward-looking decision-making rather than
+      backward-looking regret loops.
+    what_fires: |
+      The organism's current valuation of a past decision conflicts with the
+      valuation at the time the decision was made. The receptor fires when
+      both valuations are reconstructed and found to be internally valid
+      within their respective information contexts, encoding "temporal
+      perspective shift -- neither is wrong."
+
+anti_manifestations:
+  - id: objective_physical_fact
+    description: |
+      The organism approaches a cliff edge. The cliff is 50 meters tall
+      regardless of the organism's perspective, state, or context. Falling will
+      cause injury from any angle, in any mood, at any time of year. This is
+      not a truth that varies with perspective -- it is a physical fact.
+    why_should_not_fire: |
+      Relative-truth detection is for propositions whose truth value genuinely
+      shifts with perspective, state, or context. Physical facts that hold
+      regardless of viewpoint are not perspectival. Firing on objective facts
+      would introduce pathological relativism -- the organism would question
+      whether gravity applies from this particular angle.
+    distinguishes: |
+      Perspective-dependence: invariant physical fact (anti) vs. genuinely
+      perspectival truth (true). The receptor fires when truth demonstrably
+      shifts with vantage, not when it is stable across all viewpoints.
+
+  - id: simple_error_correction
+    description: |
+      The organism believed a path led to water. It followed the path and found
+      no water. It updates its model: the old belief was wrong, the new belief
+      is right. This is not perspectival truth -- one belief was simply false.
+      The path does not lead to water. No perspective makes it lead to water.
+    why_should_not_fire: |
+      When one model is factually wrong and the corrected model is factually
+      right, this is error correction, not relative truth. The relative-truth
+      receptor fires when BOTH perspectives have valid support from their
+      respective positions. A straightforward prediction error that gets
+      corrected involves one truth, not two valid but perspective-dependent
+      truths.
+    distinguishes: |
+      Epistemic structure: one-right-one-wrong (anti) vs. both-valid-from-
+      their-positions (true). Error correction has a single ground truth;
+      relative truth has multiple valid readings of the same situation.

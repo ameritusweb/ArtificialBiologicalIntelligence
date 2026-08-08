@@ -1,0 +1,47 @@
+receptor_id: environmental_trend_detection
+family: environmental_augmentation
+tier: branch
+stage: 2
+
+conceptual_space: |
+  Detect that the environment is trending — complexity increasing or decreasing
+  over generations. Long-timescale trend, not step-to-step change. The concept
+  is a directional shift in environmental properties across episodes or
+  extended periods, not within-episode fluctuation.
+
+manifestations:
+  - id: increasing_threat_density
+    description: Predator encounters per episode rising — 2 in episode 1, 5 in episode 5, 9 in episode 10 — environment getting more dangerous
+    survival_relevance: Detecting escalating danger enables preemptive strategy shifts before lethality crosses survival threshold
+    what_fires: Episode-level threat metric shows consistent upward trend across multiple episodes
+
+  - id: decreasing_food_availability
+    description: Total food spawned per episode declining — 20 patches in episode 1, 15 in episode 5, 8 in episode 10
+    survival_relevance: Detecting resource scarcity trend enables conservation behavior before starvation becomes inevitable
+    what_fires: Episode-level resource metric shows consistent downward trend across episode boundary
+
+  - id: thermal_range_widening
+    description: Temperature extremes growing each episode — oscillation amplitude was 0.2 in early episodes, now 0.6
+    survival_relevance: Widening thermal range means current thermal strategies will eventually fail — must adapt now
+    what_fires: Variance of thermal channel increasing across episode-level measurements
+
+  - id: environmental_complexity_growth
+    description: Number of distinct zone types increasing over episodes — 2 zones in episode 1, 4 in episode 5, 7 in episode 10
+    survival_relevance: Growing complexity demands more sophisticated navigation and learning — simple strategies will stop working
+    what_fires: Environmental complexity proxy (distinct state clusters) trending upward across episode boundaries
+
+  - id: cycle_period_shortening
+    description: Day/night cycle was 200 steps in early episodes, now 100 steps — environment speeding up
+    survival_relevance: Faster cycles demand faster behavioral adaptation — entrainment must track the acceleration
+    what_fires: Detected period of cyclic environmental feature trending shorter across episodes
+
+anti_manifestations:
+  - id: within_episode_fluctuation
+    description: Temperature rises from 0.3 to 0.7 within a single episode, then falls back — within-episode change
+    why_should_not_fire: This is a within-episode cycle, not a cross-episode trend — environment is not changing over generations
+    distinguishes: Environmental trend detection requires CROSS-EPISODE comparison, not within-episode variation
+
+  - id: stable_across_episodes
+    description: Mean food availability is 15 patches per episode for 10 consecutive episodes — flat, no trend
+    why_should_not_fire: No directional change — the environment is stable across episodes
+    distinguishes: Trend detection requires a DIRECTIONAL SHIFT across episodes, not stability

@@ -1,0 +1,51 @@
+receptor_id: necessity_detection
+family: mathematics
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detects the difference between patterns that are observed regularities (happens
+  to be true in experience so far) and patterns that are structurally required
+  (must be true given the constraints of the system). The boundary is between
+  contingent correlation and necessary entailment. This requires the organism
+  to model not just WHAT patterns it observes but WHY those patterns hold --
+  whether they follow from the structure of the environment or merely from the
+  sample of experiences so far. The organism must turn its analytical apparatus
+  on its own knowledge and ask: "Is this necessarily true, or just observed?"
+
+manifestations:
+  - id: geometric_necessity
+    description: The organism discovers that moving north 10 steps, east 10 steps, south 10 steps, and west 10 steps always returns it to the starting position. It recognizes this is not just an observed pattern but a structural necessity of planar geometry -- it MUST be true regardless of where it starts or how many times it tests.
+    survival_relevance: Recognizing geometric necessities allows the organism to generalize spatial knowledge with certainty rather than treating each location as requiring empirical verification. Necessary truths can be deployed without testing, freeing exploration resources for genuinely uncertain questions.
+    what_fires: Pattern analysis shows 100% consistency in return-to-start behavior. But beyond the consistency, structural analysis identifies WHY -- the displacements are equal and opposite along each axis. The necessity receptor fires not on the statistical regularity but on the recognition that the regularity is entailed by the spatial structure. It could not be otherwise.
+
+  - id: capacity_constraint_necessity
+    description: The organism can carry one food item at a time. It needs to deliver 5 items to a cache. It recognizes that this requires EXACTLY 5 trips -- not approximately 5, not usually 5, but necessarily 5. No strategy can change this given the single-item constraint.
+    survival_relevance: Recognizing resource-constraint necessities prevents the organism from wasting effort trying to optimize the unoptimizable. If 5 trips are necessary, the optimization space is WHICH 5 trips (route optimization), not how to do it in fewer. This constrains the search space appropriately.
+    what_fires: Self-model reports single-item carrying capacity. Task model reports 5-item requirement. The necessity receptor fires on the logical entailment: given capacity 1 and requirement 5, exactly 5 trips are necessary. This is not an empirical finding but a deductive certainty from the constraints.
+
+  - id: exclusion_necessity
+    description: The organism observes that it has never been in two places at the same time. It recognizes this is not just a statistical regularity but a necessity -- it is structurally impossible for a single entity to occupy two locations simultaneously. This constrains all planning to sequential location visits.
+    survival_relevance: Recognizing exclusion constraints as necessary (not just habitual) prevents the organism from attempting impossible plans like "be at the food source and the escape route simultaneously." Necessity detection constrains the planning space to what is structurally possible, not just what has been observed.
+    what_fires: Self-model identifies the organism as a spatially singular entity. Logical analysis determines that spatial singularity ENTAILS exclusive location -- the organism must be here OR there, never both. The necessity receptor fires on the recognition that this constraint is logical, not empirical. No amount of practice or skill development can overcome it.
+
+  - id: ordering_necessity
+    description: The organism must cross zone A to reach zone B, and must cross zone B to reach zone C. It recognizes that visiting C requires visiting A first -- not because it has always done it that way, but because the spatial topology makes it structurally necessary. There is no configuration of behavior that can visit C without first passing through A.
+    survival_relevance: Recognizing ordering necessities allows the organism to plan backwards from goals with certainty about prerequisites. If reaching C requires passing through A, then any plan for C must include provision for A. This is not a heuristic but a structural guarantee.
+    what_fires: Spatial model shows A is topologically between the organism's accessible region and C, with no bypass. Logical analysis determines that any path to C must include A as a waypoint. The necessity receptor fires on the topological entailment -- this ordering is required by the structure of the space, not by the organism's habits.
+
+  - id: conservation_necessity
+    description: The organism notices that its total energy expenditure plus remaining energy always equals its starting energy (in the absence of food intake). It recognizes this as a conservation law -- a structural necessity of the energy system, not just an observed pattern. Energy cannot appear or disappear; it can only be transformed.
+    survival_relevance: Recognizing conservation necessities enables precise energy budgeting. If energy is conserved, then the organism can deduce its remaining energy from its expenditure without direct measurement. This allows planning over longer horizons because conservation laws provide guaranteed constraints on future states.
+    what_fires: Repeated observation shows energy-in equals energy-out with zero residual. Structural analysis identifies why -- energy transformations are closed-system operations with no creation or destruction mechanism. The necessity receptor fires on the recognition that this is not a pattern that might break but a structural invariant that cannot break.
+
+anti_manifestations:
+  - id: strong_correlation_without_necessity
+    description: The organism has found food in the north corridor 95 out of 100 visits. This is a strong empirical regularity but not a necessity -- the food is placed by external processes that could change at any time. The pattern is reliable but contingent.
+    why_should_not_fire: High correlation is not necessity. The food-in-north pattern is maintained by external processes the organism does not control and cannot deduce from structural constraints. It could change tomorrow. Necessity detection requires structural analysis showing the pattern MUST hold, not just that it HAS held. 95% is impressive but is not 100%-by-logical-entailment.
+    distinguishes: Structural necessity versus empirical regularity. The key dimension is whether the pattern follows from the constraints of the system (it must be true) or from the current state of the environment (it happens to be true).
+
+  - id: inductive_generalization
+    description: The organism has observed that every corridor it has explored connects to at least one other corridor. It generalizes that ALL corridors connect to others. This is an inductive inference from a sample, not a necessary truth -- there could exist dead-end corridors it has not yet discovered.
+    why_should_not_fire: Inductive generalization extrapolates from observed cases to unobserved ones. Necessity requires that the conclusion follow from structural constraints, not from sample coverage. The organism might not have explored dead-end corridors yet. The generalization could be true but is not NECESSARILY true -- its truth depends on unexamined cases, not on structural entailment.
+    distinguishes: Deductive necessity from structural constraints versus inductive generalization from observed samples. Necessity detection requires the organism to identify WHY a pattern must hold, not just that it has always held in its experience.

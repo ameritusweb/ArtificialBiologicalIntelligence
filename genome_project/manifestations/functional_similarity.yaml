@@ -1,0 +1,125 @@
+receptor_id: functional_similarity
+family: similarity
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Detects that perceptually different objects produce the same functional
+  outcome when acted upon. A stick and a flat rock both serve to crack
+  open a nut. The boundary is outcome equivalence despite appearance
+  difference: not "these look alike" (perceptual similarity) but "these
+  DO the same thing." Requires mapping action-on-object to observed
+  result and comparing results across different object identities.
+
+manifestations:
+  - id: stick_and_bone_as_levers
+    description: |
+      The organism encounters a heavy flat stone covering a food cache.
+      It uses a long stick wedged under the edge to pry the stone up.
+      Later, it finds a similar stone but no stick is available. A long
+      bone is nearby. Using the bone the same way pries the stone up
+      with the same result.
+    survival_relevance: |
+      Recognizing functional equivalence expands the set of usable
+      tools. When the preferred object is unavailable, a substitute
+      can be identified by function rather than appearance.
+    what_fires: |
+      Two perceptually distinct objects (stick: brown, fibrous, light;
+      bone: white, smooth, heavy) both produce the same outcome
+      (stone displaced upward) when the same action (wedge and lever)
+      is applied. Outcome-match despite feature-mismatch fires.
+
+  - id: rock_and_hard_fruit_as_hammers
+    description: |
+      The organism cracks a nut by striking it with a heavy round rock.
+      On another occasion, no rocks are nearby but a dense hardwood
+      seed pod is available. Striking the nut with the seed pod also
+      cracks it open.
+    survival_relevance: |
+      Food access should not depend on finding one specific object type.
+      Functional equivalence detection enables flexible foraging across
+      varying environments.
+    what_fires: |
+      Rock (grey, mineral, cold, heavy) and seed pod (brown, organic,
+      rough, dense) produce identical outcome (nut shell fractures)
+      when same action (downward strike) is applied. Outcome convergence
+      across perceptual divergence fires.
+
+  - id: leaf_and_bark_as_containers
+    description: |
+      The organism scoops water using a large cupped leaf to drink.
+      Later, it finds a curved piece of bark and scoops water the same
+      way — the bark holds water and enables drinking just as the leaf
+      did.
+    survival_relevance: |
+      Water access in environments without direct stream access depends
+      on container-function recognition. Any concave object becomes a
+      potential water vessel.
+    what_fires: |
+      Leaf (green, thin, flexible, veined) and bark (brown, rigid,
+      rough, thick) both achieve the outcome (water contained and
+      transportable to mouth). Same functional result from different
+      material categories fires the receptor.
+
+  - id: thorn_and_sharp_stone_as_cutters
+    description: |
+      The organism uses a sharp-edged stone to score the skin of a
+      tough fruit to open it. On a different occasion, a large rigid
+      thorn is used with a scraping motion on the same type of fruit
+      and the skin opens the same way.
+    survival_relevance: |
+      Cutting and piercing are critical survival functions. Recognizing
+      that any sufficiently sharp object can cut expands tool options
+      dramatically.
+    what_fires: |
+      Sharp stone (grey, hard, angular edge) and thorn (brown, pointed,
+      organic, curved) both produce the same outcome (fruit skin
+      breached) when a similar scraping action is applied. Function
+      convergence fires.
+
+  - id: mud_and_leaves_as_insulation
+    description: |
+      The organism packs mud against its body during cold exposure and
+      experiences reduced heat loss. On another occasion, it piles
+      dry leaves against its body and experiences the same reduction
+      in heat loss.
+    survival_relevance: |
+      Thermoregulation with available materials requires recognizing
+      that different substances can serve the same insulating function.
+    what_fires: |
+      Mud (wet, cold, heavy, brown, amorphous) and dry leaves (light,
+      rustling, varied color, discrete) both produce the outcome
+      (reduced heat loss from body surface). Functional equivalence
+      across maximally different materials fires.
+
+anti_manifestations:
+  - id: two_similar_sticks_same_function
+    description: |
+      The organism uses a long straight stick to reach fruit in a
+      tree. Later it finds another long straight stick of similar
+      length and thickness and uses it the same way to reach fruit.
+    why_should_not_fire: |
+      These objects are perceptually similar — both are long straight
+      sticks. Functional similarity requires perceptual DIFFERENCE
+      with functional equivalence. When objects look alike and work
+      alike, that is perceptual similarity driving the match, not
+      functional abstraction.
+    distinguishes: |
+      Perceptual similarity (objects look alike and work alike) versus
+      functional similarity (objects look DIFFERENT but work alike).
+      The receptor fires on cross-category functional equivalence.
+
+  - id: rock_thrown_and_rock_as_hammer
+    description: |
+      The organism throws a rock at a predator to drive it away.
+      Later, it uses a rock to crack a nut. Both involve a rock
+      but the actions and outcomes are completely different.
+    why_should_not_fire: |
+      Same object, different functions. Functional similarity detects
+      different objects achieving the SAME outcome, not the same
+      object achieving different outcomes. Throwing for defense and
+      hammering for food access are distinct functional categories.
+    distinguishes: |
+      Same-object-different-function (object versatility) versus
+      different-object-same-function (functional equivalence). This
+      receptor detects the latter only.

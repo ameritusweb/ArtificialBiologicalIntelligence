@@ -1,0 +1,48 @@
+receptor_id: remembering
+family: association
+tier: branch
+stage: 5
+
+conceptual_space: |
+  Detects context-triggered memory retrieval — seeing a similar situation
+  activates recall of what worked before. A predator approaching from the
+  east triggers memory of the eastern escape route used last time. The
+  boundary separates context-driven recall (current input activates past
+  experience) from active deliberation or random memory surfacing.
+
+manifestations:
+  - id: predator_approach_triggers_escape_memory
+    description: Predator approaching from the east triggers recall of the successful eastern tunnel escape used in a prior encounter
+    survival_relevance: Context-triggered recall provides immediate access to proven solutions without requiring deliberation time
+    what_fires: Current threat input pattern partially matching a previously stored threat-response pair, causing the response component to activate alongside the current perception
+
+  - id: food_location_cued_by_landmarks
+    description: Seeing a distinctive rock formation triggers recall of a food source previously found near a similar formation
+    survival_relevance: Landmark-cued food memory enables efficient foraging by navigating to known productive locations
+    what_fires: Current visual pattern matching stored contextual features associated with a positive-outcome location, activating the location memory
+
+  - id: predator_type_triggers_behavior_knowledge
+    description: Recognizing a specific predator type triggers recall of its known hunting behavior — this type ambushes rather than chases
+    survival_relevance: Type-specific behavioral knowledge retrieved from memory enables appropriate defensive strategy selection
+    what_fires: Category recognition activating associated behavioral prediction patterns stored from prior observations of this category
+
+  - id: time_of_day_safety_recall
+    description: Current light conditions similar to a previous dangerous encounter trigger memory of the threat that occurred under those conditions
+    survival_relevance: Temporal context retrieval provides heightened vigilance during conditions previously associated with danger
+    what_fires: Environmental condition pattern matching stored temporal context associated with a prior threat event, activating the threat memory
+
+  - id: terrain_triggers_route_memory
+    description: Entering familiar terrain activates stored spatial knowledge of paths, obstacles, and shelter locations from prior exploration
+    survival_relevance: Terrain-triggered spatial memory enables navigation without re-exploration, saving time and reducing exposure
+    what_fires: Spatial configuration matching stored terrain representations, causing associated route and resource location memories to activate
+
+anti_manifestations:
+  - id: deliberate_search
+    description: Organism actively tries to remember where food was found by systematically reviewing locations — effortful recall, not context-triggered
+    why_should_not_fire: Active deliberate memory search is not context-triggered retrieval — the organism is generating queries, not receiving cued recalls
+    distinguishes: Context-driven automatic recall vs deliberate effortful retrieval — remembering fires on the automatic, cued pathway
+
+  - id: novel_situation_no_match
+    description: Organism encounters a completely new type of threat never seen before — no prior experience exists to be recalled
+    why_should_not_fire: Without stored experience matching the current context, no memory retrieval can occur — the situation is genuinely novel
+    distinguishes: Successful context-match retrieval vs absence of relevant stored experience — remembering requires a stored pattern to retrieve

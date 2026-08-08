@@ -1,0 +1,51 @@
+receptor_id: relational_analogy
+family: association
+tier: canopy
+stage: 9
+
+conceptual_space: |
+  Detects explicit four-term analogy — A is to B as C is to D, where the
+  relation between A and B is mapped onto the relation between C and D.
+  Leader:follower as parent:offspring. The boundary separates relational
+  analogy (explicit four-term mapping of relational correspondence) from
+  abstract association (same pattern across domains without explicit mapping)
+  or simple similarity (shared features without relational structure). The
+  concept is mapped relational correspondence — the explicit alignment of
+  two relations as structurally equivalent.
+
+manifestations:
+  - id: leader_follower_as_parent_offspring
+    description: Organism detects that the leader-follower relationship has the same structure as the parent-offspring relationship — the guiding, protecting, resource-directing role maps from leader to parent, and the guided, protected, resource-receiving role maps from follower to offspring
+    survival_relevance: Four-term relational analogy enables transfer of social strategies — cooperation tactics that work in parent-offspring contexts can be adapted for leader-follower dynamics
+    what_fires: Four entities explicitly arranged in two pairs, with the relation within each pair detected as structurally equivalent — role A1:role A2 maps onto role B1:role B2 through relational correspondence
+
+  - id: predator_prey_as_dominant_subordinate
+    description: Organism maps predator:prey onto dominant:subordinate — the threatening, resource-extracting, approach-initiating role corresponds across pairs, as does the threatened, resource-yielding, avoidance-initiating role
+    survival_relevance: Mapping predator-prey dynamics onto social dominance enables prediction of subordinate behavior from prey-escape knowledge and dominant behavior from predator-approach knowledge
+    what_fires: Two pairs of entities with explicitly mapped relational correspondence — the asymmetric relation in the ecological pair aligned with the asymmetric relation in the social pair
+
+  - id: nest_shelter_as_territory_defense
+    description: Nest:eggs as territory:resources — the protective structure relates to its contents the same way the defended area relates to its resources, with the containment-and-protection relation mapped across pairs
+    survival_relevance: Relational analogy between nest protection and territory defense enables transfer of defensive strategies — what works for nest security applies to territory security through the mapped correspondence
+    what_fires: Two containment pairs explicitly aligned — the container:contained relation in the physical domain mapped onto the defender:defended relation in the spatial domain through four-term correspondence
+
+  - id: scout_group_as_root_plant
+    description: Scout:group as root:plant — the information-gathering, resource-locating, exploratory component relates to the main body the same way, with the analogy enabling prediction that groups need scouts like plants need roots
+    survival_relevance: Four-term analogy between scouts and roots reveals that cutting off scouts starves the group of information the way cutting roots starves a plant of nutrients
+    what_fires: Four entities in two pairs with the exploratory-component:main-body relation explicitly mapped across biological and social domains
+
+  - id: teacher_student_as_experienced_naive
+    description: An experienced forager teaching a naive one maps onto the parent-offspring learning relationship — teacher:student as parent:offspring, with the knowledge-transfer relation corresponding across pairs
+    survival_relevance: Mapping teaching relationships analogically enables organisms to adopt parental instruction strategies for non-kin knowledge transfer, extending effective pedagogy beyond family
+    what_fires: Two dyadic relationships with a knowledge-asymmetry and knowledge-transfer relation, explicitly aligned through four-term mapping with role correspondence
+
+anti_manifestations:
+  - id: abstract_pattern_without_explicit_mapping
+    description: Organism notices that "dominance" appears in both social and ecological contexts — the same abstract pattern recurs, but no explicit four-term mapping aligns specific pairs
+    why_should_not_fire: Abstract pattern recognition across domains is not four-term analogy — analogy requires explicit alignment of specific pairs (A:B as C:D), not just noticing a recurring pattern
+    distinguishes: Relational analogy (explicit four-term mapping of specific pairs) vs abstract association (same relational pattern recognized across domains without explicit pair alignment)
+
+  - id: feature_similarity_between_two_things
+    description: Organism notices that a leader and a parent are both large, vocal, and central to the group — the similarity is based on shared features, not on relational mapping to their respective counterparts
+    why_should_not_fire: Feature-based similarity between two entities is not relational analogy — analogy requires mapping the relation between pairs, not comparing features of individual entities
+    distinguishes: Relational analogy (A:B relation mapped onto C:D relation) vs feature similarity (A and C share properties without relational mapping to B and D)

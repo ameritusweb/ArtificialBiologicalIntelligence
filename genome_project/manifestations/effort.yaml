@@ -1,0 +1,136 @@
+receptor_id: effort
+family: proprioception
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Detects the metabolic cost per unit of action — how much energy is being
+  spent relative to how much movement or result is achieved. High effort
+  means burning significant resources for what the organism is getting in
+  return. The boundary is the efficiency ratio: energy consumed divided by
+  useful work produced. This is not just "working hard" — it is the sense
+  of cost relative to output. A fast sprint is high energy but also high
+  output; slogging through deep mud is high energy but low output. Effort
+  detects the latter.
+
+manifestations:
+  - id: climbing_steep_slope
+    description: |
+      The organism scrambles up a nearly vertical mud bank after a rain.
+      Every step requires maximum leg drive — hind limbs pushing at full
+      force, forelimbs clawing for purchase — but each step gains only
+      a few centimeters of elevation. Muscles burn, breathing accelerates,
+      heart pounds. The energy expenditure per unit of upward progress
+      is enormous.
+    survival_relevance: |
+      Detecting high effort-to-progress ratio informs route selection.
+      An organism that senses extreme metabolic cost per meter gained
+      can decide to find an easier path before depleting its energy
+      reserves.
+    what_fires: |
+      High metabolic indicators (elevated heart rate, rapid breathing,
+      muscle fatigue signals) combined with low kinematic output
+      (minimal displacement). Effort-to-output ratio very high.
+
+  - id: dragging_heavy_carcass
+    description: |
+      The organism grips a large prey carcass in its jaws and drags it
+      toward cover. Every step is labored — hind legs driving at near-
+      maximum force to overcome the friction of the carcass against the
+      ground. Progress is slow, perhaps a body-length per minute. The
+      organism is spending enormous energy for very slow transport.
+    survival_relevance: |
+      Effort detection during prey transport informs the eat-here-or-
+      drag decision. If the metabolic cost of dragging exceeds the
+      benefit of eating in safety, the organism should feed in place.
+    what_fires: |
+      Maximum sustained muscle output in locomotor system. Very low
+      forward velocity. High force required to maintain any movement
+      at all. Effort-to-distance ratio extremely elevated.
+
+  - id: swimming_against_gentle_current
+    description: |
+      The organism swims across a river with a moderate current. The
+      limbs paddle at high intensity to maintain a diagonal path toward
+      the far bank, but the current constantly pushes the organism
+      downstream. Progress toward the target bank is real but costly —
+      each meter of lateral progress consumes the energy of three meters
+      of swimming. The organism feels the inefficiency.
+    survival_relevance: |
+      Detecting elevated effort during aquatic crossing informs timing
+      and route decisions. Crossing at a point with less current would
+      reduce effort — but only if the organism can sense the current
+      cost is abnormally high.
+    what_fires: |
+      Elevated metabolic expenditure during swimming. Positional progress
+      slower than normal for the swimming intensity applied. Energy
+      consumption disproportionate to distance covered.
+
+  - id: chewing_tough_sinew
+    description: |
+      The organism gnaws on a strip of dried sinew from an old carcass.
+      The jaw muscles work at high intensity — repeated maximum-force
+      bites — but the sinew barely deforms. Each chewing cycle costs
+      significant muscular energy while breaking down only a tiny amount
+      of material. The jaw effort per unit of food processed is extreme.
+    survival_relevance: |
+      Effort detection during feeding informs food value assessment.
+      If the metabolic cost of chewing exceeds the caloric value of
+      the food being processed, the organism is losing energy by eating.
+    what_fires: |
+      Jaw muscle output at high sustained levels. Food deformation
+      minimal per chewing cycle. Energy cost per unit of food broken
+      down very high. Effort-to-food-processing ratio elevated.
+
+  - id: burrowing_through_roots
+    description: |
+      The organism digs into the earth to create a den. The first layer
+      of soil was soft and yielded easily, but now the claws hit a dense
+      mat of tree roots. Each scratch removes only slivers of wood while
+      demanding maximum claw and forearm force. The metabolic cost of
+      excavation has spiked while the rate of material removal has
+      plummeted.
+    survival_relevance: |
+      Detecting an effort spike during sustained work informs task
+      abandonment decisions. Continuing to dig through roots may cost
+      more energy than finding an alternative den site.
+    what_fires: |
+      Sharp increase in force required per unit of material removed.
+      Metabolic rate elevated. Claw velocity reduced despite maximum
+      motor drive. Sudden worsening of the effort-to-excavation ratio.
+
+anti_manifestations:
+  - id: effortless_glide_downhill
+    description: |
+      The organism trots down a gentle slope, gravity assisting each
+      stride. The legs do minimal work — the body's momentum and the
+      slope carry it forward. Breathing is relaxed, muscles under low
+      load, and ground coverage is rapid. The energy cost per unit of
+      distance traveled is near zero.
+    why_should_not_fire: |
+      Effort is low and output is high — the ratio favors efficiency.
+      Effort as a receptor fires when energy cost is disproportionate
+      to result. Gravity-assisted downhill travel is the opposite:
+      minimal input, maximal output.
+    distinguishes: |
+      High effort (high cost, low output) versus low effort (low cost,
+      high output). The receptor measures the ratio, not the absolute
+      value of either component alone.
+
+  - id: high_intensity_sprint_on_flat_ground
+    description: |
+      The organism sprints across a flat, firm grassland at maximum
+      speed. Energy expenditure is very high — heart pounding, muscles
+      burning, breathing maximal. But the speed output is also very
+      high — the organism covers ground rapidly. The energy is being
+      converted efficiently into forward motion.
+    why_should_not_fire: |
+      Although absolute energy expenditure is high, the output
+      (velocity, distance) is proportionally high. The effort-to-output
+      ratio is normal for high-speed locomotion. Effort detects
+      inefficiency, not intensity. A hard sprint that produces fast
+      movement is efficient hard work.
+    distinguishes: |
+      Inefficiency (high cost per unit output) versus intensity (high
+      cost with proportionally high output). Effort is about the ratio,
+      not the absolute magnitude of energy consumption.

@@ -1,0 +1,136 @@
+receptor_id: resistance
+family: proprioception
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Detects a mismatch between force exerted and movement achieved. The
+  organism is pushing, pulling, or driving a limb in a direction, but
+  something is blocking the expected movement. Effort is being spent but
+  the limb is not traveling as expected. The boundary is the ratio of
+  motor output to kinematic result: high force with low or zero movement
+  means resistance. This is not joint limit (the body stopping itself) —
+  this is the world stopping the body.
+
+manifestations:
+  - id: pushing_against_heavy_rock
+    description: |
+      The organism plants its hind legs and drives both forelimbs against
+      a large rock, attempting to push it aside to access a burrow
+      entrance. The muscles fire at high intensity — shoulders, chest,
+      and legs all straining — but the rock does not budge. Maximum
+      effort, zero displacement. The world is refusing to move.
+    survival_relevance: |
+      Detecting resistance prevents indefinite wasted energy. An organism
+      that cannot sense when its effort is producing no result will
+      exhaust itself pushing immovable objects instead of seeking
+      alternative paths.
+    what_fires: |
+      High motor output across multiple muscle groups. Joint angular
+      velocity at or near zero despite sustained motor command. Force-
+      movement ratio extremely high (much force, no movement).
+
+  - id: foot_stuck_in_mud
+    description: |
+      The organism steps into thick clay mud. It attempts to lift its
+      foot for the next step, but the mud grips the foot with suction.
+      The hip and knee flexors fire to lift the leg, but the foot
+      barely rises. Each centimeter of extraction requires enormous
+      effort — the mud is resisting withdrawal.
+    survival_relevance: |
+      Detecting adhesive resistance informs terrain assessment. Mud
+      that grips feet creates vulnerability to predators. Early
+      resistance detection allows the organism to back out before
+      becoming fully mired.
+    what_fires: |
+      Leg flexor motor commands at high intensity. Limb velocity
+      dramatically lower than expected for the force applied. Resistance
+      force pulling opposite to intended movement direction.
+
+  - id: swimming_against_current
+    description: |
+      The organism is swimming upstream in a river. Its limbs paddle
+      vigorously — full stroke cycles at high intensity — but its
+      position relative to the bank barely changes. The current pushes
+      back with a force nearly equal to the organism's swimming output.
+      Tremendous effort maintains near-zero progress.
+    survival_relevance: |
+      Detecting current resistance informs energy budgeting during
+      aquatic travel. An organism must decide whether to continue
+      fighting the current or find an alternative route before its
+      energy reserves are depleted.
+    what_fires: |
+      Sustained high-intensity limb cycling. Positional change minimal
+      relative to effort expended. Continuous opposing force detected
+      through limb drag during each stroke.
+
+  - id: prey_pulling_away_from_grip
+    description: |
+      The organism has seized a small animal in its jaws. The prey is
+      thrashing and pulling, trying to escape. The organism's jaw
+      muscles clamp with maximum force, but it can feel the prey
+      straining against the grip — a dynamic resistance that fluctuates
+      as the prey lunges and twists. Holding requires sustained effort
+      against an active opposing force.
+    survival_relevance: |
+      Detecting resistance from captured prey informs grip maintenance.
+      If resistance increases beyond the organism's grip strength, it
+      must either bite harder or reposition. Ignoring resistance signals
+      means losing the catch.
+    what_fires: |
+      Jaw muscle tension high and sustained. Intermittent force spikes
+      as prey struggles. Grip position threatened by opposing force.
+      Effort required to maintain static hold fluctuates with prey
+      activity.
+
+  - id: digging_into_hard_ground
+    description: |
+      The organism scratches at the earth to dig a sleeping hollow. The
+      first few strokes through soft topsoil are easy — claws cut through
+      with minimal effort. Then the claws hit a layer of compacted clay.
+      Suddenly each stroke requires three times the effort for half the
+      material displaced. The ground has become resistant to digging.
+    survival_relevance: |
+      Detecting substrate resistance changes during digging informs
+      site selection. A sleeping hollow in ground that becomes
+      impenetrably hard below the surface layer is too shallow for
+      protection.
+    what_fires: |
+      Sharp increase in force required per unit of material displaced.
+      Claw velocity drops while motor output increases. Step change
+      in the effort-to-progress ratio during sustained repetitive action.
+
+anti_manifestations:
+  - id: limb_moving_freely_through_air
+    description: |
+      The organism swings its forelimb forward through open air to reach
+      for a branch. The limb travels smoothly at the expected velocity
+      for the motor command issued. There is no impediment — the arm
+      moves exactly as fast and as far as the organism intended. Air
+      provides negligible opposition.
+    why_should_not_fire: |
+      No resistance exists. The force-to-movement ratio is normal —
+      the expected kinematic result matches the motor output. Resistance
+      requires a mismatch between effort and outcome; here they are
+      perfectly matched.
+    distinguishes: |
+      Normal force-movement ratio (unimpeded motion) versus elevated
+      force-movement ratio (resistance). Resistance is defined by the
+      discrepancy, not by the presence of force alone.
+
+  - id: joint_reaches_end_of_range
+    description: |
+      The organism extends its arm fully and the elbow locks straight.
+      The arm stops moving, and pushing further produces no displacement.
+      But this is the joint's own mechanical limit — the body's anatomy
+      is stopping the movement, not an external obstacle or opposing
+      force from the world.
+    why_should_not_fire: |
+      This is joint_limit, not resistance. Resistance is defined as the
+      world opposing the organism's movement. When the body's own
+      skeletal structure stops the motion, there is no external
+      resistance — only internal mechanical constraint.
+    distinguishes: |
+      External opposing force (resistance) versus internal structural
+      limit (joint_limit). The source of the impediment is the key:
+      world versus body.

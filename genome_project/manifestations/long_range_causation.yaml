@@ -1,0 +1,51 @@
+receptor_id: long_range_causation
+family: agency
+tier: canopy
+stage: 9
+
+conceptual_space: |
+  Detects that present actions have effects that materialize only over long
+  temporal horizons. Building a wall today saves 1000 fitness over 50 episodes.
+  Planting a seed today yields food in 20 episodes. The boundary separates
+  long-range causal reasoning (connecting present action to distant future
+  outcome) from immediate causation (action produces proximate effect) or
+  mere prediction (forecasting without action linkage). The concept is the
+  temporal span of agency — the detection that current effort pays off
+  far in the future.
+
+manifestations:
+  - id: wall_building_future_defense
+    description: Organism invests significant current energy building a defensive wall that provides no immediate benefit — the payoff is predator protection accumulated over dozens of future episodes
+    survival_relevance: Long-range causal reasoning justifies large present costs for distributed future benefits, enabling investment in infrastructure that immediate-reward reasoning would reject
+    what_fires: Current costly action linked to a future benefit stream that begins many episodes later, with the organism maintaining the causal connection across the temporal gap
+
+  - id: food_caching_for_scarcity
+    description: Organism stores food during abundance for a predicted scarcity period 30 episodes away — present cost (reduced immediate consumption) linked to distant future benefit (survival through lean period)
+    survival_relevance: Seasonal food caching requires maintaining the causal link between present storage effort and future survival across a temporal gap that exceeds immediate planning horizons
+    what_fires: Present action (storing) causally linked to a distant future state (survival during scarcity), with the temporal gap explicitly represented and the causal chain maintained across it
+
+  - id: offspring_investment
+    description: Organism invests in offspring care that reduces own immediate fitness — the payoff is offspring survival and reproductive success generations away, a very long causal horizon
+    survival_relevance: Parental investment requires long-range causal reasoning to justify severe present-tense fitness costs in exchange for lineage-level future benefits
+    what_fires: Present costly behavior linked to outcomes extending beyond the organism's own immediate future, with the causal connection maintained across a multi-generational temporal span
+
+  - id: territory_modification
+    description: Organism gradually modifies territory over many episodes — clearing paths, marking boundaries, establishing resource access — with the cumulative benefit emerging only after sustained investment
+    survival_relevance: Territory development requires sustained action with delayed cumulative payoff, justified only by long-range causal reasoning about the territory's future value
+    what_fires: A series of present actions linked to a cumulative future benefit that requires many action-steps before materializing, with each incremental step maintaining the long-range causal model
+
+  - id: social_reputation_building
+    description: Organism consistently cooperates at personal cost over many episodes, building a reputation that eventually grants access to coalition benefits — present cooperation costs linked to future social capital
+    survival_relevance: Reputation investment requires maintaining the causal link between present cooperative behavior and future coalition access across dozens of social episodes
+    what_fires: Current costly social behavior linked to a gradually accumulating social asset (reputation) that produces benefits only after sufficient investment, with the long-range causal model sustained
+
+anti_manifestations:
+  - id: immediate_cause_and_effect
+    description: Organism pushes a rock onto a predator and the predator is injured immediately — the causal effect is proximate, occurring in the same episode as the action
+    why_should_not_fire: Immediate causation has no temporal gap — the action and effect co-occur, requiring no long-range causal reasoning to maintain the connection
+    distinguishes: Long-range causation (present action, distant future effect) vs immediate causation (action and effect co-occurring in the same temporal window)
+
+  - id: prediction_without_action_linkage
+    description: Organism predicts that winter will bring food scarcity in 30 episodes — this is a forecast about the future but is not linked to any present action the organism could take
+    why_should_not_fire: Prediction alone is forecasting without agency — long-range causation requires linking a present action to the distant future outcome, not just anticipating the outcome
+    distinguishes: Long-range causation (present action causally linked to distant future effect) vs prediction (forecasting a future state without identifying a present action that influences it)

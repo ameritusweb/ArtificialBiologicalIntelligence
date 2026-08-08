@@ -1,0 +1,108 @@
+receptor_id: cross_modal_association
+family: association
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Detects when information from different sensory modalities converges on the same
+  object or event. A rustling sound and a moving bush are bound as one thing. A
+  particular smell and a particular visual shape are recognized as the same berry.
+  The boundary is cross-modality: the association must link across sensory channels
+  (sight-sound, sight-smell, sound-touch, etc.), not pattern-match within a single
+  channel. The receptor fires when two or more distinct sensory streams are bound
+  to a single source entity.
+
+manifestations:
+  - id: rustling_bush
+    description: |
+      A bush shakes visually at the exact moment a rustling sound arrives from
+      the same direction. The agent binds the visual motion and the auditory
+      signal as originating from one object — something is inside that bush.
+    survival_relevance: |
+      Binding sight and sound to one source reveals hidden agents (predator or
+      prey) that neither modality alone would confirm.
+    what_fires: |
+      Temporal coincidence of auditory input (rustling) and visual input (bush
+      movement) sharing spatial origin. Two modalities, one locus.
+
+  - id: smell_berry_match
+    description: |
+      The agent approaches a cluster of small round red objects. A sweet scent
+      intensifies as distance decreases. The smell and the visual shape are
+      bound — these red objects are the source of the sweetness.
+    survival_relevance: |
+      Cross-modal binding of smell and sight confirms edibility before contact,
+      allowing approach decisions from a distance.
+    what_fires: |
+      Olfactory gradient correlating with proximity to a visually distinct
+      object. Smell intensity co-varies with distance to specific visual target.
+
+  - id: splash_sound_water
+    description: |
+      A rock is dropped into a pool. The agent sees the rock disappear into
+      the surface and simultaneously hears a splash. The visual event and
+      auditory event are bound as one occurrence — impact of rock on water.
+    survival_relevance: |
+      Binding visual and auditory consequences of physical events builds causal
+      models of object interactions, enabling prediction.
+    what_fires: |
+      Synchronous visual event (object entering surface) and auditory event
+      (impact sound) at matched spatial location.
+
+  - id: growl_shape_predator
+    description: |
+      A low growl emanates from behind a fallen log. A dark shape with
+      reflective eyes is partially visible above the log. The sound and the
+      visual form are bound as one entity — a predator is behind that log.
+    survival_relevance: |
+      Binding threatening sound to a partially visible form resolves ambiguity
+      about whether the threat is real and where it is located.
+    what_fires: |
+      Auditory threat signal (growl) co-located with partial visual form.
+      Cross-modal convergence on a single spatial origin despite incomplete
+      information in each channel.
+
+  - id: texture_weight_stone
+    description: |
+      The agent picks up a smooth grey object. The visual appearance (grey,
+      rounded) and the tactile feedback (heavy, cool, hard) are bound to the
+      same object in the grip. The stone looks like it should feel heavy and
+      it does.
+    survival_relevance: |
+      Cross-modal binding of visual and tactile properties enables tool
+      assessment — this object has the heft and hardness to be a useful
+      striking tool.
+    what_fires: |
+      Tactile properties (weight, temperature, hardness) arriving simultaneously
+      with visual properties (color, shape, size) from the same manipulated
+      object. Vision-touch binding on contact.
+
+anti_manifestations:
+  - id: two_red_berries
+    description: |
+      Two red berries sit side by side on a branch. The agent notices both are
+      red and round — they look alike. The visual similarity is within the
+      same modality.
+    why_should_not_fire: |
+      Both signals are visual. This is within-modality pattern matching (two
+      similar-looking objects), not cross-modal association. No second sensory
+      channel is being bound to the first.
+    distinguishes: |
+      Cross-modal requires linking across sensory channels (e.g., sight to
+      sound). Two visually similar objects are same-modality similarity, which
+      is the domain of perceptual_similarity, not cross_modal_association.
+
+  - id: sequential_unrelated_stimuli
+    description: |
+      The agent hears a bird call from the left, then moments later sees a
+      lizard scurry across the ground to the right. Two sensory events occur
+      in sequence but originate from completely different sources in different
+      locations.
+    why_should_not_fire: |
+      Although two modalities are involved, there is no convergence on a shared
+      source. The sound and sight are unrelated events with different spatial
+      origins and no temporal synchrony suggesting a common cause.
+    distinguishes: |
+      Cross-modal association requires convergence — the modalities must point
+      to the same entity or event. Mere co-occurrence of unrelated stimuli
+      across modalities is not binding.

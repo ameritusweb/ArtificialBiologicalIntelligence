@@ -1,0 +1,204 @@
+receptor_id: translation_ep
+family: bridging
+tier: canopy
+stage: 11
+
+conceptual_space: |
+  Detects successful cross-vocabulary mapping across an entire episode
+  — terms from one system of description successfully translate to
+  terms in another. A creature that understands terrain in terms of
+  "climb," "descend," "cross" encounters a community that describes
+  the same terrain in terms of "effort-up," "effort-down," "effort-
+  lateral." Across the episode, the mappings are tested: every "climb"
+  corresponds to "effort-up," every "descend" to "effort-down." The
+  translation is reliable. The boundary separates systematic cross-
+  vocabulary mapping from coincidental overlap or failed translation.
+  NOTE: this is the episode-level version - measures across an entire
+  episode rather than at a single step. Translation quality is assessed
+  by accumulated evidence of consistent mapping across many term-usage
+  instances within the episode.
+
+manifestations:
+  - id: terrain_vocabulary_translates_to_effort_vocabulary
+    description: |
+      A creature migrates into a territory where the local group
+      communicates about terrain differently. The creature's system:
+      "steep slope," "flat ground," "river crossing." The local
+      system: "high effort zone," "low effort zone," "wet effort
+      zone." Across an episode of navigating together, the creature
+      tests the mapping through many instances: every "steep slope"
+      the creature identifies corresponds to what locals call "high
+      effort zone." Every "flat ground" maps to "low effort zone."
+      The translation is consistent across dozens of paired
+      observations. By episode end, the two vocabularies are
+      reliably cross-mapped.
+    survival_relevance: |
+      Successful cross-vocabulary translation enables cooperation
+      with groups that describe the world differently. The creature
+      can now understand local terrain warnings, follow local route
+      recommendations, and share its own terrain knowledge in
+      terms the locals understand — unlocking collaborative survival
+      strategies that require shared understanding across
+      vocabulary boundaries.
+    what_fires: |
+      Episode-accumulated consistent term-to-term mappings across
+      two vocabulary systems. Each term in vocabulary A maps to
+      exactly one term in vocabulary B across many usage instances.
+      The translation consistency score (proportion of instances
+      where the mapping holds) exceeds the reliable-translation
+      threshold.
+
+  - id: predator_categories_map_across_species
+    description: |
+      A creature has categories for predators: "fast ground threat,"
+      "aerial threat," "ambush threat." It encounters a group that
+      categorizes the same predators differently: "chase hunter,"
+      "dive hunter," "wait hunter." Across an episode of shared
+      predator encounters, the creature discovers the mapping:
+      "fast ground threat" = "chase hunter," "aerial threat" = "dive
+      hunter," "ambush threat" = "wait hunter." Each shared predator
+      encounter confirms the mapping — different labels but the same
+      underlying categorization. The translation is one-to-one and
+      complete.
+    survival_relevance: |
+      Cross-species predator vocabulary translation enables shared
+      threat warning systems. When the other group signals "chase
+      hunter," the creature can trigger its "fast ground threat"
+      response instantly, without needing to independently identify
+      the predator type. Translation converts foreign signals into
+      actionable domestic responses.
+    what_fires: |
+      Episode-accumulated predator category mapping across two
+      vocabularies. Each encounter provides a paired observation:
+      the creature's label and the other group's label for the
+      same predator. Consistent one-to-one mapping across many
+      encounters exceeds the translation verification threshold.
+
+  - id: food_quality_scales_translate
+    description: |
+      A creature rates food sources on a three-level scale: "rich,"
+      "adequate," "poor." It encounters a group that uses a five-
+      level scale: "excellent," "good," "acceptable," "marginal,"
+      "worthless." Across an episode of shared foraging, the
+      creature discovers the mapping: its "rich" spans their
+      "excellent" and "good," its "adequate" maps to their
+      "acceptable," and its "poor" spans their "marginal" and
+      "worthless." The translation is not one-to-one but is
+      systematic — a many-to-one mapping that is consistent across
+      the episode. The coarser vocabulary maps reliably onto the
+      finer one.
+    survival_relevance: |
+      Non-trivial translation (where one vocabulary is coarser than
+      another) enables the creature to benefit from the other
+      group's finer distinctions. When the other group says "good"
+      rather than "excellent," the creature knows the food source is
+      in its "rich" category but not at the top — useful nuance
+      gained through translation.
+    what_fires: |
+      Episode-accumulated systematic many-to-one mapping between
+      vocabulary systems of different granularity. The mapping is
+      consistent but not one-to-one — one term in the coarse
+      vocabulary maps to multiple terms in the fine vocabulary, but
+      always the SAME multiple terms. Translation structure exceeds
+      the systematic-mapping threshold.
+
+  - id: seasonal_timing_vocabulary_maps
+    description: |
+      A creature marks seasons by physical events: "ice melts,"
+      "flowers bloom," "leaves fall," "ground freezes." It encounters
+      a group that marks seasons by animal behavior: "birds return,"
+      "fawns appear," "geese depart," "bears sleep." Across an
+      episode spanning seasonal transitions, the creature discovers
+      that "ice melts" reliably co-occurs with "birds return,"
+      "flowers bloom" with "fawns appear," etc. Two entirely
+      different vocabulary systems for the same temporal structure
+      translate consistently. Different observational bases — one
+      physical, one biological — map to the same underlying
+      temporal divisions.
+    survival_relevance: |
+      Cross-vocabulary seasonal translation enables the creature
+      to use either observational system as an early-warning proxy.
+      If "birds return" is easier to detect than "ice melts," the
+      biological vocabulary can substitute for the physical one.
+      Translation reveals that either system can serve as a
+      seasonal calendar, providing redundancy and flexibility.
+    what_fires: |
+      Episode-accumulated consistent temporal co-occurrence between
+      terms from two vocabulary systems. Physical-event terms and
+      biological-event terms reliably pair at each seasonal
+      transition across the episode. The co-occurrence consistency
+      exceeds the cross-vocabulary translation threshold.
+
+  - id: partial_translation_with_untranslatable_terms
+    description: |
+      A creature's movement vocabulary includes "climb," "swim,"
+      "dig," and "fly." It encounters a group whose vocabulary
+      includes "ascend," "submerge," "excavate," and "signal-far."
+      Across the episode, "climb" maps reliably to "ascend," "swim"
+      to "submerge," "dig" to "excavate." But "fly" has no
+      counterpart in the other vocabulary (the other species cannot
+      fly), and "signal-far" has no counterpart in the creature's
+      vocabulary (the creature does not signal at distance). The
+      translation is successful for the overlapping terms but
+      reveals untranslatable residuals in both directions.
+    survival_relevance: |
+      Detecting untranslatable residuals is as valuable as
+      confirming successful translations. The untranslatable terms
+      reveal capabilities or concepts that one group has and the
+      other lacks. "Signal-far" as an untranslatable term alerts
+      the creature to a capability it might learn. The translation
+      gap is itself informative.
+    what_fires: |
+      Episode-accumulated partial translation map. Most terms map
+      successfully across vocabularies with high consistency, but
+      some terms in each vocabulary have no counterpart in the
+      other. The translation succeeds within the intersection of
+      the vocabularies but identifies residual untranslatable
+      terms. Partial translation fires with the mapped terms AND
+      the untranslatable residuals.
+
+anti_manifestations:
+  - id: coincidental_co_occurrence_not_translation
+    description: |
+      A creature's alarm call and another group's feeding call
+      happen to co-occur frequently — both are produced at the
+      same time of day when predator vigilance and foraging both
+      peak. Across the episode, the temporal correlation is high,
+      but the calls have completely different meanings (alarm vs.
+      food availability). The co-occurrence is coincidental timing,
+      not cross-vocabulary mapping.
+    why_should_not_fire: |
+      Temporal co-occurrence of terms is not semantic translation.
+      Translation requires that the terms refer to the same concept
+      or entity, not that they happen to be produced at the same
+      time. An alarm call and a feeding call are semantically
+      unrelated even if they co-occur. Cross-vocabulary translation
+      requires semantic correspondence, not temporal correlation.
+    distinguishes: |
+      Semantic translation (terms from different vocabularies refer
+      to the same concept) versus temporal co-occurrence (terms
+      from different vocabularies happen at the same time for
+      unrelated reasons). Translation preserves meaning; co-
+      occurrence is a statistical accident.
+
+  - id: within_vocabulary_synonym_not_cross_vocabulary
+    description: |
+      A creature notices that two different calls within its own
+      group both seem to mean "food nearby" — two synonyms in the
+      same vocabulary. This is within-vocabulary redundancy, not
+      cross-vocabulary translation. Both terms are in the same
+      system, used by the same group, referring to the same concept.
+      No vocabulary boundary is being crossed.
+    why_should_not_fire: |
+      Synonymy within a single vocabulary is not cross-vocabulary
+      translation. Translation requires mapping between two
+      DIFFERENT vocabulary systems — typically used by different
+      groups, species, or in different contexts. Two words for the
+      same thing within one system is vocabulary redundancy, not
+      translation. The cross-vocabulary boundary is essential.
+    distinguishes: |
+      Cross-vocabulary translation (mapping between two different
+      vocabulary systems) versus within-vocabulary synonymy (two
+      terms in the same vocabulary referring to the same concept).
+      Translation crosses a system boundary; synonymy stays within
+      one.

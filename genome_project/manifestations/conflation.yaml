@@ -1,0 +1,147 @@
+receptor_id: conflation
+family: epistemic
+tier: Branch
+stage: 11
+
+conceptual_space: |
+  Detect own category-conflation -- the merging of distinct concepts into a single
+  category when they should be separate. The boundary is between legitimate
+  generalization (grouping things that genuinely share relevant properties) and
+  harmful conflation (grouping things that differ on survival-critical dimensions
+  but happen to share surface features). This receptor fires when the organism
+  detects that its own categories are too coarse, that it is treating distinct
+  things as the same when the distinction matters.
+
+manifestations:
+  - id: color_danger_conflation
+    description: |
+      The organism has learned "red things are dangerous" from encounters with red
+      predators. But it has also been avoiding red berries that are actually
+      nutritious. The conflation receptor fires when the organism notices it is
+      applying the same avoidance response to red predators and red food -- "I'm
+      treating all red things as one category, but 'red and moves toward me' is
+      completely different from 'red and stationary on a branch.'"
+    survival_relevance: |
+      Category conflation based on surface features causes systematic resource
+      loss. The organism starves next to food because its categories are too
+      coarse. Detecting the conflation allows the organism to split the category
+      along the dimension that actually matters.
+    what_fires: |
+      The conflation receptor detects when a single feature (color) drives the
+      same behavioral response across contexts where other features (motion,
+      location, shape) predict different outcomes. It fires when the variance
+      in outcomes within a behavioral category exceeds the variance between
+      categories, encoding "this category contains things that should be separate."
+
+  - id: spatial_context_collapse
+    description: |
+      The organism treats "open areas" as uniformly dangerous because it was once
+      attacked in a clearing. But open areas near water are feeding grounds where
+      prey congregates, while open areas near ridge lines are exposure zones. The
+      conflation receptor fires: "I'm treating all open spaces as the same threat,
+      but open-near-water and open-near-ridge are fundamentally different
+      environments."
+    survival_relevance: |
+      Spatial conflation causes the organism to avoid all instances of a spatial
+      category when only a subset is actually dangerous. It loses access to
+      entire categories of opportunity because it cannot distinguish the
+      dangerous subset from the beneficial subset.
+    what_fires: |
+      Uniform behavioral response to a spatial category despite divergent
+      outcome histories within that category. The receptor fires when
+      context-dependent outcome data for sub-categories within a single
+      behavioral category show significant divergence.
+
+  - id: temporal_phase_conflation
+    description: |
+      The organism has learned that a particular competitor is aggressive. But the
+      competitor is only aggressive during territory defense (breeding season) and
+      is neutral or even cooperative during foraging periods. The organism avoids
+      the competitor year-round, conflating "aggressive-during-breeding" with
+      "always-aggressive." The conflation receptor fires: "I'm treating this
+      entity as one thing across time, but it is functionally two different
+      agents in two different seasons."
+    survival_relevance: |
+      Temporal conflation costs the organism seasonal cooperative opportunities.
+      By failing to distinguish temporal phases of a single entity, it treats a
+      sometimes-ally as a permanent threat, losing access to mutually beneficial
+      interactions.
+    what_fires: |
+      Temporally invariant behavioral policy toward an entity whose behavior is
+      temporally variant. The receptor fires when the organism's stored model
+      of another entity is monolithic but the actual interaction outcomes show
+      clear temporal structure.
+
+  - id: threat_source_conflation
+    description: |
+      The organism was stung by an insect while near a particular plant. It now
+      avoids the plant, conflating "near-plant-when-stung" with "plant-causes-
+      stinging." The actual threat was the insect, which appears near many
+      different plants. The conflation receptor fires when the organism notices
+      it has been avoiding this plant while still being stung elsewhere: "The
+      thing I'm avoiding is not the thing that's hurting me."
+    survival_relevance: |
+      Misattributed category boundaries lead to avoidance of harmless things
+      and failure to avoid the actual threat. The organism wastes avoidance
+      on the wrong target and remains vulnerable to the real source.
+    what_fires: |
+      Avoidance behavior directed at a feature that does not correlate with the
+      aversive outcome when tested across contexts. The receptor fires when
+      continued negative experiences occur DESPITE avoidance of the target
+      category, suggesting the category boundary is drawn around the wrong
+      feature.
+
+  - id: self_other_state_conflation
+    description: |
+      The organism is exhausted and hungry. It encounters a conspecific and
+      interprets the conspecific's behavior as aggressive. But the organism's
+      interpretation is contaminated by its own state -- it is projecting its
+      own stress onto the other's signals. The conflation receptor fires: "Am
+      I reading hostility because the other IS hostile, or because I'M stressed?
+      I'm conflating my internal state with my perception of the other."
+    survival_relevance: |
+      Conflating own internal state with external perception causes systematic
+      misreading of the social environment. A stressed organism that projects
+      hostility onto neutral others initiates unnecessary conflicts, losing
+      potential allies and wasting energy on phantom threats.
+    what_fires: |
+      The receptor monitors for correlation between internal drive/stress
+      states and social-threat perception. When social-threat interpretations
+      spike coincident with internal stress (not with external threat cues),
+      the receptor fires encoding "internal-external conflation detected."
+
+anti_manifestations:
+  - id: legitimate_generalization
+    description: |
+      The organism has learned that all mushrooms with a particular spotted
+      pattern are toxic. It avoids all spotted mushrooms. This generalization
+      is accurate -- the pattern reliably predicts toxicity across contexts.
+      The organism is grouping things correctly because the shared feature
+      genuinely predicts the shared outcome.
+    why_should_not_fire: |
+      This is correct generalization, not conflation. The category boundary
+      (spotted pattern -> toxic) captures a real regularity. Conflation-detection
+      should fire when categories are TOO coarse, not when they correctly capture
+      shared structure. Firing here would undermine functional pattern recognition.
+    distinguishes: |
+      Category accuracy: correct generalization where shared features predict
+      shared outcomes (anti) vs. incorrect conflation where shared surface
+      features mask divergent outcomes (true).
+
+  - id: appropriate_caution
+    description: |
+      The organism avoids all large animals. While some large animals are
+      harmless, the cost of incorrectly approaching a dangerous one far
+      exceeds the benefit of correctly approaching a harmless one. The
+      organism's broad category is asymmetrically rational given the
+      payoff structure, even though it is technically coarse.
+    why_should_not_fire: |
+      The category is coarse but rationally appropriate given cost-benefit
+      asymmetry. Conflation-detection should not fire when a broad category
+      is the correct strategy given the stakes. The organism is not failing
+      to distinguish -- it is correctly choosing not to distinguish because
+      the cost of a false negative outweighs the cost of a false positive.
+    distinguishes: |
+      Strategic choice vs. epistemic failure: deliberate risk-averse
+      over-generalization (anti) vs. undetected category error that costs
+      the organism opportunities or safety (true).

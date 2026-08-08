@@ -1,0 +1,47 @@
+receptor_id: pattern_recognition
+family: compression
+tier: trunk
+stage: 2
+
+conceptual_space: |
+  Recurring subsequences across different contexts. "This happened before in a
+  different context." The concept is cross-context recurrence — the same
+  temporal or spatial pattern showing up in situations that differ in surface
+  features but share structural similarity.
+
+manifestations:
+  - id: threat_approach_sequence
+    description: In zone A, chemical spike preceded predator by 10 steps. In zone B (different terrain, different predator), chemical spike again precedes threat by 10 steps
+    survival_relevance: Cross-context pattern enables generalized threat prediction — chemical spike means danger everywhere, not just zone A
+    what_fires: Same temporal subsequence (chemical-then-threat) detected across contexts with different surface features
+
+  - id: food_after_rain
+    description: After temperature drop + moisture increase, food appears 20 steps later — in forest zones, in plains, in rocky areas
+    survival_relevance: Context-independent food prediction multiplies foraging efficiency across all environments
+    what_fires: Same multi-step precursor sequence reliably precedes same outcome across different spatial contexts
+
+  - id: npc_aggression_pattern
+    description: NPC-1 in zone A and NPC-2 in zone B both show same behavioral sequence before attacking — approach, pause, lunge
+    survival_relevance: Recognizing the shared attack pattern across different NPCs enables preemptive defense
+    what_fires: Same temporal motif in social-threat channels detected across distinct entity encounters
+
+  - id: energy_depletion_curve
+    description: Whether foraging, fleeing, or exploring, energy depletion follows the same exponential curve shape under sustained activity
+    survival_relevance: Recognizing the universal depletion pattern enables activity budgeting regardless of task type
+    what_fires: Same functional form in energy-channel trajectory detected across behaviorally distinct episodes
+
+  - id: recovery_sequence
+    description: After stress (any cause), the same recovery sequence occurs: pain drops, then energy stabilizes, then exploration resumes — observed across 4 different stressor types
+    survival_relevance: Recognizing the universal recovery pattern enables patience during recovery rather than premature action
+    what_fires: Same multi-channel temporal sequence detected following different precipitating events
+
+anti_manifestations:
+  - id: same_context_repetition
+    description: Food appears at the same location every 100 steps — same place, same stimulus, same context
+    why_should_not_fire: This is static repetition within a single context, not cross-context pattern recognition
+    distinguishes: Pattern recognition requires the SAME pattern appearing in DIFFERENT contexts
+
+  - id: superficial_resemblance
+    description: Two thermal readings are both 0.7 — one in a desert zone, one near a vent — similar value but no shared sequence or structure
+    why_should_not_fire: Single-point similarity is not a pattern — no temporal or structural subsequence recurs
+    distinguishes: Pattern recognition requires a SEQUENCE or STRUCTURE that recurs, not just a single matching value

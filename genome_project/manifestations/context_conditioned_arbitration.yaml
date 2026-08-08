@@ -1,0 +1,142 @@
+receptor_id: context_conditioned_arbitration
+family: meta-motivational
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Different contexts recruit different receptor weighting. The concept is
+  context-dependent attention — the same sensory input gets processed
+  differently depending on the current situation. In a predator context,
+  threat receptors are upweighted. In a foraging context, food receptors
+  dominate. The boundary is the arbitration mechanism: which receptors
+  get amplified or suppressed based on the current context, not the
+  receptor activations themselves.
+
+manifestations:
+  - id: predator_context_threat_upweight
+    description: |
+      Organism has just detected a predator scent. The context shifts to
+      "threat present." Auditory motion-detection receptors are upweighted
+      — every rustle is now processed as potential predator movement.
+      Meanwhile, food-scent receptors that were previously salient are
+      suppressed. The same forest sounds that were background noise a
+      moment ago now dominate attention.
+    survival_relevance: |
+      Context-appropriate receptor weighting is survival-critical. In
+      predator contexts, missing a threat cue is fatal. Suppressing food
+      signals in favor of threat signals when danger is present is the
+      optimal attentional allocation.
+    what_fires: |
+      Context variable (threat_detected) changes the gain on receptor
+      channels. Threat-relevant receptors amplified, resource-relevant
+      receptors attenuated. The weighting vector shifts as a function
+      of the active context.
+
+  - id: foraging_context_food_upweight
+    description: |
+      Organism is hungry and has entered a known foraging zone. Energy
+      is low, no threats detected. The context is "foraging." Olfactory
+      food-detection receptors are amplified. Spatial receptors for
+      food-bearing locations are upweighted. Social receptors for
+      conspecific competition over food become salient. Threat receptors
+      are reduced to background monitoring.
+    survival_relevance: |
+      When the priority is feeding, the organism must allocate attention
+      to food cues over other signals. Context-conditioned arbitration
+      ensures that the organism's limited attention bandwidth is spent
+      on the current survival priority.
+    what_fires: |
+      Context variable (hunger + safe_zone) activates a weighting profile
+      that amplifies food-related receptor channels and attenuates
+      threat-related channels. The arbitration policy selects the
+      foraging attention configuration.
+
+  - id: social_context_signal_upweight
+    description: |
+      Organism encounters a group of conspecifics at a territorial
+      boundary. Context shifts to "social negotiation." Receptors for
+      body posture, vocalization tone, and proximity are all upweighted.
+      Environmental receptors for food and terrain fade to low priority.
+      The organism is now attending primarily to social signals.
+    survival_relevance: |
+      Social contexts require reading subtle signals — posture, gaze
+      direction, approach speed — that are irrelevant during solitary
+      foraging. Context-conditioned arbitration redirects attention to
+      the social channel when social outcomes are at stake.
+    what_fires: |
+      Context variable (conspecific_encounter) recruits a social
+      attention profile. Social-signal receptors amplified, environmental
+      resource receptors attenuated. The weighting vector reflects the
+      social priority.
+
+  - id: exploration_context_novelty_upweight
+    description: |
+      Organism has entered a completely unknown region. Context shifts
+      to "exploration." Novelty-detection and curiosity receptors are
+      upweighted. Receptors for pattern matching against known templates
+      are suppressed because no templates exist here. The organism is
+      attending to what is new and different rather than what matches
+      prior knowledge.
+    survival_relevance: |
+      Exploration contexts require maximizing information intake rather
+      than exploiting known patterns. Upweighting novelty detection in
+      unknown territory ensures the organism builds a model of the new
+      environment as efficiently as possible.
+    what_fires: |
+      Context variable (unknown_territory) activates an exploration
+      attention profile. Novelty and learning-progress receptors
+      amplified. Exploitation and routine receptors attenuated.
+      The arbitration policy selects the exploration configuration.
+
+  - id: rest_context_internal_upweight
+    description: |
+      Organism is in a safe shelter, satiated, with no threats. Context
+      shifts to "rest and recovery." Internal state receptors — energy
+      regeneration tracking, injury healing progress, thermal comfort —
+      are upweighted. External threat and food receptors are suppressed
+      to minimal monitoring. Attention turns inward.
+    survival_relevance: |
+      Rest contexts require monitoring internal recovery rather than
+      external threats. An organism that continues hyper-attending to
+      external signals during safe rest does not allocate resources to
+      healing and consolidation.
+    what_fires: |
+      Context variable (safe + satiated + resting) activates an internal-
+      monitoring profile. Interoceptive receptors amplified, exteroceptive
+      receptors attenuated to background level. The weighting vector
+      reflects the recovery priority.
+
+anti_manifestations:
+  - id: fixed_attention_regardless_of_context
+    description: |
+      Organism always attends to the same signals with the same weighting
+      regardless of whether it is in a predator zone, a foraging area,
+      or a social encounter. Food receptors are always at the same gain.
+      Threat receptors are always at the same gain. The weighting vector
+      never changes.
+    why_should_not_fire: |
+      Context-conditioned arbitration requires that the weighting CHANGES
+      with context. Fixed attention is the absence of arbitration — the
+      receptor measures the dynamic reweighting, not any particular
+      fixed configuration.
+    distinguishes: |
+      The receptor detects CHANGES in receptor weighting driven by
+      context shifts. Static attention, even if well-calibrated, is not
+      arbitration. The signal is in the context-dependent transition.
+
+  - id: random_attention_fluctuation
+    description: |
+      Organism's receptor weightings fluctuate randomly without any
+      relationship to the current context. Sometimes threat receptors
+      spike in safe territory; sometimes food receptors are suppressed
+      during starvation. The fluctuation is noise, not context-driven
+      adaptation.
+    why_should_not_fire: |
+      Context-conditioned arbitration requires that weighting changes
+      are CAUSED by context variables. Random fluctuation in attention
+      is noise, not arbitration. The weighting must be predictably
+      linked to the situation.
+    distinguishes: |
+      Arbitration is context-CONDITIONED — the weighting is a function
+      of the current context. Random reweighting that is uncorrelated
+      with context is attentional noise, not adaptive arbitration.

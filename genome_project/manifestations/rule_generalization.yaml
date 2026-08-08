@@ -1,0 +1,48 @@
+receptor_id: rule_generalization
+family: formalization
+tier: branch
+stage: 5
+
+conceptual_space: |
+  Detects that a rule learned from specific instances applies to novel instances
+  beyond the training set. "Fast-moving large objects are dangerous" was learned
+  from specific predators but applies to a never-before-seen fast large object.
+  The boundary separates genuine generalization (rule applied to novel instances)
+  from memorized instance matching or overly broad application to non-matching cases.
+
+manifestations:
+  - id: novel_predator_rule_application
+    description: "Large fast-moving objects are dangerous" learned from predator A is correctly applied to never-before-seen predator B that is also large and fast
+    survival_relevance: Generalized rules provide immediate threat assessment for novel threats without requiring prior specific experience with each type
+    what_fires: Novel entity matching the feature criteria of an existing rule (large + fast) triggering the rule's output (dangerous) despite no prior encounter with this specific entity
+
+  - id: new_terrain_shelter_rule
+    description: "Overhead cover with side walls provides protection" learned in rocky terrain generalizes to a fallen log structure in forest terrain — same rule, new context
+    survival_relevance: Shelter rules that generalize across terrain types enable rapid safety assessment in unfamiliar environments
+    what_fires: Novel spatial configuration satisfying the abstract feature criteria of a shelter rule, triggering the protection assessment in a new environmental context
+
+  - id: food_safety_rule_transfer
+    description: "Stationary small objects near water are often food" learned from one water source applies correctly at a new water source never visited before
+    survival_relevance: Generalized foraging rules enable productive food search in new locations without requiring full re-exploration
+    what_fires: Novel location matching the contextual features of a food-prediction rule, triggering the foraging response based on the generalized rule rather than location-specific memory
+
+  - id: threat_avoidance_generalization
+    description: "Areas with restricted sightlines are dangerous" learned from canyon ambushes generalizes to dense vegetation with equally restricted visibility
+    survival_relevance: Generalized danger rules protect in structurally similar but visually different environments
+    what_fires: Novel environmental configuration matching the abstract structural features of a danger rule — restricted sightlines regardless of the specific material causing restriction
+
+  - id: social_behavior_rule_transfer
+    description: "Organisms that approach slowly with non-threatening posture are safe" learned from one species generalizes to a different species exhibiting the same behavioral pattern
+    survival_relevance: Generalized social rules enable appropriate responses to novel organisms without defaulting to maximum caution
+    what_fires: Novel entity exhibiting behavioral features matching a social rule's criteria, triggering the rule's output regardless of the entity's unfamiliar visual appearance
+
+anti_manifestations:
+  - id: memorized_instance_match
+    description: Organism recognizes the specific predator it encountered before by unique identifying features — not applying a rule but matching a stored memory
+    why_should_not_fire: Instance recognition is not rule generalization — the organism is matching to a specific memorized individual, not applying an abstract rule to a novel case
+    distinguishes: Rule application to novel instances vs instance-level memory matching — generalization requires the target to be genuinely novel
+
+  - id: overgeneralized_rule
+    description: "All moving objects are dangerous" applied to windblown leaves — the rule has been applied beyond its valid scope to a non-matching case
+    why_should_not_fire: The novel instance does not actually match the rule's proper feature criteria — this is overgeneralization, not valid generalization
+    distinguishes: Valid generalization within rule scope vs overgeneralization beyond valid feature criteria

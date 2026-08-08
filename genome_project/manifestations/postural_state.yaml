@@ -1,0 +1,143 @@
+receptor_id: postural_state
+family: proprioception
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Detects the organism's current integrated body configuration — not a
+  transition between postures (that is postural_change), but what the
+  posture IS right now. Crouching, standing upright, lying prone, curled
+  in a ball, hanging from a branch. The boundary is categorical body
+  geometry: which recognizable configuration is the body currently in?
+  This is a snapshot, not a transition — the present tense of body shape.
+
+manifestations:
+  - id: upright_standing
+    description: |
+      The organism stands on all four legs on level ground. Spine
+      roughly horizontal, legs vertical beneath the body, head held
+      at spine height or slightly above, weight evenly distributed
+      across four contact points. This is the neutral standing
+      configuration — balanced, stable, ready to move in any direction.
+      All major joints at their standing-default angles.
+    survival_relevance: |
+      Knowing that one is currently standing enables accurate response
+      selection. From standing, the organism can walk, run, crouch,
+      or leap. Each response requires knowing the starting posture
+      to execute correctly.
+    what_fires: |
+      Leg joints at standing angles. Spine near horizontal. Weight
+      distributed across four ground-contact points. Head elevation
+      at default height. Integrated joint pattern matches standing
+      configuration.
+
+  - id: low_crouch
+    description: |
+      The organism is crouched low to the ground — legs deeply flexed,
+      belly nearly touching the earth, head held just above ground
+      level, spine compressed. The body presents minimum visual profile.
+      All joints are flexed well below their standing values. The
+      organism is coiled and compact.
+    survival_relevance: |
+      Knowing one is in a crouch informs available actions: the
+      organism is positioned to spring forward (ambush) or is hiding
+      from a predator. The crouch state determines that leaping is
+      available but walking requires standing first.
+    what_fires: |
+      All leg joints at deep flexion angles. Center of mass low.
+      Belly near ground contact. Head below normal standing height.
+      Integrated joint pattern matches crouching configuration.
+
+  - id: prone_resting
+    description: |
+      The organism lies flat on its belly with legs folded to either
+      side, chin resting on the ground, eyes half-closed. The body is
+      in full ground contact from chin to pelvis. The weight is borne
+      entirely by the ventral body surface rather than by the legs.
+      This is the resting prone configuration.
+    survival_relevance: |
+      Detecting prone state informs vulnerability: the organism is in
+      a configuration that requires a multi-step sequence (push up,
+      unfold legs, achieve standing) before locomotion is possible.
+      Response time to threats is at its worst.
+    what_fires: |
+      Ventral body surface in broad ground contact. Leg joints folded
+      laterally. Head at ground level. No weight on feet. Integrated
+      joint-and-contact pattern matches prone configuration.
+
+  - id: hanging_from_branch
+    description: |
+      The organism hangs beneath a horizontal branch by its forelimbs.
+      Arms are extended overhead, hands gripping the branch, legs
+      dangling below with no ground contact. The spine is vertical
+      but inverted relative to standing — weight suspended from above
+      rather than supported from below. Gravity pulls the body
+      downward from the grip points.
+    survival_relevance: |
+      Knowing one is in a hanging configuration informs that ground-
+      based locomotion is unavailable and that grip failure means
+      falling. The organism must maintain grip and can only move by
+      brachiation or by dropping.
+    what_fires: |
+      Forelimb joints at overhead extension. Grip effectors engaged
+      on overhead surface. No ground contact on any limb. Spine
+      vertical with body mass below grip points. Integrated pattern
+      matches suspended-hanging configuration.
+
+  - id: curled_defensive_ball
+    description: |
+      The organism is curled into a tight ball — head tucked to chest,
+      limbs drawn inward, spine curved into maximum flexion, tail
+      wrapped protectively around the exposed side. The body occupies
+      minimum volume with the armored or tough dorsal surface presented
+      outward. All vulnerable ventral surfaces are concealed inside
+      the curl.
+    survival_relevance: |
+      Knowing one is in the defensive ball configuration confirms that
+      the protection response is complete. The organism can verify
+      all surfaces are tucked and no vulnerable parts are exposed
+      before committing to passive defense.
+    what_fires: |
+      All joints at maximum flexion. Spine curved. Self-contact between
+      limbs and torso. Minimum body volume. Dorsal surface outward.
+      Integrated pattern matches defensive-curl configuration.
+
+anti_manifestations:
+  - id: mid_transition_between_postures
+    description: |
+      The organism is halfway through standing up from a crouch. The
+      hind legs are partially extended, the spine is at an intermediate
+      angle, and the head is at a height between crouching and standing.
+      The body is not in any stable, recognizable configuration — it is
+      between two postures, in transit.
+    why_should_not_fire: |
+      Postural_state detects stable, categorical body configurations.
+      A mid-transition state is not a recognized posture — it is the
+      space between postures. The joint angles do not match any
+      canonical configuration pattern. Postural_change would detect
+      the transition; postural_state waits for the new state to be
+      reached.
+    distinguishes: |
+      Stable categorical posture (a recognizable configuration) versus
+      transitional state (between configurations). Postural_state fires
+      on arrived-at poses, not on in-between positions.
+
+  - id: single_limb_repositioned
+    description: |
+      The organism is standing on all four legs. It lifts one forelimb
+      to place it on a higher rock, while the other three limbs remain
+      in their standing positions. The overall body is still in a
+      standing configuration — one limb is in a slightly different
+      position, but the integrated postural state has not changed
+      categorically.
+    why_should_not_fire: |
+      A single limb adjustment does not change the body's categorical
+      postural state. The organism is still standing. Postural_state
+      detects the integrated configuration across all major body
+      segments. One limb's position change within a stable overall
+      posture is below the threshold of state change.
+    distinguishes: |
+      Whole-body categorical posture (integrated configuration) versus
+      local limb adjustment (one segment repositioned within the same
+      overall posture). The receptor reads the global pattern, not
+      individual joint angles.

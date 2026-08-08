@@ -1,0 +1,49 @@
+receptor_id: hierarchical_abstraction
+family: formalization
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detects when the organism's individual rules, strategies, or response
+  patterns are instances of a higher-order principle that unifies them.
+  The boundary is between having multiple separate rules and recognizing
+  that those rules share a common structure that can be captured by a
+  single meta-rule. Fires when the organism sees the pattern above its
+  patterns -- the rule that generates its rules.
+
+manifestations:
+  - id: escape_principle_extraction
+    description: The organism has separate rules -- "run from wolves by going uphill," "flee snakes by climbing trees," "evade hawks by going under cover." It detects that all three are instances of "maximize distance from threat along the axis the threat cannot follow." The meta-rule explains all three specific rules and could generate new ones for novel threats.
+    survival_relevance: A meta-rule transfers to novel threats the organism has never encountered. Instead of needing a specific escape rule for each predator type, the organism can derive appropriate escape behavior from the principle.
+    what_fires: Detection of a shared structural pattern across three or more domain-specific rules, where the pattern can be expressed as a parameterized template that generates each specific rule when filled with domain-specific values.
+
+  - id: foraging_strategy_unification
+    description: The organism uses different foraging patterns -- "check the berry bush at dawn," "dig for roots after rain," "hunt insects in warm patches." It detects that all follow "seek food-type at the time-condition when it is most available." The higher-order rule captures the common structure and the domain-specific rules are its instances.
+    survival_relevance: Recognizing the meta-rule lets the organism apply the principle to new food sources without trial-and-error. When encountering a new resource, it asks "when is this most available?" rather than searching randomly.
+    what_fires: Alignment detection across multiple condition-action rules showing that each maps a resource-type to its peak-availability condition, with the organism recognizing the common template that parameterizes resource and condition.
+
+  - id: social_rule_hierarchy
+    description: The organism follows "share food with kin," "groom allies before requesting help," and "yield space to larger organisms." It detects these are all instances of "invest in relationships proportional to expected reciprocal value." The meta-rule reveals the economic logic beneath the social behaviors.
+    survival_relevance: Understanding the meta-rule behind social behaviors lets the organism make better decisions in novel social situations. When encountering a new type of social interaction, it can derive appropriate behavior from the principle rather than relying on a specific learned rule.
+    what_fires: Detection that multiple social behavior rules share a common cost-benefit structure where investment scales with expected return, recognized when the organism maps each rule's specific parameters onto a single relational template.
+
+  - id: learning_rule_over_learning_rules
+    description: The organism has learned "update food-location beliefs after failed foraging," "update predator-timing beliefs after surprise encounters," and "update shelter-quality beliefs after storm damage." It detects that all three are instances of "update beliefs when prediction error exceeds threshold." The meta-rule describes how it learns, not just what it has learned.
+    survival_relevance: A meta-learning rule lets the organism recognize when ANY belief needs updating, not just beliefs in domains where it has specific update rules. This makes the organism adaptive in novel domains where no specific learning rule exists yet.
+    what_fires: Recognition that multiple domain-specific belief-update triggers share the structure "prediction error in domain X exceeds threshold T triggers belief revision," with the organism detecting that the update mechanism is invariant across domains.
+
+  - id: constraint_principle_recognition
+    description: The organism has rules "don't forage during predator peak hours," "don't nest in flood-prone areas," and "don't travel during storms." It detects these are all instances of "don't pursue goals when environmental risk exceeds goal value." The meta-rule reveals a risk-management principle governing all avoidance behaviors.
+    survival_relevance: The meta-constraint prevents the organism from needing to learn each risk-avoidance rule through costly experience. When facing a novel activity-risk combination, it can apply the general principle to decide whether to proceed.
+    what_fires: Detection that multiple avoidance rules share the structure "suppress goal-directed behavior when co-occurring risk level exceeds a threshold relative to goal value," with the organism recognizing the common risk-value comparison across different domains.
+
+anti_manifestations:
+  - id: superficial_similarity
+    description: The organism notices that its rules "run from fire," "run from predators," and "run toward food" all involve running. It groups them as "running rules." But the shared element (running) is a surface-level motor output, not a structural principle -- the first two are avoidance, the third is approach. There is no meta-rule that generates all three.
+    why_should_not_fire: Hierarchical abstraction requires shared deep structure, not shared surface features. "Running" is a motor implementation detail, not an organizing principle. The rules do not share a parameterizable template -- they happen to use the same motor action for structurally different reasons.
+    distinguishes: Whether the commonality across rules is structural (a shared template that explains WHY each rule takes its specific form) versus superficial (a shared surface feature like motor output that does not explain the rules' logic).
+
+  - id: forced_unification
+    description: The organism has "eat when hungry" and "sleep when tired." It attempts to unify them as "satisfy drives when they are active." But this meta-rule is so general it says nothing beyond "do what you need to do" -- it cannot generate specific predictions or novel rules. It is a tautological restatement, not a productive abstraction.
+    why_should_not_fire: Genuine hierarchical abstraction produces meta-rules that are generative -- they can derive new specific rules for new domains. A tautological unification that merely restates "follow your drives" adds no predictive or generative power. The meta-rule must compress information, not just relabel it.
+    distinguishes: Whether the proposed meta-rule is generative (can produce novel specific rules for new domains) versus tautological (restates what the specific rules already say without adding predictive power or novel derivations).

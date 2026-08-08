@@ -1,0 +1,50 @@
+receptor_id: frustration
+family: regulatory
+tier: Branch
+stage: 11
+
+conceptual_space: |
+  Detects sustained effort without measurable progress toward a goal. The boundary is
+  between continued investment with diminishing or zero returns versus difficulty that
+  is yielding incremental gains. Frustration is NOT about the difficulty of the task --
+  it is about the SLOPE of the progress curve. The organism must monitor its own
+  performance over time and detect when the derivative has gone to zero or negative
+  despite maintained or increased effort. This is a self-monitoring receptor that
+  requires the organism to track its own investment-to-outcome ratio.
+
+manifestations:
+  - id: plateau_after_improvement
+    description: The organism improved its food-finding time from 200 steps to 120 steps over 15 episodes, but the last 20 episodes have all landed between 118 and 122 steps despite trying different strategies each time.
+    survival_relevance: Detecting the plateau prevents wasting energy on a strategy that has been fully exploited. The organism needs to recognize that continued effort on THIS approach has zero marginal return so it can reallocate to a different strategy or goal.
+    what_fires: Internal progress-tracking shows the variance in recent outcomes is indistinguishable from noise. Effort investment remains high or has increased. The ratio of effort-delta to outcome-delta approaches zero over a window of sufficient length.
+
+  - id: repeated_failure_same_obstacle
+    description: The organism has attempted to reach a high ledge 20 times using variations of jumping. None have succeeded. It keeps returning to the same obstacle and applying the same category of solution with minor tweaks.
+    survival_relevance: Recognizing repeated failure at the same obstacle with the same solution class is critical for triggering strategy-switching. Without frustration detection, the organism loops indefinitely on a failing approach.
+    what_fires: Obstacle-identity matching shows the same spatial signature across 20 attempts. Solution-category tagging shows all attempts are variations within one class. Outcome is uniformly failure. The repetition count exceeds the threshold where further attempts in this class have negligible expected value.
+
+  - id: effort_escalation_no_return
+    description: The organism has been spending increasingly more energy per episode -- exploring farther, moving faster, trying more complex paths -- but its survival metrics have not improved. It is working harder for the same result.
+    survival_relevance: Effort escalation without return is a metabolic death spiral. The organism must detect that it is spending more to get the same, which is functionally equivalent to getting less. This requires tracking its own energy expenditure against outcomes.
+    what_fires: Internal energy-expenditure monitoring shows an upward trend. Outcome monitoring shows a flat trend. The divergence between these two slopes constitutes the frustration signal -- effort is increasing but returns are not.
+
+  - id: regression_despite_practice
+    description: The organism was successfully navigating a complex corridor sequence but after an environmental shift, its performance on the SAME sequence has degraded. It is now worse at something it used to be good at, and continued practice is not restoring competence.
+    survival_relevance: Regression despite practice is a strong signal that something has changed -- either in the environment or in the organism's own processing -- that invalidates previous learning. Frustration here should trigger diagnostic behavior, not just strategy switching.
+    what_fires: Comparison between current performance and stored performance baseline shows negative delta. Continued practice episodes show no recovery trend. The organism detects that it is losing ground on a previously mastered skill, which is distinct from failing at something new.
+
+  - id: social_effort_unrewarded
+    description: The organism has been following the signals of a group for 12 episodes, investing energy in social coordination, but has received no food-sharing or safety benefit that exceeds what it would get alone. Its social investment has zero return.
+    survival_relevance: Social effort has opportunity cost. An organism that cannot detect when social investment is unrewarded will continue paying coordination costs without receiving coordination benefits, performing worse than a solitary strategy.
+    what_fires: Social-investment tracking shows sustained energy expenditure on coordination behaviors. Outcome comparison between social-coordination episodes and solo episodes shows no positive differential. The frustration signal fires on the social-investment channel specifically.
+
+anti_manifestations:
+  - id: difficult_but_progressing
+    description: The organism is attempting a hard navigation problem. Each episode takes many steps and most end in failure, but its failure point is advancing -- it gets farther each time before failing. Success rate is 1 in 10 but trending upward.
+    why_should_not_fire: Progress is occurring, even if slowly. The derivative of performance is positive. Frustration detects zero or negative slope, not low absolute performance. Difficult-but-improving is the opposite of frustration.
+    distinguishes: Progress slope versus absolute difficulty. Frustration is about the derivative, not the current value.
+
+  - id: first_encounter_failure
+    description: The organism encounters a novel obstacle for the first time and fails to overcome it on the first three attempts. It has no baseline performance to compare against and has not yet invested sustained effort.
+    why_should_not_fire: Three attempts is insufficient to establish a progress trend. The organism has no performance baseline for this specific challenge. Early failure is expected exploration, not sustained effortless investment. Frustration requires a sufficient window of tracked effort to detect the zero-slope pattern.
+    distinguishes: Sufficient tracking window versus initial exploration. Frustration requires enough data points to compute a reliable slope.

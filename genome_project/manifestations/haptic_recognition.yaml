@@ -1,0 +1,146 @@
+receptor_id: haptic_recognition
+family: proprioception
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Detects object properties through touch — identifying what something is
+  by how it feels rather than how it looks. Hard versus soft, rough versus
+  smooth, heavy versus light, rigid versus flexible, sharp versus blunt.
+  The boundary is tactile property discrimination: can the organism
+  distinguish this object's material identity through contact alone? This
+  is the sense that turns raw touch into object knowledge — "I am touching
+  something hard and smooth" versus "I am touching something soft and rough."
+
+manifestations:
+  - id: hard_smooth_stone
+    description: |
+      The organism wraps its fingers around a river-polished stone.
+      The surface is unyielding — the fingers cannot depress it at
+      all. It is perfectly smooth, with no texture features the skin
+      can catch on. Cool to the touch, dense, heavy for its size. The
+      tactile signature is unambiguous: this is hard, smooth, dense
+      mineral material. A stone.
+    survival_relevance: |
+      Identifying an object as hard and smooth through touch classifies
+      it as potential tool material in darkness or murky water where
+      vision fails. Stones are hammers, projectiles, and nutcrackers —
+      recognizing them by feel enables tool selection without sight.
+    what_fires: |
+      Zero surface deformation under grip pressure. No texture
+      irregularities detected by skin. High density signal from weight
+      relative to volume. Cool thermal signature. Haptic profile:
+      hard, smooth, dense.
+
+  - id: soft_yielding_mud
+    description: |
+      The organism presses its foot into wet earth. The surface gives
+      way completely — the foot sinks in, mud deforming around the
+      toes and flowing into the spaces between digits. The material
+      is soft, wet, and provides no structural support. It yields
+      uniformly in all directions under pressure.
+    survival_relevance: |
+      Recognizing soft, yielding substrate through touch informs
+      terrain navigation. Mud that feels this way means sinking
+      danger — the organism must identify this ground type by foot-
+      feel to avoid becoming mired, especially in low visibility.
+    what_fires: |
+      Complete surface deformation under even light pressure. Material
+      flows around the contact area. No resistance to penetration.
+      Wet, uniform, structureless yielding. Haptic profile: soft,
+      wet, yielding.
+
+  - id: rough_bark_surface
+    description: |
+      The organism places its palm against a tree trunk. The bark is
+      deeply ridged — sharp edges, deep furrows, irregular peaks and
+      valleys that press into the skin at multiple points and angles.
+      The skin is stimulated at many discrete points of varying
+      pressure, creating a complex texture map. The surface is hard
+      but violently irregular.
+    survival_relevance: |
+      Recognizing rough bark by touch identifies climbable surfaces.
+      Rough texture provides grip for climbing; smooth bark does not.
+      An organism navigating trees at night relies on tactile bark
+      identification to find grippable trunks.
+    what_fires: |
+      Multiple discrete pressure points at varying depths across the
+      contact area. High spatial frequency of surface irregularities.
+      Hard substrate beneath the texture features. Haptic profile:
+      rough, hard, irregular.
+
+  - id: soft_warm_fur
+    description: |
+      The organism nuzzles against another animal's flank. The surface
+      is warm, yielding, and covered in fine filaments that bend and
+      flow under contact. The texture is soft and dense — thousands
+      of hair fibers creating a cushioned, thermally warm contact
+      surface. Beneath the fur, the body gives slightly under pressure
+      but has structural firmness underneath.
+    survival_relevance: |
+      Recognizing fur by touch identifies conspecifics and prey
+      species in darkness or dense cover. Fur texture and warmth
+      distinguish a living animal from vegetation, rock, or dead
+      matter — critical for social bonding and predator identification.
+    what_fires: |
+      Fine filament stimulation across the contact surface. Warmth
+      from the contact object. Soft outer layer over a firmer
+      subsurface. Dense, uniform, fine-textured covering. Haptic
+      profile: soft, warm, fibrous, alive.
+
+  - id: sharp_thorn_point
+    description: |
+      The organism brushes its forelimb against a thorny branch. A
+      single sharp point presses into the skin with extreme pressure
+      concentration — all the contact force focused on a tiny area.
+      The point is hard, rigid, and thin, creating an intense localized
+      pressure that threatens to puncture the skin. The haptic
+      signature is unmistakable: something sharp and dangerous.
+    survival_relevance: |
+      Recognizing sharpness through touch triggers immediate withdrawal.
+      A sharp point means penetration risk — thorns, bone fragments,
+      teeth. Haptic identification of sharpness enables the organism
+      to pull away before puncture damage occurs.
+    what_fires: |
+      Extreme pressure concentration at a single tiny point. Contact
+      area approaching zero while force per area approaches maximum.
+      Hard, rigid contact source. Skin deformation approaching
+      puncture threshold. Haptic profile: sharp, hard, penetrating.
+
+anti_manifestations:
+  - id: seeing_object_properties_without_contact
+    description: |
+      The organism looks at a rock from a distance. It can see that
+      the rock appears smooth and gray. It may infer hardness from
+      visual experience. But no contact is occurring — the organism
+      has not touched the rock. The object properties are being
+      estimated visually, not detected haptically.
+    why_should_not_fire: |
+      Haptic_recognition requires actual physical contact. Visual
+      assessment of object properties is a different modality entirely.
+      Without touch, there is no tactile data to recognize — only
+      visual prediction of what touch would feel like.
+    distinguishes: |
+      Haptic identification (through touch) versus visual identification
+      (through sight). Haptic_recognition fires on tactile contact
+      data, not on visual appearance or inferred properties.
+
+  - id: undifferentiated_contact_pressure
+    description: |
+      The organism feels pressure on its back — something is pressing
+      down on it. The contact is broad, uniform, and featureless. The
+      organism can tell something is touching it (contact receptor)
+      but cannot distinguish any properties of the pressing object —
+      not its hardness, texture, shape, or temperature. The contact
+      is real but carries no identifying information.
+    why_should_not_fire: |
+      Contact without property discrimination is just contact, not
+      haptic recognition. Haptic_recognition requires extracting
+      identifying information from the touch — hardness, texture,
+      temperature, compliance. Featureless, uniform pressure provides
+      no object identity information.
+    distinguishes: |
+      Property-rich touch (haptic recognition) versus featureless
+      pressure (simple contact). The receptor fires when touch carries
+      enough information to identify material properties, not merely
+      to confirm that something is touching.

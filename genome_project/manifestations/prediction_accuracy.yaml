@@ -1,0 +1,125 @@
+receptor_id: prediction_accuracy
+family: compression
+tier: trunk
+stage: 2
+
+conceptual_space: |
+  How well the mental model predicted what happened. The accuracy of the
+  organism's predict_delta — did the predicted next state match the observed
+  next state? The concept is model quality at the current moment. High
+  prediction accuracy means the model is good here. Low accuracy means the
+  model is wrong here. The boundary is the match between predicted and
+  observed state transitions.
+
+manifestations:
+  - id: perfect_food_timing_prediction
+    description: |
+      Organism has learned that food spawns at a particular location every
+      30 steps. It arrives at step 29, waits, and food appears at step 30
+      exactly as predicted. The predicted state (food_present=true at t+1)
+      matched the observed state perfectly. Model quality is high.
+    survival_relevance: |
+      High prediction accuracy at a food source means the organism can
+      plan arrivals efficiently, minimizing exposure time and energy
+      expenditure. Accurate models enable optimal foraging.
+    what_fires: |
+      Predicted state delta matches observed state delta within small
+      tolerance. The residual between prediction and observation is
+      near zero. Model quality metric is high for this prediction.
+
+  - id: predator_path_correctly_modeled
+    description: |
+      Organism predicted that the predator would turn left at the fork
+      in the path based on its learned patrol pattern. The predator turns
+      left. The predicted trajectory matched the observed trajectory.
+      The organism's threat model is accurate here.
+    survival_relevance: |
+      Accurate predator prediction enables preemptive evasion. An organism
+      that correctly predicts predator movement can position itself in
+      safe zones before the threat arrives. Model accuracy is survival.
+    what_fires: |
+      Predicted agent trajectory matches observed agent trajectory.
+      The behavioral model's output aligned with reality. Prediction
+      error for this specific forecast is low.
+
+  - id: thermal_model_wrong
+    description: |
+      Organism predicted that the temperature in a cave would be cool
+      based on previous visits. Upon entering, the cave is unusually warm —
+      a thermal vent has become active. The predicted state (cool) did
+      not match the observed state (warm). Prediction accuracy is low.
+    survival_relevance: |
+      Low prediction accuracy signals that the model needs updating.
+      This is information: the organism now knows its cave-temperature
+      model is stale and should be revised. Detecting inaccuracy enables
+      model correction.
+    what_fires: |
+      Predicted state delta diverges significantly from observed state
+      delta. Large residual between prediction and observation. Model
+      quality metric is low for this prediction.
+
+  - id: navigation_model_precise
+    description: |
+      Organism predicted it would reach the river after 15 steps heading
+      north. After 14 steps, it can already hear the river. After 15 steps,
+      it arrives at the bank. The spatial model's distance and direction
+      predictions were both accurate. Navigation model quality is high.
+    survival_relevance: |
+      Accurate spatial prediction enables efficient navigation without
+      wasted exploratory detours. An organism with a precise map model
+      conserves energy and reduces exposure to threats during transit.
+    what_fires: |
+      Predicted spatial outcome (distance, direction, landmark encounter)
+      matches observed spatial outcome. The navigation model produced
+      an accurate forecast. Low residual in position prediction.
+
+  - id: social_prediction_partial_match
+    description: |
+      Organism predicted that the dominant NPC would chase away the
+      subordinate NPC from the food source. The dominant NPC did approach,
+      but instead of chasing, it shared the food. The prediction was
+      partially correct (approach yes, aggression no). Accuracy is moderate.
+    survival_relevance: |
+      Moderate prediction accuracy signals a partially correct model.
+      The organism's social model captured some dynamics but missed
+      others. This intermediate accuracy level guides targeted model
+      refinement — fix the aggression prediction, keep the approach
+      prediction.
+    what_fires: |
+      Predicted state delta partially matches observed state delta.
+      Some prediction components were accurate, others were not. The
+      residual is moderate — neither perfect nor completely wrong.
+
+anti_manifestations:
+  - id: no_prediction_made
+    description: |
+      Organism enters a completely novel environment it has never seen
+      before. It made no prediction about what would happen because it
+      has no model for this context. Things happen, but there was no
+      prediction to compare against. The organism is observing, not
+      predicting.
+    why_should_not_fire: |
+      Prediction accuracy requires a prediction to evaluate. If no
+      prediction was generated, there is no residual to compute. The
+      concept is model quality, which requires a model to have produced
+      an output.
+    distinguishes: |
+      Prediction accuracy is about the quality of a specific prediction.
+      No prediction means no accuracy signal — neither high nor low.
+      This is a coverage gap, not a quality measurement.
+
+  - id: prediction_about_wrong_thing
+    description: |
+      Organism predicted food timing correctly but is evaluating whether
+      its temperature model is good. The food prediction was accurate,
+      but that is irrelevant to temperature model quality. Accurate
+      predictions in one domain do not make the model accurate in another.
+    why_should_not_fire: |
+      Prediction accuracy is domain-specific. A correct food prediction
+      says nothing about temperature model quality. The receptor must
+      fire on the accuracy of the specific prediction being evaluated,
+      not aggregate "the model got something right somewhere."
+    distinguishes: |
+      Prediction accuracy is per-prediction, not global. Each prediction's
+      accuracy is evaluated against its own observed outcome. Cross-domain
+      transfer of accuracy is not valid.

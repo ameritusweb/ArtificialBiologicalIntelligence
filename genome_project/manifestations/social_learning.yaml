@@ -1,0 +1,49 @@
+receptor_id: social_learning
+family: social
+tier: canopy
+stage: 5
+
+conceptual_space: |
+  Detects learning from observing another organism's experience — watching
+  someone else escape a predator via a tunnel, or fail by running into a
+  dead end, without having to experience it directly. The boundary separates
+  vicarious learning (extracting knowledge from another's action-outcome
+  pair) from direct experience or from merely observing another without
+  extracting a lesson.
+
+manifestations:
+  - id: observed_escape_via_tunnel
+    description: Watched another organism flee a predator by entering a tunnel — the tunnel is now a known escape option without the observer ever having used it
+    survival_relevance: Learning escape routes from others' success avoids the risk of discovering them during an actual pursuit
+    what_fires: Observation of another entity performing an action (entering tunnel) followed by a positive outcome (escaping predator), creating an action-outcome association in the observer
+
+  - id: observed_failed_strategy
+    description: Watched another organism try to outrun a predator in open ground and get caught — open-ground flight is now marked as a failed strategy
+    survival_relevance: Learning from others' failures eliminates dangerous options without the observer paying the cost of trying them
+    what_fires: Observation of another entity performing an action (running in open) followed by a negative outcome (capture), creating a negative action-outcome association
+
+  - id: observed_food_discovery_method
+    description: Watched another organism dig at a specific spot to find buried food — the digging-at-that-spot technique is now available to the observer
+    survival_relevance: Acquiring foraging techniques through observation expands the organism's resource access without trial-and-error exploration
+    what_fires: Observation of another entity performing a novel action (digging at location) producing a positive resource outcome, encoding the technique as a viable strategy
+
+  - id: observed_predator_avoidance_timing
+    description: Watched another organism wait until a predator turned away before crossing an open area — the timing strategy is now learned
+    survival_relevance: Timing-based strategies are difficult to discover through trial and error because failure is catastrophic — social learning provides them safely
+    what_fires: Observation of another entity's temporal strategy (waiting for predator orientation change before moving) followed by successful outcome, encoding the timing rule
+
+  - id: observed_tool_use
+    description: Watched another organism use a stick to dislodge food from a crevice — the tool-use technique is now known without independent invention
+    survival_relevance: Tool-use techniques represent high-value discoveries that are unlikely to be independently invented — social transmission is the efficient path
+    what_fires: Observation of another entity manipulating an object (stick) to achieve an outcome (food dislodged), creating a tool-action-outcome association in the observer
+
+anti_manifestations:
+  - id: direct_personal_experience
+    description: Organism discovers the tunnel escape route by stumbling into it during its own pursuit — learning from personal experience, not observation
+    why_should_not_fire: The organism learned from its own action-outcome pair, not from observing another — this is direct experiential learning
+    distinguishes: Vicarious learning (from others' experience) vs direct learning (from own experience) — social_learning requires observing another entity's action-outcome
+
+  - id: observation_without_extraction
+    description: Organism watches another organism run past without understanding why it ran or what the outcome was — observation occurred but no lesson was extracted
+    why_should_not_fire: Mere observation of behavior without linking it to an outcome does not constitute learning — the observer did not extract an action-outcome association
+    distinguishes: Observation with lesson extraction vs passive observation — social_learning requires the observer to form a usable action-outcome association

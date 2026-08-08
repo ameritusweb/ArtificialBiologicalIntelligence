@@ -1,0 +1,51 @@
+receptor_id: developmental_trajectory
+family: self-augmentation
+tier: canopy
+stage: 9
+
+conceptual_space: |
+  Detects and models future capability states — what the organism or its
+  offspring will be able to do at a future developmental stage. "In 5
+  generations, offspring will outrun this predator." The boundary separates
+  trajectory modeling (predicting future capability from current developmental
+  trend) from current state assessment (measuring what is possible now) or
+  wishful thinking (imagining capability without developmental basis). The
+  concept is future-self prediction — modeling what will become possible
+  through growth or development.
+
+manifestations:
+  - id: offspring_speed_projection
+    description: Organism observes offspring's running speed increasing across generations and projects that in 5 generations, offspring will outrun the current predator — a developmental trajectory extrapolation
+    survival_relevance: Developmental trajectory modeling enables long-term survival strategies — tolerating current predator pressure becomes viable if the trajectory predicts future escape capability
+    what_fires: Observed capability trend over developmental stages extrapolated forward to predict a future capability state, with the prediction based on measured developmental rates
+
+  - id: skill_acquisition_trajectory
+    description: Organism is currently poor at fishing but detects improvement with each attempt — it projects that after 20 more attempts, fishing will become a reliable food source worth continued investment
+    survival_relevance: Skill trajectory modeling justifies continued investment in initially low-yield skills by predicting when the skill will become productive enough to justify the learning cost
+    what_fires: Current skill level plus measured improvement rate producing a projected future competence level, with the trajectory model informing present investment decisions
+
+  - id: body_growth_capability_prediction
+    description: Organism's offspring is too small to reach high fruit — but growth rate modeling predicts the offspring will reach the fruit in 10 episodes, enabling current strategy adjustment
+    survival_relevance: Body growth trajectory modeling enables preparation for future capabilities — positioning near high fruit sources before the offspring can reach them
+    what_fires: Physical growth measurements extrapolated to predict when a future size threshold will be crossed, enabling preparatory behavior before the capability materializes
+
+  - id: social_status_trajectory
+    description: Organism detects its rising position in the social hierarchy through successive successful challenges — it models that in several more episodes, it will reach a rank that enables access to prime resources
+    survival_relevance: Social trajectory modeling enables strategic patience — enduring current low-rank costs when the trajectory predicts future high-rank benefits
+    what_fires: Social position changes over time forming a trend, extrapolated to predict when a threshold rank will be achieved, informing present social strategy
+
+  - id: group_capability_development
+    description: Organism detects that the group's coordination is improving with practice — projects that after more episodes of joint hunting, the group will be capable of taking larger prey
+    survival_relevance: Group trajectory modeling enables investment in collective practice even when current group hunts are marginally productive, predicting future collective capability
+    what_fires: Collective performance measurements trending upward, extrapolated to predict when a group capability threshold will be crossed, justifying continued cooperative investment
+
+anti_manifestations:
+  - id: current_capability_assessment
+    description: Organism assesses that it can currently outrun the predator — this is a measurement of present capability, not a projection of future developmental state
+    why_should_not_fire: Current capability assessment measures what is possible now without modeling future developmental change — no trajectory or extrapolation is involved
+    distinguishes: Developmental trajectory (extrapolated future capability from growth trend) vs current assessment (present capability measurement without developmental projection)
+
+  - id: desire_without_developmental_basis
+    description: Organism wants to fly to escape predators but has no wings and no developmental trend toward flight capability — this is aspiration without developmental trajectory
+    why_should_not_fire: Imagining a capability without a measured developmental trend toward it is wishful thinking, not trajectory modeling — the desire has no developmental basis
+    distinguishes: Developmental trajectory (extrapolation from measured developmental trend) vs aspiration (imagined capability without growth trend support)

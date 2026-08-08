@@ -1,0 +1,200 @@
+receptor_id: trust_ep
+family: bridging
+tier: branch
+stage: 4
+
+conceptual_space: |
+  Assesses a source's overall reliability across an entire episode —
+  not a single signal-outcome check, but accumulated evidence of
+  whether a source's claims, signals, and predictions proved reliable
+  or misleading over many interactions. A creature has been following
+  another individual's food-location signals across an episode. Did
+  those signals, taken as a whole, lead to food? The episode-level
+  trust assessment aggregates many signal-outcome pairs into an
+  overall reliability verdict. The boundary separates accumulated
+  reliability evidence from single-instance trust or mere familiarity.
+  NOTE: this is the episode-level version - measures across an entire
+  episode rather than at a single step. Trust is assessed by the
+  aggregate track record across many interactions within the episode,
+  not by any single signal-outcome pair.
+
+manifestations:
+  - id: consistently_reliable_guide
+    description: |
+      Across an episode, a creature follows an older individual's
+      route choices through unfamiliar terrain. The elder signals
+      "safe path" twelve times and "danger" eight times. Every "safe
+      path" signal led to genuinely safe passage. Every "danger"
+      signal preceded a real threat (cliff edge, predator den,
+      unstable ground). By episode end, twenty signals and twenty
+      correct outcomes yield a 100 percent reliability score. The
+      elder is fully trustworthy as a terrain guide — the episode-
+      level evidence is overwhelming.
+    survival_relevance: |
+      Identifying a fully reliable source enables the organism to
+      delegate sensing to that source, conserving its own sensory
+      and cognitive resources. Following a trusted guide through
+      dangerous terrain without independent verification is risky
+      only if trust is unearned. When episode-level evidence
+      confirms perfect reliability, the efficiency gain is pure.
+    what_fires: |
+      Episode-accumulated signal-to-outcome accuracy at or near
+      100 percent across many instances. The source's signals
+      consistently predicted actual outcomes. The reliability
+      score across the episode exceeds the high-trust threshold.
+      The trust signal fires with high confidence and broad
+      scope (reliable across all signal types).
+
+  - id: consistently_unreliable_source
+    description: |
+      Across an episode, a creature observes another individual's
+      food-location signals. This individual signals "food here"
+      fourteen times. Only three of those locations actually contain
+      food. The remaining eleven are empty, dangerous, or occupied
+      by competitors. By episode end, the 21 percent accuracy is
+      worse than random chance — the source is not just unreliable
+      but possibly deceptive. The episode-level trust assessment
+      is strongly negative.
+    survival_relevance: |
+      Identifying a consistently unreliable source is as valuable
+      as identifying a reliable one. The organism can stop wasting
+      energy following bad information. If the source is worse than
+      random, the organism might even use the source's signals
+      as counter-indicators — avoiding locations the source
+      recommends, which would improve outcomes.
+    what_fires: |
+      Episode-accumulated signal-to-outcome accuracy significantly
+      below chance across many instances. The source's signals
+      consistently failed to predict actual outcomes or predicted
+      the opposite. The distrust signal fires with high confidence.
+      Below-chance accuracy suggests the source may be deceptive
+      rather than merely uninformed.
+
+  - id: domain_specific_trust_profile_emerges
+    description: |
+      Across an episode, a creature evaluates a companion's signals
+      in two domains. In the food domain: the companion signals
+      "good foraging spot" nine times, eight are accurate — 89
+      percent reliability. In the predator domain: the companion
+      signals "danger" seven times, only two precede actual threats
+      — 29 percent reliability. The episode reveals a split trust
+      profile: the companion is highly trustworthy about food but
+      unreliable about predators. The episode-level assessment is
+      domain-specific, not global.
+    survival_relevance: |
+      Domain-specific trust enables the organism to extract maximum
+      value from a partially reliable source. Follow this companion's
+      food signals (high accuracy), but independently verify its
+      predator warnings (low accuracy). Without domain-level trust
+      assessment, the organism would either trust the companion
+      fully (dangerous in the predator domain) or distrust fully
+      (missing valuable food information).
+    what_fires: |
+      Episode-accumulated reliability scores that diverge across
+      domains for the same source. High accuracy in one domain and
+      low accuracy in another create a split trust profile. The
+      domain-level trust variance exceeds the domain-specificity
+      threshold, triggering a per-domain trust assessment rather
+      than a global one.
+
+  - id: trust_earned_then_broken
+    description: |
+      Across an episode, a creature's trust in a source follows
+      a trajectory. Early episode: the source provides four accurate
+      signals — trust builds. Mid-episode: three more accurate
+      signals — trust is high (seven for seven). Late episode: the
+      source provides three signals that are all wrong — one leads
+      to a predator encounter. The episode trust trajectory shows
+      earned trust followed by broken trust. The aggregate score
+      (seven of ten correct) is moderate, but the TRAJECTORY matters
+      — recent unreliability after established reliability is a
+      stronger signal than the aggregate suggests.
+    survival_relevance: |
+      Trust trajectory detection enables the organism to weight
+      recent evidence more heavily than distant evidence. A source
+      whose reliability has recently collapsed is more dangerous
+      than one who was always mediocre, because the organism may
+      still be acting on the cached high-trust assessment. The
+      trajectory signal triggers trust recalibration with recency
+      weighting.
+    what_fires: |
+      Episode-accumulated trust trajectory showing decline. Early-
+      episode accuracy is high; late-episode accuracy is low. The
+      trajectory slope is negative. The trust-trajectory signal
+      fires with both the aggregate reliability score AND the
+      directional trend, enabling recency-weighted trust
+      assessment.
+
+  - id: multiple_sources_compared_in_reliability
+    description: |
+      Across an episode, a creature receives signals from three
+      different sources about the same types of events. Source A:
+      twelve signals, ten correct (83 percent). Source B: eight
+      signals, three correct (38 percent). Source C: fifteen signals,
+      fourteen correct (93 percent). The episode provides enough
+      data to rank sources by reliability. Source C is most
+      trustworthy, A is good, B is poor. The organism can now
+      preferentially attend to C, use A as backup, and discount B.
+      Episode-level comparison across sources enables trust ranking.
+    survival_relevance: |
+      Comparative trust assessment enables optimal information-
+      source selection. When multiple sources provide conflicting
+      signals, the organism should weight the most reliable source
+      most heavily. Without episode-level comparison, the organism
+      cannot determine which of multiple information sources
+      deserves the most weight.
+    what_fires: |
+      Episode-accumulated reliability scores for multiple sources,
+      enabling ranking. The trust assessment is comparative — not
+      just "is this source reliable?" but "which source is MOST
+      reliable?" The multi-source trust ranking fires when
+      reliability scores for two or more sources can be
+      statistically distinguished based on episode evidence.
+
+anti_manifestations:
+  - id: familiarity_without_signal_testing
+    description: |
+      A creature has been near another individual throughout the
+      episode — they foraged in the same area, rested in the same
+      clearing, traveled the same route. The creature feels familiar
+      with this individual. But the individual never produced any
+      information-bearing signals that could be tested against
+      outcomes. No food signals, no danger warnings, no route
+      recommendations. Familiarity is high but reliability data is
+      zero. There is no basis for trust assessment.
+    why_should_not_fire: |
+      Trust requires signal-to-outcome evidence. An individual who
+      produces no testable signals cannot be assessed for reliability
+      regardless of how much time the creature has spent near them.
+      Familiarity is a proximity measure, not a reliability measure.
+      The episode-level trust receptor requires accumulated signal-
+      outcome pairs, and zero pairs have accumulated.
+    distinguishes: |
+      Trust assessment (accumulated signal-to-outcome reliability
+      evidence) versus familiarity (accumulated co-presence time).
+      An individual can be highly familiar but completely untested
+      for reliability. Trust requires testable signals, not just
+      shared space.
+
+  - id: single_helpful_act_not_episode_trust
+    description: |
+      Another individual happens to alarm-call just before a predator
+      appears, saving the creature. This single act is helpful and
+      the signal was accurate. But it is one data point. The
+      individual might alarm-call at everything (low specificity)
+      or might have been calling for another reason (coincidence).
+      A single accurate signal does not constitute episode-level
+      trust evidence.
+    why_should_not_fire: |
+      The episode-level trust receptor requires accumulated evidence
+      across many signal-outcome pairs to assess overall reliability.
+      A single accurate signal, however dramatic, is insufficient
+      for reliability assessment. The individual might be accurate
+      this once and unreliable in general. Episode-level trust
+      requires statistical confidence from a sample, not a single
+      impressive instance.
+    distinguishes: |
+      Episode-level trust (accumulated reliability evidence across
+      many interactions) versus step-level signal accuracy (single
+      signal-outcome pair). The episode-level receptor fires on
+      aggregate track record, not individual heroic moments.

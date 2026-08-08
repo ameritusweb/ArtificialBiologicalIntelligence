@@ -1,0 +1,130 @@
+receptor_id: contact
+family: proprioception
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Detects physical touch on the organism's body surface. Something from
+  the external world is pressing against the organism. Not pain, not
+  temperature — pure mechanical contact. The boundary is presence versus
+  absence of surface pressure: is something touching me right now? This
+  is the most basic tactile sense — the binary signal of contact/no-contact
+  across the body's surface.
+
+manifestations:
+  - id: foot_contacts_ground
+    description: |
+      The organism lowers its hind foot during a step. The sole makes
+      contact with packed earth — a broad, even pressure distributed
+      across the bottom of the foot. One moment there was air beneath
+      the foot, the next there is solid ground pressing upward against
+      the skin. The ground is touching the organism.
+    survival_relevance: |
+      Ground contact confirms footing. An organism that cannot detect
+      when its foot has actually landed cannot walk reliably — each
+      step would be a guess about whether the surface has been reached.
+    what_fires: |
+      Pressure onset across foot surface area. Transition from zero
+      surface pressure to distributed load. Contact signal on ventral
+      foot surface.
+
+  - id: branch_presses_against_flank
+    description: |
+      The organism pushes through dense brush. A stiff branch presses
+      against its left flank, bending slightly against the body as the
+      organism moves past. The contact is a firm line of pressure along
+      the ribcage — not painful, but clearly present. Something solid
+      is touching the side of the body.
+    survival_relevance: |
+      Detecting lateral contact while moving through vegetation prevents
+      getting snagged or wedged. The organism can adjust its path before
+      the branch traps it.
+    what_fires: |
+      Localized pressure along a linear region of the flank. Surface
+      deformation at the contact site. Mechanical force applied to
+      body wall from the outside.
+
+  - id: insect_lands_on_back
+    description: |
+      The organism is resting in a sunlit clearing. A small insect
+      lands on its upper back — six tiny points of pressure appear
+      simultaneously on the skin between the shoulder blades. The
+      contact is light but distinct: something small is standing on
+      the organism's dorsal surface.
+    survival_relevance: |
+      Detecting contact from small creatures enables parasite defense.
+      Ticks, biting flies, and leeches announce themselves through
+      initial contact before they begin feeding. Early detection
+      enables removal.
+    what_fires: |
+      Multiple point-contact signals appearing simultaneously on dorsal
+      surface. Very light pressure at discrete locations. Sudden onset
+      of contact where none existed.
+
+  - id: water_surface_touches_belly
+    description: |
+      The organism wades into a pond. As its belly descends toward the
+      water line, the surface of the water makes contact with the ventral
+      skin — a cool, even, spreading pressure that advances along the
+      body as it lowers. The water is touching the organism across an
+      expanding area of its underside.
+    survival_relevance: |
+      Detecting water contact on the body informs depth assessment and
+      buoyancy transition. The organism needs to know exactly when and
+      where water begins touching it to manage the shift from walking
+      to swimming.
+    what_fires: |
+      Gradual onset of distributed pressure across ventral surface.
+      Contact area expanding progressively. Uniform, low-magnitude
+      pressure across a broad body region.
+
+  - id: companion_nuzzles_neck
+    description: |
+      Another organism of the same species presses its head gently
+      against the side of the organism's neck. The contact is warm and
+      sustained — a broad area of pressure from a soft, yielding surface
+      pressed against the lateral neck. Something alive is touching
+      the organism in a non-threatening manner.
+    survival_relevance: |
+      Social contact detection enables bonding and threat discrimination.
+      Contact from a conspecific in a non-aggressive pattern (sustained,
+      soft, lateral) signals affiliation rather than attack.
+    what_fires: |
+      Sustained, moderate pressure on lateral neck surface. Contact
+      area broad and soft-edged. Pressure steady rather than increasing.
+      Warmth co-occurring with mechanical contact.
+
+anti_manifestations:
+  - id: wind_blowing_across_fur
+    description: |
+      A strong wind blows across the organism's back, ruffling the fur
+      and creating a flowing sensation across the skin. There is
+      stimulation of the body surface, but nothing solid is pressing
+      against it. The wind moves the fur but does not create a
+      localized pressure point. No object is in contact with the body.
+    why_should_not_fire: |
+      Wind is not contact. Contact requires a discrete object pressing
+      against the body surface with mechanical force. Wind is distributed
+      airflow that moves surface features but does not constitute
+      object-to-body contact.
+    distinguishes: |
+      Mechanical contact from a discrete object versus distributed
+      airflow. Contact requires a pressure source that can be localized
+      to a surface region where an object meets the body.
+
+  - id: internal_muscle_cramp
+    description: |
+      The organism's left hind leg muscle seizes in a cramp. There is
+      a strong sensation of pressure and tightness in the thigh, but
+      nothing external is touching the leg. The pressure is generated
+      entirely from within — muscle fibers contracting involuntarily
+      against each other.
+    why_should_not_fire: |
+      The pressure is internal, not from external contact. Contact
+      detects the boundary between self and world — something from
+      outside pressing against the body surface. Internal muscular
+      sensations are proprioceptive, not tactile contact.
+    distinguishes: |
+      External surface pressure (contact) versus internal tissue
+      pressure (proprioception/nociception). Contact is defined by
+      the outside-to-surface direction of force.

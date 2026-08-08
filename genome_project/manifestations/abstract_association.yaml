@@ -1,0 +1,51 @@
+receptor_id: abstract_association
+family: association
+tier: canopy
+stage: 9
+
+conceptual_space: |
+  Detects that an abstract relational pattern appears across multiple concrete
+  domains. "A dominates B" structure appears in social hierarchy, food chain,
+  and spatial layout (high ground dominates low ground). The boundary separates
+  abstract association (recognizing the same relational pattern across
+  different substrates) from concrete association (linking specific instances)
+  or analogical similarity (explicitly mapping one domain onto another). The
+  concept is the abstract relational pattern itself — the structure that
+  repeats across domains and is recognized as a single recurring theme.
+
+manifestations:
+  - id: dominance_across_domains
+    description: "A dominates B" pattern appears in the social hierarchy (Alpha over Beta), food chain (predator over prey), and spatial positioning (high ground over low ground) — organism detects the shared abstract relational pattern
+    survival_relevance: Recognizing "dominance" as an abstract pattern enables transfer of dominance-related strategies across domains — leveraging high ground, social rank, and predator avoidance use the same structural logic
+    what_fires: The same directed asymmetric relation detected across three or more concrete domains, with the abstract pattern recognized as a single recurring relational type independent of domain
+
+  - id: containment_across_contexts
+    description: "A contains B" pattern appears in nests containing eggs, territories containing resources, and groups containing individuals — the containment relation is recognized as a single abstract pattern
+    survival_relevance: Abstract containment reasoning enables cross-domain predictions — breaching any container (nest, territory, group) releases its contents, and protection strategies share common logic
+    what_fires: An inclusion/enclosure relation detected across multiple concrete domains, with the abstract containment pattern recognized as a single relational type appearing in different substrates
+
+  - id: flow_pattern_abstraction
+    description: "A flows to B" pattern appears in water flowing downhill, information flowing through the group, and nutrients flowing through the food chain — the directed flow relation is recognized as abstract
+    survival_relevance: Abstract flow recognition enables prediction of accumulation, bottleneck, and drought across domains — wherever flow occurs, the same dynamics apply
+    what_fires: A directed transfer relation detected across multiple domains, with the abstract flow pattern recognized as a single relational type and its generic properties (bottleneck, accumulation) applied across domains
+
+  - id: cycle_pattern_abstraction
+    description: "A leads to B leads to C leads to A" cyclical pattern appears in predator-prey cycles, seasonal resource cycles, and social status rotation — the abstract cycle is recognized as a recurring relational form
+    survival_relevance: Abstract cycle recognition enables prediction of return — any cycle will eventually bring its phases back, and timing strategies transfer across cyclical domains
+    what_fires: A closed-loop relational pattern detected across multiple concrete domains, with the abstract cycle recognized as a single relational type and cyclical dynamics (return, periodicity, phase) applied generally
+
+  - id: competition_pattern_abstraction
+    description: "A and B compete for C" pattern appears in organisms competing for food, plants competing for light, and ideas competing for group attention — the competition relation is recognized as an abstract pattern
+    survival_relevance: Abstract competition recognition enables strategic reasoning that transfers across competitive contexts — scarcity dynamics, niche differentiation, and winner-take-all patterns generalize
+    what_fires: A triangular relation (two entities, one contested resource) detected across multiple domains, with the abstract competition pattern recognized and generic competitive dynamics applied
+
+anti_manifestations:
+  - id: concrete_single_domain_association
+    description: Organism associates a specific predator with a specific location — this is a concrete association between two specific instances, not an abstract relational pattern appearing across domains
+    why_should_not_fire: Concrete association links specific instances without abstracting a relational pattern — no domain-crossing recognition of a recurring abstract structure occurs
+    distinguishes: Abstract association (relational pattern recognized across domains) vs concrete association (specific instances linked within a single domain)
+
+  - id: explicit_analogy_not_abstract_pattern
+    description: Organism explicitly maps social hierarchy onto spatial high-low positioning — this is a deliberate analogical mapping between two specific domains, not a recognition of an abstract pattern appearing spontaneously across many domains
+    why_should_not_fire: Explicit analogy is a deliberate mapping between two domains, while abstract association is the passive recognition that the same relational pattern recurs across multiple domains without deliberate mapping
+    distinguishes: Abstract association (spontaneous recognition of recurring relational pattern) vs analogical mapping (deliberate structural correspondence between two specific domains)

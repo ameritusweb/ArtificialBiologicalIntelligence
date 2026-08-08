@@ -1,0 +1,160 @@
+receptor_id: fundamental_distinction
+family: epistemic
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detect the DEEP difference that determines everything downstream -- the axis
+  of variation that matters most but is often hidden beneath surface features.
+  The boundary is between organizing by surface similarity (color, size, shape)
+  and organizing by the latent dimension that actually predicts outcomes. This
+  receptor fires when the organism discovers or recognizes that the split it has
+  been using is not the split that matters -- that the real dividing line cuts
+  across its existing categories along a deeper, more explanatory dimension.
+
+manifestations:
+  - id: motion_not_color
+    description: |
+      The organism has been categorizing entities by color: red things are threats,
+      green things are food. But it discovers that the actual predictive dimension
+      is motion-toward vs. motion-away. Red berries (stationary) are food. Green
+      snakes (approaching) are threats. The fundamental-distinction receptor fires:
+      "The real split isn't color. It's approach-vector. Everything I need to know
+      about threat vs. food is in whether it moves toward me or away from me --
+      color is a distraction."
+    survival_relevance: |
+      Organizing by the wrong dimension produces systematic misclassification.
+      The organism avoids food and approaches threats. Discovering the fundamental
+      dimension -- the one that actually predicts the outcome that matters --
+      restructures all downstream categorization, eliminating entire classes of
+      error at once.
+    what_fires: |
+      Cross-category outcome analysis: the receptor detects that a latent
+      dimension (motion direction) explains outcome variance better than the
+      currently-used category dimension (color). When reclassification along
+      the new dimension produces cleaner outcome separation, the receptor fires
+      encoding "fundamental dimension identified -- current categories are
+      organized along the wrong axis."
+
+  - id: behavior_not_identity
+    description: |
+      The organism has been tracking individual conspecifics by identity --
+      "Entity A is dangerous, Entity B is safe." But it discovers that the
+      real split is behavioral-state, not identity. Entity A is dangerous when
+      guarding offspring and neutral otherwise. Entity B is safe when foraging
+      but aggressive when competing. The fundamental-distinction receptor fires:
+      "The real split isn't WHO they are. It's WHAT they're doing right now."
+    survival_relevance: |
+      Identity-based social models are brittle because they treat dynamic
+      entities as fixed. The organism either over-avoids (avoiding Entity A
+      even when it is non-threatening) or under-avoids (approaching Entity B
+      during competitive contexts). Switching to the behavioral-state dimension
+      produces accurate predictions across all individuals.
+    what_fires: |
+      Identity-based social predictions showing high within-identity variance.
+      The receptor detects that the same individual produces different outcomes
+      in different behavioral states, and that behavioral state predicts
+      outcomes better than individual identity across the population.
+
+  - id: structure_not_content
+    description: |
+      The organism has been evaluating food sources by their surface properties --
+      taste, smell, appearance. But it discovers that the real predictor of
+      sustained nutrition is structural: whether the source is renewable
+      (growing, replenishing) or depletable (fixed quantity, will run out).
+      The fundamental-distinction receptor fires: "Two sources that taste
+      identical have completely different strategic values based on their
+      replenishment structure. The deep split is renewability, not flavor."
+    survival_relevance: |
+      Content-level evaluation optimizes for immediate quality but misses
+      strategic sustainability. An organism that discovers the structural
+      dimension can plan long-term: prioritizing renewable sources for base
+      nutrition and using depletable sources opportunistically.
+    what_fires: |
+      Temporal outcome divergence between sources rated equally by current
+      criteria. The receptor fires when two stimuli with identical surface
+      properties produce divergent long-term outcomes, indicating that the
+      current evaluation dimensions miss a structural variable that determines
+      sustainability.
+
+  - id: mechanism_not_correlation
+    description: |
+      The organism has noticed that a particular bird call precedes the
+      appearance of food (insects disturbed by larger animals). It has been
+      treating the bird call as a food signal. But the fundamental-distinction
+      receptor fires: "The bird call doesn't CAUSE food. Something else causes
+      both the bird call and the food -- large animal movement. The real signal
+      is ground vibration. The bird is reacting to the same cause, not creating
+      the effect."
+    survival_relevance: |
+      Correlation-based models break when the correlated proxy disappears or
+      changes. If the birds leave the area, the organism loses its food signal.
+      But if it identifies the actual mechanism (ground vibration from large
+      animals), it retains the signal regardless of whether the correlated
+      proxy (bird call) is present.
+    what_fires: |
+      The receptor detects that a predictive relationship the organism relies
+      on has a causal structure deeper than the surface correlation. When a
+      third variable is identified that explains both the signal and the
+      outcome, the receptor fires encoding "current signal is proxy -- deeper
+      mechanism available."
+
+  - id: topology_not_distance
+    description: |
+      The organism has been evaluating locations by Euclidean distance -- "the
+      nearest food source is best." But it discovers that the real determinant
+      is topological accessibility, not distance. A food source 100 meters away
+      across a river takes longer to reach than one 300 meters away along a
+      clear path. The fundamental-distinction receptor fires: "Distance is not
+      what matters. Traversal cost is. The map-distance and the lived-distance
+      are different, and the lived-distance is what determines everything."
+    survival_relevance: |
+      Distance-based optimization produces suboptimal routing when topology
+      makes straight-line distance a poor proxy for actual cost. Discovering
+      that the fundamental dimension is traversal cost rather than geometric
+      distance restructures all spatial planning.
+    what_fires: |
+      Systematic mismatch between distance-based predictions and actual
+      traversal outcomes. The receptor fires when reranking options by a
+      topological metric produces significantly better outcome predictions
+      than the geometric metric currently in use.
+
+anti_manifestations:
+  - id: surface_refinement
+    description: |
+      The organism improves its color-based categorization by adding more
+      color categories -- distinguishing light red from dark red, matte green
+      from glossy green. This is refinement within the existing dimension, not
+      discovery of a new fundamental dimension. The organism is getting better
+      at the WRONG classification rather than finding the RIGHT one.
+    why_should_not_fire: |
+      Fundamental-distinction detection is about discovering that the AXIS of
+      categorization is wrong, not about refining categories along the existing
+      axis. Surface refinement makes the existing system more precise but does
+      not restructure it. The receptor fires when the organism needs to SWITCH
+      dimensions, not when it needs more precision within the current one.
+    distinguishes: |
+      Dimensional shift vs. dimensional refinement: improving precision along
+      the existing axis (anti) vs. discovering that a different axis is more
+      explanatory (true). The receptor detects axis errors, not resolution
+      limitations.
+
+  - id: multiple_equivalent_features
+    description: |
+      The organism discovers that both color and size predict food quality
+      roughly equally well. Neither is clearly more fundamental than the other.
+      The organism can use either or both, and the outcomes are similar. There
+      is no single "deep" dimension hiding beneath -- the reality is genuinely
+      multi-dimensional with no clear latent structure.
+    why_should_not_fire: |
+      The fundamental-distinction receptor fires when a deeper dimension BETTER
+      explains outcomes than the current surface dimension. When multiple
+      surface dimensions are roughly equivalent and no deeper dimension unifies
+      them, there is no fundamental distinction to detect. The reality is
+      genuinely multi-factorial, and the receptor would produce a false sense
+      of hidden structure.
+    distinguishes: |
+      Latent structure vs. genuine multi-dimensionality: actual hidden dimension
+      that explains surface patterns (true) vs. multiple surface features with
+      no deeper unifying dimension (anti). The receptor requires that the
+      discovered dimension explain MORE than the current ones.

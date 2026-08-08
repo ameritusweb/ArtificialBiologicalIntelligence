@@ -1,0 +1,134 @@
+receptor_id: multiple_hypotheses
+family: meta-motivational
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Multiple possible explanations for the current observation. Not one
+  prediction — several competing. The organism's mental model generates
+  more than one plausible interpretation of what it is perceiving, and
+  cannot yet distinguish between them. The boundary is ambiguity: one
+  observation, multiple models that each account for it. Not confusion
+  (no models fit), not certainty (one model dominates).
+
+manifestations:
+  - id: rustle_source_ambiguous
+    description: |
+      Organism hears rustling in dense brush ahead. Three hypotheses
+      compete: (1) prey animal foraging, (2) predator stalking, (3) wind
+      moving dry leaves. The auditory pattern is consistent with all three.
+      The organism cannot resolve which explanation is correct without
+      additional information.
+    survival_relevance: |
+      Maintaining multiple hypotheses prevents premature commitment.
+      Treating ambiguous rustling as certainly-prey leads to walking into
+      a predator. Treating it as certainly-predator wastes energy fleeing
+      from wind. Multiple hypotheses enable information-gathering behavior.
+    what_fires: |
+      Model generates N>1 distinct explanations with non-trivial posterior
+      probability. No single hypothesis dominates. Entropy across the
+      hypothesis distribution is high.
+
+  - id: food_location_two_cues
+    description: |
+      Organism detects a food-associated scent from the east and a food-
+      associated visual cue (bird gathering) to the west. Two hypotheses
+      compete: food is east (follow the scent) vs food is west (follow
+      the birds). Both cues have been reliable in the past. The organism
+      holds both hypotheses simultaneously.
+    survival_relevance: |
+      Conflicting reliable cues require maintaining both hypotheses until
+      one can be tested. Organisms that collapse to one hypothesis too
+      early miss food sources. Maintaining alternatives enables sequential
+      testing — check the closer one first.
+    what_fires: |
+      Two or more mutually exclusive explanations each supported by
+      different sensory evidence. Cross-modal conflict drives hypothesis
+      multiplicity. Neither explanation can be ruled out from current data.
+
+  - id: npc_intent_unclear
+    description: |
+      An unfamiliar NPC approaches at moderate speed on an indirect path.
+      Hypotheses: (1) the NPC is curious and approaching to investigate,
+      (2) the NPC is moving toward a food source behind the organism and
+      will pass by, (3) the NPC is a predator on a flanking approach.
+      Trajectory and speed are consistent with all three intentions.
+    survival_relevance: |
+      Misreading NPC intent is potentially fatal. Maintaining multiple
+      intent hypotheses keeps the organism prepared for flight while
+      allowing it to exploit a non-threatening approach. Premature
+      collapse to "safe" is the deadliest error.
+    what_fires: |
+      Behavioral observation is ambiguous across multiple intent models.
+      The same observed trajectory maps to different predicted futures
+      depending on which hypothesis is correct. Branching predictions.
+
+  - id: terrain_feature_dual_interpretation
+    description: |
+      Organism observes a dark area ahead at ground level. Hypotheses:
+      (1) a shadow cast by an overhead feature — safe to cross, (2) a hole
+      or depression in the ground — dangerous to step into, (3) a dark-
+      colored surface material — neutral. Visual information alone cannot
+      distinguish depth from color from shadow.
+    survival_relevance: |
+      Terrain ambiguity requires maintaining multiple hypotheses because
+      the cost of each error differs dramatically. Stepping into a hole
+      is injurious. Avoiding a shadow wastes time. Multiple hypotheses
+      motivate cautious probing behavior.
+    what_fires: |
+      Single sensory input (visual dark patch) maps to multiple physical
+      interpretations with different action implications. The perceptual
+      ambiguity is genuine — the input underdetermines the world state.
+
+  - id: temperature_change_two_causes
+    description: |
+      Organism detects a sudden temperature increase. Hypotheses:
+      (1) the organism moved into a sun-exposed area and solar radiation
+      is warming it, (2) a thermal vent or heat source is nearby on the
+      ground, (3) internal fever is beginning from infection. The thermal
+      signal alone does not distinguish external-spatial, external-point-
+      source, and internal causes.
+    survival_relevance: |
+      Each hypothesis demands a different response: (1) is neutral,
+      (2) requires localization for exploitation or avoidance, (3) requires
+      rest and immune response. Collapsing prematurely to the wrong
+      hypothesis produces the wrong behavioral response.
+    what_fires: |
+      Single sensory modality change with multiple causal explanations.
+      The organism's model generates distinct causal chains that each
+      predict the observed signal. Causal ambiguity across hypotheses.
+
+anti_manifestations:
+  - id: unambiguous_predator
+    description: |
+      Organism sees a large predator in the open, moving directly toward
+      it at high speed with fixed gaze. There is exactly one hypothesis:
+      predator is attacking. No alternative explanation is plausible.
+      The visual, behavioral, and contextual cues all converge on a
+      single interpretation.
+    why_should_not_fire: |
+      Only one hypothesis has non-trivial probability. The observation
+      is unambiguous. Multiple_hypotheses requires genuine ambiguity —
+      multiple plausible explanations, not a single overwhelming one.
+    distinguishes: |
+      Multiple_hypotheses requires entropy across explanations. When all
+      evidence converges on one interpretation, the hypothesis distribution
+      is peaked, not spread. No ambiguity means no multiple hypotheses.
+
+  - id: total_confusion
+    description: |
+      Organism receives a sensory pattern that matches no learned model
+      at all. It is not that multiple hypotheses compete — rather, zero
+      hypotheses are generated. The input is genuinely novel and the
+      model has no explanation for it. The organism is confused, not
+      ambiguous.
+    why_should_not_fire: |
+      Multiple_hypotheses requires that the model generates SEVERAL
+      plausible explanations. Zero explanations is confusion, not
+      ambiguity. The receptor fires on "many possible answers," not
+      "no answer at all."
+    distinguishes: |
+      Ambiguity (multiple hypotheses) vs confusion (no hypothesis).
+      Both involve uncertainty, but ambiguity is structured uncertainty
+      (enumerable alternatives) while confusion is unstructured
+      uncertainty (model failure).

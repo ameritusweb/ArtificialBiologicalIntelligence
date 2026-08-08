@@ -1,0 +1,231 @@
+# Visual Pattern Family
+# Receptors over the pattern library and the correspondence operator —
+# the organism SENSING its own visual pattern machinery (T145-T148).
+
+family_metadata:
+  name: Visual Pattern
+  description: |
+    Receptors that fire on events in the visual organ's pattern layer:
+    matching a known temporal signature, discovering a new one, tracking a
+    point by its material fingerprint, and recovering depth from the one
+    correspondence operator at two baselines (stereo, self-motion parallax).
+
+    The design invariant is object-agnosticism: patterns are keyed on
+    temporal shape, never on the object that carried them. Object similarity
+    is shared dynamics, not shared appearance. This family supplies the
+    object-detached signature capability the Control Organ's signature
+    detection declares as its prerequisite.
+
+    Making pattern-finding and pattern-matching RECEPTORS (not subroutines)
+    is load-bearing (T3): a silent matcher improves behavior; a firing
+    receptor enters the observation vector, acquires pain/endorphin
+    association through experience, becomes targetable by curiosity and
+    schedulable by the next-surprise controller (T135).
+
+  evolutionary_thesis: |
+    Material composition, depth, and temporal pattern are IN the retinal
+    signal because reflection physics put them there (T145). Environments
+    where contact outcomes depend on material, where distance decides
+    escape and pursuit, and where dynamic signatures (blinking lures,
+    pulsing prey) predict consequences make these receptors load-bearing.
+    A material-less, signature-degenerate world funds none of them — they
+    are metabolic waste exactly there (the T145/T147 falsifiers).
+
+  trunk_receptor: pattern_match
+  canopy_receptors: [shared_dynamics_similarity, pattern_prediction]
+
+---
+
+receptors:
+  - receptor_id: pattern_match
+    name: Known Temporal Signature Recognized
+    family: visual_pattern
+    tier: trunk
+    dependencies:
+      - receptor_id: static_repetition
+        minimum_certainty: 0.5
+    environmental_trigger:
+      structure: |
+        Recurring temporal signatures (blink, pulse, band-shift) carried by
+        objects whose behavior the signature predicts.
+      survival_benefit: |
+        Matched stimuli license predictions unmatched stimuli cannot;
+        recognition precedes response by the pattern's period.
+    funding_condition: |
+      Matched-pattern encounters yield better outcome prediction than
+      unmatched encounters (realized reduction differential).
+    falsification: |
+      No prediction advantage on matched stimuli — the library is a lookup
+      table with no license, and the receptor is waste.
+
+  - receptor_id: pattern_novelty
+    name: New Pattern Entered the Library
+    family: visual_pattern
+    tier: trunk
+    dependencies:
+      - receptor_id: pattern_match
+        minimum_certainty: 0.5
+    environmental_trigger:
+      structure: |
+        A recurring structure matching no library entry crosses support —
+        the discovery event itself is sensed.
+      survival_benefit: |
+        Learning-progress made visual-specific: novelty events mark regions
+        where surprisal is about to fall; curiosity can target them.
+    funding_condition: |
+      Novelty events precede measurable prediction improvement on the
+      pattern's subsequent occurrences.
+    falsification: |
+      Post-novelty prediction does not improve — the "discovery" carried no
+      learnable structure.
+
+  - receptor_id: pattern_generalization
+    name: Known Pattern on a New Carrier
+    family: visual_pattern
+    tier: branch
+    dependencies:
+      - receptor_id: pattern_match
+        minimum_certainty: 0.6
+    environmental_trigger:
+      structure: |
+        The same temporal signature appears on distinct objects (many lures
+        blink alike).
+      survival_benefit: |
+        Type-level response: what was learned about one carrier transfers to
+        the next at first sight.
+    funding_condition: |
+      Outcome prediction on a NEW carrier of a known pattern beats
+      first-encounter baseline.
+    falsification: |
+      Transfer confers no advantage — patterns are carrier-specific and the
+      detachment is an illusion.
+
+  - receptor_id: pattern_prediction
+    name: Forecast Licensed by a Periodic Pattern
+    family: visual_pattern
+    tier: canopy
+    dependencies:
+      - receptor_id: pattern_match
+        minimum_certainty: 0.7
+      - receptor_id: rhythm
+        minimum_certainty: 0.5
+    environmental_trigger:
+      structure: |
+        Periodic patterns whose next event is exploitable (strike between
+        blinks, feed at the pulse).
+      survival_benefit: |
+        Acting on the forecast beats reacting to the event by the pattern's
+        period. Forecast errors are the VISUAL ledger's surprisal source.
+    funding_condition: |
+      Forecast-timed actions outperform reactive ones; forecast error
+      distribution tightens with library maturity.
+    falsification: |
+      Forecast timing confers no advantage over reaction.
+
+  - receptor_id: signature_track
+    name: Same Fingerprint Across Views
+    family: visual_pattern
+    tier: trunk
+    dependencies:
+      - receptor_id: perceptual_similarity
+        minimum_certainty: 0.5
+    environmental_trigger:
+      structure: |
+        Surfaces with stable material fingerprints (texture, spectrum) that
+        persist while position changes (T147: identity is the signature).
+      survival_benefit: |
+        Tracking through motion and re-acquisition after occlusion; the raw
+        material of object permanence.
+    funding_condition: |
+      Interactions with tracked objects outperform untracked (approach,
+      avoid, intercept).
+    falsification: |
+      Signature-degenerate worlds (identical surfaces) MUST fail to fund
+      this receptor; if it emerges there, the mechanism is not signature.
+
+  - receptor_id: disparity_depth
+    name: Depth from the Spatial Baseline
+    family: visual_pattern
+    tier: branch
+    dependencies:
+      - receptor_id: signature_track
+        minimum_certainty: 0.6
+    environmental_trigger:
+      structure: |
+        Two eyes at a fixed baseline; near objects shift more between them.
+        The correspondence operator at the spatial baseline (T146).
+      survival_benefit: |
+        Range without motion: strike/flee distance judged standing still.
+    funding_condition: |
+      Depth-dependent outcomes (contact timing, escape margins) predicted
+      better than mono at matched exposure.
+    falsification: |
+      One-eyed organisms with efference intact must NOT develop this
+      receptor (no baseline exists); stereo must beat mono on depth tasks.
+
+  - receptor_id: parallax_depth
+    name: Depth from the Motion Baseline
+    family: visual_pattern
+    tier: branch
+    dependencies:
+      - receptor_id: signature_track
+        minimum_certainty: 0.6
+      - receptor_id: self_model
+        note: "efference copy supplies the known baseline — a cognitive-organ
+               input to visual geometry (T146, T144 coupling through words)"
+    environmental_trigger:
+      structure: |
+        Self-motion with efference-known displacement; tracked signatures
+        shift by depth-dependent angles.
+      survival_benefit: |
+        The mono depth route; also cross-checks stereo (two independent
+        estimates of one quantity — a conflation detector for either).
+    funding_condition: |
+      Depth prediction above mono-static baseline; degrades to nothing under
+      efference ablation (the falsifier that separates it from disparity).
+    falsification: |
+      Efference-ablated organisms retaining parallax depth would refute the
+      known-baseline mechanism.
+
+  - receptor_id: material_word
+    name: Composition from the Transfer-Function Stamp
+    family: visual_pattern
+    tier: branch
+    dependencies:
+      - receptor_id: signature_track
+        minimum_certainty: 0.5
+    environmental_trigger:
+      structure: |
+        Reflection stamps composition into the spectrum (per-band
+        attenuation, texture, specularity). Metamer pairs — identical RGB,
+        different spectra, OPPOSITE contact outcomes — make the stamp
+        load-bearing and the projection lethal.
+      survival_benefit: |
+        Vision's words as promissory notes about touch: composition read at
+        a distance predicts friction, nutrition, toxicity on contact.
+    funding_condition: |
+      Contact outcomes predicted from spectral/texture features above the
+      RGB-projection baseline (T145's funding clause: billed by touch).
+    falsification: |
+      A material-less world must leave this receptor dead; RGB-equivalent
+      prediction in a metamer world refutes the richness claim.
+
+  - receptor_id: shared_dynamics_similarity
+    name: Distinct Carriers, Same Dynamics
+    family: visual_pattern
+    tier: canopy
+    dependencies:
+      - receptor_id: pattern_generalization
+        minimum_certainty: 0.6
+    environmental_trigger:
+      structure: |
+        Object categories defined by behavior, not appearance (everything
+        that pulses feeds; everything that blinks lures).
+      survival_benefit: |
+        Categorization by dynamics — the similarity structure appearance
+        cannot supply; feeds the Control Organ's type-level signatures.
+    funding_condition: |
+      Dynamics-similarity predicts outcome-similarity above
+      appearance-similarity baseline.
+    falsification: |
+      Appearance matches or beats dynamics for outcome transfer.

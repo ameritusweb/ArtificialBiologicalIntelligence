@@ -1,0 +1,51 @@
+receptor_id: concept_activation
+family: association
+tier: branch
+stage: 8
+
+conceptual_space: |
+  Detects that a communicated signal triggers retrieval of a full grounded
+  concept with its associated action patterns. Hearing "food" activates the
+  grounded food-concept including approach behavior, foraging readiness, and
+  associated spatial-temporal patterns. The boundary separates signal-triggered
+  concept retrieval (a signal unfolds a rich structured representation with
+  behavioral implications) from mere signal recognition (identifying a familiar
+  pattern) or reflexive response (acting without concept mediation). The concept
+  is the retrieval event itself — the transition from signal to activated concept.
+
+manifestations:
+  - id: food_signal_activates_foraging_concept
+    description: Hearing another organism's food call activates the full food concept — approach direction, expected food type, foraging motor patterns, and competitive assessment all become available for action
+    survival_relevance: Rich concept activation from a signal enables immediate coordinated action without requiring the receiver to independently discover and characterize the resource
+    what_fires: A communicated signal triggering retrieval of a structured concept with multiple associated components — behavioral patterns, spatial expectations, and social implications — all activating together
+
+  - id: predator_name_activates_escape_readiness
+    description: Hearing the predator label activates not just the abstract category but specific associated patterns — expected movement speed, preferred attack direction, effective escape strategies — a full action-ready concept
+    survival_relevance: Signal-triggered concept activation with action patterns attached enables pre-computed behavioral responses, eliminating the latency of real-time threat analysis
+    what_fires: A communicated label activating a concept with pre-associated behavioral repertoire — the concept retrieval includes motor plans and strategic patterns, not just categorical identification
+
+  - id: location_name_activates_spatial_model
+    description: Hearing the name of a known location activates the full spatial model — distance, direction, terrain type, resource availability, and danger history — enabling immediate navigation planning
+    survival_relevance: Named location activation enables efficient resource access and route planning without requiring the organism to reconstruct spatial knowledge from scratch
+    what_fires: A place-name signal triggering retrieval of a comprehensive spatial representation with multiple associated dimensions — geography, resources, risks, and routes
+
+  - id: individual_name_activates_social_model
+    description: Hearing another organism's individual label activates the full social model for that individual — trust level, dominance rank, past interactions, likely behavior patterns — enabling appropriate social strategy
+    survival_relevance: Signal-triggered social concept activation enables pre-computed cooperative or competitive strategies, reducing the cost of real-time social assessment
+    what_fires: An individual-identifying signal activating a rich social representation with associated behavioral predictions and relational history
+
+  - id: seasonal_cue_activates_migration_concept
+    description: Hearing the communicated signal for seasonal change activates the full migration concept — route, timing, preparation behaviors, group coordination requirements — a complex behavioral program retrieved from a single trigger
+    survival_relevance: Signal-triggered activation of complex behavioral programs enables rapid mobilization for time-critical seasonal transitions without re-deriving the plan
+    what_fires: A simple trigger signal activating a temporally extended, multi-step behavioral concept with sequenced sub-plans and conditional branches
+
+anti_manifestations:
+  - id: signal_recognized_but_no_concept
+    description: Organism recognizes a communicated pattern as familiar and distinct from noise but does not activate any associated concept — the signal is identified without triggering retrieval
+    why_should_not_fire: Signal recognition without concept retrieval is perceptual processing, not concept activation — the organism identifies the signal but nothing unfolds from it
+    distinguishes: Concept activation (signal triggers rich concept retrieval) vs signal recognition (pattern identified without associated concept unfolding)
+
+  - id: reflexive_response_no_concept_mediation
+    description: Organism hears a loud crack and flinches — the response is immediate and reflexive, bypassing any concept activation, with no structured representation mediating the behavior
+    why_should_not_fire: Reflexive stimulus-response bypasses concept mediation entirely — there is no retrieval event, no structured representation, just a direct sensory-motor arc
+    distinguishes: Concept activation (signal retrieves structured concept that mediates behavior) vs reflex (direct sensory-motor response without concept mediation)

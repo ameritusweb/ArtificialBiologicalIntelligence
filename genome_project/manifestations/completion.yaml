@@ -1,0 +1,48 @@
+receptor_id: completion
+family: compression
+tier: canopy
+stage: 5
+
+conceptual_space: |
+  Detects that a threat or goal pattern has finished — the predator left the
+  area, the food has been consumed, the escape is over. The active pattern
+  has reached its terminal state and resources should shift to the next
+  priority. The boundary separates genuine completion (pattern fully resolved)
+  from temporary pauses or interruptions that may resume.
+
+manifestations:
+  - id: predator_departed
+    description: Predator that was actively hunting has moved beyond detection range and its trajectory indicates continued departure — the threat episode is complete
+    survival_relevance: Recognizing completion allows shifting from escape mode to recovery and foraging, preventing indefinite vigilance that wastes energy
+    what_fires: Threat object signal decreasing to zero with trajectory extrapolation showing continued departure — no oscillation or return indicators
+
+  - id: food_source_exhausted
+    description: Food patch that was being harvested is now empty — all items consumed, no more positive signals from this location
+    survival_relevance: Recognizing food exhaustion prevents continued searching in a depleted area and redirects to finding new sources
+    what_fires: Positive value signals from a location dropping to zero after sustained harvesting activity — the extraction pattern has terminated
+
+  - id: escape_sequence_resolved
+    description: Organism has reached cover, predator is no longer pursuing, distance is safe — the escape behavior has achieved its terminal condition
+    survival_relevance: Recognizing escape completion allows the organism to stop fleeing, rest, and reassess rather than running indefinitely
+    what_fires: Threat distance exceeding safety threshold AND threat velocity directed away AND own position in cover — all escape termination conditions met simultaneously
+
+  - id: territorial_conflict_ended
+    description: Two predators that were fighting have separated — one retreated, the other settled — the conflict pattern has resolved
+    survival_relevance: Conflict resolution means the distraction opportunity is ending and normal predator behavior will resume
+    what_fires: Previously interacting threat objects now separated with no approach vectors — interaction pattern terminated with stable separation
+
+  - id: environmental_event_passed
+    description: Storm or wave surge that forced shelter-seeking has subsided — environmental disruption pattern has returned to baseline
+    survival_relevance: Recognizing the end of environmental events allows resuming normal activity rather than remaining sheltered unnecessarily
+    what_fires: Environmental disturbance signals returning to baseline levels and stabilizing — the disruption pattern has completed its cycle
+
+anti_manifestations:
+  - id: predator_pausing
+    description: Predator has stopped moving but remains in the area — it may be resting before resuming hunt, not departing
+    why_should_not_fire: Cessation of movement is not completion — the predator is still present and the threat pattern may resume
+    distinguishes: Pattern completion vs pattern pause — completion requires the pattern to reach a terminal state, not just a temporary halt
+
+  - id: predator_circling_back
+    description: Predator moved away but its trajectory is curving back toward the area — departure is apparent but not genuine
+    why_should_not_fire: The threat trajectory indicates return, not resolution — the pattern is still active despite temporary distance increase
+    distinguishes: Genuine completion vs temporary withdrawal — completion requires trajectory and context confirming the pattern will not resume

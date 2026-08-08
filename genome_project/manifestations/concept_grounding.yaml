@@ -1,0 +1,49 @@
+receptor_id: concept_grounding
+family: compression
+tier: canopy
+stage: 5
+
+conceptual_space: |
+  Detects that an abstract concept can be traced all the way down to concrete
+  receptor states. "Danger" is not free-floating — it traces through predator
+  detection to actual visual patterns to pixel-level receptor activations.
+  The concept terminates in sensory ground truth. The boundary separates
+  grounded concepts (traceable to receptors) from ungrounded abstractions
+  (symbols without sensory referents).
+
+manifestations:
+  - id: danger_grounding_chain
+    description: "Danger" concept traces through predator detection → large fast-moving shape → specific visual pattern → edge detection receptor activations — every link in the chain is present
+    survival_relevance: Grounded danger concepts respond to real stimuli, not phantom patterns — reducing false alarms and missed threats
+    what_fires: Abstract category activation with an intact chain of intermediate activations connecting it to currently active low-level sensory receptors
+
+  - id: food_concept_to_visual
+    description: "Food available" concept traces through food patch recognition → specific color and shape pattern → texture receptor activations — concept anchored in current perception
+    survival_relevance: Grounded food concepts ensure the organism approaches actual food rather than food-like illusions
+    what_fires: High-level food categorization with traceable activation pathway through mid-level feature detectors to active low-level visual receptors
+
+  - id: safety_verification
+    description: "Safe location" concept traces through cover assessment → overhead occlusion detection → actual visual occlusion signals from current surroundings — safety verified through grounding
+    survival_relevance: Grounded safety assessment prevents the organism from feeling safe in locations that are not actually covered
+    what_fires: Safety concept activation verified by tracing to active environmental receptors confirming the physical conditions that define safety
+
+  - id: threat_proximity_grounding
+    description: "Threat is close" traces through distance estimation → visual size increase rate → actual frame-to-frame size change in active visual receptors — proximity is grounded
+    survival_relevance: Grounded proximity prevents both panic at distant threats and complacency about near threats — accuracy matters for survival timing
+    what_fires: Proximity concept with direct connection to rate-of-change measurements in active low-level motion and size receptors
+
+  - id: exhaustion_state_grounding
+    description: "I am exhausted" traces through performance degradation detection → reduced movement speed → actual motor output receptor states — internal state concept grounded in measurable behavior
+    survival_relevance: Grounded exhaustion assessment prevents pushing past physical limits or quitting prematurely — the concept reflects actual state
+    what_fires: Internal state concept with traceable pathway to active proprioceptive and performance-monitoring receptor states
+
+anti_manifestations:
+  - id: inherited_label_no_experience
+    description: Organism has learned the category "dangerous-from-east" from social observation but has never directly experienced an eastern threat — concept has no personal grounding
+    why_should_not_fire: The concept exists as an association but cannot be traced to the organism's own receptor states — it is socially transmitted but not sensorily grounded
+    distinguishes: Grounded concept (traceable to own receptors) vs inherited concept (label without personal sensory chain)
+
+  - id: phantom_pattern_no_stimulus
+    description: Organism activates the "predator present" concept from internal noise or anxiety but no actual predator visual signal exists — the concept fires without sensory grounding
+    why_should_not_fire: The concept activation has no traceable chain to active sensory receptors — it is internally generated without external ground truth
+    distinguishes: Grounded activation (traceable to active receptors) vs hallucinated activation (concept fires without corresponding sensory input)

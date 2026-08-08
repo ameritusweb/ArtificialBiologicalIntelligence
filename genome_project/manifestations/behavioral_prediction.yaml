@@ -1,0 +1,110 @@
+receptor_id: behavioral_prediction
+family: social
+tier: trunk
+stage: 4
+
+conceptual_space: |
+  Predict what an agent will do NEXT based on observed behavioral
+  regularities. NPC always turns left at the fork, so predict left
+  on the next approach. The concept is action forecasting for other
+  agents specifically — not predicting environmental physics (stage 2
+  prediction) but predicting another entity's behavioral choices.
+  The boundary is learning and applying agent-specific action patterns.
+
+manifestations:
+  - id: habitual_path
+    description: |
+      NPC-A has taken the left fork in a corridor five consecutive
+      times. On approach number six, the organism predicts NPC-A
+      will turn left again. NPC-A turns left.
+    survival_relevance: |
+      Predicting another agent's movement enables the organism to
+      position itself advantageously — intercepting or avoiding the
+      agent before it arrives.
+    what_fires: |
+      Repeated observation of same agent making same choice at same
+      decision point builds a behavioral distribution. Prediction
+      generated before the agent acts. Confirmation strengthens.
+
+  - id: feeding_schedule
+    description: |
+      NPC-B visits the food source at roughly the same phase of each
+      cycle. The organism predicts NPC-B will appear at the food
+      source during the next cycle at the usual time.
+    survival_relevance: |
+      Knowing when a competitor will arrive at a shared resource
+      enables the organism to feed before or after, avoiding conflict.
+    what_fires: |
+      Temporal regularity in agent behavior detected. Prediction of
+      agent presence at a specific location and time generated from
+      observed periodicity.
+
+  - id: retreat_after_contact
+    description: |
+      Every time the organism moves within two cells of NPC-C,
+      NPC-C retreats. The organism predicts retreat on the next
+      close approach.
+    survival_relevance: |
+      Predicting that an agent will flee rather than attack changes
+      the optimal strategy — the organism can approach confidently
+      rather than defensively.
+    what_fires: |
+      Consistent behavioral response to a stimulus condition
+      (proximity) observed across multiple episodes. Conditional
+      prediction generated: if proximity < threshold, then retreat.
+
+  - id: emission_before_movement
+    description: |
+      NPC-D always emits a specific signal pattern 3 timesteps
+      before changing direction. The organism detects the emission
+      and predicts the direction change.
+    survival_relevance: |
+      Behavioral precursors allow earlier prediction, giving the
+      organism more time to prepare a response.
+    what_fires: |
+      Temporal association between agent emission and subsequent
+      action detected. Signal serves as leading indicator of
+      behavioral state transition.
+
+  - id: social_chain_reaction
+    description: |
+      When NPC-A moves toward food, NPC-B consistently follows
+      3 timesteps later. The organism sees NPC-A begin moving and
+      predicts NPC-B will follow.
+    survival_relevance: |
+      Predicting one agent's behavior from another agent's behavior
+      enables anticipation of group dynamics at resource sites.
+    what_fires: |
+      Cross-agent behavioral correlation detected. Agent-A's action
+      reliably precedes Agent-B's action. Observation of A triggers
+      prediction about B.
+
+anti_manifestations:
+  - id: random_walk_pattern_match
+    description: |
+      NPC-E has turned left at the fork twice in a row by chance.
+      The sample size is too small to distinguish habit from random
+      behavior. The organism should not yet predict left on the
+      third approach.
+    why_should_not_fire: |
+      Two observations are insufficient to establish a behavioral
+      distribution. The pattern could easily be random. Premature
+      prediction wastes resources on unreliable forecasts.
+    distinguishes: |
+      Behavioral prediction requires sufficient observations to
+      distinguish regularity from chance. The threshold is
+      statistical confidence, not pattern presence.
+
+  - id: physics_prediction_of_object
+    description: |
+      A rock slides down a slope at the same angle each time it
+      is pushed. The organism can predict where it will end up.
+      This is physics prediction, not behavioral prediction.
+    why_should_not_fire: |
+      The trajectory is determined by physics, not by the entity's
+      behavioral choices. Behavioral prediction is specifically
+      about agent decision patterns, not physical trajectories.
+    distinguishes: |
+      Behavioral prediction applies to agents (entities with
+      choices). Physics prediction applies to objects (entities
+      governed by forces). Different receptor, different concept.

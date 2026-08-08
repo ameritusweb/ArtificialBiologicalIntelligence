@@ -1,0 +1,47 @@
+receptor_id: quantity_detection
+family: mathematics
+tier: trunk
+stage: 2
+
+conceptual_space: |
+  More vs less vs same. Quantity comparison without counting. The concept is
+  magnitude comparison — which is bigger, which has more, are they equal.
+  Not exact enumeration or arithmetic — just the ordinal/ratio sense of
+  relative quantity.
+
+manifestations:
+  - id: more_food_here
+    description: Food patch A has energy=0.8, food patch B has energy=0.3 — organism detects A has more
+    survival_relevance: Choosing the larger food source maximizes energy gain per foraging effort
+    what_fires: Magnitude comparison between two resource signals yields clear "greater than" result
+
+  - id: threat_density_comparison
+    description: Left corridor has 3 threat signals, right corridor has 1 — left has more threats
+    survival_relevance: Choosing the path with fewer threats increases survival probability
+    what_fires: Aggregate threat-channel activation in one region exceeds another by discriminable margin
+
+  - id: energy_depletion_rate
+    description: Energy dropped by 0.4 in the last 50 steps but only 0.1 in the 50 before that — losing more now
+    survival_relevance: Detecting accelerating loss signals unsustainable behavior requiring strategy change
+    what_fires: Rate-of-change magnitude comparison across two temporal windows
+
+  - id: equal_reward_sources
+    description: Two food patches produce energy=0.5 and energy=0.48 — organism treats them as roughly equal
+    survival_relevance: Detecting equivalence prevents wasted deliberation — either choice is fine
+    what_fires: Magnitude difference falls within discrimination threshold — "same" signal
+
+  - id: crowd_size_assessment
+    description: Group of 5 NPCs in one area vs 2 NPCs in another — organism detects the larger group
+    survival_relevance: Larger groups mean more competition or more threat — informs approach vs avoid
+    what_fires: Aggregate entity-count proxy (total social-channel activation) compared between regions
+
+anti_manifestations:
+  - id: exact_count
+    description: Organism determines there are exactly 7 food items — precise enumeration
+    why_should_not_fire: This is counting, not magnitude comparison — quantity detection is "more/less/same" not "exactly N"
+    distinguishes: Quantity detection is ORDINAL comparison, not cardinal enumeration
+
+  - id: quality_not_quantity
+    description: Food A is nutritious (high energy per unit) while food B is sparse (low energy per unit) but there's physically more of B
+    why_should_not_fire: If the comparison is about quality per unit rather than total amount, it's not quantity detection
+    distinguishes: Quantity detection compares MAGNITUDES of the same dimension, not different dimensions

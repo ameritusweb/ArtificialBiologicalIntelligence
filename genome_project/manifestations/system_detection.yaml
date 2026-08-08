@@ -1,0 +1,51 @@
+receptor_id: system_detection
+family: organization
+tier: canopy
+stage: 9
+
+conceptual_space: |
+  Detects self-sustaining organization — a set of components whose interactions
+  maintain the whole. A predator-prey-food ecosystem maintains itself through
+  feedback loops: predators control prey population, prey controls food
+  consumption, food regrowth supports prey. The boundary separates system
+  detection (recognizing self-maintaining organization) from component detection
+  (seeing the parts) or structure detection (seeing relationships without
+  self-maintenance). The concept is detecting systems — organizations that
+  persist through their own internal dynamics.
+
+manifestations:
+  - id: ecosystem_self_maintenance
+    description: Organism detects that the predator-prey-food web in its environment maintains itself — predators prevent prey overpopulation, prey prevents food depletion, food regrowth supports prey — a self-regulating cycle
+    survival_relevance: System detection enables prediction of ecosystem stability and the consequences of disruption — removing predators leads to prey explosion then food collapse
+    what_fires: Multiple interacting components with feedback loops that maintain the overall organization, detected as a self-sustaining pattern rather than a collection of independent relationships
+
+  - id: social_group_self_regulation
+    description: Organism detects that the social group maintains itself through interlocking roles — leaders coordinate, followers execute, sentinels watch — and the system persists even when individuals are replaced
+    survival_relevance: Detecting the group as a system enables understanding of one's functional role and the consequences of role vacancies for group viability
+    what_fires: A social organization with role differentiation and feedback mechanisms that maintain the overall group function, recognized as a self-sustaining system rather than a collection of individuals
+
+  - id: seasonal_cycle_as_system
+    description: Organism detects that the seasonal resource cycle is a self-maintaining system — rain drives growth, growth feeds organisms, organism waste fertilizes soil, soil retains rain — a closed loop
+    survival_relevance: Detecting the seasonal cycle as a system enables prediction of disruption effects — drought breaks the loop at rain, with cascading consequences through all subsequent stages
+    what_fires: Environmental processes forming a closed causal loop that maintains itself through feedback, detected as a system rather than a sequence of independent seasonal events
+
+  - id: host_parasite_equilibrium
+    description: Organism detects that a host-parasite relationship is a stable system — parasites weaken but do not kill hosts, keeping the host population available, while host immunity limits parasite population
+    survival_relevance: Detecting equilibrium systems enables prediction that disrupting one side (eliminating parasites) may have unexpected consequences for the other (host population explosion)
+    what_fires: Two antagonistic components maintaining a stable dynamic equilibrium through mutual regulation, recognized as a system rather than one-directional harm
+
+  - id: information_ecosystem
+    description: Organism detects that the group's information system maintains itself — scouts discover, communicators relay, receivers act, actions generate feedback for scouts — a self-sustaining information loop
+    survival_relevance: Detecting the information system enables understanding of information flow reliability and identifying points where disruption would blind the group
+    what_fires: Multiple functional roles linked by information flow forming a closed loop that maintains collective awareness, detected as a self-sustaining information system
+
+anti_manifestations:
+  - id: component_list_without_system
+    description: Organism detects predators, prey, and food as distinct components in the environment but does not perceive their interactions as a self-maintaining system — it sees parts, not the whole
+    why_should_not_fire: Identifying components without recognizing their self-maintaining organization is part detection, not system detection — the systemic property is absent
+    distinguishes: System detection (self-maintaining organization perceived) vs component detection (parts identified without systemic organization recognized)
+
+  - id: structure_without_self_maintenance
+    description: Organism detects that rocks are arranged in a pattern (structure) but the arrangement has no self-maintaining dynamic — it is a static configuration, not a system
+    why_should_not_fire: Static structure without feedback-driven self-maintenance is not a system — systems require dynamic processes that sustain the organization
+    distinguishes: System detection (self-maintaining organization through dynamic feedback) vs structure detection (static relational pattern without self-sustaining dynamics)

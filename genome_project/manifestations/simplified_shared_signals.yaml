@@ -1,0 +1,146 @@
+receptor_id: simplified_shared_signals
+family: compression
+tier: branch
+stage: 8
+
+conceptual_space: |
+  Simplified signal patterns shared across organisms. Proto-language tokens.
+  When multiple organisms converge on a simplified, compressed signal to
+  represent a complex meaning, a shared signal has emerged. The boundary is
+  shared compression: not just any signal between agents, but a SIMPLIFIED
+  representation that both sender and receiver decode to the same meaning.
+  The signal is simpler than the thing it represents, and its meaning is
+  shared across individuals.
+
+manifestations:
+  - id: alarm_call_type_encoding
+    description: |
+      Multiple organisms in a group have converged on distinct alarm calls
+      for different predator types. A short high-pitched chirp means
+      "aerial predator" — all organisms look up and freeze. A low
+      repeated grunt means "ground predator" — all organisms look down
+      and prepare to flee. The calls are far simpler than the complex
+      visual pattern of each predator, yet they encode threat type.
+    survival_relevance: |
+      Shared simplified signals enable coordinated group response faster
+      than each individual independently identifying the threat. One
+      organism's perception becomes the group's knowledge through a
+      compressed token. Proto-language is a survival multiplier.
+    what_fires: |
+      A signal produced by one agent is (a) simpler than the underlying
+      referent, (b) decoded consistently by multiple receivers to the
+      same meaning, and (c) triggers appropriate coordinated behavior.
+      Shared compression of complex information into a token.
+
+  - id: food_location_signal
+    description: |
+      A foraging organism that found a food source emits a specific
+      rhythmic call while moving toward the food. Other organisms that
+      hear this call follow the caller and find food. The call pattern
+      is a simplified token meaning "I found food, follow me." It
+      replaces the complex information of food type, location, and
+      quantity with a single behavioral protocol.
+    survival_relevance: |
+      Food-location sharing through simplified signals enables group
+      foraging efficiency. The caller compresses "food of type X at
+      location Y with quantity Z" into a single signal that recruits
+      the group. The shared signal is cheaper than individual search.
+    what_fires: |
+      One agent's signal triggers food-seeking behavior in receivers
+      who have not directly detected food. The signal is a compressed
+      proxy for detailed food information. Multiple receivers decode
+      it identically.
+
+  - id: territorial_boundary_marker
+    description: |
+      Organisms mark territorial boundaries with a specific scent
+      pattern. Any conspecific that encounters the scent reads it as
+      "occupied territory — proceed with caution or retreat." The scent
+      is a simplified signal encoding complex information about the
+      territory holder's presence, strength, and willingness to defend.
+      All conspecifics decode it the same way.
+    survival_relevance: |
+      Territorial markers are shared signals that prevent costly physical
+      conflicts. A simplified chemical token replaces the need for
+      direct confrontation to establish boundaries. The shared meaning
+      reduces violence and injury across the population.
+    what_fires: |
+      A signal deposited by one agent is decoded by multiple other agents
+      to the same meaning without direct interaction between them. The
+      signal persists and functions as a shared token with stable meaning
+      across receivers and time.
+
+  - id: submission_display
+    description: |
+      An organism encountering a dominant conspecific adopts a specific
+      posture — body lowered, gaze averted, movements slow. This
+      simplified postural signal encodes "I am not a threat, I defer to
+      you." The dominant organism reads this signal and reduces aggression.
+      The posture is far simpler than the complex social relationship it
+      represents, and all group members use and read it consistently.
+    survival_relevance: |
+      Submission displays are shared simplified signals that de-escalate
+      conflict without physical violence. The compressed postural token
+      replaces the need for actual combat to establish hierarchy. Shared
+      decoding of submission signals reduces injury rates.
+    what_fires: |
+      A behavioral signal produced by one agent is read by another agent
+      as encoding a specific social relationship. The signal is simpler
+      than the relationship it represents. Both parties decode it to the
+      same meaning. Social compression token.
+
+  - id: coordinated_group_movement_signal
+    description: |
+      A group of organisms needs to move together. The lead organism
+      begins a specific rhythmic body movement — a side-to-side sway
+      followed by forward motion. Other group members synchronize and
+      follow. The sway is a simplified "we are moving now, this direction"
+      signal that replaces complex individual negotiation about timing,
+      direction, and speed.
+    survival_relevance: |
+      Coordinated group movement for migration, predator avoidance, or
+      resource tracking requires a shared movement-initiation signal.
+      The simplified token enables dozens of organisms to act in concert
+      without individual negotiation.
+    what_fires: |
+      One agent's signal triggers synchronized behavior across multiple
+      receivers. The signal is a compressed action-coordination token.
+      Its meaning (direction, timing, commitment) is decoded consistently
+      across the group.
+
+anti_manifestations:
+  - id: individual_vocalization_no_shared_meaning
+    description: |
+      An organism produces sounds while alone — grunts of effort while
+      climbing, sighs while resting. These vocalizations are not directed
+      at other agents and carry no shared meaning. If another organism
+      happened to hear them, it would not decode any consistent meaning.
+      The sounds are individual expressions, not shared signals.
+    why_should_not_fire: |
+      Simplified shared signals require SHARED meaning — both production
+      and consistent decoding by others. Individual vocalizations without
+      shared decoding are not proto-language tokens. The signal must be
+      socially functional.
+    distinguishes: |
+      Shared signals require a community of decoders who consistently
+      extract the same meaning. Individual expressions without shared
+      decoding are not simplified_shared_signals regardless of their
+      acoustic structure.
+
+  - id: complex_uncompressed_interaction
+    description: |
+      Two organisms engage in a lengthy, complex interaction — circling
+      each other, alternating displays, gradually escalating and
+      de-escalating over many steps. The interaction communicates social
+      information, but it is not simplified — it is as complex as the
+      relationship it represents. There is no compression, no token,
+      no shorthand.
+    why_should_not_fire: |
+      Simplified shared signals require COMPRESSION — the signal must be
+      simpler than the meaning it carries. A complex interaction that is
+      as elaborate as the information it conveys has no compression gain.
+      It is communication without simplification.
+    distinguishes: |
+      The key property is simplification. A lengthy complex interaction
+      may convey information but does not qualify as a simplified shared
+      signal. The token must be cheaper than the referent.

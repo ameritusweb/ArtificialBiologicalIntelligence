@@ -1,0 +1,132 @@
+receptor_id: structural_similarity
+family: similarity
+tier: branch
+stage: 4
+
+conceptual_space: |
+  NPC-A's relationship to food-1 mirrors NPC-B's relationship to
+  food-2. Same RELATIONAL structure with different entities. The
+  concept is detecting pattern across agent-pairs: not that the
+  agents look alike (perceptual similarity) or do the same thing
+  (functional similarity) but that the RELATIONSHIP between agent
+  and target is structurally the same. A:B :: C:D — analogical
+  structure. The boundary separates structural isomorphism from
+  surface-level similarity.
+
+manifestations:
+  - id: parallel_foraging
+    description: |
+      NPC-A is defending food-1 while eating from it. NPC-B is
+      defending food-2 while eating from it. The agents are different,
+      the food sources are different, but the relationship (defend +
+      consume own resource) is identical in structure.
+    survival_relevance: |
+      Detecting structural similarity across agent-resource pairs
+      reveals general patterns of social behavior. If agent-resource
+      defense is a general pattern, the organism can predict it for
+      novel agent-resource pairs without individual observation.
+    what_fires: |
+      Two agent-resource pairs show the same relational structure:
+      agent_i defends resource_j while consuming resource_j. Entity
+      identity differs but relational roles are isomorphic.
+      Structural match fires.
+
+  - id: dominance_parallel
+    description: |
+      NPC-A displaces NPC-B from a location. NPC-C displaces NPC-D
+      from a different location. The agents are all different, the
+      locations are different, but the relational structure (dominant
+      displaces subordinate) is the same.
+    survival_relevance: |
+      Recognizing the dominance structure across different pairs
+      reveals a social hierarchy. The organism can predict its own
+      position in the hierarchy without testing every pairwise
+      interaction.
+    what_fires: |
+      Two agent-agent pairs show the same relational structure:
+      agent_i displaces agent_j. Different entities but same
+      dominance relation. Structural isomorphism across social
+      interactions fires.
+
+  - id: leader_follower_pairs
+    description: |
+      NPC-A moves first, then NPC-B follows NPC-A's path. Separately,
+      NPC-C moves first, then NPC-D follows NPC-C's path. Different
+      agents, different paths, but the same lead-follow relational
+      structure.
+    survival_relevance: |
+      Detecting the leader-follower pattern as a structural regularity
+      enables the organism to identify leaders and followers in novel
+      groups without waiting for individual behavioral histories.
+    what_fires: |
+      Two agent-pairs exhibit the same temporal-spatial relationship:
+      agent_i initiates movement, agent_j replicates agent_i's
+      trajectory after a delay. Structure preserved across different
+      entity pairs fires.
+
+  - id: reciprocal_signaling_structure
+    description: |
+      NPC-A emits signal X, NPC-B responds with signal Y. In a
+      separate interaction, NPC-C emits signal X, NPC-D responds
+      with signal Y. Different agents, same signal exchange structure.
+    survival_relevance: |
+      Recognizing that signal exchanges follow a structural template
+      enables the organism to participate in the protocol —
+      understanding the communication STRUCTURE independent of who
+      is communicating.
+    what_fires: |
+      Two agent-pairs show the same signal exchange pattern: agent_i
+      emits X, agent_j responds Y. Same relational structure in
+      communication domain across different participants fires.
+
+  - id: avoidance_symmetry
+    description: |
+      NPC-A avoids the region around NPC-B. NPC-C avoids the region
+      around NPC-D. The avoiding agents are different, the avoided
+      agents are different, but the avoidance relationship is
+      structurally identical.
+    survival_relevance: |
+      If avoidance is a structural pattern, the organism can predict
+      which agents avoid which others by detecting the relational
+      pattern rather than observing every pair. This scales social
+      prediction.
+    what_fires: |
+      Multiple agent-pairs show the same spatial avoidance structure:
+      agent_i maintains distance from agent_j. Different entities,
+      same relational geometry. Structural match fires.
+
+anti_manifestations:
+  - id: same_agents_different_relations
+    description: |
+      NPC-A dominates NPC-B at the food source. NPC-A follows NPC-B
+      during exploration. Same agents, but the RELATIONSHIP changes
+      across contexts. There is no structural similarity — the
+      relational structure is different even though the entities
+      are identical.
+    why_should_not_fire: |
+      Structural similarity detects same RELATION across different
+      entities, not different relations between the same entities.
+      Context-dependent relationship changes are the opposite of
+      structural similarity.
+    distinguishes: |
+      Structural similarity is about relational ISOMORPHISM. Same
+      agents with different relations is relational variability.
+      The receptor fires on same-structure-different-entities, not
+      same-entities-different-structure.
+
+  - id: perceptual_match_without_relational_match
+    description: |
+      NPC-A and NPC-B look similar — same size, same emission
+      profile, same movement speed. But NPC-A dominates its neighbor
+      while NPC-B is subordinate to its neighbor. They look alike
+      but their relational positions are opposite.
+    why_should_not_fire: |
+      Perceptual similarity between the agents does not imply
+      structural similarity in their relationships. The agents
+      resemble each other but their social roles are inverted.
+      This is perceptual similarity, not structural similarity.
+    distinguishes: |
+      Structural similarity operates on RELATIONS between entities,
+      not on FEATURES of entities. Two agents can look identical
+      but occupy opposite relational positions, and two dissimilar
+      agents can occupy structurally identical positions.

@@ -1,0 +1,48 @@
+receptor_id: staged_processing
+family: perception
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Different situations need different processing depths. Fast reflexive
+  pathway for immediate threats, slow deliberative pathway for complex
+  decisions. The concept is the ROUTING DECISION — which processing
+  depth to apply — not processing speed itself. The boundary: reflex-
+  appropriate vs deliberation-appropriate situations.
+
+manifestations:
+  - id: reflex_to_pain
+    description: Sudden sharp pain on limb — organism withdraws before any deliberation
+    survival_relevance: Delayed response to acute threat costs tissue — reflex saves the limb
+    what_fires: High-urgency signal triggers fast pathway routing, bypassing slow deliberation
+
+  - id: deliberation_for_navigation
+    description: Multiple paths available, some with food, some with distant threat — organism pauses to evaluate
+    survival_relevance: Complex tradeoffs require integration across channels — reflexes would choose poorly
+    what_fires: Multi-channel ambiguous input triggers slow pathway routing
+
+  - id: reflex_override_failure
+    description: Loud noise triggers startle reflex, but it was just rock falling far away — false alarm
+    survival_relevance: Recognizing when reflex was wrong enables recalibration of routing thresholds
+    what_fires: Fast pathway activated but subsequent slow evaluation finds no threat — routing error signal
+
+  - id: deliberation_too_slow
+    description: Organism deliberates over food choice while predator approaches from behind
+    survival_relevance: Slow pathway engaged when fast was needed — survival cost reveals routing error
+    what_fires: Slow pathway active but pain/threat arrives during deliberation — wrong route selected
+
+  - id: escalation_chain
+    description: Mild stimulus triggers fast scan, fast scan finds ambiguity, escalates to slow deliberation
+    survival_relevance: Staged escalation optimizes energy — most stimuli resolved fast, only ambiguity goes deep
+    what_fires: Initial fast-pathway activation followed by deliberate slow-pathway engagement on same stimulus
+
+anti_manifestations:
+  - id: pure_speed_difference
+    description: Organism moves quickly vs slowly — but both are simple reflexive actions
+    why_should_not_fire: Speed without depth difference is not staged processing — both are same pathway
+    distinguishes: Staged processing is about PROCESSING DEPTH selection, not movement speed
+
+  - id: parallel_channels
+    description: Organism processes visual and auditory input simultaneously
+    why_should_not_fire: Processing multiple channels in parallel is not depth routing — it is breadth
+    distinguishes: Staged processing is about SEQUENTIAL depth selection (fast then maybe slow), not parallel breadth

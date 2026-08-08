@@ -1,0 +1,150 @@
+receptor_id: theory_of_mind
+family: social
+tier: branch
+stage: 4
+
+conceptual_space: |
+  Full theory of mind. Modeling that others have beliefs, desires, and
+  intentions — that their actions are driven by internal states that may
+  differ from the observer's own. Combines behavioral_prediction,
+  self_model_applied_to_others, and intention_recognition into a unified
+  model of another agent's mind. The boundary is attribution of MENTAL
+  STATES to others, not just predicting behavior from patterns.
+
+manifestations:
+  - id: false_belief_reasoning
+    description: |
+      Organism watches a conspecific store food under a rock and then
+      leave. While the conspecific is away, a third agent moves the food
+      to a different location. The observer reasons: "the conspecific
+      BELIEVES the food is still under the rock, but it is not." The
+      observer models the other's belief as different from reality and
+      from the observer's own knowledge.
+    survival_relevance: |
+      False belief reasoning enables prediction of others' actions based
+      on what they THINK is true, not what IS true. An organism that can
+      model false beliefs can predict that the conspecific will go to the
+      wrong location — enabling competitive advantage or cooperative
+      correction.
+    what_fires: |
+      Observer models another agent's belief state as diverging from
+      observed reality. The representation includes: agent X believes P,
+      but P is false. The mental model of the other contains a belief
+      variable that differs from the observer's own knowledge state.
+
+  - id: desire_attribution
+    description: |
+      Organism observes a conspecific repeatedly approaching a water
+      source, being chased away by a dominant individual, and returning
+      again. The observer infers: "that agent WANTS water — its repeated
+      approach despite punishment indicates a desire that overrides the
+      cost." The observer attributes an internal motivational state
+      (thirst/desire) to explain the persistent behavior.
+    survival_relevance: |
+      Attributing desires enables predicting future behavior even when
+      the behavior is costly. An organism that models another's desires
+      can predict that the thirsty agent will keep trying, and can plan
+      accordingly — perhaps offering to share, or exploiting the
+      distraction.
+    what_fires: |
+      Observer infers an internal motivational state in another agent
+      from persistent goal-directed behavior. The model includes: agent X
+      desires Y, which explains behavior pattern Z. Mental state
+      attribution from behavioral evidence.
+
+  - id: knowledge_state_modeling
+    description: |
+      Organism knows that a predator is behind a hill, out of sight of
+      a nearby conspecific. The observer reasons: "the conspecific does
+      not know about the predator because it cannot see behind the hill
+      from its position." The observer models the other's knowledge as
+      limited by the other's perceptual access — what they CAN and
+      CANNOT see from where they are.
+    survival_relevance: |
+      Modeling others' knowledge states enables protective and
+      cooperative behavior. An organism that knows "my companion does
+      not know about the threat" can emit an alarm call. Without theory
+      of mind, the organism might assume the companion already knows.
+    what_fires: |
+      Observer computes another agent's knowledge state based on the
+      other's perceptual access. The model includes: agent X does not
+      know P because X cannot perceive P from X's position. Knowledge
+      attribution bounded by inferred perceptual access.
+
+  - id: intention_behind_deception
+    description: |
+      Organism observes a conspecific making an alarm call, but there is
+      no predator. Other group members flee the food source. The caller
+      then moves to the abandoned food and eats. The observer reasons:
+      "the caller INTENDED to deceive the group — it produced a false
+      alarm to clear the food source for itself." The observer attributes
+      a deceptive intention that explains the sequence of actions.
+    survival_relevance: |
+      Detecting deceptive intent requires full theory of mind — modeling
+      that another agent can have the intention to create false beliefs
+      in others. An organism that detects deception avoids being
+      exploited and can discount future alarm calls from that individual.
+    what_fires: |
+      Observer infers a second-order mental state: agent X intended to
+      cause agent Y to believe P (false alarm), in order to achieve
+      goal G (food access). The mental model includes nested intentional
+      states — intentions about others' beliefs.
+
+  - id: empathic_perspective_shift
+    description: |
+      Organism observes a juvenile conspecific struggling to reach food
+      on a high branch. The observer models the juvenile's experience:
+      "from its perspective, the food is visible but unreachable. It
+      wants the food but cannot get it. It feels frustration." The
+      observer attributes a full suite of mental states — perception,
+      desire, emotion — to the other from the other's perspective.
+    survival_relevance: |
+      Full perspective-taking enables prosocial behavior (helping the
+      juvenile reach the food, which builds alliance), and enables
+      prediction of the juvenile's next actions (it will try jumping,
+      or look for a tool, or seek help). Theory of mind is the
+      foundation of social intelligence.
+    what_fires: |
+      Observer constructs a multi-dimensional model of another agent's
+      mental state: what they perceive, what they want, what they feel,
+      what they will do. The model is from the OTHER's perspective, not
+      projected from the observer's own state.
+
+anti_manifestations:
+  - id: behavioral_pattern_without_mental_attribution
+    description: |
+      Organism has learned that a particular NPC always turns left at
+      the fork. It predicts "the NPC will turn left" based on observed
+      frequency. But the organism does not attribute any belief, desire,
+      or intention to the NPC — it simply predicts behavior from pattern.
+      There is no mental model of the NPC's mind, just a behavioral
+      regularity.
+    why_should_not_fire: |
+      Theory of mind requires attribution of MENTAL STATES — beliefs,
+      desires, intentions. Behavioral prediction from observed patterns
+      does not require representing the other's mind. The prediction
+      could be about a wind-up toy and would work the same way.
+    distinguishes: |
+      Theory of mind attributes MENTAL CAUSES (belief, desire, intention)
+      to behavior. Behavioral prediction from patterns attributes
+      STATISTICAL REGULARITY to behavior. The distinction is whether
+      the model includes internal mental states of the other.
+
+  - id: self_projection_not_other_modeling
+    description: |
+      Organism sees food and assumes the other agent also wants the food
+      because the organism itself wants the food. This is not modeling
+      the other's mind — it is projecting the organism's own state onto
+      the other without considering whether the other is hungry, has
+      different preferences, or even sees the food from its position.
+    why_should_not_fire: |
+      Theory of mind requires modeling the OTHER's mental state as
+      potentially DIFFERENT from one's own. Simply projecting one's own
+      desires onto others is egocentric projection, not theory of mind.
+      True ToM includes the possibility that the other has different
+      beliefs, desires, and knowledge.
+    distinguishes: |
+      Theory of mind models the other AS OTHER — with potentially
+      different mental states. Projection treats the other as a copy
+      of self. The key distinction is whether the model represents
+      the other's states as independent from the observer's own.

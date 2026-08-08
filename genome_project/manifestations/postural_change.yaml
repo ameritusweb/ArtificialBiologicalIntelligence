@@ -1,0 +1,141 @@
+receptor_id: postural_change
+family: proprioception
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Detects that the organism's overall body configuration has just shifted
+  from one posture to another. Not movement of a single limb — a global
+  reconfiguration. The organism was crouching and now it is upright. It
+  was curled and now it is sprawled. The boundary is transition between
+  distinct whole-body configurations: the integrated joint-angle pattern
+  across the entire body changes from one recognizable state to another.
+  This is about the moment of postural transition, not the current posture.
+
+manifestations:
+  - id: crouching_to_standing
+    description: |
+      The organism has been crouched low behind a fallen log, watching
+      prey in a clearing. The prey moves out of range. The organism
+      rises — hind legs extending, spine straightening, head lifting —
+      transitioning from a compressed, low-slung crouch to full upright
+      standing. The entire body configuration shifts upward. Every major
+      joint changes angle in coordination.
+    survival_relevance: |
+      Detecting the crouch-to-stand transition signals the shift from
+      concealment mode to active mode. The organism needs to register
+      that it has just revealed its full profile to potential observers.
+    what_fires: |
+      Simultaneous angle changes across hip, knee, spine, and neck
+      joints — all extending. Global shift from flexed configuration
+      to extended configuration. Whole-body joint pattern transition
+      detected.
+
+  - id: standing_to_prone
+    description: |
+      After a long foraging walk, the organism lowers itself to the
+      ground to rest. Legs fold, torso lowers, belly contacts the
+      earth, head settles down. The transition from vertical standing
+      to horizontal prone takes several seconds but represents a
+      complete reconfiguration — weight shifts from feet to the body's
+      ventral surface.
+    survival_relevance: |
+      Detecting the transition to prone posture signals the shift from
+      mobile readiness to vulnerable rest. The organism must register
+      that it has just entered a configuration that is slow to exit
+      if a threat appears.
+    what_fires: |
+      Sequential joint flexion across the entire body — legs folding,
+      spine curving downward, center of mass dropping. Transition from
+      standing joint-angle pattern to prone joint-angle pattern.
+
+  - id: curled_to_sprawled
+    description: |
+      The organism has been sleeping curled in a tight ball — limbs
+      tucked, spine curved, tail wrapped around body. It wakes, yawns,
+      and stretches into a full sprawl — limbs extending in all
+      directions, spine flattening, body occupying maximum ground area.
+      The configuration shift is from minimum volume to maximum area.
+    survival_relevance: |
+      The curl-to-sprawl transition marks the shift from sleep-protected
+      configuration (vital organs guarded) to exposed-relaxed
+      configuration (all surfaces accessible). Awareness of this
+      transition informs vulnerability assessment.
+    what_fires: |
+      All major joints transitioning from flexion to extension
+      simultaneously. Body volume envelope expanding. Spinal curvature
+      reversing from concave to flat or convex. Whole-body unfolding.
+
+  - id: bipedal_to_quadrupedal
+    description: |
+      The organism has been standing on its hind legs to reach fruit
+      high on a branch. It drops back to all fours — forelimbs reaching
+      forward to contact the ground, spine rotating from vertical to
+      horizontal, weight redistributing from two contact points to four.
+      The postural geometry changes fundamentally.
+    survival_relevance: |
+      Detecting the shift from bipedal to quadrupedal posture signals
+      a change in locomotor capability. Quadrupedal posture enables
+      faster running but sacrifices reach. The organism needs to know
+      which mode it just entered.
+    what_fires: |
+      Spinal orientation transitioning from vertical to horizontal.
+      Forelimb joint angles changing from suspended to weight-bearing.
+      Weight distribution shifting from two to four contact points.
+      Fundamental postural geometry change.
+
+  - id: alert_freeze_from_relaxed_stance
+    description: |
+      The organism has been standing in a relaxed, slightly slouched
+      posture — head low, limbs loose, weight casually distributed.
+      A twig snaps nearby. Instantly, the body stiffens — head snaps
+      up, spine straightens, legs tense, weight shifts to the balls
+      of the feet. The relaxed configuration has been replaced by an
+      alert, ready-to-flee configuration in under a second.
+    survival_relevance: |
+      Detecting the relaxed-to-alert postural shift confirms that the
+      startle response has reconfigured the body for action. The
+      organism must know it has already entered threat-response posture
+      to coordinate its next decision: flee, fight, or hold.
+    what_fires: |
+      Rapid simultaneous stiffening across all joints. Spine extending,
+      head elevating, limbs tensing. Transition from low-tension
+      distributed posture to high-tension ready posture. Postural
+      change speed itself is high.
+
+anti_manifestations:
+  - id: single_arm_reaches_out
+    description: |
+      The organism stands in a stable upright posture and extends one
+      arm forward to pick a berry. The rest of the body remains in the
+      same configuration — legs, spine, head, other arm all unchanged.
+      Only the reaching arm moved. The overall body posture has not
+      shifted; it is the same standing configuration with one limb
+      repositioned.
+    why_should_not_fire: |
+      Postural change requires a global reconfiguration of the body —
+      not a single limb movement. The organism's overall postural
+      state (upright standing) did not change. One arm reaching out
+      modifies a limb position, not the integrated body configuration.
+    distinguishes: |
+      Single-limb movement versus whole-body postural transition.
+      Postural_change detects changes to the integrated configuration
+      across all major body segments, not isolated limb repositioning.
+
+  - id: maintaining_posture_while_swaying
+    description: |
+      The organism stands on a branch in wind. Its body sways left and
+      right as balance adjustments counteract the gusts. The overall
+      posture is still "standing upright on branch" — the slight lateral
+      oscillations are balance corrections within the same postural
+      category, not transitions to a different posture.
+    why_should_not_fire: |
+      Balance corrections within a posture are not postural changes.
+      The organism's configuration category (upright standing) has not
+      shifted. Small adjustments to maintain the current posture are
+      stabilization, not transition.
+    distinguishes: |
+      Postural transition (shift from one configuration category to
+      another) versus postural maintenance (adjustments within the
+      same configuration). The receptor fires on category boundaries,
+      not within-category corrections.

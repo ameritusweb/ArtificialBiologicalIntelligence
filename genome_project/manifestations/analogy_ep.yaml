@@ -1,0 +1,186 @@
+receptor_id: analogy_ep
+family: compression
+tier: canopy
+stage: 9
+
+conceptual_space: |
+  Detects structural parallels between different domains that emerge
+  across an entire episode of experience. A creature explores a river
+  system and later navigates a branching cave network — across the
+  episode, the structural isomorphism between the two systems becomes
+  undeniable: both branch, both have main channels feeding smaller
+  ones, both have dead ends. The boundary separates accumulated
+  cross-domain structural mapping from surface similarity or
+  within-domain generalization.
+  NOTE: this is the episode-level version - measures across an entire
+  episode rather than at a single step. The analogy crystallizes as
+  evidence accumulates over many interactions, not from a single
+  observation.
+
+manifestations:
+  - id: river_cave_branching_parallel
+    description: |
+      Over the course of an episode, a creature first spends many
+      steps navigating a river delta — learning that water splits at
+      forks, slows in wide pools, accelerates through narrows, and
+      dead-ends in silted basins. Later in the same episode, it
+      enters a cave system and encounters the same relational
+      structure: passages split at junctions, air moves slowly in
+      large chambers, rushes through tight squeezes, and dead-ends
+      at collapsed tunnels. By the episode's end, the accumulated
+      structural mapping across dozens of paired observations makes
+      the analogy unmistakable.
+    survival_relevance: |
+      Recognizing the river-cave structural parallel lets the organism
+      predict cave navigation outcomes using river knowledge. Dead-end
+      detection strategies, flow-following heuristics, and junction
+      decision rules transfer wholesale, avoiding costly trial-and-
+      error in a dangerous underground environment.
+    what_fires: |
+      Accumulated relational correspondences across two domains over
+      many steps: branching, flow dynamics, dead-end patterns, and
+      gradient-following all map consistently. The episode-level
+      structural match score exceeds threshold as paired observations
+      accumulate.
+
+  - id: territorial_defense_mirrors_immune_response
+    description: |
+      Across an episode, a creature first observes territorial animals
+      patrolling boundaries, challenging intruders that cross the
+      boundary, tolerating familiar neighbors, and escalating against
+      persistent invaders. Later in the episode, the creature observes
+      its own body's response to foreign objects: skin inflammation
+      at breach points, tolerance of familiar microbes, escalating
+      response to persistent infections. Over many steps of
+      observation, the four-element relational structure (patrol-
+      challenge-tolerate-escalate) maps consistently across both
+      domains.
+    survival_relevance: |
+      Understanding the body's defense system through analogy to
+      territorial behavior enables predictive reasoning about wound
+      healing and infection. The creature can anticipate that a
+      persistent foreign body will provoke escalating response,
+      just as a persistent intruder provokes escalating territorial
+      defense.
+    what_fires: |
+      Episode-accumulated structural correspondence between social-
+      territorial and physiological-immune domains. Four relational
+      elements (boundary monitoring, intrusion response, familiar-
+      agent tolerance, escalation with persistence) consistently
+      map across many observations spanning the episode.
+
+  - id: apprenticeship_mirrors_seed_germination
+    description: |
+      Over an episode, a young creature watches an elder perform a
+      complex foraging technique across many steps: initial clumsy
+      attempts, gradual skill acquisition, plateau periods, sudden
+      breakthroughs, and eventual mastery. In the same episode, the
+      creature observes seeds it cached earlier: initial dormancy,
+      gradual root emergence, plateau as energy stores deplete,
+      sudden shoot emergence, and eventual self-sustaining growth.
+      The developmental trajectory — dormancy, gradual progress,
+      plateau, breakthrough, independence — maps across biological
+      growth and skill acquisition.
+    survival_relevance: |
+      Recognizing the shared developmental structure lets the organism
+      predict that learning plateaus are not failures but precursors
+      to breakthroughs, just as seed dormancy precedes growth. This
+      prevents premature abandonment of skill acquisition during
+      frustrating plateau phases.
+    what_fires: |
+      Episode-spanning structural mapping between skill development
+      and biological growth trajectories. Five-stage relational
+      correspondence (dormancy, gradual progress, plateau,
+      breakthrough, independence) accumulated across many observations
+      in both domains.
+
+  - id: predator_stalking_mirrors_storm_approach
+    description: |
+      Across an episode, a creature experiences a predator hunt: first
+      distant signs (tracks, scent), then closer indicators (movement
+      in periphery), then a tense pause (the stalk), then explosive
+      action (the chase), then aftermath (escape or capture). In the
+      same episode, the creature experiences a storm system: distant
+      signs (cloud buildup, pressure change), closer indicators (wind
+      shifts, temperature drops), tense pause (eerie calm), explosive
+      action (downpour and lightning), aftermath (clearing). The five-
+      phase temporal structure maps precisely across living threat
+      and weather threat domains.
+    survival_relevance: |
+      Mapping the predator-storm analogy enables the creature to
+      recognize the "tense pause" phase in storms as the signal to
+      seek shelter, just as the stalk phase signals imminent chase.
+      Early-warning strategies transfer across threat domains.
+    what_fires: |
+      Episode-accumulated temporal-relational mapping between two
+      threat domains. Five-phase sequential structure (distant
+      signs, proximal indicators, ominous pause, explosive event,
+      aftermath) consistently parallels across many paired
+      observations within the episode.
+
+  - id: colony_organization_mirrors_forest_structure
+    description: |
+      Over many steps in an episode, a creature observes an ant colony:
+      a central queen producing offspring, specialized workers
+      radiating outward performing dedicated tasks, resource streams
+      flowing inward, waste streams flowing outward, peripheral scouts
+      at the boundary. In the same episode, it surveys a forest: a
+      central trunk producing branches, specialized leaves radiating
+      outward performing photosynthesis, nutrient streams flowing
+      inward through roots, waste gases flowing outward through
+      stomata, peripheral root tips exploring the boundary. The
+      center-radiate-specialize-flow-in-flow-out-scout structure
+      maps across biological organization levels.
+    survival_relevance: |
+      Recognizing organizational parallels across scales enables
+      prediction about unfamiliar systems. Understanding colony
+      organization helps predict forest resource distribution
+      patterns, and vice versa — both concentrate resources centrally
+      and extend specialized structures peripherally.
+    what_fires: |
+      Episode-level structural mapping between colony organization
+      and arboreal organization. Six relational elements (central
+      production, radial specialization, inward resource flow,
+      outward waste flow, peripheral exploration, hierarchical
+      structure) accumulated across many observations in both
+      domains over the episode.
+
+anti_manifestations:
+  - id: two_similar_river_systems
+    description: |
+      Over an episode, a creature explores two different river systems.
+      Both have similar branching patterns, similar flow rates, and
+      similar fish populations. The creature notices the similarities,
+      but both systems are in the same domain — they are both rivers.
+    why_should_not_fire: |
+      This is within-domain generalization, not cross-domain analogy.
+      Both systems are rivers — recognizing their similarity is
+      pattern recognition within a single domain, not structural
+      mapping across different domains. Analogy requires the domains
+      to differ while the relational structure matches.
+    distinguishes: |
+      Within-domain similarity (two instances of the same type of
+      system) versus cross-domain analogy (different types of systems
+      sharing relational structure). The episode-level analogy
+      receptor requires domain boundaries to be crossed.
+
+  - id: coincidental_timing_across_domains
+    description: |
+      Over an episode, a creature notices that berries ripen at the
+      same time that a particular bird species arrives. The temporal
+      coincidence recurs across the episode. But the two phenomena
+      share no structural relationship — the berry ripening process
+      (bud, flower, fruit, ripen) has no relational parallel to the
+      bird arrival process (distant call, approach, landing, nesting).
+    why_should_not_fire: |
+      Temporal co-occurrence is not structural analogy. The two
+      phenomena happen at the same time but do not share relational
+      structure. Analogy requires mapping of relational roles and
+      transformations, not mere temporal correlation. This is a
+      coincidence detection or association signal, not an analogy.
+    distinguishes: |
+      Temporal correlation (two things happen together) versus
+      structural analogy (two things share the same relational
+      architecture despite different surface features and domains).
+      Co-occurrence without structural mapping is correlation, not
+      analogy.

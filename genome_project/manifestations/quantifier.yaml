@@ -1,0 +1,49 @@
+receptor_id: quantifier
+family: logic
+tier: branch
+stage: 8
+
+conceptual_space: |
+  Detects the scope of a claim — whether it applies universally or only
+  particularly. ALL red berries are toxic vs SOME red berries are toxic.
+  The boundary separates scope-sensitive reasoning (distinguishing universal
+  from existential claims) from scope-blind generalization (treating any
+  instance as representative of all). The concept is the quantificational
+  scope itself — how broadly a pattern applies.
+
+manifestations:
+  - id: all_red_berries_toxic
+    description: Organism has encountered red berries across many contexts and every instance was toxic — it forms the universal claim "ALL red berries are toxic" and avoids the entire category
+    survival_relevance: Universal quantification enables categorical avoidance rules that prevent testing each new instance, eliminating risk from a fully-characterized threat class
+    what_fires: A pattern-outcome association with exhaustive confirmation across all encountered instances, producing a universal scope marker that blocks any member of the category
+
+  - id: some_paths_dangerous
+    description: Organism has found that SOME paths through the forest have predators but others do not — it maintains a particular-scope claim, scouting each path rather than avoiding all
+    survival_relevance: Particular quantification prevents over-generalization that would eliminate viable paths — the organism scouts rather than categorically avoiding
+    what_fires: A pattern-outcome association with mixed confirmation, producing a particular scope marker that triggers evaluation of each instance rather than categorical response
+
+  - id: communicated_universal_warning
+    description: Agent communicates "ALL water sources downstream are contaminated" — organism treats this as universal scope and avoids every downstream water source without individual testing
+    survival_relevance: Receiving and respecting universal-scope communications prevents wasteful or dangerous verification of claims already established by others at cost
+    what_fires: A communicated claim received with universal scope markers, applied to the entire referenced category without requiring instance-by-instance verification
+
+  - id: scope_revision_universal_to_particular
+    description: Organism believed "ALL snakes are venomous" but encounters a non-venomous snake — revises scope from universal to particular, now evaluating snakes individually
+    survival_relevance: Scope revision prevents both over-avoidance (missing resources near harmless snakes) and under-caution (treating a broken universal as fully discredited)
+    what_fires: A counterexample to a previously universal claim triggering scope narrowing from ALL to SOME, changing the behavioral policy from categorical to evaluative
+
+  - id: none_quantifier_detection
+    description: Organism explores a region thoroughly and finds NO food anywhere — forms the claim "no food in this area" and redirects search to other regions rather than continuing
+    survival_relevance: Detecting the "none" scope prevents futile continued search in exhausted areas, redirecting energy to unexplored regions with higher expected yield
+    what_fires: Exhaustive search with zero positive instances producing a universal negative scope marker, triggering area abandonment rather than continued sampling
+
+anti_manifestations:
+  - id: single_instance_generalization
+    description: Organism encounters one toxic red berry and avoids all red berries — but the avoidance is a reflexive generalization from one instance, not a scope-aware universal claim
+    why_should_not_fire: Reflexive generalization from a single instance is not scope-sensitive reasoning — the organism has not distinguished between "all are toxic" and "this one was toxic"
+    distinguishes: Quantified scope (explicit universal or particular claim based on evidence range) vs reflexive generalization (single instance treated as representative without scope consideration)
+
+  - id: frequency_without_scope
+    description: Organism notices red berries are "usually" toxic — it has a probabilistic estimate but has not formed a scoped claim about whether ALL or SOME are toxic
+    why_should_not_fire: Probabilistic frequency estimation is not quantification — the organism has a rate but not a logical scope (universal, particular, or none)
+    distinguishes: Quantifier scope (categorical ALL/SOME/NONE claim) vs probabilistic estimation (frequency or rate without categorical scope commitment)

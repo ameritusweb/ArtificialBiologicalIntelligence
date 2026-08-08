@@ -1,0 +1,125 @@
+receptor_id: ownership_boundary
+family: social
+tier: branch
+stage: 4
+
+conceptual_space: |
+  "That resource is in the NPC's controllability zone — it's theirs."
+  Detecting that another agent has established a claim on a resource
+  through proximity, defense, or consistent use. The concept is
+  recognizing another agent's ownership boundary: the region or
+  resource that another agent treats as its own and will likely
+  defend. The boundary separates owned from unowned resources and
+  determines the cost of acquisition (contested vs uncontested).
+
+manifestations:
+  - id: defended_food_source
+    description: |
+      NPC-A is positioned directly adjacent to a food source and
+      has been there for many timesteps. When the organism approaches,
+      NPC-A orients toward the organism and emits aggressive signals.
+      The food is within NPC-A's controllability zone.
+    survival_relevance: |
+      Attempting to take a defended resource risks damage. Detecting
+      ownership boundaries before committing to approach prevents
+      costly conflicts over resources the organism is unlikely to
+      acquire safely.
+    what_fires: |
+      Another agent maintains persistent proximity to a resource and
+      displays defensive behavior when approached. Resource is
+      classified as within the other agent's ownership boundary.
+
+  - id: territorial_patrol
+    description: |
+      NPC-B repeatedly traverses a circuit around a region containing
+      multiple resources. Other NPCs avoid entering this region. The
+      patrol pattern marks the boundary of NPC-B's territory.
+    survival_relevance: |
+      Recognizing territorial boundaries prevents the organism from
+      inadvertently entering a defended zone, where the cost of
+      conflict is higher than foraging elsewhere.
+    what_fires: |
+      Agent exhibits repeated patrol pattern around a resource-
+      containing area. Other agents are observed avoiding the area.
+      Territorial ownership boundary detected from patrol + avoidance
+      combination.
+
+  - id: post_consumption_guarding
+    description: |
+      NPC-C has eaten from a food source but remains positioned next
+      to it rather than leaving. The NPC continues to orient toward
+      approaching agents. The resource is depleted but the ownership
+      claim persists.
+    survival_relevance: |
+      Ownership claims can outlast resource availability. Detecting
+      that an agent guards even a depleted resource prevents the
+      organism from approaching a worthless site and paying a
+      conflict cost for nothing.
+    what_fires: |
+      Agent maintains defensive posture near a resource even after
+      consuming it. Ownership boundary persists beyond resource
+      utility. Continued guarding behavior fires ownership detection.
+
+  - id: first_arrival_claim
+    description: |
+      A new food source appears. NPC-D reaches it first and begins
+      feeding. The organism arrives second. NPC-D's prior arrival
+      and active use establish a de facto claim — approaching means
+      contesting.
+    survival_relevance: |
+      First-arrival creates an asymmetric conflict: the established
+      agent has positional advantage. Recognizing this asymmetry
+      allows the organism to assess whether contesting is worth the
+      cost.
+    what_fires: |
+      Another agent is already positioned at and actively using a
+      resource when the organism arrives. First-mover presence plus
+      active engagement signals ownership boundary.
+
+  - id: npc_displaces_other_npc
+    description: |
+      NPC-E approaches a food source where NPC-F is feeding. NPC-E
+      emits aggressive signals and NPC-F retreats. NPC-E now occupies
+      the resource position. The organism observes the displacement
+      and recognizes the ownership transfer.
+    survival_relevance: |
+      Observing ownership transfers reveals the dominance hierarchy.
+      The organism learns which agents can displace which others,
+      informing whether the organism could contest the resource.
+    what_fires: |
+      One agent displaces another from a resource through aggressive
+      interaction. Ownership boundary transfers from displaced agent
+      to displacing agent. Third-party observation of ownership
+      change fires the receptor.
+
+anti_manifestations:
+  - id: incidental_proximity
+    description: |
+      NPC-G passes near a food source on its patrol route but does
+      not stop, does not feed, and does not orient toward the resource.
+      It is simply passing through. The food source is unowned.
+    why_should_not_fire: |
+      Proximity alone does not establish ownership. The agent shows
+      no defensive behavior, no feeding, no persistent positioning.
+      Ownership requires active engagement or defense, not mere
+      adjacency during transit.
+    distinguishes: |
+      Ownership boundary requires BEHAVIORAL CLAIM — defense,
+      persistent presence, or active use. Spatial proximity during
+      transit is not a claim.
+
+  - id: abandoned_resource
+    description: |
+      NPC-H was feeding at a food source for many timesteps but has
+      now moved away and is pursuing other activities on the far side
+      of the environment. The food source still has resources. No
+      agent is nearby.
+    why_should_not_fire: |
+      Former ownership does not constitute current ownership. The
+      agent has voluntarily departed and is not defending the
+      resource. The ownership boundary has dissolved. The resource
+      is unowned and contestable.
+    distinguishes: |
+      Ownership is a current state, not a historical one. When an
+      agent abandons a resource (moves away, stops defending), the
+      ownership boundary ceases to exist.

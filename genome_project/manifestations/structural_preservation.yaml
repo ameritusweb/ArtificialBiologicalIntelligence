@@ -1,0 +1,48 @@
+receptor_id: structural_preservation
+family: regulatory
+tier: branch
+stage: 5
+
+conceptual_space: |
+  Detects that a well-validated structure should be protected from noisy
+  counter-evidence. An escape route that worked 50 times should not be
+  abandoned because of one failure that may have been contextual. The
+  boundary separates structures that have earned resistance to revision
+  from structures that are new and should remain plastic.
+
+manifestations:
+  - id: proven_escape_route_defense
+    description: Escape route used successfully 50 times receives one counter-observation (blocked once due to temporary debris) — the route's stored value should resist this single negative
+    survival_relevance: Abandoning proven strategies based on noisy one-off failures would discard hard-won survival knowledge
+    what_fires: High-confidence stored association (many successful uses) receiving a small amount of contradicting evidence — the preservation signal prevents premature decay
+
+  - id: reliable_food_source_stability
+    description: Food source that has been productive on 40 visits is empty on one visit — the food-location association should be preserved rather than decayed
+    survival_relevance: Temporarily empty productive sources should remain in memory — seasonal or stochastic variation should not erase valuable location knowledge
+    what_fires: High-confidence resource association (extensive positive history) receiving isolated contradicting evidence — preservation protects the association from single-observation decay
+
+  - id: predator_behavior_model_conservation
+    description: Predator behavior model built from 30 observations is slightly wrong on one observation — the model should absorb the data point without radical revision
+    survival_relevance: Behavioral models that are mostly right are more valuable than no model — over-revision from noise destroys useful predictive capacity
+    what_fires: High-confidence behavioral model receiving minor contradicting evidence — the preservation signal dampens the revision magnitude to protect the model's core structure
+
+  - id: shelter_quality_assessment_stability
+    description: Shelter rated as high-quality based on many safe rest periods receives one minor disturbance — overall quality assessment should be preserved
+    survival_relevance: Stable shelter assessment prevents the organism from constantly re-evaluating proven safe locations due to minor incidents
+    what_fires: High-confidence environmental assessment with extensive validation history receiving minor negative signal — the preservation signal maintains the assessment against noise
+
+  - id: social_trust_conservation
+    description: Trust relationship built over many positive interactions receives one ambiguous negative signal — the trust should be preserved rather than destroyed by one incident
+    survival_relevance: Social relationships are expensive to build and provide ongoing survival benefits — they should resist noisy counter-evidence
+    what_fires: High-confidence social association receiving isolated contradicting evidence — the preservation signal protects the relationship model from single-event destruction
+
+anti_manifestations:
+  - id: new_untested_strategy
+    description: An escape route used only twice should remain plastic and easily revised by counter-evidence — it has not earned preservation
+    why_should_not_fire: Low-confidence structures should remain open to revision — preservation is for well-validated structures, not new hypotheses
+    distinguishes: Well-validated (earned preservation) vs newly formed (should remain plastic) — structural_preservation requires extensive positive validation history
+
+  - id: genuine_structural_change
+    description: An escape route is permanently blocked by a landslide — this is not noise but a genuine environmental change that invalidates the stored structure
+    why_should_not_fire: When counter-evidence is strong, consistent, and structural rather than noisy, the old structure should be revised despite its history
+    distinguishes: Noisy counter-evidence (should be resisted) vs genuine structural change (should override preservation) — the receptor fires on noise, not on persistent invalidation

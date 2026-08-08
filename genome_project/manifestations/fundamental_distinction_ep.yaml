@@ -1,0 +1,205 @@
+receptor_id: fundamental_distinction_ep
+family: epistemic
+tier: canopy
+stage: 11
+
+conceptual_space: |
+  Detects that a distinction initially thought to be superficial or
+  minor is actually fundamental — it reaches deep into the causal
+  structure of the domain. Across an episode, a creature notices that
+  two berry types differ in color (seemingly trivial), but accumulated
+  evidence reveals the color difference predicts toxicity, soil type,
+  pollinator species, growth season, and shelf life. The surface
+  distinction is the tip of a deep causal iceberg. The boundary
+  separates genuine fundamental distinctions (surface difference
+  predicts deep structural divergence) from surface differences that
+  remain trivial under scrutiny.
+  NOTE: this is the episode-level version - measures across an entire
+  episode rather than at a single step. The fundamentality of the
+  distinction only becomes apparent as evidence accumulates across many
+  observations revealing cascading downstream differences.
+
+manifestations:
+  - id: color_difference_predicts_everything
+    description: |
+      A creature notices that berries on one bush are red and on
+      another are blue. Initially, this seems like a minor perceptual
+      difference. Across an episode of foraging, the creature
+      accumulates evidence: red berries grow in clay soil, blue in
+      sandy soil. Red berries attract wasps, blue attract butterflies.
+      Red berries are ripe in spring, blue in autumn. Red berries
+      ferment quickly, blue last for weeks. Red berries cause mild
+      nausea, blue are nutritious. What seemed like a trivial color
+      difference turns out to predict soil chemistry, ecology, timing,
+      storage, and safety. The distinction is fundamental.
+    survival_relevance: |
+      Recognizing a fundamental distinction transforms a low-
+      information signal (color) into a high-information diagnostic.
+      The creature can now predict toxicity, availability, storage
+      potential, and ecological context from a single glance at
+      color — massive information gain from recognizing the depth
+      of a seemingly trivial distinction.
+    what_fires: |
+      Episode-accumulated evidence that a single distinguishing
+      feature predicts divergent outcomes across multiple independent
+      dimensions. The number of downstream consequences correlated
+      with the original distinction exceeds the threshold for
+      fundamental versus superficial classification.
+
+  - id: still_water_versus_flowing_water
+    description: |
+      A creature initially treats all water as equivalent — "water
+      is water." Across an episode involving many water sources, it
+      discovers that still water and flowing water differ on every
+      dimension that matters: still water harbors parasites, flowing
+      water is cleaner. Still water breeds mosquitoes, flowing water
+      does not. Still water indicates flat terrain, flowing water
+      indicates gradient. Still water evaporates and becomes
+      unreliable, flowing water is replenished. Animals near still
+      water are more often sick. The still/flowing distinction,
+      seemingly just a matter of motion, turns out to be fundamental
+      to safety, health, navigation, and resource reliability.
+    survival_relevance: |
+      Elevating the still/flowing distinction from trivial to
+      fundamental enables the organism to make rapid health, safety,
+      and navigation decisions from a single observation. Preferring
+      flowing water and treating still water with caution improves
+      outcomes across parasites, disease, and route planning.
+    what_fires: |
+      Episode-accumulated divergent outcomes along multiple
+      dimensions correlated with a single binary feature (still
+      vs. flowing). Health, ecological, navigational, and temporal
+      reliability differences all align with the same distinction.
+      Cross-dimension predictive power exceeds the fundamental
+      distinction threshold.
+
+  - id: solitary_versus_grouped_prey
+    description: |
+      A creature initially approaches all prey the same way. Across
+      an episode of many hunting attempts, it discovers that solitary
+      prey and grouped prey differ fundamentally: solitary individuals
+      are often stronger (they can survive alone), are more vigilant
+      (no group to share watching duties), use different escape
+      strategies (unpredictable flight vs. herd stampede), are found
+      in different terrain (dense cover vs. open grassland), and
+      indicate different ecosystem states (solitary often means
+      displaced or dominant). The solitary/grouped distinction
+      governs hunting strategy, terrain reading, prey quality
+      assessment, and ecosystem interpretation.
+    survival_relevance: |
+      Recognizing this as fundamental transforms hunting strategy.
+      Solitary prey requires ambush tactics in cover; grouped prey
+      requires isolation-and-chase in open terrain. Applying the
+      wrong strategy wastes energy and increases injury risk.
+      The distinction is not about preference but about entirely
+      different tactical domains.
+    what_fires: |
+      Episode-accumulated evidence that the solitary/grouped binary
+      predicts prey behavior, terrain type, hunting strategy success,
+      and ecosystem state. Multiple independent outcome dimensions
+      diverge along this single distinction, exceeding the
+      fundamentality threshold.
+
+  - id: morning_versus_evening_calls
+    description: |
+      A creature notices that bird calls in the morning sound slightly
+      different from evening calls — a minor acoustic distinction.
+      Across an episode spanning a full day cycle, accumulated
+      evidence reveals this distinction predicts insect availability
+      (morning calls correlate with caterpillar emergence), predator
+      activity (evening calls correlate with owl emergence), weather
+      changes (evening call patterns shift before storms), territory
+      status (morning calls are territorial, evening calls are
+      roosting negotiations), and overall forest health (morning call
+      diversity indicates ecosystem stability). The acoustic timing
+      distinction is a window into the entire ecosystem's state.
+    survival_relevance: |
+      Using call timing as a fundamental diagnostic gives the
+      organism access to ecosystem-wide information from passive
+      listening. Morning call analysis predicts food availability
+      and territory status; evening call analysis predicts nocturnal
+      threat levels and weather. A seemingly trivial acoustic timing
+      difference becomes a multi-channel information source.
+    what_fires: |
+      Episode-accumulated evidence linking a temporal-acoustic
+      distinction to food availability, predator schedules, weather
+      prediction, social dynamics, and ecosystem health. The number
+      of independent information channels accessed through one
+      distinction exceeds the fundamentality threshold.
+
+  - id: smooth_versus_rough_bark
+    description: |
+      A creature notices trees with smooth bark and trees with rough
+      bark — seemingly just a texture difference. Across an episode
+      of interacting with many trees, accumulated evidence reveals:
+      smooth-bark trees shed water (useful for staying dry), are
+      harder to climb (fewer grip points), harbor fewer insects
+      (less food for woodpeckers), grow faster, and break more
+      easily in storms. Rough-bark trees retain moisture (useful
+      for finding water), are climbable (escape routes), harbor
+      insect colonies (food sources), grow slowly, and resist storms.
+      The bark texture distinction predicts shelter quality, climbing
+      safety, food access, tree longevity, and storm resilience.
+    survival_relevance: |
+      Recognizing bark texture as a fundamental distinction enables
+      the organism to rapidly assess trees for multiple purposes:
+      smooth bark for rain shelter, rough bark for climbing escape,
+      rough bark for insect foraging, smooth bark zones for storm
+      vulnerability. A single tactile observation predicts multiple
+      survival-relevant properties.
+    what_fires: |
+      Episode-accumulated evidence that bark texture predicts
+      climbing affordance, insect abundance, water behavior, growth
+      rate, and structural integrity. Multiple independent outcome
+      dimensions correlate with the same surface feature, exceeding
+      the fundamental distinction threshold.
+
+anti_manifestations:
+  - id: surface_difference_remains_surface
+    description: |
+      A creature notices that rocks in one area are grey and rocks
+      in another area are brown. Across an episode of interacting
+      with both types, it finds no meaningful differences: both
+      are equally hard, equally useful for tools, equally warm in
+      sun, equally common near water sources. The color difference
+      remains a trivial surface feature that predicts nothing about
+      function, utility, or downstream outcomes.
+    why_should_not_fire: |
+      A surface distinction that does not predict divergent outcomes
+      across any downstream dimension is genuinely superficial, not
+      fundamental. The episode's accumulated evidence confirms that
+      the distinction has no predictive depth. Fundamental distinction
+      requires that the surface difference correlates with multiple
+      independent outcome differences.
+    distinguishes: |
+      Fundamental distinctions (surface difference predicts deep
+      causal divergence across multiple dimensions) versus genuinely
+      superficial differences (surface difference predicts nothing
+      beyond itself). The episode-level test is whether accumulated
+      evidence reveals cascading downstream consequences.
+
+  - id: important_but_narrow_difference
+    description: |
+      A creature discovers that one mushroom type is edible and
+      another is toxic. This is an extremely important difference
+      on one dimension (safety), but it does not cascade across
+      multiple independent domains — both mushroom types grow in
+      the same conditions, are found in the same locations, attract
+      the same insects, and decompose at the same rate. The
+      distinction is critical on one axis but narrow, not
+      fundamental in the sense of permeating multiple dimensions.
+    why_should_not_fire: |
+      An important single-dimension difference is not the same as
+      a fundamental distinction. Fundamental means the distinction
+      reaches across multiple independent causal dimensions, not
+      that it is highly consequential on one dimension. A toxicity
+      difference is critical but narrow — it does not restructure
+      the organism's understanding across ecology, navigation,
+      timing, and social dynamics the way a fundamental distinction
+      does.
+    distinguishes: |
+      Fundamental distinction (surface feature predicts divergence
+      across MANY independent dimensions) versus important-but-
+      narrow distinction (surface feature predicts a consequential
+      difference on ONE dimension only). Depth across dimensions
+      versus severity on a single dimension.

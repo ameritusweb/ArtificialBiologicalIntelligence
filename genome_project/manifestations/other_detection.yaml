@@ -1,0 +1,115 @@
+receptor_id: other_detection
+family: social
+tier: trunk
+stage: 4
+
+conceptual_space: |
+  Entity moves in ways not explained by physics. Wind pushes objects
+  predictably along force vectors; agents move unpredictably with
+  apparent goals — reversing direction, pausing, accelerating without
+  external force. The boundary is AGENT vs OBJECT. An agent is
+  something whose trajectory cannot be predicted from physics alone;
+  an object is something whose trajectory can.
+
+manifestations:
+  - id: reversal_without_force
+    description: |
+      An entity is moving north, then abruptly reverses to move south
+      with no visible obstacle, slope, or wind gust. No physical force
+      explains the direction change — the entity simply turned around.
+    survival_relevance: |
+      Self-propelled direction reversal signals an agent that can
+      pursue or flee. Objects pushed by wind never spontaneously
+      reverse. Detecting this enables threat assessment.
+    what_fires: |
+      Velocity vector reverses without corresponding environmental
+      force vector. Movement violates physics-predicted trajectory.
+      Entity classified as agent, not object.
+
+  - id: goal_directed_navigation
+    description: |
+      An entity navigates around a wall by taking a detour path to
+      reach food on the other side. Its path is longer than straight-
+      line but arrives at a resource. Objects deflect off walls;
+      agents route around them.
+    survival_relevance: |
+      An entity that solves navigation problems is an agent that may
+      compete for the same resources the organism seeks. Detection
+      enables competitive awareness.
+    what_fires: |
+      Entity path deviates from physics-predicted deflection angle,
+      takes a longer path that terminates at a resource. Detour
+      behavior fires agent classification.
+
+  - id: selective_approach
+    description: |
+      Two food sources are equidistant from an entity. The entity
+      moves toward one and ignores the other. A wind-pushed object
+      would move toward whichever is downwind — an agent chooses.
+    survival_relevance: |
+      Selective behavior reveals preference, which implies internal
+      state. An entity with preferences can change them — it is
+      unpredictable in ways objects are not.
+    what_fires: |
+      Entity moves toward one of multiple equidistant targets. No
+      environmental gradient explains the selection. Choice behavior
+      fires agent detection.
+
+  - id: pause_then_act
+    description: |
+      An entity stops moving for several timesteps while oriented
+      toward a distant object, then moves rapidly toward it. The
+      pause-then-burst pattern looks like observation followed by
+      decision, not like friction followed by release.
+    survival_relevance: |
+      Pause-then-act suggests planning — the entity assessed before
+      committing. A planning agent is more dangerous than a ballistic
+      object.
+    what_fires: |
+      Entity velocity drops to zero without friction/obstacle, then
+      accelerates toward a specific target. Deliberate stillness
+      followed by directed action fires agent classification.
+
+  - id: response_to_organism
+    description: |
+      The organism approaches an entity. The entity changes course
+      in response — moving away, moving toward, or circling. Its
+      trajectory is contingent on the organism's position.
+    survival_relevance: |
+      An entity that reacts to the organism is an agent that models
+      the organism as relevant. This is the most survival-critical
+      agent signal: it means "it sees me."
+    what_fires: |
+      Entity trajectory correlates with organism position changes.
+      Movement is contingent on organism behavior rather than
+      independent of it. Reactive movement fires agent detection.
+
+anti_manifestations:
+  - id: leaf_in_eddy
+    description: |
+      A leaf caught in a wind eddy reverses direction, pauses when
+      the wind dies, then moves again when the wind picks up. The
+      movement pattern superficially resembles pause-then-act and
+      reversal.
+    why_should_not_fire: |
+      Every movement component is explained by wind forces. The
+      reversals, pauses, and accelerations all have corresponding
+      environmental force vectors. No physics violation occurs.
+    distinguishes: |
+      Agent detection requires movement that CANNOT be explained by
+      environmental forces. If a complete physics explanation exists,
+      the entity is an object regardless of how complex its path.
+
+  - id: ball_rolling_downhill_toward_food
+    description: |
+      A round rock rolls downhill and comes to rest next to a food
+      source. Its path curves around terrain features, appearing to
+      navigate. It ends up at a resource, appearing goal-directed.
+    why_should_not_fire: |
+      Gravity and terrain fully explain the trajectory. The rock
+      arrived at food by coincidence of terrain, not by choice.
+      Every curve is explained by slope gradients.
+    distinguishes: |
+      Goal-directed navigation requires trajectory that cannot be
+      produced by terrain and gravity alone. Coincidental arrival
+      at a resource is not evidence of agency.

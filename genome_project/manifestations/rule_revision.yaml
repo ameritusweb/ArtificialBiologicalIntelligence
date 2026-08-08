@@ -1,0 +1,48 @@
+receptor_id: rule_revision
+family: formalization
+tier: canopy
+stage: 5
+
+conceptual_space: |
+  Detects that an existing rule needs updating based on counter-evidence.
+  "Predators always come from the east" but this one came from the west.
+  The rule is not entirely wrong but needs revision — perhaps to "predators
+  usually come from the east." The boundary separates rule updating from
+  rule abandonment and from noise that should not alter the rule.
+
+manifestations:
+  - id: directional_rule_violated
+    description: Rule states predators approach from the east, but a predator approaches from the west — the directional constraint of the rule needs loosening
+    survival_relevance: A rigid directional rule creates a blind spot — revision to include western approach prevents future surprises from unexpected directions
+    what_fires: Strong prediction from an established rule combined with clear counter-evidence from a current observation — the rule predicted east, reality delivered west
+
+  - id: temporal_rule_violated
+    description: Rule states predators hunt at dawn, but a predator is actively hunting at midday — the temporal constraint of the rule needs revision
+    survival_relevance: Temporal rules that are too rigid leave the organism unguarded during the actual (wider) danger window
+    what_fires: Temporal prediction from stored rule contradicted by current observation — the rule predicted safety at this time, but a threat is present
+
+  - id: speed_threshold_revision
+    description: Rule classified objects moving below a certain speed as non-threats, but a slow-moving predator successfully ambushed — the speed threshold needs lowering
+    survival_relevance: Speed-based threat rules that are too permissive allow slow predators to approach undetected — revision closes the gap
+    what_fires: Speed-based classification rule output (non-threat) contradicted by actual threat behavior — the threshold parameter needs adjustment based on counter-evidence
+
+  - id: shelter_rule_revision
+    description: Rule states overhead cover equals safety, but a predator dug under the cover to attack — the shelter rule needs additional escape route conditions
+    survival_relevance: Shelter rules that are too simple create false safety — revision adds the condition that shelter also needs an exit
+    what_fires: Safety prediction from shelter rule contradicted by a threat penetrating the shelter — the rule's conditions were insufficient and need expansion
+
+  - id: food_indicator_revision
+    description: Rule associated a certain color pattern with edible food, but a toxic item matching that pattern caused negative outcomes — the visual rule needs narrowing
+    survival_relevance: Over-inclusive food rules lead to consumption of harmful items — revision adds distinguishing features to the rule
+    what_fires: Food prediction from visual rule followed by negative outcome — the rule's feature criteria are too broad and need additional constraints based on the counter-example
+
+anti_manifestations:
+  - id: noise_not_counter_evidence
+    description: Rule states predators come from the east, and a random leaf blows in from the west — not a genuine counter-example to the rule
+    why_should_not_fire: The western signal was not actually a predator — noise that superficially resembles counter-evidence should not trigger rule revision
+    distinguishes: Genuine counter-evidence vs noise — rule_revision requires the counter-example to be a genuine instance that violates the rule, not a false alarm
+
+  - id: rule_still_valid_edge_case
+    description: Rule states large fast objects are dangerous, and one large fast object turned out to be harmless — but 99% of the time the rule holds
+    why_should_not_fire: A single edge case in an otherwise highly reliable rule does not warrant revision — the statistical validity of the rule is not threatened
+    distinguishes: Statistically significant counter-evidence vs isolated edge case — rule_revision fires when counter-evidence is strong enough to warrant updating

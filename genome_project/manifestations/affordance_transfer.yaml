@@ -1,0 +1,168 @@
+receptor_id: affordance_transfer
+family: interaction
+tier: canopy
+stage: 10
+
+conceptual_space: |
+  Detects the transfer of affordance knowledge from one agent to another —
+  specifically, when a knowledgeable agent demonstrates that an object has
+  a particular use-potential, and a naive agent then generalizes that
+  affordance to novel objects sharing the relevant property. A parent
+  demonstrates that flat rocks work as hammers; the offspring then applies
+  the flat-surface-as-hammer affordance to novel flat objects (boards, hard
+  shells, flat bones) it has never seen used. The boundary separates
+  affordance TRANSFER (receiving affordance knowledge from another and
+  generalizing it) from tool use (using an object oneself), social learning
+  (copying a specific behavior), or independent affordance discovery
+  (finding uses without demonstration). The critical signal is generalization
+  of a demonstrated affordance to novel instances.
+
+manifestations:
+  - id: flat_rock_to_novel_flat_objects
+    description: |
+      A parent demonstrates cracking nuts by striking them with a flat
+      rock. The offspring watches, then encounters a situation requiring
+      nut-cracking with no flat rocks available. It picks up a flat piece
+      of hardened clay and uses it as a hammer — an object it has never
+      seen used for this purpose. The offspring extracted the affordance
+      property (flat + hard = hammer potential) from the demonstration
+      and applied it to a novel object matching those properties.
+    survival_relevance: |
+      Generalizing affordances beyond the specific demonstrated instance
+      multiplies the organism's problem-solving capacity. Instead of
+      knowing "this specific rock is a hammer," the organism knows
+      "flat hard things are hammers" — dramatically expanding available
+      tools in novel environments.
+    what_fires: |
+      Demonstrated affordance (flat rock as hammer) applied to a novel
+      object (hardened clay) that was never demonstrated but shares the
+      relevant properties (flat, hard). The organism abstracts the
+      affordance from the specific demonstration to the property class.
+      The demonstrated-then-generalized-to-novel-instance pattern fires.
+
+  - id: stick_probe_to_novel_elongated_objects
+    description: |
+      A parent demonstrates using a stick to extract insects from a
+      narrow crevice. The offspring later encounters a similar crevice
+      but no sticks. It picks up a long bone fragment and uses it as a
+      probe. The affordance (elongated rigid object = probe potential)
+      transferred from the demonstration to a novel object category.
+    survival_relevance: |
+      Probe-type tools are essential for accessing food in protected
+      locations. Generalizing the probe affordance from sticks to any
+      elongated rigid object ensures the skill remains available even
+      when the specific demonstrated object is absent.
+    what_fires: |
+      An affordance demonstrated with one object class (sticks)
+      spontaneously applied to a different object class (bones) that
+      shares the functional property (elongated, rigid). The cross-
+      category generalization of a received affordance fires.
+
+  - id: container_affordance_generalization
+    description: |
+      A parent demonstrates carrying water in a cupped leaf. The
+      offspring later needs to transport water and uses a hollow
+      shell — never demonstrated — recognizing the container
+      affordance in its cupped, waterproof shape. The offspring
+      transferred the affordance (cupped waterproof surface =
+      container potential) from the specific demonstration to a
+      structurally analogous but categorically different object.
+    survival_relevance: |
+      Water transport capability extends the organism's range
+      beyond water sources. Generalizing the container affordance
+      from leaves to any cupped waterproof surface means the
+      organism can transport water using whatever materials are
+      locally available.
+    what_fires: |
+      A demonstrated affordance (leaf as container) generalized to
+      a physically different but functionally equivalent object
+      (shell as container). The functional equivalence recognition
+      across physically dissimilar objects fires — the organism
+      sees past surface difference to shared affordance property.
+
+  - id: cover_affordance_across_materials
+    description: |
+      A parent demonstrates covering a food cache with large leaves
+      to conceal it from competitors. The offspring, caching food in
+      an area with no leaves, uses flat bark pieces to cover its
+      cache. The covering affordance (broad flat object = concealment
+      potential) transferred from the demonstrated material to an
+      available substitute.
+    survival_relevance: |
+      Cache concealment reduces theft and extends the usable life
+      of stored food. Generalizing the covering affordance means the
+      offspring can protect caches in any environment, not just ones
+      with the specific materials the parent demonstrated.
+    what_fires: |
+      The concealment affordance demonstrated with one material
+      (leaves) applied to a different material (bark) that shares the
+      functional property (broad, flat, opaque). The material-
+      independent affordance transfer fires.
+
+  - id: leverage_affordance_from_demonstration
+    description: |
+      A parent demonstrates using a branch wedged under a heavy stone
+      to lever it aside and access food underneath. The offspring later
+      encounters a heavy object blocking a burrow entrance and uses a
+      long bone as a lever — never having seen a bone used this way.
+      The lever affordance (rigid elongated object + fulcrum = force
+      multiplication) transferred from the branch demonstration to
+      the bone application.
+    survival_relevance: |
+      Lever mechanics enable access to resources blocked by objects
+      heavier than the organism can move directly. Generalizing the
+      lever affordance from branches to any rigid elongated object
+      ensures this force-multiplication capability persists across
+      different environments and available materials.
+    what_fires: |
+      A complex affordance (lever = object + fulcrum + force
+      application) demonstrated with one set of objects (branch +
+      stone) and applied to a different set (bone + log) that
+      instantiates the same mechanical relationship. The structural-
+      mechanical affordance transfer fires.
+
+anti_manifestations:
+  - id: exact_imitation_without_generalization
+    description: |
+      A parent demonstrates cracking nuts with a specific flat rock.
+      The offspring uses THAT SAME rock (or searches for rocks that
+      look identical) to crack nuts but never applies the technique
+      to non-rock flat objects. When flat rocks are unavailable, the
+      offspring cannot crack nuts — it has copied the specific behavior
+      rather than extracting the generalizable affordance.
+    why_should_not_fire: |
+      This is social learning (behavioral copying) without affordance
+      transfer. The offspring replicated the specific demonstrated
+      action with the specific demonstrated object but did not extract
+      the abstract affordance property (flat + hard = hammer). Without
+      generalization to novel objects, the affordance has not been
+      transferred — only the specific behavior has been copied.
+    distinguishes: |
+      Specific behavior copying (reproduce the exact demonstrated
+      action with the same or identical objects) versus affordance
+      transfer (extract the functional property and apply it to novel
+      objects). Generalization to novel instances that were never
+      demonstrated is the boundary.
+
+  - id: independent_affordance_discovery
+    description: |
+      An offspring with no prior demonstration discovers on its own
+      that a flat rock can crack nuts — through accidental dropping,
+      play, or trial-and-error. The offspring then generalizes to
+      other flat hard objects. The generalization occurred, but
+      without any transfer from another agent — the affordance was
+      independently discovered.
+    why_should_not_fire: |
+      This is independent affordance discovery and generalization,
+      not affordance transfer. The organism found the affordance
+      itself through direct experience rather than receiving it
+      from a demonstrator. Affordance transfer requires a social
+      transmission step — one agent demonstrating and another
+      receiving and generalizing. Independent discovery belongs
+      to direct learning, not social transmission.
+    distinguishes: |
+      Socially received and generalized (affordance demonstrated
+      by another, then generalized by the receiver to novel objects)
+      versus independently discovered and generalized (affordance
+      found through own experience, then generalized). The social
+      transmission step is the boundary.

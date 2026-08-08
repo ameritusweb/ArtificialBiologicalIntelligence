@@ -1,0 +1,51 @@
+receptor_id: ritual_formation
+family: regulatory
+tier: canopy
+stage: 9
+
+conceptual_space: |
+  Detects the formation of socially standardized regulatory patterns — group
+  behaviors that become stabilized through repetition and serve a regulatory
+  function. Group synchronized movement before foraging reduces stress. The
+  boundary separates ritual (socially standardized pattern with regulatory
+  function) from individual habit (personal repetitive behavior) or social
+  coordination (group behavior without stabilized regulatory pattern). The
+  concept is the socially standardized regulatory pattern itself — shared
+  behavior that has crystallized into a reliable group-level regulatory tool.
+
+manifestations:
+  - id: pre_foraging_synchronization
+    description: Group performs synchronized movement pattern before foraging — the pattern has stabilized across episodes into a consistent sequence that reliably reduces group arousal and improves foraging coordination
+    survival_relevance: Pre-foraging ritual reduces individual stress variance across group members, producing more coordinated and less error-prone collective foraging
+    what_fires: A group behavior pattern that is temporally consistent across episodes, performed by multiple organisms in coordination, with measurable regulatory effects (arousal reduction) that are achieved through the standardized pattern
+
+  - id: post_threat_reassembly_pattern
+    description: After a predator encounter, the group performs a standardized reassembly sequence — specific calls, approach patterns, and physical proximity behaviors that have stabilized into a reliable post-threat calming ritual
+    survival_relevance: Standardized post-threat ritual accelerates group recovery by providing a predictable regulatory sequence that all members can participate in without negotiation
+    what_fires: A group behavior sequence triggered by specific conditions (post-threat), consistent in form across episodes, performed collectively, with reliable regulatory outcome (group calming)
+
+  - id: boundary_patrol_ritual
+    description: Group members perform a daily territory boundary walk in a standardized pattern — the consistent route and timing have become ritualized, serving both territorial marking and group cohesion functions
+    survival_relevance: Ritualized boundary patrol creates predictable territorial signals for neighbors while synchronizing group members' spatial knowledge and reinforcing group identity
+    what_fires: A spatially and temporally patterned group behavior that has stabilized into a consistent form, performed regularly, with both functional (territorial) and regulatory (cohesion) effects
+
+  - id: greeting_ceremony
+    description: When two group members reunite after separation, they perform a standardized greeting sequence — specific vocalizations, postures, and physical contact — that reliably reduces tension and reestablishes cooperative baseline
+    survival_relevance: Standardized greeting rituals eliminate the ambiguity of reunion encounters, preventing misinterpretation of approach as aggression and restoring cooperative readiness efficiently
+    what_fires: A dyadic interaction pattern standardized across the group, triggered by specific conditions (reunion), consistent in form, with reliable regulatory effect (tension reduction and cooperation restoration)
+
+  - id: seasonal_transition_ceremony
+    description: At seasonal changes, the group performs an extended collective behavior — synchronized movement, vocalization, and rest — that has stabilized into a multi-episode ritual marking the transition between behavioral modes
+    survival_relevance: Seasonal transition rituals synchronize the group's mode shift (foraging to migration, for example), ensuring collective readiness for the new seasonal strategy
+    what_fires: A temporally anchored group behavior pattern performed at predictable long-cycle transitions, consistent in form across years, with regulatory function of synchronizing the group's behavioral mode shift
+
+anti_manifestations:
+  - id: individual_habit_not_shared
+    description: One organism always scratches the ground before eating — this is a personal habit with regulatory function but it is not socially standardized, shared, or performed collectively
+    why_should_not_fire: Individual habits may be repetitive and regulatory but lack the social standardization that defines ritual — the behavior is personal, not group-level
+    distinguishes: Ritual (socially standardized group pattern) vs individual habit (personal repetitive behavior without social standardization)
+
+  - id: ad_hoc_group_coordination
+    description: Group members coordinate a hunting strategy through real-time communication — the coordination is effective but different each time, never stabilizing into a standardized pattern
+    why_should_not_fire: Ad hoc coordination is effective group behavior but lacks the crystallized, repeating form that defines ritual — each instance is improvised rather than following a standardized pattern
+    distinguishes: Ritual (stabilized, repeating standardized pattern) vs ad hoc coordination (effective group behavior without crystallized form)

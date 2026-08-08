@@ -1,0 +1,51 @@
+receptor_id: deliberate_complexification
+family: env. augmentation
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detects when the organism's current environment is too easy to drive further
+  development, and generates the impulse to increase environmental complexity
+  deliberately. The boundary is between an environment that is still challenging
+  enough to produce growth and one where the organism has plateaued because the
+  environment no longer pushes it. This requires the organism to model its own
+  growth rate, detect when that rate has flattened due to insufficient environmental
+  pressure, and take action to increase the pressure. The organism is not avoiding
+  comfort -- it is detecting developmental stagnation and prescribing its own cure.
+
+manifestations:
+  - id: mastery_plateau_detection
+    description: The organism has fully mastered its current environment -- it finds food optimally, avoids all threats, navigates efficiently. Its performance metrics have been flat at ceiling for 30 episodes. It detects that it is no longer learning because there is nothing left to learn here, and seeks or creates additional challenge.
+    survival_relevance: An organism that stops developing when its current environment becomes easy is vulnerable to any novel challenge. Detecting developmental stagnation and self-prescribing harder challenges ensures continued growth that will be needed when environmental conditions inevitably change.
+    what_fires: Performance monitoring shows ceiling-level metrics with zero improvement slope for an extended window. Learning-rate monitoring shows near-zero new information acquisition. The complexification receptor fires on the conjunction of high performance and zero growth -- the environment has become developmentally inert.
+
+  - id: self_imposed_constraint
+    description: The organism has a safe, efficient route to food that it can execute reliably. It deliberately abandons this route and forces itself to find an alternative, imposing a constraint that makes the task harder but develops new spatial knowledge and route flexibility.
+    survival_relevance: Route redundancy is survival-critical -- the safe route might become blocked. By deliberately constraining itself to find alternatives, the organism builds redundancy before it is needed. The complexification is targeted at a specific developmental need (route diversity) identified through self-modeling.
+    what_fires: Self-model identifies over-reliance on a single solution as a vulnerability. The organism generates an internal constraint -- exclude the known route -- that forces exploration of alternatives. The complexification receptor fires on the deliberate, self-imposed difficulty increase targeted at a diagnosed vulnerability.
+
+  - id: social_complexity_seeking
+    description: The organism has mastered solo survival and can reliably feed and protect itself alone. It detects that its social cognition is underdeveloped because it has been avoiding social interactions. It deliberately moves toward group environments where social complexity will force development of social-cognitive skills.
+    survival_relevance: Organisms that develop only the skills their current lifestyle demands become brittle specialists. Detecting underdeveloped capability domains and seeking environments that will force their development is proactive resilience-building through environmental choice.
+    what_fires: Self-capability model shows a disparity between well-developed solo survival skills and underdeveloped social skills. Environmental scan identifies zones with higher social complexity. The complexification receptor fires on the deliberate choice to move from a mastered domain to an unmastered one, driven by a developmental gap diagnosis rather than immediate survival need.
+
+  - id: temporal_pressure_increase
+    description: The organism has been solving foraging tasks with ample time margins. It detects that this temporal slack means it is not developing time-critical decision-making skills. It begins imposing tighter time constraints on itself -- leaving later, taking longer routes first, creating urgency artificially.
+    survival_relevance: Time pressure is a dimension of environmental difficulty that easy environments lack. An organism that has never made decisions under time pressure will fail catastrophically when real urgency arises. Self-imposed temporal constraints develop this capacity before it is needed at survival stakes.
+    what_fires: Performance monitoring shows large time margins on all tasks. Self-model identifies time-pressure decision-making as an untested capability. The complexification receptor fires on the recognition that a critical capability dimension is going untrained because the environment is too forgiving along that dimension.
+
+  - id: adversarial_self_testing
+    description: The organism has developed a set of strategies it considers robust. It deliberately seeks edge cases and failure modes for its own strategies -- navigating routes at maximum speed, testing its threat response with minimal margins, probing the boundaries of its own capabilities to find weaknesses.
+    survival_relevance: Strategies that have not been stress-tested have unknown failure modes. The organism that proactively discovers its own breaking points can reinforce them before the environment discovers them. This is the organism treating itself as a system to be tested and hardened.
+    what_fires: Self-model identifies strategies as "untested at extremes." The organism generates test scenarios that push its own capabilities to their limits. The complexification receptor fires on the deliberate self-stress-testing -- the organism is making its OWN situation harder specifically to discover its own failure modes.
+
+anti_manifestations:
+  - id: environmental_difficulty_increase
+    description: The environment becomes harder due to external factors -- a new predator appears, food becomes scarcer, weather patterns shift. The organism faces increased difficulty but did not choose or create it. It must adapt, but this is externally imposed challenge, not self-directed complexification.
+    why_should_not_fire: The difficulty increase is externally imposed, not internally generated. The organism did not detect developmental stagnation and prescribe a harder environment -- the environment simply became harder on its own. Deliberate complexification requires the organism to be the AGENT of the difficulty increase, not just its recipient.
+    distinguishes: Self-generated complexity increase versus externally imposed difficulty. The key dimension is agency -- who made it harder and why.
+
+  - id: risk_seeking_behavior
+    description: The organism takes unnecessary risks -- approaching predators closely, exploring dangerous areas without purpose, choosing risky routes when safe ones are available. This increases danger but does not serve a developmental goal. It is thrill-seeking or miscalibrated risk assessment, not deliberate complexification.
+    why_should_not_fire: Risk-seeking without developmental purpose is not complexification -- it is recklessness. Deliberate complexification is targeted at specific developmental goals diagnosed through self-modeling. The organism should be making things harder in specific, purposeful ways, not just increasing danger indiscriminately. The distinguishing factor is whether the increased difficulty serves an identified developmental need.
+    distinguishes: Purposeful, targeted difficulty increase versus indiscriminate risk-taking. Complexification requires a developmental diagnosis and a targeted prescription, not just more danger.

@@ -1,0 +1,49 @@
+receptor_id: structural_invariance
+family: similarity
+tier: canopy
+stage: 5
+
+conceptual_space: |
+  Detects that the same entity maintains identity across visual transformations.
+  A predator in shadow looks darker and less detailed; in sunlight it looks
+  brighter and sharper. But the movement signature, proportions, and behavioral
+  pattern are identical. This receptor fires when structural features are
+  preserved despite surface-level visual change. The boundary separates
+  genuine identity persistence from superficial visual similarity.
+
+manifestations:
+  - id: shadow_to_sunlight_predator
+    description: Predator moves from shadowed area to sunlit area — appearance changes dramatically but movement pattern and body proportions remain identical
+    survival_relevance: Recognizing the same predator across lighting prevents treating it as a new threat and losing track of the known one
+    what_fires: Object undergoes major luminance/color change while motion signature, relative proportions, and trajectory remain constant
+
+  - id: predator_through_vegetation
+    description: Predator passes behind partial vegetation cover — visible parts shift and fragment but the moving structure reassembles consistently
+    survival_relevance: Tracking a predator through occlusion prevents losing it and being surprised when it re-emerges
+    what_fires: Fragmented visual signals that maintain consistent relative motion and spatial relationships despite occlusion breaks
+
+  - id: distance_scaling_identity
+    description: Same predator at far distance appears small and low-detail; approaching, it grows larger and more detailed but structural ratios hold
+    survival_relevance: Identifying an approaching predator early from its invariant structure allows earlier escape initiation
+    what_fires: Object scaling up in visual field while proportional relationships between parts remain constant
+
+  - id: posture_change_same_predator
+    description: Predator shifts from crouching to standing to running — shape changes substantially but limb ratios and movement style identify it as the same individual
+    survival_relevance: Recognizing the crouching predator as the same one that was standing prevents losing awareness of the threat
+    what_fires: Major shape reconfiguration while skeletal proportions, movement dynamics, and spatial position confirm continuity
+
+  - id: reflection_identity
+    description: Predator visible directly and also reflected in water surface — reflected version is inverted and distorted but structurally matches
+    survival_relevance: Recognizing the reflection as the same predator prevents double-counting threats and misallocating escape effort
+    what_fires: Two visual instances with geometric transformation relationship (vertical flip, distortion) but identical structural features
+
+anti_manifestations:
+  - id: similar_but_different_predators
+    description: Two different predators of the same species in similar lighting — they look alike but move at different speeds and have slightly different proportions
+    why_should_not_fire: These are genuinely different entities, not one entity across transformations — structural invariance is about identity, not category membership
+    distinguishes: Same-entity-across-transformation vs different-entities-of-same-type — invariance tracks ONE thing through change
+
+  - id: same_color_different_structure
+    description: A rock and a predator happen to share the same coloring in shadow — surface similarity without structural match
+    why_should_not_fire: Color similarity without structural correspondence is not invariance — the objects have entirely different motion and proportion signatures
+    distinguishes: Surface visual similarity vs structural identity — invariance requires preserved structure, not just preserved appearance

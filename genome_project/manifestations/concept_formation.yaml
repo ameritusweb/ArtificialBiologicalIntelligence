@@ -1,0 +1,49 @@
+receptor_id: concept_formation
+family: compression
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Stable abstraction over categories. "Tool" = any grippable object that
+  extends causal reach. The organism groups diverse instances under a
+  single reusable label based on shared functional or structural properties.
+  Not chunking (which compresses action sequences) and not pattern
+  recognition (which detects regularity). The boundary: creating a
+  reusable abstract category that novel instances can be classified into.
+
+manifestations:
+  - id: tool_concept
+    description: Organism has used a stick to reach distant food, a bone to dig, and a flat rock to crack shells. It forms the concept "tool" — any rigid grippable object that extends what the body can do
+    survival_relevance: The tool concept lets the organism immediately recognize a never-seen object (antler, thorn) as a potential tool without trial-and-error
+    what_fires: Multiple diverse instances (stick, bone, rock) sharing functional property (grippable + extends reach) cluster into stable abstract category — concept-crystallization signal
+
+  - id: shelter_concept
+    description: Organism has used a cave, a dense bush, and a fallen log as protection from rain and predators. It forms "shelter" — any structure that blocks threats from above and sides
+    survival_relevance: The shelter concept allows instant recognition of novel shelter options (overhanging cliff, hollow tree) in emergencies
+    what_fires: Diverse instances (cave, bush, log) sharing functional property (overhead cover + side protection) crystallize into reusable category — shelter-concept signal
+
+  - id: container_concept
+    description: Organism has carried water in a curled leaf, stored berries in a hollow gourd, and kept grubs in a bark cup. It forms "container" — any concave object that holds smaller things
+    survival_relevance: Container concept enables resource accumulation and transport, fundamental to planning
+    what_fires: Multiple instances (leaf, gourd, bark) sharing structural property (concave + holds contents) stabilize into abstract category — container-concept signal
+
+  - id: barrier_concept
+    description: Organism has been blocked by a river, a thorn wall, and a cliff face. It forms "barrier" — any extended feature that prevents passage
+    survival_relevance: Recognizing barriers as a category triggers immediate search for alternate routes rather than repeated futile approach
+    what_fires: Diverse blocking instances (water, thorns, cliff) sharing functional property (prevents locomotion across) crystallize into category — barrier-concept signal
+
+  - id: predator_concept
+    description: Organism has fled from a hawk, a snake, and a large cat — all different in shape, size, and behavior. It forms "predator" — any agent that pursues and harms organisms like itself
+    survival_relevance: The predator concept enables threat response to novel predator species on first encounter based on predatory behavior cues
+    what_fires: Diverse threat agents (hawk, snake, cat) sharing relational property (pursues + harms self) crystallize into abstract threat category — predator-concept signal
+
+anti_manifestations:
+  - id: perceptual_similarity_grouping
+    description: Organism groups red berries together because they all look red, without any functional or structural abstraction
+    why_should_not_fire: Perceptual grouping by surface feature (color) is not concept formation — no abstract property is extracted, just visual similarity
+    distinguishes: Concept formation requires abstracting a functional or structural property that goes beyond surface appearance
+
+  - id: single_instance_label
+    description: Organism encounters one specific flat rock it uses for cracking nuts and associates "cracking-rock" with that particular rock's location
+    why_should_not_fire: Labeling a single specific object is episodic memory, not concept formation — there is no abstraction over multiple instances
+    distinguishes: Concept formation requires generalization across diverse instances into a reusable category, not a label for one particular object

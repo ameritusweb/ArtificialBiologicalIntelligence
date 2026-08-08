@@ -1,0 +1,196 @@
+receptor_id: contradiction_ep
+family: logic
+tier: canopy
+stage: 11
+
+conceptual_space: |
+  Detects that accumulated evidence across an entire episode contains
+  logical contradiction — two beliefs or observations that cannot both
+  be true. A creature's model says "this path always leads to water"
+  but across the episode, the path has led to water sometimes and dry
+  rock other times. More precisely: two propositions supported by
+  evidence are mutually exclusive. The boundary separates genuine
+  logical contradiction from mere uncertainty, noise, or context-
+  dependent variation.
+  NOTE: this is the episode-level version - measures across an entire
+  episode rather than at a single step. The contradiction emerges only
+  after sufficient evidence accumulates to rule out noise and confirm
+  that two incompatible conclusions are both well-supported.
+
+manifestations:
+  - id: safe_and_dangerous_territory
+    description: |
+      Across an episode, a creature accumulates strong evidence that
+      a particular territory is safe — multiple visits with no threats
+      observed, relaxed behavior from other animals in the area, and
+      reliable food sources found there. But the same episode also
+      accumulates strong evidence that the territory is dangerous —
+      fresh predator scat found on later visits, prey animals showing
+      alarm calls at the territory's edge, and a carcass discovered
+      near the center. Both "this territory is safe" and "this
+      territory is dangerous" are well-supported by substantial
+      episode evidence, but they cannot both be true simultaneously.
+    survival_relevance: |
+      Detecting the contradiction prevents the organism from acting
+      on a dangerously incomplete model. Rather than confidently
+      entering a territory it believes is safe, the contradiction
+      forces model revision — perhaps the territory is safe at some
+      times and dangerous at others (temporal predator pattern), or
+      safe in some zones and dangerous in others (spatial structure).
+    what_fires: |
+      Episode-accumulated evidence supports two mutually exclusive
+      propositions about the same entity. Evidence counts for both
+      "safe" and "dangerous" exceed confidence thresholds. The
+      logical incompatibility between the two well-supported
+      conclusions triggers the contradiction signal.
+
+  - id: reliable_and_unreliable_food_source
+    description: |
+      Over an episode, a creature visits a fruit tree many times.
+      Early visits consistently yield ripe fruit — supporting the
+      belief "this tree is a reliable food source." Later visits
+      consistently yield bare branches or rotten fruit — supporting
+      the belief "this tree is not a reliable food source." Both
+      conclusions are well-evidenced from different portions of the
+      episode. The creature's model cannot hold both without
+      acknowledging a contradiction that demands resolution (the
+      tree is seasonal, or has been depleted, or the model of
+      "reliability" needs temporal structure).
+    survival_relevance: |
+      The contradiction signal prevents the organism from caching
+      a stale belief. If "reliable food source" remains cached
+      after depletion, the organism wastes energy on fruitless
+      visits. The contradiction forces model update — incorporating
+      temporal dynamics or depletion mechanics that resolve the
+      incompatibility.
+    what_fires: |
+      Episode-accumulated evidence for two contradictory assessments
+      of the same resource, each supported by multiple observations.
+      The temporal distribution of evidence may suggest resolution
+      (early vs. late), but the raw contradiction between "reliable"
+      and "unreliable" conclusions, both well-supported, fires the
+      signal.
+
+  - id: dominant_and_submissive_neighbor
+    description: |
+      Across an episode involving many social interactions, a creature
+      accumulates evidence that a neighboring animal is dominant —
+      it wins confrontations, takes preferred resting spots, eats
+      first. But the episode also contains substantial evidence that
+      the same neighbor is submissive — it yields to certain
+      individuals, avoids specific zones, and shows appeasement
+      displays. "Neighbor is dominant" and "neighbor is submissive"
+      are both well-supported, yet logically contradictory as stated.
+      The contradiction demands model revision toward a more nuanced
+      understanding (dominance is relational, not absolute).
+    survival_relevance: |
+      Detecting this contradiction enables the organism to develop
+      a relational dominance model rather than an absolute one.
+      Understanding that the neighbor is dominant over some and
+      submissive to others enables the organism to predict the
+      neighbor's behavior based on who else is present — far more
+      useful than a binary dominant/submissive label.
+    what_fires: |
+      Episode-accumulated evidence supporting contradictory social
+      assessments of the same individual. Multiple dominance
+      observations and multiple submission observations both exceed
+      confidence thresholds. The logical incompatibility between
+      absolute categorizations triggers the contradiction signal.
+
+  - id: expanding_and_contracting_territory
+    description: |
+      Over an episode, a creature observes a herd's territory. Early
+      observations show the herd pushing into new areas, claiming
+      water sources, and expanding their range — evidence for "the
+      herd's territory is expanding." Later observations in the same
+      episode show the herd retreating from peripheral areas, losing
+      water sources to competitors, and contracting their range —
+      evidence for "the herd's territory is contracting." Both
+      observations are genuine and well-documented across the episode.
+      The contradiction forces a temporal or causal model update.
+    survival_relevance: |
+      An organism tracking territorial dynamics for resource access
+      planning must detect this contradiction. Acting on "expanding"
+      alone would lead to incorrect predictions about future
+      resource availability. The contradiction signals that a
+      dynamic process is underway — perhaps seasonal, perhaps
+      driven by competitor pressure — requiring a more sophisticated
+      model.
+    what_fires: |
+      Episode-accumulated evidence for two opposite directional
+      trends in the same system. Both "expanding" and "contracting"
+      are supported by multiple observations. The logical
+      impossibility of simultaneous expansion and contraction of
+      the same territory triggers the contradiction signal.
+
+  - id: nocturnal_and_diurnal_predator
+    description: |
+      Across an episode, a creature accumulates sightings and signs
+      of a specific predator species. Some evidence strongly indicates
+      nocturnal activity — tracks around night-time water holes,
+      kills discovered at dawn, heightened prey alarm calls at dusk.
+      Other evidence strongly indicates diurnal activity — direct
+      daytime sightings, hunting behavior observed in afternoon
+      heat, prey vigilance peaking at midday. "This predator is
+      nocturnal" and "this predator is diurnal" are both well-
+      supported but mutually exclusive. Resolution requires model
+      elaboration (perhaps multiple individuals with different
+      patterns, or crepuscular flexibility).
+    survival_relevance: |
+      The creature's safety strategy depends critically on when the
+      predator is active. If the model says "nocturnal," daytime
+      exploration proceeds with false confidence. The contradiction
+      forces the organism to acknowledge uncertainty about the
+      predator's active period and adopt broader vigilance until
+      the model is refined.
+    what_fires: |
+      Episode-accumulated evidence for contradictory temporal
+      activity patterns of the same predator type. Nocturnal
+      evidence and diurnal evidence both exceed confidence
+      thresholds. The mutual exclusivity of the two activity
+      patterns triggers the contradiction signal.
+
+anti_manifestations:
+  - id: noisy_but_consistent_pattern
+    description: |
+      Across an episode, a creature observes that a foraging area
+      yields food on most visits but not all. Some visits are
+      productive, others are not. The outcomes vary, but they do
+      not support two contradictory conclusions — the area is
+      moderately reliable with stochastic variation. There is no
+      logical contradiction, just noise around a consistent trend.
+    why_should_not_fire: |
+      Stochastic variation around a central tendency is not logical
+      contradiction. Contradiction requires two mutually exclusive
+      propositions that are both well-supported. A food source
+      that works 70% of the time supports a single coherent
+      conclusion ("moderately reliable") with noise, not two
+      contradictory conclusions.
+    distinguishes: |
+      Noisy data supporting a single coherent model versus clean
+      data supporting two incompatible models. Contradiction
+      requires that the evidence genuinely supports both sides
+      of a logical impossibility, not that outcomes merely vary
+      around a mean.
+
+  - id: context_resolves_the_apparent_conflict
+    description: |
+      Across an episode, a creature observes that a particular
+      plant is healthy in shaded areas and wilted in sunny areas.
+      "The plant is healthy" and "the plant is wilted" could seem
+      contradictory, but context (shade vs. sun) fully resolves the
+      apparent conflict. There is no logical contradiction — the
+      plant's health is context-dependent, and both observations are
+      true in their respective contexts.
+    why_should_not_fire: |
+      When a contextual variable resolves the apparent conflict,
+      there is no genuine contradiction. The two observations are
+      both true under different conditions, which is compatible
+      with a single coherent model (plant health depends on sun
+      exposure). Contradiction requires that no available contextual
+      variable resolves the incompatibility.
+    distinguishes: |
+      Genuine logical contradiction (both conclusions apply to the
+      same context and cannot both be true) versus context-dependent
+      variation (both conclusions are true but in different contexts,
+      resolving the apparent conflict).

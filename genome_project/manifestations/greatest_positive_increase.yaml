@@ -1,0 +1,49 @@
+receptor_id: greatest_positive_increase
+family: procedural_memory
+tier: trunk
+stage: 5
+
+conceptual_space: |
+  Detects the experience that produced the largest positive fitness jump —
+  the escape where fitness increased by +500, the food discovery that
+  produced a massive reward. This receptor flags high-value experiences
+  for priority replay and consolidation. The boundary separates
+  exceptional positive jumps from ordinary positive outcomes or from
+  gradual improvements.
+
+manifestations:
+  - id: massive_escape_fitness_jump
+    description: One particular escape attempt resulted in a fitness increase of +500 — far larger than typical escape outcomes of +50 — this episode should be flagged for priority attention
+    survival_relevance: Exceptional outcomes contain exceptional information — the strategy that produced a +500 jump has disproportionate value for future survival
+    what_fires: Fitness change signal from a single episode exceeding the running mean of positive changes by a large margin — outlier detection on the positive side
+
+  - id: food_discovery_windfall
+    description: Discovering a hidden food cache produced a reward 10x larger than typical foraging — this discovery event should be prioritized for memory consolidation
+    survival_relevance: Windfall discoveries may be repeatable — flagging them ensures the conditions and actions that led to them are strongly encoded
+    what_fires: Reward signal from a single foraging event far exceeding the typical reward distribution — the magnitude flags it as exceptional
+
+  - id: novel_strategy_breakthrough
+    description: First use of a new strategy (using a tool to access food) produced dramatically better results than all prior strategies — the strategic innovation should be highlighted
+    survival_relevance: Strategy breakthroughs represent qualitative capability jumps — they deserve priority consolidation because they change what is achievable
+    what_fires: Action-outcome pair where the outcome vastly exceeds all prior outcomes for the same goal — the strategy produced a new personal best by a wide margin
+
+  - id: social_cooperation_jackpot
+    description: First successful cooperative hunt with another organism yielded food that neither could have obtained alone — the cooperation event should be flagged
+    survival_relevance: Cooperative strategies that unlock otherwise inaccessible resources represent multiplicative improvements worth strong encoding
+    what_fires: Joint-action outcome exceeding the sum of individual-action outcomes — the cooperation multiplier flags this as an exceptionally valuable episode
+
+  - id: danger_avoidance_near_miss_survival
+    description: Organism narrowly escaped a situation that would have been fatal — the near-miss produced a huge relief-based fitness signal because the alternative was total loss
+    survival_relevance: Near-miss survivals contain critical information about the boundary between life and death — they deserve priority consolidation
+    what_fires: Fitness signal showing a massive avoided loss — the contrast between the near-death trajectory and the actual survival outcome produces an exceptional positive signal
+
+anti_manifestations:
+  - id: ordinary_positive_outcome
+    description: Organism successfully forages and gains typical nutrition — a positive outcome but within the normal range of daily results
+    why_should_not_fire: The outcome is positive but not exceptional — it does not stand out from the distribution of typical positive experiences
+    distinguishes: Exceptional positive jump vs routine positive outcome — greatest_positive_increase fires only on outlier magnitude, not on any positive result
+
+  - id: gradual_improvement
+    description: Organism's foraging efficiency has slowly improved over 50 episodes with small incremental gains each time — no single episode stands out
+    why_should_not_fire: The improvement is distributed across many episodes, not concentrated in one — no single episode represents a dramatic jump
+    distinguishes: Single-episode exceptional jump vs distributed gradual improvement — the receptor detects outlier events, not trends

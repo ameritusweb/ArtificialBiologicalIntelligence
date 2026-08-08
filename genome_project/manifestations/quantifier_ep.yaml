@@ -1,0 +1,194 @@
+receptor_id: quantifier_ep
+family: logic
+tier: branch
+stage: 8
+
+conceptual_space: |
+  Detects whether a pattern observed across an episode holds universally
+  or only in particular cases. A creature notices that thornbushes have
+  berries — across the episode, does EVERY thornbush have berries, or
+  only SOME? The accumulated evidence converts "thornbushes have
+  berries" from a vague association into a quantified claim: "all,"
+  "most," "some," or "few." The boundary separates genuine quantifier
+  assessment (accumulated evidence supports a universal or particular
+  claim) from premature generalization or insufficient sampling.
+  NOTE: this is the episode-level version - measures across an entire
+  episode rather than at a single step. The quantifier assessment
+  requires many observations of the same pattern to determine its
+  scope — universal, typical, occasional, or rare.
+
+manifestations:
+  - id: universal_pattern_confirmed
+    description: |
+      A creature notices that the first red mushroom it encounters
+      causes nausea. Across the episode, it encounters fourteen more
+      red mushrooms in different locations, different soil types,
+      different lighting conditions. Every single one causes nausea
+      when tasted. The accumulated evidence across the episode
+      confirms the universal quantifier: ALL red mushrooms cause
+      nausea. Zero exceptions in fifteen observations across varied
+      conditions. The pattern is universal, not particular.
+    survival_relevance: |
+      Confirming a universal quantifier enables absolute rules. If
+      ALL red mushrooms are toxic, the organism can implement a
+      blanket avoidance rule — never taste red mushrooms — without
+      needing case-by-case evaluation. This saves testing costs and
+      eliminates poisoning risk. Universal rules are maximally
+      efficient when the pattern is genuinely universal.
+    what_fires: |
+      Episode-accumulated observation count with zero exceptions.
+      Every instance of the category (red mushrooms) produces the
+      same outcome (nausea). The sample size exceeds the confidence
+      threshold, and the exception count remains at zero. The
+      universal quantifier signal fires with high confidence.
+
+  - id: particular_pattern_with_exceptions
+    description: |
+      A creature notices that riverside trees tend to have edible
+      bark. Across the episode, it samples bark from twenty riverside
+      trees. Fourteen have edible bark, six have bitter or toxic
+      bark. The accumulated evidence supports a particular, not
+      universal, quantifier: MOST riverside trees have edible bark,
+      but not all. The exception rate of 30 percent is too high for
+      a universal rule but too low for dismissal. The episode
+      reveals a probabilistic association, not an absolute one.
+    survival_relevance: |
+      A "most but not all" quantifier enables probabilistic
+      decision-making. The organism should preferentially sample
+      riverside trees (70 percent chance of edible bark is much
+      better than random), but must still test each one individually
+      before eating. The particular quantifier calibrates the
+      organism's approach between blanket trust and blanket avoidance.
+    what_fires: |
+      Episode-accumulated observation count with moderate exception
+      rate. The majority of instances follow the pattern, but a
+      significant minority do not. The exception rate falls between
+      the universal threshold (near zero) and the dismissal
+      threshold (near random), triggering the particular quantifier
+      signal with the observed proportion.
+
+  - id: rare_exceptions_to_apparent_universal
+    description: |
+      A creature observes that animals at the water hole always
+      drink in the same order — dominant first, subordinates after.
+      Across the episode, this pattern holds in eighteen of twenty
+      observed drinking events. But twice, a subordinate drank first
+      while the dominant was distracted. The near-universal pattern
+      has rare exceptions. The accumulated evidence supports a
+      "nearly all" quantifier — the pattern is robust but not
+      exceptionless. The rare exceptions may indicate important
+      boundary conditions (distraction, absence, injury).
+    survival_relevance: |
+      Recognizing rare exceptions to a near-universal pattern
+      prevents the organism from treating the pattern as absolutely
+      reliable. The exceptions, though rare, may signal important
+      contextual factors. The organism can generally rely on the
+      pattern but should not bet its survival on zero exceptions.
+    what_fires: |
+      Episode-accumulated high pattern consistency with very few
+      exceptions. The exception rate is low enough to resemble
+      universality but nonzero. The near-universal quantifier
+      fires with both the reliability estimate and the exception
+      conditions, encoding both the strength of the pattern and
+      the contexts where it fails.
+
+  - id: initially_universal_pattern_breaks_down
+    description: |
+      Early in an episode, a creature observes that all animals
+      entering a specific clearing flee within seconds — suggesting
+      a universal rule (the clearing is dangerous). After eight
+      consistent observations, the ninth animal enters and stays
+      calmly. Then two more enter and stay. By episode end, seven
+      animals fled and four stayed. What appeared universal in the
+      early evidence is revealed as particular by later evidence.
+      The episode trajectory shows quantifier revision: universal
+      to particular as the sample grows and exceptions appear.
+    survival_relevance: |
+      Quantifier revision prevents premature commitment to rules
+      that early evidence makes look universal. If the organism
+      had encoded "always dangerous" from the first eight
+      observations, it would avoid a clearing that is actually only
+      sometimes dangerous. The late-episode exceptions force
+      reassessment, potentially revealing contextual factors
+      (time of day, wind direction, specific threat presence).
+    what_fires: |
+      Episode-accumulated quantifier trajectory showing revision.
+      Early observations support universal quantifier; later
+      observations introduce exceptions. The quantifier confidence
+      shifts from universal to particular as the exception count
+      grows. The revision signal fires when a previously confident
+      universal assessment is downgraded.
+
+  - id: pattern_holds_only_in_specific_subset
+    description: |
+      A creature observes berries across an episode. It notices
+      that round berries tend to be edible. Sampling broadly:
+      round berries on bushes are all edible (ten of ten), but round
+      berries on ground vines are mostly toxic (seven of ten toxic).
+      The universal "round berries are edible" only holds within
+      the bush subset, not universally. The accumulated evidence
+      reveals a scoped quantifier: "all round bush-berries are
+      edible" but "most round vine-berries are toxic." The universal
+      applies within a restricted scope, not globally.
+    survival_relevance: |
+      Scoped quantification prevents dangerous overgeneralization.
+      A blanket "round berries are edible" rule would cause
+      poisoning from vine-berries. The episode-level evidence
+      reveals that the safe universal applies only within the bush
+      category, enabling the organism to maintain the useful rule
+      while respecting its scope boundary.
+    what_fires: |
+      Episode-accumulated evidence showing a pattern that is
+      universal within one subgroup but fails in another. The
+      overall exception rate is moderate, but when conditioned
+      on a distinguishing feature (bush vs. vine), the pattern
+      separates into a universal subgroup and a counter-pattern
+      subgroup. The scoped quantifier fires with scope conditions.
+
+anti_manifestations:
+  - id: insufficient_sample_for_quantification
+    description: |
+      A creature encounters two red berries across an episode and
+      both are bitter. It concludes "all red berries are bitter."
+      But two observations are insufficient to support a universal
+      quantifier with confidence. The sample is too small — the
+      next red berry might be sweet. The episode has not provided
+      enough data for reliable quantifier assessment.
+    why_should_not_fire: |
+      The episode-level quantifier receptor requires sufficient
+      sampling to distinguish universal from particular patterns.
+      Two observations that happen to agree do not confirm
+      universality — they are consistent with any quantifier from
+      "all" to "some." The sample size falls below the minimum
+      required for confident quantifier assignment.
+    distinguishes: |
+      Sufficient sampling for quantifier confidence versus
+      premature generalization from small samples. The episode-
+      level receptor requires accumulated evidence across many
+      observations, not just a few coincidentally consistent ones.
+
+  - id: different_contexts_not_exceptions
+    description: |
+      A creature observes that animals flee from a clearing during
+      the day but rest in the clearing at night. A naive quantifier
+      assessment might say "some animals flee, some do not" (a
+      particular quantifier). But the "exceptions" are explained
+      by context — it is universal that animals flee during the day
+      and universal that they rest at night. Both quantifiers are
+      universal within their respective contexts, not particular
+      in the overall sample.
+    why_should_not_fire: |
+      Context-dependent universals should not be collapsed into
+      unconditional particulars. The quantifier receptor should
+      assess patterns within relevant contexts. What looks like
+      a particular pattern ("sometimes flee, sometimes rest") is
+      actually two universal patterns in different contexts. The
+      correct quantification is "always flee during day; always
+      rest at night" — both universal, context-scoped.
+    distinguishes: |
+      Genuine particular pattern (exceptions not explained by
+      context) versus context-dependent universal (exceptions
+      disappear when conditioned on the right variable). The
+      episode-level receptor should detect context structure
+      before assigning a quantifier to the unconditional
+      distribution.

@@ -1,0 +1,49 @@
+receptor_id: semantic_relation
+family: logic
+tier: trunk
+stage: 8
+
+conceptual_space: |
+  Detects the relationship TYPE between named concepts, not just that concepts
+  co-occur. "Predator CHASES prey" is a different relation than "predator IS-A
+  threat." The boundary separates detection of typed relations (specific
+  structural roles between concepts) from mere association (concepts that
+  co-activate without a specified relationship). The concept is the relation
+  itself — the structural connector between named referents.
+
+manifestations:
+  - id: chases_relation
+    description: Organism detects that predator CHASES prey — not just that both are present, but that the predator is the agent pursuing and prey is the target being pursued
+    survival_relevance: Knowing the relation type determines appropriate response — being chased requires flight, while observing a chase at distance requires vigilance but not immediate flight
+    what_fires: Two named concepts activated with a directional action-relation binding — agent-action-patient structure detected, not just co-presence
+
+  - id: is_a_categorization
+    description: Organism represents "wolf IS-A predator" — the wolf concept is linked to the predator category by a type-membership relation, not by spatial or temporal proximity
+    survival_relevance: IS-A relations enable categorical inference — anything known about predators automatically applies to wolves, multiplying knowledge without direct experience
+    what_fires: A named concept activating a category concept through a hierarchical membership relation, distinct from temporal association or co-occurrence
+
+  - id: causes_relation
+    description: Organism represents "rain CAUSES flooding" — rain is the source and flooding is the effect, linked by a causal relation type rather than mere temporal sequence
+    survival_relevance: Causal relations enable prediction and prevention — knowing rain causes flooding allows preemptive relocation rather than reactive escape
+    what_fires: Two named concepts connected by a directed causal relation, with source and effect roles explicitly differentiated
+
+  - id: part_of_relation
+    description: Organism represents "claw PART-OF predator" — detecting that the claw is a component of the predator, not a separate entity that co-occurs with predators
+    survival_relevance: Part-whole relations enable inference about unseen wholes from visible parts — seeing a claw implies the rest of the predator
+    what_fires: Two named concepts connected by a compositional containment relation, with part and whole roles structurally distinguished
+
+  - id: communicates_relation_to_others
+    description: Organism signals not just "predator" and "river" but "predator NEAR river" — communicating the spatial relation between two named concepts to coordinate group response
+    survival_relevance: Communicated relations enable recipients to build accurate situational models without direct observation, supporting coordinated avoidance or approach
+    what_fires: A signal encoding two named concepts plus their binding relation type, with the relation itself being a separable component of the communicated structure
+
+anti_manifestations:
+  - id: co_occurrence_without_relation_type
+    description: Organism notices that "rain" and "worms" frequently co-occur but has no representation of WHY — the association exists but no relation type (causes, precedes, enables) is specified
+    why_should_not_fire: Co-occurrence is a statistical pattern, not a typed relation — the organism knows the concepts are linked but not how they are linked
+    distinguishes: Typed relation (specific structural role connecting concepts) vs associative co-occurrence (concepts that co-activate without specified relationship)
+
+  - id: emotional_coloring_not_relation
+    description: Organism activates "predator" with strong fear valence — the concept has emotional weight but no structural relation to another concept is specified
+    why_should_not_fire: Emotional valence is a property of a single concept, not a relation between two concepts — there is no second referent in a typed role
+    distinguishes: Semantic relation (typed connection between two named concepts) vs concept-level affect (emotional property of a single concept)

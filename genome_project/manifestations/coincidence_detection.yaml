@@ -1,0 +1,45 @@
+receptor_id: coincidence_detection
+family: causality
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Two events happen together more often than chance. Not causation yet —
+  just co-occurrence. The boundary: correlated vs independent.
+
+manifestations:
+  - id: pain_and_heat
+    description: Pain spikes occur simultaneously with high temperature readings
+    survival_relevance: Co-locating pain and heat identifies hazardous zones
+    what_fires: Joint probability P(pain|heat) > P(pain) * P(heat)
+
+  - id: food_and_water
+    description: Food patches appear near water sources more often than elsewhere
+    survival_relevance: Finding water predicts finding food
+    what_fires: Spatial co-occurrence above chance baseline
+
+  - id: sound_and_npc
+    description: A specific sound always accompanies NPC appearance
+    survival_relevance: Sound becomes a proxy signal for agent presence
+    what_fires: Temporal co-occurrence of auditory and social channels
+
+  - id: endorphin_and_movement
+    description: Endorphin release coincides with specific movement patterns
+    survival_relevance: Organism learns which movements feel good
+    what_fires: Joint activation of motor efference and reward channels
+
+  - id: darkness_and_cold
+    description: Light level drops and temperature drops at the same time (nightfall)
+    survival_relevance: Combined signal predicts a state change requiring shelter
+    what_fires: Simultaneous change in two independent sensory channels
+
+anti_manifestations:
+  - id: sequential_not_simultaneous
+    description: Pain occurs 50 steps AFTER heat exposure, not during
+    why_should_not_fire: This is precedence/temporal association, not coincidence
+    distinguishes: Coincidence is SIMULTANEOUS co-occurrence, not sequential
+
+  - id: spurious_once
+    description: Food and lightning co-occur exactly once
+    why_should_not_fire: Single co-occurrence is chance, not pattern
+    distinguishes: Coincidence requires repeated above-chance co-occurrence

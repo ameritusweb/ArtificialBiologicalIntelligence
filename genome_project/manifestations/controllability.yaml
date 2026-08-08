@@ -1,0 +1,45 @@
+receptor_id: controllability
+family: agency
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  I caused that change vs the world caused it. Self-agency vs external events.
+  The boundary: organism-caused state changes vs environment-caused state changes.
+
+manifestations:
+  - id: limb_moves_object
+    description: Extending limb contacts rock → rock moves. Retracting limb → rock stops
+    survival_relevance: Knowing "I did that" enables intentional manipulation
+    what_fires: Tight coupling between motor command and environmental state change
+
+  - id: locomotion_changes_position
+    description: Organism activates muscles → position changes proportionally
+    survival_relevance: Self-caused movement enables navigation
+    what_fires: Efference copy matches observed position delta
+
+  - id: emission_triggers_response
+    description: Organism emits signal → NPC behavior changes; no emission → NPC unchanged
+    survival_relevance: Knowing "my signal caused their response" enables communication
+    what_fires: Action produces correlated external change, inaction doesn't
+
+  - id: wind_moves_object
+    description: Rock moves without organism action — wind pushed it
+    survival_relevance: Distinguishing wind-caused from self-caused prevents false agency attribution
+    what_fires: Environmental change occurs WITHOUT corresponding motor command
+
+  - id: injury_reduces_speed
+    description: After limb damage, same motor command produces less movement
+    survival_relevance: Knowing "I'm weaker now" adjusts expectations and planning
+    what_fires: Same efference, smaller effect — controllability reduced but still self-caused
+
+anti_manifestations:
+  - id: phantom_agency
+    description: Object happens to move at the same moment organism extends limb, but wasn't touched
+    why_should_not_fire: Temporal coincidence without causal coupling — not controllability
+    distinguishes: Controllability requires causal coupling, not just temporal correlation
+
+  - id: passive_movement
+    description: Organism is pushed by water current — position changes without motor command
+    why_should_not_fire: Movement occurred but organism didn't cause it
+    distinguishes: Self-caused requires efference-reafference match

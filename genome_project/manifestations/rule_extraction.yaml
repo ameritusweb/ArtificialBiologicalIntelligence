@@ -1,0 +1,49 @@
+receptor_id: rule_extraction
+family: formalization
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Extract explicit IF-THEN rule from repeated pattern. The organism has
+  observed enough instances to crystallize a regularity into a retrievable
+  conditional: "IF near water AND hot THEN danger." Not just pattern
+  recognition (which detects regularity) but the moment the implicit
+  becomes explicit — a named, reusable rule. The boundary: making an
+  implicit statistical regularity into an explicit conditional structure.
+
+manifestations:
+  - id: thermal_danger_rule
+    description: After three occasions where stepping on dark rocks in sun led to pain, organism crystallizes "IF dark rock AND sunny THEN hot surface — avoid stepping"
+    survival_relevance: Explicit rules allow preemptive avoidance without requiring fresh pain each time
+    what_fires: Repeated co-occurrence (dark rock + sun + pain) crosses threshold into stable conditional representation — rule-crystallization signal
+
+  - id: predator_time_rule
+    description: After many days observing that large cats appear at the water hole only at dusk, organism extracts "IF dusk AND water hole THEN predator likely"
+    survival_relevance: Temporal predator rules allow safe resource access at other times
+    what_fires: Repeated temporal co-occurrence (dusk + water hole + predator) reaches sufficient count to stabilize as conditional — timing-rule signal
+
+  - id: food_indicator_rule
+    description: Organism repeatedly finds grubs under logs that have a specific type of fungus on them. It extracts "IF log has white fungus THEN grubs underneath"
+    survival_relevance: Indicator rules make foraging dramatically more efficient by narrowing search
+    what_fires: Consistent co-occurrence (white fungus on log + grubs present beneath) crystallizes from correlation into retrievable conditional — indicator-rule signal
+
+  - id: shelter_weather_rule
+    description: After repeated exposure, organism extracts "IF wind shifts to cold direction AND clouds darken THEN storm within short time — seek shelter"
+    survival_relevance: Weather prediction rules allow proactive shelter-seeking before conditions become dangerous
+    what_fires: Multi-feature co-occurrence (cold wind + dark clouds + subsequent storm) crystallizes into compound conditional — multi-antecedent rule signal
+
+  - id: social_escalation_rule
+    description: Organism repeatedly observes that when a rival bares teeth AND raises fur, attack follows. It extracts "IF teeth bared AND fur raised THEN attack imminent — back away"
+    survival_relevance: Social conflict rules allow de-escalation before physical harm occurs
+    what_fires: Repeated behavioral sequence (teeth + fur + attack) crystallizes into conditional predicting the terminal event from precursor signals — social-rule signal
+
+anti_manifestations:
+  - id: single_lucky_association
+    description: Organism once found food after turning left at a fork and now always turns left, but this was a one-time coincidence
+    why_should_not_fire: A single co-occurrence adopted as superstition is not rule extraction — insufficient repetitions to separate signal from noise
+    distinguishes: Rule extraction requires multiple confirming instances that crystallize a statistical regularity, not a one-shot association
+
+  - id: implicit_habit
+    description: Organism consistently avoids thorny bushes by walking around them but cannot represent WHY — it just feels aversive
+    why_should_not_fire: The avoidance is an implicit conditioned response, not an explicit "IF thorny THEN avoid" rule the organism can generalize
+    distinguishes: Rule extraction makes the regularity explicit and transferable, not just an automatic behavioral tendency

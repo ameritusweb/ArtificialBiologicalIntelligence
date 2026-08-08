@@ -1,0 +1,48 @@
+receptor_id: rule_composition
+family: formalization
+tier: canopy
+stage: 5
+
+conceptual_space: |
+  Detects chained rules — the output of one rule feeds the input of another.
+  IF predator-near AND no-cover THEN flee. IF flee AND wall-ahead THEN turn.
+  The rules compose into a decision tree where each rule's conclusion becomes
+  a premise for the next. The boundary separates chained multi-rule reasoning
+  from single rules or from multiple independent rules that do not feed each other.
+
+manifestations:
+  - id: flee_then_turn
+    description: Rule 1 fires (predator near + no cover = flee), then Rule 2 fires (fleeing + wall ahead = turn left) — the flee output feeds the turn rule's input
+    survival_relevance: Composed rules handle multi-step situations that no single rule covers — the organism navigates around obstacles while fleeing
+    what_fires: First rule's output (flee state active) becoming an input condition for a second rule that adds directional modification — sequential rule activation with output-to-input linkage
+
+  - id: threat_assessment_then_response_selection
+    description: Rule 1 classifies threat level (large + fast = high threat), then Rule 2 selects response based on threat level (high threat + shelter nearby = shelter, high threat + no shelter = flee)
+    survival_relevance: Separating assessment from response selection enables the same threat classification to drive different responses based on context
+    what_fires: Classification rule output (threat level) feeding into a response selection rule as input, producing context-appropriate behavior through rule chaining
+
+  - id: forage_then_cache
+    description: Rule 1 fires (food found + predator absent = harvest), then Rule 2 fires (food harvested + surplus = cache at safe location) — harvesting output feeds caching rule
+    survival_relevance: Multi-step foraging strategies emerge from composed rules without requiring a single monolithic foraging rule
+    what_fires: Harvesting rule completion activating a surplus-detection rule, which in turn activates a caching rule — three-rule chain with each output enabling the next
+
+  - id: detect_then_communicate_then_coordinate
+    description: Rule 1 (threat detected = alert), Rule 2 (alert active + others present = signal), Rule 3 (signal sent + others responding = coordinate movement) — three-rule chain
+    survival_relevance: Complex social responses emerge from simple rule chains — detection triggers communication triggers coordination
+    what_fires: Sequential rule activation where detection output feeds communication rule, communication output feeds coordination rule — each rule simple but chain produces complex behavior
+
+  - id: evaluate_then_compare_then_select
+    description: Rule 1 evaluates escape route A (viable), Rule 2 evaluates route B (viable), Rule 3 compares (A shorter than B = select A) — evaluation feeds comparison feeds selection
+    survival_relevance: Optimal route selection requires evaluation rules feeding into comparison rules — neither alone produces the best choice
+    what_fires: Multiple evaluation rule outputs feeding into a comparison rule whose output selects among the evaluated options — parallel evaluation followed by serial comparison
+
+anti_manifestations:
+  - id: single_complex_rule
+    description: One rule with many conditions (predator near AND no cover AND wall ahead AND not exhausted THEN turn left and flee) — complex but not composed
+    why_should_not_fire: This is a single rule with compound conditions, not separate rules whose outputs chain — there is no intermediate conclusion feeding a second rule
+    distinguishes: Rule chaining (output feeds input) vs compound single rule (many conditions, one conclusion) — composition requires at least two rules with linking
+
+  - id: independent_parallel_rules
+    description: Rule 1 says flee from predator. Rule 2 says approach food. Both fire simultaneously but neither's output feeds the other — they compete but do not compose
+    why_should_not_fire: The rules are independent and potentially conflicting, not chained — neither rule's output is an input to the other
+    distinguishes: Chained composition vs independent parallel rules — rule_composition requires output-to-input linkage between rules

@@ -1,0 +1,180 @@
+receptor_id: prediction_architecture_awareness
+family: sequential
+tier: canopy
+stage: 12
+
+conceptual_space: |
+  Detects that the organism HAS a prediction system with specific
+  structure, capabilities, and limitations — knowing HOW it predicts
+  rather than merely predicting. The organism does not just predict
+  that food will be at a location; it knows that its prediction is
+  based on temporal pattern matching over a specific recency window,
+  that it degrades with longer time horizons, and that it cannot
+  handle certain kinds of irregularity. The boundary separates
+  predicting (using the prediction system transparently) from knowing
+  about one's prediction system (representing its structure and
+  limitations as facts). The critical signal is meta-predictive
+  knowledge — facts about HOW the organism predicts.
+
+manifestations:
+  - id: knowing_own_prediction_horizon
+    description: |
+      The organism needs to predict whether a food source will be
+      available in a distant future period. It recognizes: "My
+      predictions are reliable up to a certain temporal range but
+      become unreliable beyond that. This prediction is beyond my
+      reliable range — I should not trust it as strongly as my
+      short-term predictions." The organism knows the temporal
+      limitations of its own prediction system.
+    survival_relevance: |
+      Acting on predictions beyond one's reliable horizon with
+      the same confidence as near-term predictions produces
+      overcommitment to unreliable forecasts. Knowing one's
+      prediction horizon enables appropriate confidence calibration
+      — high confidence in near predictions, low confidence in
+      far ones, and hedging strategies for the uncertain range.
+    what_fires: |
+      The organism representing a structural property of its own
+      prediction system (temporal horizon limit) and using that
+      representation to modulate confidence in a specific
+      prediction. The meta-predictive knowledge (facts about
+      the prediction system) fires, not the prediction itself.
+
+  - id: knowing_own_prediction_input_dependencies
+    description: |
+      The organism predicts a predator's movement pattern but
+      recognizes: "This prediction is based on only three
+      observations of this predator. My predictions become reliable
+      only after more observations. I am predicting from
+      insufficient data — my system needs more input to be
+      trustworthy here." The organism knows what its prediction
+      system requires to produce reliable output.
+    survival_relevance: |
+      Recognizing when one's prediction system is operating with
+      insufficient input prevents overconfident action based on
+      poorly grounded predictions. The organism can deliberately
+      seek more observations before acting rather than treating
+      a thin prediction as a thick one.
+    what_fires: |
+      The organism representing the input requirements of its own
+      prediction system — knowing how much data its system needs
+      to produce reliable predictions — and comparing current
+      input against that requirement. The prediction-system-
+      requirements-model fires.
+
+  - id: knowing_own_prediction_failure_modes
+    description: |
+      The organism encounters a situation where two previously
+      independent patterns now interact. It recognizes: "My
+      prediction system handles each pattern separately but cannot
+      model their interaction. I will predict based on one pattern
+      and be surprised by the interaction effect." The organism
+      knows a specific structural limitation — inability to model
+      pattern interactions — before the prediction fails.
+    survival_relevance: |
+      Anticipating one's own prediction failures enables
+      preemptive caution — the organism expects to be surprised
+      and prepares for contingencies rather than being caught off
+      guard. This turns a blind spot from a vulnerability into
+      a known risk that can be managed.
+    what_fires: |
+      The organism modeling a specific structural limitation of
+      its own prediction system — a class of situations where it
+      knows in advance that its predictions will fail — and
+      recognizing the current situation as an instance of that
+      class. The anticipated-own-failure-mode fires.
+
+  - id: knowing_own_prediction_method
+    description: |
+      The organism makes a prediction and recognizes: "I predicted
+      this by matching the current sequence to a similar past
+      sequence and extrapolating. This is pattern-matching, not
+      causal reasoning — if the underlying mechanism has changed,
+      my prediction will fail even though the surface pattern
+      matches." The organism knows the METHOD it uses to predict
+      and the method's vulnerabilities.
+    survival_relevance: |
+      Knowing that one predicts by pattern-matching rather than
+      causal modeling reveals when predictions are vulnerable —
+      specifically, when surface patterns persist but underlying
+      mechanisms change. This enables the organism to seek causal
+      information when pattern-matching alone is insufficient.
+    what_fires: |
+      The organism representing the computational method of its
+      own prediction system (pattern-matching vs. causal modeling)
+      and deriving the method's vulnerabilities from that
+      representation. The prediction-method-awareness pattern fires.
+
+  - id: knowing_when_prediction_system_is_confused
+    description: |
+      The organism encounters contradictory patterns — the
+      situation matches multiple prediction templates that give
+      opposing forecasts. Instead of arbitrarily choosing one
+      prediction, the organism detects: "My prediction system is
+      receiving conflicting inputs and cannot resolve them — it
+      is in a state of confusion, and any output it produces now
+      is unreliable." The organism detects its own system's
+      confusion state.
+    survival_relevance: |
+      Acting on the output of a confused prediction system is
+      dangerous — the output is arbitrary rather than informed.
+      Detecting the confusion state enables the organism to defer
+      action, seek more information, or use a different decision
+      strategy entirely until the prediction system resolves.
+    what_fires: |
+      The organism detecting an internal state of its own
+      prediction system — conflict between competing templates —
+      and recognizing that state as a system property (confusion)
+      rather than a world property (ambiguity). The system-state-
+      detection fires when the organism reads its own prediction
+      system's operational status.
+
+anti_manifestations:
+  - id: making_predictions_without_meta_knowledge
+    description: |
+      The organism predicts that food will be at a location
+      tomorrow because it has been there for the past several
+      days. The prediction is accurate and useful. But the
+      organism does not represent anything about HOW it made this
+      prediction, what its prediction system's limitations are,
+      or what would cause the prediction to fail. It predicts
+      but has no model of its own prediction process.
+    why_should_not_fire: |
+      This is prediction, not prediction architecture awareness.
+      The organism uses its prediction system transparently —
+      looking through it at predicted events — without representing
+      the system itself as an object with properties. Prediction
+      architecture awareness requires meta-predictive knowledge:
+      facts about the prediction system's structure, not just its
+      outputs.
+    distinguishes: |
+      Using the prediction system (making predictions) versus
+      knowing about the prediction system (representing its
+      structure, limitations, and methods as facts). The meta
+      level — knowledge about the knowledge-generating process —
+      is the boundary.
+
+  - id: learning_from_prediction_failure_without_architectural_insight
+    description: |
+      The organism predicted food at a location and found none.
+      It updates its prediction — less likely to predict food
+      there tomorrow. But it does not represent WHY the prediction
+      failed in terms of its system's limitations. It simply
+      adjusts the prediction based on the error signal, without
+      modeling the prediction system's failure mode. The update
+      is data-driven, not architecturally informed.
+    why_should_not_fire: |
+      This is prediction error correction — adjusting outputs
+      based on feedback — not architectural awareness. The
+      organism learns from the error but does not learn anything
+      about its prediction SYSTEM. It adjusts the specific
+      prediction without understanding the structural reason
+      for the failure. Error-driven updating is a lower-level
+      process than architectural self-knowledge.
+    distinguishes: |
+      Adjusting predictions from error signals (data-driven
+      correction) versus understanding WHY predictions fail based
+      on system architecture (structural self-knowledge). The
+      difference is between "this prediction was wrong, update it"
+      and "my prediction system fails in this class of situations
+      because of its structure."

@@ -1,0 +1,199 @@
+receptor_id: optimization_ep
+family: formalization
+tier: canopy
+stage: 9
+
+conceptual_space: |
+  Detects progressive improvement toward an optimum across an entire
+  episode. Not a single "this is better than that" comparison, but
+  accumulated evidence of a directional improvement trajectory — each
+  successive attempt is better than the last, converging on a solution
+  that cannot be easily improved further. A creature refining its
+  nest-building technique across an episode: first attempt leaks,
+  second is tighter but unstable, third is stable but poorly
+  insulated, fourth is well-insulated and stable. The trajectory
+  shows convergence toward optimality. The boundary separates genuine
+  convergent improvement from random variation or lateral exploration.
+  NOTE: this is the episode-level version - measures across an entire
+  episode rather than at a single step. The optimization trajectory
+  only becomes visible through accumulated evidence of progressive
+  refinement across many attempts.
+
+manifestations:
+  - id: nest_building_progressively_improves
+    description: |
+      A creature builds and rebuilds a nest across an episode. First
+      attempt: loose twigs, collapses in wind. Second attempt: tighter
+      weave, survives wind but leaks in rain. Third attempt: added
+      leaf layer, waterproof but too heavy for the branch. Fourth
+      attempt: lighter materials, waterproof and stable. Fifth
+      attempt: added moss insulation, minimal improvement over fourth.
+      Each iteration improves on the previous, the improvements get
+      smaller (diminishing returns), and the final version approaches
+      the best achievable with available materials. The episode
+      reveals a convergent optimization trajectory.
+    survival_relevance: |
+      Progressive optimization of shelter construction directly
+      improves survival through better weather protection, reduced
+      rebuilding costs, and improved offspring survival. Detecting
+      the optimization trajectory enables the organism to recognize
+      when further refinement yields diminishing returns and
+      resources should be allocated elsewhere.
+    what_fires: |
+      Episode-accumulated sequence of attempts with monotonically
+      improving quality metrics and decreasing improvement
+      magnitude. The trajectory shows convergence — early
+      improvements are large, later improvements are small,
+      suggesting approach to an optimum. Convergence rate and
+      improvement direction consistency across the episode exceed
+      the optimization detection threshold.
+
+  - id: foraging_route_efficiency_converges
+    description: |
+      A creature forages along a route visiting multiple food
+      patches. First traversal: visits patches in discovery order,
+      backtracks twice, total distance is high relative to food
+      collected. Across the episode, successive traversals
+      progressively reorder patch visits, eliminate backtracking,
+      skip depleted patches, and add newly discovered patches.
+      By the tenth traversal, the route is nearly optimal —
+      visiting productive patches in geographic sequence with
+      minimal wasted travel. Further traversals show only marginal
+      improvements. The episode reveals systematic convergence
+      toward the traveling-salesman optimum.
+    survival_relevance: |
+      An optimized foraging route minimizes energy expenditure per
+      calorie gained, directly improving the organism's energy
+      budget. Detecting the optimization trajectory enables
+      recognition of when the route is "good enough" and further
+      tinkering wastes more energy than it saves.
+    what_fires: |
+      Episode-accumulated improvement in route efficiency metrics
+      (distance per food unit, time per calorie) across successive
+      traversals. The improvement curve shows characteristic
+      optimization shape — steep initial gains flattening toward
+      an asymptote. Convergence toward diminishing returns
+      triggers the optimization signal.
+
+  - id: hunting_technique_refinement
+    description: |
+      A creature learning to catch fish refines its technique across
+      an episode. Initial attempts: random lunges, near-zero success.
+      Mid-episode: positioned near fish concentration points, timing
+      improves, success rate rises to 30 percent. Late-episode:
+      approach angle optimized, strike timing refined, lunge depth
+      calibrated to water refraction, success rate plateaus at 60
+      percent. Each refinement builds on previous improvements. The
+      diminishing returns at 60 percent suggest proximity to the
+      physical optimum given the creature's body mechanics.
+    survival_relevance: |
+      Detecting the optimization trajectory in a developing skill
+      enables efficient resource allocation between practice and
+      exploitation. Once the improvement curve flattens, the
+      organism should exploit the skill rather than invest more
+      in practice. Without episode-level tracking, the organism
+      cannot distinguish "still learning" from "nearly optimal."
+    what_fires: |
+      Episode-accumulated success rate trajectory showing
+      progressive improvement with decreasing rate of gain. The
+      learning curve shape (steep then flat) indicates convergent
+      optimization. Success rate, efficiency, and precision
+      metrics all improve in the same direction across the episode.
+
+  - id: social_grooming_strategy_optimizes
+    description: |
+      A creature entering a new social group experiments with
+      grooming strategy across an episode. Initially grooms random
+      group members — some reciprocate, many do not. Progressively
+      concentrates grooming on individuals who reciprocate,
+      adjusting timing to when recipients are most receptive. By
+      late episode, the creature has converged on a strategy:
+      groom three specific allies at specific times of day, yielding
+      maximum reciprocal grooming per effort invested. The social
+      optimization trajectory shows diminishing returns as the
+      strategy approaches the best achievable social investment
+      allocation.
+    survival_relevance: |
+      Optimized social investment maximizes alliance strength per
+      unit of grooming effort. Detecting the convergence enables
+      the organism to stabilize its social strategy rather than
+      perpetually experimenting, which would waste grooming effort
+      and confuse social partners who benefit from predictable
+      reciprocal relationships.
+    what_fires: |
+      Episode-accumulated improvement in social return-on-investment
+      metrics. Grooming effort per reciprocal grooming received
+      improves across successive social interactions within the
+      episode. The trajectory converges as the creature identifies
+      and concentrates on the most reciprocal partners.
+
+  - id: burrow_temperature_regulation_refined
+    description: |
+      A creature digs and modifies a burrow for thermoregulation
+      across an episode. First version: straight tunnel, temperature
+      fluctuates with surface conditions. The creature adds depth,
+      a bend, a ventilation shaft, plugs the entrance with leaves,
+      removes the plug, repositions the shaft. Each modification is
+      tested against the temperature stability metric. Across many
+      modifications, burrow temperature variance decreases from high
+      to near-minimal. Late modifications produce smaller improvements
+      — the design is approaching the physical optimum for temperature
+      stability given the soil type and depth constraints.
+    survival_relevance: |
+      Optimized thermoregulation reduces metabolic costs across rest
+      periods. Detecting the convergence of the optimization
+      trajectory tells the organism when the burrow design is
+      sufficient and further modification effort would be better
+      spent on food storage or other survival activities.
+    what_fires: |
+      Episode-accumulated trajectory of burrow temperature variance
+      measurements. Each modification reduces variance, and the
+      reductions get progressively smaller. The convergent
+      trajectory toward minimal achievable variance triggers the
+      optimization signal.
+
+anti_manifestations:
+  - id: random_variation_without_convergence
+    description: |
+      A creature tries different sleeping positions across an
+      episode. Some positions are comfortable, others are not, but
+      there is no systematic improvement trend. Comfort scores
+      oscillate randomly: 3, 7, 2, 8, 4, 6, 3, 7. There is no
+      convergent trajectory — the creature is not progressively
+      approaching an optimum, just sampling randomly from the
+      space of possibilities.
+    why_should_not_fire: |
+      Random variation is not optimization. Optimization requires
+      a directional improvement trend with convergence — each
+      attempt systematically better than previous attempts, with
+      diminishing gains suggesting approach to an optimum. Random
+      sampling may occasionally hit good solutions but does not
+      show the convergent trajectory that optimization requires.
+    distinguishes: |
+      Convergent improvement (systematic directional progress
+      toward an optimum with diminishing returns) versus random
+      exploration (sampling without directional trend). The
+      episode-level optimization receptor requires trajectory
+      shape, not just individual good outcomes.
+
+  - id: lateral_exploration_not_improvement
+    description: |
+      A creature tries five different foraging areas across an
+      episode. Each area yields roughly the same amount of food.
+      The creature is exploring alternatives, but none is clearly
+      better than the others — it is expanding its repertoire
+      rather than converging on the best option. This is
+      diversification, not optimization.
+    why_should_not_fire: |
+      Lateral exploration without performance differentiation is
+      not optimization. Optimization requires that successive
+      attempts are measurably better on a performance metric.
+      Exploring equally-good alternatives expands options but does
+      not converge toward an optimum. The absence of a directional
+      improvement trend means no optimization trajectory exists.
+    distinguishes: |
+      Convergent optimization (progressive improvement toward a
+      specific optimum) versus lateral exploration (expanding the
+      set of known options without ranking or converging). Both
+      are useful strategies, but only convergent improvement
+      triggers the optimization signal.

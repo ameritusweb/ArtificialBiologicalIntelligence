@@ -1,0 +1,164 @@
+receptor_id: topology_awareness
+family: epistemic
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detect that the organism's own receptor topology has changed -- that its
+  perceptual and cognitive architecture is different from what it was. The boundary
+  is between perceiving the world through a fixed apparatus and noticing that the
+  apparatus itself has changed. This receptor fires when the organism detects that
+  it can now perceive, process, or distinguish things it could not before (or that
+  it has lost capabilities it previously had). It is self-awareness applied to
+  one's own perceptual architecture.
+
+manifestations:
+  - id: new_distinction_visible
+    description: |
+      The organism has been in a new environment for several days. Initially,
+      all vegetation looked the same -- undifferentiated green. Now it notices
+      it can distinguish several types of plants by subtle differences in leaf
+      shape and texture that were previously invisible to it. The topology-
+      awareness receptor fires: "I can see differences I couldn't see before.
+      My perceptual categories have split. The world hasn't changed -- my
+      apparatus for seeing it has."
+    survival_relevance: |
+      Detecting that one's own perceptual capabilities have expanded allows the
+      organism to re-evaluate previously dismissed areas or resources. What was
+      ignored as "all the same" may now contain visible structure worth
+      exploiting. Without topology-awareness, the organism would not know to
+      look again at things it previously categorized as uniform.
+    what_fires: |
+      Discrimination threshold change detection: the receptor monitors the
+      organism's ability to distinguish within previously-uniform categories.
+      When a category that previously produced a single uniform activation
+      pattern begins producing multiple distinct patterns, the receptor fires
+      encoding "perceptual resolution increased -- new distinctions available."
+
+  - id: lost_sensitivity
+    description: |
+      The organism has been operating in a high-stimulation environment and
+      notices that subtle signals it used to detect are now missed. It used
+      to notice faint scent trails but now only detects strong odors. The
+      topology-awareness receptor fires: "My sensitivity has degraded. I'm
+      processing the world through a coarser filter than before. Decisions
+      I made when I could detect faint signals should be re-evaluated now
+      that I can't."
+    survival_relevance: |
+      Undetected sensitivity loss is dangerous because the organism continues
+      to rely on absent capabilities. It navigates as if it can still detect
+      faint predator scent when it actually cannot, creating a false sense
+      of security. Detecting the loss allows compensatory behavior -- relying
+      more on visual scanning when olfactory sensitivity drops.
+    what_fires: |
+      Detection-threshold drift: the receptor monitors for stimuli that used
+      to reliably activate specific receptors but no longer do, despite being
+      present in the environment (confirmed by other evidence). When
+      previously-detectable signals drop below activation threshold, the
+      receptor fires encoding "sensitivity reduction -- compensate."
+
+  - id: new_cognitive_operation
+    description: |
+      The organism used to evaluate food sources one at a time -- approach,
+      assess, decide. After extensive experience, it notices it can now
+      compare multiple options simultaneously before committing to any. It
+      is holding multiple representations in parallel and selecting among
+      them, a cognitive operation it could not perform before. The topology-
+      awareness receptor fires: "I can do something I couldn't do before --
+      comparative evaluation. This changes my optimal foraging strategy."
+    survival_relevance: |
+      New cognitive capabilities change optimal behavior. An organism that
+      can compare options should use a different strategy than one limited
+      to sequential evaluation. Detecting the capability change allows the
+      organism to upgrade its behavioral strategies to exploit its new
+      cognitive architecture.
+    what_fires: |
+      Processing-architecture change: the receptor detects that the organism
+      is executing a cognitive operation (parallel comparison) that it has
+      no stored history of performing. The novelty is in the OPERATION type,
+      not in the content. Encoding: "new cognitive capability detected --
+      strategy space expanded."
+
+  - id: integration_of_separate_domains
+    description: |
+      The organism used to process spatial information and social information
+      as separate streams -- navigating terrain independently from tracking
+      conspecifics. It now notices it is integrating them: "The dominant
+      individual is between me and the food source, so I need to route
+      AROUND socially, not just physically." The topology-awareness receptor
+      fires: "My spatial and social processing have connected. I'm computing
+      social-spatial intersections I couldn't compute before."
+    survival_relevance: |
+      Domain integration creates qualitatively new capabilities. Social-spatial
+      integration enables route planning that accounts for territorial
+      boundaries, dominance zones, and ally positions. Detecting the
+      integration allows the organism to exploit the new combined capability
+      rather than continuing to process domains in isolation.
+    what_fires: |
+      Cross-domain receptor co-activation producing integrated outputs that
+      neither domain produces alone. The receptor detects that signals from
+      previously independent receptor families are now producing combined
+      activation patterns, encoding "domain integration detected -- new
+      combined processing available."
+
+  - id: changed_emotional_topology
+    description: |
+      The organism encounters a situation that used to trigger strong fear --
+      a narrow passage near a predator territory. It notices that its fear
+      response is present but modulated: instead of overwhelming panic, it
+      feels calibrated alertness. The topology-awareness receptor fires: "My
+      emotional response to this situation has restructured. I'm not less
+      aware of the danger -- I'm processing it differently. My threat-
+      processing topology has changed from binary (panic/calm) to graded."
+    survival_relevance: |
+      Emotional topology changes alter optimal behavior. An organism with
+      graded fear can make nuanced risk decisions (cautious approach vs.
+      full retreat vs. monitoring). Detecting the change allows the organism
+      to access behavioral options that its previous binary emotional
+      architecture did not support.
+    what_fires: |
+      Response-granularity change: the receptor detects that a previously
+      binary (on/off) or coarse (low/high) response pattern now activates
+      in a graded or multi-level fashion. The change is in the response
+      topology itself, not in the stimulus. Encoding: "response architecture
+      refined -- finer behavioral control available."
+
+anti_manifestations:
+  - id: learning_new_content
+    description: |
+      The organism learns that a particular rock formation indicates an
+      underground water source. This is new knowledge -- new content stored
+      in existing perceptual categories. The organism's ability to see rock
+      formations hasn't changed; it has simply learned what a specific
+      formation means. The perceptual apparatus is the same; only the
+      associations have been updated.
+    why_should_not_fire: |
+      Topology-awareness detects changes in the organism's APPARATUS -- its
+      ability to perceive, distinguish, or process -- not changes in what
+      the organism knows about the world through that apparatus. Learning
+      new facts through an unchanged perceptual system is content-learning,
+      not topology change. The receptor fires when the lens changes, not
+      when new things are seen through the same lens.
+    distinguishes: |
+      Architecture vs. content: changed associations/knowledge through
+      unchanged perceptual apparatus (anti) vs. changed perceptual apparatus
+      itself enabling new kinds of perception or processing (true).
+
+  - id: environmental_change_detection
+    description: |
+      The organism notices that a familiar landscape has changed -- a tree has
+      fallen, a stream has shifted course. It detects the environmental change
+      accurately. But its own perceptual and cognitive apparatus has not changed.
+      It is seeing the same world through the same eyes; the world itself is
+      different.
+    why_should_not_fire: |
+      Topology-awareness is about changes in the SELF, not changes in the
+      WORLD. Detecting that the environment has changed is standard perceptual
+      processing -- novelty detection, spatial updating. The receptor fires
+      when the organism detects that ITS OWN architecture is different, not
+      when it detects that the external environment is different.
+    distinguishes: |
+      Locus of change: external environment changed (anti) vs. internal
+      processing architecture changed (true). The receptor monitors the
+      self-model for architectural changes, not the world-model for
+      environmental changes.

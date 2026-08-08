@@ -1,0 +1,48 @@
+receptor_id: conjunction
+family: logic
+tier: branch
+stage: 8
+
+conceptual_space: |
+  Detects that multiple conditions must be jointly satisfied for a conclusion
+  to hold. Danger requires BOTH predator-near AND no-cover — neither alone is
+  sufficient. The boundary separates conjunctive logic (requiring all premises)
+  from disjunctive or single-condition responses. The concept is logical AND —
+  the detection that independent conditions must combine for an outcome.
+
+manifestations:
+  - id: danger_requires_two_conditions
+    description: Predator is nearby but organism has cover — no danger. Cover is absent but no predator — no danger. Only when predator-near AND no-cover co-occur does the organism enter danger mode
+    survival_relevance: Conjunctive danger assessment prevents both false alarms (predator with cover available) and complacency (open ground without threats), optimizing energy expenditure
+    what_fires: Two independent condition detectors both active simultaneously, with the conjunctive combination producing a qualitatively different response than either condition alone
+
+  - id: safe_foraging_conditions
+    description: Organism only forages when food-detected AND no-predator AND energy-sufficient — all three conditions must hold simultaneously, and removing any one aborts foraging
+    survival_relevance: Multi-condition foraging gates prevent costly foraging errors — eating when exhausted, approaching food near predators, or searching when none is available
+    what_fires: Three or more independent condition detectors all active, with the conjunction gating a behavioral output that does not occur with any proper subset of conditions met
+
+  - id: coordinated_group_action
+    description: Group hunt requires BOTH sufficient-numbers AND prey-detected — organisms communicate readiness but do not initiate until both conditions are confirmed by the group
+    survival_relevance: Conjunctive coordination prevents wasted group hunts (no prey) and suicidal attacks (too few hunters), synchronizing collective action to viable opportunities
+    what_fires: Multiple condition signals from different sources (own perception + communicated group state) jointly required to trigger coordinated behavioral output
+
+  - id: seasonal_migration_trigger
+    description: Migration initiates only when day-length-short AND temperature-dropping AND food-declining — any single cue fluctuates, but their conjunction reliably indicates seasonal change
+    survival_relevance: Conjunctive seasonal detection prevents premature or delayed migration triggered by single noisy cues, using multi-signal confirmation for costly irreversible decisions
+    what_fires: Multiple independent environmental trend detectors all crossing threshold simultaneously, producing a high-confidence conjunctive signal for a major behavioral transition
+
+  - id: communicated_joint_warning
+    description: Agent A signals "predator east" and Agent B signals "blocked path west" — organism detects the conjunction means it is trapped, a conclusion neither signal alone supports
+    survival_relevance: Integrating communicated conditions conjunctively reveals emergent dangers invisible to any single observer, enabling escape strategies that address the full constraint set
+    what_fires: Two communicated conditions from different agents jointly activating a conjunctive pattern that represents a higher-order threat not present in either condition alone
+
+anti_manifestations:
+  - id: single_condition_triggers_response
+    description: Organism hears a loud noise and immediately freezes — the response is triggered by a single stimulus with no second condition required
+    why_should_not_fire: This is a single-condition reflex, not a conjunctive detection — no second premise is evaluated before the response occurs
+    distinguishes: Conjunction (multiple conditions jointly required) vs single-trigger response (one condition sufficient for behavioral output)
+
+  - id: either_or_response
+    description: Organism flees when predator-near OR ground-shaking — either condition alone triggers escape, and having both does not produce a qualitatively different response
+    why_should_not_fire: This is disjunctive logic (OR) where any single condition suffices — conjunction requires ALL conditions to be necessary
+    distinguishes: Conjunction (all conditions required, none sufficient alone) vs disjunction (any condition sufficient independently)

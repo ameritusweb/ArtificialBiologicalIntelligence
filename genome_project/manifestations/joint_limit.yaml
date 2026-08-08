@@ -1,0 +1,125 @@
+receptor_id: joint_limit
+family: proprioception
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Detects that a limb or joint has reached the end of its range of motion —
+  maximum extension, maximum flexion, or rotational limit. The organism
+  attempts to continue moving in a direction but the joint itself refuses
+  to go further. The boundary is mechanical stop: not resistance from the
+  environment, but the body's own structural limit. "I cannot move further
+  this direction because my body won't let me."
+
+manifestations:
+  - id: arm_full_extension
+    description: |
+      The organism reaches forward to grasp a berry on a distant branch.
+      The forelimb extends fully — elbow locked straight, shoulder at
+      maximum forward rotation. The digits are still centimeters short
+      of the berry. The limb has hit its mechanical ceiling; pushing
+      harder produces no additional reach, only a taut stretching
+      sensation at the joint.
+    survival_relevance: |
+      Knowing the body's reach envelope prevents wasted effort and
+      dangerous overextension. An organism that ignores joint limits
+      risks tearing connective tissue while lunging for food.
+    what_fires: |
+      Joint angle reaches maximum value in extension direction. Angular
+      velocity drops to zero despite continued motor command. Tension
+      signal spikes at joint capsule.
+
+  - id: jaw_maximum_gape
+    description: |
+      The organism attempts to bite into a large round fruit. The jaw
+      opens as wide as it can — the mandible reaches its maximum
+      depression angle. The fruit is too wide to fit between the teeth.
+      The jaw joint signals a hard stop; no further opening is possible.
+    survival_relevance: |
+      Gape limit determines what can be eaten whole versus what must
+      be broken apart first. Detecting jaw limit prevents futile biting
+      attempts and redirects to alternative food processing strategies.
+    what_fires: |
+      Jaw joint angle reaches maximum opening. Motor command to open
+      further produces no angular change. Stretch signal at temporomandibular
+      articulation peaks.
+
+  - id: leg_full_flexion_crouch
+    description: |
+      The organism crouches to squeeze beneath a low rock overhang. The
+      hind limbs flex until knee and hip joints compress fully — ankle
+      tucked against thigh, thigh against torso. The body cannot get any
+      lower without lying flat. Every flexion joint in the legs has
+      bottomed out.
+    survival_relevance: |
+      Knowing maximum flexion depth determines which shelters the organism
+      can access. Misjudging crouch depth while fleeing a predator into
+      a crevice means getting stuck.
+    what_fires: |
+      Multiple leg joints simultaneously reach minimum angle (full flexion).
+      Compression signals from knee and hip joints. Motor commands to flex
+      further produce zero angular change.
+
+  - id: neck_rotation_limit
+    description: |
+      The organism hears a sound behind and to the right. It rotates its
+      head to look — neck turning, turning, turning — until the cervical
+      vertebrae reach their rotational limit. The sound source is still
+      slightly beyond the visual field. The neck cannot rotate further;
+      the organism must turn its whole body to see.
+    survival_relevance: |
+      Head rotation limits define the boundary between what can be scanned
+      by looking versus what requires a costly full-body turn. Predator
+      detection depends on knowing this boundary instantly.
+    what_fires: |
+      Cervical rotation reaches maximum angle. Continued motor drive
+      produces no further head turning. Rotational velocity drops to zero
+      at the limit.
+
+  - id: digit_hyperextension_block
+    description: |
+      The organism presses its open palm flat against a rock face to brace
+      itself while climbing. The fingers bend backward against the stone
+      until the dorsal joint stops prevent further extension. Each digit
+      is at its maximum backward angle — a hard skeletal stop. Pressing
+      harder only increases joint compression, not movement.
+    survival_relevance: |
+      Digit extension limits determine bracing and climbing grip geometry.
+      An organism that senses these limits can optimize hand placement on
+      irregular surfaces without risking joint injury.
+    what_fires: |
+      Digit joints reach maximum extension angle. Passive pressure pushes
+      joint toward hyperextension but mechanical stop prevents it. High
+      compression signal at dorsal joint surface.
+
+anti_manifestations:
+  - id: limb_blocked_by_obstacle
+    description: |
+      The organism swings its forelimb forward and it strikes a tree trunk
+      mid-swing. The limb stops moving, but the joint is nowhere near its
+      end of range — it was halted by an external object, not by its own
+      structural limit. The elbow still has degrees of freedom remaining.
+    why_should_not_fire: |
+      The movement was stopped by environmental contact, not joint limit.
+      The joint itself could have continued traveling. Joint_limit is about
+      the body's own mechanical ceiling, not obstacles in the world.
+    distinguishes: |
+      Internal structural limit versus external obstacle. Joint_limit fires
+      only when the joint's own anatomy prevents further movement, not when
+      something in the environment blocks the limb's path.
+
+  - id: muscle_fatigue_stops_movement
+    description: |
+      The organism has been climbing for a long time. It tries to reach
+      upward but the forelimb trembles and sags — the muscles are exhausted.
+      The arm drops not because the shoulder joint reached its limit, but
+      because the muscles can no longer generate force. The joint still
+      has range available.
+    why_should_not_fire: |
+      The movement stopped due to muscular fatigue, not mechanical joint
+      limit. The joint's range of motion was not reached. This is an
+      effort/energy issue, not a structural geometry issue.
+    distinguishes: |
+      Joint range limit versus force generation failure. Joint_limit is
+      purely about angular range exhaustion, not about the muscles' ability
+      to drive the joint through its available range.

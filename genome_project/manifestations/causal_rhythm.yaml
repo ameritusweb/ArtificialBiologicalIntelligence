@@ -1,0 +1,48 @@
+receptor_id: causal_rhythm
+family: repetition
+tier: canopy
+stage: 5
+
+conceptual_space: |
+  Detects periodic causal chains — one rhythmic event reliably causing another
+  in sequence. Predator arrives, prey scatters, predator slows. The key is that
+  each link in the chain is triggered by the previous one, and the whole chain
+  repeats. The boundary separates mere co-occurrence of periodic events from
+  events that are causally linked in a repeating sequence.
+
+manifestations:
+  - id: predator_scatter_slowdown
+    description: Predator enters area, prey scatter in all directions, predator slows to scan — this cycle repeats each time predator returns
+    survival_relevance: Knowing the causal chain means the organism can predict the slow-scan phase after scatter and use it to reposition
+    what_fires: Large object enters field, small objects radiate outward, large object velocity drops — sequence repeats with consistent ordering
+
+  - id: ambush_flush_chase
+    description: Predator hides near water, prey approaches water, predator lunges — repeating at the same location across prey visits
+    survival_relevance: Recognizing the causal rhythm at the water source allows avoiding the ambush trigger entirely
+    what_fires: Stationary large object, approaching small object crossing threshold distance, explosive movement from large object — cycling
+
+  - id: shadow_freeze_strike
+    description: Aerial predator casts shadow, ground prey freeze, predator dives at frozen targets — repeating across hunting passes
+    survival_relevance: Understanding that freezing causes targeting means the organism should NOT freeze — break the expected chain
+    what_fires: Darkness event from above, cessation of ground movement, rapid descent of aerial object toward stationary targets — repeating
+
+  - id: territorial_call_retreat
+    description: Dominant predator vocalizes, subordinate predators retreat from area, prey cautiously return — cycling with territorial patrols
+    survival_relevance: The causal chain reveals safe windows — after the call causes retreat, there is a predator-free interval
+    what_fires: Intense signal burst, withdrawal of multiple threat objects, gradual return of non-threat objects — repeating sequence
+
+  - id: tide_expose_converge
+    description: Water recedes exposing food, organisms converge on exposed area, predator arrives at convergence — repeating with tide cycles
+    survival_relevance: Knowing the full causal chain means arriving early or late to avoid the predator phase of the cycle
+    what_fires: Environmental change reveals resources, movement convergence toward resources, threat object arrives at convergence point — cycling
+
+anti_manifestations:
+  - id: coincidental_periodicity
+    description: Predator patrols on a cycle and waves crash on a cycle, but they happen to have similar periods without causal connection
+    why_should_not_fire: The events are independently periodic — neither causes the other, they merely overlap in timing
+    distinguishes: Causal linkage vs temporal coincidence — causal_rhythm requires each event to trigger the next
+
+  - id: single_cause_effect
+    description: Predator lunges and prey scatters once, but it does not repeat — a one-time causal event
+    why_should_not_fire: There is causation but no rhythm — the chain occurs only once without cycling
+    distinguishes: Rhythmic repetition of the causal chain vs isolated causal events

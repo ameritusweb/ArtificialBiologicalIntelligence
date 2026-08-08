@@ -1,0 +1,192 @@
+receptor_id: naming_ep
+family: language
+tier: trunk
+stage: 8
+
+conceptual_space: |
+  Detects whether a name or label consistently refers to the same
+  concept across an entire episode, or whether the reference drifts.
+  A creature uses a specific alarm call to mean "aerial predator,"
+  but across the episode, the call gets used for large shadows, falling
+  branches, and even a thrown rock. The name has drifted — it no longer
+  stably points to one concept. The boundary separates stable naming
+  (consistent referent) from naming drift (referent shifts across
+  usage instances).
+  NOTE: this is the episode-level version - measures across an entire
+  episode rather than at a single step. Naming stability is assessed
+  by tracking how a name is used across many instances within the
+  episode and detecting whether the referent remains constant.
+
+manifestations:
+  - id: alarm_call_referent_drifts
+    description: |
+      A group of creatures has an alarm call that originally meant
+      "hawk overhead." Across an episode, the call is used correctly
+      for hawk sightings, but also gets triggered by a large leaf
+      falling, a shadow from a cloud, another creature leaping
+      overhead, and a harmless large bird. By episode end, the call
+      has been used in response to fifteen different stimuli, only
+      six of which were actual hawks. The name-to-referent mapping
+      has drifted, with the label now covering any overhead-moving
+      object rather than specifically "hawk." The episode reveals
+      the drift through accumulated usage instances.
+    survival_relevance: |
+      A drifted alarm call wastes group energy on false alarms and
+      erodes the call's information value. If "hawk call" means
+      "anything overhead," the call no longer enables the specific
+      hawk-evasion response (freeze and hide) versus the appropriate
+      responses to other overhead events (ignore leaf, assess bird).
+      Detecting naming drift enables the organism to recalibrate or
+      split the call.
+    what_fires: |
+      Episode-accumulated referent variance exceeds stability
+      threshold. The same name/label maps to multiple distinct
+      entities across usage instances within the episode. The
+      referent distribution broadens beyond the original concept
+      boundary as tracked across many uses.
+
+  - id: food_label_remains_precise
+    description: |
+      A creature uses a specific vocalization to indicate "ripe
+      mango." Across an episode involving many foraging events, every
+      use of this vocalization corresponds to actually-ripe mangoes —
+      never unripe, never other fruits, never ripe fruits of other
+      species. Other creatures hearing the call reliably find ripe
+      mangoes at the indicated location. The name-to-referent mapping
+      remains perfectly stable across dozens of uses throughout the
+      episode. The accumulated usage data confirms naming stability.
+    survival_relevance: |
+      Stable naming enables reliable communication. When "ripe mango"
+      consistently means ripe mango, other organisms can act on the
+      information without independent verification, saving energy
+      and enabling division of foraging labor. Naming stability is
+      the foundation of trustworthy communication.
+    what_fires: |
+      Episode-accumulated referent consistency exceeds confirmation
+      threshold. Every usage instance of the name maps to the same
+      concept. The referent distribution remains tightly clustered
+      around the original concept across many uses within the
+      episode.
+
+  - id: territory_name_shifts_with_boundary_changes
+    description: |
+      A creature community uses a location signal for "the meadow" —
+      a specific open area. Across an episode, the forest edge
+      gradually encroaches on the meadow while the creature continues
+      using the same signal. Early in the episode, "the meadow"
+      refers to the full open area. By mid-episode, half the original
+      meadow is now forest understory, but the label still applies.
+      By episode end, "the meadow" refers to a small clearing that
+      is nothing like the original referent. The name persisted while
+      the referent transformed. Episode-level tracking reveals the
+      gradual naming drift.
+    survival_relevance: |
+      A name whose referent has physically transformed creates
+      dangerous miscommunication. An organism told "food in the
+      meadow" may search the wrong area because "the meadow" no
+      longer means what it once did. Detecting naming drift
+      enables referent recalibration and prevents stale spatial
+      knowledge from causing navigation errors.
+    what_fires: |
+      Episode-accumulated gradual referent shift. The name maps to
+      progressively different physical referents across the episode.
+      The early-episode referent and late-episode referent are
+      substantially different, but the drift was gradual enough
+      that no single step triggered detection. Only episode-level
+      tracking reveals the cumulative drift.
+
+  - id: social_role_label_becomes_ambiguous
+    description: |
+      A creature group uses a behavioral display to indicate "leader"
+      — the individual who decides group movement direction. Across
+      an episode, leadership is contested: three individuals display
+      the leader signal at different times, group members follow
+      different "leaders" in different contexts, and sometimes the
+      group splits because two "leaders" signal different directions.
+      The label "leader" no longer has a single stable referent —
+      it has become ambiguous. Episode-level tracking reveals that
+      the once-clear label now maps to multiple competing referents.
+    survival_relevance: |
+      Ambiguous role labeling creates coordination failures. If
+      "follow the leader" points to three different individuals,
+      group cohesion breaks down. Detecting naming ambiguity enables
+      the organism to either disambiguate (recognize a new leadership
+      structure) or stabilize (commit to one referent), restoring
+      coordination capacity.
+    what_fires: |
+      Episode-accumulated referent multiplicity. The same label is
+      used for multiple distinct individuals or entities across the
+      episode. The referent set size exceeds the naming stability
+      threshold, indicating the label has become ambiguous rather
+      than specific.
+
+  - id: danger_signal_sharpens_through_use
+    description: |
+      A young creature initially uses a general distress call for
+      many situations: hunger, cold, pain, fear, and discomfort.
+      Across an episode, social feedback progressively narrows the
+      call's referent. Adults respond with food to hunger calls but
+      ignore pain calls using the same vocalization. Through many
+      correction events across the episode, the creature begins
+      differentiating calls, and the original general call narrows
+      to mean specifically "hungry." Episode-level tracking shows
+      a naming refinement — the referent becoming more precise
+      rather than drifting broader.
+    survival_relevance: |
+      Naming refinement enables more specific communication. A
+      general distress call elicits generic help; a specific hunger
+      call elicits food. As the name-to-referent mapping sharpens,
+      the organism's communication becomes more efficient and its
+      needs are met more precisely by social partners.
+    what_fires: |
+      Episode-accumulated referent narrowing. The same name maps
+      to a progressively smaller and more specific concept across
+      usage instances within the episode. The referent distribution
+      tightens from broad to narrow, indicating naming refinement
+      rather than drift.
+
+anti_manifestations:
+  - id: different_names_for_same_thing
+    description: |
+      Across an episode, a creature uses three different calls to
+      indicate the same food source — calling it one way when
+      approaching, another way when eating, and a third way when
+      leaving. The names differ, but they all refer to the same
+      entity. This is multiple names for one referent, not one name
+      for multiple referents. The naming relationship is many-to-one,
+      not one-to-many.
+    why_should_not_fire: |
+      The naming stability receptor tracks whether a SINGLE name
+      consistently maps to the SAME referent. Multiple names for one
+      referent is a synonymy phenomenon, not a naming stability
+      phenomenon. The individual name-to-referent mappings may each
+      be perfectly stable. This is a vocabulary redundancy signal,
+      not a naming drift signal.
+    distinguishes: |
+      Naming stability (does this name consistently point to the
+      same thing?) versus vocabulary structure (how many names
+      exist for this thing?). Multiple stable names for one referent
+      is consistent with perfect naming stability for each name.
+
+  - id: contextual_reference_not_drift
+    description: |
+      A creature uses the signal "big one" to refer to the largest
+      individual in whatever group it is currently observing. In one
+      context, "big one" refers to the largest deer. In another, it
+      refers to the largest fish. The referent changes, but the
+      NAME'S MEANING (the largest member of the current context
+      group) remains perfectly stable. This is context-dependent
+      reference, not naming drift.
+    why_should_not_fire: |
+      Context-dependent reference is not naming drift. The name
+      "big one" has a stable meaning (superlative of current group)
+      even though it picks out different physical referents in
+      different contexts. Naming drift occurs when the meaning
+      itself changes, not when a stable meaning applies to different
+      instances across contexts.
+    distinguishes: |
+      Naming drift (the meaning of the name changes across uses)
+      versus context-dependent reference (the meaning is stable but
+      picks out different instances depending on context). Indexical
+      or relative references can be perfectly stable in meaning
+      while varying in referent.

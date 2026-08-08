@@ -1,0 +1,47 @@
+receptor_id: compression_receptor
+family: compression
+tier: trunk
+stage: 2
+
+conceptual_space: |
+  Reward for successful compression. "I found a simpler model." Intrinsic
+  reward signal that fires when the organism discovers that fewer parameters
+  or a shorter description captures the same predictive power. The boundary:
+  genuine compression achievement vs no compression gain.
+
+manifestations:
+  - id: period_discovery
+    description: Organism stored 200 individual temperature readings, then discovers a single period=80 captures them all — model collapsed
+    survival_relevance: Compression means less memory, faster prediction, more capacity for other learning
+    what_fires: Model complexity decreased while predictive accuracy stayed constant or improved
+
+  - id: threat_rule_simplification
+    description: Organism tracked 15 separate dangerous locations, then discovers they all share chemical > 0.6 — one rule replaces 15 memories
+    survival_relevance: Simple rules generalize to unseen locations — new chemical > 0.6 zones are automatically avoided
+    what_fires: Number of stored rules decreased while behavioral coverage remained complete
+
+  - id: npc_category_formation
+    description: Organism modeled 5 NPCs individually, then discovers all fast-moving NPCs are hostile — one category replaces 5 individual models
+    survival_relevance: Category-based prediction works for new NPCs without requiring individual experience
+    what_fires: Distinct entity models merged into single category model without prediction loss
+
+  - id: spatial_symmetry_found
+    description: Organism mapped north half of environment in detail, then discovers south half mirrors it — half the map captures full knowledge
+    survival_relevance: Symmetry exploitation halves the exploration needed — massive efficiency gain
+    what_fires: Representational size reduced by exploiting discovered structural regularity
+
+  - id: multi_channel_correlation
+    description: Organism tracked temperature and chemical concentration separately, then discovers chemical = 0.8 * temperature — one channel predicts the other
+    survival_relevance: Reducing independent tracking channels frees processing capacity for novel threats
+    what_fires: Mutual information between channels exploited to reduce independent representation count
+
+anti_manifestations:
+  - id: memorizing_more_data
+    description: Organism stores another 50 observations — model grows larger, not simpler
+    why_should_not_fire: This is accumulation, not compression — the model got bigger, not more efficient
+    distinguishes: Compression requires REDUCED model complexity for equivalent or better prediction
+
+  - id: lossy_simplification
+    description: Organism forgets half its observations — model is simpler but prediction accuracy dropped from 0.9 to 0.4
+    why_should_not_fire: Losing accuracy is not compression — it's just forgetting. Compression must preserve predictive power
+    distinguishes: Compression requires maintaining predictive accuracy while reducing complexity

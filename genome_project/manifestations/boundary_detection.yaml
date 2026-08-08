@@ -1,0 +1,47 @@
+receptor_id: boundary_detection
+family: organization
+tier: trunk
+stage: 2
+
+conceptual_space: |
+  Edges where properties change sharply. Discontinuities in the environment —
+  where one region ends and another begins. The concept is the abrupt
+  transition itself. Not gradients (smooth change) — sharp, step-like
+  property changes across space or time.
+
+manifestations:
+  - id: terrain_edge
+    description: Ground resistance changes from 0.2 to 0.9 between adjacent cells — hard surface ends, soft terrain begins
+    survival_relevance: Terrain boundaries affect movement speed and escape options — knowing where they are matters
+    what_fires: Spatial gradient in haptic channel exceeds sharp-transition threshold between adjacent positions
+
+  - id: thermal_zone_border
+    description: Temperature jumps from 0.3 to 0.8 in a single step — organism crosses into a hot zone
+    survival_relevance: Thermal boundary marks transition into dangerous territory requiring different behavior
+    what_fires: First-derivative of thermal channel spikes above discontinuity threshold
+
+  - id: light_shadow_edge
+    description: Luminance drops from 0.9 to 0.1 at a specific map coordinate — sharp shadow boundary
+    survival_relevance: Shadow edges indicate overhead structure or obstruction — relevant for shelter and threat assessment
+    what_fires: Step-change in luminance channel across one spatial unit
+
+  - id: chemical_zone_boundary
+    description: Chemical concentration is 0.05 in one cell and 0.7 in the adjacent cell — toxic zone edge
+    survival_relevance: Detecting the exact boundary of a chemical hazard enables precise avoidance
+    what_fires: Chemical channel discontinuity — magnitude of spatial derivative exceeds sharp-edge threshold
+
+  - id: safe_danger_transition
+    description: Aggregate threat level jumps from 0.1 to 0.8 at a specific map line — NPC territory border
+    survival_relevance: Knowing the exact line where danger begins enables precise territorial awareness
+    what_fires: Multi-channel threat composite shows step-function across spatial boundary
+
+anti_manifestations:
+  - id: smooth_gradient
+    description: Temperature increases by 0.02 per step over 30 steps — gradual, smooth transition from cool to warm
+    why_should_not_fire: No discontinuity — the change is gradual and continuous, not sharp
+    distinguishes: Boundary detection requires ABRUPT transition, not smooth gradient
+
+  - id: uniform_region
+    description: Large area where all properties are constant — thermal=0.5, chemical=0.1 everywhere
+    why_should_not_fire: No transition at all — the region is homogeneous
+    distinguishes: Boundary detection requires a CHANGE in properties, not uniformity

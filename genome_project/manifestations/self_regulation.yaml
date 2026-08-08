@@ -1,0 +1,160 @@
+receptor_id: self_regulation
+family: meta-motivational
+tier: canopy
+stage: 6
+
+conceptual_space: |
+  Detects the need for and execution of deliberate management of
+  the organism's own internal receptor economy. After an intense
+  experience saturates certain receptors (fear after a predator
+  escape, arousal after a discovery), the organism must strategically
+  dampen those signals to re-enable other capacities (foraging,
+  resting, exploring). The boundary separates automatic homeostatic
+  recovery (which happens passively) from intentional self-state
+  management where the organism takes actions specifically to shift
+  its own internal state.
+
+manifestations:
+  - id: calming_after_predator_escape
+    description: |
+      The organism narrowly escapes a predator. Fear and arousal
+      receptors are saturated. Nearby food is available but the
+      organism cannot forage effectively while hypervigilant. It
+      deliberately moves to a familiar safe location, performs
+      repetitive low-stakes actions (grooming, rearranging nest
+      material), and its arousal decreases enough to resume foraging.
+    survival_relevance: |
+      Without deliberate calming, the organism would remain in
+      a hypervigilant state that prevents foraging, eventually
+      starving despite available food. Self-regulation bridges
+      the gap between survival of the moment and survival of
+      the day.
+    what_fires: |
+      Detection of own receptor saturation (fear/arousal at
+      maximum) combined with recognition that current state
+      prevents necessary action (foraging), followed by
+      deliberate state-shifting behavior (seeking safety,
+      repetitive action) that successfully reduces the
+      saturated signal.
+
+  - id: suppressing_curiosity_during_danger
+    description: |
+      The organism spots an interesting new object while traversing
+      a predator-dense area. Curiosity receptors fire strongly.
+      But the organism recognizes that investigating would require
+      stopping and attending, which increases predator exposure.
+      It deliberately suppresses the curiosity signal and continues
+      moving to safety, planning to return later.
+    survival_relevance: |
+      Unchecked curiosity in dangerous contexts is lethal. The
+      ability to strategically suppress a motivational signal
+      when it conflicts with a higher-priority survival need
+      enables context-appropriate behavior prioritization.
+    what_fires: |
+      Active motivational signal (curiosity) recognized as
+      conflicting with current survival priority (predator
+      avoidance). Deliberate suppression of the motivational
+      signal — not through satiation but through intentional
+      override — fires the self-regulation signal.
+
+  - id: managing_hunger_to_maintain_vigilance
+    description: |
+      The organism is hungry but is currently on guard duty at a
+      shared nest site. Eating would require leaving the post and
+      traveling to a food source. It recognizes that hunger is
+      distracting its vigilance and deliberately engages in small
+      displacement activities (chewing bark, drinking water) that
+      partially suppress hunger without abandoning its post.
+    survival_relevance: |
+      Managing competing internal drives enables role maintenance
+      in cooperative contexts. The organism that can modulate its
+      own hunger signal maintains its guard function, protecting
+      the group resource.
+    what_fires: |
+      Recognition of internal state (hunger) degrading performance
+      on current task (vigilance), combined with deliberate partial
+      management of the state through substitute actions rather
+      than full drive satisfaction. The strategic partial-fix
+      fires self-regulation.
+
+  - id: re_engaging_after_failure_despair
+    description: |
+      The organism attempts to crack a nut using a stone tool and
+      fails repeatedly. Frustration and pessimism receptors fire
+      strongly. It recognizes that its emotional state is degrading
+      its technique — movements becoming erratic and forceful. It
+      pauses, performs a familiar successful action (opening an
+      easy food item), and returns to the nut with restored
+      confidence and controlled technique.
+    survival_relevance: |
+      Failure spirals waste energy and prevent skill acquisition.
+      The ability to interrupt a negative emotional cascade and
+      restore functional state through deliberate confidence-
+      rebuilding enables persistence on difficult but valuable
+      tasks.
+    what_fires: |
+      Detection of own deteriorating performance caused by internal
+      emotional state (frustration), followed by deliberate
+      intervention on that state (success experience) that restores
+      functional capacity. The meta-awareness of state-performance
+      coupling fires self-regulation.
+
+  - id: dampening_excitement_for_stealth
+    description: |
+      The organism discovers a large food cache but a competitor
+      is nearby. Excitement and approach motivation fire strongly,
+      urging rapid consumption. The organism recognizes that
+      excited behavior (quick movements, vocalizations) would
+      attract the competitor. It deliberately dampens its arousal,
+      approaches slowly, and retrieves food without alerting the
+      competitor.
+    survival_relevance: |
+      Unregulated emotional expression signals internal state to
+      competitors and predators. Strategic dampening of excitement
+      enables concealment of intent, preserving resource access
+      through behavioral stealth.
+    what_fires: |
+      Strong positive motivational signal (excitement, approach
+      urge) recognized as tactically disadvantageous in current
+      context (competitor present). Deliberate behavioral
+      suppression of the signal — acting contrary to felt
+      motivation for strategic benefit — fires self-regulation.
+
+anti_manifestations:
+  - id: natural_fear_decay_over_time
+    description: |
+      The organism escapes a predator and remains in a safe area.
+      Over the next hour, its fear gradually diminishes on its own
+      without any deliberate action. It simply waits and the
+      arousal fades naturally.
+    why_should_not_fire: |
+      This is passive homeostatic recovery, not self-regulation.
+      The organism did not take any deliberate action to manage
+      its state — the fear signal decayed through natural
+      physiological processes. Self-regulation requires intentional
+      state-management behavior, not just waiting for automatic
+      recovery.
+    distinguishes: |
+      Passive state decay (automatic homeostatic return) versus
+      active self-regulation (deliberate actions taken specifically
+      to shift internal state). The intentionality and behavioral
+      component are the boundary.
+
+  - id: distraction_by_external_event
+    description: |
+      The organism is frustrated from repeated foraging failure.
+      A loud noise occurs nearby, instantly capturing its attention
+      and interrupting the frustration. After investigating the
+      noise, it returns to foraging with a cleared emotional state.
+    why_should_not_fire: |
+      This is externally-driven state change, not self-regulation.
+      The organism's state shifted because an external event
+      captured its attention, not because it deliberately sought
+      to manage its own emotional state. Self-regulation requires
+      the organism to be the intentional agent of its own state
+      change.
+    distinguishes: |
+      Externally-caused state change (environment interrupts the
+      state) versus internally-driven self-regulation (organism
+      deliberately acts to change its own state). Agency over the
+      state change is the boundary.

@@ -1,0 +1,114 @@
+receptor_id: dynamic_repetition
+family: repetition
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Detects that the same discrete object has been encountered at different
+  positions over time. Identity persistence through movement — the rock that
+  was here is now over there, but it is the SAME rock. The boundary is
+  object identity across spatial displacement: not "something is at
+  location X again" (static repetition) but "this particular thing was
+  tracked from location X to location Y." Requires binding identity
+  features (shape, color, size, texture) across changing position coordinates.
+
+manifestations:
+  - id: prey_tracked_across_clearing
+    description: |
+      A distinct brown rabbit with a torn ear is spotted near a bush.
+      The organism moves. Later the same brown rabbit with a torn ear
+      appears at the far edge of the clearing near a stream.
+    survival_relevance: |
+      Tracking prey identity across positions enables pursuit hunting.
+      Knowing it is the same rabbit means the chase is still viable
+      rather than starting a new hunt.
+    what_fires: |
+      Feature bundle (brown, torn ear, rabbit-sized, movement pattern)
+      matches a previously stored feature bundle, but the position
+      coordinates are substantially different from the stored ones.
+
+  - id: rolling_stone_down_slope
+    description: |
+      A large grey boulder with a white streak sits at the top of a
+      hill. After a vibration event, the same grey boulder with white
+      streak is now at the bottom of the hill, 30 body-lengths away.
+    survival_relevance: |
+      Recognizing a displaced hazard as the same object allows updating
+      the environmental map without treating it as a new threat.
+    what_fires: |
+      Distinctive visual signature (grey, white streak, large, round)
+      matches prior encoding. Position has shifted dramatically along
+      the slope axis. Identity binding across displacement fires.
+
+  - id: carried_stick_repositioned
+    description: |
+      The organism carries a forked stick to a foraging site and sets
+      it down. After exploring, it returns and finds the forked stick
+      has been moved two body-lengths by wind or another animal.
+    survival_relevance: |
+      Recognizing a displaced tool as the same tool means the organism
+      does not need to search for a replacement. Resource conservation.
+    what_fires: |
+      Specific shape features (forked, particular length, bark pattern)
+      match the previously held object. Position mismatch from where
+      it was deposited triggers identity-across-displacement signal.
+
+  - id: predator_circling
+    description: |
+      A dark-furred predator with a scar on its flank appears to the
+      organism's left. Minutes later, the same scarred predator appears
+      behind the organism, then later to its right.
+    survival_relevance: |
+      Detecting that multiple sightings are the SAME predator circling
+      reveals encirclement strategy. Multiple distinct predators versus
+      one circling predator demand completely different escape plans.
+    what_fires: |
+      Repeated identity-match (dark fur, scar, size) at sequentially
+      different angular positions relative to self. Each sighting
+      triggers identity binding to the prior encoding at a new position.
+
+  - id: floating_log_downstream
+    description: |
+      A log with a distinctive broken branch is seen upstream caught
+      against rocks. Later, the same log with broken branch is found
+      downstream lodged against a different bank.
+    survival_relevance: |
+      Tracking object movement through currents reveals water flow
+      patterns. The log's displacement path shows where the current
+      goes, useful for crossing decisions.
+    what_fires: |
+      Unique shape signature (log, broken branch angle, bark pattern)
+      matches stored encoding. Position has shifted along the water
+      flow axis. Identity persistence through environmental transport.
+
+anti_manifestations:
+  - id: two_similar_rocks_different_spots
+    description: |
+      A round grey rock sits near a tree. Twenty body-lengths away,
+      another round grey rock of similar size sits near a bush. Both
+      have always been in their respective positions.
+    why_should_not_fire: |
+      These are two distinct objects that happen to share perceptual
+      features. Neither has moved. There is no identity persistence
+      through displacement — just two similar-looking things at two
+      locations. Dynamic repetition requires tracking ONE object across
+      positions, not noticing resemblance between TWO objects.
+    distinguishes: |
+      Identity persistence (one object, multiple positions over time)
+      versus perceptual similarity (multiple objects, static positions).
+      Dynamic repetition requires temporal tracking of displacement.
+
+  - id: same_location_revisited_with_object
+    description: |
+      The organism visits a water hole and sees a flat stone at its
+      edge. The organism leaves and returns an hour later. The flat
+      stone is still at the water hole edge, unmoved.
+    why_should_not_fire: |
+      The object has not changed position. This is an object persisting
+      at the SAME location — static repetition, not dynamic. The
+      concept requires the object to have moved to a different position
+      while retaining identity, not remaining where it was.
+    distinguishes: |
+      Spatial displacement versus spatial persistence. Dynamic
+      repetition fires on identity across DIFFERENT positions.
+      Same object at same position is static repetition.

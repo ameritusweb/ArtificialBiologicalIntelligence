@@ -1,0 +1,143 @@
+receptor_id: long_term_planning
+family: meta-motivational
+tier: canopy
+stage: 9
+
+conceptual_space: |
+  Planning across multiple episodes. Not single-episode planning — cross-
+  episode goals. The organism formulates and maintains goals that span
+  episodes: "Over the next many episodes, I will build a shelter" or
+  "I need to accumulate resources across seasons." The boundary is the
+  temporal horizon: this receptor fires on plans that extend BEYOND the
+  current episode into future episodes, requiring persistence of intention
+  across episode boundaries.
+
+manifestations:
+  - id: multi_episode_food_cache
+    description: |
+      Organism begins deliberately storing excess food in a hidden location
+      during episodes of abundance, with the explicit plan to retrieve it
+      during episodes of scarcity. Each storage act is not immediately
+      rewarded — the reward comes episodes later when the cache is needed.
+      The plan spans multiple episodes: gather now, consume later.
+    survival_relevance: |
+      Cross-episode food caching decouples consumption from acquisition.
+      Organisms that plan across episodes survive seasonal scarcity that
+      kills organisms limited to within-episode foraging. Long-term
+      planning enables survival through environmental variability.
+    what_fires: |
+      Current action (storing food) has no immediate reward but serves
+      a goal whose payoff is in a future episode. The organism maintains
+      a plan representation that spans episode boundaries and drives
+      current behavior toward a temporally distant outcome.
+
+  - id: territory_improvement_project
+    description: |
+      Organism begins a multi-episode project of improving its territory:
+      clearing debris from paths in one episode, marking boundaries in
+      another, establishing sentinel positions in a third. No single
+      episode's work provides the full benefit — the territory improvement
+      accumulates across episodes toward a planned end-state.
+    survival_relevance: |
+      Territory that is improved incrementally over many episodes provides
+      compounding advantages — faster escape routes, clearer boundaries
+      that deter competitors, better observation positions. Only organisms
+      with cross-episode planning can execute such projects.
+    what_fires: |
+      Multi-step plan distributed across episodes. Each episode's actions
+      are subgoals of a larger plan. The organism tracks plan progress
+      across episode boundaries and selects each episode's actions based
+      on what remains to be done.
+
+  - id: seasonal_migration_preparation
+    description: |
+      Organism detects early signs of seasonal change and begins
+      preparation for migration — eating more to build reserves in one
+      episode, scouting the migration route in another, moving to staging
+      areas in a third. The migration plan spans many episodes, with each
+      episode's behavior determined by the overall migration schedule.
+    survival_relevance: |
+      Seasonal migration is the canonical cross-episode plan. Organisms
+      that cannot plan beyond the current episode will be caught by
+      winter in summer territory. Migration preparation requires
+      anticipating future episodes and preparing now.
+    what_fires: |
+      Current behavior is explained only by reference to a future episode
+      state. Eating more than needed NOW makes sense only in the context
+      of a future episode with scarcity. The plan's temporal scope
+      extends across the seasonal boundary.
+
+  - id: alliance_building_over_time
+    description: |
+      Organism begins a deliberate program of alliance building: sharing
+      food with a specific conspecific across multiple episodes, providing
+      aid during that individual's conflicts, and tolerating small costs
+      now. The plan is to build a reciprocal alliance that will provide
+      protection and resource sharing in future episodes.
+    survival_relevance: |
+      Social alliances that require multi-episode investment before paying
+      off are a major survival strategy. Organisms limited to within-
+      episode social reasoning cannot build the deep reciprocal
+      relationships that provide long-term security.
+    what_fires: |
+      Social behavior that is costly now but serves a cross-episode social
+      goal. The organism maintains a model of the alliance relationship's
+      trajectory across episodes and adjusts current investment based on
+      the long-term plan.
+
+  - id: offspring_development_investment
+    description: |
+      Organism modifies its behavior across many episodes to support
+      offspring development: guarding the nest in early episodes,
+      teaching foraging in middle episodes, gradually reducing protection
+      in later episodes. The plan is a multi-episode developmental
+      trajectory for the offspring, with the parent's behavior at each
+      stage determined by the overall rearing plan.
+    survival_relevance: |
+      Offspring rearing is the ultimate cross-episode plan — the payoff
+      (reproductive success) is many episodes away. Parents that plan
+      offspring development across episodes produce more competent
+      offspring than those that respond only to immediate offspring needs.
+    what_fires: |
+      Multi-episode behavioral sequence where each episode's parental
+      behavior is a planned stage in a developmental trajectory. The
+      plan includes future episodes and adjusts current behavior based
+      on the offspring's development schedule.
+
+anti_manifestations:
+  - id: within_episode_multi_step_plan
+    description: |
+      Organism plans a multi-step foraging route within a single episode:
+      visit food source A first, then B, then C, then return to nest.
+      The plan involves multiple steps and sequential reasoning, but it
+      is entirely within one episode. When the episode ends, the plan
+      is complete or abandoned. No intention persists across episode
+      boundaries.
+    why_should_not_fire: |
+      Long-term planning requires cross-EPISODE temporal scope. Within-
+      episode multi-step planning is regular planning — sequential
+      reasoning within a single episode boundary. The plan does not
+      persist across episode resets.
+    distinguishes: |
+      The defining feature is temporal scope crossing episode boundaries.
+      Complexity of the plan (many steps) is not the criterion — even
+      a simple plan that spans episodes is long-term, while a complex
+      plan that fits in one episode is not.
+
+  - id: habit_that_persists_across_episodes
+    description: |
+      Organism always visits the same food source first in every episode.
+      This behavior persists across episodes, but it is a learned habit,
+      not a plan. There is no goal state being worked toward, no
+      subgoal decomposition, no progress tracking. The organism simply
+      repeats what worked before without planning.
+    why_should_not_fire: |
+      Long-term planning requires INTENTIONAL goal pursuit across
+      episodes, not just behavioral persistence. A habit that repeats
+      across episodes is not a plan — it lacks a goal state, a progress
+      model, and adaptive subgoal selection. Repetition is not planning.
+    distinguishes: |
+      Planning requires a goal, a decomposition into subgoals, and
+      progress tracking. Habits are repeated behaviors without these
+      planning structures. The distinction is between intentional
+      cross-episode goal pursuit and automatic cross-episode repetition.

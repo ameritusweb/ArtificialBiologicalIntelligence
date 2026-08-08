@@ -1,0 +1,186 @@
+receptor_id: developmental_environment_engineering
+family: environmental_augmentation
+tier: canopy
+stage: 12
+
+conceptual_space: |
+  Detects the organism designing a sequence of increasingly complex
+  environments for its OWN development — self-directed curriculum
+  design. Unlike niche_construction (Stage 10), where a parent
+  engineers environments for offspring, here the organism is both
+  the architect and the student. It recognizes what it needs to
+  learn, assesses its current capability, designs an environment
+  that will push its development in the right direction, and
+  sequences these environments to build capabilities progressively.
+  The boundary separates self-directed developmental engineering
+  (deliberately constructing one's own learning trajectory) from
+  environmental manipulation for immediate goals (modifying the
+  environment to solve a current problem) or from incidental
+  learning through exploration. The critical signal is the organism
+  engineering environments it does not yet need but will need for
+  its own growth.
+
+manifestations:
+  - id: self_designed_practice_progression
+    description: |
+      The organism needs to hunt a fast-moving prey species but
+      currently cannot. It constructs a practice sequence: first
+      it chases slow-moving targets in open terrain, then faster
+      targets in open terrain, then slow targets in complex terrain,
+      then fast targets in complex terrain. It designs and sequences
+      these challenges itself, deliberately creating conditions it
+      has not yet mastered but can approach from its current level.
+      No parent or teacher arranged this — the organism is its
+      own curriculum designer.
+    survival_relevance: |
+      Self-directed developmental sequencing enables the organism
+      to build capabilities systematically even without a teacher.
+      The organism identifies the skill gap, decomposes the target
+      skill into learnable components, and sequences environments
+      that develop each component. This is the most efficient
+      learning path available to an autonomous agent.
+    what_fires: |
+      The organism constructing a sequence of environments ordered
+      by difficulty, calibrated to its own current capability
+      level, and oriented toward a skill it does not yet possess.
+      The self-directed, capability-assessed, progressively-
+      sequenced developmental plan fires.
+
+  - id: deliberate_exposure_to_manageable_threat
+    description: |
+      The organism knows it freezes when encountering a specific
+      predator type. It deliberately positions itself at a safe
+      distance from a sleeping individual of that predator type —
+      close enough to trigger mild fear but far enough to be safe.
+      It practices maintaining composure at this distance, then
+      gradually decreases the distance over successive sessions.
+      The organism is systematically desensitizing itself through
+      self-designed controlled exposure.
+    survival_relevance: |
+      Fear responses that exceed the functional range (complete
+      freezing) are lethal in actual encounters. The organism
+      engineers its own exposure therapy — creating conditions
+      where it practices fear management with escalating intensity.
+      This is self-directed emotional regulation development.
+    what_fires: |
+      The organism deliberately creating threatening conditions
+      calibrated to be challenging but manageable, with the
+      explicit purpose of developing its own capacity to handle
+      the threat. The self-directed-controlled-exposure pattern
+      fires — the organism engineers its own developmental stress.
+
+  - id: constructing_novel_problem_environments
+    description: |
+      The organism encounters a type of puzzle (extracting food
+      from an enclosed space) and solves it. Instead of moving on,
+      it creates more difficult versions of the puzzle — blocking
+      easy access routes, adding obstacles, making the extraction
+      require more steps. It is constructing novel problems for
+      itself to solve, deliberately increasing complexity beyond
+      what the environment naturally presents.
+    survival_relevance: |
+      Natural environments may not present sufficiently challenging
+      problems to develop advanced skills. The organism that
+      constructs harder versions of solved problems develops
+      capabilities beyond what its current environment demands,
+      preparing it for future environments or rare challenges.
+    what_fires: |
+      The organism creating problems harder than those it has
+      already solved, in the same domain, with no immediate
+      survival benefit — the construction is developmental, not
+      functional. The self-challenged-beyond-current-demand
+      pattern fires.
+
+  - id: social_skill_development_environment
+    description: |
+      The organism recognizes it handles aggressive social
+      encounters poorly. It deliberately engages in low-stakes
+      competitive interactions — contesting small food items with
+      tolerant group members rather than important resources with
+      dominant ones. It is selecting social environments calibrated
+      to develop its competitive skills at a manageable intensity
+      level, choosing practice partners and contexts for
+      developmental value.
+    survival_relevance: |
+      Social competition skills are necessary for resource access
+      and status, but developing them in high-stakes contexts
+      risks injury and social damage. The organism engineers low-
+      stakes social practice environments, building competitive
+      capability before deploying it in consequential situations.
+    what_fires: |
+      The organism selecting social interaction contexts based on
+      developmental appropriateness rather than current need —
+      choosing interactions that build skills over interactions
+      that serve immediate goals. The development-optimized
+      social environment selection fires.
+
+  - id: cognitive_challenge_seeking
+    description: |
+      The organism has mastered predicting simple environmental
+      patterns. It deliberately exposes itself to environments
+      with more complex patterns — areas where multiple variables
+      interact, where timing is irregular, where causes are
+      indirect. It is not foraging in these areas (the returns
+      are poor for its current skill level) but practicing
+      prediction in harder domains to develop its predictive
+      capacity.
+    survival_relevance: |
+      Prediction skills developed in simple environments plateau.
+      The organism that deliberately seeks complex prediction
+      challenges develops capabilities that will be needed when
+      the simple environment eventually changes or when it moves
+      to more complex territories. Investment in cognitive
+      development has deferred survival returns.
+    what_fires: |
+      The organism seeking environments for their cognitive
+      challenge value rather than their resource value — choosing
+      complex, low-return environments over simple, high-return
+      ones for the purpose of developing prediction capability.
+      The development-over-immediate-return environment selection
+      fires.
+
+anti_manifestations:
+  - id: environmental_manipulation_for_current_problem
+    description: |
+      The organism modifies its environment to solve a current
+      problem — moving a rock to access food underneath, building
+      a shelter against rain, damming a stream to create a pool.
+      The modification serves an immediate need, not a
+      developmental goal. The organism is not trying to grow its
+      capabilities; it is trying to solve the problem at hand.
+    why_should_not_fire: |
+      This is environmental manipulation for immediate utility,
+      not developmental engineering. The modification serves a
+      current survival need rather than a future capability
+      development goal. Developmental environment engineering
+      requires the organism to construct challenges for its own
+      growth — environments it does not need now but will grow
+      from engaging with.
+    distinguishes: |
+      Immediate-need modification (change environment to solve
+      current problem) versus developmental modification (change
+      environment to develop future capabilities). The time
+      horizon and purpose — current solution versus future growth —
+      is the boundary.
+
+  - id: parent_constructing_environment_for_offspring
+    description: |
+      A parent clears a safe practice area for its offspring,
+      scaffolds foraging difficulty, and creates controlled
+      exposure to threats. The developmental engineering is real
+      but is done BY one agent FOR another agent — not self-
+      directed. The offspring benefits from the constructed
+      environment but did not design it.
+    why_should_not_fire: |
+      This is niche_construction (Stage 10), not developmental
+      environment engineering. The architect and the student are
+      different agents. Developmental environment engineering
+      specifically requires the organism to be both designer and
+      learner — engineering its own developmental trajectory.
+      Other-directed construction is a different, earlier capacity.
+    distinguishes: |
+      Other-directed developmental construction (one agent builds
+      for another's growth) versus self-directed developmental
+      construction (the organism builds for its own growth). The
+      identity of architect and student — same agent versus
+      different agents — is the boundary.

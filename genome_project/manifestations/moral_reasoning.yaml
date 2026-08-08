@@ -1,0 +1,176 @@
+receptor_id: moral_reasoning
+family: social
+tier: canopy
+stage: 10
+
+conceptual_space: |
+  Detects socially enforced behavioral standards — group norms whose
+  violation triggers collective punishment and whose adherence is
+  maintained through social enforcement rather than individual cost-
+  benefit calculation. An organism that steals from shared caches gets
+  collectively shunned or attacked, not by the victim alone but by
+  the group. The boundary separates group norm enforcement (collective
+  response to behavioral standards) from individual retaliation
+  (personal response to personal harm). The critical signal is that
+  the enforcement involves agents who were not directly harmed — third-
+  party punishment that maintains a shared behavioral standard.
+
+manifestations:
+  - id: collective_punishment_of_cache_thief
+    description: |
+      An organism steals from another's food cache. Multiple group
+      members who did not own the cache and were not directly harmed
+      collectively exclude the thief from group activities — refusing
+      proximity, blocking access to shared resources, displaying
+      aggression. The punishment comes from the GROUP, not just the
+      victim. The thief's behavior violated a standard that the group
+      enforces collectively.
+    survival_relevance: |
+      Detecting group norm enforcement enables the organism to
+      understand that certain behaviors carry social costs beyond
+      the direct victim's retaliation. The organism learns that
+      the group AS A WHOLE monitors and enforces behavioral standards,
+      making violation far more costly than individual conflict.
+    what_fires: |
+      Multiple agents who were not directly harmed responding
+      negatively to a behavioral violation by a third party.
+      The response is coordinated, involves non-victims, and targets
+      the specific behavior rather than the individual generally.
+      The third-party coordinated enforcement pattern fires.
+
+  - id: norm_teaching_to_offspring
+    description: |
+      A parent physically restrains its offspring from taking food
+      that belongs to another group member, even when the offspring
+      could successfully steal it. The parent demonstrates the
+      behavioral standard — do not take others' food — through
+      active prevention, not through the offspring experiencing
+      punishment. The parent transmits the norm BEFORE the offspring
+      violates it.
+    survival_relevance: |
+      Pre-violation norm teaching prevents the offspring from paying
+      the cost of norm violation (collective punishment). Detecting
+      that the parent's restraint represents a social rule rather
+      than arbitrary prohibition enables the offspring to generalize
+      the norm to novel situations rather than memorizing specific
+      prohibitions.
+    what_fires: |
+      A competent agent (parent) preventing a capable action
+      (offspring could steal successfully) on grounds that are not
+      about capability or safety but about social standards. The
+      prevention occurs despite the action being physically feasible
+      and immediately rewarding. The capable-but-prohibited pattern
+      fires moral reasoning rather than risk assessment.
+
+  - id: reputation_tracking_across_interactions
+    description: |
+      An organism that consistently shares food with group members
+      receives preferential treatment — better foraging positions,
+      earlier access to discoveries, more cooperative partners.
+      An organism that consistently hoards receives the inverse.
+      The group tracks behavioral history and modulates treatment
+      based on accumulated evidence of norm adherence or violation.
+    survival_relevance: |
+      Detecting reputation-based treatment reveals that behavioral
+      history has cumulative social consequences. Single acts are
+      evaluated in context of the pattern — consistent sharing
+      builds social capital, consistent selfishness erodes it.
+      Understanding this system enables strategic long-term
+      behavioral planning.
+    what_fires: |
+      Group treatment of an individual varying based on that
+      individual's behavioral history rather than current situation.
+      Multiple group members independently modulating their behavior
+      toward the individual based on accumulated past actions. The
+      history-dependent, multi-agent treatment pattern fires.
+
+  - id: norm_violation_justification
+    description: |
+      An organism takes food from another's cache during a severe
+      food shortage. The group observes but does NOT collectively
+      punish — the shortage context makes the normally prohibited
+      behavior acceptable. The organism detects that the same
+      behavior (cache theft) triggers different group responses
+      depending on context. The norm has conditions, not just
+      absolute rules.
+    survival_relevance: |
+      Detecting context-dependent norms enables flexible social
+      behavior — understanding when normally prohibited actions
+      become acceptable prevents both unnecessary norm violation
+      during normal times and unnecessary restraint during
+      emergencies. Rigid norm following in extremis is maladaptive.
+    what_fires: |
+      A behavior that normally triggers collective punishment
+      occurring without punishment due to contextual factors
+      recognized by the group. The group's non-response despite
+      the technical violation signals that the norm is context-
+      sensitive. The same-behavior-different-response-based-on-
+      context pattern fires.
+
+  - id: group_deliberation_on_norm_edge_case
+    description: |
+      An organism takes food from an abandoned cache — the owner
+      has been absent for an unusually long period. Some group
+      members display aggression (norm violation), others do not
+      (cache was abandoned). The group's mixed response reveals
+      a genuine boundary case in the norm. The organism detects
+      that the group itself is uncertain about whether the norm
+      applies, indicating the norm has fuzzy boundaries that the
+      group navigates collectively.
+    survival_relevance: |
+      Detecting norm ambiguity prepares the organism for situations
+      where simple rule-following is insufficient. Understanding
+      that the group itself debates edge cases enables the organism
+      to approach ambiguous situations with appropriate caution
+      rather than assuming clear right-and-wrong categories.
+    what_fires: |
+      Split group response to the same behavior — some members
+      enforcing, others not — with the split corresponding to
+      a genuine ambiguity in the norm's applicability. The group
+      disagreement is not random but tracks a real boundary
+      question. The split-enforcement-at-boundary pattern fires.
+
+anti_manifestations:
+  - id: individual_retaliation_by_victim
+    description: |
+      An organism steals food from another. The victim alone
+      retaliates — chasing, attacking, reclaiming its food. No
+      other group members participate. The response is the victim's
+      personal reaction to personal harm, not group enforcement
+      of a standard.
+    why_should_not_fire: |
+      This is individual conflict resolution, not moral reasoning.
+      The victim's retaliation is a personal response to direct
+      harm — it would occur between any two organisms regardless
+      of group norms. Moral reasoning requires third-party
+      enforcement: agents who were NOT directly harmed responding
+      to the violation because it breached a shared standard.
+    distinguishes: |
+      Individual retaliation (victim responds to own harm) versus
+      collective norm enforcement (non-victims respond to behavioral
+      standard violation). The involvement of third parties who
+      enforce on principle rather than personal interest is the
+      boundary.
+
+  - id: dominance_hierarchy_enforcement
+    description: |
+      A subordinate organism approaches food before a dominant
+      organism. The dominant attacks the subordinate. This looks
+      like norm enforcement but is actually dominance assertion —
+      the dominant organism enforces its personal priority, not a
+      group behavioral standard. Other group members do not
+      participate in the enforcement, and the "rule" only serves
+      the dominant individual's interests.
+    why_should_not_fire: |
+      This is power-based resource control, not moral reasoning.
+      The "rule" serves only the dominant individual and is
+      enforced only by that individual. Moral reasoning requires
+      norms that the GROUP recognizes and enforces collectively,
+      serving group-level functioning rather than one individual's
+      advantage.
+    distinguishes: |
+      Self-serving dominance enforcement (one powerful individual
+      enforces rules that benefit itself) versus collective moral
+      enforcement (group enforces standards that serve collective
+      functioning). The breadth of enforcement and whose interests
+      the norm serves is the boundary.

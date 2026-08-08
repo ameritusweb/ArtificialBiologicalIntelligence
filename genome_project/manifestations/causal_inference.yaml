@@ -1,0 +1,131 @@
+receptor_id: causal_inference
+family: causality
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Detects that A does not merely precede B but A CAUSES B. The critical
+  test is interventionist: when the organism performs A, B follows; when
+  the organism withholds A, B does not occur. The boundary separates
+  correlation (A and B co-occur) from causation (A produces B, and
+  removing A removes B). Requires counterfactual comparison — what
+  happens when the cause is present versus absent.
+
+manifestations:
+  - id: push_rock_it_rolls
+    description: |
+      The organism pushes a round rock on a slope. The rock rolls
+      downhill. The organism approaches the same rock and does not
+      push it. The rock stays still. Pushing again — it rolls again.
+      Not pushing — it stays.
+    survival_relevance: |
+      Understanding that pushing CAUSES rolling enables intentional
+      rock displacement for path-clearing, defense, or accessing
+      resources underneath.
+    what_fires: |
+      Repeated pairing of action (push) with outcome (roll) combined
+      with repeated pairing of withheld action (no push) with absence
+      of outcome (no roll). The intervention-outcome contingency,
+      confirmed by omission, fires the causal signal.
+
+  - id: striking_berry_releases_juice
+    description: |
+      The organism strikes a ripe berry with a stone and juice
+      releases. It places another identical berry on the ground
+      without striking — no juice. It strikes the second berry —
+      juice releases. The striking action is isolated as the cause.
+    survival_relevance: |
+      Knowing that striking causes juice release enables intentional
+      food processing. The organism can choose when and where to
+      extract nutrition.
+    what_fires: |
+      Action (strike with stone) reliably produces outcome (juice
+      release). Withholding action (berry sits intact) produces no
+      outcome. Causal isolation through intervention versus omission
+      fires.
+
+  - id: removing_dam_stick_releases_water
+    description: |
+      A small pool is held back by sticks and debris. The organism
+      pulls out a key stick and water flows through the gap. The
+      organism replaces the stick and water stops. Removes it again
+      — water flows again.
+    survival_relevance: |
+      Controllable water flow enables irrigation of food patches,
+      creation of barriers, or access to aquatic resources. Causal
+      understanding of flow control is a survival multiplier.
+    what_fires: |
+      Bidirectional intervention — removing stick causes flow,
+      replacing stick causes stoppage. The reversibility of the
+      causal relationship through opposite interventions produces
+      a strong causal inference signal.
+
+  - id: shaking_branch_drops_fruit
+    description: |
+      The organism shakes a fruit-laden branch vigorously. Several
+      fruits fall to the ground. It stops shaking — no more fall.
+      It shakes again — more fall. Adjacent unshaken branches retain
+      their fruit.
+    survival_relevance: |
+      Causing fruit to fall without climbing expands foraging
+      efficiency and reduces fall-risk. Causal knowledge of
+      branch-shaking enables ground-level harvesting.
+    what_fires: |
+      Action on specific object (shake THIS branch) produces
+      localized outcome (fruit falls from THIS branch only).
+      Cessation of action stops outcome. Spatial specificity plus
+      temporal contingency on intervention fires causal signal.
+
+  - id: blocking_entrance_stops_predator
+    description: |
+      The organism rolls a large stone in front of a burrow entrance.
+      A pursuing predator reaches the burrow and cannot enter. The
+      organism later removes the stone; the predator (or another)
+      can now enter. Stone present — blocked. Stone absent — open.
+    survival_relevance: |
+      Causal understanding of physical barriers enables defensive
+      construction. The organism can create and remove protection
+      intentionally.
+    what_fires: |
+      Intervention (place stone) produces state (entrance blocked).
+      Reverse intervention (remove stone) removes state (entrance
+      open). Bidirectional causal control confirmed through action
+      and reversal fires.
+
+anti_manifestations:
+  - id: wind_precedes_fruit_fall
+    description: |
+      The organism notices that wind gusts are often followed by
+      fruit falling from trees. Wind blows, then fruit drops. This
+      happens repeatedly. But the organism cannot control the wind
+      and has never intervened to test the relationship.
+    why_should_not_fire: |
+      This is observed correlation — A (wind) precedes B (fruit fall)
+      — but the organism has not performed an intervention. Without
+      testing what happens when wind is absent or present by its own
+      action, this remains precedence detection, not causal inference.
+      Causal inference requires interventionist confirmation.
+    distinguishes: |
+      Observed precedence or correlation (A precedes B repeatedly)
+      versus confirmed causation (organism intervenes with A,
+      observes B; withholds A, observes no B). The intervention
+      test is the boundary.
+
+  - id: rain_and_mushroom_co_occurrence
+    description: |
+      After rain, mushrooms appear near a fallen log. This has
+      happened three times. The organism has not attempted to
+      produce rain or water the area to test whether moisture
+      causes mushroom growth.
+    why_should_not_fire: |
+      This is temporal association — rain and mushrooms co-occur
+      with a time lag. But the organism has no interventionist
+      evidence. It has never added water to test if mushrooms
+      appear, or prevented water to test if they do not. Without
+      the intervention-omission contrast, this is association
+      not causation.
+    distinguishes: |
+      Temporal co-occurrence (events follow each other in nature)
+      versus interventionist causation (organism's action produces
+      or prevents the outcome). The organism must be the agent
+      of the cause for causal inference to fire.

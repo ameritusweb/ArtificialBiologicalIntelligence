@@ -1,0 +1,185 @@
+receptor_id: analogy_receptor_ep
+family: compression
+tier: canopy
+stage: 6
+
+conceptual_space: |
+  Detects structural parallels between different processing pipelines
+  within the organism's own cognitive architecture, accumulated across
+  an entire episode. One pipeline processes spatial navigation while
+  another processes social hierarchy — across the episode, the firing
+  patterns in both pipelines reveal the same relational structure
+  (gradient ascent, position tracking, boundary detection). The
+  boundary separates genuine cross-pipeline structural isomorphism
+  from coincidental co-activation or surface-level pattern overlap.
+  NOTE: this is the episode-level version - measures across an entire
+  episode rather than at a single step. The cross-pipeline analogy
+  emerges as many processing events accumulate and the structural
+  correspondence becomes statistically undeniable.
+
+manifestations:
+  - id: navigation_mirrors_social_hierarchy_processing
+    description: |
+      Across an episode, a creature's spatial navigation pipeline
+      processes many terrain events: climbing gradients, detecting
+      peaks, avoiding valleys, tracking relative elevation. Meanwhile,
+      its social processing pipeline handles many dominance encounters:
+      ascending status through wins, detecting top-ranked individuals,
+      avoiding low-status positions, tracking relative rank. Over
+      dozens of processing events in both pipelines, the organism's
+      internal monitoring detects that both pipelines use the same
+      abstract operations — gradient ascent, peak detection, relative
+      position tracking — despite processing completely different
+      input domains.
+    survival_relevance: |
+      Detecting cross-pipeline structural isomorphism enables
+      computational reuse. Algorithms refined in the heavily-practiced
+      navigation pipeline can be recruited for the less-practiced
+      social pipeline, accelerating social learning without
+      duplicating cognitive development.
+    what_fires: |
+      Episode-accumulated correlation between firing patterns in
+      navigation and social-processing pipelines. Operations
+      (gradient ascent, peak detection, relative positioning) match
+      structurally across many independent processing events in both
+      pipelines over the episode.
+
+  - id: foraging_search_mirrors_memory_retrieval
+    description: |
+      Over an episode, the creature's foraging pipeline processes
+      many search events: scanning areas systematically, narrowing
+      to high-probability zones, zooming in on specific targets,
+      verifying identity before committing. Simultaneously, its
+      memory retrieval pipeline processes many recall attempts:
+      broad context search, narrowing to relevant episodes, focusing
+      on specific details, verifying accuracy before acting. Across
+      many paired instances, both pipelines execute the same
+      broad-narrow-focus-verify processing sequence.
+    survival_relevance: |
+      Recognizing that external search and internal search use the
+      same processing structure enables bidirectional optimization.
+      Improvements to systematic foraging search strategies can
+      refine memory retrieval, and vice versa — the organism
+      leverages experience in one domain to improve the other.
+    what_fires: |
+      Episode-level structural match between foraging search and
+      memory retrieval processing pipelines. Four-stage processing
+      sequence (broad scan, narrowing, focusing, verification)
+      appears consistently in both pipelines across many independent
+      events within the episode.
+
+  - id: threat_response_mirrors_error_correction
+    description: |
+      Across an episode, the creature's threat-response pipeline
+      processes many danger signals: detect anomaly, assess severity,
+      select response, execute response, evaluate outcome. Its error-
+      correction pipeline processes many prediction failures: detect
+      deviation, assess magnitude, select model update, apply
+      correction, evaluate improvement. Over the episode's many
+      processing events, both pipelines show the same five-stage
+      detect-assess-select-execute-evaluate architecture despite
+      handling different types of input.
+    survival_relevance: |
+      Cross-pipeline structural recognition reveals that threat
+      response and learning are architecturally the same process.
+      This insight enables the organism to apply the urgency and
+      speed optimizations of its threat pipeline to accelerate
+      its learning pipeline when rapid adaptation is needed.
+    what_fires: |
+      Episode-accumulated structural correspondence between threat-
+      response and error-correction pipelines. Five-stage processing
+      architecture matches consistently across many independent
+      events in both pipelines. The cross-pipeline analogy score
+      exceeds threshold as paired observations accumulate.
+
+  - id: communication_mirrors_tool_manipulation
+    description: |
+      Over many steps in an episode, the creature's communication
+      pipeline processes social signals: parse incoming signal,
+      extract intent, formulate response, modulate output, observe
+      effect. Its tool-use pipeline processes physical interactions:
+      perceive object state, determine desired change, formulate
+      action sequence, modulate force, observe result. Across many
+      communication acts and tool uses within the episode, both
+      pipelines reveal the same perceive-interpret-plan-execute-
+      monitor structure.
+    survival_relevance: |
+      Recognizing the structural isomorphism between communication
+      and tool manipulation enables the organism to treat social
+      signals as tools to be wielded with the same precision and
+      feedback sensitivity as physical tools. Communication skill
+      and tool skill can cross-fertilize through shared processing
+      architecture.
+    what_fires: |
+      Episode-level structural mapping between communication and
+      tool-use processing pipelines. Five-element processing
+      structure (perceive, interpret, plan, execute, monitor)
+      matches across many independent events in both pipelines
+      throughout the episode.
+
+  - id: rhythm_processing_mirrors_prediction_timing
+    description: |
+      Across an episode, the creature's rhythm detection pipeline
+      processes many periodic signals: identify period, lock to
+      phase, anticipate next beat, detect deviations, adjust
+      tracking. Its prediction-timing pipeline processes many
+      temporal forecasts: estimate interval, synchronize to pattern,
+      anticipate next event, detect timing errors, recalibrate.
+      Over many processing events in both pipelines, the structural
+      isomorphism becomes clear — both are phase-locked anticipatory
+      loops with error-driven recalibration.
+    survival_relevance: |
+      Recognizing that rhythm perception and temporal prediction
+      share processing architecture means improvements to musical
+      or environmental rhythm tracking automatically enhance the
+      organism's ability to predict timed events like prey movement
+      patterns or tidal cycles.
+    what_fires: |
+      Episode-accumulated structural match between rhythm detection
+      and prediction-timing pipelines. Phase-locking, anticipatory
+      generation, deviation detection, and recalibration operations
+      match across many processing events in both pipelines over
+      the episode.
+
+anti_manifestations:
+  - id: two_pipelines_co_activate_without_structural_match
+    description: |
+      Over an episode, the creature's spatial navigation pipeline
+      and its hunger-regulation pipeline frequently activate at the
+      same time — the creature navigates while hungry, so both are
+      active. But the navigation pipeline performs gradient ascent
+      while the hunger pipeline performs threshold monitoring. Their
+      processing structures are different; they just happen to run
+      concurrently.
+    why_should_not_fire: |
+      Temporal co-activation is not structural isomorphism. Two
+      pipelines that happen to run at the same time but use different
+      computational operations do not share structural analogy. The
+      cross-pipeline analogy receptor requires matching operations,
+      not matching activation times.
+    distinguishes: |
+      Co-activation (two pipelines active simultaneously) versus
+      structural isomorphism (two pipelines performing the same
+      computational operations on different inputs). Timing overlap
+      is not structural correspondence.
+
+  - id: same_pipeline_processing_similar_inputs
+    description: |
+      Over an episode, the creature's threat-detection pipeline
+      processes both visual threats (predator silhouettes) and
+      auditory threats (predator vocalizations). The processing
+      structure is similar because it IS the same pipeline handling
+      similar inputs. The structural match is trivial — same
+      pipeline, same architecture, similar inputs.
+    why_should_not_fire: |
+      This is within-pipeline generalization, not cross-pipeline
+      analogy. The structural match is trivially expected because
+      it is the same pipeline processing variants of the same input
+      type. Cross-pipeline analogy requires DIFFERENT pipelines with
+      DIFFERENT input domains to independently converge on the same
+      processing structure.
+    distinguishes: |
+      Within-pipeline generalization (same architecture processes
+      similar inputs) versus cross-pipeline analogy (different
+      architectures independently converge on isomorphic processing
+      structures for different input domains).

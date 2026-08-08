@@ -1,0 +1,130 @@
+receptor_id: multiple_receptor_types
+family: meta-motivational
+tier: trunk
+stage: 2
+
+conceptual_space: |
+  Multiple sensory modalities active simultaneously. The concept is sensory
+  diversity — how rich vs how sparse the current input is. When many receptor
+  types fire together, the organism has a multi-dimensional snapshot of its
+  situation. When only one or two fire, the perceptual field is thin.
+  The boundary is the count and diversity of simultaneously active sensory
+  channels, not the intensity of any single channel.
+
+manifestations:
+  - id: rich_meadow_arrival
+    description: |
+      Organism steps into a sunlit meadow. Visual receptors register color
+      gradients and movement of grass. Thermal receptors detect warmth on
+      the dorsal surface. Olfactory signals carry floral and prey scents.
+      Auditory channels pick up insect buzzing and distant water. Tactile
+      sensors feel wind on exposed skin. Five modalities fire simultaneously.
+    survival_relevance: |
+      High sensory diversity means the organism has a rich, cross-validated
+      picture of its environment. Multiple modalities firing together
+      enable more accurate threat and resource assessment than any single
+      channel alone.
+    what_fires: |
+      Count of simultaneously active sensory modalities exceeds baseline.
+      Visual + thermal + olfactory + auditory + tactile all above noise
+      floor in the same timestep. Diversity metric is high.
+
+  - id: underwater_multi_sense
+    description: |
+      Aquatic organism swims through a kelp forest. Lateral line detects
+      water pressure changes from nearby fish movement. Visual system
+      registers shifting light patterns through kelp canopy. Chemical
+      receptors taste dissolved nutrients and alarm substances. Tactile
+      sensors feel kelp fronds brushing the body. Four modalities active.
+    survival_relevance: |
+      Underwater environments with high sensory diversity are information-
+      rich zones where the organism can simultaneously detect food,
+      predators, and shelter quality. Sparse-signal zones are dangerous
+      because threats can approach undetected.
+    what_fires: |
+      Multiple distinct receptor types report above-threshold signals
+      concurrently. The diversity is in KIND of information (pressure,
+      light, chemical, touch), not intensity of one kind.
+
+  - id: nocturnal_hunt_reduced_vision
+    description: |
+      Night-hunting organism operates with visual input nearly silent.
+      But auditory receptors are highly active (prey rustling), olfactory
+      receptors carry strong scent trails, and vibration sensors detect
+      ground movement. Three modalities compensate for the absent one.
+      Sensory diversity is moderate — reduced from daytime but still multi-modal.
+    survival_relevance: |
+      Tracking sensory diversity lets the organism know when it is operating
+      with degraded input. Moderate diversity at night signals that the
+      organism should weight non-visual channels more heavily for decisions.
+    what_fires: |
+      Sensory modality count is reduced from maximum (visual absent) but
+      still multiple channels active. The receptor registers the current
+      diversity level as moderate, not sparse.
+
+  - id: dense_fog_sparse_input
+    description: |
+      Organism is in thick fog. Visual range collapsed to near zero.
+      Sounds are muffled and directionless. Only tactile (ground contact)
+      and proprioceptive channels provide clear signal. Two modalities
+      active. The perceptual field is thin and unreliable.
+    survival_relevance: |
+      Low sensory diversity is a danger signal. With only one or two
+      modalities active, the organism cannot cross-validate perceptions
+      and is vulnerable to ambush or navigation errors.
+    what_fires: |
+      Count of active sensory modalities is at or near minimum. Only
+      tactile and proprioceptive above noise floor. The diversity metric
+      is low, signaling impoverished perception.
+
+  - id: multi_agent_encounter
+    description: |
+      Organism encounters a group of conspecifics at a watering hole.
+      Visual system processes multiple agents and their postures. Auditory
+      channels register vocalizations from several sources. Olfactory
+      receptors detect individual scent signatures. Social signaling
+      receptors activate. Sensory diversity spikes as social input layers
+      onto environmental input.
+    survival_relevance: |
+      Social encounters produce the richest sensory diversity. Many
+      modalities plus social-signal channels all fire together. High
+      diversity in social contexts enables reading group dynamics,
+      dominance, and threat simultaneously.
+    what_fires: |
+      Maximum or near-maximum count of distinct sensory modalities active
+      simultaneously, including social-signal channels not active during
+      solitary exploration. Peak diversity state.
+
+anti_manifestations:
+  - id: single_intense_stimulus
+    description: |
+      A loud sound source dominates the organism's perception. The auditory
+      channel is maximally active, but visual, olfactory, and tactile
+      channels carry only baseline noise. One modality is screaming while
+      the others are quiet. Total sensory intensity is high, but diversity
+      is low.
+    why_should_not_fire: |
+      Sensory diversity is about the COUNT of active modalities, not the
+      intensity of any single one. One channel at maximum is not the same
+      as five channels at moderate levels. This is intensity, not diversity.
+    distinguishes: |
+      Multiple_receptor_types measures breadth across modalities, not
+      depth within one modality. High intensity in one channel with
+      silence in others is low diversity.
+
+  - id: internal_noise_all_channels
+    description: |
+      Organism is experiencing sensory noise from internal causes — fever
+      produces phantom tingles, tinnitus creates false auditory signal,
+      visual system generates phosphenes. Multiple channels show activity,
+      but none of it comes from the environment. The signals are
+      endogenous artifacts, not environmental information.
+    why_should_not_fire: |
+      Sensory diversity measures environmental input richness. Internal
+      noise that activates multiple channels is not genuine multi-modal
+      perception of the world. The information content about the
+      environment is zero despite multiple channels being active.
+    distinguishes: |
+      True sensory diversity requires environmental origin of the signals.
+      Endogenous noise across channels is a pathological state, not rich
+      perception. The receptor should track exogenous signal diversity.

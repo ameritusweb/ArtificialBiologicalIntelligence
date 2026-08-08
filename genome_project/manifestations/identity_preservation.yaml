@@ -1,0 +1,51 @@
+receptor_id: identity_preservation
+family: regulatory
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detects when a proposed cognitive update would compromise the organism's core
+  functional coherence -- not just overwriting one piece of knowledge, but
+  changing something so foundational that it would alter the organism's basic
+  decision-making character. The boundary is between peripheral updates that
+  refine the organism versus core updates that would make it a functionally
+  different organism. This requires a model of which internal structures are
+  load-bearing for coherent behavior and which are modifiable without systemic
+  disruption.
+
+manifestations:
+  - id: core_strategy_threat
+    description: The organism's fundamental survival strategy is cautious exploration -- slow, thorough, mapping everything before acting. A recent sequence of high-reward fast-and-reckless episodes is generating update pressure to become an impulsive organism. Adopting this would dismantle its entire spatial-mapping infrastructure which depends on careful movement.
+    survival_relevance: Some strategies are not just preferences but architectural commitments. An organism optimized for careful exploration has built cognitive structures that depend on slow, thorough input. Switching to impulsive behavior would not just change strategy -- it would orphan all the cognitive infrastructure built around careful exploration.
+    what_fires: Self-model identifies "cautious exploration" as a core strategy with deep dependencies -- spatial mapping, route verification, incremental risk assessment all depend on it. The proposed update would change the base behavioral policy in ways that invalidate these dependent systems. The identity preservation receptor detects that this is not a parameter adjustment but an architectural demolition.
+
+  - id: value_hierarchy_inversion
+    description: The organism has consistently prioritized safety over food acquisition -- it will forgo food to maintain escape route access. A period of extreme hunger is generating pressure to invert this priority and take survival-threatening risks for food. This inversion would cascade through all decision-making.
+    survival_relevance: Value hierarchy inversions are not simple updates -- they reverse the organism's entire decision calculus. An organism that has built all its heuristics around safety-first will make catastrophically bad decisions if food-first is suddenly imposed, because none of its safety-calibrated strategies account for the new priority ordering.
+    what_fires: Self-model identifies the safety-over-food priority as a root node in the decision hierarchy. The proposed inversion would affect not just this decision but all downstream decisions that assume safety-first ordering. The identity preservation receptor fires because the change is structurally deep -- it would require rebuilding the entire decision tree, not just adjusting one branch.
+
+  - id: perceptual_framework_dissolution
+    description: The organism has developed a way of parsing its environment into zones -- safe zones, foraging zones, danger zones -- that structures all its behavior. A novel environment that doesn't fit this zoning framework is generating pressure to abandon the framework entirely rather than extend it.
+    survival_relevance: Perceptual frameworks are the lens through which all experience is interpreted. Dissolving one without a replacement leaves the organism unable to parse any experience coherently. The organism must detect that the framework is load-bearing and should be extended or supplemented, not demolished.
+    what_fires: Self-model identifies the zoning framework as a perceptual foundation that feeds into navigation, risk assessment, and foraging decisions. The update pressure is to dissolve rather than adapt it. The identity preservation receptor fires because removing this framework would leave multiple dependent systems without input structure.
+
+  - id: social_role_annihilation
+    description: The organism has established itself as a follower in a social group -- it benefits from following experienced leaders and has built its social cognition around reading and following leader signals. Pressure arises to become a leader after the current leader disappears. But the organism's entire social-cognitive apparatus is built for following, not leading.
+    survival_relevance: Social roles are not just behaviors but cognitive architectures. A follower has built signal-reading, compliance, and leader-tracking systems. Abruptly switching to leadership would require generating signals, making group decisions, and tracking followers -- entirely different cognitive functions that do not exist in the current architecture.
+    what_fires: Self-model shows social-cognitive architecture optimized for follower functions. The proposed role change would require capabilities the organism has not developed and would orphan the capabilities it has. The identity preservation receptor detects that this is not a role change but an identity replacement -- the new role requires a different kind of organism.
+
+  - id: learning_style_override
+    description: The organism learns best through gradual, incremental exploration -- building understanding step by step. A catastrophic near-death event is generating pressure to switch to one-shot fear conditioning for ALL learning, not just threat learning. This would replace its careful incremental learning with a flinch-based system that overgeneralizes from single events.
+    survival_relevance: Learning style is a meta-cognitive commitment that affects all future knowledge acquisition. An organism that switches from incremental learning to one-shot conditioning will lose the ability to build nuanced, graduated models of its environment. It would become a different kind of learner, not just a differently-informed one.
+    what_fires: Self-model identifies incremental learning as the organism's primary knowledge-acquisition method with deep structural dependencies. The proposed override would replace this with a categorically different learning mechanism. The identity preservation receptor detects that changing HOW the organism learns is more identity-threatening than changing WHAT it has learned.
+
+anti_manifestations:
+  - id: peripheral_preference_update
+    description: The organism has been preferring the north corridor for foraging but discovers the south corridor now has better food. It updates its corridor preference. This changes a specific behavioral choice but does not affect its core exploration strategy, value hierarchy, or perceptual framework.
+    why_should_not_fire: This is a content update, not a structural one. The organism is changing which corridor it prefers, not how it makes corridor choices. Its identity -- its decision-making architecture, value hierarchy, and perceptual framework -- remains intact. The update is at the leaf level, not the root level.
+    distinguishes: Peripheral content updates versus core architectural changes. Identity preservation protects the decision-making STRUCTURE, not every individual decision. Changing a preference is not changing an identity.
+
+  - id: healthy_growth_and_complexification
+    description: The organism's cognitive architecture is expanding -- it is developing new perceptual categories, adding new decision heuristics, and building more sophisticated spatial models. These additions extend the existing architecture without dismantling it. The organism is becoming MORE of what it already is.
+    why_should_not_fire: Growth and complexification that build on existing architecture are not identity threats -- they are identity development. The existing structures remain intact and functional; new structures are added alongside them. Identity preservation should not resist becoming a more capable version of the same kind of organism.
+    distinguishes: Additive growth that extends identity versus destructive change that replaces it. The key dimension is whether existing core structures are preserved and built upon or dismantled and replaced.

@@ -1,0 +1,185 @@
+receptor_id: epistemic_strategy
+family: epistemic
+tier: canopy
+stage: 12
+
+conceptual_space: |
+  Detects the organism deliberately choosing its epistemic stance —
+  when to believe, when to doubt, when to hold open, and when to
+  commit. The organism manages its own knowledge acquisition
+  strategically: it does not simply accumulate beliefs as evidence
+  arrives but actively decides how to process incoming information
+  based on its assessment of what epistemic stance serves its goals.
+  The boundary separates strategic epistemic management (deliberate
+  control over one's own belief formation) from passive belief
+  updating (evidence comes in, beliefs change accordingly) or from
+  motivated reasoning (beliefs distorted by desire rather than
+  strategic choice). The critical signal is the organism making
+  explicit decisions about its own epistemic state based on a
+  meta-assessment of what stance is currently optimal.
+
+manifestations:
+  - id: deliberate_doubt_to_prevent_premature_commitment
+    description: |
+      The organism receives strong evidence for a conclusion about
+      a predator's territory pattern. Normally this evidence would
+      produce confident belief. But the organism recognizes: "If I
+      commit to this belief now, I will stop gathering information
+      and the belief may be wrong in a way that costs me my life.
+      I will deliberately maintain doubt despite strong evidence,
+      to keep myself gathering more data before acting on a
+      conclusion with fatal consequences." The doubt is strategic,
+      not evidential.
+    survival_relevance: |
+      Premature belief commitment in high-stakes domains closes
+      the information-gathering process too early. Strategic doubt
+      keeps inquiry open when the cost of a wrong belief is
+      catastrophic — the organism pays the cost of continued
+      uncertainty to avoid the cost of confident error.
+    what_fires: |
+      The organism deliberately choosing an epistemic stance
+      (doubt) that does not match its evidence level (strong) —
+      based on a meta-assessment of the cost of premature
+      commitment. The evidence-override for strategic reasons
+      fires: the organism's belief state is chosen, not caused.
+
+  - id: strategic_belief_commitment_for_action
+    description: |
+      The organism has ambiguous evidence about whether a food
+      source is safe. Normally this would produce uncertainty. But
+      the organism recognizes: "I must act now — the food will be
+      gone soon. Maintaining uncertainty paralyzes action. I will
+      commit to believing it is safe, act on that belief, and
+      update afterward." The commitment is strategic — chosen to
+      enable action despite insufficient evidence.
+    survival_relevance: |
+      Some situations require action under uncertainty. The organism
+      that can strategically commit (accept risk of wrong belief
+      to enable action) outperforms the organism that remains
+      paralyzed by honest uncertainty. The key is that the
+      commitment is a CHOSEN strategy, not confused confidence.
+    what_fires: |
+      The organism deliberately choosing an epistemic stance
+      (commitment) that exceeds its evidence level (ambiguous) —
+      based on a meta-assessment of the cost of continued
+      uncertainty (paralysis, missed opportunity). The strategic
+      over-commitment for action-enablement fires.
+
+  - id: selective_ignorance_as_strategy
+    description: |
+      The organism could investigate whether a competitor is
+      planning to challenge its territory, but deliberately chooses
+      not to investigate. It recognizes: "Knowing about the
+      potential challenge will distract me from the current
+      foraging opportunity. The information is available but
+      acquiring it now would disrupt a more important ongoing
+      activity. I choose not to know this yet." The ignorance is
+      strategically maintained.
+    survival_relevance: |
+      Information acquisition has costs — attention, time, and
+      the cognitive load of processing new knowledge. Strategic
+      ignorance preserves cognitive resources for higher-priority
+      tasks by deferring lower-priority information acquisition
+      to a more appropriate time.
+    what_fires: |
+      The organism choosing NOT to acquire available information
+      based on a meta-assessment of the information's value
+      relative to the cost of acquiring it now. The deliberate
+      non-acquisition of available knowledge fires — the organism
+      manages its own information intake.
+
+  - id: epistemic_openness_on_novel_phenomena
+    description: |
+      The organism encounters a completely novel environmental
+      phenomenon — a new type of event it has never seen. Instead
+      of immediately categorizing it using existing frameworks
+      (which would enable rapid but possibly wrong response), the
+      organism deliberately holds its interpretive frameworks open:
+      "I will observe this without committing to an interpretation.
+      My existing categories may not apply. I will collect data
+      before deciding what kind of thing this is."
+    survival_relevance: |
+      Novel phenomena force-fit into existing categories are
+      misunderstood from the start. Strategic openness — resisting
+      the urge to categorize immediately — enables the organism
+      to build an accurate model of the truly novel rather than
+      distorting it into a familiar-but-wrong category.
+    what_fires: |
+      The organism deliberately suppressing its categorization
+      impulse in the face of a novel stimulus — choosing an open,
+      uncommitted epistemic stance over the natural tendency to
+      classify rapidly. The strategic suspension of categorization
+      fires.
+
+  - id: epistemic_stance_switching_based_on_context
+    description: |
+      The organism applies different epistemic strategies in
+      different domains: high skepticism about predator-related
+      claims (where false belief is fatal), low skepticism about
+      food-source claims (where false belief wastes time but is
+      not fatal), and strategic openness about novel environmental
+      features (where premature categorization prevents learning).
+      The organism has a MAP of which epistemic stance to apply in
+      which domain, based on the cost structure of errors.
+    survival_relevance: |
+      A single epistemic strategy applied everywhere is suboptimal
+      — too skeptical about food wastes time, too credulous about
+      predators risks death. The organism that calibrates its
+      epistemic stance to the cost structure of each domain
+      optimizes across the full range of knowledge acquisition
+      challenges.
+    what_fires: |
+      The organism deploying different epistemic stances in
+      different domains based on a meta-level assessment of each
+      domain's error-cost structure. The organism has an epistemic
+      POLICY — a systematic approach to managing belief formation
+      across domains. The domain-calibrated epistemic policy fires.
+
+anti_manifestations:
+  - id: passive_belief_updating_from_evidence
+    description: |
+      The organism sees food at a location, believes food is at
+      that location. It sees no food, updates to no-food. Its
+      beliefs track evidence directly — evidence in, belief out,
+      with no strategic mediation. The organism does not choose
+      its epistemic stance; it simply registers what it observes
+      and believes accordingly.
+    why_should_not_fire: |
+      This is passive evidence tracking, not epistemic strategy.
+      The organism's beliefs are caused by evidence, not chosen
+      strategically. Epistemic strategy requires the organism to
+      intervene in its own belief formation — choosing to doubt
+      despite evidence, commit despite ambiguity, or remain open
+      despite categorization pressure. Passive updating has no
+      strategic mediation layer.
+    distinguishes: |
+      Evidence-caused belief (beliefs track evidence directly,
+      no strategic mediation) versus strategically managed belief
+      (organism deliberately chooses epistemic stance based on
+      meta-assessment). The presence of a strategic decision about
+      HOW to process evidence is the boundary.
+
+  - id: motivated_reasoning_driven_by_desire
+    description: |
+      The organism believes a dangerous area is safe because it
+      WANTS the food there. It discounts evidence of danger and
+      amplifies evidence of safety — not as a strategic choice but
+      because desire distorts perception. The organism is not
+      choosing to believe; its desire is causing the belief. If
+      asked, it would say the evidence supports safety (it cannot
+      see the distortion).
+    why_should_not_fire: |
+      This is motivated reasoning — belief distorted by desire,
+      not managed by strategy. The organism does not choose its
+      epistemic stance; desire imposes a stance that the organism
+      experiences as evidence-based. Epistemic strategy requires
+      self-aware, deliberate choice about belief formation — the
+      organism knows what it is doing epistemically. Motivated
+      reasoning is opaque to the organism experiencing it.
+    distinguishes: |
+      Desire-caused belief distortion (opaque, the organism does
+      not know its reasoning is motivated) versus strategic belief
+      management (transparent, the organism deliberately chooses
+      its epistemic stance knowing it diverges from pure evidence
+      tracking). Self-awareness of the epistemic choice is the
+      boundary.

@@ -1,0 +1,48 @@
+receptor_id: hierarchical_structure_detection
+family: organization
+tier: branch
+stage: 5
+
+conceptual_space: |
+  Detects nested organization — structure within a group, levels within a
+  system. A pack of predators has a leader directing followers. A food
+  cluster has a central dense patch surrounded by sparse outliers. The
+  boundary separates flat groups (all members equivalent) from groups
+  with internal rank, role, or containment structure.
+
+manifestations:
+  - id: pack_leader_followers
+    description: One predator initiates movement and others follow with a delay — the pack has a leader whose actions determine group behavior
+    survival_relevance: Identifying the leader allows predicting the entire pack's next move from one signal source
+    what_fires: One object in a group consistently initiates state changes that propagate to other group members with temporal lag
+
+  - id: nested_territory_zones
+    description: Predator's territory has an outer patrol zone, a middle hunting zone, and an inner den zone — concentric regions with different threat levels
+    survival_relevance: Recognizing nested zones enables graduated caution rather than binary safe/unsafe assessment
+    what_fires: Spatial regions with distinct behavioral signatures nested concentrically — outer zone has low-speed movement, middle has high-speed, inner has stationary signals
+
+  - id: prey_herd_structure
+    description: Prey group has sentinels on the perimeter and feeders in the center — functional sub-groups within the whole
+    survival_relevance: Understanding herd structure reveals which prey are alert (sentinels) and which are vulnerable (center feeders)
+    what_fires: Group of similar objects with distinct behavioral roles distributed spatially — perimeter objects show scanning behavior, center objects show stationary feeding
+
+  - id: multi_level_food_distribution
+    description: Large food patches contain smaller clusters, which contain individual items — three levels of spatial organization
+    survival_relevance: Hierarchical food structure means finding a cluster predicts nearby clusters, enabling efficient foraging
+    what_fires: Spatial distribution with self-similar clustering at multiple scales — items within clusters within patches
+
+  - id: coordinated_attack_formation
+    description: Predator pack splits into flankers and drivers — the group has differentiated tactical roles working in coordination
+    survival_relevance: Recognizing the flanker-driver structure reveals that the obvious threat (drivers) is not the real danger (flankers cutting off escape)
+    what_fires: Group splits into sub-groups with complementary movement patterns — one sub-group approaches directly, another moves to cut off lateral escape routes
+
+anti_manifestations:
+  - id: flat_flock
+    description: Group of prey moving together with no leader — all change direction simultaneously, no individual initiates for others
+    why_should_not_fire: The group has coordination but no hierarchy — all members are equivalent, with no nested levels or role differentiation
+    distinguishes: Hierarchical structure vs flat coordination — this receptor requires levels or roles, not just group behavior
+
+  - id: accidental_proximity
+    description: Three predators happen to be in the same area but act independently — no coordination, no leadership, no role structure
+    why_should_not_fire: Spatial proximity without organizational structure is not hierarchy — these are independent agents that happen to overlap
+    distinguishes: Organized group with internal structure vs coincidental spatial co-location

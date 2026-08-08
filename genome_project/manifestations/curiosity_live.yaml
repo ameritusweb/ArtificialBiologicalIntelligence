@@ -1,0 +1,143 @@
+receptor_id: curiosity_live
+family: meta-motivational
+tier: trunk
+stage: 2
+
+conceptual_space: |
+  Step-level curiosity signal. Not episode-level curiosity (which summarizes
+  learning progress over an entire episode), but the live, moment-to-moment
+  pull toward information-rich regions. Fires when the current step's
+  prediction error profile suggests that continued attention HERE, NOW
+  would yield model improvement. The boundary is temporal grain: this is
+  the within-step curiosity signal, not the across-episode summary.
+
+manifestations:
+  - id: prediction_error_spike_at_boundary
+    description: |
+      Organism steps from a well-modeled grassland into the edge of an
+      unfamiliar forest. This exact step produces a spike in prediction
+      error — the visual texture, ground feel, and ambient sound all
+      diverge from the grassland model. The live curiosity signal fires
+      at this boundary step, pulling attention toward the forest edge
+      for further observation RIGHT NOW.
+    survival_relevance: |
+      Step-level curiosity directs immediate attention allocation. At
+      biome boundaries, the next few steps yield the highest information
+      gain. The live signal ensures the organism pauses to observe rather
+      than blundering through at cruising speed.
+    what_fires: |
+      Current step's prediction error is elevated AND the error pattern
+      suggests learnable structure (not random noise). The prediction
+      error gradient points toward model improvement if attention is
+      sustained at this location this step.
+
+  - id: novel_object_first_contact
+    description: |
+      Organism encounters an object it has never seen before — an unusual
+      shape, unfamiliar color, unknown texture. At the step of first
+      visual contact, prediction error on object-feature channels spikes.
+      The live curiosity signal fires, directing the organism to approach
+      and investigate the object on this step rather than continuing
+      its current trajectory.
+    survival_relevance: |
+      Novel objects may be food, tools, or threats. The step-level
+      curiosity signal at first contact ensures the organism does not
+      walk past potentially critical information. The investigation
+      impulse is immediate, not deferred.
+    what_fires: |
+      Object-feature prediction error is high on this specific step.
+      The novelty is fresh — the model has no representation for this
+      input pattern. Live curiosity peaks at the moment of first
+      encounter.
+
+  - id: anomalous_npc_behavior_this_step
+    description: |
+      A familiar NPC that usually moves in a predictable patrol suddenly
+      changes direction on this step. The behavioral prediction for this
+      step was wrong. Live curiosity fires because the deviation from
+      expected behavior suggests the NPC's pattern may have changed,
+      and watching the next few steps will clarify whether this is a
+      one-time deviation or a new pattern.
+    survival_relevance: |
+      Behavioral anomalies in other agents may signal danger (predator
+      detected, territorial change) or opportunity (new resource found).
+      The step-level curiosity signal ensures the organism attends to
+      the anomaly immediately rather than discounting it.
+    what_fires: |
+      Behavioral prediction error for a specific agent on this step.
+      The error is against a well-established baseline, making the
+      deviation salient. The live signal says "watch this agent NOW."
+
+  - id: environmental_change_detection_live
+    description: |
+      Organism returns to a previously visited location and on this step
+      detects that something has changed — a rock has moved, water level
+      is different, vegetation has grown. The prediction of "same as last
+      visit" was violated this step. Live curiosity fires to drive
+      investigation of what changed and why.
+    survival_relevance: |
+      Environmental changes at known locations may signal seasonal shifts,
+      other agent activity, or geological events. The step-level curiosity
+      signal at the moment of change detection ensures the organism
+      updates its model while the evidence is fresh.
+    what_fires: |
+      Location-specific prediction error on this step. The organism's
+      model of this specific location was violated. The mismatch between
+      stored map and current observation generates the live curiosity
+      signal.
+
+  - id: partially_occluded_information
+    description: |
+      Organism can see part of something interesting behind a rock — the
+      edge of an unfamiliar shape, a color not seen elsewhere, movement
+      that is partially hidden. On this step, the visible information is
+      insufficient to resolve what the object is, and the prediction error
+      on the visible portion is high. Live curiosity fires, pulling the
+      organism to move to a viewing angle that reveals the hidden portion.
+    survival_relevance: |
+      Partially visible information is maximally curiosity-inducing
+      because the organism can see that information exists but cannot
+      access it. The step-level signal drives the specific action of
+      repositioning to gain visual access — a one-step decision.
+    what_fires: |
+      High prediction error on visible features combined with an
+      information gradient — the organism can detect that more information
+      is available from a different position. The live signal is spatially
+      directed: "move THERE to learn more."
+
+anti_manifestations:
+  - id: episode_summary_curiosity
+    description: |
+      At the end of a long episode, the organism computes that its
+      overall learning progress was high — many model updates occurred,
+      prediction accuracy improved across the episode. This is an
+      episode-level curiosity summary, not a step-level live signal.
+      There is no specific step or location being pulled toward.
+    why_should_not_fire: |
+      Live curiosity is a step-level, moment-to-moment signal. Episode
+      summaries aggregate over many steps and do not direct immediate
+      action. The temporal grain is wrong — this is the curiosity
+      receptor (episode-level), not curiosity_live (step-level).
+    distinguishes: |
+      Temporal grain. curiosity_live fires on individual steps with
+      directional pull. Episode curiosity is a summary statistic over
+      hundreds of steps. The live signal says "look HERE NOW." The
+      episode signal says "that was an informative episode overall."
+
+  - id: well_predicted_step
+    description: |
+      Organism takes a step in familiar territory. Everything matches
+      prediction — ground texture, visual field, temperature, ambient
+      sound. Prediction error is near zero on this step. There is nothing
+      to be curious about at this moment because the model is already
+      accurate here.
+    why_should_not_fire: |
+      Live curiosity requires elevated prediction error on the current
+      step suggesting learnable structure. Near-zero prediction error
+      means the model is already good here. No information gain is
+      available from sustained attention at this step.
+    distinguishes: |
+      Live curiosity requires a gap between prediction and observation
+      that suggests learning opportunity. Perfect prediction means no
+      gap, no learning opportunity, no curiosity signal. The well-
+      predicted step is exactly where curiosity should be silent.

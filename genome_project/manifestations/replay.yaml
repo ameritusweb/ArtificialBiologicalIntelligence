@@ -1,0 +1,49 @@
+receptor_id: replay
+family: procedural_memory
+tier: trunk
+stage: 5
+
+conceptual_space: |
+  Detects the opportunity for internal rehearsal — during rest or safety,
+  replaying a successful action sequence to strengthen it. The organism
+  is not currently acting but is internally re-activating the neural
+  pattern of a prior successful behavior. The boundary separates genuine
+  internal replay (re-activation during rest) from active execution or
+  from idle states without rehearsal.
+
+manifestations:
+  - id: escape_sequence_replay
+    description: During a safe rest period, the organism internally re-activates the motor and perceptual sequence of a successful escape — detect-orient-run-turn-enter-tunnel — without moving
+    survival_relevance: Replay strengthens the action sequence so it fires faster and more reliably during the next actual pursuit
+    what_fires: Internal re-activation of a stored action sequence during a low-threat state — motor and perceptual patterns fire in sequence without corresponding external stimuli or motor output
+
+  - id: foraging_route_replay
+    description: After a successful foraging trip, the organism internally replays the route — landmarks, turns, food locations — during rest
+    survival_relevance: Route replay strengthens spatial memory, enabling faster and more reliable navigation on subsequent trips
+    what_fires: Internal re-activation of spatial navigation sequence during rest — location and direction signals fire in order without actual movement
+
+  - id: threat_detection_replay
+    description: During safety, the organism replays the moment it first detected a predator — the visual cues, the recognition, the alarm response — to strengthen detection speed
+    survival_relevance: Replaying detection moments makes the detection pattern more sensitive and faster on future encounters
+    what_fires: Internal re-activation of a detection event sequence — sensory pattern followed by recognition signal followed by alarm — without current external threat
+
+  - id: social_interaction_replay
+    description: After a cooperative encounter, the organism replays the interaction sequence — approach, signal, coordinated action — during rest
+    survival_relevance: Social interaction replay strengthens cooperative patterns, enabling more fluid coordination in future encounters
+    what_fires: Internal re-activation of social interaction sequence during rest — communication and coordination patterns fire without another organism present
+
+  - id: failed_attempt_replay_with_correction
+    description: During rest, the organism replays a failed escape attempt but with a modified action at the failure point — internal rehearsal of an improved version
+    survival_relevance: Corrective replay allows learning from failure without re-experiencing the danger — the corrected version strengthens while the failed version weakens
+    what_fires: Internal re-activation of a stored sequence with modification at the point of failure — the replay diverges from memory to explore an alternative action
+
+anti_manifestations:
+  - id: active_execution
+    description: Organism is currently running an escape route — this is real-time execution, not internal replay
+    why_should_not_fire: The action sequence is being performed, not rehearsed — external stimuli are present and motor output is occurring
+    distinguishes: Internal replay (during rest, no motor output) vs active execution (during threat, with motor output) — replay requires non-active state
+
+  - id: idle_without_rehearsal
+    description: Organism is resting but not internally re-activating any prior sequences — simply in a low-activity state
+    why_should_not_fire: Rest without internal sequence re-activation is not replay — the organism is idle, not rehearsing
+    distinguishes: Active internal rehearsal vs passive rest — replay requires deliberate re-activation of stored sequences during the rest state

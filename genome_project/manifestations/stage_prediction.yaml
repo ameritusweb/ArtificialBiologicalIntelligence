@@ -1,0 +1,48 @@
+receptor_id: stage_prediction
+family: sequential_processing
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Predicting what the next stage of own processing will produce. The coarse
+  processing stage generates an expectation about what the fine processing
+  stage will find. The concept is INTER-STAGE PREDICTION within a single
+  processing cycle — not predicting external events, but predicting own
+  computational output. The boundary: self-prediction vs world-prediction.
+
+manifestations:
+  - id: coarse_predicts_fine
+    description: Fast scan says "threat likely" — slow deliberation confirms threat is real
+    survival_relevance: Accurate inter-stage prediction means the fast pathway is well calibrated
+    what_fires: Coarse-stage output matches fine-stage output — prediction confirmed
+
+  - id: coarse_wrong_about_fine
+    description: Fast scan says "threat likely" — slow deliberation finds no threat (false alarm)
+    survival_relevance: Prediction error between stages signals fast pathway needs recalibration
+    what_fires: Coarse-stage output contradicts fine-stage output — prediction error generated
+
+  - id: confidence_from_agreement
+    description: Both fast and slow stages agree the path is safe — organism proceeds confidently
+    survival_relevance: Stage agreement enables commitment to action without hedging
+    what_fires: Inter-stage prediction error near zero — high confidence signal
+
+  - id: surprise_at_own_output
+    description: Coarse stage predicted low reward, but fine evaluation finds high reward opportunity
+    survival_relevance: Positive surprise between stages signals the coarse model is missing something
+    what_fires: Fine-stage output significantly exceeds coarse-stage prediction — signed prediction error
+
+  - id: calibration_over_time
+    description: Coarse predictions improve — early episodes show large inter-stage error, later episodes converge
+    survival_relevance: Self-prediction accuracy tracks learning — stages becoming internally coherent
+    what_fires: Running average of inter-stage prediction error decreasing over episodes
+
+anti_manifestations:
+  - id: predicting_world_events
+    description: Organism predicts that food will appear in 10 steps — and it does
+    why_should_not_fire: This is temporal prediction about the WORLD, not prediction of own processing output
+    distinguishes: Stage prediction is about predicting own COMPUTATIONAL output, not external events
+
+  - id: single_stage_output
+    description: Fast pathway produces a threat assessment — no subsequent stage evaluates it
+    why_should_not_fire: With only one stage, there is no inter-stage prediction to evaluate
+    distinguishes: Stage prediction requires at least TWO stages where one predicts the other

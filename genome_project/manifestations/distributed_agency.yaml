@@ -1,0 +1,50 @@
+receptor_id: distributed_agency
+family: agency
+tier: canopy
+stage: 8
+
+conceptual_space: |
+  Detects the ability to achieve goals through other agents rather than through
+  direct action alone. Emit warning, others flee, predator loses targets, focal
+  organism is safer. The boundary separates distributed agency (using others'
+  actions as instruments toward own goals) from direct agency (acting on the
+  world personally) or mere social influence (affecting others without goal
+  linkage). The concept is agency-through-others — achieving outcomes via the
+  causal chain of one's own signal producing others' actions producing own benefit.
+
+manifestations:
+  - id: warning_call_predator_dilution
+    description: Organism emits warning call causing group to scatter — predator's attention is divided across many fleeing targets, reducing focal organism's capture probability
+    survival_relevance: Using group behavior as a defense multiplier extends survival capacity beyond individual speed or strength through coordinated dilution of predator attention
+    what_fires: Own signal emission causally linked to others' behavioral change, causally linked to improved own outcome — the full three-link agency chain is detected
+
+  - id: recruit_others_for_defense
+    description: Organism signals to attract allies for mob defense against predator — the organism cannot drive off the predator alone but can through recruited others
+    survival_relevance: Distributed defensive agency enables confrontation of threats that exceed any individual's capacity, accessing collective capability through communication
+    what_fires: Own communication triggering others' approach and defensive behavior, with the combined effect achieving a goal unattainable through own direct action alone
+
+  - id: delegate_scouting
+    description: Organism waits at nest while others forage — when a forager returns with food location signals, the organism navigates to the food using the scout's information
+    survival_relevance: Delegated scouting reduces individual exploration risk and energy cost while maintaining access to discovered resources through communicated information
+    what_fires: Achievement of a goal (locating food) through another agent's action (scouting) and communication, without the focal organism performing the search directly
+
+  - id: deceptive_signal_for_own_gain
+    description: Organism emits false alarm call causing others to flee food source — organism then consumes the food alone, having used others' predictable response as an instrument
+    survival_relevance: Exploiting others' reliable responses to signals enables resource monopolization, though this also creates selection pressure for deception detection
+    what_fires: Deliberate signal emission causing predictable others' behavior change, resulting in improved resource access for the emitter — agency through manipulation of others
+
+  - id: coordinated_herding
+    description: Organism positions itself and signals to drive prey toward other group members who are positioned to catch it — the organism's signaling orchestrates others' behavior for collective hunting
+    survival_relevance: Orchestrating group behavior through signals enables capture of prey that no individual could pursue alone, multiplying foraging success through distributed roles
+    what_fires: Own communicative and positional actions shaping multiple others' simultaneous behaviors toward a coordinated outcome, with the focal organism's signals serving as the organizing cause
+
+anti_manifestations:
+  - id: parallel_action_no_orchestration
+    description: Multiple organisms happen to flee in the same direction from the same predator — their actions are parallel but no organism is using others' behavior as an instrument
+    why_should_not_fire: Parallel independent responses to a shared stimulus involve no distributed agency — no organism's signal is causing others' actions as instruments toward a goal
+    distinguishes: Distributed agency (own signal causing others' actions toward own goal) vs coincidental parallel behavior (independent responses to shared stimulus)
+
+  - id: social_influence_without_goal_linkage
+    description: Organism's stress vocalization causes others to become stressed — emotional contagion occurs but the emitter has no goal that the others' stress state serves
+    why_should_not_fire: Emotional contagion is influence without agency — the emitter is not using others' state change as an instrument toward any goal of its own
+    distinguishes: Distributed agency (others' actions serving emitter's goal through causal chain) vs social contagion (influence without goal-directed instrumentalization)

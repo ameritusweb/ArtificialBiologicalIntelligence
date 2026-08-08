@@ -1,0 +1,45 @@
+receptor_id: temporal_association
+family: association
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Event A consistently precedes event B with a time delay. Sequence predicts
+  what comes next. The boundary: predictive sequence vs random ordering.
+
+manifestations:
+  - id: vibration_before_rockfall
+    description: Ground vibration occurs 10 steps before rocks fall from above
+    survival_relevance: Detecting the precursor enables evasive action
+    what_fires: Consistent A-then-B with fixed temporal lag
+
+  - id: sound_before_npc
+    description: Rustling sound 20 steps before NPC appears from the east
+    survival_relevance: Early warning allows positioning or fleeing
+    what_fires: Auditory event consistently precedes social event
+
+  - id: dawn_before_food
+    description: Light level rises 50 steps before food patches become available
+    survival_relevance: Dawn predicts foraging opportunity — position accordingly
+    what_fires: Environmental signal consistently precedes resource availability
+
+  - id: pain_after_chemical
+    description: Entering chemical zone produces pain 5 steps later (delayed toxicity)
+    survival_relevance: Learning the delay prevents repeated exposure
+    what_fires: Chemical exposure consistently followed by pain after fixed lag
+
+  - id: cooling_before_freeze
+    description: Temperature drops gradually, then freezes suddenly 30 steps later
+    survival_relevance: Gradual cooling predicts imminent freeze — seek shelter
+    what_fires: Slow change precedes sudden state transition
+
+anti_manifestations:
+  - id: simultaneous_events
+    description: Thunder and lightning occur at the same step
+    why_should_not_fire: No temporal lag — this is coincidence, not temporal association
+    distinguishes: Temporal association requires a predictive time gap
+
+  - id: random_delay
+    description: Sound precedes NPC but with random delay (5 to 500 steps)
+    why_should_not_fire: Unpredictable delay makes the sequence non-predictive
+    distinguishes: Temporal association requires consistent timing

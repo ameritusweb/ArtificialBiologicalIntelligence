@@ -1,0 +1,49 @@
+receptor_id: ratio_detection
+family: mathematics
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Stable quantitative relationships. Food reward scales 2:1 with effort.
+  Not just "more effort, more food" (that's correlation or pattern) but
+  detecting a PROPORTIONAL relationship — the ratio itself is the stable
+  signal. Double the input, double the output. The boundary: detecting
+  that a multiplicative constant governs the relationship between two
+  quantities.
+
+manifestations:
+  - id: effort_reward_ratio
+    description: Organism digs for tubers. Digging one unit deep yields one tuber, two units deep yields two tubers, three units deep yields three. The 1:1 ratio between dig-depth and tuber count is the stable signal
+    survival_relevance: Knowing the effort-to-reward ratio allows optimal allocation of energy to foraging
+    what_fires: Consistent proportional relationship (depth:tubers = 1:1) across multiple observations stabilizes as ratio signal
+
+  - id: distance_danger_ratio
+    description: Organism observes predator encounters at varying distances. At 10 units away, escape succeeds always. At 5 units, half the time. At 2 units, rarely. The danger scales inversely proportional to distance
+    survival_relevance: Detecting the distance-danger ratio sets precise flight initiation distance rather than arbitrary thresholds
+    what_fires: Consistent proportional relationship (closer = proportionally more dangerous) across encounters stabilizes as inverse-ratio signal
+
+  - id: group_size_to_territory
+    description: Organism observes that animal groups occupying two units of space have about four members, groups in four units have about eight, groups in six have about twelve. Members scale proportionally with territory
+    survival_relevance: Predicting group size from territory extent guides approach and avoidance decisions
+    what_fires: Consistent ratio (approximately 2 members per unit of territory) across multiple groups stabilizes as proportional-relationship signal
+
+  - id: harvest_to_trips
+    description: Organism carries food from a tree to its den. Each trip carries three berries. After two trips it has six, after three it has nine, after four it has twelve. The 3:1 ratio of berries per trip is constant
+    survival_relevance: Knowing the carry ratio allows planning the number of trips needed before a storm arrives
+    what_fires: Stable multiplicative constant (3 berries per trip) detected across accumulation events — ratio-constancy signal
+
+  - id: shadow_to_height
+    description: Organism notices that a stick half the height of a rock casts a shadow half the length. A stick one-third the height casts one-third the shadow. Shadow length is proportional to object height
+    survival_relevance: Proportional shadow relationships allow estimating the size of distant objects (prey, predators) from their shadows
+    what_fires: Consistent proportional mapping (height:shadow = constant) across multiple objects stabilizes as ratio-detection signal
+
+anti_manifestations:
+  - id: mere_correlation
+    description: Organism notices that when it rains more, more mushrooms appear — but the relationship is nonlinear and noisy, not a stable ratio
+    why_should_not_fire: Correlation between rain and mushrooms is a statistical tendency, not a proportional relationship with a stable constant
+    distinguishes: Ratio detection requires a stable multiplicative constant, not just a directional association
+
+  - id: quantity_detection_only
+    description: Organism notices there are five berries on one bush and three on another
+    why_should_not_fire: Counting absolute quantities is quantity_detection, not ratio detection — no proportional relationship between two quantities is being extracted
+    distinguishes: Ratio detection requires a relationship BETWEEN two measured quantities, not measurement of a single quantity

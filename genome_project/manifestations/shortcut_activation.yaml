@@ -1,0 +1,52 @@
+receptor_id: shortcut_activation
+family: procedural memory
+tier: Branch
+stage: 11
+
+conceptual_space: |
+  Detects when a recognized situation should trigger a cached, pre-compiled
+  behavioral response without engaging full deliberative reasoning. The boundary
+  is between situations familiar enough to warrant automatic response and
+  situations novel enough to require deliberation. This receptor requires the
+  organism to model its own cognitive resource allocation -- recognizing when
+  deliberation is wasteful because the situation has been encountered enough
+  times to have a reliable cached response, and critically, recognizing when
+  the cached response should be TRUSTED. The purpose is to free deliberative
+  resources for novel situations by handling familiar ones automatically.
+
+manifestations:
+  - id: routine_navigation_automaticity
+    description: The organism has navigated its home-to-food route 50 times. Each movement decision on this route was once deliberate -- evaluating options, checking threats, planning the next segment. Now the entire route should execute as a single cached sequence, freeing deliberative capacity for monitoring novel stimuli during the traversal.
+    survival_relevance: Deliberation is metabolically expensive and slow. Continuing to deliberate over fully mastered routine behaviors wastes cognitive resources that should be allocated to monitoring for novel threats or opportunities. The organism that automates routine navigation can scan for predators WHILE navigating, rather than having to choose between navigating and scanning.
+    what_fires: Situation-recognition matches the current spatial context to a cached route with high confidence. Execution-count exceeds the threshold for reliable caching. Outcome history shows consistent success. The shortcut activation receptor fires to suppress deliberative route-planning and activate the cached motor sequence, simultaneously freeing deliberative resources for parallel processing of non-routine stimuli.
+
+  - id: threat_response_automaticity
+    description: The organism detects a threat signature it has encountered and survived 20 times. Each time, the successful response was the same -- flee south to the narrow corridor the predator cannot enter. The organism should execute this response immediately without deliberating about alternatives.
+    survival_relevance: Threat responses must be fast. An organism that deliberates when facing a familiar threat loses the time advantage that cached responses provide. The 20 successful executions have compiled this response into a reliable automaticity. Speed of execution IS the survival advantage.
+    what_fires: Threat-signature recognition matches a cached response pattern with high confidence and high historical success rate. The shortcut activation receptor fires to bypass deliberation and execute the cached escape response immediately. The time saved by not deliberating is itself the survival benefit -- deliberation here would be not just wasteful but dangerous.
+
+  - id: foraging_pattern_recognition
+    description: The organism enters a zone type it has foraged in 30 times. It has developed a search pattern for this zone type -- systematic sweep from left to right, checking behind obstacles. Rather than re-deriving this strategy each time, the cached foraging pattern should activate upon recognizing the zone type.
+    survival_relevance: Foraging efficiency depends on not wasting time re-inventing effective search strategies for familiar environments. The cached foraging pattern has been optimized through 30 iterations and should be deployed automatically, freeing deliberative capacity for handling the unexpected -- a new obstacle, a novel food source, an unfamiliar threat.
+    what_fires: Zone-type recognition matches a cached foraging pattern. Success rate for the cached pattern exceeds the expected return from novel strategy generation. The shortcut activation receptor fires to deploy the cached pattern, with a meta-cognitive flag that diverts saved deliberative resources to anomaly detection -- the organism runs the routine while watching for anything that deviates from routine.
+
+  - id: social_signal_automatic_response
+    description: The organism receives a familiar social signal -- the alarm call pattern it has heard and correctly responded to 15 times. Each time, the correct response was to freeze and scan for aerial threats. This signal-response pair should be automatic, not deliberated.
+    survival_relevance: Social signals require fast, reliable responses to maintain group coordination. An organism that deliberates upon receiving an alarm call loses the warning window the call was meant to provide. Caching social-signal responses is essential for functioning as a responsive member of a social group.
+    what_fires: Social-signal recognition matches a cached response pair with high confidence. Historical response-to-outcome correlation is strong (freeze-and-scan has always been the correct response to this signal). The shortcut activation receptor fires to execute the cached response immediately, bypassing the deliberative evaluation of "what should I do about this alarm call."
+
+  - id: cognitive_resource_reallocation
+    description: The organism is navigating a familiar route when it encounters a novel obstacle it has never seen before. The shortcut activation receptor had been running the cached route, but now it detects that the situation no longer matches the cached pattern. It releases the situation from automatic processing back to full deliberation, reallocating the cognitive resources that were freed by the shortcut.
+    survival_relevance: The shortcut system must know its own limits -- when to engage AND when to disengage. Detecting that a cached response no longer matches the current situation and releasing control back to deliberation is as important as the initial shortcut activation. This prevents the organism from blindly executing cached responses in novel situations.
+    what_fires: Pattern-matching between current situation and cached response drops below confidence threshold due to the novel obstacle. The shortcut activation receptor fires in REVERSE -- disengaging the cached response, flagging the situation as requiring deliberation, and reallocating cognitive resources from routine execution to active problem-solving. This is the shortcut system's self-monitoring function.
+
+anti_manifestations:
+  - id: novel_situation_deliberation
+    description: The organism enters a zone type it has never encountered before. Nothing in its experience matches this environmental signature. It engages full deliberative processing to evaluate options, assess threats, and plan behavior. There is no cached response to activate because the situation is genuinely novel.
+    why_should_not_fire: No cached response exists for this situation. The shortcut activation receptor requires a cached pattern to activate -- it cannot shortcut to a response that has not been compiled through repeated experience. Novel situations are precisely the ones that REQUIRE full deliberation. The shortcut system should remain inactive, leaving all cognitive resources available for deliberation.
+    distinguishes: Familiar situations with cached responses versus novel situations requiring deliberation. The key dimension is whether a sufficient match exists between the current situation and a compiled response pattern.
+
+  - id: partially_familiar_situation
+    description: The organism enters a zone that resembles a familiar zone type but has a significant difference -- the layout is similar but the threat profile is different. The organism recognizes the similarity but also detects the discrepancy. It should NOT activate the cached response for the similar zone because the discrepancy might make the cached response inappropriate.
+    why_should_not_fire: Partial matches should not trigger shortcut activation. The cached response was compiled for a specific situation, and significant deviations from that situation may render the response ineffective or dangerous. The shortcut system must require high-confidence matching, not just superficial similarity. Partial familiarity is a signal for cautious, deliberative engagement, not automatic response.
+    distinguishes: High-confidence full match versus partial match with significant deviations. Shortcut activation requires the organism to model its own confidence in the match and suppress activation when confidence is insufficient, even if surface-level similarity is high.

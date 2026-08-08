@@ -1,0 +1,48 @@
+receptor_id: forgetting
+family: association
+tier: branch
+stage: 5
+
+conceptual_space: |
+  Detects that an association should decay — a previously valid connection
+  between context and outcome is no longer reliable and should be weakened.
+  Old food location is now depleted. Previously safe route now has a predator.
+  The boundary separates adaptive memory decay (letting outdated information
+  go) from destructive memory loss or from maintaining still-valid associations.
+
+manifestations:
+  - id: depleted_food_location
+    description: Food source that was reliable for many visits is now consistently empty — the food-location association should decay
+    survival_relevance: Holding onto depleted food locations wastes foraging time and energy — forgetting redirects search to new sources
+    what_fires: Repeated negative outcomes at a location where the stored association predicts positive outcomes — prediction error accumulating to decay threshold
+
+  - id: changed_predator_territory
+    description: Route that was predator-free is now patrolled by a predator — the safety association with that route should decay
+    survival_relevance: Maintaining an outdated safety association could lead the organism into a now-dangerous area
+    what_fires: Threat signals encountered on a route stored as safe — the safety association receives contradicting evidence sufficient to trigger decay
+
+  - id: obsolete_escape_route
+    description: Escape tunnel used previously is now blocked by a rockfall — the escape association with that path should decay
+    survival_relevance: Attempting to use a blocked escape route during pursuit could be fatal — the association must weaken before it is relied upon
+    what_fires: Stored escape route attempted and found non-functional — the route-safety association receives terminal contradicting evidence
+
+  - id: seasonal_food_shift
+    description: Food type abundant in prior season is no longer available — the association between this area and that food type should decay
+    survival_relevance: Searching for seasonally unavailable food wastes effort — adaptive forgetting frees the organism to learn current availability
+    what_fires: Repeated search for expected resource yielding no results — the temporal context has shifted and the association is no longer predictive
+
+  - id: predator_behavior_change
+    description: Predator that previously always approached from the east now approaches from multiple directions — the directional prediction should decay
+    survival_relevance: Rigid directional expectations create blind spots — forgetting the directional bias enables broader vigilance
+    what_fires: Prediction based on stored association repeatedly fails — the predator's behavior no longer matches the stored pattern, triggering association decay
+
+anti_manifestations:
+  - id: temporarily_empty_food_source
+    description: Food source is empty right now but refills regularly — one empty visit does not warrant forgetting the association
+    why_should_not_fire: A single contradicting instance does not cross the decay threshold — the association is still statistically valid
+    distinguishes: Accumulated contradicting evidence vs single contrary instance — forgetting requires sustained prediction failure, not one-off misses
+
+  - id: still_valid_escape_route
+    description: Escape route has not been used recently but is still physically passable — no counter-evidence has accumulated
+    why_should_not_fire: Absence of use is not contradicting evidence — the association has not been tested and failed, so there is no reason to decay it
+    distinguishes: Contradicted association vs untested association — forgetting fires on accumulated contrary evidence, not mere time passage

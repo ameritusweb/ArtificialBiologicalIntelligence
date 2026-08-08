@@ -1,0 +1,149 @@
+receptor_id: movement_anticipation
+family: proprioception
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Detects a mismatch between where the organism expects a limb to be and
+  where it actually is. The motor system predicted a limb state — extended,
+  flexed, at a certain position — but the proprioceptive feedback reports
+  a different state. The boundary is prediction error: the gap between
+  anticipated limb configuration and actual limb configuration. This is
+  the organism's own internal forward model failing to match reality.
+
+manifestations:
+  - id: expected_ground_contact_missed
+    description: |
+      The organism steps forward expecting its foot to land on solid
+      ground at the usual step depth. Instead, the foot drops through
+      empty air — there is a hidden depression in the terrain. The
+      motor system predicted ground contact at a certain leg extension,
+      but the leg is still extending past that point with no contact.
+      The limb is more extended than anticipated. Prediction error:
+      expected ground, found air.
+    survival_relevance: |
+      Detecting missed-ground prediction error triggers emergency
+      balance correction. An organism that cannot sense the mismatch
+      between expected and actual foot placement will fall into holes
+      and off ledges without any protective response.
+    what_fires: |
+      Limb extension exceeding predicted contact point. Expected
+      ground contact at a specific leg angle did not occur. Predicted
+      joint angle at contact does not match actual joint angle.
+      Prediction error: limb more extended than expected.
+
+  - id: limb_heavier_than_expected
+    description: |
+      The organism lifts its forelimb to reach for a branch after
+      resting in cold water. The limb is numb and waterlogged — it
+      moves more slowly than the motor command predicted. The brain
+      sent a "lift at speed X" command, but the limb is rising at
+      half that speed. The proprioceptive feedback shows the arm
+      trailing behind its predicted trajectory.
+    survival_relevance: |
+      Detecting limb-response prediction error informs body state
+      assessment. A limb that responds slower than expected may be
+      injured, cold, or trapped. Immediate awareness of the mismatch
+      enables compensatory motor adjustments.
+    what_fires: |
+      Limb velocity lower than predicted for the motor command
+      magnitude. Joint angle lagging behind the forward model's
+      predicted trajectory. Prediction error: limb behind expected
+      position in time.
+
+  - id: grip_expected_but_object_absent
+    description: |
+      The organism reaches to pick up a stone it remembers leaving
+      on a ledge. The fingers close at the expected location — but
+      close on empty air. The motor prediction included an object at
+      specific coordinates; the actual grip closure found nothing.
+      The hand is in a fully closed grip position with no contact
+      pressure — gripping nothing where something was expected.
+    survival_relevance: |
+      Detecting grip-target prediction error signals that the
+      environment has changed since the motor plan was formed. The
+      stone was moved by wind, water, or another animal. Awareness
+      of the mismatch triggers visual search for the missing object.
+    what_fires: |
+      Grip effector reaches predicted contact position. No contact
+      pressure on digit surfaces at the expected moment. Fingers
+      close to full flexion without encountering the predicted object.
+      Prediction error: expected contact, found nothing.
+
+  - id: joint_blocked_before_expected_range
+    description: |
+      The organism extends its leg to step onto a rock but the knee
+      encounters something partway through the expected motion — a
+      vine wrapped around the lower leg that the organism did not
+      notice. The forward model predicted the leg would reach full
+      extension; instead it stops short. The limb is less extended
+      than anticipated at the time the movement should have been
+      complete.
+    survival_relevance: |
+      Detecting unexpected movement restriction reveals unseen
+      constraints. A vine, a thorn, a trap, or a predator's grip
+      may be restraining the limb. The prediction error is the first
+      signal that something is wrong before the organism can see the
+      cause.
+    what_fires: |
+      Limb movement stops at an angle short of the predicted target.
+      Motor command continues but joint velocity drops to zero before
+      the expected endpoint. Prediction error: limb reached less
+      range than expected.
+
+  - id: body_rotated_more_than_intended
+    description: |
+      The organism turns to look behind itself on a slippery wet rock.
+      It intends a 90-degree head turn but the feet slip on the wet
+      surface, and the whole body rotates 180 degrees. The motor
+      prediction was for a controlled quarter-turn; the actual result
+      is a half-spin. The organism ends up facing the opposite direction
+      from what it predicted — body orientation overshot by a full
+      90 degrees.
+    survival_relevance: |
+      Detecting rotational overshoot on slippery surfaces prevents
+      disorientation. If the organism does not register the prediction
+      error, it will not know which direction it is actually facing
+      and may flee toward a predator instead of away from it.
+    what_fires: |
+      Final body orientation differs significantly from predicted
+      orientation. Rotational displacement exceeds motor command by
+      a large margin. Prediction error: more rotation achieved than
+      intended. Forward model overshot.
+
+anti_manifestations:
+  - id: movement_matches_intention_perfectly
+    description: |
+      The organism reaches for a berry and grasps it exactly as planned.
+      The arm extends to the predicted distance, the fingers close at
+      the predicted time, and contact with the berry occurs at the
+      predicted moment. Every aspect of the movement matches the
+      forward model's prediction. There is no discrepancy between
+      expected and actual limb state.
+    why_should_not_fire: |
+      No prediction error exists. The forward model and proprioceptive
+      feedback are in agreement. Movement_anticipation fires on the
+      mismatch between predicted and actual; when they match perfectly,
+      there is nothing to detect.
+    distinguishes: |
+      Prediction error (mismatch between expected and actual) versus
+      prediction confirmation (expected matches actual). The receptor
+      fires on discrepancy, not on successful prediction.
+
+  - id: novel_movement_without_prediction
+    description: |
+      The organism encounters a completely novel situation — it has
+      never climbed this type of surface before. It reaches tentatively,
+      making small exploratory movements with no strong prediction
+      about where the limb will end up. There is no forward model to
+      violate because the organism has no expectation. The movement
+      is exploratory, not predicted.
+    why_should_not_fire: |
+      Movement_anticipation requires a prediction to be violated.
+      When the organism has no expectation about limb state — as in
+      genuinely novel exploration — there is no predicted state to
+      mismatch against. Prediction error requires a prediction.
+    distinguishes: |
+      Prediction error (strong expectation violated) versus exploratory
+      movement (no expectation formed). The receptor requires a prior
+      prediction as a baseline against which actual state is compared.

@@ -1,0 +1,129 @@
+receptor_id: tool_use
+family: agency
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Detects that an object is being used AS a tool — extending the
+  organism's causal reach beyond its body. A stick extends reach, a
+  rock amplifies striking force, a leaf cups water. The boundary is
+  the instrumental use of an object to achieve an effect the body alone
+  cannot produce (or cannot produce as effectively). Not just
+  manipulating objects — using objects AS instruments to act on OTHER
+  objects or the environment.
+
+manifestations:
+  - id: stick_extends_reach_to_fruit
+    description: |
+      The organism cannot reach fruit hanging from a high branch.
+      It picks up a long stick from the ground, holds one end, and
+      uses the other end to knock the fruit down. The stick extended
+      the organism's reach by its full length.
+    survival_relevance: |
+      Tool-mediated reach extension opens food resources that are
+      physically inaccessible to the body alone. Vertical foraging
+      range multiplies with stick length.
+    what_fires: |
+      An object (stick) is held by the organism and used to produce
+      an effect (fruit displacement) on a target (fruit on branch)
+      that the body alone could not reach. The object mediates
+      between the organism's action and a distal outcome.
+
+  - id: rock_amplifies_force_to_crack_shell
+    description: |
+      The organism places a hard-shelled nut on a flat stone. It
+      picks up a heavy round rock and strikes the nut. The shell
+      fractures under the amplified force. The organism's hands
+      alone could not crack the shell.
+    survival_relevance: |
+      Force amplification through tool use accesses calories
+      locked inside hard shells. Without the rock-as-hammer,
+      these calories are unavailable.
+    what_fires: |
+      An object (rock) is wielded to apply force to another object
+      (nut on anvil stone) exceeding what the body can produce.
+      The rock serves as a force multiplier — it is the instrument
+      through which the organism acts on the target.
+
+  - id: thorn_used_to_extract_grubs
+    description: |
+      The organism finds grubs inside holes in a rotting log. Its
+      fingers are too large to reach inside. It picks up a long
+      rigid thorn and inserts it into the hole, skewering a grub
+      and pulling it out.
+    survival_relevance: |
+      Precision tool use accesses food in confined spaces the body
+      cannot penetrate. The thorn's shape enables extraction from
+      cavities.
+    what_fires: |
+      An object (thorn) is used to access and extract a target
+      (grub) from a space the organism's body cannot enter. The
+      thorn extends both reach and precision — it is the instrument
+      that bridges the body-target gap.
+
+  - id: leaf_used_as_water_sponge
+    description: |
+      Water collects in a rock crevice too narrow for the organism
+      to drink from directly. It takes a large absorbent leaf,
+      dips it into the crevice, lets it soak, then lifts it to
+      its mouth and squeezes the water out.
+    survival_relevance: |
+      Using a leaf as a water-extraction tool accesses water sources
+      that body morphology cannot reach. Hydration in arid
+      environments may depend on such tool use.
+    what_fires: |
+      An object (leaf) is used as an intermediary to transport a
+      resource (water) from an inaccessible location (narrow
+      crevice) to the organism. The leaf functions as an absorption
+      and transport tool.
+
+  - id: branch_used_as_lever_to_move_boulder
+    description: |
+      A large boulder covers a den entrance the organism wants to
+      use. It cannot push the boulder directly — too heavy. It
+      wedges a strong branch under the boulder's edge, places a
+      small rock as a fulcrum, and pushes down on the branch. The
+      boulder shifts enough to clear the entrance.
+    survival_relevance: |
+      Lever mechanics multiply force, enabling manipulation of
+      objects far heavier than the organism can move directly.
+      Shelter access is critical for survival.
+    what_fires: |
+      An object (branch) is used with mechanical advantage (fulcrum)
+      to produce an effect (boulder movement) the body's direct
+      force could not achieve. The branch-as-lever is the instrument
+      through which the organism overcomes a force limitation.
+
+anti_manifestations:
+  - id: pushing_rock_directly
+    description: |
+      The organism pushes a medium-sized rock directly with its
+      hands/body to clear a path. No object is used as an
+      intermediary. The organism's body directly contacts and
+      moves the target.
+    why_should_not_fire: |
+      This is direct manipulation — the body acts directly on
+      the target without any mediating object. Tool use requires
+      an object serving as an instrument between the organism
+      and the target. Pushing a rock with hands is agency and
+      controllability, not tool use.
+    distinguishes: |
+      Direct body-on-target manipulation versus tool-mediated
+      action (body acts on tool, tool acts on target). Tool use
+      requires the instrumental intermediary.
+
+  - id: carrying_food_to_a_new_location
+    description: |
+      The organism picks up a cluster of berries and carries them
+      to its den for later consumption. The berries are transported
+      but not used as instruments to act on anything else.
+    why_should_not_fire: |
+      Carrying is object manipulation but not tool use. The berries
+      are the target resource being moved, not an instrument used
+      to act on a separate target. Tool use requires the held
+      object to serve as a means to act on something else — the
+      berries are the end, not the means.
+    distinguishes: |
+      Object-as-resource (carrying the target) versus object-as-tool
+      (using an intermediary to act on a target). The tool must
+      mediate between the organism and a separate goal.

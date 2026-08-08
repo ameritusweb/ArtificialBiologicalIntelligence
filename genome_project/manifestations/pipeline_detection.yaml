@@ -1,0 +1,47 @@
+receptor_id: pipeline_detection
+family: sequential_processing
+tier: branch
+stage: 2
+
+conceptual_space: |
+  Detect that own processing follows consistent temporal structure. The concept
+  is detecting one's own processing architecture — "I always sense, then
+  predict, then act, then evaluate." Self-awareness of processing sequence,
+  not the content being processed.
+
+manifestations:
+  - id: sense_predict_act_loop
+    description: Organism detects that its own behavior follows a consistent cycle — gather sensory input, generate prediction, select action, observe outcome — same order every step
+    survival_relevance: Knowing own processing pipeline enables optimization — can allocate more time to bottleneck stage
+    what_fires: Temporal autocorrelation in internal processing stages shows consistent sequential structure across many steps
+
+  - id: two_phase_decision
+    description: Organism detects that all its decisions follow a two-phase pattern — fast initial assessment followed by slower refinement — same architecture for food and threat decisions
+    survival_relevance: Recognizing own two-phase structure enables trust in the fast phase when time pressure is high
+    what_fires: Consistent temporal gap between initial response and refined response detected across multiple decision types
+
+  - id: evaluation_always_follows_action
+    description: Organism detects that it always computes outcome evaluation AFTER acting, never before — consistent post-action assessment stage
+    survival_relevance: Knowing evaluation is post-hoc enables better calibration — expectations can be updated systematically
+    what_fires: Temporal ordering of internal states shows evaluation-stage consistently follows action-stage
+
+  - id: parallel_threat_food_channels
+    description: Organism detects that it processes threat and food information simultaneously rather than sequentially — two concurrent pipelines
+    survival_relevance: Knowing own parallel architecture means neither channel can be assumed to "wait" for the other
+    what_fires: Consistent temporal overlap between threat-processing and food-processing internal states detected
+
+  - id: fixed_latency_response
+    description: Organism detects that its reaction time to novel stimuli is consistently 3-4 internal steps regardless of stimulus type
+    survival_relevance: Knowing own response latency enables compensatory behavior — start acting earlier when prediction suggests threat
+    what_fires: Consistent temporal delay between stimulus detection and behavioral response measured across diverse stimulus types
+
+anti_manifestations:
+  - id: processing_content_awareness
+    description: Organism knows WHAT it is thinking about (food, threats) but not HOW its thinking is structured temporally
+    why_should_not_fire: This is content awareness, not architectural self-detection — knowing what, not how
+    distinguishes: Pipeline detection is about temporal STRUCTURE of processing, not content of processing
+
+  - id: variable_processing_order
+    description: Organism sometimes senses then acts, sometimes acts then senses — no consistent temporal structure
+    why_should_not_fire: If processing order is inconsistent, there is no pipeline to detect — no stable architecture
+    distinguishes: Pipeline detection requires CONSISTENT temporal structure to be detected, not random ordering

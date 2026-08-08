@@ -1,0 +1,45 @@
+receptor_id: spatial_association
+family: association
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Things that are near each other in space are related. Location predicts
+  what you'll find. The boundary: spatially correlated vs spatially independent.
+
+manifestations:
+  - id: pain_zone_mapping
+    description: North region consistently has pain sources; south is safe
+    survival_relevance: Mapping pain to location enables spatial avoidance
+    what_fires: Repeated pain at consistent spatial coordinates
+
+  - id: food_patch_location
+    description: Food appears in the same 3 locations across episodes
+    survival_relevance: Spatial memory of food locations reduces search time
+    what_fires: Reward consistently at specific positions
+
+  - id: shelter_near_walls
+    description: Reduced pain near walls vs open field
+    survival_relevance: Walls provide protection — location predicts safety
+    what_fires: Low pain correlated with wall-adjacent positions
+
+  - id: npc_territory
+    description: NPC stays within a bounded region — its territory
+    survival_relevance: Knowing the NPC's territory enables safe navigation
+    what_fires: NPC presence correlated with specific spatial region
+
+  - id: temperature_geography
+    description: Left half of field is warm, right half is cold — stable gradient
+    survival_relevance: Temperature varies by location, enabling thermal navigation
+    what_fires: Consistent temperature-position correlation
+
+anti_manifestations:
+  - id: random_placement
+    description: Food appears at uniformly random locations each episode
+    why_should_not_fire: No spatial pattern — location doesn't predict anything
+    distinguishes: Spatial association requires consistent position-outcome correlation
+
+  - id: temporal_not_spatial
+    description: Food appears every 100 steps regardless of position
+    why_should_not_fire: This is temporal association, not spatial
+    distinguishes: Spatial association is about WHERE, not WHEN

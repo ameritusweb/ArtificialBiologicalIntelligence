@@ -1,6 +1,6 @@
 # Receptor Index
 
-200 receptors across 23 families. T=trunk, B=branch, C=canopy.
+213 receptors across 24 families. T=trunk, B=branch, C=canopy.
 
 ---
 
@@ -245,6 +245,21 @@
 
 ---
 
+## Proprioception (13)
+- [T] **joint_limit** — End-of-range detection (full extension, fully bent). The pattern: movement command issued but joint angle stops changing, with characteristic resistance. Same pattern regardless of what the limb is doing or why.
+- [T] **movement_onset** — Limb moving vs stationary. Joint angle is changing. The most basic proprioceptive pattern — prerequisite for everything else in this family.
+- [T] **contact** — Physical touch on limb surface. Something is touching me, distinct from pain. Contact without nociception.
+- [B] **resistance** — Force-movement mismatch. Pushing but not moving as expected. Wall, heavy object, another organism — the pattern is the same: effort without proportional result.
+- [B] **grip_state** — Grip effector engagement. Open, closed, holding. "My grip is engaged and something is between the effectors." Prerequisite for manipulation.
+- [B] **velocity** — Movement speed. Rate of joint angle change. Fast, slow, stopped — distinct from movement_onset (which is binary).
+- [B] **effort** — Energy expenditure vs movement achieved. High effort + low movement = heavy/blocked. Low effort + high movement = free/unloaded. The efficiency signal.
+- [B] **postural_change** — Body configuration just changed. Not which configuration — that it changed. Detects transitions between body states.
+- [C] **coordination** — Multi-limb synchronized movement. Multiple limbs moving in a related pattern. Walking, reaching with both arms, bracing. The cross-limb correlation receptor.
+- [C] **body_boundary** — Integrated contact map. Where I end and the world begins. The union of all contact receptors across all limbs, forming a boundary.
+- [C] **postural_state** — Integrated body configuration recognition. "Extended," "curled," "reaching," "braced." The body-as-a-whole, not individual limbs. Requires multiple branch proprioceptive receptors.
+- [C] **movement_anticipation** — Predicted body state after planned action. "If I extend, I'll reach full extension in N steps." The mental model applied to the body. Requires joint_limit + velocity + the causal model.
+- [C] **haptic_recognition** — Object properties through touch and grip. Heavy, rigid, soft, sharp, smooth. The object's identity as felt through the body, not seen.
+
 ## Procedural Memory (4)
 - [T] **replay** — Experience replay during low-demand periods
 - [T] **greatest_positive_increase** — Peak experience detection and indexing
@@ -253,12 +268,47 @@
 
 ---
 
-**Totals:** 49 trunk, 65 branch, 86 canopy = 200 receptors
+## Deep Canopy (Layer 3+)
+
+Receptors requiring canopy prerequisites. These are the deep chain receptors
+that the metabolic budget binds on — each one costs its entire prerequisite
+chain. Layer depth here is what encephalization pressure selects for.
+
+### Layer 3 (requires canopy prerequisites)
+- [D3] **meta_analogy** — Analogy between analogies (structural mapping across mapping operations). Requires: analogy + metacognition
+- [D3] **strategic_deception** — Deliberate false signaling based on model of other's beliefs. Requires: theory_of_mind + deception_detection
+- [D3] **institutional_design** — Constructing persistent social structures. Requires: niche_construction + cultural_transmission
+- [D3] **causal_model_revision** — Restructuring the causal graph, not just updating weights. Requires: causal_graph_reasoning + rule_revision + theory_formation
+- [D3] **recursive_planning** — Plans that include planning as a sub-step. Requires: intervention_planning + meta_planning + long_term_planning
+- [D3] **epistemic_humility** — Detecting the boundary of one's own knowledge. Requires: topology_awareness + doubt_detection + fundamental_distinction
+- [D3] **norm_internalization** — Social rules becoming intrinsic motivators. Requires: moral_reasoning + identity_preservation + compliance_detection
+- [D3] **tool_chain** — Using the output of one tool as input to another. Requires: tool_use + causal_chains + composite_affordance
+
+### Layer 4 (requires layer-3 prerequisites)
+- [D4] **paradigm_detection** — Detecting that a framework of explanation has shifted. Requires: causal_model_revision + meta_analogy + epistemic_humility
+- [D4] **recursive_self_modification** — Deliberately changing one's own cognitive strategies. Requires: topology_awareness + metamorphic_planning + recursive_planning
+- [D4] **cooperative_institution** — Co-creating and maintaining shared rules with other agents. Requires: institutional_design + norm_internalization + distributed_agency
+- [D4] **abstract_tool_design** — Designing tools for problems not yet encountered. Requires: tool_chain + counterfactual_reasoning + formal_composition
+
+### Layer 5 (requires layer-4 prerequisites)
+- [D5] **formal_self_theory** — Constructing a formal model of one's own cognitive architecture. Requires: recursive_self_modification + proof_structure + paradigm_detection
+- [D5] **civilizational_ratchet** — Ensuring cognitive gains persist across generations via institutional design. Requires: cooperative_institution + developmental_environment_engineering + cultural_transmission
+
+---
+
+**Totals:** 52 trunk, 70 branch, 91 canopy, 8 layer-3, 4 layer-4, 2 layer-5 = 227 receptors
 
 **Dependency layers:**
-- Layer 0 (single-family): ~40 receptors, emerge early
-- Layer 1 (two-family): ~30 receptors, cross-family composition
-- Layer 2 (three-family): ~15 receptors, sophisticated integration
-- Layer 3 (four+ family): ~10 receptors, deep canopy
+- Layer 0 (trunk): 52 receptors, emerge in any structured environment
+- Layer 1 (branch): 70 receptors, require trunk prerequisites
+- Layer 2 (canopy): 91 receptors, require trunk + branch prerequisites
+- Layer 3 (deep canopy): 8 receptors, require canopy prerequisites — meta-analogy, strategic deception, institutional design, causal model revision, recursive planning, epistemic humility, norm internalization, tool chain
+- Layer 4: 4 receptors, require layer-3 prerequisites — paradigm detection, recursive self-modification, cooperative institution, abstract tool design
+- Layer 5: 2 receptors, require layer-4 prerequisites — formal self-theory, civilizational ratchet
+
+**Chain cost for deepest receptor (formal_self_theory):**
+proof_structure (C) + paradigm_detection (D3+) + recursive_self_modification (D4) -> formal_self_theory (D5)
+Full chain: ~12 prerequisite receptors. At mean alpha ~0.0005, chain cost ~0.006/step.
+The metabolic budget experiment (T105) can now test whether tight budgets prevent reaching layer 5 while generous budgets permit it.
 
 **Empirically discovered:** 44/107 testable against null-calibrated thresholds (40 tests require closed-loop policy data and were skipped on oracle logs).

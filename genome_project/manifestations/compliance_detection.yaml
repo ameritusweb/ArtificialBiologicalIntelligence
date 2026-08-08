@@ -1,0 +1,50 @@
+receptor_id: compliance_detection
+family: social
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detects when the organism is following instructions, conventions, or
+  social directives from another agent rather than acting on its own
+  internally generated preferences or assessments. The boundary is between
+  behavior that originates from the organism's own evaluation and behavior
+  that originates from an external directive the organism is obeying.
+  Fires when the organism recognizes that its current action is driven
+  by compliance with another's instruction rather than its own judgment.
+
+manifestations:
+  - id: leader_instruction_override
+    description: The group leader signals "go right." The organism's own assessment says going left toward visible food is better. The organism goes right anyway. It detects the gap -- "I am doing what the leader said, not what I would choose on my own." The action source is compliance, not internal evaluation.
+    survival_relevance: Awareness of compliance versus autonomous choice is critical for calibrating trust. If following the leader consistently produces worse outcomes than the organism's own judgment, detecting the compliance pattern lets the organism decide when to defer and when to override.
+    what_fires: Simultaneous activation of an externally-directed action pattern and an internally-generated alternative action pattern, with the external pattern being executed while the internal pattern is suppressed, and the organism recognizing the suppression as compliance-driven.
+
+  - id: norm_following_without_understanding
+    description: The organism avoids a particular food source because the group avoids it. It detects that its own sensory assessment of the food is neutral-to-positive -- nothing in its experience marks it as dangerous. Yet it avoids the food because others do. It recognizes the behavior as norm-following without personal justification.
+    survival_relevance: Social norms often encode wisdom the individual has not learned (the food may be seasonally toxic). But blindly following norms without awareness prevents the organism from questioning norms that are outdated or incorrect. Detection enables conscious norm evaluation.
+    what_fires: A behavioral avoidance or approach pattern whose origin traces to observed group behavior rather than to any personal receptor activation, detected when the organism finds no internal evidence supporting the behavior it is performing.
+
+  - id: instruction_conflict_awareness
+    description: Two higher-status organisms give conflicting instructions -- one signals "stay" while the other signals "follow." The organism detects that it is caught between two compliance demands with no way to satisfy both. It recognizes the paralysis as a compliance conflict, not as environmental uncertainty.
+    survival_relevance: Compliance conflicts can cause dangerous hesitation. Recognizing that the paralysis stems from conflicting social directives rather than ambiguous environmental signals lets the organism resolve the conflict at the social level (choosing which leader to follow) rather than the perceptual level.
+    what_fires: Two externally-sourced directives activating incompatible action patterns simultaneously, with the organism detecting that neither pattern originates from its own assessment and that the conflict exists between compliance targets, not between perceptual interpretations.
+
+  - id: compliance_cost_monitoring
+    description: The organism has been following group foraging routes for several episodes even though its own spatial model identifies a more efficient route. It detects the cumulative cost of compliance -- it has consumed more energy and gathered less food by following the group's route than it would have on its own route. It quantifies the compliance tax.
+    survival_relevance: Compliance has costs that can become lethal if they accumulate unmonitored. An organism that tracks the difference between compliance outcomes and what its own judgment would have produced can make informed decisions about when compliance is worth the cost.
+    what_fires: Comparison between actual outcomes under compliant behavior and projected outcomes under the organism's independently preferred behavior, accumulated over multiple episodes, revealing a sustained deficit attributable to following external directives.
+
+  - id: internalized_compliance
+    description: The organism initially avoided a territory because a dominant organism threatened it away. The dominant organism has been absent for many episodes. Yet the organism still avoids the territory -- and now it feels like its own preference, not compliance. It detects that what feels like autonomous avoidance actually originated as compliance that has been internalized.
+    survival_relevance: Internalized compliance can lock the organism out of valuable resources long after the original coercive pressure has disappeared. Detecting that an apparently autonomous preference has compliance origins lets the organism re-evaluate whether the avoidance still serves it.
+    what_fires: A behavioral pattern that the organism treats as internally generated preference but that traces historically to an external directive, detected when the organism examines the origin of the preference and finds no independent evidence supporting it beyond the original compliance event.
+
+anti_manifestations:
+  - id: voluntary_coordination
+    description: The organism chooses to follow a group member's path because its own assessment agrees that the path is good. The organism's action happens to align with what the other signaled, but the organism's internal evaluation independently supports the same choice. This is agreement, not compliance.
+    why_should_not_fire: Compliance requires that the organism's action is driven by the external directive rather than by its own evaluation. When the organism's independent assessment reaches the same conclusion as the directive, the behavior is autonomous agreement. The action source is internal evaluation that happens to match, not deference to external instruction.
+    distinguishes: Whether the organism acts because of the external directive (compliance -- the directive drives the action) versus whether its own evaluation independently supports the action and the directive is incidental (agreement -- internal evaluation drives the action).
+
+  - id: learned_wisdom_application
+    description: The organism once followed an elder's instruction to avoid a particular berry. It later independently discovered the berry is toxic through its own experience. It now avoids the berry based on its own verified knowledge, not the elder's instruction. The behavior originated from compliance but has been grounded in personal evidence.
+    why_should_not_fire: Once the organism has independently verified the instruction through its own receptor-backed experience, the behavior is no longer compliance -- it is informed autonomous choice. The original instruction has been replaced by personal evidence as the action's justification.
+    distinguishes: Whether the behavior is still driven by the external directive (compliance persists) versus having been independently verified by the organism's own experience such that the behavior would continue even if the directive were withdrawn (autonomous informed choice).

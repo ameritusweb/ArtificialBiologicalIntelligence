@@ -1,0 +1,155 @@
+receptor_id: thought_type_detection
+family: epistemic
+tier: Branch
+stage: 11
+
+conceptual_space: |
+  Classify own thinking mode in real time. The organism detects WHICH cognitive
+  mode it is currently operating in -- panic, exploration, exploitation, social
+  reasoning, spatial planning -- and recognizes the mode as a mode rather than
+  as the only possible way to process the current situation. The boundary is
+  between being IN a cognitive mode (transparent, unseen) and SEEING that one
+  is in a cognitive mode (opaque, available for assessment and potential switching).
+
+manifestations:
+  - id: detect_panic_mode
+    description: |
+      The organism is fleeing after a predator sighting. Its cognitive processing
+      is narrow, fast, and heuristic -- it is taking the first available escape
+      route without evaluating alternatives. The thought-type-detection receptor
+      fires: "I'm in panic mode. My processing is compressed. I'm not evaluating
+      options, I'm executing the first available action. This mode is appropriate
+      for confirmed threats but may be misfiring -- the predator may have left."
+    survival_relevance: |
+      Panic mode is adaptive for immediate confirmed threats but catastrophically
+      expensive if sustained beyond necessity. Detecting that one is in panic mode
+      allows the organism to assess whether the mode is still warranted, switching
+      to deliberate assessment once the acute threat passes rather than burning
+      energy in sustained flight.
+    what_fires: |
+      Processing speed and bandwidth signatures: the receptor detects that
+      decision latency has dropped below a threshold, that alternative evaluation
+      has ceased, and that behavioral output is dominated by pre-compiled escape
+      routines. It encodes "current mode: panic/reactive -- compressed processing."
+
+  - id: detect_exploration_drift
+    description: |
+      The organism has been methodically searching a territory for a specific
+      resource but notices its behavior has shifted. It is now wandering more
+      broadly, attending to novel stimuli that are irrelevant to its original
+      search goal. The thought-type receptor fires: "I've drifted from targeted
+      search into general exploration. My cognitive mode shifted without a
+      deliberate decision to switch."
+    survival_relevance: |
+      Unconscious mode-drift wastes the investment already made in the original
+      task. Detecting the drift allows a deliberate choice: either commit to
+      exploration (abandoning the original search) or return to targeted search,
+      rather than operating in an inefficient hybrid.
+    what_fires: |
+      Attention-distribution shift: the receptor tracks the ratio of goal-
+      relevant to goal-irrelevant stimuli attended to. When the ratio shifts
+      from narrow/targeted to broad/diffuse without an explicit goal-change
+      event, the receptor fires encoding "mode drift: search -> exploration."
+
+  - id: detect_social_reasoning_intrusion
+    description: |
+      The organism is evaluating whether to cross a stream -- a spatial-physical
+      problem. But it notices its decision is being influenced by the fact that a
+      dominant conspecific crossed at a different point. Its spatial reasoning is
+      contaminated by social hierarchy processing. The thought-type receptor
+      fires: "I'm solving a spatial problem with social logic. The stream doesn't
+      care about dominance hierarchies -- I should be evaluating current and
+      footing, not status."
+    survival_relevance: |
+      Mode contamination -- using the wrong cognitive mode for the current
+      problem type -- produces systematically biased decisions. Social reasoning
+      applied to physical problems imports irrelevant constraints. Physical
+      reasoning applied to social problems misses crucial relational dynamics.
+    what_fires: |
+      Cross-domain activation mismatch: the receptor detects that active
+      processing signatures belong to a cognitive domain (social) different from
+      the problem domain (physical/spatial). The activation of social-hierarchy
+      receptors during a spatial-navigation task triggers the mode-mismatch signal.
+
+  - id: detect_exploitation_lock
+    description: |
+      The organism has been harvesting from the same food source for days. The
+      source is adequate but not exceptional. The thought-type receptor notices
+      that the organism is locked in exploitation mode -- processing is narrow,
+      routine, and optimization-focused. The receptor fires: "I'm in pure
+      exploit mode. I haven't allocated any processing to alternatives. My
+      cognitive mode is preventing me from even NOTICING whether better options
+      exist."
+    survival_relevance: |
+      Exploitation lock is the cognitive equivalent of the local maximum trap.
+      The organism optimizes within a narrow frame and never allocates processing
+      to evaluate whether the frame itself should change. Detecting the lock
+      allows deliberate injection of exploration.
+    what_fires: |
+      Temporal uniformity of processing: the receptor detects that cognitive
+      processing has been in the same mode for an extended period with no mode
+      switching, no exploration signals, and no alternative evaluation. The
+      uniformity itself is the signal -- encoding "sustained single-mode lock."
+
+  - id: detect_rehearsal_mode
+    description: |
+      The organism is sitting still, not foraging or navigating, but its receptor
+      activation patterns are cycling through sequences that resemble past
+      experiences. It is replaying scenarios -- a near-miss with a predator, a
+      successful foraging route. The thought-type receptor fires: "I'm in
+      rehearsal/replay mode. I'm processing past events, not current inputs.
+      My current perceptual intake is being downweighted in favor of internal
+      simulation."
+    survival_relevance: |
+      Rehearsal mode is valuable for consolidating experience but dangerous if
+      it occurs at inappropriate times -- the organism replaying past events
+      while current threats are present. Detecting the mode allows the organism
+      to choose when to rehearse (safe rest periods) and when to snap to
+      present-moment processing.
+    what_fires: |
+      Internal-simulation dominance: the receptor detects that active processing
+      is driven by internally generated sequences rather than external sensory
+      input. The ratio of internal-to-external activation sources shifts past
+      a threshold, encoding "current mode: rehearsal/simulation -- reduced
+      external awareness."
+
+anti_manifestations:
+  - id: smooth_mode_appropriate_behavior
+    description: |
+      The organism is foraging in a familiar area. Its processing mode is
+      exploitation -- narrow, efficient, focused on known sources. This mode
+      is appropriate: the territory is well-mapped, resources are predictable,
+      and conditions haven't changed. The organism operates in exploit mode
+      without any need to examine or question the mode because the mode
+      genuinely fits the situation.
+    why_should_not_fire: |
+      Thought-type detection is about CATCHING one's cognitive mode as a mode,
+      typically because the mode may be inappropriate, has shifted without
+      decision, or needs to be examined. When the mode seamlessly fits the
+      situation and no examination is warranted, detecting the mode adds
+      overhead without benefit. The receptor should fire when mode-awareness
+      is decision-relevant, not whenever a mode is active.
+    distinguishes: |
+      Decision-relevance of mode-awareness: mode fits situation and awareness
+      adds no value (anti) vs. mode may be misfit, drifted, or contaminated
+      and awareness enables correction (true).
+
+  - id: emotional_state_shift
+    description: |
+      The organism becomes agitated after a territorial intrusion. Its arousal
+      increases, its attention narrows, and its behavior becomes more aggressive.
+      This is an emotional state shift -- a change in activation level and
+      valence -- not a cognitive mode shift. The organism is not processing
+      differently; it is processing the SAME way but with different intensity
+      and different motivational valence.
+    why_should_not_fire: |
+      Emotional arousal changes are not cognitive mode changes. Thought-type
+      detection is about the KIND of processing (spatial, social, panic,
+      exploration), not the INTENSITY or VALENCE of processing. An organism
+      can be angry while in exploration mode or calm while in exploitation
+      mode. The receptor should not conflate processing intensity with
+      processing type.
+    distinguishes: |
+      Processing type vs. processing intensity: emotional state change
+      affecting arousal/valence (anti) vs. cognitive mode change affecting
+      the kind of processing being applied to the situation (true).

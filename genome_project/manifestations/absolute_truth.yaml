@@ -1,0 +1,186 @@
+receptor_id: absolute_truth
+family: epistemic
+tier: canopy
+stage: 12
+
+conceptual_space: |
+  Detects truths that hold regardless of perspective — statements
+  whose validity does not change based on the vantage point of the
+  observer, the context of observation, or the frame of reference.
+  "No vantage point changes this." The organism does not merely
+  believe something strongly; it recognizes a specific epistemic
+  quality: perspective-invariance. The boundary separates perspective-
+  invariant truths (true from every possible vantage point) from
+  perspective-dependent truths (true from some vantage points but
+  not others) and from strongly held beliefs (felt as certain but
+  not tested against perspective variation). The critical signal is
+  the organism verifying that a truth survives all available
+  perspective transformations.
+
+manifestations:
+  - id: logical_impossibility_detection
+    description: |
+      The organism recognizes: "A thing cannot simultaneously be
+      and not-be in the same respect." It encounters this not as a
+      belief but as a structural constraint on reality — no
+      perspective, no context, no frame of reference can produce
+      a situation where a predator is both present and not present
+      at the same location at the same time. The organism detects
+      the perspective-invariance: it has tried every available
+      vantage point and the impossibility holds from all of them.
+    survival_relevance: |
+      Logical impossibility detection enables absolute certainty
+      in reasoning — some conclusions can be trusted without
+      empirical verification because their negation is impossible
+      from any vantage point. This provides a foundation for
+      deductive reasoning that does not require probabilistic
+      hedging.
+    what_fires: |
+      A proposition tested against all available perspectives
+      and found to hold invariantly — no transformation of vantage
+      point, context, or frame produces a counterexample. The
+      proposition has the quality of structural necessity rather
+      than empirical regularity. The perspective-invariant
+      necessity detection fires.
+
+  - id: mathematical_identity_recognition
+    description: |
+      The organism discovers that combining three groups of two
+      items always yields the same count as combining two groups
+      of three items. It tests this from multiple contexts — food
+      items, group members, territory markers — and finds the
+      relationship holds regardless of what is being counted.
+      The truth is not about food or markers; it is about quantity
+      relationships that no perspective can alter.
+    survival_relevance: |
+      Recognizing mathematical identities as absolute truths
+      enables reliable planning across all domains. If the organism
+      knows a quantitative relationship holds absolutely (not just
+      for food, not just in this territory), it can apply the
+      relationship confidently in novel domains without empirical
+      re-verification.
+    what_fires: |
+      A structural relationship tested across multiple domains
+      and found to hold identically in each — the relationship
+      is independent of the specific objects or context. The
+      domain-invariant structural truth detection fires.
+
+  - id: conservation_law_detection
+    description: |
+      The organism notices that when food is moved from one cache
+      to another, the total amount does not change — nothing is
+      created or destroyed by relocation. It tests this across
+      different materials, different locations, different times,
+      and finds the conservation holds absolutely. Rearrangement
+      does not alter totals. No perspective makes it otherwise.
+    survival_relevance: |
+      Conservation detection enables reliable resource tracking —
+      the organism knows that food moved but not consumed still
+      exists somewhere. This supports systematic search (the
+      missing food is somewhere, not vanished) and prevents magical
+      thinking (food does not appear from nothing).
+    what_fires: |
+      A constraint (total preservation under rearrangement) tested
+      across all available transformations and contexts, found to
+      hold invariantly. The organism recognizes the constraint as
+      structural — not a regularity that might have exceptions but
+      a rule that holds absolutely. The absolute-conservation
+      detection fires.
+
+  - id: structural_necessity_in_relationships
+    description: |
+      The organism recognizes: "If A is larger than B, and B is
+      larger than C, then A is larger than C." It detects this not
+      as a pattern that usually holds but as a truth that MUST
+      hold — no arrangement, no perspective, no context can make
+      A smaller than C while maintaining A > B and B > C. The
+      transitivity is structurally necessary, not empirically
+      observed.
+    survival_relevance: |
+      Detecting structural necessity in relationships enables
+      inference without observation — the organism can determine
+      relative sizes, distances, or strengths of entities it has
+      never directly compared, through chains of transitive
+      reasoning it knows are absolutely valid.
+    what_fires: |
+      A relational property (transitivity) recognized as
+      structurally necessary — true by virtue of what the
+      relationship means, not by virtue of empirical observation.
+      The organism detects that the truth cannot be otherwise
+      given the structure of the relationship. The structural-
+      necessity fires.
+
+  - id: self_referential_certainty
+    description: |
+      The organism recognizes: "I am experiencing something right
+      now." This truth is unique in being absolutely certain from
+      the only vantage point that can access it — the organism's
+      own. No external perspective can invalidate it, and no
+      internal doubt can coherently deny it (doubting IS
+      experiencing). The organism detects a truth that is
+      immune to all forms of perspective-based challenge.
+    survival_relevance: |
+      Self-referential certainty provides an epistemic anchor —
+      a truth the organism can be absolutely certain of when all
+      other knowledge is uncertain. From this anchor, other
+      knowledge can be evaluated for relative certainty. Without
+      any absolute anchor, all knowledge floats without reference.
+    what_fires: |
+      A self-referential truth recognized as immune to all
+      perspective challenges — the organism detects that doubting
+      the truth would itself confirm the truth (doubting is
+      experiencing). The self-validating, perspective-immune
+      truth fires.
+
+anti_manifestations:
+  - id: strongly_held_belief_not_tested_against_perspectives
+    description: |
+      The organism is completely certain that a specific food
+      source is reliable — it has been there every time the
+      organism checked. The confidence is very high but the
+      organism has not tested whether this truth holds from other
+      vantage points (different seasons, different years,
+      different environmental conditions). The certainty is
+      empirical strength, not perspective-invariance.
+    why_should_not_fire: |
+      This is strong empirical confidence, not absolute truth
+      detection. The organism has extensive evidence from one
+      perspective (its own repeated experience) but has not
+      verified perspective-invariance. The food source could
+      fail in a drought or after environmental change. Absolute
+      truth detection requires testing against perspective
+      variation and finding invariance, not just accumulating
+      evidence from a single vantage point.
+    distinguishes: |
+      Strong empirical confidence (much evidence from one
+      perspective) versus absolute truth (invariance verified
+      across perspectives). The test against perspective variation
+      is the boundary — confidence without perspective testing
+      is empirical, not absolute.
+
+  - id: culturally_transmitted_universal_claim
+    description: |
+      The organism receives a culturally transmitted rule: "never
+      eat the red berries — they are always poisonous." This is
+      presented as an absolute truth but the organism has not
+      independently verified its perspective-invariance. The rule
+      might be true in this territory but not others, or true for
+      this species but not others. It is received as absolute
+      without the organism performing the perspective-invariance
+      test.
+    why_should_not_fire: |
+      This is a received universal claim, not independently
+      verified absolute truth. The organism accepts the claim on
+      authority rather than detecting perspective-invariance
+      through its own testing. Absolute truth detection requires
+      the organism to verify invariance across perspectives, not
+      merely to receive a claim that something is always true.
+      The distinction is between detected invariance and claimed
+      invariance.
+    distinguishes: |
+      Received universal claims (told it is always true) versus
+      detected absolute truths (verified invariance across
+      perspectives). The organism's own verification of
+      perspective-invariance is the boundary — received claims
+      may or may not be absolute, but the organism has not done
+      the detecting.

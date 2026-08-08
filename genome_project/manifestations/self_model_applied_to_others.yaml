@@ -1,0 +1,121 @@
+receptor_id: self_model_applied_to_others
+family: social
+tier: branch
+stage: 4
+
+conceptual_space: |
+  "If I were in that state, I'd do X — so the NPC will probably do X."
+  Using the organism's own self-model as a template for predicting
+  another agent's behavior. The concept is simulation-based prediction:
+  running the organism's own decision logic with the other agent's
+  apparent inputs to generate a prediction about the other agent's
+  output. The boundary separates this from pure statistical behavioral
+  prediction (which uses observed regularities) — self-model application
+  uses the organism's OWN behavioral tendencies as the predictive model.
+
+manifestations:
+  - id: hunger_drives_food_seeking
+    description: |
+      The organism knows that when its own energy is low, it moves
+      toward food. NPC-A's energy appears low (slow movement, proximity
+      to food areas). The organism predicts NPC-A will move toward
+      food — because that's what the organism itself would do.
+    survival_relevance: |
+      When no behavioral history exists for a novel agent, the
+      organism's own self-model provides an immediate prediction.
+      This is faster than waiting to observe statistical regularities.
+    what_fires: |
+      Other agent's observable state maps onto organism's own
+      experienced state. Organism's own behavioral policy for that
+      state generates a prediction about the other agent's action.
+
+  - id: threat_avoidance_projection
+    description: |
+      The organism avoids a region where it previously took damage.
+      NPC-B was damaged in the same region. The organism predicts
+      NPC-B will also avoid that region — projecting its own
+      avoidance behavior onto the other agent.
+    survival_relevance: |
+      Predicting that a damaged agent will avoid danger zones helps
+      the organism anticipate where agents will and won't be,
+      enabling better spatial planning.
+    what_fires: |
+      Organism detects that another agent has experienced a condition
+      (damage in location X) that the organism itself has experienced.
+      Organism's own learned response (avoid X) is projected as
+      prediction for the other agent.
+
+  - id: exploration_after_satiation
+    description: |
+      When the organism is well-fed, it tends to explore rather than
+      forage. NPC-C has been feeding successfully and appears satiated.
+      The organism predicts NPC-C will begin exploring new areas.
+    survival_relevance: |
+      Anticipating when competitors shift from foraging to exploring
+      reveals when resources will become uncontested and when new
+      areas might be discovered by others.
+    what_fires: |
+      Other agent's state (satiated) matches organism's own state
+      that triggers a behavioral shift. Self-model's state-to-
+      behavior mapping generates prediction for the other agent.
+
+  - id: retreat_when_outnumbered
+    description: |
+      The organism retreats when facing multiple agents simultaneously.
+      NPC-D is approaching an area where three other NPCs are present.
+      The organism predicts NPC-D will hesitate or retreat — because
+      the organism itself would.
+    survival_relevance: |
+      Predicting retreat enables the organism to anticipate openings —
+      if NPC-D retreats from a resource area, that resource becomes
+      available.
+    what_fires: |
+      Situational parameters (outnumbered) match conditions where
+      organism's own policy dictates retreat. Self-model simulation
+      applied to another agent's situation generates retreat prediction.
+
+  - id: novel_agent_first_encounter
+    description: |
+      A never-before-seen NPC appears near a food source. The organism
+      has no behavioral data on this NPC. It predicts the NPC will
+      approach the food — because the organism itself would approach
+      food from that position.
+    survival_relevance: |
+      Self-model application is the only available prediction strategy
+      for novel agents with no behavioral history. It provides an
+      immediate prior where statistical prediction has no data.
+    what_fires: |
+      Zero behavioral observations of this agent. Self-model becomes
+      the default prediction template. Organism simulates its own
+      decision from the other agent's apparent position and state.
+
+anti_manifestations:
+  - id: statistical_prediction_from_history
+    description: |
+      NPC-E has turned left at the fork 20 times. The organism
+      predicts left on approach 21. This prediction is based on
+      observed behavioral regularity, not on what the organism
+      itself would do at the fork.
+    why_should_not_fire: |
+      The prediction source is behavioral history of the other agent,
+      not simulation through the organism's own decision model. This
+      is behavioral_prediction, not self-model application.
+    distinguishes: |
+      Self-model application uses the organism's OWN policy as
+      template. Behavioral prediction uses the OTHER agent's observed
+      patterns. When sufficient history exists, behavioral prediction
+      dominates; self-model application is the prior.
+
+  - id: reflexive_self_prediction
+    description: |
+      The organism predicts its own future action — "I'm hungry, so
+      I'll go to food." This is self-prediction using the self-model,
+      but applied to SELF, not to another agent.
+    why_should_not_fire: |
+      Self-model applied to others requires applying the self-model
+      to a DIFFERENT agent. Applying it to oneself is just prediction
+      or planning, not social cognition.
+    distinguishes: |
+      The receptor fires when the self-model is used as a template
+      for ANOTHER agent. Self-applied self-model is a different
+      function (planning/prediction for own behavior).

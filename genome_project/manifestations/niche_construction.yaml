@@ -1,0 +1,174 @@
+receptor_id: niche_construction
+family: agency
+tier: canopy
+stage: 10
+
+conceptual_space: |
+  Detects deliberate engineering of the environment for another agent's
+  developmental benefit. A parent clears a safe area for offspring to
+  practice foraging without predator risk. The boundary separates
+  environmental modification done FOR someone else's development from
+  environmental modification done for one's own benefit (tool use,
+  environmental manipulation) or environmental modification that
+  happens to benefit others incidentally. The critical signal is that
+  the modifier bears costs and gains no direct benefit — the
+  modification serves the development of another agent.
+
+manifestations:
+  - id: cleared_practice_area_for_offspring
+    description: |
+      A parent spends energy removing debris, driving away small
+      predators, and creating sight lines around a patch of ground
+      near a food source. The parent does not forage in this area
+      itself — it watches while the offspring practices digging
+      techniques in the prepared space. The parent created a
+      developmental environment: safe, resource-adjacent, and
+      monitored.
+    survival_relevance: |
+      Offspring need practice environments where failure is not
+      fatal. The parent's investment in creating a safe practice
+      area enables skill development without predation risk.
+      Detecting the constructed nature of the environment — that
+      it was MADE safe rather than found safe — reveals the
+      intentional developmental support.
+    what_fires: |
+      Environmental modification by one agent that serves another
+      agent's developmental needs. The modifier bears a cost
+      (energy, time) and the modification's features (safety,
+      appropriate challenge level) match the developing agent's
+      needs rather than the modifier's own needs. The other-
+      directed developmental modification pattern fires.
+
+  - id: staged_foraging_environment
+    description: |
+      A parent partially exposes buried food items at varying
+      depths — some barely covered, some deeper — creating a
+      gradient of foraging difficulty. The parent does not eat
+      any of the food. The offspring encounters what appears to
+      be a natural foraging environment but is actually engineered
+      to provide scaffolded practice from easy to difficult
+      extraction.
+    survival_relevance: |
+      A difficulty gradient matched to the learner's developing
+      capabilities maximizes learning rate. The parent constructs
+      an environment that teaches — the environment itself is the
+      curriculum, arranged to build skill progressively.
+    what_fires: |
+      Environmental arrangement that creates a developmental
+      gradient — features organized by difficulty in a way that
+      matches the learner's progression needs. The arrangement is
+      non-random and oriented toward another agent's skill
+      development. The developmentally-graded environmental
+      arrangement fires.
+
+  - id: predator_exposure_with_safety_net
+    description: |
+      A parent positions itself between a mild predator threat
+      and the offspring, then allows the offspring to detect and
+      respond to the predator on its own. The parent is ready to
+      intervene if the offspring fails but does not intervene
+      preemptively. The parent has engineered a "safe danger" —
+      real enough to teach, controlled enough to survive.
+    survival_relevance: |
+      Predator response skills require exposure to real threats,
+      but uncontrolled exposure risks death. The parent constructs
+      a controlled threat environment — real predator, real fear
+      response required, but with a safety margin the offspring
+      does not know about. This builds genuine survival skills
+      without genuine survival risk.
+    what_fires: |
+      A dangerous environmental feature made safe through another
+      agent's hidden intervention — creating a real-seeming
+      challenge with concealed protection. The modification is
+      invisible to the developing agent, who experiences the full
+      threat signal while the modifier manages actual risk. The
+      hidden-safety-net-around-real-danger pattern fires.
+
+  - id: social_environment_engineering
+    description: |
+      A parent arranges for the offspring to interact with a
+      tolerant, experienced group member rather than an aggressive
+      one. The parent positions the offspring near the tolerant
+      individual during feeding time and blocks approaches from
+      the aggressive one. The parent is constructing the offspring's
+      social environment to enable social skill development in a
+      forgiving context.
+    survival_relevance: |
+      Social skills develop through interaction, but interaction
+      with intolerant group members can injure or traumatize naive
+      offspring. Engineering the social environment — selecting
+      which group members the offspring encounters first — enables
+      social skill development without the cost of aggressive
+      encounters.
+    what_fires: |
+      One agent managing which other agents a developing individual
+      encounters, selecting for developmental appropriateness
+      rather than random or proximity-based social contact. The
+      social environment is curated by the modifier for the
+      learner's benefit. The curated-social-environment pattern fires.
+
+  - id: tool_cache_near_learning_site
+    description: |
+      A parent gathers several flat rocks and places them near a
+      nut-bearing tree where offspring practice. The rocks are
+      tools the offspring will need for nut-cracking but cannot yet
+      transport efficiently. The parent creates a tool-provisioned
+      environment so the offspring can focus on the cracking
+      technique without the additional challenge of tool
+      acquisition.
+    survival_relevance: |
+      Learning complex skills benefits from reduced environmental
+      demands — providing the tools eliminates a variable so the
+      learner can focus on the core skill. The parent's tool
+      provisioning decomposes a complex challenge (find tool AND
+      crack nut) into a learnable unit (crack nut with provided
+      tool).
+    what_fires: |
+      Environmental provisioning that removes obstacles from a
+      developing agent's learning path — resources placed by another
+      agent to simplify a challenge to its core learning component.
+      The provisioning bears cost to the provider and serves the
+      learner's developmental needs. The obstacle-removed-for-
+      development pattern fires.
+
+anti_manifestations:
+  - id: self_serving_environmental_modification
+    description: |
+      An organism clears debris and removes small predators from
+      an area for its OWN foraging benefit. It creates a safe,
+      productive foraging zone that it uses itself. Offspring
+      happen to be nearby and benefit from the cleared area, but
+      the modification was done for the organism's own purposes.
+    why_should_not_fire: |
+      This is environmental manipulation for self-benefit, not
+      niche construction for another's development. The modifier
+      is the primary beneficiary. Niche construction requires that
+      the environmental modification is done FOR another agent's
+      development, bearing cost without direct return. Incidental
+      benefit to nearby offspring is not developmental intent.
+    distinguishes: |
+      Self-serving modification (modifier is primary beneficiary)
+      versus other-directed developmental modification (another
+      agent's development is the purpose, modifier bears net cost).
+      The intended beneficiary and the modifier's cost-benefit
+      balance is the boundary.
+
+  - id: natural_safe_area_discovery
+    description: |
+      An offspring finds a naturally sheltered area near food —
+      a rock overhang that provides predator protection and
+      proximity to a food source. No agent engineered this — the
+      environment happens to be developmentally appropriate. The
+      offspring practices foraging in natural safety.
+    why_should_not_fire: |
+      This is discovery of a naturally occurring beneficial
+      environment, not niche construction. No agent bore costs
+      to create developmental conditions — the conditions existed
+      independently. Niche construction requires intentional
+      engineering by another agent, not fortunate environmental
+      coincidence.
+    distinguishes: |
+      Intentionally constructed developmental environment (another
+      agent engineered it at cost) versus naturally occurring
+      beneficial environment (no agent created it). The presence
+      of an investing constructor is the boundary.

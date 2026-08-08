@@ -1,0 +1,51 @@
+receptor_id: regret
+family: meta-motivational
+tier: branch
+stage: 9
+
+conceptual_space: |
+  Detects that a counterfactual outcome would have been better than the actual
+  outcome. Chose near food instead of far-but-larger food, and the
+  counterfactual calculation shows the unchosen option was superior. The
+  boundary separates regret (explicit comparison showing unchosen path was
+  better) from general dissatisfaction (unhappy with outcome but no
+  comparison) or counterfactual reasoning without valence (imagining
+  alternatives without evaluating superiority). The concept is
+  missed-opportunity detection — the recognition that a better path existed.
+
+manifestations:
+  - id: near_vs_far_food_regret
+    description: Organism chose the nearby small food source over the distant large one — the small food is consumed quickly and hunger returns, while the organism observes or infers that the large source would have sustained it longer
+    survival_relevance: Regret about food choice magnitude trains future decision-making to properly weight delayed larger rewards against immediate smaller ones
+    what_fires: Actual outcome (small reward consumed) compared against counterfactual outcome (larger reward from unchosen option), with the comparison showing the unchosen path as superior
+
+  - id: group_vs_solo_regret
+    description: Organism chose to forage solo instead of joining the group hunt — solo foraging yielded little while the group hunt succeeded, and the organism detects it would have been better off participating
+    survival_relevance: Social regret trains cooperative decision-making by highlighting missed cooperative opportunities that would have outperformed individual strategies
+    what_fires: Actual solo outcome compared against observed group outcome that the organism could have joined, with the comparison revealing the unchosen cooperative path as superior
+
+  - id: timing_regret
+    description: Organism foraged during midday heat and found food but at high energy cost — it detects that foraging at dawn would have yielded the same food at lower cost, a missed timing opportunity
+    survival_relevance: Timing regret optimizes activity scheduling by highlighting temporal windows where the same goal could have been achieved more efficiently
+    what_fires: Actual outcome evaluated against a temporally shifted counterfactual with the same action at a different time, showing the alternative timing as more efficient
+
+  - id: safety_trade_regret
+    description: Organism chose the safe path and missed abundant food on the risky path — it later learns the risky path was actually safe today, meaning the cautious choice cost resources unnecessarily
+    survival_relevance: Safety-trade regret calibrates risk assessment by highlighting cases where excessive caution produced worse outcomes than warranted risk-taking would have
+    what_fires: Actual outcome (safe but low reward) compared against counterfactual (risky path that turned out safe and high reward), with new information revealing the unchosen path as superior
+
+  - id: storage_neglect_regret
+    description: Organism did not store food during abundance and now faces scarcity — it explicitly detects that the past choice to consume rather than store was inferior to the counterfactual storage strategy
+    survival_relevance: Storage regret trains long-horizon planning by connecting present suffering to a specific past decision point where a different choice would have prevented it
+    what_fires: Current negative state traced to a past decision point, with the counterfactual branch (storing instead of consuming) producing an imagined present that is explicitly better
+
+anti_manifestations:
+  - id: dissatisfaction_without_counterfactual
+    description: Organism is hungry and dissatisfied with its current state but has not constructed any specific unchosen alternative that would have produced a better outcome — it is simply unhappy
+    why_should_not_fire: General dissatisfaction lacks the counterfactual comparison that defines regret — there is no identified unchosen path shown to be superior
+    distinguishes: Regret (explicit comparison showing unchosen path was better) vs dissatisfaction (negative valence about current state without counterfactual comparison)
+
+  - id: counterfactual_without_superiority
+    description: Organism imagines what would have happened if it took the other path — the imagined outcome is roughly equivalent to the actual one, so no missed opportunity is detected
+    why_should_not_fire: Counterfactual reasoning without superiority finding is imagination without regret — the unchosen path was not better, so no missed opportunity exists
+    distinguishes: Regret (counterfactual outcome explicitly better than actual) vs neutral counterfactual (alternative imagined but found equivalent or worse)

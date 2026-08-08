@@ -1,0 +1,49 @@
+receptor_id: prototype_formation
+family: similarity
+tier: canopy
+stage: 5
+
+conceptual_space: |
+  Detects the central tendency of a category — the average predator shape, the
+  typical food appearance, the standard escape route geometry. When multiple
+  instances have been observed, this receptor fires on the statistical center
+  of the category, enabling faster recognition of novel variants by comparison
+  to the prototype. The boundary separates prototype-based recognition from
+  instance-based memory or single-exemplar matching.
+
+manifestations:
+  - id: average_predator_shape
+    description: After encountering five different predators, organism responds fastest to a new predator whose proportions match the average of all previously seen
+    survival_relevance: Prototype enables instant categorization of novel predators without needing exact match to any specific remembered individual
+    what_fires: Novel visual input whose structural features fall near the central tendency of accumulated predator observations — faster activation than for outlier shapes
+
+  - id: typical_food_patch
+    description: Organism approaches a food source that matches the average color, size, and spatial context of previously successful food encounters
+    survival_relevance: Recognizing typical food appearance allows rapid identification without exhaustive comparison to every past food memory
+    what_fires: Visual pattern whose features cluster near the mean of prior positive-outcome food observations, triggering approach faster than atypical configurations
+
+  - id: standard_shelter_geometry
+    description: Organism identifies a new rock formation as shelter because it matches the prototype of previously used cover — overhead surface, side walls, single opening
+    survival_relevance: Rapid shelter identification during pursuit requires matching to a general shelter concept, not recalling specific past shelters
+    what_fires: Spatial configuration whose geometric properties approximate the average of all previously effective shelter encounters
+
+  - id: novel_predator_variant_recognition
+    description: A never-before-seen predator species is immediately flagged as dangerous because it falls close to the predator prototype despite being a new specific form
+    survival_relevance: Prototype-based recognition provides day-zero threat detection for novel predator variants without prior specific experience
+    what_fires: New visual entity whose structural features fall within the prototype envelope of the predator category despite no exact instance match
+
+  - id: food_quality_gradient
+    description: Among several potential food sources, organism preferentially approaches the one most similar to the food prototype — closer to average means higher expected value
+    survival_relevance: Prototype proximity predicts reliability — typical food is more likely genuine than edge-case appearances
+    what_fires: Comparative activation across multiple food candidates, with strongest signal for the candidate nearest the prototype center
+
+anti_manifestations:
+  - id: single_memorized_instance
+    description: Organism recognizes a specific predator it has seen before by exact feature match — same scar, same limp, same coloring
+    why_should_not_fire: This is instance recall, not prototype activation — recognition is based on specific unique features, not central tendency
+    distinguishes: Prototype (statistical average) vs episodic memory (specific individual) — prototype_formation is about the category center, not remembered particulars
+
+  - id: outlier_category_member
+    description: An unusually shaped predator that is still technically a predator but falls far from the category average — recognized only after deliberate analysis
+    why_should_not_fire: The slow, effortful recognition indicates the prototype is NOT firing — this entity is too far from the central tendency for prototype-based fast matching
+    distinguishes: Prototype-proximate recognition (fast, automatic) vs boundary-case recognition (slow, deliberate) — prototype_formation is the fast central path

@@ -1,0 +1,145 @@
+receptor_id: receptor_propagation
+family: regulatory
+tier: trunk
+stage: 4
+
+conceptual_space: |
+  One agent's receptor state propagates to another through proximity and
+  signals. Empathic contagion — when a nearby organism is in a fear state,
+  the observer's fear-related receptors activate without direct threat
+  exposure. The boundary is state propagation between agents: not observing
+  behavior, but catching the internal state. The receptor fires when
+  another agent's receptor activation pattern is replicated in the
+  observer without the original stimulus.
+
+manifestations:
+  - id: fear_contagion_from_alarm
+    description: |
+      A nearby conspecific suddenly freezes, emits a high-pitched alarm
+      call, and bolts. The observing organism has not seen or smelled any
+      predator, but its own fear-related receptors activate — heart rate
+      increases, muscles tense for flight, attention snaps to escape
+      routes. The fear state propagated through the alarm signal.
+    survival_relevance: |
+      Fear contagion enables faster-than-individual threat response.
+      An organism that catches fear from a neighbor who HAS seen the
+      predator can begin fleeing before it detects the threat directly.
+      Propagated fear buys survival time.
+    what_fires: |
+      Observer's fear-state receptors activate in response to another
+      agent's fear signals (alarm call, flight behavior) without the
+      observer having direct exposure to the threat stimulus. State
+      transfer between agents.
+
+  - id: calm_propagation_in_group
+    description: |
+      Organism is in a mildly anxious state in a new territory. It
+      encounters a group of conspecifics who are relaxed — feeding calmly,
+      grooming each other, vocalizing softly. The observer's stress
+      receptors gradually attenuate. Its arousal drops. The calm state
+      of the group propagated to the individual through proximity and
+      behavioral signals.
+    survival_relevance: |
+      Calm contagion from experienced group members provides indirect
+      safety information. If the group is relaxed, the territory is
+      likely safe. The observer can save the cognitive and metabolic
+      cost of maintaining high vigilance by inheriting the group's
+      assessed safety state.
+    what_fires: |
+      Observer's arousal/stress receptors downregulate in response to
+      proximity to calm agents. No direct evidence of safety — the calm
+      state is inherited from others' receptor states through their
+      behavioral signals.
+
+  - id: aggression_escalation_cascade
+    description: |
+      Two organisms near the observer begin an aggressive display —
+      raised postures, loud vocalizations, rapid approach-retreat cycles.
+      The observer, who has no direct conflict, feels its own aggression-
+      related receptors activate. Muscles tense, posture stiffens,
+      threshold for aggressive response lowers. The aggressive state
+      is contagious through proximity.
+    survival_relevance: |
+      Aggression contagion prepares nearby organisms for potential
+      involvement in a conflict. If the fight spills over, the
+      pre-activated organism can respond faster. It also enables
+      coordinated group aggression against external threats.
+    what_fires: |
+      Observer's aggression-related receptors activate in response to
+      aggressive signals from nearby agents. The observer has no direct
+      provocation — the activation is propagated from others' states.
+
+  - id: curiosity_following
+    description: |
+      A conspecific is intensely investigating a novel object — circling
+      it, touching it, sniffing it from multiple angles. The observing
+      organism, which had been ignoring the object, finds its own
+      curiosity receptors activating. It approaches and begins its own
+      investigation. The investigative drive propagated through
+      observation of the other's exploratory behavior.
+    survival_relevance: |
+      Curiosity contagion enables social learning efficiency. When one
+      organism identifies something worth investigating, nearby organisms
+      inherit the investigative drive and can discover the same resource
+      or hazard without independent discovery costs.
+    what_fires: |
+      Observer's curiosity/exploration receptors activate after observing
+      another agent's exploratory behavior directed at a specific target.
+      The observer's attention is recruited by the other's attentional
+      focus, not by independent detection of the stimulus.
+
+  - id: distress_propagation_to_offspring
+    description: |
+      A juvenile organism emits distress vocalizations — high-frequency,
+      repetitive calls indicating pain or fear. The parent organism,
+      which is in a different part of the territory, experiences rapid
+      activation of protective and stress receptors. Its own state shifts
+      to urgent rescue mode despite no direct threat to itself. The
+      offspring's distress state propagated through the vocal signal.
+    survival_relevance: |
+      Parent-offspring state propagation is critical for offspring
+      survival. The parent's receptors must mirror the offspring's
+      distress state to trigger protective behavior. Organisms with
+      weak state propagation from offspring lose more young.
+    what_fires: |
+      Parent's distress and protective receptors activate in response
+      to offspring distress signals. The activation intensity scales
+      with the intensity of the offspring's distress call. Cross-
+      individual state replication through kin-specific channels.
+
+anti_manifestations:
+  - id: behavioral_observation_without_state_transfer
+    description: |
+      Organism observes another agent eating at a food source. The
+      observer notes the eating behavior and may update its map (food
+      is there), but its own hunger receptors do not change. It does
+      not become hungrier or more satiated from watching. The behavior
+      was observed but the internal state did not propagate.
+    why_should_not_fire: |
+      Receptor propagation requires that the observer's own receptor
+      state CHANGES to mirror the observed agent's state. Simply noting
+      what another agent is doing without internal state change is
+      behavioral observation, not empathic contagion.
+    distinguishes: |
+      Propagation means the observer's internal state shifts. Observation
+      means the observer learns information. Watching an agent eat and
+      updating a food-location model is learning, not state propagation.
+      The observer's appetitive state must change for propagation.
+
+  - id: direct_stimulus_not_propagation
+    description: |
+      Organism and a nearby conspecific both encounter a predator at the
+      same time. Both experience fear. But each organism's fear is caused
+      by its own direct perception of the predator, not by catching the
+      other's fear state. They are independently afraid, not contagiously
+      afraid.
+    why_should_not_fire: |
+      Receptor propagation requires that one agent's state was caused BY
+      another agent's state, not by both agents independently responding
+      to the same stimulus. Parallel activation from a shared cause is
+      not propagation — it is coincident direct activation.
+    distinguishes: |
+      Propagation is agent-to-agent state transfer. Coincident activation
+      from a shared external stimulus is independent parallel response.
+      The causal arrow must go from agent A's state to agent B's state,
+      not from stimulus to both.

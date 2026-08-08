@@ -1,0 +1,48 @@
+receptor_id: capability_change_detection
+family: self_augmentation
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  The organism's own capabilities have changed. Actions that previously
+  succeeded now fail, or actions that previously failed now succeed. The
+  concept is detecting change in SELF — what I can do differs from what
+  I could do — not change in the world. The boundary: self-capability
+  shift vs environmental change.
+
+manifestations:
+  - id: injury_reduces_reach
+    description: After limb damage, pushing action that moved rocks no longer moves them
+    survival_relevance: Persisting with broken capabilities wastes energy and invites danger
+    what_fires: Same motor command produces reduced or zero effect compared to organism's own history
+
+  - id: growth_extends_range
+    description: Organism's reach increases — can now access food it previously could not touch
+    survival_relevance: Recognizing new capability enables exploitation of previously inaccessible resources
+    what_fires: Same action now produces effect where it previously had none — capability expanded
+
+  - id: fatigue_reduces_speed
+    description: After sustained exertion, maximum movement speed is lower than it was 100 steps ago
+    survival_relevance: Not knowing you are slower makes escape plans dangerously optimistic
+    what_fires: Peak velocity from same motor intensity declined relative to self-baseline
+
+  - id: learning_improves_accuracy
+    description: Navigation to food now takes fewer steps than it used to — organism is more efficient
+    survival_relevance: Recognizing improved efficiency enables confidence in current strategy
+    what_fires: Action-to-outcome ratio improved relative to historical self-performance
+
+  - id: toxin_impairs_sensing
+    description: After chemical exposure, sensory channels become noisy — organism detects less
+    survival_relevance: Not knowing senses are degraded leads to missed threats
+    what_fires: Sensory discrimination capacity reduced relative to own prior performance
+
+anti_manifestations:
+  - id: world_changed_not_self
+    description: Rock that was movable is now immovable because it is wedged against a wall
+    why_should_not_fire: The organism's capability did not change — the environment changed
+    distinguishes: Capability change is about SELF changing, not the world presenting different affordances
+
+  - id: different_action_different_outcome
+    description: Organism tries a new action and gets a new outcome — but all old actions still work fine
+    why_should_not_fire: No capability changed — organism just tried something it hadn't tried before
+    distinguishes: Capability change requires SAME action producing DIFFERENT result over time

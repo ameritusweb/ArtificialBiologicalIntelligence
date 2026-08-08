@@ -1,0 +1,153 @@
+receptor_id: hidden_confounder_detection
+family: causality
+tier: canopy
+stage: 7
+
+conceptual_space: |
+  Detects that observable correlations between events require positing
+  an unobserved variable to explain them. Unlike common cause detection
+  (where the organism discovers the hidden cause through intervention
+  failure), hidden confounder detection involves actively inferring that
+  an unobserved variable MUST exist based on the structure of observed
+  correlations. Two NPCs always fight near a particular food source —
+  but food does not cause fighting (other food sites are peaceful) and
+  fighting does not attract food. The organism infers an unobserved
+  boundary (territory line) that explains both the fighting location
+  and the food concentration. The boundary is the leap from observation
+  to positing something never directly observed.
+
+manifestations:
+  - id: territory_boundary_inference
+    description: |
+      Two NPCs consistently fight near a particular food patch but
+      are peaceful near other equally rich food patches. The organism
+      observes that the fighting zone aligns with a geographic feature
+      (a ridge) that extends beyond the food patch. It infers an
+      unobserved territorial boundary along the ridge that explains
+      both why fighting occurs there (border disputes) and why food
+      accumulates (neither NPC forages the contested zone thoroughly).
+    survival_relevance: |
+      Inferring the invisible territory boundary lets the organism
+      predict danger zones and safe foraging areas without having
+      to experience every conflict directly. It can exploit the
+      under-foraged border zone when both NPCs are absent.
+    what_fires: |
+      Observable correlation (fighting + food co-location) that
+      cannot be explained by either variable causing the other,
+      combined with geographic structure suggesting an unobserved
+      variable (territory boundary). The necessity of positing
+      an unseen entity to explain the pattern fires.
+
+  - id: hidden_predator_from_prey_behavior
+    description: |
+      Multiple prey animals consistently avoid a particular area
+      despite abundant food and water there. No predator is visible.
+      The organism infers that a concealed predator (underground den,
+      camouflaged ambush site) must exist in that zone because the
+      prey avoidance pattern is inexplicable without it. It has never
+      seen the predator but infers its existence from prey behavior.
+    survival_relevance: |
+      Inferring an unseen predator from prey behavior enables
+      preemptive avoidance. The organism benefits from the prey
+      animals' direct knowledge without needing its own dangerous
+      encounter with the hidden predator.
+    what_fires: |
+      Observable behavior (prey avoidance of resource-rich area)
+      that is inexplicable under known variables, requiring the
+      positing of an unobserved entity (concealed predator). The
+      inference of existence from behavioral evidence fires.
+
+  - id: illness_from_invisible_contamination
+    description: |
+      Multiple organisms that drink from a particular stream section
+      become ill, while those drinking from upstream or downstream
+      are fine. No visible difference distinguishes the water. The
+      organism infers an unobserved contaminant (mineral seep,
+      decomposing carcass upstream but out of sight) must be
+      entering the water at that specific point.
+    survival_relevance: |
+      Inferring invisible contamination from illness patterns
+      enables avoidance of the dangerous section without needing
+      to become ill. The organism can also predict that the
+      contamination might spread downstream over time.
+    what_fires: |
+      Spatially localized health outcomes (illness at one stream
+      section) with no visible cause, requiring inference of an
+      unobserved variable (contaminant source). The spatial
+      specificity constrains where the hidden cause must be.
+
+  - id: hidden_resource_from_competitor_convergence
+    description: |
+      Multiple competitor organisms converge on a specific location
+      at specific times despite no visible resource there when the
+      focal organism investigates. It infers that a temporally
+      available resource (nocturnal insect emergence, tidal pool
+      filling) must exist at those times but not when it checks.
+      The competitors' behavior reveals a resource the organism
+      has never directly observed.
+    survival_relevance: |
+      Inferring temporally hidden resources from competitor
+      behavior expands the organism's resource map to include
+      things it has never directly perceived. Visiting the location
+      at the competitors' timing reveals the resource.
+    what_fires: |
+      Observable convergence behavior from multiple agents at a
+      specific space-time point, with no visible reward at other
+      times. The inference of a temporally gated hidden resource
+      from behavioral evidence fires.
+
+  - id: social_alliance_from_coordinated_behavior
+    description: |
+      Two NPCs that are physically separated consistently act in
+      coordination — when one moves east, the other moves east; when
+      one attacks, the other flanks. No direct communication is
+      observed between them. The organism infers a hidden social bond
+      or prior agreement (alliance, kinship) that explains the
+      coordination without visible signaling.
+    survival_relevance: |
+      Inferring hidden alliances enables prediction of coordinated
+      threats. If the organism conflicts with one allied NPC, it can
+      predict the other will intervene even though no communication
+      was observed — enabling preemptive avoidance or preparation.
+    what_fires: |
+      Coordinated behavior between spatially separated agents
+      without observable communication, requiring inference of an
+      unobserved social variable (alliance, kinship, prior
+      agreement). The unexplained coordination demands a hidden
+      explanatory variable.
+
+anti_manifestations:
+  - id: visible_cause_explains_correlation
+    description: |
+      Two NPCs always fight near a food source. The organism observes
+      them both reaching for the same food item and fighting over it.
+      The cause of the fighting is directly visible — resource
+      competition — with no need to infer anything hidden.
+    why_should_not_fire: |
+      This is a directly observable causal explanation. The fighting
+      is explained by visible resource competition, not an unobserved
+      variable. Hidden confounder detection requires that no observed
+      variable adequately explains the correlation, forcing inference
+      of something unseen.
+    distinguishes: |
+      Observable cause (visible explanation for the correlation)
+      versus hidden confounder (no visible explanation, requiring
+      inference of an unobserved variable). The necessity of
+      positing the unseen is the boundary.
+
+  - id: random_coincidence_no_pattern
+    description: |
+      Two NPCs happened to be in the same area twice. The organism
+      notices the co-occurrence but it does not repeat consistently
+      and no stable pattern emerges across further observations.
+    why_should_not_fire: |
+      This is coincidence, not a pattern requiring explanation.
+      Hidden confounder detection requires a RELIABLE correlation
+      that resists explanation by observed variables. Sporadic
+      co-occurrence with no stable pattern does not demand an
+      explanatory variable — it is noise, not signal.
+    distinguishes: |
+      Reliable unexplained correlation (stable pattern demanding
+      explanation) versus sporadic coincidence (unstable pattern
+      explained by chance). Statistical reliability of the
+      correlation is the boundary.

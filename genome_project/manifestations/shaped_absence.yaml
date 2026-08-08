@@ -1,0 +1,47 @@
+receptor_id: shaped_absence
+family: compression
+tier: canopy
+stage: 5
+
+conceptual_space: |
+  Detects a specific gap — not just that something is missing, but what
+  specifically is missing and what shape the missing thing has. "I need cover
+  on my north side" identifies a gap with spatial specificity. The boundary
+  separates specific, shaped gaps from general deficiency or vague want.
+
+manifestations:
+  - id: north_side_cover_gap
+    description: Organism has cover from east, south, and west but the north side is exposed to predator approach — the specific gap is northern cover
+    survival_relevance: Knowing the specific shape of the gap directs search effort — look for something to block the north side, not general cover
+    what_fires: Protection signals present from three directions with absence signal from one specific direction, combined with threat approach vector from that direction
+
+  - id: missing_escape_route_direction
+    description: Escape routes exist to the west and south but not to the east where the predator is closest — the specific gap is an eastern escape path
+    survival_relevance: Identifying the specific missing escape direction enables targeted route creation or repositioning
+    what_fires: Escape viability signals present in some directions with specific absence in the direction of highest threat — the gap has directional specificity
+
+  - id: food_type_deficiency
+    description: Organism has consumed protein-rich food but is specifically lacking energy-dense food — not general hunger but a specific nutritional gap
+    survival_relevance: Shaped nutritional absence directs foraging toward specific food types rather than any food, improving dietary completeness
+    what_fires: Some nutritional signals satisfied while specific nutritional channel remains unsatisfied — the gap has compositional specificity
+
+  - id: timing_gap_in_vigilance
+    description: Organism monitors predator during dawn and dusk but has no coverage during midday — the specific gap is a temporal surveillance window
+    survival_relevance: Identifying the specific time gap in coverage reveals when the organism is most vulnerable and needs additional vigilance
+    what_fires: Threat monitoring signals present for some time periods with absence during a specific identifiable time window — the gap has temporal shape
+
+  - id: social_role_vacancy
+    description: Group has foragers and sentinels but lacks a scout — the specific missing function in the group's organization
+    survival_relevance: Identifying the specific missing role enables the organism to fill it or recruit for it, completing group functionality
+    what_fires: Multiple social function signals active with one specific function absent — the gap is defined by what role it would serve if filled
+
+anti_manifestations:
+  - id: general_unease
+    description: Organism feels vaguely unsafe but cannot identify what specifically is missing — undifferentiated anxiety without a shaped gap
+    why_should_not_fire: General discomfort has no shape — shaped_absence requires identifying WHAT specifically is missing, not just that something is wrong
+    distinguishes: Specific shaped gap vs general deficiency — the receptor requires the absence to have identifiable characteristics
+
+  - id: everything_missing
+    description: Organism is in a barren area with no food, no cover, no escape routes — everything is absent simultaneously
+    why_should_not_fire: When everything is missing, no specific gap has shape — the absence is uniform and undifferentiated rather than specifically shaped
+    distinguishes: Specific gap within a partially-met context vs total absence — shaped_absence requires enough context to give the gap definition

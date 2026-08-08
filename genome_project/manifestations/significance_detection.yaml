@@ -1,0 +1,49 @@
+receptor_id: significance_detection
+family: observation
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detects when a signal persists or recurs across enough episodes to be
+  distinguished from noise. The boundary is between transient anomalies
+  that are likely stochastic and patterns that have demonstrated enough
+  temporal persistence to warrant belief revision. Fires when the organism
+  recognizes that an observation has crossed from "might be noise" to
+  "this is real" based on its own accumulated evidence over time.
+
+manifestations:
+  - id: persistent_anomaly
+    description: The organism detects an unusual scent near its shelter once and notes it. The scent appears again the next episode, and the next, and the next -- five episodes running. The organism detects that this anomaly has persisted well beyond what random scent drift would produce. It reclassifies the signal from "noise" to "significant -- something is consistently present near my shelter."
+    survival_relevance: A single unusual scent could be wind-carried from a distant source. Five consecutive detections indicates a local, persistent source -- possibly a predator establishing a presence. Distinguishing signal from noise determines whether vigilance escalation is warranted.
+    what_fires: An anomalous signal detected across a threshold number of consecutive or closely-spaced episodes, where the organism's noise model predicts the signal should have dissipated but it persists, triggering reclassification from stochastic to systematic.
+
+  - id: recurring_failure_pattern
+    description: The organism's foraging strategy fails occasionally -- normal variance. But it notices that failures have occurred in 4 of the last 6 episodes, concentrated in afternoon attempts. It detects that this failure rate exceeds its baseline noise expectation. The failures are not random -- they are a significant pattern indicating something has changed about afternoon foraging conditions.
+    survival_relevance: Treating systematic failures as random noise prevents adaptation. Detecting that failures cluster beyond chance levels forces the organism to investigate what changed, rather than continuing a strategy that is now reliably failing.
+    what_fires: Accumulation of negative outcomes that exceeds the organism's baseline failure-rate model for a given behavior, with the excess concentrated in a specific condition (time, location, context), distinguishing systematic failure from expected variance.
+
+  - id: gradual_environmental_shift
+    description: Water level at the organism's drinking source has been slightly lower each episode for seven episodes. Any single measurement could be natural variation. But the organism detects that seven consecutive decreases is extremely unlikely under its noise model -- this is a real downward trend, not fluctuation.
+    survival_relevance: Gradual resource depletion masked as noise leads to crisis when the resource suddenly becomes insufficient. Detecting the significance of a slow trend gives the organism time to locate alternative resources before the current one fails.
+    what_fires: A directional trend in a monitored variable sustained across enough episodes that the probability of the trend occurring under the organism's null model (random fluctuation) falls below a significance threshold.
+
+  - id: intermittent_threat_signal
+    description: The organism occasionally detects a predator cue -- a track here, a call there -- at irregular intervals. Each individual detection could be a transient visitor. But over 8 episodes, the detections total 5 times. The organism calculates that this frequency exceeds background rates for transient predators. The signal is significant -- a predator is ranging in this territory, not just passing through.
+    survival_relevance: Treating a resident predator as a transient visitor leaves the organism chronically underprotected. Detecting that the encounter frequency is significantly above baseline triggers appropriate territorial reassessment and heightened vigilance.
+    what_fires: Cumulative count of a specific signal type over a window of episodes exceeding the organism's expected background rate for that signal, where the excess is large enough to reject the null hypothesis that detections are independent transient events.
+
+  - id: performance_trend_recognition
+    description: The organism's own reaction time to threats has been slightly slower in each of the last 6 episodes. Each individual measurement falls within normal variation. But the consistent directional trend across 6 episodes is significant -- the organism is genuinely getting slower, not just having random bad moments.
+    survival_relevance: Gradual performance degradation masked as normal variation eventually becomes a lethal vulnerability. Detecting the significance of the trend lets the organism compensate -- resting more, choosing safer environments, or adjusting strategy to require less speed.
+    what_fires: A self-monitoring metric showing a sustained directional change across multiple episodes, where the organism's model of its own performance variance predicts the trend should not persist this long by chance alone.
+
+anti_manifestations:
+  - id: single_episode_anomaly
+    description: The organism detects an unfamiliar sound once, in a single episode. The sound does not recur. The organism notes the anomaly but correctly does not classify it as significant -- one occurrence provides no evidence of persistence. It could be a falling branch, a distant event, or sensor noise.
+    why_should_not_fire: Significance detection requires temporal persistence or recurrence that distinguishes signal from noise. A single occurrence, no matter how unusual, does not provide enough evidence to cross the significance threshold. The organism should note it but not act on it as if it were a confirmed pattern.
+    distinguishes: Whether the anomaly has persisted or recurred across enough episodes to exceed the noise model (significant) versus being a single observation that is fully consistent with random variation (not yet significant).
+
+  - id: high_variance_domain
+    description: The organism monitors wind direction, which naturally varies substantially episode to episode. It notices that wind has come from the east for 3 of the last 5 episodes. But its noise model for wind direction has very high variance -- 3 out of 5 from one direction is well within expected fluctuation. The organism correctly does not flag this as significant.
+    why_should_not_fire: Significance is relative to the noise model for the specific domain. A pattern that would be significant in a low-variance domain may be well within expected noise in a high-variance domain. The organism must calibrate its significance threshold to the specific variable's known variability.
+    distinguishes: Whether the observed pattern exceeds the noise model for its specific domain (significant) versus falling within the expected variability for a domain that is inherently high-variance (not significant even though it might look like a pattern in a less variable domain).

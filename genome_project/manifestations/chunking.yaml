@@ -1,0 +1,49 @@
+receptor_id: chunking
+family: compression
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Frequently-used action sequences become single retrievable units.
+  Push-step-push-step becomes "advance." The individual steps still exist
+  but are compressed into one callable chunk. Not concept formation
+  (which abstracts over categories of objects) — this is about ACTION
+  sequences becoming single units. The boundary: sequence compression
+  of motor/behavioral chains into atomic retrievable operations.
+
+manifestations:
+  - id: advance_chunk
+    description: Organism repeatedly pushes a rock, steps forward, pushes again, steps forward to clear a path. The four-step sequence compresses into a single "advance-by-pushing" action it initiates as one unit
+    survival_relevance: Chunked action sequences free working memory for higher-level planning during path-clearing
+    what_fires: Repeated execution of identical step sequence (push-step-push-step) crosses frequency threshold — sequence collapses into single initiation signal
+
+  - id: peel_and_eat
+    description: Organism finds hard-shelled nuts. It has learned to hold nut against flat rock, strike with another rock, extract meat, eat. The five-step sequence fires as one "crack-nut" chunk
+    survival_relevance: Chunked food processing lets the organism monitor for threats while executing a complex motor sequence automatically
+    what_fires: Repeated identical motor sequence (hold-position-strike-extract-eat) compresses — single initiation replaces five separate decisions
+
+  - id: escape_sequence
+    description: When predator sound detected, organism executes freeze-orient-sprint-climb as a single rapid chunk rather than deliberating each step
+    survival_relevance: Chunked escape responses are faster than step-by-step deliberation — milliseconds matter for survival
+    what_fires: Repeated threat-response sequence (freeze-orient-sprint-climb) has been executed enough times to fire as atomic escape chunk
+
+  - id: nest_construction_unit
+    description: Organism builds a sleeping nest by gathering three sticks, weaving them, then packing mud. This gather-weave-pack subsequence becomes a single "make-wall-section" chunk, repeated to build the full nest
+    survival_relevance: Chunking construction subsequences allows building complex shelters by composing chunks rather than managing dozens of individual steps
+    what_fires: Repeated construction subsequence (gather-weave-pack) compresses into a single retrievable building-unit signal
+
+  - id: water_purification_routine
+    description: Organism has learned to scoop water with a leaf, carry it to sand bed, pour through sand, collect filtered water below. The four-step sequence becomes one "filter-water" chunk
+    survival_relevance: Chunked purification routine ensures consistent safe water access without forgetting steps
+    what_fires: Repeated identical process sequence (scoop-carry-pour-collect) crosses execution count threshold — collapses into single initiation
+
+anti_manifestations:
+  - id: novel_improvisation
+    description: Organism encounters a new obstacle and tries a never-before-used sequence — push sideways, climb over, jump down — for the first time
+    why_should_not_fire: A novel action sequence assembled on-the-fly is not chunked — it requires deliberate step-by-step planning
+    distinguishes: Chunking requires repeated execution compressing a FAMILIAR sequence, not creative assembly of new sequences
+
+  - id: category_abstraction
+    description: Organism recognizes that sticks, bones, and long stones all belong to the category "poking tools" and can be used interchangeably
+    why_should_not_fire: This is concept formation over object categories, not compression of an action sequence into a single unit
+    distinguishes: Chunking compresses sequential ACTIONS into atomic units, not objects into categories

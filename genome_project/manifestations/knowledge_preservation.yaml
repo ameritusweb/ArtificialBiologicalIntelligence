@@ -1,0 +1,51 @@
+receptor_id: knowledge_preservation
+family: regulatory
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detects when critical, hard-won knowledge is at risk of being overwritten or
+  degraded by noisy, unreliable, or low-confidence new data. The boundary is
+  between knowledge that should be updated (because the new evidence is strong
+  and the old knowledge was uncertain) and knowledge that should be PROTECTED
+  (because it is high-confidence, survival-critical, and the new data is noisy
+  or low-sample). This receptor requires the organism to model the relative
+  confidence of its own knowledge stores and to recognize when an update would
+  degrade rather than improve its cognitive map.
+
+manifestations:
+  - id: escape_route_protection
+    description: The organism has verified an escape route through 40 successful uses -- it reliably leads to safety. A single noisy episode produced a negative outcome on that route due to a rare environmental fluctuation. The learning system is about to downweight the route.
+    survival_relevance: High-confidence survival knowledge must be protected from single-sample noise. An organism that lets one bad experience overwrite 40 good ones will lose its most reliable survival strategy. The preservation receptor must detect the confidence asymmetry.
+    what_fires: Knowledge-confidence model shows the escape route at 40/41 success rate with high confidence. New update is a single negative sample. The ratio of prior confidence to new evidence strength triggers preservation -- the update would move the estimate more than the evidence warrants.
+
+  - id: spatial_map_integrity
+    description: The organism has built a detailed spatial map of its home territory over 100 episodes. A sensor malfunction produces a burst of contradictory spatial data for 2 episodes. The learning system is about to incorporate this data and distort the map.
+    survival_relevance: Spatial maps are expensive to build and critical for navigation. Noisy sensor data should not corrupt a well-established map. The organism must detect that the incoming data's reliability is far below the existing map's reliability and suppress the update.
+    what_fires: Map-confidence is high across the affected region based on extensive sampling. Incoming data contradicts the map but has signatures consistent with sensor noise -- rapid fluctuation, internal inconsistency. The preservation receptor fires to gate the update, protecting the high-confidence map from low-confidence data.
+
+  - id: predator_pattern_retention
+    description: The organism learned through costly experience that a specific environmental signature precedes predator arrival. Recent episodes have not contained this signature, and the association is beginning to decay from disuse. But the knowledge was learned through near-death experience and verified across multiple encounters.
+    survival_relevance: Predator knowledge has asymmetric error costs -- forgetting a true predator pattern can be fatal, while retaining a false one only costs avoidance energy. The organism must detect when high-stakes knowledge is decaying and reinforce it against the decay.
+    what_fires: Knowledge-importance tagging shows this association was learned under high-threat conditions and verified multiple times. Decay monitoring shows the association strength decreasing due to non-reinforcement. The preservation receptor fires to flag this knowledge for protection against time-based decay, weighting it by consequence severity.
+
+  - id: skill_overwrite_prevention
+    description: The organism mastered a complex movement sequence for navigating a specific obstacle. It then spent many episodes in a different area using different movement patterns. Returning to the original obstacle, its motor memories have partially overwritten the original sequence with the newer patterns.
+    survival_relevance: Skill interference -- where new learning degrades old skills -- is a fundamental threat to organisms that must maintain diverse competencies. The organism must detect when a well-established skill is being corrupted by cross-training and protect it.
+    what_fires: Skill-performance monitoring shows degradation on the original task that correlates temporally with acquisition of the new skill. The preservation receptor detects the interference pattern -- the OLD skill was high-confidence and the degradation is not from the old context changing but from new learning bleeding into the old representation.
+
+  - id: core_belief_noise_resistance
+    description: The organism has learned through extensive experience that a particular region is reliably dangerous. A sequence of 3 episodes where it passed through safely (due to temporary predator absence) is about to update its danger model downward. But 3 safe passes do not outweigh 50 dangerous encounters.
+    survival_relevance: Core survival beliefs anchored in extensive experience must resist small-sample contradictions. The organism must weigh the sample sizes and recognize that a few counter-examples do not invalidate a well-established pattern, especially for survival-critical assessments.
+    what_fires: Belief-confidence model shows danger assessment based on 50 encounters. Counter-evidence is 3 episodes. The statistical strength of the prior far exceeds the update pressure. The preservation receptor fires because the evidence ratio does not warrant the magnitude of update the learning system would apply with uniform weighting.
+
+anti_manifestations:
+  - id: genuine_environmental_change
+    description: The organism's escape route has failed 8 out of the last 10 uses because a new obstacle has appeared. The evidence is strong, consistent, and sustained. The old knowledge is now wrong.
+    why_should_not_fire: This is not noise -- this is genuine environmental change with sufficient evidence. The old knowledge should be updated because the world has actually changed. Preservation should not protect knowledge that has become incorrect. The evidence is strong enough (8/10 recent, consistent pattern) to warrant updating even high-confidence prior knowledge.
+    distinguishes: Noisy data that should not update versus genuine environmental change that should. The key dimension is evidence quality and consistency, not just whether the new data contradicts old knowledge.
+
+  - id: low_confidence_knowledge_receiving_update
+    description: The organism has a weak, uncertain belief about a corridor based on 2 experiences. New data from 5 experiences contradicts it. The new data has higher sample size and confidence than the original belief.
+    why_should_not_fire: The existing knowledge is low-confidence with minimal evidence behind it. The new data is actually STRONGER than the prior. Preservation should only protect high-confidence knowledge from low-confidence updates, not protect weak beliefs from stronger evidence. The confidence asymmetry runs the wrong way.
+    distinguishes: High-confidence priors threatened by noise versus low-confidence priors appropriately updated by stronger evidence. The preservation receptor requires the existing knowledge to be more reliable than the incoming data.

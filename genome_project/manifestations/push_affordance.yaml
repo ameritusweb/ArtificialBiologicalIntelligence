@@ -1,0 +1,114 @@
+receptor_id: push_affordance
+family: interaction
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Detects that an object has pushability as an intrinsic property based on its
+  physical characteristics. Round things roll; flat heavy things resist. Small
+  loose objects slide; large anchored objects stay. The boundary is the affordance
+  itself — the object's shape, size, weight, and substrate contact determine
+  whether it CAN be pushed, before the agent pushes it. This is about reading
+  pushability from appearance, not about the act of pushing.
+
+manifestations:
+  - id: round_stone_on_slope
+    description: |
+      A smooth round stone sits at the top of a gentle incline. Its spherical
+      shape and the downhill gradient make it visually obvious that a small
+      force would send it rolling. The object advertises its pushability
+      through geometry and context.
+    survival_relevance: |
+      Reading push affordance from shape allows planning — this stone could
+      be rolled to block a den entrance or directed downhill toward prey
+      without wasted exploratory effort.
+    what_fires: |
+      Round geometry + loose placement + incline context. Object shape and
+      environmental configuration signal high pushability before contact.
+
+  - id: light_stick_on_ground
+    description: |
+      A thin dry stick lies loose on bare ground. Its small diameter and low
+      apparent weight indicate it would move easily with minimal force. The
+      stick looks pushable — light, unanchored, on a smooth surface.
+    survival_relevance: |
+      Quickly assessing which objects are movable enables efficient
+      environment rearrangement — clearing paths, building barriers,
+      gathering materials.
+    what_fires: |
+      Small size + low apparent mass + unanchored placement on smooth
+      substrate. Multiple physical cues converge on high pushability.
+
+  - id: loose_gravel_patch
+    description: |
+      A patch of small loose pebbles covers a trail. Each pebble is small,
+      round, and unattached to the substrate. A foot placed here would
+      scatter them. The aggregate reads as highly pushable material.
+    survival_relevance: |
+      Recognizing substrate pushability predicts traction — loose gravel
+      affords poor footing, critical for flight-or-chase decisions.
+    what_fires: |
+      Many small loose objects on a surface. Individual object properties
+      (small, round, unanchored) aggregate into a surface-level push
+      affordance reading.
+
+  - id: dead_log_on_flat_ground
+    description: |
+      A fallen log of moderate size lies on flat earth. It is cylindrical,
+      and its bark is dry and detached from the ground. It looks like it
+      could be rolled with sustained effort — pushable but requiring
+      significant force.
+    survival_relevance: |
+      Graded push affordance assessment enables effort estimation. This log
+      could serve as a barrier or bridge component, but only if the agent
+      correctly reads that it requires substantial but achievable force.
+    what_fires: |
+      Cylindrical shape (rollable) + moderate mass + unanchored. Pushability
+      is present but effort-gated. Affordance reads as "pushable with work."
+
+  - id: hollow_gourd_on_rock
+    description: |
+      A dried hollow gourd sits on a flat rock surface. It is light — the
+      dried shell has almost no weight — and round-bottomed. Even a breeze
+      seems to threaten to move it. Extreme pushability from near-zero
+      mass and curved contact surface.
+    survival_relevance: |
+      Very high push affordance signals fragility and instability. Objects
+      this easily moved are poor building materials but easy to transport.
+    what_fires: |
+      Very low apparent mass + curved bottom (minimal surface contact) +
+      exposed position. Physical cues signal near-zero force threshold for
+      displacement.
+
+anti_manifestations:
+  - id: boulder_embedded_in_hillside
+    description: |
+      A massive boulder is half-embedded in a clay hillside, its visible
+      surface covered in moss. The exposed portion alone is larger than
+      the agent. Most of its volume is buried in packed earth.
+    why_should_not_fire: |
+      The object has no push affordance. Its mass is enormous, it is
+      anchored in substrate, and its embedded geometry means force would
+      be absorbed by the hillside. Physical cues uniformly signal
+      immovability.
+    distinguishes: |
+      Push affordance requires that physical cues (size, mass, anchoring,
+      shape, substrate) indicate movability. When all cues indicate
+      immovability, the affordance is absent and the receptor should not
+      fire.
+
+  - id: flat_slab_wedged_between_trees
+    description: |
+      A flat stone slab is wedged tightly between two tree trunks at ground
+      level. The slab itself might be movable in isolation, but its current
+      configuration — pinched between immovable trees — eliminates the push
+      affordance. It cannot move in any direction.
+    why_should_not_fire: |
+      The object's intrinsic properties might suggest pushability, but its
+      environmental configuration eliminates the affordance. Wedged and
+      constrained objects cannot be pushed regardless of their shape or
+      weight.
+    distinguishes: |
+      Push affordance is not just about the object — it includes
+      configuration. An otherwise pushable object that is constrained by
+      its surroundings does not afford pushing.

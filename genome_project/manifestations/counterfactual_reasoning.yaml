@@ -1,0 +1,50 @@
+receptor_id: counterfactual_reasoning
+family: causality
+tier: canopy
+stage: 9
+
+conceptual_space: |
+  Detects reasoning about unchosen paths — what would have happened if a
+  different action had been taken. "If I'd stored food yesterday, I wouldn't
+  be starving now." The boundary separates counterfactual reasoning (imagining
+  alternative histories and their outcomes) from simple regret (feeling bad
+  about an outcome) or prediction (forecasting future outcomes). The concept
+  is the imagined alternative itself — constructing and evaluating a path
+  not taken.
+
+manifestations:
+  - id: food_storage_counterfactual
+    description: Organism is starving and detects that if it had stored food during yesterday's abundance, current hunger would not exist — it constructs the unchosen path and its superior outcome
+    survival_relevance: Counterfactual reasoning about storage enables learning to store in future abundance periods, converting present suffering into future preparedness through imagined alternatives
+    what_fires: Current negative state paired with a constructed alternative history branching at a past decision point, where the imagined path leads to a better present state
+
+  - id: path_choice_counterfactual
+    description: Organism took the short path and encountered a predator — it constructs the counterfactual where it took the long path and arrived safely, evaluating the unchosen alternative
+    survival_relevance: Path-choice counterfactuals enable route preference updating based on imagined outcomes of alternatives, not just experienced outcomes of chosen paths
+    what_fires: Actual experienced negative outcome compared against a constructed alternative history with a different action at the decision point, producing an imagined positive alternative outcome
+
+  - id: social_counterfactual
+    description: Organism failed to join the hunting group and went alone, catching nothing — it imagines that if it had joined, it would have shared in the group's successful catch
+    survival_relevance: Social counterfactuals enable cooperative strategy learning by evaluating the outcomes of unchosen social decisions against actual solo outcomes
+    what_fires: Observed others' outcome (group hunt success) used to construct a counterfactual where the organism participated, with the imagined alternative producing a better outcome than the actual solo attempt
+
+  - id: timing_counterfactual
+    description: Organism foraged at midday and encountered peak predator activity — constructs the counterfactual of foraging at dawn when predators are less active, with the same food but lower risk
+    survival_relevance: Timing counterfactuals enable schedule optimization by imagining the same activity at different times and comparing risk-reward profiles
+    what_fires: Actual negative timing outcome paired with a constructed alternative using the same action at a different time, with the temporal substitution producing an imagined better outcome
+
+  - id: multi_step_counterfactual_chain
+    description: Organism traces back through a chain — if it had built shelter, it would have slept well, which would have given it energy, which would have let it escape the predator — a multi-link counterfactual
+    survival_relevance: Multi-step counterfactual chains identify distant upstream causes of current failures, enabling strategic planning that addresses root causes rather than proximate ones
+    what_fires: A counterfactual construction that chains through multiple causal steps, with each link in the imagined alternative leading to the next, terminating in a different present outcome
+
+anti_manifestations:
+  - id: prediction_of_future_not_past
+    description: Organism predicts that if it stores food today, it will not be hungry tomorrow — this is forward-looking prediction, not backward-looking counterfactual reasoning about an unchosen past
+    why_should_not_fire: Prediction constructs a future scenario from a present choice, while counterfactual reasoning constructs an alternative present from an unchosen past action
+    distinguishes: Counterfactual reasoning (imagining alternative pasts and their present consequences) vs prediction (imagining future consequences of present or future choices)
+
+  - id: emotional_regret_without_alternative_construction
+    description: Organism feels bad about a past outcome but does not construct what would have happened under a different choice — the negative affect exists without an imagined alternative path
+    why_should_not_fire: Regret as affect is a valenced response to a past outcome, not counterfactual reasoning — no alternative history is constructed or evaluated
+    distinguishes: Counterfactual reasoning (constructing and evaluating an imagined alternative history) vs regret affect (negative feeling about a past outcome without alternative construction)

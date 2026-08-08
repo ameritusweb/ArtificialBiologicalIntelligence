@@ -1,0 +1,47 @@
+receptor_id: optimism
+family: meta-motivational
+tier: trunk
+stage: 2
+
+conceptual_space: |
+  Positive future state simulation that motivates persistence. "It'll be worth
+  it." The concept is anticipated future reward strong enough to sustain current
+  costly behavior. Not current reward — ANTICIPATED reward based on learned
+  patterns. The boundary: motivated persistence vs unmotivated giving-up.
+
+manifestations:
+  - id: long_traverse_to_food
+    description: Organism crosses 50 steps of barren terrain toward a known food-rich zone — energy dropping but expectation of reward sustains movement
+    survival_relevance: Without optimism, organism would abandon the traverse mid-journey and starve — anticipated reward bridges the gap
+    what_fires: Positive future-reward prediction based on learned food-location model exceeds current cost signal
+
+  - id: enduring_cold_for_shelter
+    description: Organism endures painful cold zone for 20 steps because it learned that warm shelter lies just beyond
+    survival_relevance: Anticipated thermal relief motivates tolerating current pain — giving up means freezing
+    what_fires: Predicted future state (warm, safe) has higher value than current state (cold, painful), sustaining approach behavior
+
+  - id: repeated_foraging_after_failure
+    description: Three consecutive foraging attempts failed, but past success rate at this location was 70% — organism tries again
+    survival_relevance: Statistical optimism prevents premature abandonment of probabilistically good strategies
+    what_fires: Learned base rate of success exceeds recent failure streak — positive expectation overrides recent negative evidence
+
+  - id: tolerating_npc_proximity
+    description: Organism stays near a mildly threatening NPC because food nearby is rich — anticipated food reward outweighs threat cost
+    survival_relevance: Risk tolerance enabled by positive future simulation allows access to contested resources
+    what_fires: Projected reward from food source exceeds projected cost from threat — net positive anticipated future
+
+  - id: energy_investment_in_exploration
+    description: Organism spends energy exploring a new region — no reward yet, but similar unexplored regions previously yielded food
+    survival_relevance: Generalized optimism about exploration prevents the organism from staying in depleted but familiar zones
+    what_fires: Transfer of positive outcome expectations from similar past contexts to current novel context
+
+anti_manifestations:
+  - id: current_reward_enjoyment
+    description: Organism is currently eating food and experiencing high energy gain right now
+    why_should_not_fire: This is present reward, not anticipated future reward — no simulation of future state needed
+    distinguishes: Optimism is about ANTICIPATED reward motivating current behavior, not about experiencing current reward
+
+  - id: blind_persistence_without_model
+    description: Organism keeps walking in a random direction with no learned basis for expecting anything good ahead
+    why_should_not_fire: No positive future model — this is random behavior or perseveration, not informed optimism
+    distinguishes: Optimism requires a LEARNED BASIS for positive expectation, not mere persistence

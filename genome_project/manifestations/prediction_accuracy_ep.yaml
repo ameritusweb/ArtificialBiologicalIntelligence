@@ -1,0 +1,194 @@
+receptor_id: prediction_accuracy_ep
+family: meta-motivational
+tier: branch
+stage: 5
+
+conceptual_space: |
+  Assesses the organism's overall prediction accuracy across an entire
+  episode — a meta-level evaluation of how well its internal models
+  predicted actual outcomes. Not a single prediction-outcome comparison,
+  but an accumulated scorecard: how many predictions were confirmed,
+  how many were disconfirmed, what is the overall calibration quality.
+  A creature navigating a familiar environment expects certain things
+  at certain locations — across the episode, it tracks how often
+  reality matched expectation. The boundary separates overall model
+  quality assessment from individual prediction errors.
+  NOTE: this is the episode-level version - measures across an entire
+  episode rather than at a single step. The prediction accuracy score
+  accumulates across many prediction-outcome pairs throughout the
+  episode, providing an overall model quality assessment.
+
+manifestations:
+  - id: high_accuracy_in_familiar_environment
+    description: |
+      A creature navigates its home territory across an episode. It
+      predicts food at the berry patch — food is there. Predicts the
+      creek is flowing — it is. Predicts the hawk perches at midday
+      on the tall oak — it does. Predicts the burrow entrance is
+      clear — it is. Across fifty predictions and outcomes within
+      the episode, forty-seven match. The organism's model of its
+      home territory is excellent — 94 percent accuracy. The episode-
+      level assessment confirms the model is well-calibrated to this
+      environment.
+    survival_relevance: |
+      High prediction accuracy indicates a well-calibrated model.
+      This meta-signal enables the organism to trust its predictions
+      and act confidently — spending less time on verification and
+      more on exploitation. High accuracy also means the organism
+      can safely make predictions in novel situations by extending
+      its reliable model.
+    what_fires: |
+      Episode-accumulated prediction-outcome match rate exceeds
+      high-accuracy threshold. The ratio of confirmed predictions
+      to total predictions across the episode indicates reliable
+      model calibration. The aggregate accuracy score triggers a
+      confidence signal enabling reduced verification behavior.
+
+  - id: low_accuracy_after_environmental_change
+    description: |
+      A creature returns to a familiar area after a flood. It
+      predicts the food cache is intact — it is washed away. Predicts
+      the trail continues past the ridge — it is blocked by debris.
+      Predicts the den is dry — it is flooded. Predicts the
+      neighboring burrow is occupied — it is collapsed. Across thirty
+      predictions within the episode, only eight match. The model
+      that was once accurate is now badly miscalibrated — the
+      environment has changed. The 27 percent accuracy score signals
+      urgent model revision.
+    survival_relevance: |
+      Low prediction accuracy is a critical meta-signal: the
+      organism's model is dangerously out of date. Acting on stale
+      predictions in a changed environment risks injury, starvation,
+      and predator exposure. The low accuracy signal should trigger
+      exploration mode — slowing down, verifying before acting, and
+      actively updating the model rather than trusting cached
+      predictions.
+    what_fires: |
+      Episode-accumulated prediction-outcome match rate falls below
+      low-accuracy threshold. The high proportion of disconfirmed
+      predictions across the episode indicates model miscalibration.
+      The aggregate low accuracy score triggers an exploration and
+      model-revision signal.
+
+  - id: domain_specific_accuracy_divergence
+    description: |
+      Across an episode, a creature's spatial predictions are highly
+      accurate (food locations, path geometry, shelter positions —
+      90 percent accurate) but its social predictions are poor
+      (which individual will approach, who will share food, where
+      the group will move — 40 percent accurate). The episode-level
+      accuracy assessment reveals a domain split: the spatial model
+      is well-calibrated but the social model is not. This domain-
+      specific accuracy profile enables targeted model investment.
+    survival_relevance: |
+      Domain-specific accuracy assessment enables efficient learning
+      resource allocation. The organism should invest learning effort
+      in the poorly-calibrated social domain rather than the already-
+      accurate spatial domain. Without domain-level accuracy tracking,
+      the organism cannot identify which models need the most
+      improvement.
+    what_fires: |
+      Episode-accumulated prediction accuracy diverges across
+      domains. Spatial accuracy and social accuracy scores differ
+      significantly. The domain-level accuracy variance exceeds
+      the divergence threshold, indicating uneven model quality
+      that warrants selective recalibration effort.
+
+  - id: accuracy_improving_through_episode
+    description: |
+      A creature enters an unfamiliar area. Early predictions are
+      mostly wrong — 20 percent accuracy in the first ten predictions.
+      As it explores and updates its model, accuracy improves: 50
+      percent in the next ten, 70 percent in the next ten, 85 percent
+      in the final ten. The episode-level accuracy trajectory shows
+      the model improving in real time. The learning curve is tracked
+      at the meta-level — not just "this prediction was wrong" but
+      "my overall prediction accuracy is systematically improving."
+    survival_relevance: |
+      Detecting an improving accuracy trajectory signals effective
+      learning. The organism is successfully building a model of the
+      new environment. This meta-signal enables calibrated confidence:
+      early in the accuracy improvement curve, the organism should
+      remain cautious; as accuracy rises, it can begin trusting its
+      predictions and shifting from exploration to exploitation.
+    what_fires: |
+      Episode-accumulated accuracy trajectory shows positive slope.
+      Prediction accuracy in later episode segments exceeds accuracy
+      in earlier segments. The improvement rate and current accuracy
+      level together encode the organism's position on the learning
+      curve — whether the model is still forming, rapidly improving,
+      or approaching calibration.
+
+  - id: overconfident_model_detected
+    description: |
+      A creature has high confidence in its predictions — it acts
+      decisively without hesitation. Across an episode, its actual
+      accuracy does not match its confidence level. It predicts with
+      90 percent confidence but achieves only 55 percent accuracy.
+      The meta-level assessment reveals overconfidence: the model
+      "feels" reliable but is not. The organism is systematically
+      overestimating the quality of its own predictions. The
+      episode-level data reveals a calibration error at the meta-
+      level — confidence exceeds accuracy.
+    survival_relevance: |
+      Overconfidence is dangerous. An organism that acts as if its
+      model is accurate when it is not will make bold moves into
+      situations its model cannot reliably predict, leading to
+      avoidable injuries, failed hunts, and missed threats.
+      Detecting the confidence-accuracy gap enables the organism to
+      recalibrate its confidence level downward to match actual
+      performance.
+    what_fires: |
+      Episode-accumulated confidence-accuracy mismatch. The
+      organism's average prediction confidence exceeds its actual
+      accuracy by a significant margin. The calibration gap between
+      subjective certainty and objective hit rate across the episode
+      exceeds the overconfidence detection threshold.
+
+anti_manifestations:
+  - id: single_surprising_outcome
+    description: |
+      A creature makes a prediction that turns out to be wrong —
+      it expected food at a cache site and found it empty. This
+      single prediction failure is surprising, but it is just one
+      data point. The creature's other predictions across the
+      episode have been accurate. One failure does not constitute
+      an episode-level accuracy assessment — it is a step-level
+      prediction error.
+    why_should_not_fire: |
+      A single prediction error is not an episode-level accuracy
+      signal. The episode-level receptor aggregates across many
+      prediction-outcome pairs to assess overall model quality.
+      Individual surprises are handled by step-level prediction
+      error receptors. One wrong prediction within a high-accuracy
+      episode does not indicate model miscalibration.
+    distinguishes: |
+      Episode-level model accuracy (aggregate assessment across
+      many predictions) versus step-level prediction error (single
+      prediction-outcome mismatch). The episode-level receptor
+      fires on the statistical distribution of accuracy across
+      the episode, not on individual events.
+
+  - id: accuracy_assessment_of_random_events
+    description: |
+      A creature "predicts" that it will encounter a specific
+      individual on its foraging route — sometimes it does,
+      sometimes it does not. Across the episode, its "accuracy"
+      on these encounter predictions is 50 percent. But these
+      encounters are genuinely random — the other individual's
+      movements are independent and unpredictable. Low accuracy
+      on inherently random events does not indicate model failure.
+    why_should_not_fire: |
+      Prediction accuracy is only meaningful for events the model
+      should be able to predict. Failing to predict genuinely
+      random events is not a model calibration error — it is
+      appropriate uncertainty. The episode-level accuracy
+      receptor should assess accuracy on events within the model's
+      predictable scope, not penalize the model for failing to
+      predict the unpredictable.
+    distinguishes: |
+      Model miscalibration (poor accuracy on predictable events)
+      versus appropriate uncertainty (poor "accuracy" on
+      inherently random events). The episode-level receptor should
+      weight accuracy by event predictability, not aggregate
+      blindly across predictable and random events.

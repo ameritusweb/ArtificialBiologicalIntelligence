@@ -1,0 +1,47 @@
+receptor_id: environmental_change_detection
+family: environmental_augmentation
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  The world's structure has shifted over a longer timescale. Not step-to-step
+  change (that is change_detection) but structural drift — the rules or layout
+  of the environment are different from what they were many steps ago. The
+  boundary: structural environmental drift vs momentary fluctuation.
+
+manifestations:
+  - id: food_patch_migration
+    description: Food used to appear in north quadrant for 200 steps, now appears in south quadrant
+    survival_relevance: Old spatial associations are wrong — organism must update its internal map
+    what_fires: Long-window comparison shows resource distribution shifted from historical baseline
+
+  - id: seasonal_temperature_shift
+    description: Average temperature was 0.7 for hundreds of steps, now averages 0.3 — winter arrived
+    survival_relevance: Entire survival strategy must change — energy conservation, shelter priority
+    what_fires: Running mean of temperature channel significantly diverges from historical mean
+
+  - id: predator_territory_change
+    description: NPC that patrolled east zone for 300 steps now patrols west zone
+    survival_relevance: Previously safe navigation routes are now dangerous
+    what_fires: Long-term NPC position distribution shifted from established pattern
+
+  - id: terrain_restructuring
+    description: Walls or obstacles have moved — passages that were open are now blocked
+    survival_relevance: Motor plans based on old layout will fail — must re-explore
+    what_fires: Spatial traversability differs from long-term structural memory
+
+  - id: resource_depletion
+    description: Area that was food-rich is now barren — organism has exhausted local resources
+    survival_relevance: Continuing to exploit depleted area wastes energy — must emigrate
+    what_fires: Long-window resource density at familiar locations declined below historical average
+
+anti_manifestations:
+  - id: step_to_step_fluctuation
+    description: Temperature goes from 0.5 to 0.6 back to 0.5 within 3 steps
+    why_should_not_fire: Momentary fluctuation, not structural drift — this is change_detection territory
+    distinguishes: Environmental change detection requires drift over a LONG timescale, not step-level delta
+
+  - id: novel_single_event
+    description: Lightning strikes once in an area where it never struck before
+    why_should_not_fire: One-time event does not indicate the world's structure changed
+    distinguishes: Structural drift requires persistent shift in environmental statistics, not isolated anomalies

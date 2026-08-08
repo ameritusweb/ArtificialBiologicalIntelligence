@@ -1,0 +1,51 @@
+receptor_id: relational_structure_detection
+family: organization
+tier: canopy
+stage: 9
+
+conceptual_space: |
+  Detects that the structure of relationships IS the meaningful pattern,
+  independent of the specific agents or objects involved. A social hierarchy
+  is defined by the dominance relations, not the particular organisms filling
+  the roles. The boundary separates structure detection (the arrangement itself
+  as the object of perception) from entity detection (perceiving the individuals)
+  or simple relation detection (perceiving one relationship without grasping
+  the overall structure). The concept is arrangement-independent structure —
+  the pattern of relations abstracted from its contents.
+
+manifestations:
+  - id: social_hierarchy_as_structure
+    description: Organism perceives the dominance hierarchy as a structure — Alpha above Beta above Gamma — and recognizes this same linear ordering pattern persists even when specific individuals are replaced
+    survival_relevance: Detecting hierarchical structure enables prediction of any pair's interaction outcome from position alone, without requiring observation of every specific pairing
+    what_fires: A pattern of directed relations forming a coherent structure (linear ordering), recognized as invariant under substitution of the individuals occupying positions
+
+  - id: alliance_network_topology
+    description: Organism detects the alliance network structure — who supports whom — and recognizes that the network's topology (clusters, bridges, isolates) matters more than the identity of any one member
+    survival_relevance: Alliance topology reveals vulnerability and influence patterns — bridge nodes control information flow, clusters act collectively, isolates are exploitable
+    what_fires: A network of mutual support relations perceived as a structural pattern, with topological features (connectivity, clustering) detected independently of individual identities
+
+  - id: food_web_structure
+    description: Organism detects that predator-prey relationships form a web structure — not just individual feeding links but the overall pattern of who eats whom, with its cascading implications
+    survival_relevance: Food web structure detection enables prediction of indirect ecological effects — removing one species cascades through the relational structure
+    what_fires: Multiple feeding relations perceived as a coherent structural pattern, with the web topology (trophic levels, keystone positions) detected as the meaningful object
+
+  - id: spatial_territory_structure
+    description: Organism detects the structure of territorial boundaries — the pattern of which territories border which — independently of the specific organisms holding each territory
+    survival_relevance: Territorial structure reveals strategic positions (territories with few borders are defensible, central territories face multi-front threats) independent of current occupants
+    what_fires: Spatial adjacency relations forming a structural pattern, with strategic properties of the arrangement (centrality, defensibility) detected from the structure itself
+
+  - id: communication_network_structure
+    description: Organism detects that information flows through specific relay patterns — some organisms are hubs, others are endpoints — and the flow structure determines who gets information first
+    survival_relevance: Communication structure detection enables strategic information positioning — organisms near hubs get earlier warnings, those at periphery face information delays
+    what_fires: Information-passing relations forming a detectable network structure, with flow properties (hub-spoke, chain, broadcast) recognized as the meaningful pattern
+
+anti_manifestations:
+  - id: perceiving_individuals_not_structure
+    description: Organism recognizes Alpha, Beta, and Gamma as distinct individuals and knows their traits, but does not perceive the dominance ordering as a structure — it sees agents, not arrangement
+    why_should_not_fire: Perceiving individuals without grasping their relational structure is entity-level recognition, not structure detection — the arrangement pattern is not the object of perception
+    distinguishes: Relational structure (the arrangement itself perceived as the meaningful pattern) vs entity recognition (individuals perceived without structural abstraction)
+
+  - id: single_relation_without_structure
+    description: Organism detects that Alpha dominates Beta — a single directed relation — but does not perceive this as part of a larger structural pattern extending across the group
+    why_should_not_fire: A single relation is not a structure — structure detection requires perceiving how multiple relations compose into an arrangement pattern
+    distinguishes: Relational structure (multiple relations composing into a pattern) vs single relation detection (one relationship without structural context)

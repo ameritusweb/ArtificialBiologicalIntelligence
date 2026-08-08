@@ -1,0 +1,144 @@
+receptor_id: coordination
+family: proprioception
+tier: trunk
+stage: 1
+
+conceptual_space: |
+  Detects whether multiple limbs are moving in synchronized patterns versus
+  independently. When all four legs extend together in a leap, that is high
+  coordination. When each limb does something different with no temporal
+  relationship, that is low coordination. The boundary is the degree of
+  inter-limb temporal coupling: are the limbs locked in phase, and do they
+  share timing, direction, or rhythm? This is the sense of motor synchrony
+  across the body.
+
+manifestations:
+  - id: coordinated_gallop
+    description: |
+      The organism gallops across an open field. The limb pattern is
+      precisely phased — left hind and right fore strike the ground
+      together, then right hind and left fore together, in a rapid
+      alternating diagonal pattern. Each limb pair is temporally locked.
+      The four limbs function as two synchronized pairs.
+    survival_relevance: |
+      Coordinated gait is faster and more energy-efficient than
+      uncoordinated limb flailing. Detecting that the limbs are in
+      synchronized phase confirms the gait pattern is working — losing
+      coordination during a sprint means stumbling.
+    what_fires: |
+      Diagonal limb pairs reaching matching gait-cycle phases
+      simultaneously. Inter-limb phase relationship stable and
+      consistent. Temporal coupling between paired limbs near 1.0.
+      High coordination signal.
+
+  - id: synchronized_leap
+    description: |
+      The organism crouches and launches itself over a wide stream.
+      Both hind legs extend simultaneously at maximum force — identical
+      timing, identical power, identical angle. A fraction of a second
+      later, both forelimbs extend together to prepare for landing.
+      All four limbs are coordinated in a two-phase synchronized
+      burst: push together, then reach together.
+    survival_relevance: |
+      A leap requires perfect bilateral synchrony. If one hind leg
+      fires before the other, the organism launches at an angle and
+      misses the far bank. Detecting coordination confirms the leap
+      is executing properly.
+    what_fires: |
+      Bilateral limb pairs firing simultaneously. Hind legs at
+      identical extension timing and force. Forelimbs at identical
+      reach timing. Phase offset between matched limbs near zero.
+      Maximum coordination.
+
+  - id: coordinated_digging
+    description: |
+      The organism digs a burrow using both forelimbs in an alternating
+      rhythm. Left paw scrapes down while right paw retracts, then
+      right paw scrapes down while left paw retracts. The alternation
+      is perfectly regular — each limb mirrors the other with a
+      half-cycle phase offset. The digging rhythm is smooth and
+      metronomic.
+    survival_relevance: |
+      Alternating limb coordination during digging maximizes excavation
+      rate. If the rhythm breaks — both arms scraping simultaneously
+      or one arm stalling — digging efficiency drops and the organism
+      wastes energy.
+    what_fires: |
+      Two forelimbs in anti-phase synchrony — exactly half a cycle
+      apart. Rhythmic alternation with stable period. Inter-limb
+      phase relationship locked at 0.5 cycle offset. High coordination
+      in alternating mode.
+
+  - id: swimming_stroke_synchrony
+    description: |
+      The organism swims using all four limbs. The stroke pattern is
+      coordinated — both forelimbs pull backward together while both
+      hind limbs kick backward together, then all four recover forward
+      simultaneously. The limbs are grouped into front pair and rear
+      pair, each pair internally synchronized, and the two pairs
+      operating in a stable phase relationship.
+    survival_relevance: |
+      Swimming coordination produces directed thrust. Uncoordinated
+      limb splashing generates turbulence without propulsion. Detecting
+      inter-limb synchrony during swimming confirms the organism is
+      actually moving forward, not just thrashing.
+    what_fires: |
+      Forelimb pair synchronized in phase. Hind limb pair synchronized
+      in phase. Front-to-rear pair phase relationship stable. Four-
+      limb coordination pattern locked. High coordination signal.
+
+  - id: coordinated_roll_to_standing
+    description: |
+      The organism has been knocked onto its back. It executes a
+      coordinated roll — head curls forward, spine flexes laterally,
+      forelimbs push against the ground on one side, hind limbs swing
+      to generate rotational momentum — all timed in a specific
+      sequence that produces a smooth roll to standing. Every body
+      segment contributes to the rotation in the correct order.
+    survival_relevance: |
+      Righting from a vulnerable supine position requires precise
+      sequential coordination. An organism that cannot coordinate
+      the roll sequence stays on its back — exposed to predators and
+      unable to flee.
+    what_fires: |
+      Sequential activation of body segments in a timed cascade.
+      Head-spine-forelimb-hindlimb sequence with precise temporal
+      spacing. Multi-segment coordination producing a coherent whole-
+      body rotation. High sequential coordination.
+
+anti_manifestations:
+  - id: each_limb_doing_something_different
+    description: |
+      The organism stands on uneven terrain. Its left foreleg adjusts
+      to a rock, right foreleg reaches for a branch, left hind leg
+      scratches at a tick on its belly, and right hind leg bears most
+      of the weight. All four limbs are active, but each is performing
+      a completely independent task with no temporal relationship to
+      the others. There is no shared rhythm, phase, or pattern.
+    why_should_not_fire: |
+      No inter-limb coordination exists. Each limb is on its own
+      independent motor program with no temporal coupling to the
+      others. Coordination requires shared timing or phase locking
+      between limbs; fully independent limb activity has zero
+      coordination.
+    distinguishes: |
+      Synchronized multi-limb patterns (coordination) versus
+      independent multi-limb activity (no coordination). The key is
+      temporal coupling — are the limbs' movements related in time?
+
+  - id: single_limb_movement
+    description: |
+      The organism lifts one forelimb to step over a root while the
+      other three limbs remain stationary. Only one limb is moving.
+      There is nothing to coordinate because coordination requires
+      at least two limbs in a temporal relationship. A single limb
+      acting alone is neither coordinated nor uncoordinated.
+    why_should_not_fire: |
+      Coordination is a property of relationships between multiple
+      moving limbs. A single limb moving in isolation has no inter-
+      limb relationship to detect. The concept requires at least two
+      limbs in motion to have meaning.
+    distinguishes: |
+      Multi-limb synchrony pattern (coordination) versus single-limb
+      movement (no inter-limb relationship possible). The minimum
+      unit for coordination is two simultaneously active limbs.

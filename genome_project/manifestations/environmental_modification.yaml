@@ -1,0 +1,143 @@
+receptor_id: environmental_modification
+family: env_augmentation
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Environment was persistently modified by organism action. Not just change
+  detection — PERMANENT modification. The organism did something that
+  altered the environment in a way that persists beyond the action itself.
+  Moved a rock, dug a hole, built a wall, cleared a path. The boundary
+  is persistence: the modification remains after the organism stops acting
+  and moves away. Temporary effects (sound, shadow) do not count.
+
+manifestations:
+  - id: rock_repositioned_as_barrier
+    description: |
+      Organism pushed a large rock from one location to another, blocking
+      a narrow passage. The rock remains in its new position after the
+      organism walks away. The passage is now permanently blocked. Other
+      agents encountering the passage later will find it obstructed. The
+      environment's structure has been persistently altered.
+    survival_relevance: |
+      Persistent environmental modification enables niche construction.
+      An organism that blocks a passage creates a defensive barrier that
+      continues to protect even when the organism is not present. The
+      modification works while the organism rests.
+    what_fires: |
+      Environmental state was changed by organism action AND the change
+      persists after the action ends. The state at time t+N (organism
+      absent) differs from the state at time t-1 (before action) due
+      to the organism's intervention. Persistent state delta.
+
+  - id: nest_construction
+    description: |
+      Organism has gathered materials — twigs, leaves, soft debris — and
+      arranged them into a sheltered structure at a protected location.
+      The nest persists: it is still there the next day, the next episode.
+      It modifies the thermal and safety properties of the location
+      permanently. The organism returns to find its construction intact.
+    survival_relevance: |
+      Nest construction is the canonical environmental modification for
+      survival. A built shelter reduces thermal stress, hides from
+      predators, and protects offspring. The modification compounds
+      over time as the nest is improved across episodes.
+    what_fires: |
+      Multiple materials rearranged into a persistent structure. The
+      environmental modification is complex (multi-component) and
+      enduring. The created structure has functional properties
+      (shelter, insulation) that did not exist before.
+
+  - id: trail_creation_through_vegetation
+    description: |
+      Organism repeatedly traverses the same path through dense
+      vegetation. Over many passages, the vegetation is trampled and
+      broken, creating a visible trail. Other organisms begin using the
+      trail. The environment has been persistently modified — the trail
+      exists even when the organism is elsewhere, and it changes the
+      movement patterns of other agents.
+    survival_relevance: |
+      Trail creation is an environmental modification that reduces
+      future transit cost for the creator and for the group. Paths
+      through dense terrain persist and accumulate value over time.
+      The modification benefits compound with use.
+    what_fires: |
+      Repeated organism action produces cumulative environmental change.
+      The modification (trail) persists and grows more pronounced over
+      time. The environment's traversability has been permanently altered
+      at this location.
+
+  - id: food_cache_excavation
+    description: |
+      Organism digs a hole in soft ground to store food items for later
+      retrieval. The hole persists — it does not fill in on its own. The
+      ground surface has been permanently altered. The excavation creates
+      a new functional feature (storage container) that did not exist in
+      the unmodified environment.
+    survival_relevance: |
+      Excavation for caching modifies the environment to add storage
+      capacity. The organism creates infrastructure that extends its
+      resource management capabilities beyond what the unmodified
+      environment provides. Persistent modification serves future needs.
+    what_fires: |
+      Organism action (digging) removed material from the environment,
+      creating a persistent cavity. The modification is subtractive
+      (material removed) rather than additive (material added) but
+      equally persistent. Environmental structure permanently altered.
+
+  - id: scent_marking_territory
+    description: |
+      Organism deposits chemical signals at strategic locations around
+      its territory. The scent marks persist for many episodes, gradually
+      fading but remaining detectable. The chemical deposits modify the
+      environment's information landscape — other organisms encountering
+      the marks read territorial ownership. The environment now carries
+      information it did not carry before.
+    survival_relevance: |
+      Scent marking modifies the informational environment. The territory
+      boundary exists as a persistent environmental modification that
+      deters intrusion without requiring the organism's physical presence.
+      The modification is functional infrastructure for territorial
+      defense.
+    what_fires: |
+      Organism deposited persistent material into the environment that
+      changes how other agents behave at that location. The modification
+      is informational (signal, not structure) but persistent. The
+      environment carries organism-deposited information.
+
+anti_manifestations:
+  - id: temporary_disturbance
+    description: |
+      Organism splashes through a puddle, creating ripples and turbidity.
+      Within seconds, the water settles and the puddle returns to its
+      prior state. The disturbance was real but not persistent — the
+      environment self-corrected. No lasting modification occurred.
+    why_should_not_fire: |
+      Environmental modification requires persistence. A transient
+      disturbance that the environment absorbs and recovers from is not
+      a modification — it is a perturbation. The environment's state
+      after recovery is identical to its state before the action.
+    distinguishes: |
+      Modification requires that the environmental state change PERSISTS
+      beyond the action and beyond the environment's natural recovery
+      timescale. Transient perturbations that self-correct are not
+      modifications.
+
+  - id: environment_changed_by_external_force
+    description: |
+      A storm knocked down a tree, blocking a path the organism uses.
+      The environment has been persistently modified — the tree will
+      remain fallen. But the organism did not cause the change. The
+      modification was caused by weather, not by organism action. The
+      environment was modified, but not BY the organism.
+    why_should_not_fire: |
+      This receptor detects environmental modification BY organism
+      action. Persistent environmental changes caused by weather,
+      geology, or other non-organismic forces are environmental change
+      detection, not environmental modification. The causal agent must
+      be the organism.
+    distinguishes: |
+      Environmental modification requires organism AGENCY in the change.
+      The same physical outcome (blocked path) caused by the organism
+      would fire the receptor. Caused by weather, it does not. The
+      distinction is causal attribution.

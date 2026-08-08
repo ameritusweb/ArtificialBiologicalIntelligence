@@ -1,0 +1,144 @@
+receptor_id: org_boundary_detection
+family: organization
+tier: branch
+stage: 3
+
+conceptual_space: |
+  Organizational boundaries. Where one system ends and another begins. Not
+  physical boundaries (walls, terrain edges) — FUNCTIONAL boundaries. Where
+  one group's coordination ends and another's begins. Where one behavioral
+  regime yields to another. Where one set of rules applies and a different
+  set takes over. The concept is the detection of discontinuities in
+  organizational structure.
+
+manifestations:
+  - id: territory_behavioral_regime_change
+    description: |
+      Organism crosses from one group's territory into another's. The
+      NPCs on the far side have different behavioral patterns — different
+      patrol routes, different approach distances, different alarm call
+      structures. The rules of social interaction that worked in the
+      previous territory do not apply here. The organism detects that it
+      has crossed from one organizational domain to another.
+    survival_relevance: |
+      Detecting organizational boundaries prevents applying wrong-context
+      social strategies. Submission displays that work with one group may
+      provoke aggression in another. The organism must detect the boundary
+      and switch behavioral strategies at the transition.
+    what_fires: |
+      Discontinuity in behavioral rules across a spatial transition.
+      The same actions produce different social outcomes on opposite
+      sides of the boundary. Organizational regime change detected.
+
+  - id: dominance_hierarchy_boundary
+    description: |
+      Organism observes two subgroups of conspecifics with independent
+      dominance hierarchies. Within each subgroup, the hierarchy is clear
+      and stable. But between subgroups, the dominance relationships are
+      undefined or contested. The organism detects the boundary between
+      the two hierarchies — where one organizational structure ends and
+      ambiguity begins.
+    survival_relevance: |
+      Navigating between organizational structures requires knowing where
+      each one's authority ends. An organism that detects hierarchy
+      boundaries can avoid the dangerous inter-group zones where social
+      rules are contested and conflict is likely.
+    what_fires: |
+      Social organizational structure (hierarchy, roles, norms) is
+      coherent within a domain but discontinuous at the boundary. The
+      receptor detects the edge where one organizational pattern
+      breaks down and another begins or ambiguity reigns.
+
+  - id: resource_management_boundary
+    description: |
+      Organism discovers that food sources in one zone are freely
+      contested — any organism can take from them. But food sources in
+      an adjacent zone are guarded by specific individuals who control
+      access. The organism detects the boundary between open-access and
+      controlled-access resource management. Two different organizational
+      logics for the same resource type.
+    survival_relevance: |
+      Applying open-access foraging behavior in a controlled-access zone
+      triggers conflict with the resource controller. Detecting the
+      organizational boundary between management regimes prevents costly
+      social errors and enables appropriate access strategies.
+    what_fires: |
+      Discontinuity in resource-access rules. The same resource type is
+      governed by different organizational structures on opposite sides
+      of a boundary. Management regime transition detected.
+
+  - id: communication_protocol_shift
+    description: |
+      Organism moves between two groups that use different signal systems.
+      In group A, a specific call means "food found." In group B, the same
+      call means "danger." The organism detects that it has crossed a
+      boundary where the communication protocol changes — the same signal
+      maps to different meanings on opposite sides.
+    survival_relevance: |
+      Misreading signals across organizational boundaries can be fatal.
+      If "food call" in one group sounds like "danger call" in another,
+      the organism that does not detect the protocol boundary will
+      respond inappropriately and face consequences.
+    what_fires: |
+      Signal-meaning mapping discontinuity. The same signals produce
+      different referents or different signals produce the same referent
+      across a boundary. Communication protocol regime change detected.
+
+  - id: coordinated_vs_independent_zones
+    description: |
+      Organism observes that in one area, agents move in coordinated
+      patterns — synchronized foraging, shared vigilance, collective
+      defense. In an adjacent area, agents operate independently — no
+      coordination, no shared vigilance, every organism for itself. The
+      boundary between coordination and independence is an organizational
+      boundary.
+    survival_relevance: |
+      The organism's own survival strategy must differ on each side.
+      In the coordinated zone, it can rely on collective vigilance and
+      must conform to group norms. In the independent zone, it must
+      self-provide all vigilance. Detecting the boundary enables
+      strategy switching.
+    what_fires: |
+      Discontinuity in inter-agent coordination level. On one side,
+      agents' behaviors are mutually dependent and synchronized. On the
+      other side, behaviors are independent. The transition from
+      correlated to uncorrelated agent behavior marks the boundary.
+
+anti_manifestations:
+  - id: physical_terrain_boundary
+    description: |
+      Organism encounters a river that separates grassland from forest.
+      The terrain changes sharply. But the same group of organisms
+      operates on both sides — same social rules, same hierarchy, same
+      communication signals. The physical boundary does not correspond
+      to an organizational boundary.
+    why_should_not_fire: |
+      Organizational boundary detection is about functional structure,
+      not physical geography. A terrain change that does not correspond
+      to a change in social organization, behavioral rules, or resource
+      management is a physical boundary, not an organizational one.
+    distinguishes: |
+      Organizational boundaries are defined by discontinuities in
+      functional structure (rules, hierarchies, protocols). Physical
+      boundaries (terrain, obstacles) may or may not coincide with
+      organizational ones. This receptor detects the functional
+      discontinuity, not the physical one.
+
+  - id: gradual_behavioral_gradient
+    description: |
+      As the organism moves away from a group's center, social behaviors
+      gradually fade — less coordination, weaker hierarchy enforcement,
+      more independence. The transition is smooth and continuous, not
+      discontinuous. There is no sharp boundary where one organizational
+      regime ends — it fades gradually into unstructured space.
+    why_should_not_fire: |
+      Organizational boundary detection requires a DISCONTINUITY — a
+      relatively sharp transition from one regime to another. A smooth
+      gradient of fading organization is not a boundary but an attenuation.
+      Boundaries are characterized by abrupt changes in organizational
+      structure.
+    distinguishes: |
+      Boundaries are discontinuities. Gradients are continuous changes.
+      The receptor fires on sharp transitions between organizational
+      regimes, not on gradual fading. The distinction is between step
+      functions and slopes.

@@ -1,0 +1,47 @@
+receptor_id: pattern_based_resolution
+family: regulatory
+tier: branch
+stage: 2
+
+conceptual_space: |
+  Cached patterns that reliably reduce stress. Stored regulatory sequences —
+  "this sequence of actions fixes this state." The concept is the learned
+  action-sequence that resolves a specific negative condition. Not novel
+  problem-solving — CACHED solutions that have worked before.
+
+manifestations:
+  - id: flee_to_shelter_sequence
+    description: When threat detected, organism executes learned sequence — turn away, sprint 10 steps, find low-threat zone, stop. Stress drops reliably.
+    survival_relevance: Cached escape sequence is faster than deliberation — speed saves lives under threat
+    what_fires: Stress state matches stored trigger pattern AND organism has a cached action sequence with proven stress-reduction outcome
+
+  - id: return_to_food_when_hungry
+    description: When energy drops below 0.3, organism executes stored route to known food source — navigate, eat, energy restored
+    survival_relevance: Cached foraging route eliminates search time when hunger is critical
+    what_fires: Hunger state matches stored trigger AND learned food-route sequence available with confirmed prior success
+
+  - id: seek_warmth_when_cold
+    description: When temperature drops below comfort threshold, organism moves to stored warm-zone location via learned path
+    survival_relevance: Cached thermal regulation avoids trial-and-error movement during dangerous cold exposure
+    what_fires: Cold-stress state matches stored trigger AND thermal-shelter route has been successfully executed before
+
+  - id: avoid_chemical_zone
+    description: When chemical signature rises, organism executes stored avoidance maneuver — reverse direction, arc around, resume original heading
+    survival_relevance: Cached avoidance pattern prevents entering known toxic zones without needing to re-learn each time
+    what_fires: Chemical warning matches stored trigger AND detour sequence has reliably prevented exposure in past episodes
+
+  - id: post_conflict_recovery
+    description: After aggressive NPC encounter, organism executes stored sequence — retreat to safe zone, rest until energy recovers, then cautiously resume
+    survival_relevance: Cached recovery sequence prevents premature re-engagement when weakened
+    what_fires: Post-conflict stress state matches stored trigger AND rest-recovery sequence has confirmed prior success rate
+
+anti_manifestations:
+  - id: novel_problem_solving
+    description: Organism encounters a new type of threat it has never seen — tries random actions until something works
+    why_should_not_fire: No cached solution exists — this is trial-and-error exploration, not pattern-based resolution
+    distinguishes: Pattern-based resolution requires a PREVIOUSLY LEARNED sequence, not novel strategy generation
+
+  - id: reflexive_flinch
+    description: Organism jerks away from sudden pain — instant reflexive response, not a multi-step learned sequence
+    why_should_not_fire: Reflex is hardwired and single-action, not a learned multi-step regulatory sequence
+    distinguishes: Pattern-based resolution is a CACHED SEQUENCE of multiple steps, not an innate single-action reflex

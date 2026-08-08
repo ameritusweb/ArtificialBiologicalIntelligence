@@ -1,0 +1,49 @@
+receptor_id: muscle_memory
+family: procedural_memory
+tier: branch
+stage: 5
+
+conceptual_space: |
+  Detects that an action sequence has been automated to the point where it
+  fires as a single unit without step-by-step deliberation. The escape
+  sequence that used to require conscious attention at each step now
+  executes as one fluid, fast action. The boundary separates automated
+  motor programs (chunked, fast, low-deliberation) from deliberate
+  step-by-step execution or from unskilled attempts.
+
+manifestations:
+  - id: automated_escape_sequence
+    description: Escape sequence (detect-turn-sprint-dodge-enter-tunnel) executes as a single fluid action in 3 steps instead of 6 deliberate decisions — the sequence has been chunked
+    survival_relevance: Automated escape is faster than deliberate escape — speed of execution directly determines survival during pursuit
+    what_fires: Multi-step action sequence executing with minimal inter-step decision time — the sequence fires as a unit rather than as individually deliberated steps
+
+  - id: reflexive_dodge_pattern
+    description: When a fast object approaches from the left, the organism dodges right without deliberation — the dodge has become a motor reflex
+    survival_relevance: Reflexive dodging occurs faster than deliberate dodge decisions, enabling avoidance of fast attacks that leave no time for conscious processing
+    what_fires: Stimulus-response pair executing with near-zero deliberation latency — the motor response fires directly from the sensory input without intermediate decision processing
+
+  - id: automated_foraging_extraction
+    description: Food extraction technique (approach, position, extract, consume) executes smoothly as one continuous motion rather than four separate considered actions
+    survival_relevance: Automated foraging reduces time spent stationary at food sources, minimizing exposure to predators during the vulnerable feeding period
+    what_fires: Resource extraction action sequence with continuous fluid execution — no pauses between steps, motor output flowing directly from one step to the next
+
+  - id: terrain_navigation_automation
+    description: Navigation through familiar complex terrain (around rock, over gap, through passage) executes without deliberation at each obstacle — the route is a single motor program
+    survival_relevance: Automated navigation frees cognitive resources for threat monitoring while moving — the organism can watch for predators instead of planning each step
+    what_fires: Complex navigation sequence executing with attention directed elsewhere (scanning for threats) rather than at the navigation decisions themselves
+
+  - id: social_signal_automation
+    description: Warning signal to group members fires instantly upon threat detection without deliberation about whether or how to signal — the communication has become automatic
+    survival_relevance: Automated social signaling provides faster warning to group members, improving collective survival through reduced communication latency
+    what_fires: Social communication action executing with minimal latency from trigger event — the signal fires as a direct response without deliberative processing
+
+anti_manifestations:
+  - id: deliberate_step_by_step
+    description: Organism navigating a new terrain carefully plans each step — pause, assess, choose direction, move, pause again — each step requires full deliberation
+    why_should_not_fire: The sequence is being executed with conscious deliberation at each step — it has not been automated into a chunked motor program
+    distinguishes: Automated execution (fast, chunked, low-deliberation) vs deliberate execution (slow, step-by-step, high-deliberation) — muscle_memory requires automation
+
+  - id: failed_automation_attempt
+    description: Organism attempts to execute a recently learned sequence quickly but stumbles and must revert to deliberate step-by-step execution — the automation is not yet established
+    why_should_not_fire: Attempted speed without actual automation results in errors — the sequence has not yet been sufficiently rehearsed to fire as a reliable unit
+    distinguishes: Successfully automated (reliable at speed) vs incompletely learned (errors when speeded up) — muscle_memory requires the automation to be functional

@@ -1,0 +1,52 @@
+receptor_id: futility
+family: regulatory
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detects structural impossibility given current capabilities -- not difficulty, not
+  frustration, but the recognition that no amount of effort with the organism's
+  CURRENT architecture, abilities, or knowledge can achieve the goal. The boundary
+  is between "hard but possible with more effort" and "impossible without a
+  qualitative change in what I am." This requires the organism to model its own
+  capability envelope and compare the task's requirements against that envelope,
+  recognizing when the task falls outside it entirely. Futility is a higher-order
+  receptor than frustration: frustration detects zero progress, futility detects
+  WHY progress is zero -- because it cannot be otherwise.
+
+manifestations:
+  - id: physical_impossibility_recognized
+    description: A food source sits on a ledge 15 units high. The organism's maximum jump height is 3 units. There are no climbable surfaces, no objects to stack, no alternative paths. The organism has fully mapped the area and can verify there is no route.
+    survival_relevance: Recognizing structural impossibility prevents infinite effort loops. The organism must distinguish between "I haven't found the way yet" and "there is no way with what I am." This frees resources for achievable goals.
+    what_fires: Capability self-model reports maximum vertical displacement of 3. Spatial model confirms target is at 15 with no intermediate affordances. The gap between capability ceiling and task requirement is categorical, not incremental. No strategy within the current action space can bridge it.
+
+  - id: information_impossibility
+    description: The organism needs to predict which of two identical-looking corridors contains food. The corridors are randomized each episode with no perceptible cue. The organism has tested every sensory channel and confirmed no discriminating signal exists in its perceptual apparatus.
+    survival_relevance: Recognizing that a discrimination task exceeds sensory resolution prevents the organism from building elaborate prediction models for what is genuinely random from its perspective. It should default to a simple mixed strategy rather than a complex deterministic one.
+    what_fires: Self-model of perceptual capabilities reports all sensory channels tested. Discrimination performance across extensive trials is indistinguishable from chance. The organism detects that the information required for this task does not exist in its input space -- the limitation is architectural, not strategic.
+
+  - id: speed_impossibility
+    description: A threat moves at velocity 10. The organism's maximum velocity is 4. The threat is approaching from a direction with no obstacles to exploit. The organism recognizes it cannot outrun this threat and must switch to a qualitatively different survival strategy.
+    survival_relevance: Speed-based futility detection prevents wasted energy on flight when flight cannot succeed. The organism must recognize that the quantitative gap between its capability and the requirement is unbridgeable, triggering strategy-class switching rather than strategy-parameter adjustment.
+    what_fires: Self-model reports maximum velocity of 4. Threat-model reports velocity of 10. Environmental model confirms no terrain features that would equalize speeds. The capability gap is structural -- no amount of optimization within the "flee" strategy class can close it.
+
+  - id: combinatorial_impossibility
+    description: The organism faces a multi-step puzzle requiring it to hold 4 environmental states simultaneously, but it can only manipulate one object at a time and states decay in 3 steps. It has tried every ordering and none can maintain all 4 states concurrently.
+    survival_relevance: Recognizing that a task's combinatorial structure exceeds working capacity prevents endless permutation searching. The organism must model its own sequential-action constraint and compare it against the task's simultaneity requirement.
+    what_fires: Self-model reports single-object manipulation constraint and 3-step state decay. Task model requires 4 simultaneous states. Exhaustive or sufficient sampling of orderings confirms no valid sequence exists within these constraints. The impossibility is structural -- more attempts with the same action architecture cannot change the outcome.
+
+  - id: developmental_futility
+    description: The organism detects that a capability it needs -- such as the ability to cooperate with others to move a heavy barrier -- requires social coordination skills that take many generations to develop. Within its remaining lifespan, this capability cannot emerge. The goal is futile for THIS organism, though not for its lineage.
+    survival_relevance: Distinguishing between "impossible for me" and "impossible forever" is critical for organisms that can invest in descendant capabilities. Futility for the individual can coexist with possibility for the lineage, and detecting this enables developmental investment strategies.
+    what_fires: Self-capability model shows the required skill is absent and the learning trajectory for acquiring it exceeds remaining lifespan estimate. But the skill is not structurally impossible for the species -- it falls within the developmental envelope. The futility signal fires with a temporal tag indicating individual-futility but lineage-possibility.
+
+anti_manifestations:
+  - id: difficult_but_within_envelope
+    description: The organism faces a challenge that requires near-perfect execution of capabilities it possesses. A jump that needs 2.9 units of its 3-unit maximum. It has failed 15 times but the capability is theoretically sufficient.
+    why_should_not_fire: The task falls within the organism's capability envelope, even if barely. The failures are execution failures, not structural impossibilities. With better timing, positioning, or technique, success is possible. Futility requires the task to fall OUTSIDE the envelope.
+    distinguishes: Inside versus outside the capability envelope. Futility is about structural mismatch between what the organism IS and what the task REQUIRES, not about difficulty within the achievable range.
+
+  - id: frustration_without_structural_analysis
+    description: The organism has failed at a task 30 times and is deeply frustrated, but has not actually modeled why it is failing. It has not mapped its own capabilities against the task requirements. It simply knows it keeps failing.
+    why_should_not_fire: Futility requires structural analysis -- a comparison between self-model and task-model that reveals categorical impossibility. Raw frustration from repeated failure is a different signal. The organism might be failing for fixable reasons it hasn't diagnosed. Futility fires only after the organism has modeled the gap and found it unbridgeable.
+    distinguishes: Structural impossibility analysis versus accumulated failure experience. Futility requires self-modeling and task-modeling, not just outcome tracking.

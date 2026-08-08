@@ -1,0 +1,49 @@
+receptor_id: contradiction
+family: logic
+tier: Canopy
+stage: 11
+
+conceptual_space: |
+  Detects when the organism simultaneously holds two beliefs, predictions,
+  or active models that are mutually exclusive -- both cannot be true given
+  the organism's own logic. The boundary is between beliefs that are merely
+  in tension (different weights, different contexts) and beliefs that are
+  formally incompatible within the same frame. Fires when the organism
+  recognizes that its own internal state contains a logical impossibility.
+
+manifestations:
+  - id: safe_and_dangerous
+    description: The organism's spatial model marks a cave as "safe shelter" based on past experience, while its current threat detector marks the same cave as "occupied by predator" based on fresh scent. Both beliefs are active simultaneously about the same location at the same time. The organism detects the contradiction.
+    survival_relevance: Acting on contradictory beliefs produces incoherent behavior -- approaching and fleeing simultaneously, or freezing in indecision. Detecting the contradiction forces resolution before action.
+    what_fires: Simultaneous activation of two receptor-backed beliefs about the same entity where one asserts property P and the other asserts not-P, with both beliefs held in the same temporal and spatial frame.
+
+  - id: path_exists_and_blocked
+    description: The organism's navigation model holds that a path to food is clear (based on memory from earlier today) while its current perceptual state shows the path is blocked by a fallen tree. Both the memory-based and perception-based beliefs are active. The organism detects that "path clear" and "path blocked" cannot coexist.
+    survival_relevance: Navigating based on stale memory when current perception contradicts it wastes energy and time. Contradiction detection forces the organism to resolve in favor of current evidence or investigate further.
+    what_fires: A memory-sourced navigational belief and a perception-sourced navigational belief assert opposite passability states for the same route, detected when both are simultaneously consulted during path planning.
+
+  - id: self_model_inconsistency
+    description: The organism's energy model reports "well-fed, energy sufficient" while its motor system reports "movements sluggish, energy depleted." The organism detects that its self-model contains contradictory energy assessments from different subsystems.
+    survival_relevance: Contradictory self-models lead to miscalibrated risk-taking -- the organism might attempt an energy-intensive escape while actually depleted. Detecting internal inconsistency prevents overcommitment.
+    what_fires: Two self-monitoring subsystems report mutually exclusive states about the same internal variable, detected when both reports are compared during a decision that depends on that variable.
+
+  - id: ally_and_threat
+    description: The organism classifies another organism as "ally" based on prior cooperative behavior and simultaneously classifies it as "threat" based on its current aggressive posture. The organism detects that the same entity cannot be both cooperator and aggressor within its current interaction model.
+    survival_relevance: Treating an entity as both ally and threat produces paralysis or contradictory social signals. Detection forces the organism to update one classification or recognize that the other organism's status has changed.
+    what_fires: Two social classification receptors assign mutually exclusive roles to the same external agent within the same interaction context, detected when the organism attempts to generate a behavioral response that requires a single classification.
+
+  - id: temporal_impossibility
+    description: The organism believes it arrived at a location before a landmark event AND that it arrived after that same landmark event. Both temporal-ordering beliefs are active in its episodic memory. The organism detects that it cannot have both preceded and followed the same reference point.
+    survival_relevance: Temporal ordering errors corrupt causal reasoning -- if the organism cannot correctly sequence events, it cannot learn which actions led to which outcomes. Detecting temporal contradictions preserves causal learning integrity.
+    what_fires: Two episodic memory entries place the same event on opposite sides of a shared temporal reference point, detected when the organism attempts to reconstruct a causal sequence and finds the ordering is impossible.
+
+anti_manifestations:
+  - id: context_dependent_beliefs
+    description: The organism believes the open field is safe during daylight and dangerous at night. These beliefs appear to conflict ("field is safe" vs "field is dangerous") but they are indexed to different contexts -- daytime versus nighttime. The organism holds both without contradiction.
+    why_should_not_fire: Contradiction requires two beliefs to be mutually exclusive within the same frame. Context-indexed beliefs occupy different frames and can both be true simultaneously. "Safe-when-day" and "dangerous-when-night" are not contradictory -- they are conditional.
+    distinguishes: Whether the apparently conflicting beliefs share the same context frame (true contradiction) versus being indexed to different conditions where both can hold (contextual variation).
+
+  - id: uncertain_probability
+    description: The organism assigns 60% probability to "the predator will go left" and 40% to "the predator will go right." These are not contradictory even though they point in different directions -- they are a well-formed probability distribution expressing uncertainty, not mutually exclusive active beliefs.
+    why_should_not_fire: Contradiction requires both beliefs to be held as true. A probability distribution explicitly encodes that the organism does not hold either outcome as certain. Distributed uncertainty is the opposite of contradiction -- it is coherent acknowledgment of incomplete knowledge.
+    distinguishes: Whether the organism holds both states as simultaneously true (contradiction) versus holding them as weighted alternatives where only one will obtain (probabilistic uncertainty).

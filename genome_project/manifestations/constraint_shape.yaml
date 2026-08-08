@@ -1,0 +1,49 @@
+receptor_id: constraint_shape
+family: compression
+tier: canopy
+stage: 5
+
+conceptual_space: |
+  Detects the shape of what is required — the conjunction of constraints that
+  define a viable solution. A safe zone must be: away from predator, near food,
+  with overhead cover. Each constraint narrows the solution space, and the
+  receptor detects the SHAPE of the remaining viable region. The boundary
+  separates multi-constraint solution space detection from single-constraint
+  thresholds.
+
+manifestations:
+  - id: safe_zone_requirements
+    description: Safe position requires simultaneously being beyond predator range, within reach of food, and under cover — three constraints that define a specific spatial region
+    survival_relevance: Knowing the shape of safety enables direct navigation to viable positions rather than trial-and-error exploration
+    what_fires: Multiple simultaneous constraint signals (threat distance, food proximity, cover presence) whose intersection defines a bounded viable region in the environment
+
+  - id: escape_route_constraints
+    description: Viable escape route must be wide enough to pass through, not blocked by obstacles, leading away from predator, and reachable before interception — four constraints shaping the solution
+    survival_relevance: The shape of viable escape is narrow — most directions fail at least one constraint — knowing the shape identifies the few viable options instantly
+    what_fires: Directional analysis with multiple constraint channels (width, clearance, threat angle, timing) whose conjunction selects a small subset of possible directions
+
+  - id: ambush_site_requirements
+    description: Effective ambush position for hunting prey requires cover from prey's sightline, proximity to prey path, and clear strike vector — three constraints that few locations satisfy
+    survival_relevance: Recognizing the constraint shape for ambush hunting identifies optimal positioning without exhaustive search
+    what_fires: Spatial analysis with occlusion, proximity, and line-of-sight constraints whose intersection identifies specific viable positions
+
+  - id: nesting_site_constraints
+    description: Suitable rest site needs protection from above, wind shelter, thermal stability, and multiple escape routes — the conjunction creates a very specific geometric requirement
+    survival_relevance: The constraint shape for rest sites is complex — knowing it enables recognizing suitable sites immediately upon encountering them
+    what_fires: Multi-dimensional constraint satisfaction across protection, environmental, and escape-route dimensions, detecting the shape of the viable region
+
+  - id: foraging_efficiency_constraints
+    description: Optimal foraging requires food density above threshold, predator risk below threshold, and travel distance from shelter within range — three constraints defining viable foraging zones
+    survival_relevance: The foraging constraint shape changes as predators move and food depletes — tracking its shape enables dynamic route optimization
+    what_fires: Continuous multi-constraint boundary tracking where food density, threat level, and distance from safety jointly define the viable foraging region
+
+anti_manifestations:
+  - id: single_threshold_response
+    description: Organism avoids any location where predator is within a fixed distance — one constraint only, no multi-dimensional shape
+    why_should_not_fire: A single constraint defines a boundary, not a shape — constraint_shape requires the conjunction of multiple constraints forming a complex solution space
+    distinguishes: Multi-constraint shape vs single-constraint threshold — the receptor detects the geometry of intersecting requirements
+
+  - id: unconstrained_preference
+    description: Organism prefers to be near food with no other considerations — a gradient toward food without constraints that shape the viable region
+    why_should_not_fire: A simple gradient has no shape — it just points toward more of something without boundaries from competing requirements
+    distinguishes: Shaped constraint region vs simple gradient — constraint_shape requires multiple competing demands whose intersection forms a bounded region

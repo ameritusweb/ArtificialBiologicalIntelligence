@@ -1,0 +1,47 @@
+receptor_id: categorical_compression
+family: compression
+tier: trunk
+stage: 2
+
+conceptual_space: |
+  Grouping by shared features. Multiple distinct stimuli treated as one
+  category. The concept is the category itself — "these are all the same
+  kind of thing." Not individual recognition, not perceptual similarity
+  between a pair — the formation of a GROUP identity.
+
+manifestations:
+  - id: edible_class
+    description: Green-small-smooth objects, green-medium-smooth objects, and yellow-small-smooth objects all restore energy — organism treats them as "food"
+    survival_relevance: Category "food" enables foraging for ANY member rather than seeking specific remembered items
+    what_fires: Multiple distinct stimuli with shared functional outcome grouped under single category label
+
+  - id: threat_class
+    description: Fast-moving NPCs, large-shadow events, and chemical spikes all precede pain — organism groups them as "danger signals"
+    survival_relevance: Unified threat category enables single avoidance response rather than learning each threat individually
+    what_fires: Diverse stimuli sharing consequence mapped to single behavioral category
+
+  - id: shelter_class
+    description: Caves, dense vegetation, and overhangs all provide thermal stability and low threat — organism groups them as "safe zones"
+    survival_relevance: Category-level shelter concept enables seeking ANY shelter type under stress, not just remembered specific spots
+    what_fires: Spatially distinct locations sharing multi-channel protective profile grouped into functional category
+
+  - id: terrain_types
+    description: Multiple ground patches with similar resistance, texture, and traversal cost grouped into "soft ground" vs "hard ground"
+    survival_relevance: Terrain categories enable movement planning without memorizing every individual cell
+    what_fires: Spatial regions binned into discrete categories based on feature clustering in haptic channel space
+
+  - id: temporal_phase_categories
+    description: Steps with high-light+warm grouped as "day," steps with low-light+cold grouped as "night" — two categories from continuous variation
+    survival_relevance: Phase categories enable behavior-mode switching (forage-day, shelter-night) without tracking exact values
+    what_fires: Temporal windows binned into discrete categories based on multi-channel feature clusters
+
+anti_manifestations:
+  - id: individual_recognition
+    description: Organism recognizes NPC-3 as distinct from NPC-7 — tracking individual identity, not category membership
+    why_should_not_fire: This is individuation, the opposite of categorization — distinguishing rather than grouping
+    distinguishes: Categorical compression MERGES individuals into groups; individual recognition SEPARATES them
+
+  - id: pairwise_similarity
+    description: Organism detects that stimulus A and stimulus B look alike — two items compared, no group formed
+    why_should_not_fire: Pairwise similarity is perceptual_similarity, not categorization — no group identity created
+    distinguishes: Categorical compression requires forming a GROUP (3+ members) with shared identity, not just noting two things match

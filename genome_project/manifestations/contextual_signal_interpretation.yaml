@@ -1,0 +1,159 @@
+receptor_id: contextual_signal_interpretation
+family: observation
+tier: canopy
+stage: 7
+
+conceptual_space: |
+  Detects that the same signal carries different meanings depending on
+  context. A growl near a nest means "stay away from my territory" but
+  a growl near a predator means "come help me fight." The physical
+  signal is identical — same sound, same source type — but the context
+  (location, surrounding events, social configuration) determines its
+  meaning. The boundary separates fixed signal-meaning mapping (growl
+  always means danger) from context-dependent signal-meaning mapping
+  (growl means different things in different situations). The critical
+  signal is recognizing that context modifies meaning.
+
+manifestations:
+  - id: growl_near_nest_versus_near_predator
+    description: |
+      NPC-A produces a growl near its nest when the organism
+      approaches — the organism has learned this means "stay away."
+      Later, NPC-A produces the same growl near a large predator
+      while looking at the organism — this means "come help." The
+      physical signal is identical but the spatial context (nest
+      vs. predator proximity) and social context (warning away vs.
+      recruiting) completely change the meaning.
+    survival_relevance: |
+      Interpreting the growl correctly in each context determines
+      whether the organism avoids (near nest — correct response)
+      or approaches (near predator — correct response). Getting
+      the context wrong either creates unnecessary conflict (approaching
+      a defended nest) or abandons an ally (fleeing from a help
+      request).
+    what_fires: |
+      The same physical signal (growl) encountered in two different
+      contexts (nest territory vs. predator encounter) with different
+      correct behavioral responses. The detection that signal meaning
+      is context-dependent rather than fixed fires.
+
+  - id: stillness_as_safety_versus_ambush
+    description: |
+      In open grassland, stillness in the environment signals safety
+      — no predator movement, no threats. In dense brush near a known
+      predator territory, the same environmental stillness signals
+      potential ambush — a predator holding motionless before striking.
+      Identical sensory input (no movement detected) carries opposite
+      survival implications depending on spatial context.
+    survival_relevance: |
+      Interpreting stillness as safety in the open enables relaxed
+      foraging. Interpreting stillness as danger in brush enables
+      heightened vigilance. Fixed interpretation of stillness would
+      either create constant false alarms (always dangerous) or
+      constant vulnerability (always safe).
+    what_fires: |
+      The same sensory signal (environmental stillness) generating
+      different threat assessments based on contextual features
+      (open vs. dense, known predator territory vs. safe zone).
+      The context-dependent meaning reversal fires.
+
+  - id: approach_behavior_friend_versus_stranger
+    description: |
+      A familiar cooperative NPC approaches quickly — this signals
+      eagerness to share or collaborate. An unfamiliar NPC approaches
+      quickly — this signals potential aggression. The movement
+      pattern (rapid approach) is identical but the social context
+      (known ally vs. unknown entity) determines whether the meaning
+      is positive or threatening.
+    survival_relevance: |
+      Correct interpretation enables appropriate response — welcoming
+      a cooperator versus defending against an aggressor. Fixed
+      interpretation of rapid approach would either alienate allies
+      (always defensive) or expose to attack (always welcoming).
+    what_fires: |
+      Identical movement pattern (rapid approach) from agents with
+      different social relationship status (ally vs. stranger)
+      generating different meaning assignments. The social context
+      modifying the same behavioral signal fires.
+
+  - id: food_call_during_abundance_versus_scarcity
+    description: |
+      During a period of food abundance, an NPC's food call means
+      "I found something — come share, there is plenty." During
+      scarcity, the same food call means "I found something — come
+      quick before others take it" or even serves as a competitive
+      lure. The same vocalization shifts from invitation to urgency
+      signal based on the ecological context of resource availability.
+    survival_relevance: |
+      During abundance, responding casually to a food call is
+      appropriate. During scarcity, the same call requires rapid
+      response or suspicion of competitive trapping. Calibrating
+      response urgency and trust level to ecological context
+      optimizes foraging outcomes.
+    what_fires: |
+      The same food-announcement signal carrying different urgency
+      and trust implications depending on the current ecological
+      context (abundance vs. scarcity). The environmental state
+      modifying signal meaning fires.
+
+  - id: retreat_signal_after_victory_versus_after_defeat
+    description: |
+      After winning a territorial conflict, an NPC's retreat signal
+      means "I am withdrawing voluntarily — the boundary is set,
+      conflict is resolved." After losing, the same retreat signal
+      means "I am forced back — I may return when stronger." The
+      physical withdrawal behavior is identical, but the preceding
+      context (victory vs. defeat) determines whether the retreat
+      is stable (permanent boundary) or unstable (future re-challenge
+      likely).
+    survival_relevance: |
+      Interpreting post-victory retreat as stable enables the organism
+      to relax territorial vigilance. Interpreting post-defeat retreat
+      as unstable maintains vigilance against return. The same
+      withdrawal behavior requires different strategic responses based
+      on what preceded it.
+    what_fires: |
+      Identical behavioral signal (retreat/withdrawal) carrying
+      different predictive meanings (stable resolution vs. temporary
+      withdrawal) based on the preceding conflict outcome (victory
+      vs. defeat). The historical context modifying the signal's
+      predictive content fires.
+
+anti_manifestations:
+  - id: different_signals_different_meanings
+    description: |
+      An NPC growls (meaning danger) and purrs (meaning affiliation).
+      These are different physical signals with different meanings.
+      The organism correctly assigns different meanings to different
+      signals.
+    why_should_not_fire: |
+      This is standard signal differentiation — different signals
+      carry different meanings. Contextual signal interpretation
+      requires the SAME signal carrying different meanings in
+      different contexts. When the signals themselves differ, no
+      context-dependent interpretation is needed — the signal form
+      alone determines meaning.
+    distinguishes: |
+      Different signals with different meanings (signal form
+      determines meaning) versus same signal with context-dependent
+      meaning (context determines meaning). The identity of the
+      physical signal across contexts is the boundary.
+
+  - id: signal_always_means_same_thing
+    description: |
+      A specific alarm call always means "aerial predator" regardless
+      of where it is produced, who produces it, or what else is
+      happening. The organism has encountered this call in many
+      different contexts and the meaning has never varied.
+    why_should_not_fire: |
+      This is fixed signal-meaning mapping — the signal has one
+      meaning regardless of context. Contextual signal interpretation
+      requires that the same signal means different things in
+      different situations. A signal with invariant meaning does not
+      involve context-dependent interpretation — it is a simple
+      label.
+    distinguishes: |
+      Context-invariant meaning (signal always means the same thing)
+      versus context-dependent meaning (signal means different things
+      in different contexts). The presence of meaning variation
+      across contexts is the boundary.
