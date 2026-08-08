@@ -282,14 +282,14 @@ A formal specification of the receptor search space — the periodic table of co
 
 ### Theories Index
 
-147 formal theoretical claims indexed in `theories.md`:
+148 formal theoretical claims indexed in `docs/THEORIES.md`:
 - 4 foundation (T114: theory generation through receptor topology; T126: concepts as environmental structure; T127: Cartographical Theory; T133: receptor-environment-manifestation)
 - 28 supported by experimental evidence
 - 20 partially tested
 - 1 inconclusive
 - 1 revised (T116: attention = which colors resolve conflations, not receptor count)
 - 1 directionally falsified (T55, replaced by T57 annealing)
-- 92 proposed with falsification criteria
+- 93 proposed with falsification criteria (T149: compartmentalization as the mechanism for unbounded imagination without identity drift — the program's pre-sketch root requirement, returned as a theory)
 
 Key additions (T114-T133): infinite color theory, theory generation as natural consequence of receptor topology, language as protocol pattern discovery, automatic receptor discovery via conflation-driven decision ensembles (T125), concepts as environmental structure made visible through receptors (T126), the Cartographical Theory (T127, empirically confirmed), the visual organ and crystallization theory of concept genesis (T130-T132, confirmed), and the manifestation-diversity grounding condition (T133).
 
@@ -469,7 +469,7 @@ The serialization thesis extends Friston: organisms don't just minimize predicti
 
 No existing program unifies these threads. The receptor topology as a single generative mechanism — from grounding through compartmentalization to language — appears to be a novel synthesis. Von Uexküll gave the concept. ERTI gives it a computable form and derives it from selection pressure rather than asserting it from observation.
 
-For a formal mathematical treatment of the Receptor-Topological Dynamical System (RTDS), see [docs/ERTI_formalization.tex](docs/ERTI_formalization.tex). Three levels of documentation: intuitive argument ([Whitepaper](docs/WHITEPAPER.md)), empirical record ([Theories](docs/theories.md) + [Roadmap](docs/ROADMAP.md)), formal structure ([Formalization](docs/ERTI_formalization.tex)).
+For a formal mathematical treatment of the Receptor-Topological Dynamical System (RTDS), see [docs/ERTI_formalization.tex](docs/ERTI_formalization.tex). Three levels of documentation: intuitive argument ([Whitepaper](docs/WHITEPAPER.md)), empirical record ([Theories](docs/THEORIES.md) + [Roadmap](docs/ROADMAP.md)), formal structure ([Formalization](docs/ERTI_formalization.tex)).
 
 ![RTDS](rtds.png)
 
@@ -525,7 +525,7 @@ abi/
 |   +-- families/                   # 23 receptor family YAMLs (200 receptors)
 |   +-- schemas/                    # Receptor schema definition
 |   +-- docs/                       # Cross-family dependencies, overview
-+-- theories.md                     # 147 indexed theoretical claims with status
++-- docs/THEORIES.md                # 148 indexed theoretical claims with status
 +-- serialization_thesis.md         # The serialization thesis (standalone paper)
 +-- visualization/                  # Three.js organism visualization
 +-- docs/                           # Whitepaper, roadmap, framework documents
