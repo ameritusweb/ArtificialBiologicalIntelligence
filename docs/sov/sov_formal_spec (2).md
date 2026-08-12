@@ -298,6 +298,14 @@ The formal spec is the authority on P-number assignment for the SOV document fam
 
 *Next available P-number: P80.*
 
+| P80 | Demand allocation tracks discharged-surprise-mass-per-receipt: closure and funding order correlate with per-family discharge opportunity (world-indexed), not raw fit volume — retroactively explains the closure-order census (discharge-first, not rules-first) | T158 / whys.md §23 (2026-08-12) | Open |
+| P81 | The counterfeit-discharge lesion: a conservativity-ablated sandboxed web extinguishes its surprise stream while prediction error holds or rises (relief without learning — the epistemic-wirehead signature); the intact web shows coupled decline | T158 (2026-08-12) | Open |
+| P82 | Discharge-priced trade: attest acceptance and corroboration yield track the listener's pre-existing surprise stream in the asserted region — assertions are valued as surprise-dischargers | T158 / F28 currency union (2026-08-12) | Open |
+
+| P83 | The falsifiability optimum: surviving explanation-structures cluster near p* = argmax p((1-FIRE_COST_FRAC)-p), and the cluster TRACKS p* when the cost constant moves (rep-12 survivors at 0.24-0.28 vs p*=0.375 is the standing hint) | T158 ext. (2026-08-12) | Open |
+| P84 | The eigen fingerprint decodes invoice-state: outstanding per-family near-miss/404 mass is recoverable from the 5-bit structural signature above chance — the geometry IS the why-state (T114 reread's falsifier) | T158 ext. (2026-08-12) | Open |
+| P85 | Bedrock is designable: a social-surprise-dominant world (NPC-rich, rule-static) closes social content first — closure order tracks the world's dominant surprise class (P80's decisive form; the census mechanism as engineering capability) | T158 ext. (2026-08-12) | Open |
+
 *Registry reconciliation (2026-08-10): this table is the single authority. The Two-Sorted Core's §7 table conflicted with it (both claimed authority); its three orphaned predictions are admitted above as P68–P70, and its "P59" (stored Posit estimate beats retraction-time connectivity) is the same claim as P56 and keeps that number. The Geometry document's inline P57–P60 were shifted one from this registry and have been corrected in place to P58–P61.*
 
 *Assignment rule: P-numbers are assigned in the turn they first appear, by the document that first states the prediction. Subsequent documents that reference a prediction use the original number. Renaming is logged here with the original and new assignment.*

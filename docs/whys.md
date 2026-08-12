@@ -714,6 +714,29 @@ A web at 10^5 receipts is a different physical regime than at 10^3: accumulated 
 
 **What this retroactively explains:** why the surprise arc's laws kept reappearing downstream with new names. The mirror trap (T153) is the lived-only firewall at ecology scale; the pose floor (F16) is the young-ledger law's complement; the F19 directed-slack result is D1-symmetry made comparative. The surprise economy was not a chapter — it was the first draft of the constitution.
 
+### Why do whys exist? (T158 — the capstone, registered 2026-08-12)
+
+**Answered (the user's arrival):** A why is a surprise-discharger. Explanation converts an event class from unpredicted to predicted, permanently retiring that class's future surprise — the why does not change the world, it changes the forecast function. This makes the why-inventory the *settlement layer* of the whole epistemic economy: **surprise is the invoice; the why is the payment; closure is the receipt.** D1 ratchets rather than loops because consumption is destructive of its own source — each earned why extinguishes a surprise class and forces the machine to a genuinely new frontier.
+
+**The anti-wirehead law of explanation:** a *false* why also discharges surprise, and surprise-relief is rewarding — so unearned explanation is the epistemic wirehead direction (relief bought with counterfeit currency). Conservativity is the block; hallucination is an unfunded why. And the economy already prices bad explanations: a why that explains everything fires on everything, carries no information per fit, and starves under net-per-fire economics. **Superstition is an always-on mediator, and the vacuous clock kills it.** A good why is one that could have failed to apply.
+
+**What it unifies:** the three clocks are how explanations die (wrong→reopened, orphaned→dormant, vacuous→starved); hinges are the broadest dischargers (which gives the census its mechanism — discharge-first is the law; rules-first was pair-B's biggest invoice); an Attest is an offered why priced by the listener's expected discharge; and this document is the program's own discharge ledger — the unanswered section is its pose book. Tests: P80–P85 (registry).
+
+### Why are whys *motivating*? (T158's motivational corollary — a different question from why they exist)
+
+**Answered (the second arrival, 2026-08-12):** Five mechanisms, jointly sufficient:
+1. **Surprise is aversive and compounds** — unpredicted pain is doubly aversive (the pain plus the failure to see it coming). A why converts future encounters from doubly- to singly-aversive: expected pain permits bracing, positioning, routing. The why is armor, and seeking it has direct survival value at the receptor-valence level.
+2. **Whys generalize; memories don't.** One why retires a class; one memory retires an instance. Return-per-effort is categorically higher for explanation than for memorization.
+3. **Whys are appetitive, not just satisfying** — the fertility axis: a great why settles its invoice and opens the next tier at finer grain. Hunger saturates when fed; curiosity *regenerates* when fed, at higher resolution, indefinitely. The drive is constitutively inexhaustible because satisfying it re-creates it.
+4. **Explanation expands territory; avoidance contracts it.** Both reduce surprise, but avoidance shrinks the navigable world toward the already-known while explanation makes opaque domains inhabitable. Over evolutionary time the why-seekers own more world.
+5. **The felt circuit is closed and self-priming**: curiosity fires (open invoice sensed) → exploration (positively valenced through learned association) → learning progress fires on closure (scaled, ideally, by class breadth) → new curiosity fires on the opened frontier. Curiosity IS the open-invoice signal — an organism without it isn't incurious, it's epistemically bankrupt: it cannot feel its own unpaid bills.
+
+**The sting in the tail — why the gate must be constitutional:** the pull is *pre-epistemic*. A counterfeit why feels identical to a funded one at the moment of closure; the motivation targets the feeling of understanding, not understanding. So no learned self-regulation can hold the gate — a drive that rewards the feeling would learn to manufacture the feeling. C2 is constitutional because it must sit outside the reach of the very optimization it constrains. The receipts-only economy is not just an epistemology; it is a constraint on a motivational system that would otherwise explain everything away.
+
+**Named mechanism gap (design candidate):** no current receptor distinguishes instance-accuracy from class-retirement — the organism cannot yet *feel* the difference between remembering and understanding. The **discharge receptor** (firing on retirement magnitude) is the named candidate; until it exists, mechanism 2's felt form is aspiration, not implementation.
+
+**The pathology symmetry, completed:** superstition discharges everything and opens nothing (the vacuous clock kills it); conspiracy opens everything and discharges nothing durable (only the retrospective-earning clause on fertility kills it — a why's children must themselves earn). And rumination is *circular explanation*: whys discharging each other's surprise in a provenance cycle that never touches the world — Law 3's prohibition at explanation grain, which is why more thinking entrenches the anxiety loop (a stronger why-constructor builds better cycles) and why the topology break works (the cycle itself becomes an event demanding a grounded meta-why).
+
 ---
 
 ## 24. Unanswered Whys
