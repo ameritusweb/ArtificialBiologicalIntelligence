@@ -317,6 +317,13 @@ The formal spec is the authority on P-number assignment for the SOV document fam
 | P92 | The audit receptor: a per-region comparator of behavioral competence vs ledger coverage fires on performance-without-account; validated against the known case — EX-0's procedural memory must be its first catch | T158 social ext. (2026-08-12) | Open |
 | P93 | Settlement routing: trusted epistemic-state broadcasts (calm/surprised) shift the importer's explore-vs-Attest allocation appropriately, with yield gains over unrouted controls at matched budget | T158 social ext. (2026-08-12) | Open |
 
+| P94 | AW-0 closed loop: a meta-organism traversing its own web (eigen vision, touch-replay, pose) improves base-web quality — closure rate, calibration, gap discharge — over an untraversed control at matched compute | T159 (2026-08-12) | Open |
+| P95 | Occlusion ecology: selection-trained inhabitants surviving by enumeration of sealed truths beat the static earned-enumeration operator on identification-per-receipt | T159 (2026-08-12) | Open |
+| P96 | The head-to-head: on a receipted structure at matched compute, inhabitation-search recovers consequence-relevant structure that visit-weighted tree/graph search misses, and its map retains value post-search while the tree is discarded | T159 (2026-08-12) | Open |
+
+| P97 | Comparative epistemic anatomy: organisms grown in >=3 receipted idea-worlds evolve an invariant trunk plus domain-specific canopies, topology differences tracking measurable structural differences between corpora | T159 second arrival (2026-08-12) | Open |
+| P98 | Historical retrodiction: on a legal corpus with the amendment record held out, later-amended/struck/litigated provisions show elevated strain signals before disclosure — the document audit calibrated against centuries of lived law | T159 second arrival (2026-08-12) | Open |
+
 *Registry reconciliation (2026-08-10): this table is the single authority. The Two-Sorted Core's §7 table conflicted with it (both claimed authority); its three orphaned predictions are admitted above as P68–P70, and its "P59" (stored Posit estimate beats retraction-time connectivity) is the same claim as P56 and keeps that number. The Geometry document's inline P57–P60 were shifted one from this registry and have been corrected in place to P58–P61.*
 
 *Assignment rule: P-numbers are assigned in the turn they first appear, by the document that first states the prediction. Subsequent documents that reference a prediction use the original number. Renaming is logged here with the original and new assignment.*
