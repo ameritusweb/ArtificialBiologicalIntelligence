@@ -28,7 +28,8 @@ A document of questions: why things are the way they are in ABI and SOV, what th
 20. [The Junction Law and the Search Ladder](#20-the-junction-law-and-the-search-ladder)
 21. [The Language Center's Grammar](#21-the-language-centers-grammar)
 22. [Method Whys — The Constitution](#22-method-whys--the-constitution)
-23. [Unanswered Whys](#23-unanswered-whys)
+23. [The Surprise Economy — Predicting the Next Surprise](#23-the-surprise-economy--predicting-the-next-surprise)
+24. [Unanswered Whys](#24-unanswered-whys)
 
 ---
 
@@ -677,7 +678,45 @@ A web at 10^5 receipts is a different physical regime than at 10^3: accumulated 
 
 ---
 
-## 23. Unanswered Whys
+## 23. The Surprise Economy — Predicting the Next Surprise
+
+### Why predict the next surprise at all? (T134)
+
+**Answered:** Surprise is prediction failure, and prediction failure is where the model must grow. An organism that can predict *where* its predictions will fail is an organism that can see the boundary of its own model — its frontier is computable rather than merely encounterable. T134's unification: the meta-receptor tier (curiosity, accuracy, conflict, learning progress) is not a collection of separate signals but one machine — the next-surprise machine — predicting its own prediction failures. Curiosity is the machine's forecast; accuracy is its settlement; learning progress is its derivative.
+
+**The deeper why:** growth needs targeting. A learner that waits for surprise to arrive grows wherever the world happens to poke it. A learner that predicts surprise can *place itself* where growth is available — the difference between weathering the frontier and navigating it. This is D1 (maximize learnable surprise consumed) made operational: you cannot maximize what you cannot forecast.
+
+### Why did rank-rarity survive when three absolute surprisal constructions failed? (T138)
+
+**Answered (Supported, with the failures mechanistically identified):** Absolute surprisal measures are scale- and distribution-dependent: they drift with the encoder, break under non-stationary streams, and conflate "the world changed" with "my units changed." Rank-rarity — how rare is this event *within the organism's own recent stream* — is self-normalizing. Surprise is indexical like everything else the organism knows (§18): it is relative to your own history, not absolute in the world. The three failed constructions each broke on a different face of the same problem; rank survived because comparing an event against your own recent past requires no stable external unit.
+
+### Why must surprise predictions train on the lived stream only? (T136 — the lived-only firewall)
+
+**Answered (theorem-grade, with a social instance):** If the surprise machine could train on imagined or generated experience, the generator could manufacture its own targets — produce synthetic surprise, predict it, and bill the successful prediction as competence. The loop closes on itself and the frontier estimate detaches from the world. This is C2 (conservativity) applied to the surprise economy: imagined structure must not fund the ledger, and predicted-surprise-about-imagined-events is exactly such funding.
+
+**Paranoia as the social instance:** importing another agent's testimony as surprise-evidence without lived grounding inflates the threat model on unfounded reports. The firewall's social form: others' reports may *direct* your probing (search guidance) but may not *fund* your surprise statistics (evidence). The same one-way membrane as C1, at the social boundary.
+
+### Why do young organs earn their voice? (T139)
+
+**Answered (Supported):** A new organ's surprise channel starts uncalibrated — its early signal is noise wearing the uniform of information. Letting it drive attention immediately amplifies noise at exactly the moment the organism has no track record to discount it by. The young-ledger law: voice grows with receipts. This is the same logic as Attest's reliability discount and the info-priced rent, applied at organ grain — influence is proportional to demonstrated calibration, and demonstration takes lived time. (It is also the floor family's mirror image: floors protect the quiet from starvation; the young-ledger law protects the economy from the loud-and-new.)
+
+### Why did the hazard gate flip with corpus scale alone? (T137 — partially confirmed)
+
+**Answered in part:** The grammar of surprise predicts that certain surprisal constructions become fundable only at sufficient corpus depth — the receipts to license them simply do not exist in a shallow stream. The hazard gate flipping with corpus scale alone (no mechanism change) is the receipt: what looked like a capability threshold was a *funding* threshold. The general form — which constructions unlock at which corpus depths, and why in that order — is the unconfirmed remainder.
+
+### Why does the framework bound learnable-surprise objectives in social environments? (T141 — the adversarial regime)
+
+**Answered structurally:** Another agent can farm your curiosity — generate learnable-looking surprise to steer your attention and, through it, your growth. An unbounded learnable-surprise maximizer in a social world is steerable by anyone who can manufacture cheap learnable novelty. The bound is not a tuning choice; it is the recognition that in adversarial regimes, the surprise stream is partially an *action* of other agents, and evidence that arrives as someone's action needs the same discounting as testimony.
+
+### Why is the next-surprise machine the ancestor of the whole SOV demand economy?
+
+**Answered by convergence (visible only after F32):** Every demand signal in the SOV economy is surprise-shaped: the gap score forecasts where receipts are missing; near-misses are surprise at the boundary; 404s are surprise against a commitment; pose demand is forecast surprise routed to another organism. And the fringe rule — process along what the processed prefix makes predictable — is the next-surprise machine operating *inside a single observation*: the staged expectations are micro-forecasts, their confirmations and misses are micro-surprises, and F32 showed the whole apparatus is epistemically load-bearing at that grain too (six replications of sharper-than-complete-information prediction). The environment side closes the loop: T135's generator maximizes *produced* learnable surprise, which becomes T153's D1-symmetric objective for the environment organism. One economy, three scales: within an observation (staging), within a life (curiosity), between organisms and worlds (the treadmill).
+
+**What this retroactively explains:** why the surprise arc's laws kept reappearing downstream with new names. The mirror trap (T153) is the lived-only firewall at ecology scale; the pose floor (F16) is the young-ledger law's complement; the F19 directed-slack result is D1-symmetry made comparative. The surprise economy was not a chapter — it was the first draft of the constitution.
+
+---
+
+## 24. Unanswered Whys
 
 These are questions the framework currently cannot answer, or has answered only partially.
 
@@ -807,4 +846,22 @@ P76 holds but with small effect size at current scale. F30 impl. 7 suggests "led
 
 ---
 
-*Last updated 2026-08-12: sections 19-22 added (stranded-commitment taxonomy, junction law, LC grammar, method whys); census falsification folded into section 18; licensing-family capstone added to section 17; unanswered list refreshed (hinge dependency order, closure timescale, active vocabulary, the 3x damage asymmetry, seed-construction earning, the corridor law and institutions). Sources: findings_implications.md F1-F32, docs/sov/, docs/constraints.md, THEORIES.md T153-T157, language_center_design.md.*
+**Is the next-surprise machine and the fringe literally one mechanism at two grains?**
+
+The convergence (§23) is structural: staged expectations are micro-forecasts of surprise; curiosity is a macro-forecast. But the micro machinery (edge-weighted family prediction) and the macro machinery (the meta-receptor tier over the thinking substrate) are separate implementations with no shared code and no shared receipts. If they are one mechanism, a single next-surprise predictor should serve both grains, and its accuracy at one grain should transfer to the other. If they are two, the analogy is taxonomy, not physics. Testable and untested.
+
+---
+
+**What sets the surprise stream's timescale — and rank-rarity's window?**
+
+Rank-rarity compares an event against the organism's own recent stream, but "recent" is a window choice. Too short and everything is surprising; too long and nothing is. The window is currently set, not earned. Whether there is a receipts-driven way to size it — the window as itself an open variable funded by prediction yield — is unexplored. (The same question recurs for the dormancy window, the fire-rate EMA horizon, and the 404 fail window: the framework's clocks are hand-set, and a principled account of clock-setting is missing everywhere.)
+
+---
+
+**Why does attributed surprise still not have its experiment? (T140-T142)**
+
+Surprise without attribution cannot be billed to a cause, so it can direct growth only diffusely. The control organ's fractionation (conditional integration recovering attribution no single observable carries) was the declared prerequisite, and its refined discovery-yield test (P48-adjacent) has not replicated at generic measurement. The attributed-surprise arc has been waiting on informative attribution for the entire program — the longest-standing UNTESTED in the theory corpus, and the surprise economy's missing keystone: the machine forecasts WHERE surprise will land but not yet WHOSE FAULT it was.
+
+---
+
+*Last updated 2026-08-12: sections 19-22 added (stranded-commitment taxonomy, junction law, LC grammar, method whys); census falsification folded into section 18; licensing-family capstone added to section 17; section 23 (surprise economy) added; unanswered list refreshed (surprise/fringe unification, clock-setting, attributed surprise, hinge dependency order, closure timescale, active vocabulary, the 3x damage asymmetry, seed-construction earning, the corridor law and institutions). Sources: findings_implications.md F1-F32, docs/sov/, docs/constraints.md, THEORIES.md T153-T157, language_center_design.md.*
