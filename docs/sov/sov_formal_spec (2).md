@@ -313,6 +313,10 @@ The formal spec is the authority on P-number assignment for the SOV document fam
 | P89 | Surprise contagion: a trusted exporter's surprise events open importer invoices along trust edges without direct experience, correlation tracking the reliability posterior — warnings transmit invoices, not information | T158 trust ext. (2026-08-12) | Open |
 | P90 | Signed trust: an importer learning SIGNED reliability recovers discharge value from reliably-false exporters (inversion) vs the clip-at-ignore baseline, pays the motive-invoice cost of distrust, and shows the double-bluff vulnerability only adversarial-regime discounting closes | T158 trust ext. (2026-08-12) | Open |
 
+| P91 | Trust-concentration fragility: importers concentrated on one exporter show correlated reopening cascades when the exporter's whys rot; diversified import topologies degrade gracefully — portfolio law for why-inventories | T158 social ext. (2026-08-12) | Open |
+| P92 | The audit receptor: a per-region comparator of behavioral competence vs ledger coverage fires on performance-without-account; validated against the known case — EX-0's procedural memory must be its first catch | T158 social ext. (2026-08-12) | Open |
+| P93 | Settlement routing: trusted epistemic-state broadcasts (calm/surprised) shift the importer's explore-vs-Attest allocation appropriately, with yield gains over unrouted controls at matched budget | T158 social ext. (2026-08-12) | Open |
+
 *Registry reconciliation (2026-08-10): this table is the single authority. The Two-Sorted Core's §7 table conflicted with it (both claimed authority); its three orphaned predictions are admitted above as P68–P70, and its "P59" (stored Posit estimate beats retraction-time connectivity) is the same claim as P56 and keeps that number. The Geometry document's inline P57–P60 were shifted one from this registry and have been corrected in place to P58–P61.*
 
 *Assignment rule: P-numbers are assigned in the turn they first appear, by the document that first states the prediction. Subsequent documents that reference a prediction use the original number. Renaming is logged here with the original and new assignment.*
