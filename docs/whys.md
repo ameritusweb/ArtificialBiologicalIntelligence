@@ -29,7 +29,8 @@ A document of questions: why things are the way they are in ABI and SOV, what th
 21. [The Language Center's Grammar](#21-the-language-centers-grammar)
 22. [Method Whys — The Constitution](#22-method-whys--the-constitution)
 23. [The Surprise Economy — Predicting the Next Surprise](#23-the-surprise-economy--predicting-the-next-surprise)
-24. [Unanswered Whys](#24-unanswered-whys)
+24. [The Epistemic Umwelt — Inhabitation as a Way of Knowing](#24-the-epistemic-umwelt--inhabitation-as-a-way-of-knowing)
+25. [Unanswered Whys](#25-unanswered-whys)
 
 ---
 
@@ -749,11 +750,49 @@ A web at 10^5 receipts is a different physical regime than at 10^3: accumulated 
 
 **Answered (the fourth arrival):** Trust is the *exchange rate on imported dischargers*. A trusted source's why retires your invoices without you funding them — which is how teaching, culture, and inherited world-models work: a why-inventory imported on credit, probe-gated like topology inheritance, carrying a lien (provisional discharge, re-validated on lived contact — Attest's discounts and corroboration billing, finally named as what they are). Misinformation is the hijacking of this discount: minting counterfeit dischargers in someone else's ledger. Gullibility and paranoia are the two mispricings of one rate. And surprise is *contagious along trust edges* — a trusted source's unexplained alarm opens invoices in you without direct experience: a warning transmits an invoice, not information.
 
+**The social calibration (fifth arrival):** trust modulates twice — why-*acceptance* (Attest, built) and surprise itself (the epistemic-*state* channel, unbuilt): expert-calm discharges before you hold the why; expert-surprise certifies the invoice as communal. Trusted-surprise is the *routing* signal between an invoice's two settlement paths — expedition or import. Decoupled authority (reputation tracked instead of reliability — whys with false funded status) enters through transitive trust, so trust needs its own Law 3: grounding in outcome receipts at every hop. And the prediction/understanding orthogonality is the two-sorted algebra felt from inside — prediction error lives in G, why-availability in L; the accurately-unexplained cell cannot persist within one web (accuracy matures into closure) but persists *between organs* (policy competent where the web is empty — EX-0's procedural memory was this cell before the frame existed). The audit receptor (competence-vs-coverage comparator) is the named detector. Tests: P91–P93.
+
 **Negative trust does the opposite (the signed rate):** a reliably-false source inverts — their assertions become evidence-against, their calm about X raises suspicion of X (a consistent liar is as informative as a truth-teller, read backward). But distrust is *expensive*: every utterance from a distrusted source opens a second-order motive invoice ("why are they telling me this?"), so distrust multiplies invoices where trust retires them — surprise inflation through communication, the mechanized cost of paranoia. Mechanism gap flagged: the current reliability posterior clips at [0.1, 0.9]; signed trust, inversion, and motive-invoice generation are unbuilt — and naive sign-flipping is defeated by double-bluff, so the signed rate needs the adversarial regime's discounting (T141). Tests: P88–P90.
 
 ---
 
-## 24. Unanswered Whys
+## 24. The Epistemic Umwelt — Inhabitation as a Way of Knowing
+
+### Why can a ledger be a world? (T159 — the user's arrival, via MCTS reflection)
+
+**Answered:** Because receipted structure already has terrain properties: funded structure holds weight (its receipts survive contact), open variables are gaps-as-places (connector geometry was always spatial — T159 makes it physics), unreceipted claims are void that swallows the foot that steps there. The Fit boundary becomes contact-triggers-replay: touch a claim and its receipts hold or fail under you. An abstract world is exactly as grounded as its ledger — which is why inhabitation works over the organism's own web, a legal corpus with case law, or a scientific evidence graph, and can never work over an arbitrary text pile. The stakes come from occlusion-hunting: the world withholds sealed truths and the organism survives by enumeration accuracy — the Omission Cycle promoted from operator pair to metabolism.
+
+### Why is inhabitation a second search paradigm, not a better tree search?
+
+**Answered structurally (P96 is the head-to-head bill):** The products differ in kind, not degree. Tree search discards its rollouts; inhabitation compounds a cartography that outlives the search. Tree search cannot discover that its state abstraction is wrong; inhabitation's receptor discovery searches the featurization itself. Visit-weighted expansion follows statistical salience; consequence-weighted carving follows survival relevance (the Stakeholder Theorems at search grain). And on receipted domains there is no sim-to-real gap: the habitat IS the deployment — the earned map is directly a map of the real object. Complementary per T154: MCTS stays the fastest rung; inhabitation offers the slow rungs, for the first time, as a search service pointed outward.
+
+### Why must the firewall constitution precede any build?
+
+**Answered (the highest-stakes C1 in the program):** The self-world's traversal reads the very ledger its discoveries would change. Without a constitution — traversal READS; only licensed operators WRITE; receipts LICENSE; and every receipt carries its WORLD-OF-ORIGIN tag (the fifth arrival's clause) — the meta-organism could wirehead its own terrain: flatten the gaps it should be hunting, pave the voids it should be mapping. The world-tag clause exists because without it, circulation among the three feeds is unmeasurable — and the pathologies of circulation are precisely what the typed loops make visible for the first time.
+
+### Why three worlds at once? (the fifth arrival — the tri-world metabolism)
+
+**Answered:** Base world, mature domain, and self-world are concurrent FEEDS into one ledger, not exclusive modes. Each supplies what the others cannot: the base world is the sole source of funded structure (conservativity — the concrete is poured only there); the mature domain supplies borrowed complexity on trust-credit, plus the answer keys that calibrate instruments; the self-world supplies allocation — where dormancy has crept, which imports never grounded, where the edges are. Grounding, scaffolding, steering. The object of study is the CIRCULATION, and the pathologies are circulation deficits by severed feed: rumination (inner loop, base feed cut), the scholastic failure (mature-domain import never grounded), atrophy (inner loop idle while stock pays). Humans run this schedule untyped — which is why a loop can idle invisibly for years; the founding lived case of §23's atrophy entry is the tri-world frame's oldest receipt.
+
+### Why is self-inhabitation tail recursion, not infinite regress?
+
+**Answered:** There is exactly one ledger. The inner world is a RENDERING of it, not a copy — so exploring it appends receipts to the same accumulator rather than opening a meta-level that needs its own meta-level. Well-foundedness comes from time's arrow: provenance points backward only, so the map can include itself by reference, never by containment. And the economy is the base case: receipts-about-receipts carry less information per fire at each layer, and info-priced existence starves towers of navel-gazing automatically. The loop has no termination condition because it is a metabolism, not a computation — but it is PACED BY THE BASE WORLD: self-inhabitation is nutritive exactly in proportion to fresh lived deposits, and the same loop with the feed cut is rumination. One mechanism, two regimes, distinguished by diet.
+
+### Why doesn't the traverser fall off its own edges?
+
+**Answered (conservativity re-derived from the survival side):** Because in this architecture an edge is an object, not an absence — typed absence is the founding primitive, so the map ends in connectors, not blankness. The organism is drawn to edges (they are where undischarged surprise lives), and enumeration at an edge is mandatory for navigation — but imagined structure is forbidden as ground. The falling hazard is never the edge; it is BELIEVING the enumeration — papering over the boundary and standing on the paper. The gate is architectural because the pull to fill in what lies beyond is pre-epistemic: you may lean over the railing and point; only the world pours concrete. The unmarked edge has a name now too: EX-0's procedural competence with no by-name receipts — standing past the map without knowing it — and the audit receptor (P92) is the edge-detector for the self-world.
+
+### Why is wrongness scarce — and what does a world's nutrition actually measure? (F37/F40, the wave's capstone)
+
+**Answered (measured, four times in one day):** Learning SPENDS the world's contradiction budget: closure admission selects mutation-robust content by construction, so the organism systematically converts everything falsifiable into non-falsifiable stock. Equilibrium is therefore the terminal state of successful learning — and it is immunity and sterility at once: a world that can no longer contradict the organism can neither teach it nor poison it (truthful testimony proved calibration-positive at every dose in spent worlds; every pathology probe bounced). A world's nutrition is its REMAINING contradiction budget — receipts a traversal could still falsify — not its size; the budget probe measures the spectrum per stratum in seven minutes, and only law-structure change manufactures wrongness at all. The language-side corollary is the pigeonhole law (P106, supported same day): a growing vocabulary in a fixed description language MUST conflate — the band space fills at ~50 profiles and everything composed after lands on an existing name. The world's budget bounds what can be learned; the language's capacity bounds what can be said; and both saturations are now measured quantities with mechanisms, not metaphors. For AW-2 corpus selection this settles the criterion: live litigation over settled doctrine, open science over textbooks — feed on what can still be wrong.
+
+### What does the whole thread rest on? (the lien, stated plainly)
+
+**Answered, with the books held open:** The program itself exhibits inhabitation-search's structure — the discoverer's years of traversing this terrain are what made T159 conceivable, and "the theory is its own receipt" is exactly the shape C2 patrols. Lawful accounting: lived practice is attested self-testimony at the highest available reliability, carrying a lien. T159 was made conceivable retrocausally and is funded only forward — by P94 (the closed loop), P95 (the occlusion ecology), P96 (the head-to-head). Timey-Wimey as phenomenology; linear as ledger. Tests: P94–P106 (registry).
+
+---
+
+## 25. Unanswered Whys
 
 These are questions the framework currently cannot answer, or has answered only partially.
 
@@ -806,6 +845,18 @@ T127 (evolved processing orders beat fixed in all 3 test environments) is confir
 **What is the language center's full generative capacity?**
 
 T155's first acceptances show the organism generating calibrated sentences: funded assertions only, dormant knowledge in evidential past, open slots as typed questions. But the full test — whether the language center can generate arbitrary natural language from the ledger without confabulation — hasn't been run. The demonstrations are controlled and narrow. The gap between "can generate calibrated assertions about its own epistemic state" and "can generate language that a human would find natural and informative" is large and unmeasured.
+
+---
+
+**Can the self-world renew its own contradiction budget, or does the tower exhaust?**
+
+F37 says a world's nutrition is its remaining contradiction budget, and learning spends it. The base world's budget is renewed by law-structure change; the occlusion ecology renews an idea-world's budget by withholding. But the self-world's budget is the organism's own unaudited, unfalsified mass — and a sufficiently thorough self-traversal spends it. Does reflexive inhabitation converge to a fully-audited, epistemically sterile self (the expert's inward turn ending in an inward equilibrium), or does base-world living deposit fresh contradiction faster than traversal can spend it? The tri-world schedule's long-run shape — and whether the developmental arc ends in stasis or circulation — hangs on this unmeasured race.
+
+---
+
+**Which receptors are optimal for idea-worlds — and is the trunk really substrate-invariant?**
+
+P100 predicts trace/replay-class receptors invariant across idea-worlds as grip/push are across physical tiers. Nothing has been grown in an idea-world yet; the comparative anatomy (P97) has no specimens. If the epistemic affordance trunk exists, embodiment has one anatomy in worlds of matter and meaning and the AW organism's sensory design can be seeded from the physical trunk. If it doesn't, every idea-world demands its own vocabulary from scratch and inhabitation-search loses its transfer economics. The whole AW program's cost structure hangs on a prediction with zero receipts either way.
 
 ---
 

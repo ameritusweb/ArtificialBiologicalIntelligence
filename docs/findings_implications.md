@@ -1889,6 +1889,499 @@ the user can now take with a supported bill behind it.
    its sequencing rule. The decision remains the user's; the bill
    behind it is now supported.
 
+### F33 [M] P105 dies VOID twice, honestly — no current venue makes clean slots bleed, and the pose language cannot tell the composed population apart
+
+**Finding (2026-08-13).** The readout-as-edge-detector card (P105,
+T159 fifth arrival) ran three iterations in one day and never reached
+its phenomenon. v1: UNTESTED — the matched-control pool (12) was
+smaller than the novel set (14) because standing telemetry flags 31
+of ~40 active slots in this world class. v2 (pairing amendment
+pre-registered blind, before any pair outcome was read): printed NOT
+SUPPORTED, corrected on inspection to VOID-BY-ORACLE — all 24 paired
+slots accrued ZERO strain over the in-distribution continuation
+(12/12 ties, dNM=0 and neg_frac=0.0 on both sides of every pair).
+v3 (oracle floor pre-registered on the card): VOID-BY-ORACLE again,
+under reseed + tier swap — zero strain events even at the standing
+strongest shift. Telemetry-clean slots are clean because their
+activation distributions sit far from their boundaries, and that is
+WORLD-CLASS-STABLE: drift at the world-identity stratum does not move
+it. The only regime that has ever churned standing content is
+law-structure dosing (F28's operating band).
+
+1. **P105's claim quantifies over strain-bearing regimes.** "Writing
+   finds your edges" presupposes a world still pushing on the
+   describable content; in regimes where standing content is
+   mutation-robust (F26) the claim has no subject matter. Successor
+   venue pre-registered: the law-structure lineage harness (demand_law
+   class), render at a mid-lineage boundary, strain over subsequent
+   structure-dosed generations. Overnight-class.
+2. **The oracle floor worked on first deployment** — it converted
+   what would have been a fake NOT SUPPORTED into an honest VOID.
+   Comparison floors belong on BOTH sides of a detection card:
+   detector population and oracle mass.
+3. **Descriptive, kept: the composed population is band-degenerate.**
+   16 slots share identical pose profiles — the LC pose channel
+   cannot distinguish much of the composed vocabulary at band
+   resolution. A capacity statement about the language, a concrete
+   target list for the Differentiate near-miss re-key ("one form,
+   two pulls"), and a caution for LC-0b: composed poses will collide
+   on the bus.
+
+### F34 [W] Truthful testimony believed at face value is calibration-POSITIVE, dose-monotone — the cargo-cult pathology is not importing, it is the exchange rate
+
+**Finding (2026-08-13).** The cargo-cult probe (P103, T159 fifth
+arrival; the attest-firewall lesion) ran two iterations. v1 (uniform
+50% diet substitution, truthful same-world donor): the LESIONED arm —
+transfers crediting fit_count and pulling certainty toward 0.9,
+testimony believed at face value — was the BEST calibrated of three
+arms before the shift (0.153 vs lived 0.206); post-shift, LIVED and
+ATT-INTACT returned BIT-IDENTICAL calibration (0.2002736371501126),
+localizing the washout: fit sign/score live in receptor space
+(stream-identical across arms) and the certainty EMA forgets
+diet-phase confidence within ~20 lived fits. v2 (per-slot doses
+0/50/100%, FIRST-CONTACT endpoint): dose-0 internal control gap
+-0.001 (pairing verified at slot grain); dose-0.5 gap -0.044;
+dose-1.0 gap -0.059 — monotone IMPROVEMENT with testimony dose, even
+at first out-of-distribution contact. Earned NOT SUPPORTED at
+truthful same-world testimony. Standing positive receipt: the intact
+firewall arm (sov.py's endpoint firewall, transfers carry no
+confidence) was calibration-indistinguishable from lived throughout —
+verified in field, twice.
+
+1. **The base certainty formula understates, and true testimony
+   corrects it.** Certainty tracks SCORE while calibration compares
+   against confirm FREQUENCY; in high-confirm worlds every lived arm
+   carries a native ~0.2 calibration error that believed-true
+   testimony repairs. Gullibility is adaptive under honest
+   environments — T158's trust thread with a measured mechanism: at
+   exchange rate 1.0 from a true source, import is pure gain.
+2. **The pathology requires a WORLD GAP or falsity, not import
+   volume.** These worlds never move against inherited content (F26:
+   mutation-robust Ks), so borrowed confidence never meets a
+   contradicting world. v3 (donor grown at tiers 7/6, testimony true
+   OF ITS WORLD, imported across the gap) is the direct test; both
+   readings pre-registered.
+3. **Borrowed confidence is transient in certainty but PERMANENT in
+   fit_count** — the lasting lesion channel is the funding gates, and
+   it went unexercised here (compose admission keys on co-fit, not
+   fit_count; no closure reached its gate). The durable cargo-cult
+   damage, if any, lives where borrowed counts buy structure — a v4
+   design note.
+4. **The firewall's real exposure is geometric.** centroid_pull
+   imports geometry lawfully even with confidence firewalled; under a
+   truthful same-world donor that is harmless, under a world gap it
+   is the poisoning channel — measured for the first time in v3's
+   tightness secondary.
+
+### F35 [W] Flow bills only through consumption — the growing web and the frozen web are bit-identical wherever nothing consumes the growth
+
+**Finding (2026-08-13).** The atrophy harness (P86/P103, T158 third
+arrival x T159 fifth arrival) ran two iterations. v1: printed NOT
+SUPPORTED, corrected to VOID-BY-POPULATION-CONFOUND — the treatment
+(flow) wrote the slot population (69 vs 45) and the endpoints
+averaged over each arm's own population, so control's young composed
+slots masqueraded as a frozen-arm service gap (the ledger-mass
+clause's membership face; C20 check 8's third receipt). v2
+(shared-population endpoints): CONTROL and FROZEN came back
+BIT-IDENTICAL on the shared population in every phase — static
+0.15890995649675776 both, drift and rehab likewise, gap exactly
+0.0000. Earned NOT SUPPORTED (cost clause) at the plain-fit venue,
+with the mechanism as the finding: composes create slots and edges
+that NOTHING CONSUMES in this harness, so structure genesis is
+completely decoupled from stock service. Preserved secondaries: the
+composed-only population's calibration is ~0.29 vs the inherited
+population's ~0.16 — new organs are born uncalibrated and earn their
+voice (T139 at slot grain); and the rehab ordering lever failed to
+bind twice (constant co-fit floors sit below the distribution — P87
+needs percentile-set floors and remains descriptive).
+
+1. **T158's stock/flow distinction acquires a mechanism clause: flow
+   must be defined as CONSUMED flow.** Unconsumed genesis is
+   decoration — F22's broad-mediator lesson and P76's delta-accounting
+   thesis arriving from the atrophy side. The atrophy experiment
+   discovered it needs the Serialization Thesis's consumption channel
+   to express its own phenomenon: v3 runs both arms at S+C
+   (expectation receipts through edges) so that missing edges have a
+   path through which to cost something. Conjunction billed: T158
+   atrophy x F32 staging.
+2. **For the organism, vocabulary growth without a consumer is not
+   knowledge growth** — a warning with reach for every genesis
+   mechanism (Individuate, Compose, phrase birth): the funding
+   economy prices existence, but only consumption converts existence
+   into service. Candidate law for the constraints doc if v3 confirms
+   the cost clause through consumption.
+3. **Young organs babble, measurably** — genesis floods naive
+   population averages with born-uncalibrated structure. Any
+   whole-web service metric is biased against growing systems;
+   population-closed measurement is not optional (check 8).
+
+### F36 [M] Population closure — one deficiency, three cards, one day: C20 gains its eighth check
+
+**Finding (2026-08-13).** Every first-iteration card in the
+fifth-arrival wave fell to the same class of deficiency, each in a
+different organ of the comparison: P105 v1's matched-CONTROL POOL
+exhausted with no floor stated; P105's ORACLE POPULATION carried zero
+events in two venues (floored only on the detector side); P86 v1's
+ENDPOINT MEMBERSHIP written by the treatment itself. P86 v3's card
+adds the fourth organ preemptively: an unfloored MEDIATOR CHANNEL
+(VOID-BY-MEDIATOR branch pre-registered). All are the ledger-mass
+clause's genus — the mass clause is its magnitude face, this is its
+membership face.
+
+1. **C20 check 8, registered in both constraints copies:** every set
+   entering a comparison — arms, matched controls, oracle events,
+   endpoint membership, mediator traffic — must be fixed at treatment
+   start or floored in advance, with membership unwritable by the
+   treatment. A comparison whose population the treatment authors is
+   VOID by construction.
+2. **The wave's method signature:** three VOIDs, zero wasted
+   verdicts — every VOID was converted into a mechanism finding and a
+   sharpened successor card within the session. The constitution
+   catching its own authors is the system working (F24's precedent,
+   now the pattern).
+
+### The fifth-arrival wave held together (generative question, 2026-08-13; includes P86 v3's VOID-BY-MEDIATOR — control-minus-frozen drift consumption 8 receipts against a 48-edge difference)
+
+1. **The pathologies of the ledger are diseases of DISEQUILIBRIUM,
+   and the standing sandbox is equilibrated by construction.** All
+   three experiments failed to produce their pathology for one shared
+   reason: the tiered-world class plus the inherited trunk is a
+   SOLVED world. Strain never reaches clean slots (F33), testimony is
+   never wrong (F34), missing vocabulary is never asked for (F35).
+   Conjunction with F26/F27 (mutation-robust Ks, lineage invariants):
+   the organism is living in retirement. Rumination, cargo-cult, and
+   atrophy — the tri-world circulation pathologies — all quantify
+   over a world MOVING relative to stock, so P102-P105's real venue
+   is the lineage/law-structure regime or the AW itself. Only a
+   moving world exposes the difference between earned and borrowed.
+2. **Defense in depth, measured: firewall (blocks), forgetting
+   (heals), info-pricing (starves) — and the throttles that make the
+   organism hard to poison make it equally hard to enrich.** The
+   cargo-cult lesion was defeated twice over: once by the firewall
+   (verified in field), and once by a defense nobody designed for it
+   — the certainty EMA forgets borrowed confidence within ~20 lived
+   fits. Same coin, other face: the TAU_E admission ceiling that
+   protects geometry from noise also caps the service value of new
+   structure at ~5-8 events/gen (P86 v3's mediator VOID = P76-v3's
+   ~300-event ceiling, third appearance). The junction law working as
+   passive immunity, with its price tag now visible.
+3. **Pathology needs persistence: a poisoned meal is harmless, a
+   poisoned DIET is the disease.** In v1-v3 the imports STOP at the
+   shift — and the EMA heals in ~20 fits. Real cargo-cult agents keep
+   importing while the world contradicts; human certainty has no
+   20-fit forgetting constant because the social channel re-feeds it
+   continuously (P89 contagion, P91 concentration). The pathologies
+   are CIRCULATION STATES, not contamination events — exactly the
+   fifth arrival's frame, arriving from the null results. v4 design
+   pre-registered: MAINTAINED diet through the OOD phase (imports
+   fighting the world's corrections) vs withdrawal arm; prediction —
+   the maintained arm finally bills and the withdrawal arm heals at
+   the EMA constant. The washout is thereby reread as the
+   architecture's REHABILITATION prediction: stop the import and the
+   ledger heals itself; T158's trust-rehab and atrophy-rehab (P87)
+   are the same move on two feeds.
+4. **Where durable damage must hide: the permanent records.**
+   Certainty forgives; fit_count, provenance, and structure never
+   do. The lesion's lasting channel (borrowed fit_count buying
+   funding decisions) went unexercised because compose keys on
+   co-fit. Any real corruption mechanism in this architecture must
+   route through what is append-only — which is also why C2/Law-3
+   guard exactly there.
+5. **The admission throttle is the designer's exit's first concrete
+   target.** At current constants the marginal service value of new
+   vocabulary is throttled to ~0 — flow's worth must live in closure,
+   court, and language, or the constants are mispriced. P101 gains a
+   sharp instance with a measured range: make TAU_E / stride /
+   forgetting constants selectable; prediction — selection raises
+   consumption throughput until marginal service meets marginal
+   noise-risk, and the hand-set values are revealed as either
+   defensible or timid.
+6. **The certainty estimator's native ~0.2 understatement in
+   high-confirm worlds is now a measured standing debt** (certainty
+   tracks score; calibration compares frequency). The LC reads
+   certainty for assertion strength, so the speech organ inherits
+   systematic humility — safe direction, but now a number C16 allows
+   beating.
+7. **Trunk testimony cannot be poisoned by distance — the cargo-cult
+   trade is a CANOPY phenomenon** (cargo v3's descriptive, unbilled:
+   verdict UNTESTED on a mis-set bank floor — 50 demanded of a
+   population whose ceiling is ~39; the authoring error owned, check
+   8 cuts both directions). Even under tiers-7/6-to-(4,3) testimony
+   the inversion persisted (lesion 0.189 < intact 0.212 < lived
+   0.228 at first contact) — because the inherited trunk is
+   world-invariant (T95, F27's lineage invariant), so cross-world
+   testimony about trunk content is TRUE EVERYWHERE by construction.
+   Conjunction with P97: the trunk/canopy split is also a TRADE
+   SAFETY map — trunk imports are safe at any distance, canopy
+   imports are the dangerous trade, and falsity must be manufactured
+   (adversarial testimony) or maintained (implication 3) to exist at
+   all. The mature-domain feed's real risk surface is
+   domain-specific content and standing re-feeding, not distance
+   per se.
+
+### F37 [W] Wrongness is a scarce resource: no world movement available to the sandbox can contradict standing content — and the healing machinery verified itself to the last bit
+
+**Finding (2026-08-13, cargo-cult v4 — the maintained diet).** The
+circulation-state card ran clean and billed VOID-BY-EQUILIBRIUM: the
+disequilibrium probe (wave fix 1, first deployment) measured LIVED's
+canopy confirm drop at first OOD contact as 0.0000 (n=18). Reseed +
+tier swap does not move the world against composed content either.
+With v1-v3 this completes the survey: in-distribution continuation,
+world-identity change on trunk content, world-identity change on
+canopy content — NO stratum of world movement available to the
+tiered-world sandbox can make any standing content WRONG. The probe
+blocked what would otherwise have printed as an earned-looking NOT
+SUPPORTED over testimony that never became stale.
+
+Preserved descriptives, both load-bearing:
+- **The healing machinery verified end-to-end, bit-identically.**
+  WITHDRAW (43,200 lesioned transfers through the diet, then clean)
+  converged to THIN, its matched-exposure control, EXACTLY: standing
+  error 0.2536 = 0.2536. Withdrawal leaves zero trace at the
+  certainty clock — the rehabilitation prediction confirmed as
+  mechanism even though the "damage" here was a benefit.
+- **The inversion's fourth replication:** MAINT (maintained
+  old-world testimony) was again the best-calibrated arm (0.165 vs
+  THIN 0.254) — because the old world's testimony remained true of
+  the new world.
+
+1. **Wrongness must be manufactured, and only law-structure change
+   manufactures it.** Across the whole wave, every pathology card
+   converged on the same wall: nothing in this venue can be wrong.
+   F28 found the operating band where the web churns and the court
+   speaks; F37 adds that this band is also the EPISTEMIC-PATHOLOGY
+   band — the only regime where beliefs can be contradicted is the
+   regime where the world still legislates. P103 and P105 now share
+   one successor venue: the law-structure lineage.
+2. **Equilibrium is immunity AND sterility.** A world that can no
+   longer contradict the organism can neither teach it nor poison
+   it — the bootstrap thesis's dark face. The base-world feed's
+   value in the tri-world economy is precisely its remaining
+   capacity to contradict; when that is spent, lived contact and
+   imported testimony become epistemically equivalent (measured:
+   four arms, four diets, one calibration ordering, no world-side
+   difference). For the AW build: an idea-world's nutritional value
+   should be measured as its CONTRADICTION BUDGET — receipts the
+   traversal could still falsify — not its size.
+3. **Adversarial testimony is not a rescue venue for this claim.**
+   In a world where confirm rates are uniformly high, any upward
+   confidence push is calibration-positive by arithmetic; writing a
+   deliberately wrong value into certainty would damage a register,
+   not test a claim about ungrounded confidence meeting a
+   contradicting world. The claim needs the world to do the
+   contradicting; the venue must supply it.
+4. **Learning is the spending of the world's contradiction budget —
+   equilibrium is not an accident, it is the terminal state of
+   successful learning.** F26's corridor law says closure admission
+   selects mutation-robust content BY CONSTRUCTION: the organism
+   systematically converts everything falsifiable into
+   non-falsifiable stock. The sandbox is spent because the trunk ATE
+   its wrongness — D1's ratchet at world grain. Corollary: F26's
+   dose sweep was BUDGET SPECTROSCOPY without the name — it measured
+   this world class's contradiction budget per stratum (furniture 0,
+   law-params 0, law-structure ~0.06, reseed = jurisdiction loss,
+   not contradiction). The instrument exists; it needs only its
+   true label.
+5. **The tri-world schedule follows the budgets: a second derivation
+   of P104's developmental arc.** Feeds exhaust — the infant's base
+   world, the student's curriculum, the expert's local domain — and
+   attention migrates to whichever world still holds unfalsified
+   falsifiables. The expert turns inward because the inward world is
+   the last with budget remaining. This derives the arc from budget
+   exhaustion rather than ledger mass (the two may be one quantity:
+   mass accumulated ~ budget spent); P104 gains a discriminating
+   sub-prediction — artificially replenish the base world's budget
+   (law-structure dosing) and the evolved schedule should DELAY its
+   inward shift at matched ledger mass.
+6. **Atrophy's etiology reverses: it is an environmental diagnosis,
+   not an organismal lesion — and P86's true design needs no
+   freeze.** The natural induction is an INTACT organism in a SPENT
+   world: no invoices arrive, the why-flow idles with all machinery
+   healthy, stock keeps paying. The founding lived case rereads
+   exactly: autopilot = local equilibrium (the habitual world's
+   budget exhausted), and rehabilitation by simple whys = MIGRATING
+   to an unspent world and borrowing its budget ("why is the sky
+   blue" = a domain with falsifiables left). Rehab is world
+   migration, not organism repair — they changed their diet of
+   worlds, not their machinery. P86 v4: full organism, two arms,
+   spent venue vs law-structure-dosed venue; predict flow decay
+   (genesis/closure/pose rates) with intact stock in the spent arm,
+   flow restart on migration. No lesions anywhere.
+7. **G forgets, L remembers — now measured.** The bit-identical
+   WITHDRAW-to-THIN convergence means certainty-class state is a
+   function of recent lived contact alone: path-independent at the
+   clock's horizon. ALL history lives in the append-only sort
+   (fit_count, provenance, structure). For the FEP position paper's
+   §5: precision-as-estimated is memoryless BY MEASUREMENT; the
+   ledger is the only memory an epistemic state has.
+8. **For AW-2 corpus selection: nutrition = remaining contradiction
+   budget.** A receipted corpus feeds inhabitation-search in
+   proportion to its unfalsified-but-falsifiable mass — live
+   litigation, open science, contested provisions — not its size or
+   prestige. The Magna Carta as museum piece is spent; constitutional
+   law under active challenge is not. AW-1's occlusion ecology
+   rereads as a BUDGET-RENEWAL ENGINE (the world withholds sealed
+   truths precisely to keep its budget positive), and P92's audit
+   receptor measures the self-world's remaining budget (unaudited
+   competence = the inward feed's falsifiables).
+
+### F38 [W/M] Spent-world atrophy, first paired arms: the predicted shape at starved n — and an endpoint dominated by a constant
+
+**Finding (2026-08-13, P86 v4 — the environmental design, no
+lesions).** Two full-organism arms, seed-paired (P1 approximately
+paired — encoder-training nondeterminism, the F22 caveat, closure at
+gen 1 vs 2), spent (re-lived lineage) vs dosed (structure events at
+the operating band), migration tail on both. The card's pooled-total
+verdict rule printed NOT SUPPORTED (endogeny: 2.0 vs 2.25
+events/gen) and is CORRECTED on decomposition: the genesis channel
+is a CONSTANT — exactly 2.0/gen in every phase of every arm, the
+boundary scan cap at its ceiling, world-independent — so the total
+was ~89% floor. Check 8 gains a cousin clause the same day it was
+registered: an endpoint CHANNEL dominated by a treatment-independent
+constant confounds the comparison exactly as a treatment-written
+population does. On the world-sensitive channels (court +
+closure-lifecycle), pre-listed as components on the card:
+  - FLOW STARVATION, predicted shape: spent P2 = 0 events / 12
+    gens; dosed P2 = 3 (0.25/gen — consistent with F28's 0.222/gen
+    band rate).
+  - STOCK PARITY, exact: both arms end P2 at closed=1, assertable=1;
+    the spent world evicted nothing (it cannot contradict — F37
+    confirmed in the organism-scale venue).
+  - MIGRATION RESTART, the sharpest cell: spent P3 court = 2 in 4
+    gens (0.0 -> 0.5/gen at first fresh laws) while dosed P3 = 0 —
+    restart is migration-specific, not a time artifact; the
+    time-control did its job. Descriptive bonus: the static-world
+    organism spoke MORE at fresh laws than the change-acclimated
+    one — a rebound suggestive of invoice backlog, unbilled.
+But the dosed arm's world-sensitive mass (3) sits UNDER the card's
+own floor (4), so the honest verdict is UNTESTED-AT-HORIZON with the
+full predicted pattern on record: 12 gens is one-half of one F28
+replicate, and genesis-gated events need rates over replicates
+(check 7a's lesson, recurring). Successor: same design, R=4-6
+replicate pairs, verdicts on world-sensitive channels only, floors
+computed from F28's measured rates x gens x reps.
+
+### F39 [W] P105's four-venue survey closes: the detector and the oracle have never met — and cannot, below a mature web in a live world
+
+**Finding (2026-08-13, P105@band, R=2 pooled).** In the operating-band
+lineage — the venue where the oracle finally LIVES (whole-web strain
+34,750 and 38,192 near-miss events per replicate, churn 2 each) — the
+DETECTOR came back empty in both replicates: A=B=C=0, N=0, zero
+pairs. The analyzer printed VOID-BY-ORACLE (vacuous over zero pairs);
+the honest disposition is DETECTOR-EMPTY. Mechanism, both sides:
+(i) the inherited population is band-DISTINCT by construction (33
+families, 33 profiles — no collisions possible), and at P1-scale
+closure horizons there is almost no composed population, which is
+where the sandbox's band-degeneracy (F33: 16 colliding slots) lived;
+(ii) in a live world, telemetry SATURATES (T=30/33), so per-slot
+novelty is squeezed from the other side too. The four-venue survey:
+sandbox in-distribution (detector full, oracle dead), sandbox drift
+(same), band x2 (oracle alive, detector empty). The detector's
+requirement is a CROWDED VOCABULARY; the oracle's requirement is a
+LEGISLATING WORLD; no current venue has both.
+
+1. **P105 quantifies over mature organisms in live worlds** — the
+   registered claim's honest scope, discovered by exhaustion: young
+   webs have nothing degenerate to say, retired worlds have nothing
+   to bleed. Successor venue (the only one left, and now precisely
+   specified): a deep-time-grown web (30+ gens of composes — the
+   crowding) transplanted into or grown under law-structure dosing
+   (the strain). Overnight-class, pre-registered here.
+2. **Rendering's irreducible value is RELATIONAL.** Per-slot
+   telemetry saturates exactly when worlds are alive, so any
+   rendering-flag that is per-slot is redundant there by
+   construction. The collision class — pairwise, inexpressible in
+   per-slot telemetry — is the only detector class with in-principle
+   novel content, and it needs band-space crowding to exist. "Writing
+   finds your edges" survives as: language finds the CONFLATIONS,
+   telemetry finds the strains, and only a crowded, contradicted
+   organism has both to find.
+3. Instrument note: the analyzer's branch order made a vacuous
+   paired-oracle print as VOID-BY-ORACLE where DETECTOR-EMPTY
+   (pairs=0 with a live whole-web oracle) is the informative label —
+   corrected in this entry; the branch costs nothing but the label
+   matters for the record.
+
+*(Generative question, same day — implications 4-8.)*
+
+4. **The language center is the INTERNAL court.** The external court
+   (F28) hears the environment-language's description failures; the
+   renderer hears self-description COLLISIONS — two organs, one
+   function: demand for differentiation. Near-miss concentration is
+   the web's split-demand signal at the boundary grain; collision
+   pressure is the same signal at the vocabulary grain. F13's
+   differentiation-demand economy gains a second, language-side
+   supplier — and the Differentiate re-key question (F29) now has
+   two candidate keys that should be COMPARED, not chosen between:
+   near-miss (world-side) vs collision (language-side).
+5. **Collisions are guaranteed by growth — the pigeonhole law.** A
+   growing vocabulary rendered into a FIXED description language
+   must eventually collide (band space does not grow with the
+   composed population). Conflation is not a defect of the language;
+   it is the arithmetic fate of any language that stops growing while
+   its speaker doesn't — T153's co-complexification treadmill
+   arriving inside the organism. Design consequence for LC-1+: the
+   LC needs its own Differentiate — BAND REFINEMENT funded by
+   collision pressure (the language's demand economy, mirroring the
+   web's) — or its diagnostic value saturates at exactly the
+   maturity where it becomes possible.
+6. **Candidate P106 — the maturity curve:** rendering-flagged
+   collision pairs grow superlinearly with composed-population size
+   past a crowding threshold; falsifier: flat or linear growth (band
+   space effectively unbounded — the pigeonhole never binds).
+   Cheapest venue: render EXISTING deep-time web snapshots at
+   successive generations if state was persisted; else checkpointed
+   deep-time growth. Registration awaits the user's word.
+7. **Telemetry needs info-pricing — C12 at the instrument grain.**
+   T=30/33 in live worlds means existence-flags (near_miss > 0)
+   saturate exactly where worlds live; an always-on flag carries no
+   information (the rent economy's lesson, applied to our own
+   instrumentation). Successor cards define T by near-miss RATE
+   percentile, not existence.
+8. **AW-0 sensory design inherits F39.** The meta-organism's terrain
+   is informative where the base vocabulary is crowded (ledger
+   regions indistinguishable to current senses = the terrain's
+   conflations) and where the base world still legislates (strain
+   marks). Prediction for the traversal's Umwelt: its highest-value
+   discoveries will be PLACE-ALIASING — two ledger regions its
+   eigen-fingerprint vision cannot tell apart — the internal analog
+   of pose collisions, and the reason the fingerprint (P84) should
+   be audited for collision structure before it is trusted as the
+   AW's eyes.
+
+### F40 [W] The pigeonhole binds, visibly: the pose language's carrying capacity is ~50 profiles, and vocabulary growth past it is conflation by arithmetic
+
+**Finding (2026-08-13, P106 first bill — SUPPORTED).** One web grown
+over 24 worlds, rendered at every boundary. Per-capita composed-
+composed collision rate rises monotonically with crowding: Spearman
++0.96 over 23 qualifying checkpoints; final 212 collision pairs among
+72 composed slots (per-capita 0.48 -> 2.94, ~6x). The mechanism is
+directly visible: DISTINCT PROFILES SATURATE AT ~50 from world 12
+onward (50-51 flat while the population grows 36 -> 72) — the band
+space fills, and every subsequently composed slot lands on an
+existing profile. The fixed pose language can describe ~50 distinct
+things in this organism; vocabulary beyond that is unspeakable
+without conflation. Descriptive extra, unregistered: INHERITED slots
+begin colliding at world 17 (total - cc = 2-4 pairs) — band-distinct
+at birth is not band-distinct forever under geometry drift; a
+geometry-erosion signal nobody registered, kept for the record.
+
+1. **LC-1's band-refinement operator now has a measured demand
+   curve, and a measured onset**: refinement should begin earning
+   around the profile plateau (composed ~36 here, world 12), and the
+   collision-pressure economy has real magnitudes to price against
+   (F39 impl. 5's design consequence, funded by data one hour
+   later).
+2. **The carrying capacity is a property of the LANGUAGE, not the
+   world** — ~50 profiles falls out of 33 families x 3 bands under
+   sparse threshold profiles. T153's co-complexification treadmill
+   now has its in-organism number: any fixed description language
+   has a measurable ceiling, and the organism's vocabulary crossed
+   this one at about half its final size.
+3. **P106 is ready for registration** (currently a candidate; the
+   claim, gates, and first bill are on the record; registration
+   into the registry awaits the user's word).
+
 ## Discharged (history)
 
 - **The EGGROLL conjunction → T154** (2026-08-09): the paper (low-rank
