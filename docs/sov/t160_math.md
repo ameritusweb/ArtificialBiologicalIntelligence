@@ -72,6 +72,47 @@ coordinates); $\Phi(D)$ = **onward fertility**: the trajectory capacity of
 $D$, the value of the achievable set $\{\tau' : \tau' \text{ launches from }
 D\}$ (an option value; see Open Problems for its exact measure).
 
+**D7 (Attention dynamics and robustness — block xi's amendment to D3).**
+Attention is the binding resource: budget $A$ per step, maintenance load
+$M(t) = \sum_i c_i(t)$ over held states and actively priced trajectories,
+free attention $F = A - M$ funding all frontier work. D3 upgrades: a
+ROBUST sustainable state is $q \to 1$ at DECREASING cost; robustness is
+the asymptotic maintenance rate $c_\infty$ (the theorem is the unique
+artifact class at $c \equiv 0$), and world drift sets a floor on
+$c_\infty$ — F20 made quantitative — giving a carrying capacity of held
+structure $A / \overline{c_\infty}$. Two attractors: compounding
+liberation ($F$ grows; production compounds) vs MAINTENANCE SCLEROSIS
+($M \to A$, $F \to 0$; technical debt, ossification) — a pathology cell
+distinct from the rut (idle $F$ vs no $F$). In-house existence proof:
+rent is charged on open variables only, so CLOSURE IS THE
+$c \to 0$ EVENT — the open-mass rent roll is $M(t)$, reopen is
+maintenance debt resurfacing. Guard: liberated attention is credited
+only as funded production (else the vagrant cheat).
+
+**D8 (Thriving — $R_0$, the reproductive number of arrivals).** For a
+certified arrival, let $R_0$ = the expected number of FURTHER certified
+arrivals it funds, through discharge (pricing attention freed),
+liberation (maintenance retired, D7), and fertility (destinations
+opened, $\Phi$). The certified future is a Galton–Watson branching
+process with offspring mean $R_0$:
+$$\textbf{THRIVING} \iff R_0 > 1 \quad (\text{supercritical});\qquad
+\textbf{SURVIVING} \iff R_0 = 1;\qquad \textbf{DECLINING} \iff R_0 < 1.$$
+$\log R_0$ is the thriving rate (the Malthusian parameter of the
+receipted future); extinction probability is nonzero even when
+supercritical — thriving is a favorable branching law, never a
+guarantee. Subsumption: $R_0 > 1$ requires liberation (sclerosis =
+$R_0$ decaying through 1), fertility (the rut = $R_0 \approx 0$ at
+perfect calibration), and calibration (inflation = phantom offspring;
+receipts make $R_0$ an honest statistic) — D6's static price becomes a
+reproductive law. Unifications: the F24 rehabilitation curriculum is
+supercriticality engineering (cheap high-fertility arrivals until the
+process crosses 1); the spent world (F42) is environmentally forced
+subcriticality (the world's budget and drift cap attainable $R_0$;
+migration moves to a venue where $R_0 > 1$ is achievable);
+flourishing-vs-languishing gains its order parameter (languishing =
+hovering at criticality). Empirical anchors: P114 (drift-capacity),
+P115 ($R_0$ receipt-computed across venues).
+
 ---
 
 ## 3. Theorems
@@ -256,7 +297,24 @@ explains how minds reason; T160 is a candidate for what minds are for.
 6. **Empirical anchors:** P107 (blocker-first as allocation law — Thm 1's
    organism test), P108 (Thm 2's), P109 (level 2b), P110 (ratchet gating —
    licensing by $H + \kappa U$ threshold), P111 (Cor. 6.2's inflation
-   signature).
+   signature), P114 (D7's drift-capacity law), P115 (D8's $R_0$ across
+   venues).
+7. **Effective sample size under episode replay (D4 venue note,
+   F56).** In the replay venue class, a world's episodes replay the
+   same deterministic field trajectory, so field-driven receipt
+   counts overcount independent evidence by up to the episode count
+   (4x here). D4's sampling term should use effective n — receipts
+   divided by within-world episode redundancy — for any field
+   statistic; event-driven receipts (triggers, NPC interactions,
+   when enabled via TIER_EVENTS) do not share the redundancy.
+8. **Branching refinements (D8).** $R_0$ is the offspring MEAN; the
+   variance of the offspring distribution governs extinction risk at
+   fixed $R_0$ (a high-variance thriver dies more often than a steady
+   one — the portfolio-diversity candidate re-enters here as variance
+   reduction). Extinction probability estimates, the effect of the
+   caregiver subsidy (childhood as externally funded $R_0 > 1$ before
+   the organism can sustain it), and the coupling of $R_0$ to the
+   world's contradiction budget are open.
 
 ---
 

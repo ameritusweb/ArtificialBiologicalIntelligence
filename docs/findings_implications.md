@@ -2382,6 +2382,1462 @@ geometry-erosion signal nobody registered, kept for the record.
    claim, gates, and first bill are on the record; registration
    into the registry awaits the user's word).
 
+### F41 [W/M] The conjunction venue is a mass-extinction event: 31/33 composed slots die at the domain transition — and the mortality "support" was mortal-vs-immortal by class
+
+**Finding (2026-08-13, P105 v5).** The mortality card printed
+SUPPORTED (20/21 discordant pairs N-died, 0.95) and is CORRECTED to
+VOID-BY-CLASS-CONFOUND: 20 of 27 pairs matched composed novel slots
+against INHERITED controls, which are eviction-EXEMPT by
+construction — an immortal control class. Composed slots died at
+~95% regardless of rendering flags (25/26 N-side, 6/7 control-side);
+the one fair cell (composed-vs-composed, 6 pairs) holds a single
+discordant pair. Check 8 gains its second same-day clause: PAIRING
+MUST BE CLASS-CLOSED on every rule-relevant dimension — eviction
+exemption is a class, and a comparison across an immortality rule is
+void by arithmetic. (Fourth population-closure catch in one day; the
+check is earning its keep on its authors.)
+
+The real finding underneath: **the domain transition is a
+mass-extinction for the composed vocabulary.** 31/33 composed slots
+— flagged and unflagged alike — died within the lineage phase:
+sandbox-earned canopy is built on sandbox co-fire statistics, the
+lineage world fires differently, fire-rates leave the profitable
+band, and net-per-fire kills the population within ~2 generations
+(F31's signature at population scale). Three consequences:
+1. **An accidental first transfer datum at SOV grain** (the
+   within-domain-generalization question, asked in conversation
+   hours before the data arrived): composed canopy does NOT transfer
+   across domain classes — 94% mortality on contact — while the
+   inherited trunk's survival is UNMEASURABLE here because the
+   exemption masks it. The trunk/canopy transfer asymmetry (T95,
+   P97) now needs the exemption LIFTED to be testable at all:
+   the designer's-exit question "should inherited slots be
+   eviction-exempt?" (F31's flagged cosmetic) is promoted to
+   load-bearing — the exemption is not cosmetic, it is an untested
+   immortality privilege that blocks the trunk's own survival test.
+2. **P105 remains unbilled at every venue** — the claim now needs
+   class-closed pairs AND a graded oracle (time-to-death, not
+   binary death: at 95% class mortality, binary saturates).
+   v6 pre-registered: composed-only pairs, per-generation death
+   tracking, endpoint = flagged composed die EARLIER than unflagged
+   composed (rank), floors: unflagged composed >= 6.
+3. **Vocabulary is capital denominated in a domain's currency.**
+   The crowding that took 24 worlds to grow was spent in 2
+   generations of a different world's economics — F35's "flow bills
+   only through consumption" has a mortality face: structure earns
+   its existence per-domain, and a domain shift is a currency
+   collapse for every slot whose fire pattern was domain-specific.
+
+*(Generative question, same day — implications 4-8.)*
+
+4. **Migration's two faces are one move: F38's restart and F41's
+   extinction.** Migration reawakens the invoice machinery (the
+   spent arm's court spoke at fresh laws) AND destroys the
+   domain-specific inventory (94% canopy mortality). Rehabilitation
+   by world-change TRADES STOCK FOR FLOW — the rehab protocol's
+   fine print, and the lived case's actual shape: rebuilding from
+   simple whys is rebuilding canopy in the new domain on top of a
+   surviving trunk. Whether the trunk survives on merit or by
+   privilege is now the open question underneath everything.
+5. **The rent clock destroyed slower capital than itself — a
+   candidate junction violation.** T154's law: fast learning must
+   not overwrite slow structure. The rent economy (kill time ~2
+   gens) erased vocabulary built over 24 worlds. This is
+   catastrophic forgetting at the vocabulary grain, executed by our
+   own economy — unless the deaths were DESERVED (vacuous), which
+   the fire-rate signature can decide for free: orphaned dies
+   firing-NEVER (its co-fire context vanished), vacuous dies
+   firing-ALWAYS. The taxonomy gap made concrete: the ORPHANED
+   clock (F23's dormancy) covers only CLOSED slots — open composed
+   slots whose world leaves have no hibernation path, only
+   starvation. Mechanism candidate, demanded by these receipts
+   (C10 satisfied): extend dormancy to open slots on fire-rate
+   COLLAPSE (-> 0), reserving rent death for fire-rate SATURATION
+   (-> 1). Opposite fates for opposite pathologies, separable by a
+   signal already computed.
+6. **The world-of-origin tag acquires an economic function.** The
+   fifth arrival's firewall clause (receipts carry world tags) was
+   motivated by measurement — circulation is unmeasurable without
+   it. F41 adds jurisdiction: a tri-world organism's slots should
+   pay rent IN THE CURRENCY OF THEIR OWN WORLD, or every feed
+   switch is a mass extinction of the feeds not currently lived.
+   Domain-tagged rent is the difference between an organism that
+   circulates and an organism that razes and rebuilds each world's
+   vocabulary on every visit.
+7. **The exemption-lift audit is the genome audit's economic arm**
+   (task #42 conjunction): run a sandbox accountant with the
+   inherited eviction exemption REMOVED and measure which trunk
+   slots self-fund under net-per-fire. Self-funding trunk =
+   inheritance earning its keep (T95 demonstrated economically at
+   last); dying trunk slots = decorative inheritance, genome dead
+   weight found by rent. Cheap, sandboxed, core untouched.
+8. **Method, owned: check 8 caught all four population-closure
+   deficiencies POST-run.** The check is necessary and validated —
+   but its application must move to card time: enumerate the
+   rule-relevant class dimensions (eviction classes, EMA clocks,
+   caps, exemptions) explicitly in the docstring before launch. A
+   check that fires only in the post-mortem is a coroner; the
+   pre-flight wants it as an inspector.
+
+*(v6 addendum, same day — the gen-1 cliff and what its arithmetic
+already proves.)*
+
+9. **The death histogram is a single cliff — {gen 1: 14} — and the
+   speed convicts the mechanism before the autopsy reports.** Time-
+   rent drains at ~0.01/gen against a floor of -1.0: the passive
+   channel takes ~100 generations to kill. Death within ONE
+   generation is only reachable through the ACTIVE channel —
+   negative net-per-fire at full volume — which is F31's measured
+   vacuous signature to the step (dead at exactly 4800 fits,
+   balances deep negative). The arithmetic therefore says the
+   composed slots died SATURATED, not orphaned: in the new world
+   they fired on EVERYTHING. AUTOPSY CONFIRMED SAME HOUR, 72/72
+   saturation-class, zero collapse, zero mixed — the inference was
+   billed before the result landed and held unanimously. The
+   economy was just; hibernation is NOT demanded by these receipts
+   (C10 fails for it — shelved unless a future venue produces
+   collapse-deaths); the threshold-absolutism diagnosis (impl. 10)
+   is the standing defect.
+10. **The real defect surfaces as a C12 violation hiding in plain
+    sight: family thresholds are ABSOLUTE in activation space.**
+    web.rebase re-anchors centroids and radii when the embedding
+    space moves — but NOTHING re-anchors thresholds when the
+    ACTIVATION DISTRIBUTION moves. A slot's firing condition is a
+    price in the old world's currency; the new world's distribution
+    trips it constantly; the slot becomes vacuous-by-transplant and
+    the economy correctly executes it. "Vocabulary doesn't
+    transfer" decomposes: reference survives (the geometry is
+    intact), SELECTIVITY dies (the threshold discriminates nothing
+    in the new distribution). Rank-rarity won the surprisal wars
+    for exactly this reason (T138: self-normalizing beats absolute
+    under distribution change) — the same law, unapplied to the
+    slot's own firing condition. Mechanism candidate (gated on the
+    autopsy confirming saturation): THRESHOLD REBASE — on world-
+    class change, thresholds re-normalize to the lived activation
+    distribution, the C12 repair at the receptor-condition grain.
+11. **Design input for the acceleration card (#62), decisive:**
+    warm-start capital must transfer STRUCTURE (geometry, edges,
+    closure history) and RE-EARN thresholds — transplanting
+    thresholds transplants the death. And the human reading writes
+    itself: the expert entering a new field sees their old
+    categories everywhere (assimilation-overreach — every slot
+    fires); recalibration is learning what does NOT count as your
+    old concept in the new domain. Transfer's first pathology is
+    not forgetting; it is over-firing.
+
+### F42 [W] Spent-world atrophy SUPPORTED at R=3: total flow starvation, exact stock parity, migration-specific restart — the world was the patient
+
+**Finding (2026-08-13, P86 v4 pooled).** Three seed-varied replicate
+pairs, world-sensitive channels only (genesis excluded per F38).
+STARVATION: spent-world P2 flow = 0 events across 36 pooled
+generations — total — vs 0.306/gen at the operating band (11 events,
+floor 8 cleared; F28's 0.222/gen reproduced). STOCK PARITY: every
+pair within +/-1 assertable at P2 end; the spent world evicted
+nothing. RESTART: 3/3 replicates, spent P3 = 0.417/gen vs dosed P3 =
+0.167 — migration-specific, time-controlled. Registry: P86 ->
+Supported in ENVIRONMENTAL form (the freeze form was discharged VOID
+by F35/F38). T158's atrophy pathology confirmed in its
+F37-corrected shape: an INTACT organism in a spent world idles with
+all machinery healthy — no invoices, no flow, stock paying — and
+migration restarts the flow. The rehabilitation protocol's mechanism
+is billed: the founding lived case changed worlds, not machinery.
+
+### F43 [W] The fix arc closes in one session: 72/72 saturation deaths convict absolute thresholds; threshold rebase built and battery-sealed; the trunk earns its keep 32/33
+
+**Finding (2026-08-13).** Three instruments, one repair:
+- **AUTOPSY (72/72 saturation, 0 collapse, 0 mixed):** the composed
+  vocabulary died VACUOUS-by-transplant — fired on everything in the
+  new distribution. The inference was billed from death-speed
+  arithmetic BEFORE the result landed and held unanimously.
+  Hibernation is NOT demanded (C10 fails); the economy was just; the
+  standing defect is C12 at the firing condition: family thresholds
+  were ABSOLUTE in activation space while rebase re-anchored only
+  the embedding space.
+- **THRESHOLD REBASE built (sov.py, opt-in; battery 172/172):**
+  thresholds become QUANTILE commitments — snapshot the old
+  distribution (closing the old book; the blend bug was caught by
+  the battery's first run), scout the new world WITHOUT fitting
+  (observe_activations: perception without commitment — a vacuous
+  transplant would otherwise be executed by rent before it could
+  recalibrate), then map each threshold's old percentile onto the
+  new distribution. Closed Ks are untouched by default: a K's
+  boundary is part of its commitment identity (C4-adjacent);
+  rethresholding it requires explicit opt-in. Geometry sort only —
+  no receipts minted, Law 1 safe by construction.
+- **EXEMPTION AUDIT (TRUNK-EARNS, 32/33 = 0.97):** with the
+  eviction exemption lifted in a sandbox, the inherited trunk
+  survives the same economy that executed all 72 composed slots —
+  survivors at fire rates 0.000-0.203, deeply selective.
+  Inheritance self-funds ON MERIT in this venue; T95's universality
+  claim has its first economic receipt. The one death:
+  'organization', fire rate 1.0, vacuous in BOTH venues (entry
+  balance -239 from growth) — one decorative inherited slot, found
+  by rent, handed to the genome audit (#42). Caveat held honestly:
+  8 gens partly measures sandbox savings; the ~100-gen drain
+  horizon separates earners from slots living on capital.
+Validation of the mechanism (scout + rethreshold at the transition
+vs the autopsy's 0/72 baseline) launched as
+transfer_rethreshold.py; the exemption design decision
+(keep/lift/modify) remains the user's, now with data.
+
+### F44 [W] The extinction was deferred justice: the composed population was born vacuous (F22's mediators) and lived economy-free — the transition it died at was its first bill
+
+**Finding (2026-08-13, transfer_rethreshold — INSUFFICIENT, earned
+and diagnostic).** The C12 repair engaged fully (104 slots
+rethresholded from 800 scout samples) and saved nothing: 0/72
+composed survival, dead at first anneal, same as baseline. The
+economics explain it and rewrite the causal story: median composed
+rent balance at death was -129, of which phase B accounts for only
+~-50 — THE REST ACCRUED DURING GROWTH. The composed slots were
+insolvent from birth (F22, 2026-08-11: "compose's averaged
+thresholds build broad always-on mediators" — fit_count medians of
+14,000 confirm always-on) and survived 24 worlds only because the
+sandbox harness never calls anneal_all: no rent is ever charged
+there. Rethreshold preserved their fire-rate quantiles faithfully —
+quantile preservation preserves SELECTIVITY, and they had none to
+preserve. The mechanism is correct (battery 172/172 stands); the
+verdict INSUFFICIENT is earned; the deeper defect is the
+ECONOMY-FREE GROWTH VENUE.
+
+1. **F41's causal reading is revised on its own facts.** Not
+   currency collapse, not transfer distance: DEFERRED RENT JUSTICE.
+   The domain transition was incidental — what the population
+   transitioned into was a venue with an economy. "94% canopy
+   transfer mortality" restates as: 94% of the canopy had never
+   been solvent.
+2. **Growth-venue parity, a method law demanded by three
+   experiments:** no population may be grown economy-free and
+   billed later as if its composition were earned. Sandbox
+   harnesses that skip anneal_all grow unbilled vacuous mass;
+   every conclusion about such a population's composition carries
+   the caveat. P106's crowding is flagged specifically: the
+   pigeonhole arithmetic stands (band space is band space), but
+   the 72-slot crowd was substantially unbilled mediators —
+   economy-on replication pre-registered for the maturity curve
+   (expected: fewer, selective composed slots; slower crowding;
+   the ceiling unchanged).
+3. **Threshold rebase's true validation venue:** selective
+   vocabulary crossing distributions — grow WITH the economy on,
+   then transfer with scout+rethreshold vs without. Quantile
+   preservation can only be tested on slots that HAVE selectivity.
+   transfer_rethreshold v2, pre-registered.
+4. **The acceleration card (#62) design input, final form:**
+   warm-start capital must be RENT-SOLVENT structure; a
+   sandbox-grown warm start transplants debt, not capital.
+5. **F22 vindicated as root cause two days downstream — and the
+   method lesson is F24's, again:** the ledger held the mechanism
+   ("broad always-on mediators") while three cards walked past it.
+   The booking must read not just the checklist but the FINDINGS:
+   card-time review greps the findings doc for the mechanism's
+   known pathologies before pre-registering predictions about its
+   populations.
+
+### F45 [W] The solvent nursery works — and earned vocabulary barely crowds: 1 collision pair among 17 solvent composed vs F40's 212 among 72 unbilled
+
+**Finding (2026-08-13, p_nursery — the economy-on growth venue's first
+bill; P106 economy-on replication PARTIAL by its locked gates).** Same
+growth as P106 (24 worlds, same seeds) with anneal_all at every
+boundary: 72 composed born, 55 evicted, 17 standing at the end — and
+every survivor SELECTIVE (fire rates 0.21-0.50, none within reach of
+vacuous). The venue delivers exactly what F44's parity law demanded:
+the first vocabulary in the program's history that earned its
+existence during growth. Three results:
+1. **The F44 caveat, quantified: solvent crowding fraction = 1/212 =
+   0.005.** F40's crowd was 99.5 percent unbilled mediators. The
+   pigeonhole ARITHMETIC stands (band space is finite; the ceiling
+   is where it was), but earned vocabulary at 24 worlds does not
+   crowd: 17 solvent composed spread across 49 distinct profiles —
+   nearly every slot uniquely describable. Replication verdict
+   PARTIAL (rho=0.26, final pairs=1): the maturity curve's
+   TIMESCALE stretches roughly 3-4x under the economy — P105's
+   conjunction requirement (crowded vocabulary) now demands a
+   deep-time organism even more firmly than F39 estimated.
+2. **The nursery shows accelerating solvent accumulation**: alive
+   count flat at 3-5 through world 15, then 8 -> 17 over the back
+   nine worlds — later composes survive at rising rates (candidates
+   proposed over deeper co-fire history are better), with the honest
+   right-censoring caveat that the last few births have not yet met
+   their full bill (survivor fire-rate band says even they are
+   selective; solvent-certain count ~11-14).
+3. **Early transient: collisions 3 -> 0 across worlds 4-9** — the
+   vacuous cohort collides, then the economy removes the collisions
+   by removing the colliders. Under an economy, band-degeneracy is
+   SELF-CLEARING at low population: the rent clock is faster than
+   the crowding clock. Rendering's diagnostic niche (F39) sharpens
+   again: the collision detector matters exactly when crowding
+   outruns rent — old, dense, fast-composing organisms.
+Artifact: data/nursery_web_s98300.pkl — the first rent-solvent grown
+web on disk; #62's warm start and rethreshold v2's transfer stock.
+
+### F46 [W] Solvent vocabulary crosses domains intact: 17/17 survival under the transfer protocol vs 0/72 insolvent — and the acceleration question stays honestly open
+
+**Finding (2026-08-13, acceleration_card — task #62's first bill).**
+The nursery's rent-solvent web crossed into held-out lineage worlds
+under the full transfer protocol (snapshot -> scout -> rethreshold):
+ALL 17 solvent composed slots alive at gen 2 AND gen 8 — v2
+MECHANISM VALIDATED against the insolvent baseline (0/72 dead by gen
+1, F44). The transfer matrix: insolvent stock dies at 100% with or
+without recalibration; solvent stock under the protocol survives at
+100%. Perfect separation. What transfers is not structure per se —
+it is EARNED structure, handled with calibrated thresholds.
+1. **The F41/F44 arc closes constructive**: "vocabulary is capital
+   denominated in a domain's currency" gains its exchange mechanism
+   — solvency is the collateral, rethreshold is the exchange rate
+   conversion, and with both, capital crosses at par.
+2. **ACCELERATION UNTESTED by its locked floor** (1 combined
+   inherited closure < 2): plain-world lineage venues are too quiet
+   for closure endpoints at 8 gens. Successor pre-registered: longer
+   horizon or F28's structure-dosed regime where closures flow at
+   0.222/gen. P96's capital claim remains OPEN — survival is
+   retention of capital, not yet proof of its yield.
+3. **The missing cell, pre-registered and launched same hour**:
+   solvent WITHOUT protocol. If solvency alone suffices, rethreshold
+   is redundant for selective stock; if the naked crossing kills,
+   the protocol is necessary. The 2x2 completes on its verdict.
+4. Descriptive: warm near-miss mass 71k vs cold 37k — the larger,
+   band-adjacent population accrues more boundary contact; not an
+   endpoint.
+
+### F47 [W] The transfer 2x2 completes: solvency is necessary AND sufficient; rethreshold was redundant in this crossing — a repair built for a shift that wasn't there
+
+**Finding (2026-08-13, warm_noprotocol — the missing cell).** The
+solvent web crossed naked — no snapshot, no scout, no rethreshold —
+and survived 17/17 through gen 8, identical to the protocol arm. The
+completed matrix:
+  insolvent + no protocol : 0/72 dead by gen 1 (autopsy)
+  insolvent + protocol    : 0/72 dead by gen 1 (transfer_rethreshold)
+  solvent   + protocol    : 17/17 alive gen 8 (acceleration warm)
+  solvent   + no protocol : 17/17 alive gen 8 (this run)
+Perfect factorization: SOLVENCY is the entire story of this domain
+crossing. Selectivity earned under the economy travels unadjusted;
+vacuousness is congenital and fatal everywhere.
+1. **The honest retraction inside the win**: F41 impl. 10 diagnosed
+   the extinction as a C12 violation (absolute thresholds under
+   distribution shift). The diagnosis was right in principle —
+   thresholds ARE absolute, and the battery's synthetic 2x shift
+   proves rethreshold does exactly what it claims — but WRONG about
+   this crossing: the sandbox-to-lineage activation shift is small
+   enough that earned selectivity survives unadjusted. The killer
+   was never the shift; it was congenital insolvency (F44), and now
+   the repair's field necessity is unreceipted. Rethreshold stays in
+   core (opt-in, battery-sealed 172/172, harmless) with its C10
+   status corrected: A SOLUTION AWAITING ITS DISTRIBUTION SHIFT —
+   demand condition = a crossing with a large activation-scale
+   change (candidate venue: cross-tier or visual-to-survival
+   transfer, where family activation statistics genuinely differ).
+2. **The constructive law, now clean**: to make vocabulary that
+   transfers, GROW IT UNDER THE ECONOMY. Nothing else was needed at
+   this distance. The nursery is not one venue among venues — it is
+   the difference between capital and debt.
+3. **Method note (F44's lesson, third appearance)**: the mechanism
+   was built gated on the autopsy's receipt, and the receipt was
+   real — but its DECOMPOSITION (congenital vs shift-induced
+   vacuousness) arrived one experiment later. The gate held: we
+   built one small opt-in organ, not a default rewrite, and the
+   redundancy cost nothing but the build hour. Cheap mechanisms
+   tolerate diagnostic error; default rewrites do not. Tier the
+   invasiveness of the fix to the depth of the decomposition.
+
+*(Generative question, same day — implications 4-9.)*
+
+4. **Transferability = solvency, class-independent — the trunk/
+   canopy distinction may be earned/unearned in disguise.** The
+   exemption audit (32/33 inherited self-fund) and F47 (17/17
+   earned composed transfer) converge on ONE property predicting
+   both: rent-solvency. The transferable core of a mind is its
+   solvent fraction, whatever its origin — which retroactively
+   reads the cross-env result (71 shared receptors) as the earning
+   fraction surviving. Registerable as a prediction: transfer
+   survival is predicted by pre-crossing SOLVENCY MARGIN, not by
+   age, fit count, or class. The test needs a marginal cohort
+   (slots near the eviction floor at crossing time — a
+   shorter-growth nursery) since F47's populations are all-or-none.
+5. **T160 lands at the slot grain: a solvent slot IS a sustainable
+   state** — a self-funding orbit, income >= rent, q -> 1 in the
+   economy's state space. F47 then says: SUSTAINABLE STATES TRAVEL.
+   What survives domain crossings is what is in sustainable orbit —
+   the theory's stock, confirmed at vocabulary grain; the Perron
+   eigenvalue of a slot's economic loop is its transfer
+   certificate.
+6. **Local economics is a proxy for global validity.** The rent
+   economy priced slots on sandbox contact ONLY, yet its verdict
+   predicted lineage survival 89-for-89. Informativeness is
+   distribution-relative but structure-tracking: what discriminates
+   in world A discriminates in worlds sharing A's grain. This is
+   the corridor law's (F26) transfer face — one gate, two
+   invariances (mutation-robustness AND transfer-robustness) — and
+   the deep reading of C7: funded-and-evictable is not hygiene, it
+   is the transfer certificate. The organism does not need to test
+   vocabulary in every world; it needs to bill it honestly in one.
+   Predicted limit: the proxy breaks where the activation grain
+   changes (cross-tier, visual-to-survival) — rethreshold's demand
+   venue and this proxy's failure venue are THE SAME PLACE,
+   pre-registered as such.
+7. **Cargo-cult transfer death gets its mechanism (P103 link):**
+   attested-but-never-billed structure is congenitally insolvent BY
+   CONSTRUCTION — F47's top row. The scholastic failure is not a
+   social pathology with its own physics; it is insolvency meeting
+   its first billing venue. Design consequence for AW/#63: idea-
+   world organisms must grow vocabulary under an in-corpus economy
+   from day one (nursery parity extends to AW), else nothing
+   earned there transfers to the next corpus.
+8. **The education reading writes itself**: crammed, credentialed,
+   never-billed knowledge fails transfer not because it is stored
+   differently but because it was never selective — it recites
+   everywhere and discriminates nowhere, and no interface-time
+   recalibration (test prep at the boundary) can save it, because
+   no protocol saves the insolvent. Only the growth regime
+   matters: deliberate practice is the nursery. Transfer is earned
+   at acquisition time or never.
+9. **Constitution candidate (third receipt today): DECOMPOSE BEFORE
+   MECHANIZING.** F38 (genesis constant), F44 (solvency vs
+   thresholds), F47 (congenital vs shift-induced) — three times in
+   one day a receipt underdetermined its mechanism and the cheap
+   2x2 cells decomposed it. Candidate rule: when a fix is gated on
+   a receipt, name the 2x2 that decomposes the receipt; if the
+   missing cells are cheap, run them BEFORE building. Offered to
+   the constraints doc under its admission rule — three receipts
+   attached; admission is the user's call.
+
+### F48 [M] The acceleration arc's five cells decomposed nothing: the yield endpoint is unpowered by construction at receipted rates — check 6 needs a POWER clause
+
+**Finding (2026-08-13, acceleration v1-v5).** Five iterations
+(stripped/full protocol x held-out/receipted pair x dosed/stable
+laws) produced 1, 0, 0, 1, 1 inherited closures. The receipted
+closure rate was ~1 PER RUN all along (p86_v4's P1: first closure
+within 1-4 gens, then hold — six runs, each receipting exactly
+"at least one"); v4 and v5 both landing on 1 collapses the
+successive venue diagnoses (protocol richness, pair selectivity,
+dose timing) into what they were: plausible stories fitted to
+n=0-vs-1 noise. C21 cells run over an endpoint whose resolution
+equals the effect size decompose nothing — decomposition theater.
+1. **Check 6 gains a candidate POWER clause (one receipt; not yet
+   constitutional):** sensitivity is not just resolution — "does
+   the EXPECTED EVENT COUNT at receipted rates support the contrast
+   the verdict needs?" A floor of 3 combined closures was calibrated
+   against nothing; the receipt implied ~2 combined, best case.
+   Every C21 cell must pass check 6 INDIVIDUALLY or the factorial
+   is theater.
+2. **#62's honest disposition**: the RETENTION half is billed and
+   strong (F46/F47 — solvent capital survives every crossing
+   tested); the YIELD half (does capital speed settlement — P96's
+   value-retention claim in its strong form) is UNTESTED AT
+   ACHIEVABLE RESOLUTION and needs either R~6 replicate closure
+   races (overnight-class, pre-registered as the successor) or a
+   denser yield endpoint (court ratifications, settlement mass —
+   requires endpoint validation first).
+3. Descriptive tease for the successor: the warm web was
+   FLOW-QUIETER in the new world (world-sensitive events 1 vs
+   cold's 8 in v5) — aged capital may interfere with, not
+   accelerate, fresh settlement (negative transfer), or aged
+   ledgers may simply be quieter instruments. The successor carries
+   flow endpoints alongside closures.
+
+*(Generative question, same day — implications 4-8.)*
+
+4. **T160 indicts the arc's author, reflexively.** Each iteration's
+   card was a trajectory with a confidently miscalibrated p-hat: I
+   priced the closure floor off F28's COURT rate — a wrong-channel
+   receipt — and never consulted the closure-channel receipt that
+   was sitting in p86_v4's own output. The Columbus pattern at
+   method grain: confident estimate, no calibration, riding anyway.
+   The repair decomposes the power clause: check 5's receipt must be
+   SAME-CHANNEL as the endpoint, and check 6 must divide the
+   claimed contrast by the expected event count.
+5. **Sequential single-cell iteration is rumination-shaped.** Five
+   cells, each discharging its surprise into a new story that
+   opened the next cell — a trajectory without a terminus. What
+   broke the loop was the first PAIR of cells that could contradict
+   each other (v4 dosed = v5 stable = 1 closure), which FALSIFIED a
+   diagnosis instead of suggesting one. C18 applied to C21: plan
+   decomposition cells in refutation-capable pairs; a cell that can
+   only confirm-or-suggest is epistemically circular.
+6. **Cards need an expected-information line (the experiment
+   organ's VoI economics, applied to the research process).** An
+   unpowered cell has near-zero expected information at nonzero
+   cost; the pre-flight question is "what do I learn if this
+   returns 0 vs 1?" — if the answer is "another story," the cell
+   is not fundable. The organ's C7 discipline was written for the
+   organism one hour before its author needed it himself.
+7. **The negative-transfer possibility inverts P96's polarity, and
+   it has a human name: Einstellung.** Expertise interferes with
+   restructuring in novel domains. Pre-registered for the powered
+   successor: transfer's SIGN may flip with domain distance —
+   retention flat everywhere (F46/F47), yield positive in
+   familiar-class worlds, negative in genuinely novel ones. If
+   confirmed, T159 property 1 amends: the map retains value and
+   may tax new mapping.
+8. **The five silent runs receipted the null landscape**: closure
+   rate (~1/run) was INSENSITIVE to protocol, pair, and dosing —
+   so its rate-limiting step is none of those, and is currently
+   unidentified. That question — what does closure rate co-vary
+   with? — is a nomination for XO-0, the experiment organ's
+   read-only first phase. The arc ends by handing its own mystery
+   to the organ this session built.
+
+### F49 [W/M] XO-0 commissioned: nomination is sparse, the vacuous hub reclassifies from link to CONFOUND, and closure's first covariate lead is sparse-clean contact
+
+**Finding (2026-08-13, xo0_nomination b-run — the experiment organ's
+phase 1 delivered).** Info-priced nomination (pair mass weighted by
+both members' selectivity — the rent law's third organ) over a
+6-gen pair-B web: 42 candidates, top-decile mass 0.58 >= 0.40 gate —
+SPARSE, the work list exists, XO-1 unblocks. Owned: the first run's
+NOT-SPARSE (0.25) was partly a METRIC MISMATCH (mass share computed
+over an asymmetry-ranked decile); the corrected computation passes
+under raw and weighted ranking alike. What the weighting genuinely
+did: slot 9 ('organization', the vacuous always-on hub, balance
+-358 after 28,792 fits) vanished from every candidate PAIR and
+reappeared in every CONFOUND SET — reclassified from link-member to
+the C-role, which is the true causal status of an always-on channel.
+The instrument did not just rank; it discovered the correct
+experimental role of the organism's noisiest part.
+1. **The work list**: a lag -1 cluster {13, 23, 30, 31} with mutual
+   confounds (chain or common driver — exactly what subtraction/
+   isolation decides), and two LONG-LAG small-mass candidates
+   (16-24 at +2, 16-20 at +4) that fit the TriggerEffect delay
+   profile — the prime suspects for XO-1's first randomization
+   schedules. Registry ground-truth mapping deferred to XO-1 (corpus
+   reprs carry no trigger strings; the real API is needed).
+2. **F48's closure mystery gets its first covariate**: the run's one
+   closed slot (21) closed on 18 fits with nm=5; the heavy-traffic
+   slots (28k, 4.6k, 3.3k fits) and the near-miss-loaded slots
+   (nm 200-1500) all stayed open. Lead: closure favors
+   SPARSE-AND-CLEAN contact — the corridor needs a near-miss-free
+   window, and busy or boundary-adjacent slots never get one. If
+   this holds, closure's ~1/run rate is a statement about how few
+   slots have quiet contact profiles, and the powered race (#67)
+   should stratify by contact profile, not just count.
+3. Phase discipline receipt: XO-0 cost two 15-minute read-only runs
+   and produced a validated lens, one corrected metric, one learned
+   design law (info-priced suspicion), a work list, and a covariate
+   lead — the requirements doc's claim that each phase teaches the
+   next was cashed at phase 1.
+
+### F50 [W/M] The organ's first do/see verdicts: one link SURVIVES randomization (16->24), one dies twice under opposite biases (16->20) — and three intervention-design laws are carved in two runs
+
+**Finding (2026-08-13, XO-1 square-wave + XO-1b impulse).**
+1. **16->24 (lag +2) SURVIVES the do/see contrast** — forced p=0.200
+   vs passive p=0.211, both above baseline 0.146, delta ~ 0:
+   producing slot 16 by decorrelated action yields 24 at the
+   spontaneous rate. The experiment organ's first standing causal
+   link. Its XO-1 "downgrade" was the square wave's SECOND artifact
+   mode: continued in-burst randomization destroys action-mediated
+   consequences (the burst suppresses true effects on top of
+   inflating broad co-activation) — the impulse fixed both
+   directions at once, and the verdict flipped.
+2. **16->20 (lag +4) DOWNGRADED twice, under opposite artifact
+   biases** (square-wave suppression AND impulse isolation both
+   kill it; 0/30 forced vs 3.6% passive) — a robust confound kill.
+   XO-0's two long-lag trigger suspects split exactly as a working
+   loop should: one earned, one executed.
+3. **The broad-slot cluster remains unjudged, honestly**: forced
+   consistently ABOVE baseline while passive sits at/below it — the
+   impulse's own footprint drives broad targets within the outcome
+   window (the action at t shapes obs at t+1 regardless of slot a).
+   THIRD DESIGN LAW: the do's footprint must be narrower than the
+   target's breadth, or the outcome window must open beyond the
+   impulse's direct reach (t+2 onward). Queued for XO-1c/XO-2.
+   Laws one and two, from the same two runs: IMPULSES, NOT SQUARE
+   WAVES (the do must not outlive its own outcome window), and
+   PROBABILITY BASELINES, NOT EXPECTED COUNTS (XO-1's count bug).
+The commissioning arithmetic: two 15-minute runs bought one
+confirmed link, one double-confirmed kill, one honest
+scope-boundary, and three transferable laws of intervention design
+— the manufacture loop (T160 iv) is running inside the program that
+theorized it, and its receipts are already disciplining its own
+next phase.
+
+### F51 [W] Subtraction kills what randomization passed: 16->24 was carried by its confounds — Pearl's gradations are real inside the organ, and the venue holds no pairwise causal links at slot grain
+
+**Finding (2026-08-13, XO-2).** The opportunity gate delivered its
+power (4,059 context-gated impulses; 53 forced antecedent fires in
+confound-quiet windows, floor 20 cleared) and the verdict is clean:
+in the C-absent stratum BOTH do and see collapse (forced-quiet
+0.094 <= base 0.133; passive-quiet 0/7) while the C-present
+association stands (passive-any 0.137) — 16->24's apparent
+do-consistency was carried by C. Randomization passed it because
+decorrelating the ACTION does not remove the CONTEXT: forced fires
+still mostly landed in C-present windows. Subtraction removed the
+context, and the link died. The broad cluster, re-read under the
+footprint window, sits below baseline everywhere — no causal links
+there either.
+1. **Pearl's level distinctions are empirically real inside the
+   organ**: randomization (decorrelate the cause's production) and
+   subtraction (remove the confound) gave OPPOSITE verdicts on the
+   same link in the same venue. The textbook hierarchy is not
+   pedantry — it is two different experiments with two different
+   answers, and the organ now embodies the difference.
+2. **The full nomination slate resolves to ZERO causal links**:
+   every pairwise association among inherited slots in this venue
+   is confound-carried (world-driven common activity). An honest
+   scoreboard — the organ's machinery is commissioned and its
+   first survey says the terrain at slot grain is causally flat.
+3. **Design consequence for XO-3/P108 (check 5, applied early)**:
+   the deconfounded-link-recovery endpoint needs links that EXIST.
+   Natural slot-grain links appear absent in this venue, so XO-3
+   must PLANT ground truth — engineer a TriggerEffect with a
+   distinctive family signature (a manufactured causal edge with a
+   known delay), then bill P108 on recovery of the planted truth
+   against passive+noise at matched budget. Plant, then find.
+4. The intervention_opportunity receptor's harness form worked on
+   first contact: the gate found ~4k open windows and converted
+   them to power exactly as the card's expected-count line priced.
+
+*(Generative question, same day — implications 5-9.)*
+
+5. **The organ rediscovered the RCT's blind spot: randomization
+   averages over contexts; subtraction interrogates them.** A
+   randomized trial in a population where the confound is pervasive
+   inherits the context distribution — it measures the average
+   effect IN that distribution and cannot see that the link
+   vanishes where C is absent. 16->24 had a positive average effect
+   and a zero context-free effect: effect modification, the
+   transportability problem (Pearl & Bareinboim), met empirically
+   by a web of slots in one afternoon. T160's method clause gains
+   its receipt: the three decoupling moves are NOT interchangeable
+   — randomization certifies only where the confound leaves
+   C-absent mass in the sample.
+6. **F47's solvency law and F51 are two faces of one lesson:
+   context-carried value does not transfer.** The association
+   "worked" (28k co-fires!) only inside its home context
+   distribution — volume is not validity, exactly as unbilled
+   vocabulary was not capital. The unified criterion: a link, like
+   a slot, earns transfer rights by surviving CONTEXT-SUBTRACTED
+   billing. Concrete mechanism candidate (C10-flagged, not built):
+   COMPOSE'S DIET IS CONFOUNDED ASSOCIATIONS — the compose scan
+   pairs by raw co-fit windows, which F51 shows are dominated by
+   common drive; a context-lift filter on compose admission (a
+   cheap subtraction-flavored gate) would attack the born-vacuous
+   problem (F22/F44) at its SOURCE rather than waiting for rent to
+   execute the results.
+7. **Why the terrain is flat, stated as ontology: slots are
+   PARALLEL SENSORS of one world, not a mechanism.** Receptor-
+   family carvings are co-effects of latent world events — the
+   true graph is a fork from world-state to channels, and F51
+   measured exactly that pure common-drive signature. EEG channels
+   do not cause each other. The organ's targets must live at the
+   grain where mechanisms live: WORLD-EVENT variables (the
+   manifestation registry) and ACTION->WORLD->RECEPTOR edges — the
+   organism's actions are the only first-class causes it owns.
+   XO-3's planted truth should be an act-conditioned trigger.
+8. **For the AW (T159): this loop is the anti-cargo-cult
+   instrument for idea-worlds.** A corpus-inhabiting organism will
+   find most co-occurrence is common-drive (papers co-cite because
+   of a shared paradigm, not causation); nominate -> decorrelate ->
+   subtract, with subtraction as NATURAL-EXPERIMENT FINDING
+   (documents where C is absent), is how structural edges get
+   separated from fashion. P98's method, pre-shaped by a receptor
+   web.
+9. **The organ's value proposition, numerically stated**: nature
+   offered 7 antecedent fires in the discriminating stratum;
+   the opportunity gate manufactured 53 — SEVEN TIMES the evidence
+   density where it decides. Intervention's product is not action;
+   it is evidence in strata the world under-samples. That is the
+   VoI line P108 should be billed in.
+
+### F52 [W] The first R0: the nursery is supercritical (1.29), overdispersed (var 4.9), eight generations deep — and the vacuous hub parented 65% of all composes while the economy culled its spawn
+
+**Finding (2026-08-13, r0_census — P115's commissioning, pure read
+over the nursery pickle).** D8's branching process, observed:
+- **R0_solvent = 1.294 (n=17)** — each solvent composed slot funds
+  ~1.3 solvent children on average. The nursery reads SUPERCRITICAL:
+  the first receipt for the thriving trichotomy, in the predicted
+  venue, computed from the web's own genealogy (compose events in
+  the etymology; solvency from final states).
+- **Offspring variance 4.91 against mean 1.29** — heavily
+  overdispersed (a few big reproducers, most with zero; max
+  offspring 8). Open problem 7's quantity, measured on first
+  contact: extinction risk is substantial DESPITE supercriticality —
+  the thriving is real and fragile at once, exactly the
+  branching-law shape D8 predicts.
+- **Lineage depth 8** — compose-of-compose runs eight generations
+  deep in 24 worlds. The vocabulary has genuine genealogical
+  structure, not a flat crop.
+- **Slot 9 parented 47 of 72 composes (65%)** — the vacuous hub is
+  the dominant PARENT, the smoking receipt for F51 impl. 6
+  (compose's diet is confounded co-fit): the scan's pairing signal
+  loves the always-on slot. Yet the venue is supercritical ANYWAY,
+  because the economy culls hub-spawn: EARLY COHORT SOLVENCY 0.03
+  vs LATE 0.44 — a fifteen-fold difference. F45's acceleration,
+  re-read: the branching process IGNITING — solvent parents beget
+  solvent children, and the compounding takes over from the hub's
+  chaff as soon as there are solvent parents to breed from.
+Caveats held: single venue (the trichotomy needs spent/dosed webs
+pickled — pre-registered successor); n=17; right-censoring inflates
+the late cohort and thus R0 slightly (youngest children have not
+met their full bill — F45's caveat inherits). Design consequence
+sharpened: a context-lift filter on compose admission (F51 impl. 6)
+would cut the hub-chaff at source and raise R0 by raising the
+solvent birth rate — the first mechanism whose predicted effect is
+now denominated in the theory's own thriving currency.
+
+### F53 [W] The first R0 trichotomy: the thriving boundary is detected (1.29 vs 0.75/0.73), the surviving/declining boundary is invisible at compose grain — because compose births are F38's constant channel
+
+**Finding (2026-08-13, r0_census across three venues — P115's first
+full reading, PARTIAL by honest gates).**
+  nursery (economy-on sandbox):  R0 = 1.294  var 4.91  depth 8  (n=17)
+  dosed band (lineage, P2):      R0 = 0.750  var 1.52  depth 4  (n=12)
+  spent world (lineage, P2):     R0 = 0.727  var 1.11  depth 3  (n=11)
+1. **The upper boundary works**: the supercritical nursery separates
+   cleanly from both subcritical lineage venues — thriving vs
+   not-thriving detected by the order parameter on its first
+   cross-venue application. Depth tracks R0 (8 > 4 > 3), and so does
+   overdispersion (4.9 > 1.5 > 1.1): THE THRIVING VENUE IS ALSO THE
+   MOST VARIANCE-RICH — the upside tail is where supercriticality
+   lives, exactly open problem 7's geometry.
+2. **The lower boundary is invisible at compose grain, and the
+   reason is already on the books**: dosed and spent DO NOT separate
+   (0.75 vs 0.73) despite F42's total flow difference between those
+   venues — because compose births are the GENESIS CHANNEL, which
+   F38 proved is treatment-independent (scan-cap constant). An order
+   parameter computed over a constant-rate arrival class inherits
+   the constancy: R0-composed measures vocabulary compounding, not
+   world-sensitivity. INSTRUMENT LAW (the check-8 cousin clause
+   reborn at order-parameter grain): thriving metrics must be
+   computed over WORLD-SENSITIVE arrival classes — closures,
+   ratified words — or the surviving/declining boundary cannot
+   register.
+3. **P115 status: PARTIAL, with its successor already booked** —
+   R0 over closure/ratification arrivals needs powered horizons
+   (F48), which is exactly #67's overnight closure race. One
+   overnight now serves two registered claims (P96 yield + P115
+   completion); the race card gains an R0 endpoint.
+4. Cohort warming (late > early solvency) appears in ALL THREE
+   venues (ignition magnitudes 15x / 1.4x / 2.5x) — the branching
+   process warms everywhere; only the nursery crosses 1.
+
+*(Generative question, same night — implications 5-9.)*
+
+5. **Thriving is bought WITH variance, not despite it — a design
+   warning for the compose filter.** Overdispersion tracking R0
+   (4.9/1.5/1.1, max offspring 8 amid many zeros) says
+   supercriticality lives in the heavy tail: a few explosive
+   reproducers carry the venue. A variance-minimizing admission
+   filter (strict mean-quality gate) could RAISE mean solvency and
+   still KILL R0 by clipping the tail. F52's context-lift compose
+   gate must therefore be evaluated on TAIL PRESERVATION, not mean
+   solvency — the first mechanism review criterion the program has
+   ever stated in offspring-distribution terms. (Venture economics
+   in the vocabulary market: tolerate mass failure to harvest rare
+   big winners.)
+6. **The rival reading, owned before it is pointed out (C18): the
+   trichotomy may partly be an AGE artifact.** Warming is universal
+   and the lineage venues hold third the composed population at
+   half the depth — they may sit EARLIER on one ignition curve
+   rather than in a different regime. The successor needs an
+   age-matched cell: extend a lineage venue to nursery-matched
+   composed population and see whether R0 climbs toward 1.29 or
+   plateaus subcritical. Folded into #67's card as the control.
+7. **The constant-channel lesson generalizes into a Goodhart
+   principle for every human application of T160**: any thriving
+   metric computed over an institutionally constant event class —
+   publications per year, sprints completed, tickets closed,
+   GDP-like throughput — cannot distinguish thriving from
+   languishing, because institutions cap their genesis channels
+   exactly like the scan cap. Fields look equally productive by
+   volume while differing wholly in R0. The Goodhart-resistant
+   form is GENEALOGICAL: measure the offspring of arrivals (work
+   that spawns work), never the arrivals. Citation-that-generates-
+   work, not citation count.
+8. **The ignition race — a new dynamical picture of development.**
+   Universal warming + venue-limited ignition implies development
+   succeeds iff the warming curve crosses criticality BEFORE the
+   venue's budget or the subsidy runs out: R0(t) rising against
+   B(t) falling. The PhD igniting before funding ends; the startup
+   whose 'default alive' is literally R0 crossing 1 before runway
+   zero; rehabilitation as cheap-arrival acceleration of warming
+   (F24, third derivation); the caregiver window as subsidy that
+   holds the process alive until ignition. Time-to-criticality is
+   the developmental quantity, and it is measurable in-program
+   (cohort-solvency curves already exist in three venues).
+9. **AW corpus selection, refined a second time**: F37 said feed on
+   what can still be wrong (budget); F53 adds — choose venues where
+   the arrival process can IGNITE: domains whose findings can
+   parent findings (deep genealogies possible), not archipelagos of
+   isolated results. Domain quality = achievable R0 x achievable
+   depth. Mathematics is again the limit case: Euclid's lineage is
+   still reproducing.
+
+### F54 [W] The overnight race: Einstellung confirmed 6/6, the trichotomy is venue-regime not age, and the closure-yield endpoint is starved beyond repair at this venue class
+
+**Finding (2026-08-14, closure_race + aged census — task #67's
+bill).** Three verdicts on locked rules:
+1. **EINSTELLUNG CONFIRMED, 6 of 6 pairs**: the solvent warm web is
+   flow-quiet in new worlds at ratios [0.27, 0.11, 0.45, 0.11,
+   0.37, 0.09] — every replicate below half the cold web's
+   world-sensitive flow, most far below. Negative transfer at flow
+   grain is REAL and replicated. T159 property-1's amendment
+   trigger fires: THE MAP RETAINS VALUE AND DAMPS NEW-WORLD FLOW
+   (formal THEORIES amendment awaits the user's word). The open
+   discrimination: interference (aged capital suppresses fresh
+   settlement) vs efficiency (the structured web needs fewer
+   invoices) — undecidable at flow grain alone; the successor needs
+   a performance/service endpoint beside flow.
+2. **VENUE-REGIME, not age (the C18 control speaks)**: the
+   age-matched cell at 33 dosed gens reads R0 = 0.714 — flat
+   against 0.750 at 12 gens, depth stuck at 4, warming mild
+   (0.32 -> 0.40). Tripling age moved nothing toward the nursery's
+   1.29. IGNITION CEILINGS ARE VENUE PROPERTIES: the lineage
+   venue's compose economics cap R0 below criticality regardless
+   of time; the nursery's supercriticality is structural to its
+   venue. F53's trichotomy stands as regimes, and the ignition
+   race (F53 impl. 8) gains its hard clause — some venues cannot
+   ignite AT ANY AGE; development requires not just time before
+   exhaustion but a venue whose ceiling clears 1.
+3. **The yield endpoint is starved beyond repair here**: pooled
+   closures 2 across 12 arms (floor 6) — the ~1/run receipt was
+   itself realization-lucky; rep-varied seeds re-estimate the
+   closure rate at ~0.17/run. P96's closure-yield question needs a
+   CLOSURE-DENSE VENUE REDESIGN, not more replicates. Method
+   receipt: F48's power clause worked exactly as written — the
+   UNTESTED branch fired instead of a story, at the first card
+   whose floor was honest.
+
+### F55 [M/W] The replay harness never ran tier events: every SOV-era lineage venue had its causal machinery off — F51's flat terrain explained mechanically, XO-3 voided by venue, and the fix is one line
+
+**Finding (2026-08-14, XO-3's zero-traffic diagnosis).** XO-3
+returned UNTESTED-BY-TRAFFIC with ZERO trigger fires in both arms —
+and the diff hunt found the cause in the harness, not the plant:
+run_world_v3 never calls env.step_tier, the hook where
+CausalTrigger.check_trigger lives (the effect path — update +
+field application — already runs inside get_field_values, so
+check_trigger is the SOLE missing link). Consequences:
+1. **Every lineage experiment of the SOV era ran with tier events
+   inactive** — no causal triggers, no NPC belief updates, no
+   predator events. The venues were fields + language structure
+   only. They were SELF-CONSISTENT (all comparisons within the same
+   harness), so no prior verdict is invalidated — but F51's
+   "causally flat terrain" gains its mechanical explanation: the
+   terrain was flat partly because the world's event machinery was
+   OFF. F51's ontology claim (sensors don't cause sensors) stands;
+   its venue-survey claim narrows to "flat in an event-free world,"
+   and the organ's first live-event survey is still ahead of it.
+2. **XO-3's venue is repaired by one scoped line** (env.step_tier
+   per step in a local runner variant — the C21-tiered move: no
+   change to the standing harness, whose event-free physics is now
+   a DOCUMENTED venue property rather than an assumption).
+3. Method note: the traffic floor did its job — a zero where ~100
+   was expected pointed at mechanism, not noise, and the
+   pre-registered UNTESTED branch prevented any reading of the
+   empty result.
+
+### F56 [M/W] The blind-spot audit: NPCs were statues, the obs-delta is identically zero, episodes replay the same movie — and XO-3b found slots are STATE-typed while planted causes are EVENTS
+
+**Finding (2026-08-14, the "anything else you aren't noticing" audit
++ XO-3b).** Four confirmed notices, one owned bug:
+1. **NPCs were statues in every replay-harness lineage venue.** NPC
+   movement and belief updates live INSIDE step_tier (the hook F55
+   found uncalled) — so all social-channel traffic in SOV-era
+   lineage runs sensed stationary props. Self-consistent within
+   venue, but every social-cognition null in those runs now carries
+   the caveat. (E1/E2 harnesses to be checked separately.)
+2. **fit_all receives obs_before == obs_after** in run_world_v3 —
+   the same obs passed twice. Whatever the fit path does with the
+   before/after pair, the delta is identically zero in this
+   harness. Whether anything downstream consumes it is next
+   session's one-grep question; if yes, that machinery has been
+   silently null.
+3. **Episode replay inflation**: field sources are deterministic in
+   per-episode step, so the four episodes of every world replay the
+   SAME field movie. Field-driven receipt counts treat four
+   showings as independent evidence — effective sample size
+   overcounted up to 4x for field statistics; calibration n
+   inflated accordingly. (D4's variance term needs an effective-n
+   correction in this venue class.)
+4. **XO-3b (trigger physics LIVE, 564 fires — traffic fixed):
+   cause-slot identification returned lift 0.000.** The planted
+   cause is an EVENT (region entry); the slot vocabulary is
+   STATE-typed (occupancy, not transition) — an entry moment has no
+   slot signature even with physics running. The organ cannot
+   represent event-grain causes with state-grain variables: F51's
+   ontology implication, now demonstrated from the other side.
+   P108 remains UNBILLED — my verdict logic printed NOT SUPPORTED
+   where the honest label is UNTESTED-BY-REPRESENTATION (cond
+   floor 1/12 antecedent fires; the bug is owned and the successor
+   is designed): either give the organ event-grain variables
+   (change-detection at live grain) or plant a STATE-grain cause
+   (effect conditioned on sustained occupancy of a distinctive
+   field state).
+5. **The audit principle these share**: every notice is a SILENT
+   ABSENCE — no error, just a channel at zero. The systematic fix
+   is a harness-coverage audit (enumerate the environment's
+   side-effectful hooks vs the harness's called set) instead of
+   whack-a-mole; queued as the genome-audit's harness arm (#42).
+
+### F57 [M] The harness-coverage audit ran — and caught a fourth silent absence on its first pass: the STAGED harness (the nursery's own venue) was also event-free
+
+**Finding (2026-08-14, harness_audit.py — now a standing instrument).**
+Twelve public env hooks audited against six execution paths:
+1. **New catch: staged_fit_experiment never called step_tier either**
+   — the nursery, P106, F40, F45, and F52 venues were ALL event-free,
+   same as the replay venues. Fixed same-shape: TIER_EVENTS flag
+   (default False, documented in-file) now in BOTH harnesses;
+   defaults verified inert. Every solvency/R0/pigeonhole result
+   keeps its venue caveat: sandbox growth was field-physics only.
+2. **reset() is never called on any path** — episodes persist world
+   state. This matches the documented persistent-world design (README:
+   "environmental modifications carry across episodes") — an
+   INTENTIONAL property, now confirmed by audit rather than assumed.
+3. **Dead hooks everywhere** (incl. internal self-calls and the
+   language layer): has_line_of_sight, to_dict, get_tier_stats;
+   get_closest_npc called by pre-SOV harnesses only — one more facet
+   of the statue caveat.
+4. Scope limit stated in the instrument: method-call grain only —
+   attribute-level access (org obs reading env.npcs directly) is
+   unaudited; the NPC observation CHANNELS may still carry static
+   positions even where the proximity METHOD is dead.
+The class-kill claim of F56 impl. 5 is now cashed: the audit is a
+rerunnable script (harness_audit.py), to be run after any new env
+capability or harness — silent absences become a checklist item, not
+an archaeology find.
+
+### F58 [W] The organism never moves: displacement 0.00 over 1,200 steps in interpret venues — position is a CONSTANT, and the plant must condition on what actually varies: actions
+
+**Finding (2026-08-14, position_map).** Under the trained policy in
+interpret() pair-B worlds, the organism's body position is
+stationary: spawn (10,10), end (10,10), displacement p50 = p90 =
+max = 0.00 across both worlds. Three probes' failures explained at
+once (occupancy is constant-ON for any region containing (10,10),
+constant-OFF for any region not): POSITION IS NOT A VARIABLE in this
+venue class. Consequences:
+1. **Every position-based plant is unusable in principle** — and
+   XO-3b's 564 "entries" re-read as effect-cycle re-triggers of a
+   permanently-satisfied condition.
+2. **Audit flag (#42): window features and court predicates.** The
+   replay harness feeds xs/ys (constant!) into window_features, and
+   base_predicates may carry position terms — any such channel has
+   been a silent constant in every replay-era run. The court
+   demonstrably ratified words (F28), so its predicates carry
+   non-positional content too; the constant fraction needs the one
+   grep.
+3. **The repaired P108 venue designs itself: the ACT-CONDITIONED
+   plant.** The organism's actions are its richest varying quantity
+   AND the impulse wrapper already manipulates them directly — so a
+   trigger keyed on an action pattern makes do(cause) EXACT under
+   the organ's existing machinery: the impulse literally IS the do.
+   Cause = action-pattern occurrences (harness-logged ground
+   truth); effect = a harness-scheduled endorphin pulse (delay 4)
+   via a controllable planted source — T160 level-2b world-editing,
+   enacted per step, no core changes. Pattern bit chosen by
+   PRE-REGISTERED RULE (the bit whose policy rate is nearest 30
+   percent, measured in a calibration prefix) — variation
+   guaranteed by construction, the constant-cause error made
+   impossible by rule rather than by luck.
+4. The probe sequence's cost accounting: four instruments, ~30
+   minutes total, and the venue's deepest silent constant —
+   locomotion itself — is now a measured fact instead of an
+   assumption every placement inherited invisibly.
+
+### F59 [W] The P108 arc closes UNTESTED-BY-EFFECT-REPRESENTATION with the decomposition complete: the stationary organism's step-grain Umwelt is INTERNAL — fields cannot be effect variables in this venue
+
+**Finding (2026-08-14, XO-3e — the factorial's last cell).** Pain
+pulses, the genome's most receptor-covered channel: effect-slot lift
+0.030 — below the 0.05 line, joining endorphin (0.004) and the
+beacon-effect (0.019). Meanwhile the cause side is FULLY solved
+(action-pattern events lift proprio slots robustly). The complete
+factor map of the P108 arc:
+  physics: FIXED (F55, tier events; then made moot by harness-side
+    plants); traffic: FIXED (act-conditioning, 500-700 events/arm);
+  cause representation: SOLVED (actions -> proprioception);
+  effect representation: FAILS FOR EVERY FIELD CHANNEL.
+The mechanism, and it is a genuine anatomy result: the per-step live
+vocabulary (86 receptors -> 33 families) is BODY- AND COGNITION-
+TYPED — proprioception, patterns, causal machinery; the
+stress/regulatory receptors that would feel a pain pulse live in the
+EPISODE-grain set, invisible at step grain. Combined with F58 (the
+organism never translates), the step-grain Umwelt of this organism
+in these venues is essentially INTERNAL: it senses its own body and
+its own processing richly, and the world's field-pulses thinly.
+1. **P108's venue requirement, now exact**: planted effects must be
+   denominated in the organism's own currency — body state
+   (resistance, force, limb dynamics -> proprio receptors) or
+   processing state — not field intensity. That is a venue build
+   (or a physics-world venue, where contact dynamics ARE body
+   currency), pre-registered as the successor.
+2. **The commissioning arc closes complete** (XO-0 -> XO-3e): the
+   organ's machinery is validated end to end — nomination (sparse,
+   info-priced), randomization (impulse laws), subtraction
+   (context gates), and a do-contrast that CORRECTLY refused to
+   certify an edge whose effect end has no representation. Ten runs,
+   eight design laws, one organ that cannot be fooled by its own
+   plants. P108 stays Open with its venue requirement documented —
+   the honest state.
+3. **The Umwelt result stands on its own**: at step grain this
+   organism is a proprioceptive-cognitive being; the fields it
+   "navigates" reach its slot vocabulary only as slow context, not
+   as events. Any future card whose endpoint assumes field-events
+   are slot-visible inherits this receipt.
+
+*(Generative question, same day — implications 4-8.)*
+
+4. **The founding axiom's do-calculus sibling**: T3 says capability
+   without receptor is latent and never gets used; F59 proves the
+   epistemic mirror — AN EFFECT WITHOUT A RECEPTOR CAN NEVER BE
+   KNOWN AS AN EFFECT. Causation without representation is
+   uncertifiable, and the organ's honest refusal is that law
+   enforcing itself. Certification's reach IS the receptor
+   topology's reach: the causal world an organism can know is
+   exactly as large as its vocabulary of consequences.
+5. **Self-causation is the first causal knowledge — derived, not
+   assumed.** The only edges certifiable at step grain are
+   action -> body/processing: the sensorimotor loop. The organism's
+   first causal graph is ITSELF — motor babbling as the
+   developmentally correct starting point, arrived at here by
+   representational exhaustion rather than by developmental story.
+   The experiment organ's first real domain is the organism's own
+   body, exactly where infants start.
+6. **The trunk's transfer universality gets a candidate mechanism:
+   THE BODY GOES WITH YOU.** If step-grain regularities are mostly
+   self-regularities, then what the web settles first is
+   self-model, and self-models are world-invariant because the
+   self travels. T95's invariant trunk = the self-sensing core;
+   canopy = world-coupling; and F47's solvency-transfers law gains
+   its deepest reading — solvent structure transfers because most
+   of what earns solvency at step grain was never about the world.
+7. **T160's ladder is climbed from the inside out, and certainty
+   bookends it.** The first near-p=1 stages any organism owns are
+   its own action->body transitions (the body is the first
+   predictable-endpoint machine; postures are the first sustainable
+   states); the last are mathematics (the fully stipulated kernel).
+   What you ARE and what you AUTHOR are the two places certainty
+   lives natively — everything between is earned by the manufacture
+   loop, exporting certification outward from the body one venue at
+   a time.
+8. **The gap is temporal resolution, not absence — and the venue
+   move beats vocabulary surgery.** Episode-grain receptors DO see
+   fields (stress, regulation); the information exists at slow
+   grain. A step-grain projection of those channels is the
+   mechanism candidate (C10-flagged, undemanded), but the
+   physics-world venue — where contact dynamics are already body
+   currency — sidesteps the build entirely. Prefer the world that
+   fits the vocabulary over surgery on the vocabulary: environment
+   manipulation (T160 iii) applied to experiment design itself.
+
+### F60 [M] The audit sweep closes #42: the world moves around the stationary organism (the court's grounding is alive), the E1 line is NPC-free, and rent-drain horizons make the exemption economically irrelevant for quiet slots
+
+**Finding (2026-08-14, the #42 lien sweep).**
+1. **base_predicates is alive despite F58** — its position-derived
+   predicates ("near a pain source") vary because SOURCES ORBIT
+   (FieldSource ax/omega motion): proximity is driven by the
+   world's movement, not the organism's. The stationary organism
+   lives in a moving world, and the court's word-grounding was
+   never a constant. F58's complement, and the resolution of its
+   audit flag: predicates alive, window movement-features constant
+   (documented, minor).
+2. **The E1/E2 social line is untouched by the statue caveat** —
+   social_ledger_e1 uses direct web-to-web pose/attest, no
+   environment NPCs at all. The statue caveat confines to
+   lineage-venue social CHANNELS, not the social-ledger arc.
+3. **The 100-gen drain horizon resolves analytically, no run
+   needed**: RENT_PER_EDGE = 0.001, so a never-firing inherited
+   slot (1-5 edges, balance cap 1.0, floor -1.0) drains to
+   eviction in ~400-2,000 generations. "Living on sandbox savings"
+   lasts centuries at current constants — the exemption is
+   ECONOMICALLY IRRELEVANT for quiet slots at any realistic
+   horizon, and the trunk-merit question is fully answered by
+   earning capacity (F43's 32/33), not depletion.
+4. Ledger state: harness-coverage audit standing (F57); obs-delta
+   vestigial (F56); episode-replay inflation documented with the
+   effective-n rule (math doc); trailing partial windows documented;
+   registry filename unambiguous. #42 closes; residue = two
+   user-decision items (the 'organization' dead slot; the eviction
+   exemption itself) and one undemanded candidate (step-grain
+   projection of episode receptors), all flagged where they belong.
+
+### F61 [W] The phrase IS the pose: 9,000 live bus events, zero decision divergence — and the score-drop gate teaches rank-fidelity for the third time
+
+**Finding (2026-08-14, LC-0b over the live E1 share arm — 1,800
+poses, 9,000 pose-response events, venue untouched).**
+- **Best-slot agreement 1.000. Floor-clearance agreement 1.000.**
+  Every responder, on every live pose, chose the identical match
+  and made the identical clear/reject decision from the band-
+  precision PHRASE as from the full-precision dict. T155's
+  transport claim ("the shape of ignorance fits in a sentence")
+  is now receipted at scale: the phrase is the pose, at decision
+  grain, with zero exceptions.
+- **The locked verdict prints PARTIAL** because gate (c) — mean
+  score drop < 0.05 — failed at 0.167. Owned and diagnosed: band
+  quantization shifts every candidate's Jaccard score by a
+  SYSTEMATIC offset, which is exactly why it reorders nothing.
+  Gate (c) measured score cosmetics; transport fidelity is RANK
+  fidelity. This is the rank-beats-absolute law's THIRD
+  independent appearance (T138 surprisal; F53's Goodhart
+  principle; now transport gates): the invariant currency of a
+  channel is the ordering it preserves, never the values it
+  carries. Successor gates on any lossy channel should be
+  rank-metrics by rule.
+1. **LC-0b passes at decision grain; #50 closes.** The E2 door
+   (first conversations, #52) opens with its precondition
+   receipted: organisms can ask for help in LANGUAGE — saying the
+   shape works exactly as well as sending it, on real traffic.
+2. **The pigeonhole's transport face did not bite at this
+   vocabulary size** — consistent with F45 (earned vocabularies
+   barely crowd): band collisions would degrade transport exactly
+   when crowding arrives, so the phrase-bus inherits F40's
+   deep-time caveat rather than a present limit.
+3. Margin note: phrase scores cleared MATCH_FLOOR with 0.17 of
+   headroom consumed — the floor's slack is the transport budget;
+   a tighter floor or a crowded vocabulary spends it. Both are
+   watchable quantities, not surprises.
+
+### F62 [W] The discriminator front end works: collapse fingerprints read orientation at 0.94 where static description is blind by construction, carry real-object class at 3.5x chance, and the channel set was DERIVED by failure
+
+**Finding (2026-08-14, P116 Tier-0 SUPPORTED — T161's first bill;
+task #68 closed).** The image-to-body pipeline (silhouette ->
+ball-and-spring lattice, material = stiffness dial, gel + firm
+swept) plus an 8-channel response fingerprint, rank-compared per
+F61's law:
+  ARM A (rotation metamers, 20 MNIST sixes vs their own 180-degree
+  twins): fingerprint 0.9412 (n=34) vs Hu moments 0.00 — the
+  static baseline is not at chance but ANTI-PERFECT: rotation
+  invariance pairs every shape with its own twin and answers
+  orientation exactly wrong, the construction certifying itself.
+  ARM B (MPEG-7, 10 real classes, n=109): fingerprint 0.3486 vs
+  0.10 chance. Instability 0.00 after commissioning.
+1. **The commissioning arc is the theory in miniature.** v1 found
+   signal riding integrator noise (0.83 at 18 percent instability);
+   v2's damping crushed the dynamics and the signal died WITH them
+   (identity really is in the response — kill the response, kill
+   the identity); v3 isolated the true defect: A DESCRIPTOR
+   INHERITS THE SYMMETRY OF THE MOMENTS IT IS BUILT FROM, even
+   when computed on dynamics — covariance angles are 180-invariant
+   by construction, and the first fingerprint had rebuilt the very
+   invariance the card exists to break. v4's ODD MOMENTS (signed
+   vertical/horizontal skew, top-heaviness, drift) carry gravity's
+   verdict: which end is heavy, which way it topples, how the skew
+   unwinds as the arch buckles. Every channel in the final
+   fingerprint is there because its absence was measured.
+2. **What is now licensed**: the behavioral discriminator's front
+   end — image -> lattice -> response signature -> rank comparison —
+   is certified on both required properties (symmetry-breaking and
+   class-bearing) with zero external data, exactly as T161's
+   corrected design specified. THE GENERATOR IS UNBLOCKED: propose
+   masks/lattices, bill them by fingerprint distance to the
+   real-class distribution (70 MPEG-7 classes + letterforms on
+   disk); "same in spirit" is now a computable predicate.
+3. Scope notes held: 27 percent of MPEG instances excluded as
+   resolution-invalid (thin structures — fork tines, key shafts —
+   under-resolve at the 56px frame; Tier-1 raises the frame, not
+   the gates). P116's organism-facing clause (interactive
+   recognition beats silhouette IN THE ORGANISM) remains open —
+   Tier-0 certified the machinery, not the Umwelt; that test rides
+   the physics-world venue with P108's body-currency plant.
+
+### F63 [W] The generator's first turn: the loop is mechanically sound, behavioral classes have different volumes, and black-box search cannot climb a behavioral landscape — the gradient the user originally specified is NECESSARY, not optional
+
+**Finding (2026-08-14, generator_card — UNTESTED by its locked
+engagement floor; improvements 6/4/15 percent vs the 30 floor).**
+Three results inside the honest verdict:
+1. **Behavioral classes have different VOLUMES.** Random blobs are
+   born admitted as apples (3/3, nearest fingerprints [apple,
+   camel, apple, apple]) — a blob IS a behavioral apple; the
+   admission region for blob-class objects is wide. Cups and
+   hammers (ring, articulated) admitted 0/3 — their regions are
+   narrow and structured. The discriminator partitions behavior
+   space into classes of very different measure, which any
+   generator (and any quest-inflation pricing) must respect: easy
+   classes are cheap to enter and worth less.
+2. **Black-box search never engaged on structured classes** — and
+   the mechanism is the classic sparse-fitness cliff: far from a
+   class, all candidates are roughly equally unlike it, so
+   behavioral distance offers NO gradient to climb. Population
+   collapsed to clones (identical top-3 fitness in every class;
+   elitist halving + weak local mutations). This is the empirical
+   justification for idea1's ORIGINAL specification — "use the
+   gradient wisely," the differentiable-physics pipeline where the
+   gradient flows backward through the collapse into the
+   generator. The cheap evolutionary substitute's failure is the
+   expensive design's receipt: THE GRADIENT IS NOT AN OPTIMIZATION
+   NICETY, IT IS THE ONLY WAY DOWNHILL EXISTS AT A DISTANCE.
+3. Successor ladder (C21-tiered): (i) donor-seeded warp-field
+   evolution — evolve a cup FROM a bottle by smooth deformation,
+   which tests idea1's dynamics-style-transfer claim ("collapses
+   like a cup but made of different strokes") at black-box cost,
+   since donors start NEAR the landscape's sloped region; (ii) the
+   differentiable pipeline (soft-body sim in torch, gradient
+   through collapse) as the destination proper. Creation-ex-nihilo
+   was the strongest form and too strong for Tier-0 budgets —
+   stated, not hidden.
+The loop itself — propose, simulate, bill by rank against the
+certified front end, admit against distractors, novelty-gate — ran
+end to end without defect. The judge works; the artist needs
+either a nearby starting point or a gradient.
+
+*(Generative question, same day — implications 4-8.)*
+
+4. **The generator card rediscovered why heredity exists.** Nature
+   never generates from blobs either: every organism is
+   donor-seeded — descent with modification IS warp-field evolution
+   from a working nearby form. Selection needs heredity not merely
+   for retention but because FITNESS LANDSCAPES ONLY HAVE USABLE
+   SLOPE NEAR WORKING DESIGNS: without a parent inside the basin,
+   selection has nothing to climb. F63's failed blob-start is the
+   two-hour demonstration of a four-billion-year design decision.
+5. **Donor-seeding is the caregiver subsidy, the warm start, and
+   the ignition problem, unified.** The sparse-fitness cliff is
+   F53's warming curve in search space: far from the class, R0-of-
+   improvements ~ 0; the donor places the process where warming
+   can begin — externally funded position on the slope, exactly
+   the caregiver window's structure (childhood as subsidized
+   supercriticality) and F46/F47's capital thread (warm starts are
+   solvent structure being recalibrated to a new class). One law,
+   fourth appearance: webs, careers, species, generators.
+6. **Class volume is the information price of form.** The
+   discriminator's admission regions have measure, and
+   -log(volume) is a form's structural information: blob-classes
+   are cheap (born-admitted), ring- and articulation-classes are
+   dear. This is info-pricing (the rent law) at the grain of
+   FORMS, and it hands the quest-inflation guard its exchange
+   rates and the surprise economy a new receipt class: admission
+   to a narrow behavioral class is a high-surprisal achievement
+   and should discharge accordingly.
+7. **Tier-2's architecture falls out of the constitution: SURROGATE
+   PROPOSES, PHYSICS DISPOSES.** The practical differentiable route
+   is a learned surrogate of the fingerprint map supplying
+   gradients, with the REAL simulation retaining sole billing
+   authority — which is C1 by architecture: the surrogate is an
+   imagination register (propose via imagined gradient), the
+   physics is the world (fund via lived sim). Gradients from
+   dreams, admission from contact. The GAN was always secretly the
+   organism's own epistemology.
+8. **The human reading**: creativity is donor-seeded — artists
+   riff, science morphs adjacent work, "nothing comes from
+   nothing" is a landscape fact rather than a proverb; the
+   ex-nihilo genius is the blob myth. Pedagogy hands students
+   donors (worked examples to deform), and writer's block is the
+   blob problem exactly — a blank page offers no gradient, and the
+   standing cure (start from ANY nearby working text) is
+   donor-seeding, derived.
+
+### F64 [W] The first crossing: warped trees certified as behavioral keys, visually neither — and the three pairs map the landscape's third parameter
+
+**Finding (2026-08-14, donor_transfer — NOT SUPPORTED by the pooled
+gate at 3/9, and the per-pair decomposition is the finding).**
+1. **tree -> key: COMPLETE CROSSING, 3/3 admitted AND novel**
+   (improve 0.22; nearest-neighbor lists majority-key against six
+   competing classes; Hu distance beyond every real key's spread).
+   THE FIRST REALITY-CLASS CERTIFIED GENERATED OBJECTS EXIST:
+   shapes that collapse like keys and look like neither trees nor
+   keys — idea1's "different strokes, same collapse," achieved and
+   receipted. The mechanism works.
+2. **apple -> cup reached the ridge**: final candidates' neighbor
+   lists contain NO apples at all (the search fully left the donor
+   basin) with cup as modal neighbor — but not majority-of-7.
+   Boundary, not basin.
+3. **bat -> butterfly never left home**: nearest lists still
+   bat-dominant. The donor basin is deep where donor and target
+   behaviors genuinely overlap — wing-likeness holds the search.
+4. **The landscape's parameter set completes**: F63 gave target
+   VOLUME; F64 adds donor-basin DEPTH and SADDLE position between
+   basins. Crossing feasibility = f(target volume, donor depth,
+   saddle) — and pair selection for any future generation campaign
+   is now an informed choice, not a guess. Clone collapse persists
+   (identical top-3 everywhere) — population diversity is the
+   standing search defect, gradient or diversity pressure both
+   fix it.
+Verdict honesty: NOT SUPPORTED stands as locked (pooled gates are
+pooled gates); the existence proof stands inside it. The next rungs
+are unchanged: diversity-pressured donor search cheap, the
+differentiable pipeline (surrogate proposes, physics disposes) the
+destination.
+
+*(Generative question, same day — implications 5-9.)*
+
+5. **Crossing difficulty is NOT monotone in similarity — and the
+   falling limb of P64 just appeared in a different currency.**
+   Too-far fails for no gradient (F63's blobs); too-NEAR fails
+   because the donor's own instances CROWD THE NEIGHBOR VOTE
+   (bat->butterfly: the search sits in the shared region but the
+   donor majority-votes every neighborhood). Transfer succeeds at
+   INTERMEDIATE distance (tree->key). This is the inverted-U that
+   P64 predicted for communication yield — whose falling limb the
+   program never observed (whys.md, unanswered) — surfacing in
+   generation: the limb appears wherever SIMILARITY CROWDS THE
+   DISCRIMINATION, which is why a shared encoder never showed it.
+   First answer-sketch for a standing unanswered why, from a
+   generator card.
+6. **The annular law (registration candidate — the same shape,
+   fifth appearance).** The operating band (F28: worlds teach at
+   intermediate dose), the closability margin (F24: rehab runs on
+   cheap-but-not-trivial whys), assortative posing (P64), donor
+   distance (F64), and mintable destinations (T160 vii: too-near =
+   no discharge, too-far = no trajectory): VIABILITY IS AN ANNULUS.
+   Learning, creativity, communication, teaching, and thriving all
+   live at intermediate distance from the current position. Awaits
+   the user's word as a named law.
+7. **Clone collapse has an in-house cure: charge rent in the
+   population.** The generator's diversity failure is the vacuous
+   crowd at genotype grain, and the fix is the economy's own law —
+   fitness sharing as similarity-rent (crowded genotypes pay).
+   The SOV rent design transfers verbatim into the search loop.
+8. **The environment organism now has all three Darwinian
+   ingredients**: variation (warp fields), selection
+   (reality-anchored fingerprint billing), heredity (donors). The
+   manufacture loop is not LIKE evolution — it IS evolution,
+   running on the world's furniture with physics as the selective
+   environment. T153's environment-as-organism gains its
+   reproduction mechanism.
+9. **The ridge is a novelty mine.** apple->cup's rejects live in
+   no-man's-land — neither class owns them — which makes the
+   reject pile at ridges the source of GENUINELY NEW behavioral
+   categories, not failed copies: speciation at the saddle. The
+   manufacture loop should LOG ridge objects as new-class
+   candidates (quest-inflation-priced by realized engagement), and
+   P117's design gains a third arm: certified-class vs RIDGE-NOVEL
+   vs arbitrary objects, racing for organismal engagement.
+
+### F65 [W] The annulus holds where worlds live and INVERTS where worlds are spent: the inner edge is absolute in the thriving venue (0/24), and the ring is built from the world's contradiction budget
+
+**Finding (2026-08-14, P118 first bill — PARTIAL by locked gates;
+per-venue decomposition is the science).**
+  nursery (R0 1.29, live budget):  near 0/24  mid 11/24  far 6/24  INVERTED-U
+  dosed   (band, live budget):     near 1/8   mid 7/9    far 2/9   INVERTED-U
+  aged    (dosed long):            near 2/11  mid 5/11   far 3/11  INVERTED-U
+  spent   (budget zero, F42):      near 5/8   mid 2/9    far 3/9   ANTI-U
+1. **Three of four venues show the annulus, and the primary shows
+   it absolutely**: nearest-parent composes NEVER survive in the
+   thriving venue — 0 of 24. Where the economy is alive, redundancy
+   is not merely taxed, it is lethal: the inner edge is a wall.
+2. **The spent world INVERTS the law — and that is T162's boundary
+   condition, discovered on its first test**: where the
+   contradiction budget is zero (F42's venue), redundant
+   near-parent composes survive BEST (62 percent), because nothing
+   different can be funded — the viable ring collapses to the
+   center, and coasting on near-duplicates of working structure is
+   the only solvency left. THE ANNULUS IS A PROPERTY OF LIVE
+   WORLDS: the ring's inner wall is built from the world's budget
+   (it is info-pricing's geometry, and info-pricing needs
+   contradiction to price). T162 and F37/F42 are one system —
+   budget funds the ring; no budget, no ring. Inner-edge
+   lethality tracks world budget (0, 12, 18, 62 percent survival
+   across live-to-spent), not venue R0.
+3. **The pooled gate was mis-designed, owned in full**: raw
+   distances pooled across venues with different scales — a
+   violation of the rank-fidelity law (F61) REGISTERED TWO DAYS
+   AGO by the same author. Pool ranks (per-venue terciles), never
+   raw values; the corrected pooled read is 3-of-4 venue shapes.
+   The locked PARTIAL stands; the successor gate is per-venue by
+   rule.
+The net effect on T162: strengthened, with a boundary condition —
+which is worth more than clean support. A law that knows where it
+stops is a law twice over. In spent worlds, teaching, creativity,
+and transfer should all collapse toward imitation of the
+already-working — a testable, grim, and recognizable prediction
+about dead institutions.
+
+*(Generative question, same day — implications 4-8.)*
+
+4. **The inversion is a one-number world-health instrument, readable
+   from ARCHIVES alone.** Inner-edge survival (the fraction of
+   near-duplicate offspring that thrive) tracks spentness — 0, 12,
+   18, 62 percent across live-to-spent — and it needs no probe: any
+   genealogy-with-survival record carries it. A scientific field's
+   spentness is measurable from the novelty statistics of its
+   ACCEPTED papers; a company's from its shipped products. The
+   REDUNDANCY-SUCCESS INDEX joins the budget probe and the ignition
+   curve as the third world-health instrument, and it is the only
+   one that works on the historical record of worlds you cannot
+   probe.
+5. **Conservatism is downstream of budget, not temperament.** The
+   spent world SELECTS near-duplicates — imitation is the only
+   solvent strategy where nothing different can be funded. Dying
+   institutions do not decline because they became conservative;
+   they become conservative because they declined. Direction of
+   causation flipped, and the intervention follows: exhorting a
+   dead field to be bolder is useless (boldness is insolvent
+   there); the fix is BUDGET INJECTION — new contradictions, law
+   change, migration — F42's rehab result at institution grain,
+   now with its selection-level mechanism.
+6. **Mode collapse is the spent-world inversion — GAN pathology,
+   derived.** A fixed reference corpus is a zero-budget world by
+   construction, so the generator's viable ring collapses to the
+   center: imitate the references. The manufacture loop's cure is
+   structural, not a training trick: ADMISSION RECYCLING (certified
+   objects join the reference pool) is budget renewal, and
+   generator-discriminator co-evolution is T153's treadmill — two
+   organisms keeping each other's worlds alive. The loop must eat
+   its own products or it starves into plagiarism.
+7. **Evolvability theory falls out**: in live worlds the inner edge
+   is lethal, so offspring MUST differ — mutation and recombination
+   rates are annulus-targeting parameters, and the known biology
+   (mutation rates evolve down in static environments, up under
+   stress; stress-induced mutagenesis) is the annular law plus the
+   budget, enacted by genomes.
+8. **The concrete in-house payoff: RE-AIM THE COMPOSE SCAN AT THE
+   RING.** The scan proposes by maximal co-fit — which targets NEAR
+   pairs, the lethal zone (0/24 in the thriving venue). The
+   proposal distribution is currently aimed at the wall. Mechanism
+   candidate (extends F51 impl. 6, priced in F52's currency):
+   propose pairs at INTERMEDIATE rank-distance; predicted effect is
+   a several-fold rise in solvent birth rate (mid tercile 11/24 vs
+   near 0/24) and a direct R0 increase. The annular law's first
+   engineering dividend, one scan-policy change away.
+
+### F66 [W] The scan belongs on the ring: annulus-targeted composing yields 2.4x the solvent vocabulary and lifts R0 from 1.26 to 1.54 — one policy change, priced in the thriving currency
+
+**Finding (2026-08-14, p119_ring_scan SUPPORTED — the SOV-P1
+paired-stream pattern; same worlds, same evidence, same compose
+budget, policies differ only at the boundary).**
+  NEAR (standing scan, top co-fit): 72 born, 19 solvent (0.264),
+    R0 = 1.26 — and note this REPLICATES the original nursery
+    (F45/F52: 17 solvent, R0 1.29) under the paired harness, a free
+    baseline replication receipt.
+  RING (middle tercile of parent profile-distance): 72 born,
+    **46 solvent (0.639), R0 = 1.54.**
+2.4x the solvent birth rate (gate 2x, cleared), 46 solvent against
+a floor of 8, and the venue's supercriticality up ~22 percent in R0
+— the thriving rate log R0 raised by half — by MOVING PROPOSAL MASS
+FROM THE WALL TO THE RING. Nothing else changed.
+1. **The full chain, receipted end to end in 36 hours**: F63/F64
+   found the landscape's shape -> T162 registered the law -> F65
+   found the boundary condition and the aim defect -> F66 cashes
+   the dividend. Theory to law to engineering, each step billed.
+2. **Adoption question (C16 satisfied, comparability at stake)**:
+   the ring policy beat the number soundly in a paired race, so
+   adoption is licensed — recommended as the SCAN_POLICY flag
+   pattern (default 'near' for comparability with the standing
+   record; new experiments opt into 'ring'; the default flip is
+   the user's call, now with its receipt in hand).
+3. **What the 46 solvent slots are**: the largest earned vocabulary
+   any venue has produced — 2.7x the original nursery's — and the
+   natural warm-start stock for every downstream card (acceleration
+   races, P105's crowding requirement, the maturity curve's
+   economy-on replication all get richer for free).
+Webs pickled: data/p119_{near,ring}.pkl.
+
+### F67 [W/M] Co-response distance is an instrument: kin sit 7x nearer than strangers through the perturbation record alone — and the census of our own ledger reveals its hubs
+
+**Finding (2026-08-14, io0_retrospective — IO-0 commissioned,
+read-only, both gates passed).**
+1. **The metric sees kinship through responses**: same-family
+   sibling pairs at median co-response distance 0.094 vs
+   cross-family 0.690 — a SEVENFOLD separation, computed purely
+   from how slots responded to the aged lineage's nine structure
+   events (fit-rate and negative-fraction deltas per inter-event
+   window; no geometry consulted). T161's law confirmed at K grain:
+   what things ARE is readable from how they RESPOND, and the
+   ledger already held the record. The provenance guard also
+   validates (composed siblings mean ancestry overlap 0.33 vs 0
+   for unrelated — known-circular pairs are detectable at birth).
+   Distance distribution p10/p50/p90 = 0.32/1.07/1.32: the annulus
+   band is definable and populated. IO-1 (passive minting)
+   unblocks with a working retrieval metric.
+2. **The conjunction census of our own 66-finding ledger — the
+   organ's mental-model prior, measured**: the hubs are T153 (19
+   citations — the environment-organism theory is the corpus's
+   great connector), P1, F22 (the top FINDING-hub: compose's broad
+   mediators, root cause of the entire transfer arc — the census
+   independently confirms what the lived arc knew), F13, F28,
+   T154. Recurrent generative pairs: F13+T153 (9 co-occurrences),
+   T153+T154, P76+P77 — conjunctions that kept producing across
+   findings. The ritual's actual shape is now data the organ can
+   inherit as its stage-4 prior.
+3. Residue held honestly: P121's fertility formalization (which
+   conjunctions BILLED, at what formalized distance) remains open —
+   the census is descriptive; the retro-verdict needs the
+   co-response metric applied to findings themselves, which needs
+   findings' perturbation records formalized. Named, not fudged.
+
 ## Discharged (history)
 
 - **The EGGROLL conjunction → T154** (2026-08-09): the paper (low-rank

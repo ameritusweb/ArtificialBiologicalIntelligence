@@ -30,7 +30,8 @@ A document of questions: why things are the way they are in ABI and SOV, what th
 22. [Method Whys — The Constitution](#22-method-whys--the-constitution)
 23. [The Surprise Economy — Predicting the Next Surprise](#23-the-surprise-economy--predicting-the-next-surprise)
 24. [The Epistemic Umwelt — Inhabitation as a Way of Knowing](#24-the-epistemic-umwelt--inhabitation-as-a-way-of-knowing)
-25. [Unanswered Whys](#25-unanswered-whys)
+25. [The Predictable Future — What Minds Are For](#25-the-predictable-future--what-minds-are-for)
+26. [Unanswered Whys](#26-unanswered-whys)
 
 ---
 
@@ -792,7 +793,41 @@ A web at 10^5 receipts is a different physical regime than at 10^3: accumulated 
 
 ---
 
-## 25. Unanswered Whys
+## 25. The Predictable Future — What Minds Are For
+
+### Why does one drive explain scrum boards, roads, cathedrals, and the wish to live to 1000? (T160 — the user's arrival, registered 2026-08-13)
+
+**Answered:** Because it is not one drive among drives — it is the form of goal-pursuit itself. Any goal whatsoever presupposes two things: a viable agent at the moment of attainment (a sustainable state) and a path whose terminus can be foreseen (a predictable trajectory). The drive — achieving and *manufacturing* sustainable states and trajectories with predictable endpoints — is therefore content-free, quantified over all wants, which is why it surfaces in every domain humans touch. A theory of one goal explains one behavior; a theory of the form of goals explains all of them.
+
+**The ledger formulation:** it is the drive to extend the ledger into the future. The ledger holds receipts on the lived past; a predictable trajectory is the only lawful way to hold a receipt on the unlived. A plan is a future-with-receipts; memory writes the past's receipts; surprise is a receipt bouncing. One machine — and T160 names what it is for: maximize the receipted region of the future.
+
+### Why do minds need causal models *without confounders*?
+
+**Answered (derived, not assumed):** An endpoint-prediction is a claim about what happens when you *ride* the trajectory — and riding is intervening. Confounders are precisely the hidden co-drivers that break the estimate under your own participation: a correlational model prices trajectories you watch; only a deconfounded, do-calculus-grade model prices trajectories you take. Causal cognition evolved for arrival guarantees, not truth. The judgment error decomposes exactly (MSE = confounding bias² + sampling variance), and the manufacture loop is its minimization schedule: subtraction, isolation, and randomization kill the bias — randomization manufactures *independence* when the confounder can't be removed — and repetition kills the variance. Science is this loop institutionalized; the program's own C18/C20 constitution is its written form.
+
+### Why are blockers attacked first, and why does the practice feel non-negotiable?
+
+**Answered (proved, twice):** A staged trajectory has P(arrival) = ∏ pᵢ, and the gradient ∂P/∂pᵢ = P/pᵢ is maximal at the *smallest* pᵢ — so working the weakest stage is gradient ascent on arrival probability. The estimate's variance is dominated by the same stages. A blocker — low probability, high uncertainty — therefore leads on both criteria at once, which is why the practice admits no exceptions: it is optimal under either term of the objective. Roads are the same theorem at terrain grain (a kernel edit that sets a stage probability to ~1 structurally, poured into matter so every future traversal inherits it), and immortality-seeking is its asymptote: death is the one dependency on *every* critical path — certain as an event, unpriceable as an arrival, voiding every estimate that extends through it. Religion is the oldest endpoint-certification industry: issuing the one arrival estimate no causal model can fund.
+
+### Why must the drive be probabilistic rather than binary? (the user's correction, same day)
+
+**Answered:** Because "predictable" names two graded quantities worked jointly — raise P(arrival), and shrink the error of your own estimate of it — stage by stage, such that the theory is mathematical in nature. The binary reading (certified / not) hides the engineering half and makes the epistemics primary; the probabilistic reading yields the theorems: blocker-first as gradient ascent, sustainability as a Perron eigenvalue driven toward 1 (residence time 1/(1−q) diverging), and the bridge to the surprise economy as a change of variables: −log P(arrival) = Σ −log pᵢ is the path's accumulated surprisal budget, so raising stage probabilities and discharging surprise are one operation in two coordinate systems. T158 sits downstream as the settlement layer of exactly this quantity. Certification, properly placed, is bookkeeping: a calibrated, receipt-funded estimate — never the drive's object.
+
+### Why do humans build destinations, not just roads? (the corollary)
+
+**Answered:** Because endpoints are a scarce input — a trajectory needs a terminus to be a trajectory — so the drive manufactures the demand side too: destinations worth visiting, worth *being* endpoints. Destination capital and trajectory capital co-evolve (destinations justify roads; roads make destinations reachable — the co-complexification treadmill at infrastructure grain). The manufacture extends past space: festivals and deadlines are endpoints minted in time; a story is a trajectory with a manufactured worthwhile ending, which is why one without an ending feels like an uncertified path; pedagogy is the environment minting destinations to pull students along trajectories; and at epistemic grain a *question is a destination* — this program's registry is a destination book, every pre-registered prediction a manufactured endpoint the experiments travel toward. What makes an endpoint worth it: occupiability (a sustainable state you can be in), discharge (arrival settles the trajectory's invoices), and onward-fertility (the summit that shows the next range). The pathologies fall out: retirement collapse is arrival at an infertile endpoint; quest inflation — the bucket list that only lengthens — is unpriced minting, the conspiracy signature at motivation grain, blocked by the same conservativity that blocks unfunded whys.
+
+### Why is the Free Energy Principle one rung of this, rather than a rival?
+
+**Answered (formalized; Theorem 6 carries its lien):** Write the full problem min G(π; T, C, T̂). FEP optimizes the first argument only — policies, given the kernel, the preferences, and the model. T160's three manufacture operations are the other arguments: the manufacture loop repairs T̂ (the do/see distinction passive inference cannot make), environment manipulation edits T (roads), destination minting manufactures C (which FEP fixes by phenotype). They cannot compete because they do not share an optimization variable; they compose because they share the functional — FEP is the inner loop. Its founding object, the attracting set, *is* the sustainable state (the stock); T160 adds the flow. The dark room dissolves at the level FEP cannot see: perfect stock, zero production. And the ladder has strict generic dominance in the Causal Hierarchy Theorem's own form — with the Pearl functor as the deep structure: each Pearl level is the epistemic entry fee of the corresponding constructive level, association for riding (FEP's rung), intervention for building, counterfactuals for minting — because "a place worth being that does not yet exist" is a counterfactual valuation, making the imagination register the corollary's formal prerequisite, and C2 the guard on the ladder's top rung.
+
+### Why is this "what minds are for"?
+
+**Answered (the positioning capstone):** Pearl's hierarchy classifies epistemic capacity — what a mind can know. This ladder classifies constructive capacity — what an agent can build, become, and arrive at. Epistemic capacity is instrumental: the reason to climb Pearl's ladder is to climb this one. The corpus stacks accordingly: the organism discharges surprise (T158) across the worlds it inhabits (T159) in service of a future it can hold receipts on (T160). Motivation itself rereads as the felt availability of achievable predictable-endpoint trajectories — which is why it collapses when why-flow idles with knowledge fully intact, and why the atrophy case's rehabilitation began with small closable whys: rebuilding the capacity to manufacture arrivable futures, from the simplest ones up.
+
+---
+
+## 26. Unanswered Whys
 
 These are questions the framework currently cannot answer, or has answered only partially.
 
@@ -809,6 +844,8 @@ But *why* does the geometric signature outperform explicit prediction? One candi
 **Why does the falling limb of P64 (assortative Posing) not appear within a shared encoder?**
 
 P64 predicts communication yield peaks at intermediate D-metric divergence — an inverted-U. The rising limb is confirmed (yield monotonically increasing within-encoder). The falling limb requires cross-encoder or cross-species coordination divergence, and hasn't been tested at that scale. The prediction may be right and just await the right experimental setup. Or the falling limb may not exist in the way predicted.
+
+*Status update (2026-08-14, F64/T162): the falling limb has now been observed — in GENERATION rather than communication. Donor-seeded transfer fails when donor and target are too similar, because the donor's own instances crowd every discrimination neighborhood (bat->butterfly). The limb appears wherever similarity crowds the vote — which is why a shared encoder never showed it: the crowding mechanism needs a discrimination context, not an encoder divergence. P64's curve is complete across two currencies; the shape is registered as the Annular Law (T162).*
 
 ---
 
@@ -857,6 +894,18 @@ F37 says a world's nutrition is its remaining contradiction budget, and learning
 **Which receptors are optimal for idea-worlds — and is the trunk really substrate-invariant?**
 
 P100 predicts trace/replay-class receptors invariant across idea-worlds as grip/push are across physical tiers. Nothing has been grown in an idea-world yet; the comparative anatomy (P97) has no specimens. If the epistemic affordance trunk exists, embodiment has one anatomy in worlds of matter and meaning and the AW organism's sensory design can be seeded from the physical trunk. If it doesn't, every idea-world demands its own vocabulary from scratch and inhabitation-search loses its transfer economics. The whole AW program's cost structure hangs on a prediction with zero receipts either way.
+
+---
+
+**Does destination-minting converge, or inflate?**
+
+T160's corollary requires minted destinations to be priced by expected discharge and onward-fertility, receipt-funded on realization (Cor. 6.2). But the dynamics of an agent that manufactures its own preference prior are unstudied: does the destination portfolio converge to a stable, fertile set, or oscillate, or drift into quest inflation despite pricing? The conjecture — the three-clock economy applied at destination grain (wrong, orphaned, and vacuous destinations dying by reopen, dormancy, and starvation respectively) is the stabilizer — is unproven, and P111 tests only the pricing clause, not long-run convergence. Relatedly: the fertility measure Φ(D) is recursive (a destination is worth what it lets you produce), Bellman-shaped, with no convergence conditions proven.
+
+---
+
+**Is the composed problem well-posed — can the FEP bridge be made a theorem?**
+
+Theorem 6 (FEP as the inner loop of T160) carries its lien: the claim needs the inner minimization continuous in the outer variables (kernel edits, preference minting, model repair) and the NESS-equals-sustainable-state identification made rigorous at the level of dynamics, not just objects. If well-posedness fails — if manipulating the world or minting preferences can destroy the inner problem's solution structure — the "different levels of one system" claim needs restatement, and the failure mode itself would be informative: it would locate exactly where constructive capacity outruns inferential coherence.
 
 ---
 
