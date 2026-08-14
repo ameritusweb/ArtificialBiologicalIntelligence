@@ -659,6 +659,37 @@ class MentalModelEngine:
         self.family_manager = None
         self.entity_store = EntityRelationStore()
         self.core_obs_dim = getattr(encoder, 'obs_dim', CORE_OBS_DIM)
+        self.constraint_web = None
+        self.constraint_webs = None   # {population_slot: ConstraintWeb} (E1)
+
+    def save(self, path):
+        """Save engine to file for sharing across processes."""
+        import pickle
+        state = {
+            'encoder_state': self.encoder.state_dict(),
+            'encoder_obs_dim': self.encoder.obs_dim,
+            'store': self.store,
+            'pattern_store': self.pattern_store,
+            'family_manager': self.family_manager,
+            'core_obs_dim': self.core_obs_dim,
+        }
+        with open(path, 'wb') as f:
+            pickle.dump(state, f, protocol=pickle.HIGHEST_PROTOCOL)
+
+    @classmethod
+    def load(cls, path):
+        """Load engine from file."""
+        import pickle
+        with open(path, 'rb') as f:
+            state = pickle.load(f)
+        encoder = ContrastiveEncoder(obs_dim=state['encoder_obs_dim'])
+        encoder.load_state_dict(state['encoder_state'])
+        encoder.eval()
+        engine = cls(encoder, state['store'])
+        engine.pattern_store = state['pattern_store']
+        engine.family_manager = state['family_manager']
+        engine.core_obs_dim = state['core_obs_dim']
+        return engine
 
     def _core_obs(self, obs):
         if isinstance(obs, np.ndarray) and obs.shape[-1] > self.core_obs_dim:
@@ -806,6 +837,23 @@ class MentalModelEngine:
         self.store.update_certainty(ah, embedding, predicted, delta)
         self.store.add_mapping(ah, embedding, delta, reward)
 
+    def sov_step(self, obs_before, obs_after, action, reward, receptor_values,
+                 log_offset, episode, time_step, organism_slot=None):
+        if organism_slot is not None and self.constraint_webs is not None:
+            web = self.constraint_webs.get(organism_slot)
+        else:
+            web = self.constraint_web
+        if web is None:
+            return []
+        web._global_step += 1
+        step = web._global_step
+        core = self._core_obs(obs_before)
+        embedding = self.encoder.embed(core)
+        results = web.fit_all(
+            receptor_values, embedding, obs_before, obs_after,
+            reward, log_offset, episode, step, support_obs=core)
+        return results
+
     def compute_learning_progress(self, obs_before, action, obs_after, reward):
         obs_b = self._core_obs(obs_before)
         obs_a = self._core_obs(obs_after)
@@ -932,6 +980,43 @@ class MentalModelEngine:
         return stats
 
 
+def update_mental_model(engine, new_log, rebuild_patterns=True):
+    """Incrementally update an existing engine with new experience.
+
+    Keeps the encoder frozen. Adds new entries to the existing store.
+    Optionally rebuilds the pattern store to include new patterns.
+    """
+    if not new_log:
+        return engine
+
+    cdim = engine.core_obs_dim
+    store = engine.store
+    encoder = engine.encoder
+
+    all_obs = np.array([e['obs_before'][:cdim] for e in new_log], dtype=np.float32)
+    all_deltas = np.array([e['obs_after'][:cdim] - e['obs_before'][:cdim]
+                           for e in new_log], dtype=np.float32)
+    all_rewards = np.array([e['reward'] for e in new_log], dtype=np.float32)
+    all_hashes = np.array([action_to_hash(e['action']) for e in new_log])
+
+    all_embeddings = encoder.embed_batch(all_obs)
+
+    for i in range(len(new_log)):
+        store.add_mapping(int(all_hashes[i]), all_embeddings[i],
+                          all_deltas[i], float(all_rewards[i]))
+
+    if engine.family_manager is not None:
+        engine.family_manager.discover_families(new_log)
+        engine.family_manager.learn_weights(new_log, encoder, store)
+
+    if rebuild_patterns and engine.pattern_store is not None:
+        engine.pattern_store.build_from_log(new_log, encoder, store)
+
+    print(f"  Incremental update: +{len(new_log)} entries, "
+          f"store size: {store.total_count}")
+    return engine
+
+
 def build_mental_model(global_log, obs_dim=96, core_obs_dim=None, merge_threshold=None):
     if core_obs_dim is not None:
         obs_dim = core_obs_dim
@@ -959,6 +1044,16 @@ def build_mental_model(global_log, obs_dim=96, core_obs_dim=None, merge_threshol
     ps = pstore.get_stats()
     print(f"    Patterns: {ps['total_patterns']}, Motif types: {ps['num_motif_types']}, "
           f"Avg cert: {ps['avg_certainty']:.3f}, Avg gain: {ps['avg_compression_gain']:.3f}")
+
+    print("  Initializing SOV constraint web...")
+    from sov import ConstraintWeb
+    from receptor_eigen_coder import ReceptorEigenCoder
+    web = ConstraintWeb(eigen_coder=ReceptorEigenCoder(), debug_level=1)
+    web.populate_from_families()
+    engine.constraint_web = web
+    ws = web.get_stats()
+    print(f"    Slots: {ws['total_slots']} open, web initialized")
+
     return engine
 
 

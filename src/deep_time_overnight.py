@@ -33,6 +33,7 @@ from thinking_substrate import ThinkingTree
 from thinking_influence import measure_thinking_influence
 from novel_receptor_detector import detect_novel_receptors
 from deep_time import EvolvingOrganism, select_and_reproduce
+from live_receptors import LiveReceptorBank
 
 RESULTS_DIR = os.path.join(os.path.dirname(__file__), 'data')
 CHECKPOINT_DIR = os.path.join(RESULTS_DIR, 'checkpoints')
@@ -135,14 +136,57 @@ def find_latest_checkpoint(seed=42):
 
 def run_generation_rich(organisms, gen, model, engine, tree, rng,
                         world_state=None, steps_per_episode=200,
-                        num_episodes=5, tier=4, use_oracle=False):
-    """One generation in the richest environment stack."""
+                        num_episodes=5, tier=4, use_oracle=False,
+                        env_factory=None, tokenizers=None, cog_detector=None,
+                        channel_computers=None, channel_mode='zeroed',
+                        motor_store=None, shortcut_executor=None,
+                        peak_index=None, shortcut_threshold=0.5,
+                        sov_webs=None, sov_masks=None, sov_bus=None,
+                        sov_cofit=None):
+    """One generation in the richest environment stack.
+
+    tokenizers: optional {population_slot: SurpriseTokenizer} — persistent
+    across generations per slot (the lineage's surprise stream; rank
+    reservoirs and configuration tables carry across, so calibration deepens
+    with lived history and the emission warmup is paid once per slot, not
+    per generation). Tokenization is skipped automatically when engine is
+    None (bootstrap). cog_detector supplies thought types for CONFLATION
+    grouping. Zero behavioral effect: logging only.
+
+    channel_computers: optional {slot: SurpriseChannelComputer} — the
+    IN-DOMAIN P45 fold: feeds each slot's token stream to its computer and
+    writes org.surprise_channels (obs[400:408]) per channel_mode: 'live'
+    (computed), 'placebo' (a time-permuted earlier vector — dimensionality
+    control; draws use the computer's OWN rng so the shared stream stays
+    arm-aligned), 'zeroed' (channels present, zero — the default and the
+    corpus-run behavior). Consumed-token counts and placebo buffers live
+    ON the computer objects so state survives per-generation calls.
+
+    motor_store/shortcut_executor/peak_index: the delegation axis, joined
+    to the rich world (PC-8-D — the axis's absence here was the gap that
+    voided PC-8's first instrumented run). Shortcut execution follows the
+    motor_store_experiment pattern: matched sequences execute in place of
+    thinking+policy (thinking channels zeroed — the intervention's own
+    write, which is why composition analysis is deliberative-only), the
+    cap-free cognitive-state update moves to the top of the step so
+    thought types exist before the store query, and extraction runs per
+    organism-episode. Passing none of these leaves the runner unchanged.
+    """
     idx = compute_obs_indices()
     obs_dim = idx['obs_dim']
     num_actions = idx['num_actions']
 
+    # Social-ledger E1: per-organism webs route through the engine.
+    # sov_masks blind each organism's WEB (never the organism) to a family
+    # window — divergence lives in the ledgers, behavior is arm-invariant.
+    if engine is not None and sov_webs is not None:
+        engine.constraint_webs = sov_webs
+
     env_seed = rng.randint(0, 100000)
-    env = TieredEnvironment(seed=env_seed, tier=tier)
+    if env_factory is not None:
+        env = env_factory(seed=env_seed)
+    else:
+        env = TieredEnvironment(seed=env_seed, tier=tier)
 
     ref_org = organisms[0].create_organism(rng)
     pw = PhysicsWorld(env, ref_org, num_objects=3, seed=env_seed)
@@ -158,11 +202,12 @@ def run_generation_rich(organisms, gen, model, engine, tree, rng,
     all_targets = []
     all_next_pain = []
     all_logs = {org.organism_id: [] for org in organisms}
+    receptor_bank = LiveReceptorBank()
 
     for ep in range(num_episodes):
         combined.new_episode()
 
-        for evo_org in organisms:
+        for oi, evo_org in enumerate(organisms):
             org = evo_org.create_organism(rng)
             pw.org = org
             org.physics_mode = True
@@ -197,6 +242,35 @@ def run_generation_rich(organisms, gen, model, engine, tree, rng,
 
                 obs_before = org.history[-1].copy() if org.history else np.zeros(obs_dim)
 
+                # Thought type FIRST (moved from the tokenizer block —
+                # same inputs, behavior-preserving; the motor store keys
+                # on it, so it must exist before the shortcut query)
+                tt_now = None
+                if cog_detector is not None and engine is not None:
+                    tt_now, _ca = cog_detector.update(obs_before, engine,
+                                                      prev_action_hash)
+                    org.thought_type_id = tt_now
+
+                # Delegation axis: shortcut continuation / start
+                shortcut_action = None
+                if (motor_store is not None and shortcut_executor is not None
+                        and engine is not None):
+                    if shortcut_executor.is_active():
+                        if (shortcut_executor.should_abort(obs_before)
+                                or shortcut_executor.is_complete()):
+                            shortcut_executor.finish(motor_store, gen)
+                        else:
+                            shortcut_action = shortcut_executor.get_action()
+                    if (shortcut_action is None and tt_now is not None
+                            and not shortcut_executor.is_active()):
+                        emb = engine.encoder.embed(
+                            obs_before[:engine.core_obs_dim])
+                        match, score = motor_store.query(tt_now, emb,
+                                                         min_support=3)
+                        if match is not None and score > shortcut_threshold:
+                            shortcut_executor.start(match, obs_before)
+                            shortcut_action = shortcut_executor.get_action()
+
                 if engine is not None:
                     mm_fam, mm_qual = engine.get_context_features(obs_before)
                     mm_features = (mm_fam, mm_qual, prev_mm_certainty, prev_learning_progress)
@@ -211,32 +285,43 @@ def run_generation_rich(organisms, gen, model, engine, tree, rng,
                     mm_features = None
                     pattern_features = None
 
-                if tree is not None and engine is not None:
-                    org.thinking_channels = tree.think(obs_before, engine)
-                    org.energy = max(0.0, org.energy - _thinking_cost * tree.max_simulations)
-
-                optimal = org.compute_optimal_actions(env, step, npc=active_npc)
-
-                if use_oracle or model is None:
-                    policy_action = optimal
+                if shortcut_action is not None:
+                    # Delegated execution: no thinking, no policy call
+                    org.thinking_channels = np.zeros(
+                        idx.get('num_thinking_channels', 6))
+                    executed = shortcut_action
                 else:
-                    window = org.get_observation_window()
-                    policy_action, _ = model.predict(window)
-                    all_windows.append(window.copy())
-                    all_targets.append(optimal.copy())
+                    if tree is not None and engine is not None:
+                        org.thinking_channels = tree.think(obs_before, engine)
+                        org.energy = max(0.0, org.energy - _thinking_cost * tree.max_simulations)
 
-                r = rng.random()
-                if r < PROBE_RATE_FLOOR:
-                    executed = np.zeros(num_actions, dtype=np.int32)
-                elif r < EXPLORE_RATE:
-                    executed = rng.randint(0, 2, size=num_actions).astype(np.int32)
-                else:
-                    executed = policy_action
+                    optimal = org.compute_optimal_actions(env, step, npc=active_npc)
+
+                    if use_oracle or model is None:
+                        policy_action = optimal
+                    else:
+                        window = org.get_observation_window()
+                        policy_action, _ = model.predict(window)
+                        all_windows.append(window.copy())
+                        all_targets.append(optimal.copy())
+
+                    r = rng.random()
+                    if r < PROBE_RATE_FLOOR:
+                        executed = np.zeros(num_actions, dtype=np.int32)
+                    elif r < EXPLORE_RATE:
+                        executed = rng.randint(0, 2, size=num_actions).astype(np.int32)
+                    else:
+                        executed = policy_action
 
                 pw.apply_organism_forces(executed)
                 pw.check_grips(executed)
                 pw.apply_developmental_changes(step)
                 pw.step()
+
+                tool_reward = pw.check_tool_interactions()
+                org._tool_reach = pw.get_tool_reach() if hasattr(pw, 'get_tool_reach') else 0.0
+                org._tool_force_mult = pw.get_tool_force_multiplier() - 1.0
+                org._tool_contact_count = min(1.0, len(pw.detect_constructed_structures()) / 3.0)
 
                 obs, reward = org.step(
                     executed, env, step,
@@ -247,10 +332,75 @@ def run_generation_rich(organisms, gen, model, engine, tree, rng,
                     npc=active_npc,
                 )
                 active_npc.receive_signal(executed[org.NUM_LIMBS * 3:], org.x, org.y)
+                org.receptor_channels = receptor_bank.compute(obs, executed, engine, reward)
+                if engine is not None:
+                    rv = org.receptor_channels
+                    if sov_masks is not None and oi in sov_masks:
+                        rv = rv.copy()
+                        rv[sov_masks[oi]] = 0.0
+                    _sov_results = engine.sov_step(
+                        obs_before, obs, executed, reward,
+                        rv, len(org.experience_log) - 1, ep, step,
+                        organism_slot=(oi if sov_webs is not None else None))
+                    # P75 observational add-on: record which slots fired
+                    # positively this step (pure logging, no RNG).
+                    if sov_cofit is not None:
+                        sov_cofit.record(oi, ep, step, [
+                            sid for sid, rs in _sov_results
+                            if any(r.kind == 'fit' and r.sign > 0
+                                   for r in rs)])
                 episode_pain.append(obs[0:6].copy())
 
+                if shortcut_action is not None:
+                    shortcut_executor.add_reward(reward)
+                    shortcut_executor._fired = getattr(
+                        shortcut_executor, '_fired', 0) + 1
+                if peak_index is not None:
+                    rd = reward - (float(np.mean(obs_before[:6]))
+                                   if len(obs_before) >= 6 else 0.0)
+                    if rd > 0.1:
+                        peak_index.add(rd, len(org.experience_log) - 1,
+                                       executed, obs_before)
+
                 t7_reward = combined.step(org, zone_choice=step % 8, difficulty=1 + gen // 10)
-                episode_reward += reward + t7_reward * 0.3
+                episode_reward += reward + t7_reward * 0.3 + tool_reward * 0.2
+
+                # Surprise tokenization: BEFORE the model absorbs the outcome
+                # (surprisal is rarity under the pre-update ledger)
+                if tokenizers is not None and engine is not None:
+                    tt = tt_now if tt_now is not None else 0.0
+                    tokenizers[oi].observe_step(
+                        engine, obs_before, executed, obs, reward,
+                        thought_type=tt,
+                        log_offset=len(org.experience_log) - 1)
+
+                # In-domain P45 fold: channels for the NEXT step's obs
+                if (channel_computers is not None and tokenizers is not None
+                        and engine is not None):
+                    cc = channel_computers.get(oi)
+                    if cc is not None:
+                        toks = tokenizers[oi].tokens
+                        n_seen = getattr(cc, '_consumed', 0)
+                        # Monotonic per-computer clock: computers persist
+                        # across run_generation_rich calls, so a per-call
+                        # step index would run time backward (negative dt,
+                        # log1p domain error — caught in the first launch)
+                        cc._steps = getattr(cc, '_steps', 0) + 1
+                        for t_new in toks[n_seen:]:
+                            cc.on_token(t_new, cc._steps)
+                        cc._consumed = len(toks)
+                        if channel_mode == 'live':
+                            org.surprise_channels = np.asarray(
+                                cc.channels(), dtype=np.float64)
+                        elif channel_mode == 'placebo':
+                            buf = getattr(cc, '_placebo_buf', None)
+                            if buf is None:
+                                buf = cc._placebo_buf = []
+                            buf.append(np.asarray(cc.channels(),
+                                                  dtype=np.float64))
+                            j = cc._placebo_rng.randint(0, len(buf))
+                            org.surprise_channels = buf[j]
+                        # 'zeroed': leave the default zeros
 
                 if engine is not None:
                     ctrl, ext_ch, plan_v = engine.compute_agency_features(obs_before, executed, obs)
@@ -268,11 +418,33 @@ def run_generation_rich(organisms, gen, model, engine, tree, rng,
                 prev_action_hash = action_to_hash(executed)
 
             evo_org.fitness += episode_reward
+            if engine is not None:
+                if sov_webs is not None:
+                    w = sov_webs.get(oi)
+                    if w is not None:
+                        w.anneal_all(w._global_step)
+                elif engine.constraint_web is not None:
+                    engine.constraint_web.anneal_all(
+                        engine.constraint_web._global_step)
             all_logs[evo_org.organism_id].extend(org.experience_log)
+            if tokenizers is not None and engine is not None:
+                tokenizers[oi].end_episode()
+            if (motor_store is not None and peak_index is not None
+                    and engine is not None
+                    and len(org.experience_log) >= 20):
+                motor_store.extract_sequences(
+                    org.experience_log, peak_index, engine.encoder,
+                    cog_detector, engine.core_obs_dim)
 
             for i in range(steps_per_episode):
                 next_p = episode_pain[i + 1] if i + 1 < steps_per_episode else episode_pain[i]
                 all_next_pain.append(next_p)
+
+        # Social-ledger bus: after ALL organisms finish the episode —
+        # corroboration resolution, Pose selection, Attest imports.
+        # Deterministic, no RNG, web-state only (behavior untouched).
+        if sov_bus is not None and sov_webs is not None and engine is not None:
+            sov_bus.episode_boundary(sov_webs, generation=gen, episode=ep)
 
     for evo_org in organisms:
         evo_org.experience_log = all_logs[evo_org.organism_id]
@@ -284,13 +456,57 @@ def run_generation_rich(organisms, gen, model, engine, tree, rng,
 def run_overnight(num_generations=50, population_size=4,
                   num_episodes=5, steps_per_episode=200,
                   bootstrap_episodes=20, epochs_per_gen=8,
-                  tier=4, seed=42, resume=True):
+                  tier=4, seed=42, resume=True, env_factory=None,
+                  collect_surprise=False):
     import torch
     t_start = time.time()
 
     idx = compute_obs_indices()
     num_actions = idx['num_actions']
     start_gen = 0
+
+    tokenizers = None
+    cog_detector = None
+    _token_counts = {}
+    corpus_dir = os.path.join(RESULTS_DIR, 'corpus_rich')
+    if collect_surprise:
+        from surprise_log import SurpriseTokenizer
+        from cognitive_state import CognitiveStateDetector
+        os.makedirs(corpus_dir, exist_ok=True)
+        tokenizers = {i: SurpriseTokenizer(idx) for i in range(population_size)}
+        cog_detector = CognitiveStateDetector()
+        _token_counts = {i: 0 for i in range(population_size)}
+
+    def _save_corpus_slice(gen):
+        if tokenizers is None:
+            return 0
+        saved = 0
+        for i, tok in tokenizers.items():
+            new = tok.tokens[_token_counts[i]:]
+            if new:
+                path = os.path.join(corpus_dir,
+                                    f'surprise_rich_g{gen}_slot{i}.jsonl')
+                with open(path, 'w') as f:
+                    for t in new:
+                        f.write(json.dumps(t.to_dict()) + '\n')
+                saved += len(new)
+            _token_counts[i] = len(tok.tokens)
+        # PC-8 instrument: per-generation cognitive-state snapshot. The
+        # codebook keys are binary activation vectors over the detector's
+        # channel groups; per-gen count deltas give thought-type composition
+        # (execution-level vs coordination-level groups) alongside the
+        # shortcut/motor delegation metrics in the gen records.
+        if cog_detector is not None:
+            snap = {
+                'generation': gen,
+                'group_names': list(cog_detector.group_names),
+                'codebook_keys': [k.tolist() for k in cog_detector.codebook],
+                'codebook_counts': list(cog_detector.codebook_counts),
+            }
+            with open(os.path.join(corpus_dir, f'cogstate_g{gen}.json'),
+                      'w') as f:
+                json.dump(snap, f)
+        return saved
 
     # Check for existing checkpoint
     if resume:
@@ -368,7 +584,8 @@ def run_overnight(num_generations=50, population_size=4,
         world_state, _, _, _ = run_generation_rich(
             organisms, 0, model=None, engine=None, tree=None, rng=rng,
             world_state=world_state, steps_per_episode=steps_per_episode,
-            num_episodes=bootstrap_episodes, tier=tier, use_oracle=True)
+            num_episodes=bootstrap_episodes, tier=tier, use_oracle=True,
+            env_factory=env_factory)
 
         for evo_org in organisms:
             cumulative_log.extend(evo_org.experience_log)
@@ -376,7 +593,8 @@ def run_overnight(num_generations=50, population_size=4,
         print(f"  Log: {len(cumulative_log)} entries")
         print("  Training initial policy from oracle data...")
         X_boot, Y_boot, Z_boot, _ = generate_training_data(
-            num_episodes=bootstrap_episodes, steps_per_episode=steps_per_episode, seed=seed)
+            num_episodes=bootstrap_episodes, steps_per_episode=steps_per_episode, seed=seed,
+            env_factory=env_factory)
         model = train_model(X_boot, Y_boot, Z_boot, epochs=epochs_per_gen,
                             staged=True, steps_per_episode=steps_per_episode)
         cumulative_windows.extend([w for w in X_boot])
@@ -447,7 +665,15 @@ def run_overnight(num_generations=50, population_size=4,
         world_state, windows, targets, next_pain = run_generation_rich(
             organisms, gen, model=model, engine=engine, tree=tree, rng=rng,
             world_state=world_state, steps_per_episode=steps_per_episode,
-            num_episodes=num_episodes, tier=tier, use_oracle=False)
+            num_episodes=num_episodes, tier=tier, use_oracle=False,
+            env_factory=env_factory, tokenizers=tokenizers,
+            cog_detector=cog_detector)
+
+        if collect_surprise:
+            n_saved = _save_corpus_slice(gen)
+            total_tokens = sum(len(t.tokens) for t in tokenizers.values())
+            print(f"  Surprise corpus: +{n_saved} tokens this gen "
+                  f"({total_tokens} total)")
 
         for evo_org in organisms:
             cumulative_log.extend(evo_org.experience_log)
@@ -464,9 +690,16 @@ def run_overnight(num_generations=50, population_size=4,
             model = train_model(X, Y, Z, epochs=epochs_per_gen, staged=True,
                                 steps_per_episode=steps_per_episode)
 
-        # Rebuild mental model
+        # Rebuild mental model (carry SOV web forward)
+        prev_web = engine.constraint_web if engine is not None else None
         log_slice = cumulative_log[-60000:]
         engine = build_mental_model(log_slice)
+        if prev_web is not None:
+            engine.constraint_web = prev_web
+            # The rebuilt encoder defines a new embedding space; recompute
+            # slot geometry from raw support samples so feasible sets never
+            # mix coordinates from unaligned encoder epochs.
+            prev_web.rebase(engine.encoder)
         if engine.pattern_store is not None:
             engine.pattern_store.build_from_log(
                 log_slice, engine.encoder, engine.store,
@@ -493,6 +726,21 @@ def run_overnight(num_generations=50, population_size=4,
             'avg_bias_size': round(float(np.mean([len(o.topology_bias) for o in organisms])), 1),
             'elapsed_min': round((time.time() - t_start) / 60, 1),
         }
+        if engine is not None and engine.constraint_web is not None:
+            ws = engine.constraint_web.get_stats()
+            sov_violations = engine.constraint_web.check_conservation_laws()
+            gen_record['sov'] = {
+                'open': ws['open'], 'closed': ws['closed'],
+                'archaized': ws['archaized'],
+                'receipts': ws['total_receipts'],
+                'fit_mass': round(ws['total_fit_mass'], 0),
+                'reopened': ws['op_counts'].get('reopen', 0),
+                'unassigned_pool': ws.get('unassigned_pool', 0),
+                'churn_by_slot': ws.get('churn_by_slot', {}),
+                'violations': sov_violations,
+            }
+            if sov_violations:
+                print(f"  !! SOV conservation violations: {sov_violations}")
 
         # Thinking influence (every 5 generations)
         if gen % 5 == 0 or gen == num_generations - 1:
@@ -550,6 +798,13 @@ def _print_gen_summary(rec):
     novel = rec.get('novel_receptors')
     if novel is not None:
         print(f"  Novel candidates: {novel}")
+    sov = rec.get('sov')
+    if sov:
+        v = sov.get('violations', [])
+        print(f"  SOV: {sov['open']} open, {sov['closed']} closed, "
+              f"{sov['archaized']} arch, {sov['receipts']} receipts, "
+              f"reopened={sov.get('reopened', 0)}, "
+              f"conservation={'PASS' if not v else 'VIOLATED'}")
     print(f"  Elapsed: {rec.get('elapsed_min', 0):.0f} min")
 
 

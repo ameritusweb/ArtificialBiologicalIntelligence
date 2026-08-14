@@ -84,7 +84,8 @@ def generate_training_data_physics(num_episodes=200, steps_per_episode=300, seed
     return X, Y, Z, global_log
 
 
-def generate_training_data(num_episodes=500, steps_per_episode=300, seed=0):
+def generate_training_data(num_episodes=500, steps_per_episode=300, seed=0,
+                           env_factory=None):
     rng = np.random.RandomState(seed)
     all_windows = []
     all_targets = []
@@ -92,7 +93,8 @@ def generate_training_data(num_episodes=500, steps_per_episode=300, seed=0):
     global_log = []
 
     for ep in range(num_episodes):
-        env = Environment(seed=rng.randint(0, 100000))
+        env_seed = rng.randint(0, 100000)
+        env = env_factory(seed=env_seed) if env_factory is not None else Environment(seed=env_seed)
         org = Organism()
         org.reset(rng)
         npc = NPC()
@@ -617,6 +619,9 @@ def generate_training_data_self_play(num_bootstrap=50, num_self_play=200,
                             )
                             npc.receive_signal(executed[org.NUM_LIMBS * 3:], org.x, org.y)
                             org.receptor_channels = receptor_bank.compute(obs, executed, engine, reward)
+                            engine.sov_step(obs_before, obs, executed, reward,
+                                            org.receptor_channels,
+                                            len(org.experience_log) - 1, ep, step)
                             shortcut_executor.add_reward(reward)
                             episode_pain.append(obs[0:6].copy())
                             episode_reward += reward
@@ -647,6 +652,9 @@ def generate_training_data_self_play(num_bootstrap=50, num_self_play=200,
                             )
                             npc.receive_signal(executed[org.NUM_LIMBS * 3:], org.x, org.y)
                             org.receptor_channels = receptor_bank.compute(obs, executed, engine, reward)
+                            engine.sov_step(obs_before, obs, executed, reward,
+                                            org.receptor_channels,
+                                            len(org.experience_log) - 1, ep, step)
                             shortcut_executor.add_reward(reward)
                             episode_pain.append(obs[0:6].copy())
                             episode_reward += reward
@@ -695,6 +703,9 @@ def generate_training_data_self_play(num_bootstrap=50, num_self_play=200,
                 )
                 npc.receive_signal(executed[org.NUM_LIMBS * 3:], org.x, org.y)
                 org.receptor_channels = receptor_bank.compute(obs, executed, engine, reward)
+                engine.sov_step(obs_before, obs, executed, reward,
+                                org.receptor_channels,
+                                len(org.experience_log) - 1, ep, step)
                 episode_pain.append(obs[0:6].copy())
                 episode_reward += reward
 
@@ -732,6 +743,10 @@ def generate_training_data_self_play(num_bootstrap=50, num_self_play=200,
             org.episode_receptor_channels = episode_receptor_bank.compute(
                 org.experience_log, engine)
 
+            # SOV: anneal all slots at episode boundary
+            if engine.constraint_web is not None:
+                engine.constraint_web.anneal_all(engine.constraint_web._global_step)
+
             for i in range(steps_per_episode):
                 next_p = episode_pain[i + 1] if i + 1 < steps_per_episode else episode_pain[i]
                 sp_next_pain.append(next_p)
@@ -753,13 +768,27 @@ def generate_training_data_self_play(num_bootstrap=50, num_self_play=200,
         Y = np.array(all_targets, dtype=np.float32)
         Z = np.array(all_next_pain, dtype=np.float32)
 
+        if engine.constraint_web is not None:
+            ws = engine.constraint_web.get_stats()
+            violations = engine.constraint_web.check_conservation_laws()
+            print(f"  SOV web: {ws['open']} open, {ws['closed']} closed, "
+                  f"{ws['archaized']} archaized, {ws['total_receipts']} receipts, "
+                  f"fit_mass={ws['total_fit_mass']:.0f}, "
+                  f"conservation={'PASS' if not violations else violations}")
+
         print(f"  Retraining policy on {len(X)} samples ({epochs_per_iter} epochs)...")
         model = train_model(X, Y, Z, epochs=epochs_per_iter, staged=staged,
                             steps_per_episode=steps_per_episode)
 
         # Rebuild mental model with all data
         print("  Rebuilding mental model...")
+        prev_web = engine.constraint_web if engine is not None else None
         engine = build_mental_model(global_log)
+        if prev_web is not None:
+            engine.constraint_web = prev_web
+            # New encoder epoch: recompute slot geometry from raw support
+            # samples so feasible sets stay in one coordinate frame.
+            prev_web.rebase(engine.encoder)
         if engine.pattern_store is not None:
             engine.pattern_store.build_from_log(
                 global_log, engine.encoder, engine.store,
@@ -815,6 +844,7 @@ def train_model(X, Y, Z, epochs=30, batch_size=256, lr=1e-3, num_limbs=6,
           f"Val: {len(val_idx):,} samples ({num_val_eps} episodes)")
 
     best_val_loss = float('inf')
+    best_state = None
 
     for epoch in range(epochs):
         np.random.shuffle(train_idx)
@@ -912,7 +942,7 @@ def train_model(X, Y, Z, epochs=30, batch_size=256, lr=1e-3, num_limbs=6,
 
         if val_loss < best_val_loss:
             best_val_loss = val_loss
-            torch.save(model.state_dict(), os.path.join(DATA_DIR, 'best_model.pt'))
+            best_state = {k: v.clone() for k, v in model.state_dict().items()}
 
         stage_str = f"  stage_mse={avg['stage_mse']:.4f}" if avg['stage_mse'] > 0 else ""
         print(f"  Epoch {epoch + 1:2d}/{epochs}  loss={avg['loss']:.4f}  "
@@ -921,7 +951,8 @@ def train_model(X, Y, Z, epochs=30, batch_size=256, lr=1e-3, num_limbs=6,
               f"pred_mse={avg['pred_mse']:.4f}{stage_str}  "
               f"lr={scheduler.get_last_lr()[0]:.6f}")
 
-    model.load_state_dict(torch.load(os.path.join(DATA_DIR, 'best_model.pt'), weights_only=True))
+    if best_state is not None:
+        model.load_state_dict(best_state)
     return model
 
 
