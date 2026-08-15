@@ -822,6 +822,16 @@ Human-theory siblings, subsumed rather than cited: Vygotsky's zone of proximal d
 
 *Status: Proposed. Test (registry P118): the annulus at COMPOSE grain — solvent composed slots arise from parent pairs at INTERMEDIATE behavioral distance (not nearest: redundant; not farthest: unbindable), measurable from the nursery genealogy and fingerprint distances already on disk; falsifier: solvency is monotone or flat in parent distance. Standing receipts: F24, F28, F63/F64, P64's completed curve, T160 vii.*
 
+**Extension (registered 2026-08-15) — THE GENERATION ANNULUS, the generative corollary, and the band's internal structure.** The generator arc (five cards: generator_rent, surrogate_card, generator_refund, fertility_atlas; F70–F74) adds OBJECT GENERATION as the law's third mechanized domain and delivers the first map of the band's interior:
+
+**(i) The generative corollary: nothing viable is grown from nothing.** Blobs — seeds outside the outer edge — are dead in MUTATION directions (F71: engagement 0/3, and diversity pressure cannot mint gradient; the SOV rent law applied in-search changed nothing, with the bit-identical cup pair as the cleanest mechanism-inertness receipt in the program) and dead in GRADIENT directions (F72's plateau probe: surrogate gradients found no slope mutations missed). The plateau is GEOMETRIC, not noise-limited: the judge's class signal rose ~70 percent (F70's diet fix, 0.30 → 0.51) and blob engagement did not move — an accidental controlled experiment. All generation is inheritance plus deformation inside the annulus around something that already works; the outer edge is absolute.
+
+**(ii) In-annulus fertility is universal and classless.** Instance-grain ring seeding (middle tercile of the whole pool's fitness-to-target — no class means, no hand-picking; the centroid fallacy killed by F71/F74: class means blur multimodal classes into points that sit nowhere) engaged 70/70 corpus targets where blobs engaged zero, and produced the program's first POLICY-FOUND crossings: cup grown from apples, keys, hammers, and forks (F72); key re-found blind at 3/3 from thirteen donor classes (F74) after being F64's hand-picked winner. Bricolage — inheriting from whatever sits in the annulus — is mechanized and runs unattended.
+
+**(iii) The band's interior has structure — THE COHERENCE LAW.** Approachability tracks target COHERENCE, not volume: within-class fingerprint spread predicts engagement NEGATIVELY and strongly (Spearman rho = -0.62, p = 1.2e-8, n = 70 — F64's target-volume hypothesis falsified BY INVERSION, and the atlas card's own pre-registered gate failed honestly on the sign lock). A tight response cluster is a well-posed objective; a diffuse class smears its 5-NN target into unclimbable mush. Wide basins are not wide targets — they are smeared targets. And ADMISSION rides a different axis entirely: fertility (3/70 at the full-corpus exam: key, fountain, HCircle) does not follow coherence — fountain is among the widest classes yet crossed 3/3 while equally-tight Heart never admitted. Candidate (named, one-pool-pass testable): admission tracks neighborhood DOMINANCE — how sparsely the target's fingerprint region is contested. Engagement <- coherence; admission <- isolation.
+
+*Extension status: (i)–(ii) receipted (F70–F74; specimens banked in data/atlas_specimens.pkl for P117); (iii)'s coherence leg receipted at n = 70, isolation leg untested. Falsifier for the corollary: any ex-nihilo seeding policy that engages at the blob floor under the certified judge.*
+
 ---
 
 ## LIII. The Implication Organ
@@ -847,18 +857,64 @@ Human-theory siblings, subsumed rather than cited: Vygotsky's zone of proximal d
 
 ---
 
+## LV. Alignment by Solvency
+
+**T164. The economy can govern learned organs it cannot inspect: trust is rented per receipt, never granted by construction.** (Registered 2026-08-15 from F72's mechanism receipt.)
+
+Any proposer — including an opaque learned model — is governable by the standing four moves (pose, receipt, rent, evict) with no access to its internals. The proposer's acceptance stream IS its receipt stream; sustained failure is ordinary insolvency; the bill never leaves physics' hands (C1 extended to INSTRUMENTS). First mechanism receipt, 9/9 lifecycles (F72): a CNN surrogate of the fitness map ran the canonical differentiable-proxy arc — high early acceptance, drift into regions where the proxy lies, collapse — and the standing solvency law caught and punished it with zero bespoke drift monitoring: insolvent → retrained on the ledger → insolvent again → evicted, honest fallback. The classic failure mode of every learned-proxy pipeline became an ordinary bankruptcy.
+
+Three identifications, recorded as cross-references rather than new principles: (i) this is the FUNDING EQUATION of serialization_math.md (Proposition 32: persist iff VoI ≥ rent) operating on the instrument axis of its Part II — F72 is a receipt against that formal object; (ii) FEP kinship (TNB package): acceptance rate is the proposer's PRECISION, and eviction is precision driven to zero by prediction-error history — empirical Bayes implemented as an economy; (iii) T160's anti-cheat made mechanical: proposer insolvency is the inflation cheat (estimates decoupled from lived receipts) caught by the receipt-funding rule — the program's first working anti-wireheading receipt.
+
+The wider claim: this is the general admission rule for learned function approximators in a receipts-only organism. Grow opaque components freely; rent their influence.
+
+*Status: Proposed (mechanism validated 9/9 in one venue, F72–F73; generality untested). Falsifiers: a proposer that stays acceptance-solvent while corrupting downstream structure (solvency insufficient — the receipt channel is gameable); or a venue where solvency-eviction fires on healthy proposers faster than they can earn (rent mis-priced, and the law starves what it should govern).*
+
+---
+
+## LVI. Exhaustion by Use
+
+**T165. Advice spends; displacement refunds — an advisor's value is consumed by being followed, and no refresh policy restores it: only movement does.** (Registered 2026-08-15 from the F71–F73 falsification arc.)
+
+An advisor's value is the difference between its recommendation and what the advisee would do anyway; ACTING ON THE ADVICE CONSUMES THAT DIFFERENCE. Retraining restores calibration, never content (F73: per-generation refunding on the full receipt ledger still evicted 3/3; the deferred map decays monotonically, the maintained map OSCILLATES — a freshly retrained map delivers zero acceptance within one generation of use). New content comes only from the world changing or the advisee moving (F73's relay telemetry: acceptance regenerates immediately after displacement generations, and only then). The gradient is a one-to-two-shot organ per position.
+
+Consequences, each receipted or cross-registered: **(i) The complementarity principle** — a proposer's value is its expressible moves MINUS the incumbent portfolio's. The gradient beat warp exactly while it expressed directed pixel-moves warp lacks and died when its remaining set became a subset of warp's; rent expressed no new moves and was worth zero on any landscape (F71). Judge organs by orthogonality to the standing kernel, never by standalone power; the generator's named missing basis direction is STRUCTURAL (topology edits, part addition/removal, mass redistribution). **(ii) Displacement-gated consultation** — both clock schedules (refund-every-tick, fixed relay) failed E1; consult the map once per arrival at a fresh neighborhood, not per tick. C10 applied to consultation: sense the demand condition, don't schedule it. **(iii) The boredom receptor** — acceptance-collapse on one's own predictive proposals is the receipt that a neighborhood's extractable structure is spent and displacement is due. This is the perception-action loop's economic core (perception flattens local structure; ACTION manufactures new gradient — the FEP's action half, priced), and its organism-facing export is concrete: the compose scan inherits displacement-gating — when local solvent yield collapses, move the scan, don't deepen it. **(iv) Formal address**: this is the closed-loop staleness of serialization_math.md Propositions 13–14 (the lived map is a consequence-weighted deformation, accurate only on the visited region; charts embedded in the loop they feed) measured empirically at eight-proposals-per-generation resolution — registered as a receipt against that object — and it is P103's cargo-cult law (borrowed maps spend fast) recurring at instrument grain.
+
+*Status: Proposed (three receipts in one venue: F71–F73, including two falsified pre-registrations that redirected the line — C13 working as designed; the displacement-gated scheduler itself untested). Falsifiers: an advisor whose acceptance persists at a fixed position without displacement (content not exhausted by use); or displacement failing to regenerate acceptance (regeneration not positional and the law mis-attributed).*
+
+---
+
+## LVII. The Grain Law
+
+**T166. Every phenomenon has a native grain, a vocabulary holds only what its grain resolves — and the organism's current Umwelt has a TEMPORAL HOLE between step and generation where events live unrepresented.** (Registered 2026-08-15 from the F77 measurement; constitutional face registered same day as C23.)
+
+The sampling theorem of the Umwelt: to represent a structure spanning k steps, some vocabulary element must have temporal support ≤ k. Three receipts, one law: state-typed slots cannot see entry events (XO-3); per-generation scalars cannot carry the reflection tower (P78); generation-grain fit thresholds cannot see step-grain act-response conjunctions (F77 — the sharpest form: poke-driven obs divergence of O(10) across ~65 channels at t=0, first fit-set flip at t=19,212, the first encoder rebuild). The measured mechanism: the web's fit decisions are threshold-robust to O(1) obs perturbations within a generation, so event structure enters the economy ONLY through consolidation (the encoder rebuild over the lived log — T163's boundary reflection phase caught working, and the ONLY door currently open). Consequence, demanded not designed: the TWO-SPEED ARCHITECTURE — an event-grain receipt stratum below the generation-grain economy, governed by the junction law (T154) for what consolidates upward. Biology's ms-plasticity/day-consolidation split re-derived from the machine side by paying the cost of having only the slow channel. Ownership, causation-at-contact, surprise-at-the-moment, and the fast forward model (the imagination question's machinery) all live in the hole.
+
+*Status: Proposed (the hole and its mechanism measured, F77; the fast stratum unbuilt — its demand receipted and its spec tightened by F78). Falsifier: an event-grain phenomenon entering the web WITHIN a generation without a vocabulary-grain change (the hole was an artifact of this venue's constants, not a law).*
+
+---
+
+## LVIII. The Provenance Bound
+
+**T167. The self-model bounds the causal model: agency is statistically invisible without a tag of which acts actually fired — the efference copy is necessary-by-saturation, and the tag is a PREDICTION from the body model, not a log of commands.** (Registered 2026-08-15 from pw1c's three-version arc, F78; the quantitative receipt for serialization_math Props 19/22(i)/33.)
+
+The measurement: the poke→response coupling is DETERMINISTIC (release channel 2.3 → 32.6 at source, every impulse, bench-measured) — yet act-conditioned contingency is NULL at 5x power (0.00 ± 0.09), because acts are dense (~66 percent of steps under babbling) while effective acts are refractory-sparse (~1/13): individual acts carry almost no information about when the world was struck. Therefore: detecting one's own agency requires conditioning on EFFECTIVE acts, which requires the efference copy — Prop 22(i)'s indistinguishability theorem, now priced (the cost of the missing tag is a deterministic phenomenon reading as zero). Three consequences: (i) the do-operator's power is capped by the provenance channel's fidelity — the self-chart is epistemically PRIOR to the intervention chart, and every controllability estimate (Prop 33's kappa) inherits the ceiling; (ii) two evolutionary solutions — dense actors carry tags, sparse actors SELF-TAG BY RARITY (re-pricing Prop 21: vocal emissions are sparse and discrete, so the throat's do-operator ships with free provenance; babbling's burst structure is the identification-preserving schedule, derived); (iii) the tag is a prediction of effectiveness from own state (extension x contact x refractory phase) — the body forward model announcing forthcoming consequences (Prop 33 ii, receipted), which makes the demanded organ (the TAGGED eligibility trace, T166's fast stratum keyed by efference) buildable from standing materials. The two failure directions of one channel: tag absent = true agency invisible (measured here); tag corrupted = false agency manufactured (Prop 19's taxonomy).
+
+*Status: Proposed (the saturation mechanism and the null both measured at power, F78; the tagged form's positive receipt pending the fast-stratum build). Falsifier: an untagged act-conditioned statistic detecting the contingency in a venue with dense acts and sparse effectiveness (the bound is not binding); or the tagged trace, once built, ALSO reading zero (the phenomenon is not recoverable at any conditioning — the venue's coupling is an artifact).*
+
+---
+
 ## Summary
 
 | Status | Count |
 |---|---|
 | Foundation | 4 |
-| Proposed | 105 |
+| Proposed | 109 |
 | Partially tested | 22 |
 | Supported | 28 |
 | Inconclusive | 1 |
 | Revised | 1 |
 | Falsified | 1 |
-| **Total** | **162** |
+| **Total** | **166** |
 
 Twenty-one claims have direct experimental support from ERTI: T27-T31 (evolutionary dynamics), T57 (annealing), T82 (heritable evaluation), T94 (convergence result), T95 (trunk/canopy), T96 (contextual signal interpretation), T97-T98 (anxiety loop architecture and shortcut break), T100 (motor store non-heritability), T104 (metabolic knapsack), T107 (teaching as receptor induction), T126 (concepts as environmental structure — crystallization experiment), T129 (algorithmic gradient — structural learning in growing eyes v2), T130 (visual organ — +1283.5 fitness in v3), T131 (crystallization theory — 2×2 experiment confirmed both predictions). T26 revised after decomposition. T55 directionally falsified. T116 revised: attention = which colors resolve conflations, confirmed by IC-1. Three foundation theories: T114 (theory generation through receptor topology), T126 (concepts as environmental structure — now also empirically confirmed), T127 (Cartographical Theory — empirically confirmed). The Visual Organ section (T130-T132) applies the ERTI architecture to image processing: vision outputs de-conflated words, grouping rules crystallize from the environment, the full depth of perception is environment-sculpted. The crystallization theory (T131) extends FEP by providing a theory of concept genesis — where the variables in the generative model come from.
 

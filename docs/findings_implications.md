@@ -3838,6 +3838,1802 @@ read-only, both gates passed).**
    co-response metric applied to findings themselves, which needs
    findings' perturbation records formalized. Named, not fudged.
 
+### F68 [W] Theory finds holes the world fills: implication-born slots fund at 0.83 vs compose-born 0.75 under identical ambient contact — the second genesis class pays its first bill
+
+**Finding (2026-08-14, io1_passive_minting — IO-1 PASS; the aged web
+continued 8 dosed gens with the mint pass at every boundary).**
+Twelve liened common-driver slots minted by the implication organ's
+loop (settlement pool grew 9 -> 13 as the run settled more;
+annulus-banded co-response retrieval; provenance-guarded; Abstract
+as the mint). Under ambient contact identical to the compose-born
+control cohort by construction: implication-born FUNDED FRACTION
+0.83 vs compose-born 0.75 — theory-driven genesis finds fillable
+holes at par or better, unaided by designed tests. The weak form of
+P120 passes on first attempt.
+1. **The mean-fits asymmetry is the finding's fine structure, held
+   honestly**: implication-born slots average 834 fits vs
+   compose-born 3,600. Compose selects from co-fit — it is born
+   into TRAFFIC; the implication organ deduces joint structure — it
+   is born into VALIDITY. The two genesis classes find DIFFERENT
+   holes, not ranked ones: compose finds busy places, implication
+   finds real-but-quiet ones. This is exactly what "second genesis
+   class" should mean, and it is the measured justification for
+   IO-2: quiet-but-valid hypotheses are precisely the ones whose
+   worth needs DESIGNED tests rather than ambient traffic.
+2. **The loop ran whole**: hold (register/lien), compare
+   (co-response annulus with the hub self-quarantined at the outer
+   edge), derive (shared-threshold common-driver geometry), price
+   (band-ordered), mint (liened), fund (world contact). The user's
+   methodology executed inside the organism at 4,800 steps per
+   generation — first ever.
+3. IO-2 (designed tests via the experiment organ, physics-world
+   convergence) is unblocked with its justification measured;
+   web saved as data/io1_web.pkl with 12 live liened hypotheses
+   aboard — the organism's first standing P-registry.
+
+### F69 [W/M] IO-2 defers with its demand condition named: "quiet" was young, ambient life feeds minted hypotheses richly, and designed testing awaits a venue that actually starves them
+
+**Finding (2026-08-14, io2_designed_tests — UNTESTED-BY-OPPORTUNITY,
+2/6 quiet slots triggered; the decomposition is the close).**
+1. **F68's traffic asymmetry was largely AGE, not structure**: the
+   "quiet half" (834 mean fits at IO-1's close) gained ~13,000 fits
+   each over six further ambient generations — the F45-shape
+   right-censoring caveat, third appearance. Minted hypotheses were
+   not under-served; they were NEWBORN. Given time, ambient life
+   fed them at full rate with a spotless validity record (negative
+   fraction 0.000 in both arms).
+2. **The designed-testing demand did not materialize in this
+   venue** — near-miss opportunities on minted slots barely
+   occurred (broad common-driver profiles fire outright rather
+   than near-missing), and ambient traffic saturated the endpoint
+   (ratio 1.05 on baselines of thousands). C10 discipline applies
+   to our own organ-building: the designed-test channel is NOT
+   demanded where life tests hypotheses for free. IO-2 DEFERS with
+   its demand condition named: a venue whose minted hypotheses are
+   GENUINELY starved of ambient contact — law-structure conjectures
+   whose contexts ordinary life never visits, or physics-world
+   hypotheses behind interaction barriers. Build it when a lien
+   goes hungry; not before.
+3. **The implication organ's commissioning rests complete-enough**:
+   IO-0 commissioned (F67), IO-1 passed (F68), IO-2 deferred by
+   measured absence of demand — the organ mints, its mints fund,
+   and the loop's last stage waits, correctly, for the first
+   hypothesis the world refuses to test on its own.
+
+*(Generative question, session's close — implications 4-8.)*
+
+4. **AMBIENT TEST COVERAGE is a third world-axis**, beside
+   contradiction budget (can it teach) and ignition ceiling (can it
+   compound): does a world's ordinary traffic VISIT your
+   hypotheses? This venue's does — twelve deductions tested free.
+   And the historical retrodiction falls out: experimental science
+   emerged late not because designing tests is hard but because it
+   was not DEMANDED until theory outran everyday traffic. Astronomy
+   — the first exact science — is the domain where intervention is
+   impossible, and it thrived for millennia on ambient coverage;
+   the laboratory arrives exactly when hypotheses go where life
+   does not. Colliders exist because no ambient process runs the
+   collision.
+5. **Organ ontogeny derives from venue generosity**: perception ->
+   world-driven genesis -> theory-driven genesis -> designed
+   testing, each stage demanded only when the previous outruns the
+   world's free testing. A child's hypotheses are tested by play
+   and daily life; formal experimentation emerges when they no
+   longer are. The Piagetian lateness of formal operations,
+   derived from economics rather than maturation.
+6. **The demand condition should be SENSED: the lien-hunger
+   receptor.** A liened slot whose contact rate stays ~zero across
+   K windows is a starving hypothesis — and its escalation ladder
+   writes itself: WAIT (ambient) -> SEEK (attention re-aims) ->
+   DESIGN (the experiment organ) -> ASK (pose it on the bus).
+   Communication is BORROWED AMBIENT COVERAGE — another organism's
+   life tests what yours cannot reach. E2's first conversations
+   have their subject matter derived: you pose your starving liens.
+   Science's community structure too: you publish the hypotheses
+   your lab cannot test.
+7. **Designed intervention is road-building into unvisited
+   state-space** (T160 iii, from the epistemic side): the lab is a
+   trajectory poured into world-regions ambient life never enters —
+   experiments EXTEND the annulus of testable hypotheses outward.
+   The experiment organ was never a faster tester; it is the
+   vehicle for leaving the covered region.
+8. **Right-censoring's third appearance earns a candidate clause
+   (three receipts: F45, F68, F69) — THE MATURATION CLAUSE for
+   check 8**: cohorts compared on accumulation metrics must be
+   age-matched, or the young flagged censored. Offered to the
+   constraints doc under its admission rule; the user's call.
+
+### F70 [W] The judge's diet had two defects and neither was the suspected one — fixing them nearly doubles the class signal (arm B 0.30 → 0.51) and un-rigs the generator's admission gates
+
+**Finding (2026-08-15, ref_census + p116_metamers v5 rerun —
+RE-CERTIFIED SUPPORTED, both numbers beaten).** The #69 residue was
+carded as "bottle mask-polarity defect + raise frame past 56px."
+The census instrument (ref_census.py, standing) refuted the
+diagnosis before the fix was written: bottle's polarity was FINE —
+bottles occupy 5% of the raw MPEG-7 frame and starved below the
+15-point lattice floor (0/15 usable), the same margin starvation
+that quietly maimed fork (3/15), hammer (2/15), and bat. The actual
+polarity casualty was APPLE, never suspected: 9/15 apple references
+tripped the mean-rule inversion (silhouette fills ~half the frame)
+and entered the certified reference pool as BACKGROUND masks that
+still simulated — silent corruption inside a SUPPORTED verdict.
+Downstream rigging: with 2 usable hammer refs in a 7-nearest
+admission pool, Tier-0's hammer admission gate was structurally
+impossible — a gate that could not be passed was reported as a
+generator failure. Fix (mask_from_image v5): polarity by BORDER
+RULE (the object never owns the frame edge) + crop-to-content
+framing, frame 56 → 84. Census after: 150/150 usable, min 19
+lattice points. Re-certification at the SAME locked gates: arm A
+0.94 → 0.95, arm B 0.30 → 0.51 (chance 0.10), instability 0.00.
+The venue change earned its keep under the "beat the number or
+don't change it" rule — the collapse fingerprint carries nearly
+twice the class identity once the diet is honest.
+
+**Implications (billed 2026-08-15).**
+1. **THE DIET CLAUSE — third receipt for the silent-input defect
+   class (F55 tier events, F57 staged harness, F70 reference
+   corruption), candidate for check 8**: any card consuming an
+   external corpus must census the corpus FIRST (usable fraction
+   and floor-clearance per class), and any gate whose satisfiability
+   depends on pool composition is VOID if a starved class rigged
+   it. Inputs need receipts too — the admission rule applied to
+   data. Offered under the constraints doc's admission rule; the
+   user's call.
+2. **Anchoring extends to the data path** (T161's clause, widened):
+   "engine anchors reality" is not only about the sim — the
+   polarity fix worked because it replaced a statistical guess
+   (mean rule) with a PHYSICAL invariant (the object never owns
+   the frame edge). Every corpus ingestion step should rest on a
+   ground-truth invariant of the domain, not a heuristic that is
+   usually right; heuristics fail silently exactly on the
+   instances that differ most, which are the instances a
+   vocabulary needs most.
+3. **VOID-BY-IMPOSSIBLE-GATE joins the verdict taxonomy** (C13's
+   earned-falsification discipline, dual form): hammer's admission
+   gate could not be passed by arithmetic — 2 usable refs can
+   never be a majority of 7 — and its failures were reported as
+   generator failures. Before billing any NEGATIVE leg, verify the
+   gate is satisfiable under the actual pool composition; a
+   falsification at an unpassable gate is not earned.
+4. **The class signal rose when a class-correlated nuisance was
+   removed** — frame margin set lattice mass per class (5%-49%
+   occupancy), so old fingerprint distances partly encoded
+   FRAMING, not shape. Removing the confound RAISED accuracy: the
+   honest geometry carries more signal than geometry plus
+   artifact. Corollary: pre-fix distance NUMBERS (F63's ladders,
+   F64's 3/9) stand as verdicts earned at their venue but must not
+   be numerically compared across the venue change — F65's
+   per-venue rank rule, now applied across TIME.
+
+### F71 [W] Rent is NOT the missing ingredient: diversity pressure cannot create slope on a flat landscape — disengagement and duplicate collapse are both symptoms of BLOB DISTANCE, and the card names the surrogate rung as its successor
+
+**Finding (2026-08-15, generator_rent — RENT: NOT SUPPORTED 0/3
+engagement, dup 3/3; RING: NOT, 1/9 vs F64's 3/9 baseline).**
+Tier-2a's claim was that the Tier-0 generator's two visible defects
+(search disengagement, duplicate top-3 collapse) were ONE defect —
+no diversity pressure — fixable by the SOV rent law in-search.
+Falsified cleanly at the healthy venue: with seed-paired arms,
+similarity-rent changed NOTHING that mattered (engagement 0/3 both
+arms; cup's FLAT and RENT runs are bit-identical — an accidental
+airtight control certifying the pairing machinery: when the
+landscape is flat, selection pressure of any kind is applied to a
+search that never moves). Meanwhile the donor arms engaged 3/3 at
+the donor floor (0.10/0.21/0.23) — F63's heredity law replicated
+at the re-certified venue: slope exists only near working designs.
+So the decomposition inverts: duplicate collapse and disengagement
+are both DOWNSTREAM of starting at blob distance, where the
+fingerprint-fitness landscape is flat; redistributing a population
+across a plateau neither moves it nor differentiates it. The
+ring-donor policy (class-mean middle tercile) also underperformed
+F64's hand-picked crossing (1/9 vs 3/9, cross-target caveat
+stated): class MEANS may be the wrong geometry proxy for multimodal
+classes. Per the card's pre-registered expected-information line:
+diversity is not the binding constraint; MISSING GRADIENT is —
+the surrogate rung (surrogate proposes, physics disposes) is next
+directly, and it should launch from donor seeds, not blobs.
+
+**Implications (billed 2026-08-15).**
+1. **THE GENERATION ANNULUS — T162's third domain.** The annular
+   law has now appeared in vocabulary growth (F63-F66's ring),
+   world liveness (F65's boundary condition), and — this card —
+   OBJECT GENERATION: seeds too close to the target are plagiarism
+   (the novelty gate fails by construction), seeds too far are on
+   the plateau (the engagement gate fails by construction), and
+   F64's "intermediate donor distance" was the annulus width being
+   measured without knowing its name. Generation is viable only in
+   the annulus around working designs. Candidate registration as a
+   T162 extension: the same two-edged viability band governs what
+   an economy can grow and what a generator can grow.
+2. **Reweighting mechanisms are multipliers on differential
+   signal; a flat landscape annihilates all of them equally.**
+   Rent, attention, selection, fitness sharing — every mechanism
+   that redistributes among alternatives requires the alternatives
+   to differ. The bit-identical cup pair is the cleanest
+   mechanism-inertness receipt the program has produced: identical
+   seeds, zero improving steps, so two DIFFERENT selection laws
+   produced ONE trajectory. Diversity pressure cannot mint
+   gradient; it can only spend it.
+3. **The escalation ladder is universal — the program itself just
+   climbed it.** F69's lien-hunger ladder (WAIT -> SEEK -> DESIGN
+   -> ASK) sorts responses by cost: reweight attention before
+   building roads. The generator arc obeyed the same grammar
+   without planning to: ambient search (Tier-0, WAIT) ->
+   reweighting (rent, SEEK) -> and only now, with reweighting
+   PROVEN inert by a locked card, is slope-creation (surrogate,
+   DESIGN) demanded. C10 satisfied by measurement, not appetite:
+   the surrogate rung is now the cheapest remaining move, which is
+   the only honest justification for building it.
+4. **The surrogate must be governed as an organism, not
+   infrastructure — SOLVENCY FOR THE PROPOSER.** "Surrogate
+   proposes, physics disposes" gains an economy: each gradient
+   proposal is a pose; each sim-confirmed improvement is a
+   receipt; a surrogate whose proposals stop earning is retrained
+   or evicted. This keeps C1 by architecture AND makes
+   surrogate-sim drift self-detecting — the failure mode of every
+   differentiable-proxy pipeline (proxy optimized into regions
+   where it lies) becomes an ordinary insolvency, caught by the
+   standing law instead of bespoke monitoring.
+5. **The centroid fallacy: class means are lossy aggregates —
+   F61's rank law at the geometry level.** The ring-donor policy
+   underperformed (1/9) because a class mean blurs a multimodal
+   class into a point that sits nowhere; tree->key was never
+   predictable from means. Donor choice must be INSTANCE-grain:
+   ring-filter the instance pool by distance to the target's
+   instance cloud. And once donation is instance-grain, the donor
+   needn't be a class at all — the seed bank is simply the
+   ring-band of the whole reference pool per target. CLASSLESS
+   DONATION: the generator inherits from whatever sits in its
+   annulus, which is how material culture actually evolves.
+6. **F70 x F71 conjunction: the plateau is geometric, not
+   noise-limited.** The judge's class signal rose ~70 percent
+   (0.30 -> 0.51) and blob engagement did not move (0/3 before,
+   0/3 after) — an accidental controlled experiment. Better
+   judges will not rescue blob starts; only in-annulus seeding or
+   synthesized slope will. Sharpening the discriminator does not
+   flatten the generator's problem; the two organs' qualities are
+   INDEPENDENT axes, which is why the GAN framing (T161) needs
+   the annulus amendment.
+
+### F72 [W] The surrogate rung dies at this data scale — but the proposer-solvency law works on first contact, classless ring seeding produces the first policy-chosen crossings, and the surrogate's gradients are real for exactly the two generations before it starts lying
+
+**Finding (2026-08-15, surrogate_card — NOT SUPPORTED, E1 1/3 at
+equal billed budget, surrogate evicted 3/3; plateau probe clean).**
+Three results in one card:
+(1) PROPOSER SOLVENCY VALIDATED AS A MECHANISM, 9/9 lifecycles.
+Every surrogate arm ran the same arc: high early acceptance
+(0.50-0.88 in gens 1-3), collapse to 0.00 as the proposer drove
+into regions where the proxy lies, INSOLVENT -> retrain (bought
+1-3 gens), insolvent again -> EVICTED, honest warp fallback. The
+canonical failure mode of differentiable proxies — optimizing into
+the proxy's fantasy — was caught and punished by the standing
+economy with no bespoke monitoring, exactly as F71 impl. 4
+designed. The surrogate died of a named disease: a 180-receipt
+diet cannot keep an 84x84 fitness map honest for 12 generations.
+(2) THE GRADIENT SIGNAL IS REAL BUT SHORT-LIVED: surrogate arms
+LED their seed-paired warp arms in gens 1-3 in all three targets
+(apple 15.10 vs 15.92; cup 12.43 vs 13.06; hammer 13.09 vs 14.30)
+before insolvency reversed the standings. The surrogate's validity
+horizon at this diet is ~2-3 generations — a sprinter drafted into
+a marathon.
+(3) CLASSLESS RING SEEDING EARNS ITS RECEIPT (F71 impl. 5
+confirmed): RING-WARP engaged 3/3 at the donor floor (0.10 / 0.34
+/ 0.26) where blobs never engage, and cup — seeded from apples,
+keys, hammers, and forks, no hand-picking — produced 2/3
+ADMITTED+NOVEL candidates at the full-pool exam: the first
+policy-chosen crossings in the program (F64's 3/9 was hand-picked
+tree->key). The annulus, entered by instance-grain policy, is
+fertile. Plateau probe: BLOB-SURR engaged nowhere (0.10/0.03/0.00
+vs 0.30 floor) — F71 impl. 6 stands without caveat; the plateau is
+flat in gradient directions too, confirmed geometric. Per the
+card's expected-information line: the rung dies AT THIS DATA
+SCALE; the queue reorders toward more billed receipts per target
+or P117 organismal engagement.
+
+**Implications (billed 2026-08-15).**
+1. **Proposal-by-map is self-invalidating — and surrogate
+   insolvency IS T160's inflation cheat, caught by the anti-cheat
+   law.** The surrogate's map decayed not because the world
+   changed but because THE SEARCHER MOVED: optimizing via a map
+   carries the population out of the map's receipt-funded region
+   at a rate proportional to how far the proposals travel
+   (T127's cartography meets T159's map-decay, mechanized). And
+   the failure mode is exactly the cheat T160's pressure doc
+   named: estimates decoupled from lived experience, optimism
+   unpriced by receipts. The solvency law is the receipt-funding
+   rule enforced mechanically — the program's first working
+   ANTI-WIREHEADING receipt. A proposer cannot inflate its way
+   past physics; it can only go broke.
+2. **ALIGNMENT-BY-SOLVENCY: the economy can govern learned organs
+   it cannot inspect.** Solvency has now governed vocabulary
+   slots, worlds, and a neural network, with the same four moves
+   (pose, receipt, rent, evict). The organism can therefore grow
+   opaque learned components WITHOUT trusting them — trust is
+   rented per receipt, never granted by construction. This is the
+   general answer to "how do learned function approximators enter
+   a receipts-only organism without breaking C1." FEP kinship for
+   the TNB package: acceptance rate is the proposer's PRECISION;
+   eviction is precision driven to zero by prediction-error
+   history — empirical Bayes implemented as an economy.
+3. **Receipts are reusable; sims are the only scarce currency —
+   so the relay is nearly free and the next card is determined.**
+   Retraining consumes already-billed ledger entries (CPU
+   seconds); only proposals cost sims. Tier-2b retrained ONLY on
+   insolvency — the pathology was allowed to mature before the
+   cure was priced. The determined successor: RETRAIN-EVERY-
+   GENERATION (continuous receipt-funding of the map) vs the
+   relay (surrogate sprints its 2-3 solvent gens, warp grinds
+   while it retrains) at equal sim budget. Prediction from F72
+   telemetry: continuous refunding holds acceptance in the
+   0.25-0.5 band and E1 flips.
+4. **The generation loop is now fully policy-driven — the
+   70-class scale-out is unlocked.** Target -> band -> seeds ->
+   evolve -> exam contains no hand-picked pair, no class mean, no
+   human choice. Mechanized bricolage: cup grown from apples,
+   keys, hammers, and forks is material culture's actual method
+   (borrow whatever sits in the annulus), and it now runs
+   unattended.
+5. **Annulus width is a TARGET property — the fertility atlas.**
+   Cup engaged 0.34 with 2/3 crossings; apple and hammer engaged
+   without crossing. Fertility of a target class is a measurable
+   landscape property (F64's target-volume/donor-depth at
+   instance grain). The 70-class sweep should MAP it: which
+   identities are easy to counterfeit and which are deeply
+   mechanical — the discriminator's-eye topography of shape
+   space, and T161's metamer question asked at corpus scale.
+6. **The annular law's generative corollary: nothing viable is
+   grown from nothing.** Blobs are dead in mutation directions
+   (F71) and gradient directions (F72's probe) — creation ex
+   nihilo has no slope in this venue. All generation is
+   inheritance plus deformation inside the annulus around
+   something that already works. Candidate registration alongside
+   F71 impl. 1 as T162's extension: the two-edged band governs
+   growth of vocabularies, worlds, and OBJECTS, and its outer
+   edge is absolute.
+
+### F73 [W] Refunding falsifies the diet hypothesis: the map's value is exhausted by USE, not by staleness — the gradient is a local-exhaustion channel that partially regenerates only when something ELSE moves the population
+
+**Finding (2026-08-15, generator_refund — FAIL-CAPACITY 0/3; the
+pre-registered prediction (F72 impl. 3: "refunding holds acceptance
+in the 0.25-0.5 band and E1 flips") is FALSIFIED, and the
+falsification is the payload).** Retraining on the full receipt
+ledger after EVERY generation did not keep the proposer solvent:
+evicted 3/3 (gens 5, 6, 10). But the telemetry rewrites the
+diagnosis. Tier-2b's deferred-maintenance surrogate decayed
+MONOTONICALLY (0.5 -> 0.0, dead); Tier-2c's continuously-refunded
+surrogate OSCILLATES (apple: 0.62, 0.00, 0.25, 0.25, 0.00, 0.62,
+0.25, 0.00...) — a freshly retrained map delivers zero acceptance
+within ONE generation of proposals, then flickers back. So the map
+was never stale; its expressible moves are SPENT by being taken.
+The CNN's smooth pixel-gradient points at a coarse local minimum
+the population reaches in 1-2 steps; beyond that, remaining
+progress needs moves the gradient representation cannot express
+(topology, articulation — warp's territory). Confirming evidence:
+in RELAY arms, acceptance partially REGENERATES right after warp
+generations (apple 0.38/0.50 post-warp, hammer 0.62 post-warp) —
+new neighborhood, fresh gradient. The gradient is not a marathon
+runner OR an underfed sprinter; it is a one-to-two-shot organ PER
+POSITION, whose value is renewed by displacement, not by data.
+E1 1/3 (apple only), RELAY 0/3 — no maintenance policy makes this
+surrogate beat warp at equal sim budget. Per the card's locked
+fork: capacity or geometry is the wall, not cadence; the
+generation line's next value is NOT a better proposer — it is
+P117 (instantiate the certified crossings before the organism)
+and the 70-class fertility atlas (F72 impl. 5), both unlocked and
+cheap. Discipline note: the prediction was stated before launch
+and its failure taught more than its success would have — C13
+working as designed.
+
+**Implications (billed 2026-08-15).**
+1. **EXHAUSTION-BY-USE is a law of advice channels, not a defect
+   of this CNN.** An advisor's value is the difference between its
+   recommendation and what the advisee would do anyway; following
+   the advice CONSUMES that difference. Retraining restores
+   CALIBRATION, never CONTENT — new content comes only from the
+   world changing or the advisee moving. This is the same disease
+   as P103's cargo-cult result at a new grain: borrowed maps spend
+   fast, and a static position drinks its attestations dry. Any
+   channel whose consumption converges you to its optimum is
+   self-limiting by construction.
+2. **THE COMPLEMENTARITY PRINCIPLE for proposers: value =
+   expressible moves MINUS the incumbent portfolio's expressible
+   moves.** The gradient beat warp exactly while it expressed
+   something warp lacks (directed pixel-scale steps) and died when
+   its remaining expressible set became a subset of warp's. This
+   retroactively explains rent too: reweighting expresses NO new
+   moves, hence zero value on any landscape. Organ admission
+   criterion, stated generally: judge a proposer by its
+   ORTHOGONALITY to the standing kernel, never by standalone
+   power. A proposer portfolio is a basis over move-space, and the
+   generator's basis still lacks the structural directions
+   (topology edits, part addition/removal, mass redistribution) —
+   the moves its admitted+novel failures actually needed. If the
+   generation line resumes, the determined next proposer is
+   STRUCTURAL, not a better smoother.
+3. **Advice should be DISPLACEMENT-GATED, not clock-gated — C10
+   applied to consultation.** REFUND (every gen) and RELAY (fixed
+   2:1) were both calendar schedules; the telemetry says the true
+   trigger is a fresh neighborhood (acceptance regenerates after
+   warp displacement, and only then). Consult the map once per
+   arrival, not per tick. Same grammar as the lien-hunger ladder:
+   sense the demand condition, don't schedule it.
+4. **THE BOREDOM RECEPTOR — why organisms must act to keep
+   learning, mechanized.** The refunded surrogate is a static
+   perceiver: it exhausts its position's extractable structure,
+   and no amount of re-study regenerates it; only DISPLACEMENT
+   does. That is the perception-action loop's economic core (FEP
+   kinship for the TNB package: perception minimizes local free
+   energy until flat; action manufactures new gradient), and
+   acceptance-collapse is boredom's exact signature — the receipt
+   that this neighborhood is spent and displacement is due. The
+   organism-facing export: windowed acceptance on one's own
+   predictive proposals IS a boredom receptor, and the compose
+   scan should inherit displacement-gating — when solvent yield
+   collapses locally, move the scan, don't deepen it. T160 tie:
+   value lives in trajectories BETWEEN neighborhoods; a
+   sustainable trajectory is one that keeps regenerating its own
+   advice channels.
+5. **The three-card arc closes with the constraint structure of
+   generation fully mapped — and the map is the deliverable.**
+   Reweighting: inert (F71). Smooth gradients: two-shot per
+   position (F73). Maintenance cadence: irrelevant (F73). Annulus
+   seeding: fertile (F72). Blind deformation: the workhorse.
+   Total cost of the whole decomposition: ~15 min of sims and two
+   falsified pre-registrations that each redirected the line for
+   the price of a coffee — the expected-information discipline
+   priced every card correctly. The queue moves to spending the
+   crossings that exist (P117) and mapping fertility at corpus
+   scale; the generator waits for a structural proposer, its
+   demand condition now precisely named.
+
+### F74 [W] The spread law fails by INVERSION, not absence: coherence, not volume, predicts approachability (rho = -0.62, p = 1e-8, n = 70) — and fertility is a different property entirely, rare and concentrated where the target DOMINATES its neighborhood
+
+**Finding (2026-08-15, fertility_atlas — NOT SUPPORTED on both
+locked legs; correction on the record: the card's printed verdict
+said "fertility unstructured," which is FALSE — the structure is
+strong and sign-inverted; the pre-registered gate was sign-locked
+to F64's prediction and the prediction was wrong).** Census first
+(the diet clause's first application): 70/70 classes healthy at
+the 84px frame, zero censored — the v5 pipeline holds at corpus
+scale. Then the sweep, all under pure policy:
+(1) UNIVERSAL ENGAGEMENT: 70/70 targets engaged at the donor floor
+— classless ring seeding works everywhere; the annulus is
+populated for every identity in the corpus.
+(2) THE COHERENCE LAW (F64's target-volume hypothesis falsified at
+corpus scale): within-class fingerprint spread predicts engagement
+NEGATIVELY and strongly. Tight identities (key 10.2, Heart,
+device8, Bone) are the most climbable (improves 0.38-0.43); wide
+ones (fly 18.6, device4, spoon, guitar) barely move (0.10-0.13).
+A tight response cluster is a WELL-POSED objective; a diffuse
+class smears its 5-NN target into an unclimbable mush. Wide
+basins are not wide targets — they are smeared targets.
+(3) FERTILITY IS A DIFFERENT AXIS: 3/70 targets fertile (key 3/3,
+fountain 3/3, HCircle 1/3; 7 specimens banked for P117), and
+fertility does NOT follow coherence — fountain is one of the
+WIDEST classes (15.8) yet crossed 3/3, while equally-tight
+Heart/children/device8 never admitted. Candidate explanation
+(named, untested): admission is rank-majority in the exam pool, so
+what matters is DOMINANCE — whether the target's fingerprint
+neighborhood is sparsely contested by distractors. key, fountain,
+HCircle are the corpus's most geometrically singular shapes.
+Engagement <- coherence; admission <- isolation. Testable cheaply:
+self-dominance score (same-class fraction of each ref's 7-NN)
+against fertility, one pool pass.
+(4) key is the program's first REPEAT winner — F64's hand-picked
+crossing target, now re-found by blind policy with 3/3 crossings
+grown from THIRTEEN donor classes (crown, device5, Bone, face,
+bottle, pencil...). Total bricolage, zero curation. The yield
+floor (10 percent) was set against a 10-class intuition and the
+70-class exam is ~7x harder — the floor was mis-priced for the
+venue (rank rule, self-inflicted this time); 3/70 at THIS exam is
+not comparable to it.
+
+### Registrations and formal addresses (2026-08-15)
+
+**Registered on user command ("register it all"):**
+- **T162 extension** (THEORIES sec LII): the GENERATION ANNULUS
+  (third mechanized domain), the generative corollary (nothing
+  viable is grown from nothing; outer edge absolute in mutation
+  AND gradient directions), classless bricolage receipts, and the
+  COHERENCE LAW (engagement <- coherence, rho -0.62 n=70;
+  admission <- isolation, candidate). Receipts F70-F74.
+- **T164 Alignment by Solvency** (sec LV): the economy governs
+  learned organs it cannot inspect; trust rented per receipt.
+  F72's 9/9 lifecycle receipt; anti-wireheading; FEP precision
+  kinship for TNB.
+- **T165 Exhaustion by Use** (sec LVI): advice spends,
+  displacement refunds; complementarity principle;
+  displacement-gated consultation; the boredom receptor and its
+  compose-scan export. Receipts F71-F73.
+
+**Cross-references into serialization_math.md (recorded per its
+coda requirement iii — this week's cards are unplanned empirical
+receipts against its formal objects):**
+- F72 (proposer solvency) -> Proposition 32, the funding equation
+  (VoI >= rent), operating on Part II's instrument axis.
+- F73 (exhaustion/staleness telemetry) -> Propositions 13-14
+  (closed-loop cartography; the lived map as consequence-weighted
+  deformation, accurate only on the visited region) — measured at
+  8-proposals-per-generation resolution.
+- F74 (coherence law) -> the profile framing: a target's
+  approachability tracks the tightness of its conditional
+  structure; chart entries are valuable where conditionals are
+  low-entropy.
+- The imagination discussion (2026-08-15) -> Part III (replay
+  effector, injection depth/imagery spectrum, Theorem 17); the
+  proposed missing-cell test should be designed against open end
+  8 (generative replay), not parallel to it.
+
+**Sync debts flagged (the coda's own requirements, apparently
+unexecuted):** (i) the index lacks a "Proved (formal)" status
+category; (ii) serialization_math's P1-P28 predictions are not
+pre-registered in the index; (iii) NAMESPACE COLLISION: its P1-P28
+vs the SOV registry's P48-P121 share a prefix and are different
+objects — resolve before carding anything from that document
+(suggest SM-P1..SM-P28). The user's call on all three.
+
+**Second registration wave (2026-08-15 evening, "register it all"):**
+- **T166 The Grain Law** (sec LVII): native grain, the temporal
+  hole, the two-speed architecture demanded. Receipts XO-3, P78,
+  F77. Constitutional face: **C23 grain-match clause**.
+- **T167 The Provenance Bound** (sec LVIII): self-model bounds
+  causal model; efference necessary-by-saturation; dense actors
+  tag, sparse self-tag by rarity; the tag is a prediction.
+  Receipt F78; quantitative receipt FOR serialization_math Props
+  19/22(i)/33 and a re-pricing of Prop 21.
+- **C22 gate mobility + powered replication** (constraints doc):
+  the verdict-validity tripod completed with C13. Receipts F70,
+  F76, F78 (x2).
+- Further serialization cross-refs recorded: F75 (provenance-
+  tagged pokes = Prop 22's tag law at the effector), F77 ->
+  Prop 16 (encoding binds resolution) and Part III (replay as
+  consolidation), F78 -> Props 19/21/22(i)/33.
+
+### F75 [W] The physics world opens: PW-0 PASS on first calibration — the XO-3 invisibility defect is quantified (effects sat two orders of magnitude below the sensed band) and repaired by measurement-first coupling
+
+**Finding (2026-08-15, pw0_band + pw0_gate — PW-0 PASS;
+physics_world_requirements.md is the convergence doc for P108/
+P117/P116-organism/IO-2).** The band instrument measured what
+"body-currency visible" MEANS in the standing venue: tier-3 limb
+pain lives at [0.115, 1.338] (p25-p95 of nonzero, 99.5 percent of
+steps nonzero), field pain p50 0.404 — so XO-3's injected effects
+(0.004/0.030) sat 1-2 orders of magnitude below the p25 floor:
+UNTESTED-BY-EFFECT-REPRESENTATION now has its exact number. F58
+re-receipted twice (displacement 0.42 and 0.11 over full runs —
+the organism is stationary; the world must come to it). The plant
+(physics_plant.py): p116's certified lattice as the object's body
+on its own bench; the object ORBITS the organism with jittered
+approach epochs (F60's court pattern); POKE = the organism's own
+limb-extension pattern in contact range firing ONE impulse
+(F50 laws, refractory 13, provenance-tagged exploratory vs
+purposeful per serialization_math Prop 22); EFFECTS enter at the
+FIELD level — the level the organism already senses — as localized
+strain (pain-grade) and release (endorphin-grade) contributions,
+with scales calibrated ONCE against the measured band on a
+separate seed and frozen (no guessed magnitudes — the C16 lesson
+made procedure). Gate, locked before launch and passed clean:
+contact deltas +0.58 pain / +0.92 endorphin, both mid-band;
+2.9 pokes/epoch (floor 1); zero instability; displacement 0.11.
+The venue's admission ticket is earned: PW-1 (P108's do/see card
+in body currency), PW-2 (P116's organism-facing metamer clause),
+PW-3 (P117's specimen race — 7 atlas specimens banked), and the
+IO-2 wake rider are unlocked, each with its card pre-specified in
+the requirements doc.
+
+### F76 [W] PW-1 teaches twice and bills nothing: the loop is bit-deterministic (v1's accidental receipt), and the do/see card's printed falsification is VOID-BY-SATURATED-MEASURE — P108 stays open with its next instrument named
+
+**Finding (2026-08-15, pw1_p108 v1+v2 — no verdict billed; the
+discipline receipts are the payload).**
+(1) V1'S DEGENERATE YOKE IS A DETERMINISM RECEIPT: with fully
+shared seeds, the DO and SEE arms returned BIT-IDENTICAL webs
+(617,721 = 617,721 fits) — replaying the master's poke schedule
+into an identical world IS the master's run, so the twin's
+extensions still coincided with every poke. Diagnosis: a yoked
+design requires the twin to have its OWN behavior stream (the
+animal literature pairs different animals for exactly this
+reason). Side receipt: the full ERTI loop (engine training, web,
+scans, plant physics) is bit-reproducible under paired seeds —
+the pairing machinery is certified at the whole-organism grain.
+(2) V2'S PRINTED "NOT SUPPORTED" IS VOIDED BY ITS OWN
+INSTRUMENT: with the poke threshold at 3-of-6 (fixed for
+opportunity: 4.02 pokes/epoch, floors passed), the same threshold
+defined the analysis conditioning event — and the trained policy
+"extends" on 42 percent of steps, so 6-step post-extension
+windows covered essentially ALL contact time. A conditioning
+event that is nearly always true cannot discriminate; the ratio
+was pinned at 1.00 regardless of the truth about ownership. The
+falsification was not earned (C13; VOID-BY-IMPOSSIBLE-GATE's
+cousin: VOID-BY-SATURATED-MEASURE — the gate was unpassable in
+the other direction). Design lesson billed: the POKE TRIGGER and
+the ANALYSIS CONDITIONING EVENT must be separate constants; using
+one threshold for both couples opportunity to selectivity, so
+fixing one breaks the other.
+(3) P108 REMAINS OPEN, next instrument named (PW-1b): post-poke
+windows are timing-identical across arms by the yoke — so the
+discriminating readout cannot be timing-conditioned fit mass at
+all. It must be SLOT COMPOSITION: does the DO arm fund slots
+whose support spans action/proprio dimensions JOINTLY with the
+contact response (the conjunction detectors ownership should
+create), while the yoked twin funds contact-only slots? That is
+a web-introspection endpoint (slot support geometry), not a
+timing endpoint — the do/see asymmetry lives in WHAT gets built,
+not in WHEN fits arrive, because the yoke equalizes all timing by
+construction. Venue telemetry banked: contact fits ~12 percent of
+total fit flow at the 18 percent time share — the plant is
+neither starving nor flooding the economy.
+
+**Implications (billed 2026-08-15).**
+1. **Ownership is a JOINT property — invisible to every marginal
+   statistic by construction.** The yoke matches both marginals
+   (response timing identical, action stream distributionally
+   similar) while destroying exactly the joint dependency that
+   constitutes agency. So no timing-mass measure, however
+   powered, can see do/see; detection of contingency REQUIRES
+   reading the action-response joint. This re-derives, from an
+   instrument failure, why the contingency receptor must be a
+   TAGGED CONJUNCTION (serialization_math Prop 22: conditioning
+   on own-emission, quasi-randomized) and why the web's slots —
+   thresholds over joint obs dimensions — were always the right
+   readout for P108. The instrument lesson recapitulates the
+   organism's architecture: contingency detection IS funding
+   conjunction receptors, never counting time-locked events.
+2. **GATE MOBILITY — the two gate pathologies complete a pair
+   and earn a candidate clause.** F70: VOID-BY-IMPOSSIBLE-GATE
+   (support unreachable). F76: VOID-BY-SATURATED-MEASURE
+   (refutation unreachable — the null is forced regardless of
+   truth). The pre-flight check they jointly demand: every locked
+   gate must be PASSABLE AND FAILABLE under the realized
+   distributions — mechanically, report the conditioning event's
+   BASE RATE next to every verdict (42 percent would have flagged
+   this before launch). F74's geometry at instrument grain: a
+   diffuse conditioning event is a smeared target; selectivity is
+   the coherence law applied to one's own gates. Offered to the
+   constraints doc; the user's call.
+3. **THE CHANNEL THAT CAUSES MUST NOT BE THE CHANNEL THAT
+   GRADES.** Poke trigger vs analysis readout; surrogate proposes
+   vs physics bills (T164); selection vs billing (Tier-2a); C1
+   itself. One split, fourth appearance — the trigger/readout
+   separation is the instrument-side face of the program's
+   deepest constitutional principle, and it should be checked
+   wherever a single constant serves two roles.
+4. **Bit-determinism buys EXACT COUNTERFACTUALS — diff-of-webs
+   as a standing causal instrument.** Since the whole loop is
+   bit-reproducible under paired seeds, changing ONE thing (a
+   poke, a constant, a seed) makes every downstream divergence
+   attributable with zero variance — do-calculus at harness
+   grain, a luxury biology never had. PW-1b's determined design
+   upgrades from statistical to exact: the TWIN TRIO — (a) DO,
+   (b) GHOST (identical seeds, pokes suppressed: the a-b web
+   diff is the total causal footprint of owned pokes, noise-
+   free), (c) YOKED with own stream (v2's arm). Ownership
+   readout: the a-b footprint's SLOT COMPOSITION (action+contact
+   conjunctions) vs what c builds from the same contact stream.
+5. **The venue's engagement premium is measured and currently
+   ZERO: contact earns 0.67x its time share.** The plant is
+   priced as ambient furniture — no salience premium for the
+   new, pokeable, information-rich object. This is the exact
+   number PW-3's race exists to move (learnable strain from
+   certified objects should command MORE than time-share pricing
+   if reality-anchoring buys engagement); banked as the pre-race
+   baseline. The fit-share/time-share ratio is the venue's
+   standing attention-economy readout.
+
+### F77 [W] P108's first earned negative — at slot-fit grain, ownership leaves no distinctive structure (DO 3 = YOKED 3 concentrated slots at power) — and the onset diagnostic reveals WHY: fit decisions are threshold-robust within a generation, so contact structure enters the web only through encoder rebuilds
+
+**Finding (2026-08-15, pw1b_twins — NOT SUPPORTED at slot-fit
+grain, gates mobile both directions, floors met; plus a venue
+mechanism worth more than the verdict).**
+(1) THE QUARTET GRADED CLEANLY: exact footprints via diff-of-webs
+(DO minus GHOST-A, YOKED minus GHOST-B, each noise-free by the
+F76 determinism receipt). Owned pokes: 3 contact-concentrated
+slots, contact mass 3967. Un-owned pokes: 3 slots, mass 3502
+(ratio 1.13). Pooled 6 >= floor 5; base rates printed (contact
+share 0.201, threshold 0.36); pokes/epoch 4.04. At the grain of
+slot fit-counts, ownership adds nothing beyond exposure — the
+first EARNED negative on P108's claim, scoped to this grain.
+(2) THE ONSET SANITY CHECK PAID FOR ITSELF TWICE. First poke at
+global step 1; first fit-set divergence at ~19,212 — one full
+generation later, at the first engine rebuild over divergent
+lived logs. Direct measurement closed the gap: poke-induced obs
+differences are LARGE and IMMEDIATE (obs maxdiff 23 at t=0, ~65
+channels; the release channel spikes 2.3 -> 32.6 at source on a
+poke), yet not one slot's fit/no-fit decision flipped for 19,200
+steps. MECHANISM: the web's fit decisions are ROBUST to O(1)
+obs-value perturbations within a generation — thresholds are
+coarse relative to event-scale variation — so event-grain
+structure reaches the web only through the ENCODER REBUILD
+(representation drift between generations), never as
+within-generation fit flips.
+(3) WHAT THIS MEANS FOR P108: causes are visible (F75), effects
+are visible (F75), obs conjunctions of act-and-response exist at
+event grain (measured) — but the VOCABULARY cannot currently
+represent them: by the time contact structure filters through a
+generation-scale encoder rebuild, the act-response timing that
+constitutes ownership has been averaged away. F59's Umwelt
+anatomy recurring one level up: the organism cannot learn what
+its vocabulary cannot see, and what it cannot see here is not
+the events but their TIMING-BOUND CONJUNCTION. P108's remaining
+live form is therefore named: the do/see asymmetry must be
+sought at GENESIS grain (do scans, reading event-grain windows,
+mint different slots under ownership?) or after a
+vocabulary-grain change (step-scale receptor formation). The
+fit-grain negative is billed and stands; the claim's event-grain
+form stays open with its demand condition explicit.
+
+**Implications (billed 2026-08-15).**
+1. **THE TEMPORAL HOLE IN THE UMWELT: the organism has a fast
+   sensorium and a slow ledger, and events fall in the gap.**
+   Obs diverge at t=0; the web first notices ~19,200 steps later.
+   The web learns DISTRIBUTIONS, not EPISODES — its Ks are
+   generation-grain objects, while the body vocabulary is
+   step-grain. Between step and generation there is currently NO
+   vocabulary stratum, and everything with event-scale timing
+   (ownership, causation-at-contact, surprise-at-moment) is
+   unrepresentable in exactly that hole. The serialization
+   thesis's per-receptor fast pipelines are the missing stratum,
+   located by an instrument failure.
+2. **AGENCY NEEDS AN ELIGIBILITY TRACE — the demanded mechanism,
+   named by its failure.** A timing-bound conjunction (my act at
+   t, the world's response at t+k) cannot be seen by any
+   threshold over instantaneous obs; it requires a short trace
+   binding act-features to response-features within a window.
+   Biology's answer is exactly this (eligibility traces, STDP —
+   timing-bound conjunction detection as the oldest learning
+   primitive), and serialization_math Prop 22 already SPECIFIES
+   it (contingency = conditioning on tagged own-emission within
+   window W). F77 is that organ's demand receipt, C10-clean:
+   built because a measured phenomenon is invisible without it,
+   not because the design sounded right.
+3. **THE ENCODER REBUILD IS CONSOLIDATION — and it is currently
+   the ONLY door.** Event structure enters the web solely at
+   rebuild boundaries: lived_log is the hippocampus, the rebuild
+   is systems consolidation, and the between-gen cadence is
+   T163's boundary reflection phase measured doing its job. Two
+   consequences: anything that matters must survive to the next
+   rebuild DISTINCTIVELY in the log (Prop 16: encoding binds
+   resolution — the fit ledger lost the timing; the obs-grain
+   log retained it and the rebuild mined it); and the system
+   already replays — what it lacks is event-grain CHARTING
+   during replay, which is Part III's replay effector minus its
+   fine charts.
+4. **PW-3's design inherits a prediction: specimen effects will
+   be BETWEEN-generation, not within.** Whatever learnable
+   strain certified objects generate enters through the same
+   consolidation door — so the race's endpoints must be measured
+   as per-generation representation deltas (across rebuilds),
+   not within-generation fit flows, or the race will be blind
+   the same way PW-1 was. The engagement-premium baseline (0.67)
+   should likewise be tracked per generation.
+5. **THE GRAIN-MATCH LAW — third appearance, candidate clause.**
+   XO-3: state-typed slots cannot see entry events. P78:
+   scalar-per-generation quotients too lossy for the reflection
+   tower. F77: generation-grain thresholds cannot see step-grain
+   conjunctions. One law, three receipts: EVERY PHENOMENON HAS A
+   NATIVE GRAIN, and a vocabulary holds only what its grain
+   resolves — the sampling theorem of the Umwelt (to represent a
+   conjunction spanning k steps, some vocabulary element must
+   have temporal support <= k). Candidate pre-flight clause:
+   every card states the phenomenon's native grain and the
+   instrument's grain; mismatch = UNTESTED BY CONSTRUCTION
+   (subsumes VOID-BY-EFFECT-REPRESENTATION). Offered under the
+   admission rule; the user's call.
+6. **The two-speed architecture is re-derived from the machine
+   side.** Biology carries both ms-grain plasticity and day-grain
+   consolidation because one channel cannot serve both
+   timescales — and the program just measured the cost of having
+   only the slow one. T154's search ladder gains its missing
+   fastest rung at web grain: an event-grain receipt mechanism
+   below the generation-grain economy, with the junction law
+   (receipts lived and re-validated to cross strata) governing
+   what consolidates upward. Intentional binding, agency
+   phenomenology, and the flying-mug forward model all live on
+   the fast rung — the imagination discussion and P108 turn out
+   to be waiting on the same build.
+
+### F78 [W] The efference copy is necessary-by-saturation: the poke->response coupling is DETERMINISTIC (+14x spike, bench-measured) yet act-conditioned contingency is NULL at 5x power (0.00 +/- 0.09) — agency is statistically invisible without a tag of which acts actually fired
+
+**Finding (2026-08-15, pw1c v1-v3 — the bridge card's cumulative
+verdict; serialization_math Prop 22(i)/Prop 19's theorem, now
+with a quantitative venue receipt).**
+The arc: v1 found the contingency SIGN-FLIPPED (-0.94, CI far
+from 0) — not absence but ZERO-LATENCY response: the impulse
+spikes the release channel within the poke step, and the forward
+window measured the decay tail (the week's third sign surprise;
+latency now measured, not assumed). v2's corrected statistic
+showed C_OWN=+0.26 CI[+0.03,+0.49] — which FAILED fresh-seed
+replication at 5x power (v3: C_OWN=-0.01 CI[-0.10,+0.08]); the
+v2 significance was forking-paths noise, caught by the
+powered-replication rule. And the mechanism of the null is the
+finding: under babbling, extensions occur on ~66 percent of steps
+(SATURATED conditioning event — the F76 gate-mobility clause's
+second receipt inside one day, this time against its own author)
+while pokes are refractory-limited to ~1/13 steps, so individual
+acts carry almost no information about WHEN the world was
+actually struck. Meanwhile the underlying coupling is
+DETERMINISTIC and huge: a poke spikes the release channel 2.3 ->
+32.6 at source, every time, bench-measured. CONCLUSION: the
+contingency between EFFECTIVE acts and responses is perfect; the
+contingency between ACTS and responses is statistically
+invisible. Detecting one's own agency therefore requires
+conditioning on the EFFECTIVE act — which requires knowing which
+acts fired — which is the EFFERENCE COPY. Prop 22(i) proved the
+tag necessary by indistinguishability; this card measures the
+price of its absence: a deterministic phenomenon at 0.00 +/-
+0.09. The eligibility organ's demand is thereby REFINED, not
+withdrawn: what is demanded is the TAGGED eligibility trace
+(efference-keyed act-response binding at event grain); the
+untagged form is receipted useless in this venue. The organism's
+side of the tag already has a home (last-action channels exist
+at obs grain; the plant logs provenance) — the missing piece is
+the event-grain binding, exactly F77 impl. 2's build with its
+specification tightened by measurement.
+
+**Implications (billed 2026-08-15).**
+1. **THE SELF-MODEL BOUNDS THE CAUSAL MODEL: agency detection is
+   self-knowledge-limited, not world-knowledge-limited.** The
+   world's coupling was perfect; what was missing was knowledge
+   of one's own effective acts. The do-operator's power is capped
+   by the provenance channel's fidelity — you cannot chart your
+   effect on the world at finer resolution than you can chart
+   yourself. This sharpens serialization_math Prop 33: the
+   self-region S* is discoverable only at the efference channel's
+   resolution, and every controllability estimate kappa(c)
+   inherits that ceiling. Cartography's version of "know thyself"
+   — as a THEOREM about instrument order: the self-chart is
+   epistemically PRIOR to the intervention chart.
+2. **DENSE ACTORS MUST TAG; SPARSE ACTORS SELF-TAG BY RARITY.**
+   The saturation mechanism yields two evolutionary solutions:
+   carry an efference copy (act densely, tag internally), or act
+   RARELY AND DISTINCTIVELY so acts tag themselves by form. This
+   re-prices Prop 21 (the throat as cheapest do-operator):
+   vocalization is the natural first causal laboratory partly
+   because emissions are sparse and discrete — their rarity is a
+   FREE provenance tag. Comparative prediction: efference-copy
+   machinery should scale with motor-output density across
+   species. And the babbling burst structure (sparse clusters,
+   not continuous emission) is the identification-preserving
+   emission schedule, derived.
+3. **THE TAG IS A PREDICTION, NOT A LOG — and that makes it
+   buildable now.** "Which acts fired" cannot be read from motor
+   commands alone (the refractory lives in the world-coupling);
+   the organism must PREDICT effectiveness from its own state
+   (extension pattern x in-contact x refractory phase) — i.e.,
+   the efference copy is the body forward model announcing
+   forthcoming consequences (Prop 33 ii, receipted). The tagged
+   eligibility trace's spec: an event-grain receipt binding
+   PREDICTED-EFFECTIVE acts to response deltas within W, with
+   the junction law governing consolidation upward. All raw
+   materials exist (last-action channels, proprio, contact
+   sensing); the build is one binding mechanism, not a stack.
+4. **INSTRUMENT FAILURES ARE ORGAN-DESIGN THEOREMS — the bridge
+   card becomes standing method.** Every failure this week is a
+   receptor requirement in disguise: saturated conditioning
+   (F76, F78) -> receptors need base-rate-aware thresholds;
+   missing tags (F78) -> receptors need provenance; grain
+   mismatch (F77) -> receptors need native-grain support; wrong
+   latency (F78 v1) -> receptors need measured, not assumed,
+   response windows. The experimenter and the organism are the
+   same kind of object, so PRICE THE PHENOMENON WITH A
+   DISPOSABLE INSTRUMENT BEFORE FREEZING IT AS AN ORGAN — the
+   bridge card just saved the program from building the untagged
+   trace, an organ that would have been born measuring zero.
+5. **THE POWERED-REPLICATION RULE earns constitutional
+   candidacy.** v2's significant C_OWN was the program's first
+   CAUGHT false positive at statistic grain: a statistic chosen
+   after seeing data, significant on the peeked family, dead on
+   fresh seeds at 5x power. Candidate clause: any CI-based claim
+   whose statistic was selected post-hoc must replicate on fresh
+   seeds before billing. Pairs with C13 (earned verdicts) and
+   the gate-mobility clause as the third leg of the verdict-
+   validity tripod. Offered; the user's call.
+6. **The two failure modes of the tag are the two disorders of
+   agency.** Without the tag, TRUE agency is invisible (this
+   card's measurement); with a CORRUPTED tag, FALSE agency is
+   manufactured (Prop 19's taxonomy: hallucination, delusion of
+   control — Frith's account, now with the quantitative
+   complement). One channel, two failure directions, and the
+   program has now measured the cost of one of them.
+
+### F79 [W] The registered falsifier bills — and overshoots: at residency-economy grain, object identity is invisible ENTIRELY (certified = arbitrary = real, 6 = 6 = 6 new slots, premiums within 0.006) — P117's claim is not wrong but WAITING, on the same build as P108, because identity IS dynamics and dynamics live in the temporal hole
+
+**Finding (2026-08-15, pw3_race — NOT SUPPORTED per T161 ii's
+registered falsifier; gates graded, pooled 12 >= 8, base rates
+printed).** The race the generator line was built to feed: seven
+policy-grown certified specimens vs seven matched-budget
+uncertified warps vs seven real references, in full-organism
+residency, single factor = roster, endpoints at generation grain
+per C23. Result: IDENTICAL pricing across all three rosters —
+new contact-funded slots 6 = 6 = 6; near-miss consumption
+comparable; engagement premiums 0.575 / 0.577 / 0.581 (all below
+the 0.67 furniture baseline). The falsifier bills as registered:
+arbitrary novelty matches real-anchored novelty at this venue
+and budget. But the REFERENCE arm turns the falsification into a
+diagnosis: even REAL FAMILIAR SHAPES are priced identically to
+warped noise — the economy is not preferring wrong objects, it
+is BLIND TO OBJECT IDENTITY altogether. And the program already
+knows why, from its own registrations this same day: identity is
+response under perturbation (T161 i, receipted) — identity LIVES
+AT EVENT GRAIN — and the organism's Umwelt has a temporal hole
+exactly there (T166, F77): the economy sees only what survives
+the consolidation door, and what survives is object-independent
+ambient statistics. The two halves of T161 collide: part (i)
+says identity is dynamics; part (ii)'s dividend cannot be paid
+until the organism can SEE dynamics. CONVERGENCE, third line:
+P108's live form (F77), the contingency receptor (F78), and now
+P117's discrimination all wait on the SAME organ — the
+event-grain stratum (T166's fast rung, T167's tagged form).
+P117 is re-scoped, not closed: its live form re-runs after the
+fast-stratum build, with the pre-registered prediction that the
+three premiums SEPARATE once identity is visible. The generator
+line and the organism line meet at one missing organ, and the
+program's next construction has three independent demand
+receipts.
+
+**Implications (billed 2026-08-15).**
+1. **CONVERGENT DEMAND IS THE STRONGEST FUNDING SIGNAL THE
+   PROGRAM HAS PRODUCED — and it is the implication organ's move
+   at program scale.** Three independent lines (causation F77,
+   agency F78, identity F79) hit the same wall, each with its own
+   receipt — three starving liens sharing one missing dimension,
+   which is exactly the condition under which T163's Abstract
+   mints a common parent. "Conjunctions generate next organs,"
+   receipted at maximal strength: the fast stratum is the most
+   over-determined build in the program's history, and it was
+   DERIVED, not designed — three experiments wrote its
+   requirements (event-grain support, efference keying,
+   junction-law consolidation) before any code exists.
+2. **NOVELTY IS UMWELT-RELATIVE: the market prices receipts, not
+   objects.** The economy showed zero preference among rosters
+   because "novelty" as the economy computes it is statistical
+   novelty of the RECEIPT STREAM — and objects whose
+   distinctiveness lives below the vocabulary's resolution
+   produce identical streams. A destination invisible at
+   vocabulary grain cannot be minted (T160 vii's edge, from the
+   perceptual side). The human face: to a novice, the masterpiece
+   and the forgery are priced identically — connoisseurship is
+   grown receptors, not grown taste. Taste IS vocabulary.
+3. **THE SUPPLY CHAIN HAS A RESOLUTION MISMATCH: certification
+   value is stranded when the certifier out-resolves the
+   consumer.** The judge certifies at event grain (480-dim
+   collapse dynamics); the organism consumes at consolidation
+   grain. The certified spirit is real — and unmarketable. Law
+   for the T161 pipeline: the discriminator and the resident
+   organism must SHARE a vocabulary grain or the three-level
+   receipts chain breaks at its weakest link (level 2->3 works,
+   the judge collects from reality; level 1->2 is severed, the
+   organism cannot collect from the environment). The fix
+   direction is fixed: lift the consumer, never lower the exam.
+4. **EVERY FALSIFIER NEEDS AN ANCHOR ARM — the verdict-validity
+   family's fourth member.** Without REFERENCE, "arbitrary
+   matches certified" would have billed against
+   reality-grounding (a theory conclusion). With REFERENCE also
+   matching, the falsification relocated from the claim to the
+   perceiver. Candidate clause: falsifier tests carry an arm
+   whose success is presumed (the anchor); when the anchor also
+   fails, the verdict is re-scoped from the claim to the
+   instrument or venue. One receipt (F79); offered alongside
+   gate mobility and powered replication.
+5. **T161 ii's GUARD CLAUSE FIRED ON ITS FIRST TEST — literally.**
+   The registration warned: "minted objects must be priced by
+   REALIZED learnable strain, or the environment inflates with
+   certified-real-but-pedagogically-dead FURNITURE." The premiums
+   came back at furniture pricing for every roster including the
+   real one. The guard is validated as written, and it binds the
+   environment-growth loop to the fast stratum: admission-by-
+   realized-strain requires strain to be realizable, so the
+   world's manufacture loop and the organism's vocabulary must
+   grow TOGETHER — the treadmill (T153) has a co-evolution
+   constraint, measured.
+
+### F80 [W] ORGAN RECEIPTED: the tagged trace recovers agency at 60x the untagged effect (C=+6.06 vs 0.00) AND reads object identity from SINGLE pokes — and the confusion pattern is the landmark: the grown key is confusable with the REAL key (0.57) while both separate sharply from noise (0.72/0.80). Same-in-spirit, verified at event grain by an organism-side statistic
+
+**Finding (2026-08-15, fs0_trace — ORGAN RECEIPTED, both gates,
+effect sizes on file; FS-1 integration funded).**
+TEST A (agency): the organism-side PREDICTED tag (extension x
+in-contact x refractory phase — no world oracle; fidelity 1.00
+against the plant's ground truth) converts the F78 null into
+C_tag_OWN = +6.06 CI [+5.50, +6.62] — a ~60-fold effect-size
+recovery from conditioning alone, at base rate 0.078 in contact
+(sparse, unsaturated; C22 by construction). The yoked twin's
+tags also read positive (+3.44) — a shared epoch-phase driver,
+exactly what the yoked arm exists to subtract — and the
+OWNERSHIP COMPONENT survives cleanly: OWN - YOKED CI [+1.88,
++3.37]. T167's tagged form receipted: agency is recoverable
+from quantities the organism already carries.
+TEST B (identity): single-poke 6-step response profiles, 1-NN
+LOO against permutation nulls, three same-class objects (the
+hardest discrimination: certified key specimen / arbitrary
+key-warp / real key reference, paired action streams): certified
+vs arbitrary 0.72 (null 0.55); arbitrary vs reference 0.80
+(null 0.54); certified vs reference 0.57 (null 0.54) — mean
+0.70. THE PATTERN IS THE PAYLOAD: the grown specimen is nearly
+CONFUSABLE with the real key while both separate sharply from
+matched-budget noise. "Same in spirit, different in appearance"
+(T161's founding claim) now has an event-grain receipt readable
+by an organism-side statistic from SINGLE contacts — the judge's
+offline certification corroborated online, the stranded
+certification value (F79 impl. 3) shown collectible. P117's
+pre-registered premium-separation prediction gains its mechanism
+receipt in advance: the information the economy needs is present
+in the trace; FS-1's job is only to give the economy access.
+The fast stratum's build is funded with its gates already
+priced: agency component >= +1.9 net, identity mean LOO >= 0.65
+at trace grain — FS-1 must not lose more than the junction law
+takes.
+
+**Implications (billed 2026-08-15).**
+1. **THE CONDITIONING EVENT IS THE RECEPTOR — information was
+   never missing; access was.** Same venue, same streams, same
+   phenomenon as F78; the ONLY change was what we conditioned on,
+   and the effect went 0.00 -> +6.06. The general form:
+   perception IS conditioning structure — a receptor is a
+   standing conditioning event, and an organism's epistemic
+   capacity is the library of things it can condition on. This
+   unifies the week's laws: the separation theorem selects which
+   dimensions deserve conditioners, the coherence law says which
+   targets reward them, the saturation pathologies (F76, F78)
+   are dead conditioners, and the tag is the conditioner that
+   unlocks agency. Vocabulary growth = conditioning-event
+   growth, priced this week at 60x for one addition.
+2. **IDENTITY IS VERIFIED BY INDISTINGUISHABILITY, NOT
+   PROXIMITY — the exam has a better form.** The grown key's
+   proof of realness is that an organism-side test CANNOT tell
+   it from the real key (0.57) while easily telling both from
+   noise (0.72/0.80) — a Turing-test structure at object grain.
+   Implication for T161's discriminator: admission should be
+   reframed as FAILURE-TO-SEPARATE from target references under
+   the probe distribution, not nearness to them — statistically
+   stronger, organism-meaningful, and convergently valid (two
+   independent instruments, offline fingerprint and online
+   trace, now agree on the same equivalence class). It also
+   names the mature forgery condition: "confusable with real"
+   is exactly what a counterfeit must achieve, and the
+   discriminator arms race has its native currency.
+3. **FS-1's ONLY RISK IS THE CROSSING — and consolidation loss
+   becomes measurable for the first time.** The information
+   exists at trace grain; the economy is blind; FS-1 inserts
+   the trace as a receptor — and F77's threshold-robustness
+   cuts both ways: the web could smear the trace channels as it
+   smeared raw obs. C23 applied reflexively to the organ's own
+   output: the trace receptor must deliver EVENT-SUMMARY values
+   (per-contact aggregates) matched to the grain the web can
+   hold. FS-0 priced the phenomenon (+1.9 / 0.65); FS-1's gates
+   measure what the strata crossing takes — the junction law's
+   toll, quantified for the first time.
+4. **THE YOKED +3.44 IS A FINDING: the world has epoch-phase
+   structure that MIMICS agency, so the trace receptor must be
+   a COMPARATOR, not a raw conditioner.** A naive contingency
+   detector would claim agency from phase alignment alone —
+   Skinner's superstition, mechanized by orbital furniture. The
+   organism needs the yoked baseline internally: observed
+   response MINUS world-predicted response (Frith's comparator
+   model, derived from a control arm rather than assumed). Raw
+   tagged conditioning without the subtraction manufactures
+   superstition at +3.44 per unit.
+5. **BABBLE IDENTIFIES; SLEEP CONSOLIDATES — the causal ledger
+   is written in exploration.** All of FS-0's power came under
+   a random policy; under the trained policy the identification
+   is confounded (purposeful pokes correlate with state). So
+   the tag must carry the exploratory/purposeful bit (Prop 22's
+   full form; the plant already logs it), the organism's causal
+   claims are valid ONLY on the exploratory subset, and the
+   developmental ordering falls out: motor babbling precedes
+   reliable agency attribution because babbling IS the
+   randomized trial that licenses it.
+
+### F81 [W] FS-1's printed NOT CROSSED is VOID-BY-GRAIN-MISMATCH — my gate graded persistence-designed channels on tight windows — and the day's third self-caught instrument defect earns C23 its reflexive line: GATES ARE INSTRUMENTS TOO
+
+**Finding (2026-08-15, fs1_integration — no verdict billed; the
+crossing built and running, its grade withheld from a
+mis-grained gate).** The build itself is real and live: the
+trace comparator (F80's spec — comparator not conditioner,
+predicted tag, exploratory bit, event-summary channels) entered
+through the architecture's RESERVED door (the discovered-
+receptor slots, zeroed since the genome project) with two
+guarded lines in the loop; 357 tags fired (exploratory fraction
+0.18 logged — Prop 22's full form operational); the channels
+reached every obs. But the gate contradicted the organ: C23
+reflexive told the organ to STRETCH its temporal support (decay
+0.92, epoch-mean channels persisting ~8-40 steps) so
+generation-grain thresholds could hold it — and then the gate
+graded new slots on fit concentration INSIDE 6-step tag
+windows. Channels engineered to outlive the windows were graded
+on living inside them; qual=0 in both arms says nothing about
+the crossing. The printed architectural conclusion ("the
+stratum needs its own ledger") may yet be true but is NOT
+EARNED by this card. FS-1b's gate, redesigned at the organ's
+grain: (a) SUPPORT GEOMETRY — do slots born in the ON arm read
+the trace DIMENSIONS (threshold support intersecting
+discovered-slot channels), the direct question, no timing
+proxy; (b) CHANNEL FOOTPRINT — ON vs OFF diff-of-webs (the F76
+standing instrument) with divergence graded at CONTACT-epoch
+grain (where the channels are nonzero), matched to c[2]/c[5]'s
+actual support. DISCIPLINE PATTERN, third instance TODAY
+(pw1c's forward window vs zero latency; fs0's near-miss with
+bootstrap-LOO caught pre-launch; fs1's window vs decay): the
+instrument-organ grain mismatch is systematic enough to earn
+C23 its REFLEXIVE LINE — the card's GATE grain must match the
+organ's OUTPUT grain, stated in the same sentence that states
+the phenomenon's grain. Gates are instruments too, and every
+verdict-validity clause applies to them.
+
+### F82 [W] The wiring audit rewrites F81: fits are driven by rv-family activations ONLY — the discovered-receptor slots are POLICY-VISIBLE but ECONOMY-INVISIBLE, so FS-1's null was VOID-BY-DISCONNECTED-CHANNEL, and the fast stratum's true port is the bank's own agency family
+
+**Finding (2026-08-15, wiring audit of the fit pathway — F55's
+silent-absence class at the deepest level yet reached).** The
+complete map, verified in code: (1) slot fits are decided by
+`_boundary_test(geometry, family_activations)` where activations
+come EXCLUSIVELY from receptor_values (rv) — the LiveReceptorBank
+output; obs_before/after and the embedding are recorded on
+receipts but do not drive the fit decision. (2) `_core_obs`
+truncates to the FIRST 96 dims — the trace channels (obs tail)
+never reach embeddings. (3) The bank reads fixed indices; none
+are the discovered slots. CONCLUSION: the architecture's reserved
+"discovered receptor" door feeds the POLICY (model.predict sees
+full obs windows) but NOT the ECONOMY — a receptor discovered
+into those slots can shape behavior yet can never earn a fit,
+pay rent, or be evicted. C5's letter was satisfied (channels in
+the obs vector) while its spirit was not (not billable). FS-1's
+null is re-diagnosed: not toll, not incapacity — DISCONNECTION.
+(4) THE NATIVE PORT EXISTS: rv is 86 channels, all assigned to
+33 families, and among them sit AGENCY (rv[4] = self_model —
+literally the body forward-model accuracy signal, T167's tag
+substrate) and agency_buf (rv[47] = agency_salience, a weak
+ctrl-x-diversity proxy). The trace comparator IS an agency-family
+signal; the architecturally native integration is to feed it into
+the agency channels the family structure already carries and
+every web's slot geometry already thresholds over — no family
+surgery, no web migration. TWO WIRING OPTIONS, THE USER'S CALL
+(core-vocabulary surgery either way, C21 tiering applies):
+  (A) BLEND (recommended, opt-in flag): bank.compute reads the
+  discovered-slot channels and blends the trace comparator into
+  rv[4]/rv[47] (e.g., max or gated sum) — touches two working
+  receptors (C16: their current numbers must be beaten or
+  preserved; the flag keeps every existing card bit-identical
+  when off).
+  (B) EXTEND: rv grows past 86 with a new trace family — clean
+  separation, but NUM_FAMILIES changes and every existing web's
+  geometry needs migration (invasive; C21 says not as a bet).
+FS-1c = the chosen wiring + the honestly-grained gate (F81's
+support-geometry/footprint readouts, now aimed at the agency
+family's activation instead of a dead channel).
+
+**Implications (billed 2026-08-15).**
+1. **THE ORGANISM HAS TWO LEARNING SYSTEMS THAT DON'T SHARE A
+   VOCABULARY — procedural/declarative dissociation, by wiring.**
+   The policy sees full obs (habit can learn from discovered
+   channels); the economy sees only rv families (knowledge
+   cannot). Anything living solely in discovered slots can become
+   SKILL but never a K — never composed, never abstracted, never
+   spoken (the LC reads the web), never taught. The mute-skill
+   stratum. Human face: implicit learning that cannot be
+   verbalized — and the audit supplies its mechanistic
+   definition: VERBALIZABILITY = REACHING THE FAMILY-ACTIVATION
+   SURFACE. The architecture reproduces the dissociation not by
+   design but by an unfinished wire.
+2. **C5 NEEDS ITS SECOND CLAUSE: receptor-native means BILLABLE,
+   not merely visible.** Obs-entry creates behavior-shaping
+   signals; only rv-entry creates billable ones. Candidate
+   amendment: a receptor is INSTALLED only when its signal
+   reaches the family-activation surface; obs-entry alone is a
+   mute capability. And the amendment names an immediate audit:
+   the surprise (obs[400:408]), influence, and spectral channels
+   may ALSO be economy-invisible — the same disconnection class,
+   possibly standing on three more organs. One connectome pass
+   answers it.
+3. **THE AGENCY FAMILY WAS WAITING — the genome reserved the
+   concept before the mechanism existed.** rv[4] self_model and
+   rv[47] agency_salience have been earning weak receipts on
+   proxies; the trace comparator is the real substrate arriving
+   into a pre-carved port. This is the fringe dynamic (marginal
+   VoI jumps when the last prerequisite installs) and C8
+   vindicated at family grain: the seed channel existed, the
+   discovered mechanism refines it. Prediction for FS-1c:
+   agency-family activation quality jumps DISCONTINUOUSLY on
+   wiring (supermodular funding — punctuated topology change,
+   open end 17's signature).
+4. **THE BLEND IS THE MISSING INSTALLATION RULE — discovered
+   receptors enter through KIN.** Option A generalized: every
+   discovered receptor declares its FAMILY, and the bank blends
+   it into that family's activation — discovery found receptors,
+   but nothing ever installed them into the economy; the 20
+   slots were reserved without an installation mechanism. The
+   skill->knowledge path is: discovered signal shapes behavior
+   (policy), earns its family port (blend), becomes billable
+   (fits), consolidates (Ks) — the Baldwin route at receptor
+   grain, and the junction law governs each crossing.
+5. **MAP THE CONNECTOME ONCE — the silent-absence class demands
+   its standing instrument.** Three receipts (F55 harness
+   events, F70 diet, F82 wiring), one class: pathways assumed
+   connected, never audited. The instrument: an end-to-end
+   connectome pass (obs -> bank -> rv -> families -> fits; obs
+   -> core -> embedding; obs -> policy) run after ANY
+   architectural change, harness_audit generalized. Cheap, and
+   it converts the class from recurring discovery to standing
+   prevention.
+
+### F83 [W] The bridge carries traffic: the agency family earns its first receipts in the program's history (222/gen from an eternal zero), C16 holds (1.028), the junction weight earns to cap — and the genesis leg's negative is RIGHT-CENSORED, not billed: the family has been alive for two generations of its life
+
+**Finding (2026-08-15, fs1c_bridge v1+v2 — E1's printed NOT
+CROSSED scoped by the maturation clause; the traffic result
+stands).**
+(1) V1's STARVED-AT-FLOOR surfaced a FOURTH silent-absence
+receipt: run_world_v3 passes engine=None to bank.compute, so
+every engine-dependent receptor (rv[4] self_model included) has
+computed ZERO in this harness since its beginning — the agency
+family was economy-dead its whole life, and the nursery web's
+vocabulary shows the starvation (ONE agency-thresholded slot in
+105: a family that never fires never earns, and a family that
+never earns never gets carved — the floor-family law observed
+retrospectively in the web's own shape). The connectome audit
+(F82 impl. 5) gains its first repair target.
+(2) V2's band-calibrated probe (w=0.70, measured against the
+lone slot's 0.500 threshold — the PW-0 lesson reapplied after
+v1 priced the floor without measuring) OPENED THE ECONOMY:
+earn_log [0,0,0,0,222,215] — the agency family's first receipts
+ever, arriving at gen 5 with the delayed-onset signature of the
+consolidation door (F77's mechanism: thresholds/annealing/
+rebuilds gate when new signal becomes billable), then flowing at
+200+ positive fits per generation. The junction weight earned
+floor -> cap; C16 held at 1.028 (the standing economy slightly
+IMPROVED under the blend). The mute skill's signal is now
+BILLABLE: T167's tagged trace pays rent in the web.
+(3) THE GENESIS LEG IS RIGHT-CENSORED, NOT NEGATIVE: E1 counted
+new agency-thresholded slot births over six generations — but
+the family was ALIVE for two of them. Scans carve from
+accumulated activation distributions; two generations of signal
+against a lifetime of zeros is a NEWBORN family (the maturation
+clause's fourth receipt, self-applied before the verdict could
+mislead). The bridge's remaining question — does genesis follow
+traffic? — needs the family AGED: a longer continuation with
+the wire live, plus the engine=None repair so the family's
+standing proxies fire too. Named, carded, unbuilt.
+
+### F84 [W] The dissipation sweep: an interior information peak exists (0.77 at heavy damping vs 0.66/0.69 at the edges) but the annulus verdict fails its locked floor by 0.02 on a DIAL-CENSORED edge — and the sharp sub-finding is grain-shaped: orientation information is dissipation-INVARIANT while class identity is dissipation-SENSITIVE
+
+**Finding (2026-08-15, dissipation_sweep v1+v2 — NOT SUPPORTED
+per locked gates; the curve, the catch, and the censoring all
+billed).**
+(1) V1 WAS AN INSTRUMENT-FAIL CAUGHT BY ITS OWN CALIBRATION
+GATE: pymunk time-scales space.damping (velocity retention =
+d^dt), so the v1 range 0.999-0.82 was ~0.3 percent effective
+variation — settle time 7 at every level was the receipt of an
+inert dial, and the gate refused to bill a flat line that would
+otherwise have printed a plausible false negative against the
+annulus claim. Retro-flag owed: the old "0.92 crushed the
+signal" receipt (p116 v2) was not this dial at these semantics.
+(2) V2 HAD TRACTION (settle 7 -> 25 across the log range) and
+measured the curve: INFO peaks at 0.77 at d=0.001 — INTERIOR —
+falling to 0.66 at the overdamped edge (-0.11, clears the 0.10
+floor) and 0.69 at the low-drag edge (-0.08, MISSES the floor
+by 0.02). Locked verdict NOT SUPPORTED stands. Two honesty
+notes: the verdict STRING mis-described the failure (printed
+"peak at edge" when the peak is interior and the failing leg is
+the low-drag edge's shallow drop — message logic defect, the
+verdict category itself correct); and the low-drag edge is
+DIAL-CENSORED: spring damping (GEL_DAMP 2.0) dissipates even at
+space.damping 1.0, so the venue cannot reach the true
+underdamped corner with this dial — the shallow edge may be the
+censoring, not the curve. The claim's live form: sweep the
+SPRING damping jointly (the material dial) to uncover the true
+low-dissipation corner.
+(3) THE GRAIN-SHAPED SUB-FINDING: arm A (orientation — coarse
+asymmetry) sat at 0.88-1.00 across the ENTIRE range, nearly
+dissipation-invariant: gravity breaks the up/down symmetry
+under any second law. Arm B (class identity — fine structure)
+is what moves (0.40 -> 0.57, a 0.17 swing tracking the damping
+regime). Coarse structural facts survive any thermodynamics;
+FINE IDENTITY NEEDS THE RIGHT RELAXATION — the world's
+knowability is not one number but a spectrum, with detail
+depth set by dissipation. T166's grain law arriving from the
+physics side: each grain of structure has a dissipation band
+in which it is readable, and the coarser the fact, the wider
+the band.
+
+**Implications (billed 2026-08-15).**
+1. **THE READABILITY TENSOR: three laws are one object.** F74
+   (coherence: which targets are climbable), T166 (grain: which
+   timescales are representable), F84 (dissipation: which detail
+   depths are readable) jointly define readability(structure,
+   instrument, world-constants) — a world's epistemic capacity is
+   a JOINT property of what is read, at what grain, under which
+   physics. T161's "tunable spectrometer" clause gains its formal
+   axis: DISSIPATION SELECTS GRAIN. Fragility spectroscopy
+   generalized — sweep the second law, read different depths of
+   the same object.
+2. **TRUNK RECEPTORS ARE THE DISSIPATION-INVARIANT STRATUM — the
+   trunk/canopy split gets a physics justification.** Orientation
+   survives any second law; class identity needs tuned
+   relaxation. Coarse detectors are not merely simpler — they are
+   ROBUST TO WORLD-CONSTANT VARIATION, which is why they fund in
+   every environment: Prop 36's trunk(E) — carvings funded across
+   the whole ancestral family — is plausibly the
+   thermodynamically-invariant stratum, and T95's measured
+   71/30/27 transfer split may BE this spectrum at receptor
+   grain. Testable: trunk receptors should survive dissipation
+   sweeps that kill canopy receptors.
+3. **STAGING IS DISSIPATION-ORDERED — a thermodynamic basis for
+   the serialization thesis's coarse-to-fine pipelines.** Arm A
+   (coarse) is readable in any regime, including fast ones; arm
+   B (fine) is present only in slowly-relaxing signal. So
+   fine-reading stages MUST be slower — not for computational
+   load, but because their target structure only exists in slow
+   relaxation. T16/P1's latency prediction gains a physical
+   floor: PROCESSING LATENCY SCALES WITH THE RELAXATION TIME OF
+   THE STRUCTURE BEING READ. The pipeline's coarse-to-fine order
+   is the world's own dissipation spectrum, internalized —
+   serialization as impedance-matching to the relaxation
+   hierarchy of reality.
+4. **EVERY VENUE HAS UNREACHABLE CORNERS — the reachability
+   audit joins C22's base rates.** Spring damping floors the
+   venue's dissipation exactly as the refractory floored the tag
+   rate and the frame floored lattice resolution: three receipts
+   for DIAL CENSORING. Cards must state the dial range actually
+   REACHABLE, not merely swept, and single-dial sweeps over
+   joint-dial spaces can misread censoring as curve shape (this
+   card's shallow edge, honestly flagged). Small kin note: the
+   verdict STRING must derive from the same predicates as the
+   verdict category — a correct category carried a wrong
+   diagnosis this card, and diagnosis text is part of the
+   instrument.
+5. **EXPORT TO THE BIOSIGNATURE FRAMEWORK: detection depth
+   scales with the target world's dissipation regime.** Reading
+   life through relaxation means a heavily dissipative medium
+   (thick atmosphere, deep ocean) hides fine biosignatures while
+   coarse ones (maintained disequilibrium stocks) survive — the
+   TBD tier table gains a READABILITY column: the medium's
+   relaxation time sets the deepest tier observable from
+   outside. The doc's framework and the program's venue share
+   one law: the second law is the resolution knob on legibility,
+   there as here.
+
+### F85 [W] The connectome audit: the SOV web's entire sensory surface is 100 of 432 obs dims — TWELVE regions are policy-only, including every federation organ's words (surprise, influence, spectral, audio, visual, crossmodal) — and 13 live receptors across 9 families are dead under the standing harness's engine=None call
+
+**Finding (2026-08-15, connectome_audit — the standing instrument's
+first pass; F82 impl. 5 built and immediately earning).**
+The empirical map (perturb-and-diff, both engine regimes):
+(1) THE WEB'S SENSORY SURFACE: the bank reads core_body (dims
+0-96) and mm (96-100) — nothing else. ALL twelve remaining obs
+regions are MUTE to the fit economy: pattern, thinking,
+cognitive_state, episode_receptors, discovered_slots (F82's
+finding, now in context), audio, visual, crossmodal, SURPRISE
+(the next-surprise machine's fold-back, T134-T139), INFLUENCE
+(the control organ's words, T143), SPECTRAL (the spectral eye).
+Scoping honesty: (a) the live_receptors obs region being "mute"
+is benign — it is the bank's own OUTPUT copied into obs for the
+policy; rv drives fits directly. (b) "Economy-invisible" means
+invisible to the SOV CONSTRAINT WEB's ledger specifically; the
+federation organs carry their own ledgers (T144's coupling is
+words + surprise stream + metabolic economy), so whether the web
+SHOULD read their words is a genuine architectural question —
+DESIGN OR DEFECT IS THE USER'S CALL, flagged not presumed. What
+is now fact: the vocabulary the program registers theories about
+(Ks, slots, the web) has never seen a word any other organ
+speaks. The organ federation talks; the web has been deaf to all
+of it; every crossmodal, surprise-priced, or control-organ
+regularity the web has ever learned arrived indirectly through
+96 body dims.
+(2) THE DEAD THIRTEEN: rv channels {5,12,13,14,17,21,28,30,37,
+45,53,60,61} compute nonzero ONLY with a live engine — and the
+standing harness passes engine=None, so they have been
+permanently zero in every replay-harness card ever run. Nine
+families carry dead members: compression (4 of 8 channels),
+mathematics, epistemic, formalization, sequential,
+causality_buf, meta_motivational, repetition, compression_buf.
+F83's agency deadness was not an exception; it was a SAMPLE of a
+9-family blackout. Every vocabulary this program has grown in
+the replay harness grew under a partially dark trunk — which
+re-scopes (not invalidates: verdicts were paired within the same
+darkness) the ecological meaning of every web on disk.
+(3) The instrument itself is the deliverable: standing rule (now
+in force) — run connectome_audit after any architectural change.
+The silent-absence class (five receipts: F55, F70, F82, F83,
+F85) has its prevention.
+
+### F86 [W] The joint-dial sweep resolves the censored edge — the underdamped corner drops DEEP (-0.19, F84's censoring confirmed) — while the overdamped edge stays shallow AND unreached (peak on the max-drag boundary): the dissipation curve is ASYMMETRIC, and fine identity favors the overdamped regime
+
+**Finding (2026-08-15, joint_dial_sweep — NOT SUPPORTED per
+locked gates, missed by 0.012 on the shallow edge; the shape is
+the payload).** The 2D grid (global drag x spring damping, 9
+cells, traction confirmed: settle 5 -> 17): peak INFO 0.78 at
+(g=0.001, spring x1.0); the previously DIAL-CENSORED underdamped
+corner (g=1.0, spring x0.1) now reachable and DEEP at 0.592
+(-0.19 below peak — F84's censoring diagnosis confirmed: the
+low-dissipation edge is real and steep once the dial can reach
+it). The overdamped corner sits at 0.692 (-0.088, misses the
+0.10 floor by 0.012 — the second consecutive near-miss on this
+same edge at the same locked floor; the floor stands, C13, no
+chasing). AND the peak lies on the tested boundary of the
+global-drag axis — the overdamped side beyond g=0.001 is
+UNEXPLORED, so the far edge may simply not have been reached
+(reachability discipline, F84 impl. 4, self-applied). The
+emerging shape: ASYMMETRIC — light dissipation destroys fine
+identity steeply (ringing mixes modes), heavy dissipation
+degrades it slowly (quasi-static creep still reads structure),
+and armB peaks (0.55) in the heavy-drag regime while armA sits
+at 1.00 there. Slow worlds are legible worlds, within the
+tested range. Named next: extend the g-axis below 0.001 to find
+the true overdamped edge, or accept the half-annulus (one hard
+edge, one soft shoulder) as the venue's measured shape.
+
+### F87 [W] The awakening commissions in two halves: the ENGINE repair opens cleanly (dead families revive 4.0x, economy stable at 1.23x, cost 1.9x) — but six of nine federation regions are UNSPOKEN in this venue, the silent-absence class's sixth and deepest receipt: organs whose words are never written, not merely never heard
+
+**Finding (2026-08-15, awakening_card PARTIAL + the region-
+activity diagnostic).**
+(1) THE ENGINE LEG IS COMMISSIONED: with BANK_ENGINE on, the
+nine dark families' mean activation rises 0.082 -> 0.325 (4.0x
+revival, gate 2x), total fit flow 1.23x DARK (well inside the
+stability band — the economy absorbs the largest sensory
+expansion in its history without flooding), wall-clock 1.9x
+(affordable, floor 5x). The 13 dead channels compute in the
+replay harness for the first time. ADOPTABLE AS-IS; adopting it
+is a venue change for all future cards (re-baselining note on
+the record).
+(2) THE FEDERATION LEG DECOMPOSES (the B-gate's 1/7 explained
+by measurement, not presumed): region-activity audit shows
+visual (mean 0.33, 100 percent of steps), crossmodal (0.43),
+and audio (0.03) SPEAK in this venue — while surprise,
+influence, spectral, thinking, cognitive_state, and pattern are
+ALL-ZERO: their organs' machinery does not run in the replay
+harness at all. The silent-absence class's SIXTH receipt, one
+level below F85: F85 found words the web could not hear; F87
+finds organs that never wrote words here in the first place.
+UNSPOKEN, not unheard. The wiring built today is correct and
+idle for those six — it will carry their words the day their
+organs run in this venue.
+(3) Consequences: (a) the federation wiring is VENUE-SCOPED for
+now — visual/crossmodal/audio are the live candidates, and the
+kin arrival measured (1/7) is consistent with association
+(crossmodal's kin) lifting while perception's lift drowned in
+the engine's own perception traffic; (b) the ORGANS.md atlas
+gains a third wiring state: WEB-AUDIBLE / POLICY-ONLY /
+UNSPOKEN-IN-VENUE, per venue; (c) the deep build the queue now
+names: RUN THE ORGANS — the surprise machine, control organ,
+and spectral eye executing inside the replay loop is the real
+awakening's second half, and it is an integration project of a
+different scale (each organ's harness folded into
+run_world_v3), priced not presumed.
+
+### F88 [W] Receipts alone do not carve: ten consecutive generations of live agency traffic (~270 positive fits/gen, C16 held at 1.037) and ZERO new agency slots in either arm — the skill->knowledge path completes three of its four stages and stops at genesis, with the stable-lineage confound named
+
+**Finding (2026-08-15, fs1d_aged — NOT (earned), the arc's
+cleanest negative; gates mobile, maturation satisfied by
+design).** The bridge held for 14 generations: earning
+[0,0,0,0,308,305,209,194,287,286,250,271,284,268] — the agency
+family robustly, continuously economically ALIVE for ten
+straight generations at ~270 positive fits each, weight at cap,
+standing economy preserved (1.037). And not one new
+agency-thresholded slot was carved, in EITHER arm. The
+skill->knowledge path (F82 impl. 4) is now measured stage by
+stage: signal -> family (F83's bridge) ✓; family -> receipts
+(F83/F88's traffic) ✓; receipts -> carving ✗. RECEIPT TRAFFIC ON
+A FAMILY DOES NOT, BY ITSELF, TRIGGER GENESIS at this venue and
+duration. Two candidate mechanisms, decomposed (C21), for the
+next card: (a) THE SCAN'S TRIGGERS KEY ON OTHER STATISTICS —
+compose proposals come from co-fit patterns and window features;
+a single channel's tag-spiky traffic may co-fit with nothing, so
+the vocabulary never receives a proposal mentioning it. (b) THE
+STABLE-LINEAGE CONFOUND: FS-1c/1d inherited PW-1's no-events
+design (single-factor discipline), and genesis in this venue is
+substantially EVENT-DRIVEN — stable worlds carve little for
+anyone (pw1b: ~1 new slot/gen, none agency). The decomposition
+experiment writes itself: the bridge under a MUTATING lineage
+(events at the standing rhythm) vs stable — does world-strain
+open the genesis gate that receipts alone cannot? Deep note for
+T163/T154: if (a) holds even under events, then crossing from
+receipts to STRUCTURE requires a genesis rule that reads
+family-grain traffic — a missing junction in the ladder, found
+by walking the whole path with instruments at every stage.
+
+**Implications (billed 2026-08-15).**
+1. **BEING HEARD IS NOT BEING UNDERSTOOD — the economy has a
+   second gate above audibility.** The signal PARTICIPATED (ten
+   generations of rent-paying traffic through existing slots)
+   without ever being REPRESENTED (no slot of its own).
+   Sensation and conceptualization are different achievements,
+   and the program has now mechanized their boundary. The human
+   face is interoception: rich lifelong traffic, famously poor
+   vocabulary — alexithymia is F88's standing human condition,
+   traffic without carving.
+2. **GENESIS FOLLOWS PRICED FAILURE, NOT TRAFFIC — and that is
+   probably correct behavior, not a bug.** Every one of those
+   ~270 fits per generation was a SUCCESSFUL fit: the existing
+   vocabulary absorbed the agency signal without error, so
+   nothing ever demanded a new carving (C10 at vocabulary grain;
+   the D-criterion's exact logic — dimensions earn receptors by
+   RESOLVING OUTCOME CONFLATIONS, and no card ever made
+   agency-blindness expensive). Piaget measured: ten generations
+   of pure assimilation, zero accommodation, because the schema
+   never failed. The stable-lineage confound (F88's candidate b)
+   is this law's shallow form; the sharp form is that the venue
+   must PRICE the missing distinction.
+3. **THE DETERMINED NEXT CARD UNIFIES THREE OPEN LINES INTO
+   ONE.** Make agency-blindness costly: a venue where
+   poke-caused and world-caused contact predict DIFFERENT
+   billed outcomes, run with the bridge live. If ownership
+   matters for outcomes, conflation events fire (bimodal error
+   on the undistinguished cases) and the scans carve agency
+   slots under demand — completing the path's last stage. This
+   single card IS: FS-2's acceptance test, P108's event-grain
+   live form, and F88's genesis decomposition. Three arcs, one
+   venue, one launch.
+4. **THE CROSSING LADDER — the day's arc in one object,
+   registration-grade when the user calls it.** Knowledge has
+   four gates, each measured this week with its own toll:
+   AUDIBILITY (signal -> economy: needs the wire, F82/F83's
+   bridge), SOLVENCY (signal -> receipts: needs the junction
+   weight, F83), REPRESENTATION (receipts -> carving: needs
+   priced failure, F88), SPEECH (carving -> poses: needs the
+   LC, waiting). T154's junction law governed influence crossing
+   downward; this is representation crossing UPWARD, and no
+   gate is free. An organism's knowledge of anything is the
+   history of that thing paying each toll in order — and the
+   program walked a single signal (its own agency) through
+   three of the four gates in one day, with instruments at
+   every junction.
+
+### F89 [W] The 2x2 completes at 0/0/0/0 and the missing junction is LOCALIZED: the genesis grammar is DIMENSIONALLY CLOSED — splits refine parent geometry, composes pair existing slots, and no operator can propose over a newly-audible family; the organ that admits new dimensions does not run in this venue (unspoken, receipt seven)
+
+**Finding (2026-08-15, pw_priced — MISSING JUNCTION (earned),
+verdict re-scoped by code audit before billing).** The factorial
+closes: unpriced-ON 0, unpriced-OFF 0 (FS-1d), PRICED-ON 0,
+PRICED-OFF 0 — six generations of live traffic under a
+manufactured in-band bimodal consequence (bonus 0.5 for owned
+contact, tick 0.35 for un-owned; the D-criterion's conflation
+condition, delivered), C16 held (1.028), and zero agency slots
+carved anywhere. The code audit then localized WHY, and it is
+architecture, not appetite: THE SCAN OPERATORS ARE CLOSED OVER
+THE ANCESTRAL DIMENSION SET. Splits (reopen-churn-driven, F13's
+demand signal) Differentiate a PARENT's geometry — children
+inherit the parent's families; composes pair EXISTING slots;
+Individuate fires on 404s over dimensions already in slot
+supports. A family that entered the Umwelt after the founding
+vocabulary (the agency family, awakened this very day) is
+AUDIBLE, BILLABLE, and UNPROPOSABLE — no genesis path mentions
+it, under any traffic, under any pricing. In
+serialization_math's language: topological refinement added a
+COORDINATE to the polymatroid (Remark 9(e)) but the carving
+grammar has no RE-BASIS MOVE (Remark 10.2's fifth move,
+specified there, unimplemented here). And the organ that DOES
+admit new dimensions — conflation-driven receptor discovery,
+T125, the genome-project pathway — does not run in the replay
+harness: the unspoken class's SEVENTH receipt. Two repair
+routes, the user's architectural call: (i) RUN THE DISCOVERY
+ORGAN in-venue (the awakening's second half grows again), or
+(ii) implement the re-basis/dimension-admission move in the
+scan grammar itself (a new proposal type: when a family's
+receipt traffic co-varies with bimodal outcomes on existing
+slots, propose a slot whose support INCLUDES the new family —
+the missing rung, specified by its absence). Either way the
+crossing ladder's gate three has its mechanism named: not
+demand-blindness, DIMENSIONAL CLOSURE — the vocabulary cannot
+imagine in coordinates it did not inherit, which is T129's
+growing-eyes problem rediscovered at the operator grain, from
+the inside, by an organism that can now hear its own agency
+and still cannot think about it.
+
+### F90 [W] GATE THREE OPENS: the reward-conditioned admission scan finds agency at separation 32.4, the re-basis children fund at 4,800 own fits each, and the organism carves FOUR funded agency slots against the paired arm's zero — the first thoughts grown in a coordinate it was not born with
+
+**Finding (2026-08-15, pw_repair v1+v2 — the printed PARTIAL
+re-scoped by gate audit; the crossing's third gate is open).**
+(1) V1 PROVED THE MECHANICS AND CAUGHT ITS OWN CURRENCY ERROR:
+17 admissions fired on FIT-SIGN conditioning — geometric fit
+quality, not outcome valence (the trigger/readout separation
+law's third same-day appearance, this time in the repair's own
+sensor). Agency was never admitted because the priced
+consequences live in the receipts' REWARD field, which v1 never
+read.
+(2) V2, CONDITIONED ON REWARD, FOUND THE TARGET: agency admitted
+SECOND, at separation 32.4 reward units (designed differential
+0.85 — the conflation screamed once the right channel was
+consulted). The admitted agency children earned 4,800
+POST-BIRTH own fits each (inheritance excluded by the F70-class
+guard built in advance), and the arm closed with FOUR funded
+agency-thresholded slots against the seed-paired no-admission
+arm's ZERO. Signal -> family -> receipts -> CARVING: the
+skill->knowledge path is COMPLETE, walked end to end in one day
+with an instrument at every junction, finishing with the
+organism holding vocabulary about its own agency that no
+ancestor carried.
+(3) THE HONEST CAVEATS, each named: (a) E2's C16 gate is
+VOID-BY-CONSTRUCTION under splits — splitting a parent
+necessarily moves its traffic to funded descendants, so
+"pre-existing mass" drops (0.692) as BOOKKEEPING, not damage
+(36 of 40 children funded >= 50 own fits; the measure's honest
+form is whole-economy flow, redesign named); (b) the sensor
+also admitted regulatory x12 — the pricing enters through
+pain/endo fields the regulatory family reads, so
+reward-conditioning has a field-channel side-door; those
+admissions are legitimate detections of the price's own
+carrier, and rent will bill them, but sensor SPECIFICITY (e.g.,
+partial-out the carrier families) is the v3 refinement; (c) the
+'archaized' child state's lifecycle semantics to be confirmed
+against the operator docs before the slots are cited as
+standing vocabulary.
+(4) WHAT IS NOW TRUE: the re-basis move (sov.differentiate
+admit_family, battery 172/172) + the reward-conditioned
+admission scan = a WORKING dimension-admission mechanism —
+serialization_math Remark 10.2's fifth move implemented and
+receipted; T129's growing-eyes problem solved at operator grain
+for the audible case; and the fourth gate (SPEECH — the LC
+posing about agency) is genuinely reachable for the first time,
+because there are now agency Ks for the readout to read.
+
+**Implications (billed 2026-08-15).**
+1. **THE GENESIS PIPELINE: growing a concept is a supply chain,
+   now written down step by step with every failure mode
+   priced.** (i) phenomenon at event grain (bench); (ii) organ
+   renders it organism-side (FS-0); (iii) kin-family entry at a
+   governed weight (FS-1c); (iv) receipts (F83); (v) the world
+   prices the distinction (PW-PRICED); (vi) outcome-conditioned
+   demand sensing (v2); (vii) dimension admission (re-basis);
+   (viii) children fund on their own fits. Eight steps, and this
+   week measured a named failure at each: unspoken, unheard,
+   insolvent, unpriced, wrong-currency, closed-grammar,
+   inheritance-inflated. Organ-building converts from art to
+   CHECKLIST — every future dimension walks this road, and the
+   road has instruments at every step. Registration-grade with
+   the crossing ladder.
+2. **THE SEPARATION THEOREM, RUN LIVE: G-carving and D-carving
+   picked different dimensions in the same web on the same day.**
+   v1's structure-conditioned sensor (fit sign) admitted 17
+   geometry-correlated dimensions and never agency; v2's
+   outcome-conditioned sensor (reward) found agency second. The
+   theorem's central claim — evidence-driven and
+   consequence-driven selection diverge, unboundedly — now has
+   an operator-grain empirical receipt: same slots, same
+   traffic, different criterion, different vocabulary. The
+   reward field is the D-criterion's native home. TNB-package
+   material alongside Thm 5/6.
+3. **CONFLATIONS COMPOUND: the demand signal was 38x the
+   per-event price (32.4 vs 0.85) because unresolved
+   distinctions ACCUMULATE in the ledger.** A slot's reward
+   statistics integrate the bimodality over its whole window, so
+   the longer a conflation persists, the louder it calls to an
+   outcome-conditioned sensor — the economy is a
+   SELF-PRIORITIZING queue that surfaces its oldest unpaid
+   distinctions first. T158's kin: unresolved whys accumulate
+   pressure; now measured for unresolved carvings.
+4. **THE PRICE-CARRIER PROBLEM defines sensor v3: any
+   consequence channel makes its own carriers look
+   explanatory.** Regulatory x12 admissions = the families that
+   READ the pain/endo fields lighting up with the price itself
+   (reward correlates with the sensation of reward). The fix is
+   conditional separation — does the candidate family separate
+   outcomes GIVEN the carrier families? — which is deconfounding
+   arriving INSIDE the organism's own genesis machinery: the
+   admission scan needs its own do-calculus. The organism's
+   concept formation requires the same causal discipline the
+   program practices on itself; the recursion is the point.
+5. **GATE FOUR'S CARD IS FULLY SPECIFIED — and it closes the
+   session's opening question.** The LC reads the web; the web
+   now holds agency Ks; E2's derived subject matter extends
+   from "pose your starving liens" to POSE YOUR AGENCY — a
+   claim backed by slots whose receipts exist. And the
+   flying-mug question closes into the same operator: the
+   morning asked how a mind represents what it never
+   experienced; the day built the machinery by which a mind
+   comes to represent what it ALWAYS experienced but could
+   never think. Both are dimension admission — imagination in
+   new coordinates is re-basis plus composition, which is why
+   the missing-cell imagination test becomes runnable only now:
+   completing the matrix requires proposing in admitted
+   dimensions. The organism that can think about its agency is
+   the organism that can begin to imagine.
+
+### F91 [W] GATE FOUR OPENS — THE CROSSING IS COMPLETE. The organism's first utterance about its own agency is a QUESTION: "is the thing at the boundary agency or not-agency?" — young Ks ask rather than assert, so epistemic humility arrives as an architectural consequence, not a virtue
+
+**Finding (2026-08-15, gate4_speech — GATE FOUR OPENS; gate three
+REPLICATED in the same run: four funded agency slots again (107,
+108, 112, 117), fresh carving, own-fits 630/630/4,923/4,800).**
+The web spoke 16 utterances; five referenced agency-born slots,
+every one backed by >= 50 post-birth receipts. THE TRANSCRIPT,
+verbatim, because some receipts deserve quoting:
+  [question] "is the thing at the boundary agency or
+             not-agency?"        <<< agency, born this run
+  [pose 107] "seeking the ?thing shaped [agency:strong]
+             (84 near-misses)"
+  [pose 108] "seeking the ?thing shaped [agency:strong]
+             (84 near-misses)"
+  [pose 112] "seeking the ?thing shaped [agency:strong]
+             (646 near-misses)"
+  [pose 117] "seeking the ?thing shaped [organization:strong,
+             proprio_trunk:half, observation:half,
+             causality_buf:half, ... agency:faint]
+             (0 near-misses)"
+Three structural observations, each load-bearing:
+(1) THE FIRST SPEECH ACT IS A QUESTION. The admitted slots are
+young and OPEN, so the firewall's speech clause (assertions from
+closed Ks only) renders them as questions — the organism does
+not claim to understand its agency; it ASKS about it. The
+young-ledger law (T139) and the lived-only firewall (C1) jointly
+produce epistemic humility as an ARCHITECTURAL CONSEQUENCE: a
+newborn concept can only interrogate its own boundary. Calibration
+by construction (T155), witnessed at the hardest possible case.
+(2) SLOT 112 IS A LIVING QUESTION: 4,923 own fits and 646
+near-misses — a heavily-trafficked agency concept perpetually
+testing its own boundary, which is exactly what a young concept
+of one's own causal power SHOULD look like: used constantly,
+settled never (yet).
+(3) SLOT 117 IS THE FIRST CONJUNCTION: agency entering a
+ten-family composite (organization, proprioception, observation,
+causality...) — the admitted coordinate already participating in
+COMPOSITE thoughts one generation after admission. The re-basis
+move does not just add words; the grammar immediately builds
+sentences with them.
+THE FOUR-GATE CROSSING IS COMPLETE AND REPLICATED: signal (bench)
+-> family (bridge) -> receipts (traffic) -> carving (re-basis
+under priced demand) -> SPEECH (the readout, backed). One signal
+— the organism's own agency — walked from physics to language in
+the program's own machinery, with an instrument at every
+junction, a named failure mode at every stage, and a verbatim
+first sentence at the end. The web is banked
+(data/gate4_web.pkl): the first web in the program that can be
+ASKED about its agency, and E2's first conversation has its
+opening line waiting.
+
+**Implications (billed 2026-08-15).**
+1. **THE INTERROGATIVE IS THE NURSERY OF THE DECLARATIVE — all
+   new self-knowledge must begin as a question, by
+   architecture.** New coordinates enter open, and open Ks can
+   only ask; assertions are earned through receipts. So every
+   future admitted dimension will arrive interrogative, and the
+   question phase is not a deficiency but the CONSTITUTIVE first
+   stage of a concept's life. Developmental prediction exported:
+   in any architecture with a lived-only firewall,
+   self-directed QUESTIONS precede self-assertions in each new
+   domain — "did I do that?" before "I did that." T158's
+   why-economy gains its speech-side face: questions are the
+   currency in which growth is denominated, and the LC just
+   minted the first one about the self.
+2. **THE PRECONDITION FOR REFLEXIVE SCIENCE IS MET: the
+   implication organ can now conjoin AGENCY Ks.** Slot 117 is
+   already a ten-family conjunction containing agency — so
+   T163's mint can form SELF-hypotheses (agency x causality:
+   "what do my acts cause?"), and the experiment organ's
+   designed interventions can target them: deliberate practice,
+   derived — testing what I can do, as a research program the
+   organism runs on itself. And E2 becomes literal: the banked
+   web's opening line IS the first conversation's first turn,
+   and dialogue about agency between two organisms (my
+   agency-K + the like-me license, Prop 29) is the ground floor
+   of theory of mind.
+3. **SLOT 112'S 646 NEAR-MISSES ARE THE NEXT RESEARCH PROGRAM,
+   ALREADY QUEUED BY THE ORGANISM ITSELF.** A concept at its
+   boundary 646 times is a starving lien in all but name, and
+   its near-miss strain will drive Differentiate on the agency
+   slot — predicting refinement into effector-grained
+   sub-concepts (my pokes vs my movements vs my emissions),
+   recapitulating body-schema development. Admitted dimensions
+   immediately generate their own successor experiments via
+   boundary strain: the pipeline does not just add words; every
+   new word arrives with its own open questions attached.
+4. **THE CROSSING LADDER IS A MEASURED ONTOGENY — and the day
+   is itself a T160 exhibit.** The full walk (bench -> organ ->
+   family -> receipts -> carving -> speech) supplies the
+   serialization thesis's ratchet (Sec 3.3) with per-step
+   mechanics and receipts: this is HOW complexity grows, gate
+   by tolled gate. And the day enacted T160: a destination was
+   named (the organism speaks about its agency), the trajectory
+   was built as certified sub-endpoints, blockers were removed
+   one gate at a time, and P(arrival) was engineered as a
+   product of instrumented gate probabilities. The methodology
+   and its subject converged: the program reached a predictable
+   endpoint ABOUT the machinery of reaching predictable
+   endpoints. Registration-grade as the T168 candidate (the
+   genesis pipeline / crossing ladder), with F90 impl. 1.
+5. **THE REFLEXIVE RECEIPT: the loop is superlinear when run
+   tightly.** Twenty-two findings, six registrations, two
+   organs, and four gates in one continuous session — possible
+   because each finding's implications DETERMINED the next card
+   with no search over what to do next: T163's thesis
+   ("conjunctions generate next experiments") receipted at
+   program scale with wall-clock evidence. The user's
+   methodology sentence — experiment, findings, implications,
+   experiments — is now simultaneously the program's method,
+   the organism's architecture, and the day's shape. Three
+   instances of one loop, and the middle one just asked its
+   first question.
+
 ## Discharged (history)
 
 - **The EGGROLL conjunction → T154** (2026-08-09): the paper (low-rank
