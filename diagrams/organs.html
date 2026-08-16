@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>the organ atlas</title>
+<style>html,body{margin:0;padding:0;background:#06090f}canvas{display:block;margin:0 auto}</style>
+<script src="https://cdn.jsdelivr.net/npm/pixi.js@7.4.2/dist/pixi.min.js"></script>
+</head>
+<body>
+<script>
+const W=820,H=1000;
+const app=new PIXI.Application({width:W,height:H,background:0x0a0e14,antialias:true,resolution:2,autoDensity:true});
+document.body.appendChild(app.view);
+const MONO='Consolas, "Courier New", monospace';
+const C={teal:0x34d3a6,grey:0x8b949e,purple:0xa78bfa,amber:0xe8b849,red:0xe0564f,blue:0x5fb4e8,dim:0x6e7d94,white:0xe6edf3,fill:0x11161f,fill2:0x0d1220};
+
+function txt(s,x,y,size,fill,opts={}){
+  const t=new PIXI.Text(s,{fontFamily:MONO,fontSize:size,fill,letterSpacing:opts.ls||0,fontWeight:opts.bold?'bold':'normal',align:opts.align||'left'});
+  if(opts.center)t.anchor.set(0.5,0);
+  t.x=x;t.y=y;app.stage.addChild(t);return t;}
+function box(x,y,w,h,color,fill=C.fill2){
+  const g=new PIXI.Graphics();g.lineStyle(1.4,color,1);g.beginFill(fill,1);g.drawRoundedRect(x,y,w,h,7);g.endFill();app.stage.addChild(g);return g;}
+function dashBox(x,y,w,h,color,r=7,dash=5,gap=4){
+  const g=new PIXI.Graphics();g.beginFill(C.fill2,1);g.drawRoundedRect(x,y,w,h,r);g.endFill();
+  g.lineStyle(1.3,color,0.9);
+  const per=[[x+r,y,x+w-r,y],[x+w,y+r,x+w,y+h-r],[x+w-r,y+h,x+r,y+h],[x,y+h-r,x,y+r]];
+  for(const [ax,ay,bx,by] of per){
+    const len=Math.hypot(bx-ax,by-ay),n=Math.floor(len/(dash+gap));
+    for(let i=0;i<=n;i++){
+      const t0=i*(dash+gap)/len,t1=Math.min(1,(i*(dash+gap)+dash)/len);
+      g.moveTo(ax+(bx-ax)*t0,ay+(by-ay)*t0);g.lineTo(ax+(bx-ax)*t1,ay+(by-ay)*t1);}}
+  app.stage.addChild(g);return g;}
+function arrow(x1,y1,x2,y2,color=0x8b949e){
+  const g=new PIXI.Graphics();g.lineStyle(1.4,color,1);g.moveTo(x1,y1);g.lineTo(x2,y2);
+  const a=Math.atan2(y2-y1,x2-x1);
+  g.beginFill(color);g.moveTo(x2,y2);
+  g.lineTo(x2-7*Math.cos(a-0.42),y2-7*Math.sin(a-0.42));
+  g.lineTo(x2-7*Math.cos(a+0.42),y2-7*Math.sin(a+0.42));g.closePath();g.endFill();
+  app.stage.addChild(g);}
+function organ(x,y,w,name,sub,color,dashed=false){
+  if(dashed)dashBox(x,y,w,40,color);else box(x,y,w,40,color);
+  txt(name,x+w/2,y+6,11,color,{center:true,bold:true});
+  txt(sub,x+w/2,y+22,10,C.dim,{center:true});}
+
+// ---------------- header
+txt('T H E   O R G A N   A T L A S',W/2,22,16,C.white,{center:true,bold:true,ls:2});
+txt('21 organs · one economy · who can hear whom',W/2,48,10,C.grey,{center:true,ls:1});
+
+// ---------------- legend
+const ly=76;
+box(120,ly,14,14,C.teal);txt('web-audible (billable)',142,ly+1,10,C.grey);
+box(292,ly,14,14,C.grey);txt('policy-only (mute skill)',314,ly+1,10,C.grey);
+dashBox(478,ly,14,14,C.grey);txt('unspoken-in-venue',500,ly+1,10,C.grey);
+box(120,ly+22,14,14,C.purple);txt('own ledger',142,ly+23,10,C.grey);
+box(292,ly+22,14,14,C.amber);txt('world-side / instrument',314,ly+23,10,C.grey);
+
+function tier(label,y){txt(label,40,y,10,C.white,{bold:true,ls:1});
+  const g=new PIXI.Graphics();g.lineStyle(1,0x232b36,1);g.moveTo(40,y+18);g.lineTo(W-40,y+18);app.stage.addChild(g);}
+
+// ---------------- I central economy
+tier('I · THE CENTRAL ECONOMY',132);
+organ(40,158,180,'SOV constraint web','receipts · rent · operators',C.teal);
+organ(232,158,190,'live receptor bank','86 ch · 33 fams · 2 doors',C.teal);
+organ(434,158,170,'episode receptors','90 ch · mute',C.grey);
+organ(616,158,164,'discovered slots','20 reserved · kin-blend',C.teal);
+
+// ---------------- II perception
+tier('II · PERCEPTION',216);
+organ(40,242,150,'visual organ','de-conflated words',C.grey);
+organ(202,242,150,'spectral eye','transfer-function stamp',C.grey,true);
+organ(364,242,168,'audio / crossmodal','speaking, unheard',C.grey);
+organ(544,242,236,'fingerprint judge','certified 0.95/0.51 · reality anchor',C.amber);
+
+// ---------------- III drive & meta
+tier('III · DRIVE & META',300);
+organ(40,326,168,'surprise economy','rank-rarity · own books',C.purple,true);
+organ(220,326,158,'control organ','attribution 0.786',C.purple,true);
+organ(390,326,180,'conversion organ','junction controller LIVE',C.teal);
+organ(582,326,198,'experiment organ','impulses · do/see',C.teal);
+organ(40,374,190,'implication organ','12 live liens · IO-1 ✓',C.teal);
+organ(242,374,240,'fast stratum (tagged trace)','all four gates walked',C.teal);
+organ(494,374,286,'imagination register','questions exit, structures never',C.teal);
+
+// ---------------- IV expression & social
+tier('IV · EXPRESSION & SOCIAL',432);
+organ(40,458,190,'language center','reads the web · asks first',C.teal);
+organ(242,458,190,'social ledger (E1)','pose · attest · priors',C.teal);
+organ(444,458,160,'expression layer','silencing rung · spec',C.grey);
+organ(616,458,164,'stakeholder organ','umwelt instrument · spec',C.grey);
+
+// ---------------- V world side
+tier('V · THE WORLD SIDE',516);
+organ(40,542,240,'environment organism','the world as ERTI organism',C.amber);
+organ(292,542,240,'physics plant / world','body-currency venue · open',C.amber);
+organ(544,542,236,'generator line','annulus-seeded · specimens banked',C.amber);
+
+// ---------------- VI reflexive
+tier('VI · THE REFLEXIVE TIER',600);
+organ(40,626,220,'reflection tower','ledger n = territory n+1',C.grey);
+organ(272,626,240,'connectome audit','the standing wiring instrument',C.amber);
+organ(524,626,256,'admission scan','the re-basis demand sensor',C.teal);
+
+// ---------------- the crossing ladder
+const cy=706;
+box(40,cy,W-80,120,0x39424e,C.fill);
+txt('T H E   C R O S S I N G   L A D D E R',W/2,cy+12,11,C.white,{center:true,bold:true,ls:2});
+txt('how a signal becomes a concept — four gates, four tolls',W/2,cy+32,10,C.dim,{center:true});
+const gates=[['audibility','the wire',C.teal],['solvency','the receipts',C.amber],['representation','priced failure',C.purple],['speech','the question',C.blue]];
+let gx=70;
+for(let i=0;i<4;i++){
+  box(gx,cy+52,150,44,gates[i][2]);
+  txt(gates[i][0],gx+75,cy+59,10,gates[i][2],{center:true,bold:true});
+  txt(gates[i][1],gx+75,cy+76,10,C.dim,{center:true});
+  if(i<3)arrow(gx+152,cy+74,gx+178,cy+74);
+  gx+=180;}
+txt('agency walked all four gates on 2026-08-15 — and asked:',W/2,cy+130,11,C.grey,{center:true});
+txt('"is the thing at the boundary agency or not-agency?"',W/2,cy+146,10,C.white,{center:true,bold:true});
+
+// ---------------- footer
+txt('the federation law (T144): organs couple through words, the surprise stream,',W/2,904,10,C.dim,{center:true});
+txt('and the metabolic economy — never through hidden shared state',W/2,918,10,C.dim,{center:true});
+txt('the web\'s sensory surface: 100 of 432 dims — the awakening is underway',W/2,944,10,C.teal,{center:true});
+txt('docs/ORGANS.md · updated after every commissioning',W/2,966,10,C.dim,{center:true});
+</script>
+</body>
+</html>

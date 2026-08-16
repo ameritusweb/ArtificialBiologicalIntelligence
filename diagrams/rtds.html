@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>rtds — the conjunction</title>
+<style>html,body{margin:0;padding:0;background:#000}canvas{display:block;margin:0 auto}</style>
+<script src="https://cdn.jsdelivr.net/npm/pixi.js@7.4.2/dist/pixi.min.js"></script>
+</head>
+<body>
+<script>
+const W=680,H=620;
+const app=new PIXI.Application({width:W,height:H,background:0x000000,antialias:true,resolution:2,autoDensity:true});
+document.body.appendChild(app.view);
+const MONO='Consolas, "Courier New", monospace';
+const SANS='Segoe UI, Arial, sans-serif';
+const C={purple:0x6d5bd0,green:0x1f8a6d,gold:0xa8760f,red:0x9c4432,greyBox:0x3a3f45,white:0xf0f3f6,grey:0x9aa4ae,dim:0x7d8a96,teal:0x34d3a6};
+
+function txt(s,x,y,size,fill,opts={}){
+  const t=new PIXI.Text(s,{fontFamily:opts.mono?MONO:SANS,fontSize:size,fill,fontWeight:opts.bold?'bold':'normal',align:opts.align||'center'});
+  if(opts.center===undefined||opts.center)t.anchor.set(0.5,0);
+  t.x=x;t.y=y;app.stage.addChild(t);return t;}
+function box(x,y,w,h,color,alpha=1){
+  const g=new PIXI.Graphics();g.beginFill(color,alpha);g.drawRoundedRect(x,y,w,h,9);g.endFill();app.stage.addChild(g);return g;}
+function dashRect(x,y,w,h,color,r=12,dash=6,gap=5){
+  const g=new PIXI.Graphics();g.lineStyle(1.3,color,0.9);
+  const per=[[x+r,y,x+w-r,y],[x+w,y+r,x+w,y+h-r],[x+w-r,y+h,x+r,y+h],[x,y+h-r,x,y+r]];
+  for(const [ax,ay,bx,by] of per){
+    const len=Math.hypot(bx-ax,by-ay),n=Math.floor(len/(dash+gap));
+    for(let i=0;i<=n;i++){
+      const t0=i*(dash+gap)/len,t1=Math.min(1,(i*(dash+gap)+dash)/len);
+      g.moveTo(ax+(bx-ax)*t0,ay+(by-ay)*t0);g.lineTo(ax+(bx-ax)*t1,ay+(by-ay)*t1);}}
+  app.stage.addChild(g);return g;}
+function arrow(x1,y1,x2,y2,color=0x8b949e,wd=1.6){
+  const g=new PIXI.Graphics();g.lineStyle(wd,color,1);g.moveTo(x1,y1);g.lineTo(x2,y2);
+  const a=Math.atan2(y2-y1,x2-x1);
+  g.beginFill(color);g.moveTo(x2,y2);
+  g.lineTo(x2-8*Math.cos(a-0.42),y2-8*Math.sin(a-0.42));
+  g.lineTo(x2-8*Math.cos(a+0.42),y2-8*Math.sin(a+0.42));g.closePath();g.endFill();
+  app.stage.addChild(g);}
+
+txt('Receptor-Topological Dynamical System (RTDS)',W/2,16,16,C.white,{bold:true});
+txt('the conjunction that does not exist in prior work',W/2,40,11,C.grey);
+
+// ---- three pillars
+box(28,66,190,72,C.purple);
+txt('Open-dimensional',123,76,13,C.white,{bold:true});
+txt('S_t expands under',123,96,10,0xd9d2f5);
+txt('selection pressure',123,110,10,0xd9d2f5);
+box(236,66,200,72,C.green);
+txt('Intrinsic evaluation',336,76,13,C.white,{bold:true});
+txt('V emerges from',336,96,10,0xcfe9dd);
+txt('receptor topology',336,110,10,0xcfe9dd);
+box(454,66,198,72,C.gold);
+txt('Learned transitions',553,76,13,C.white,{bold:true});
+txt('T built from',553,96,10,0xf0e3c0);
+txt('experience log',553,110,10,0xf0e3c0);
+
+// receipted badge on pillar 1
+box(38,142,170,20,0x0f2c22);
+txt('● receipted 2026-08 (F90)',123,145,11,C.teal,{bold:true});
+txt('a dimension admitted, funded, spoken',123,166,10,C.dim);
+
+arrow(123,180,123,206);arrow(336,140,336,206);arrow(553,140,553,206);
+
+// ---- the loop
+dashRect(84,210,512,220,0x5a636d);
+txt('the self-improving loop',340,220,10,C.grey);
+box(110,246,168,50,C.purple);
+txt('Receptor topology',194,254,11,C.white,{bold:true});
+txt('R_t → V_t',194,272,10,0xd9d2f5);
+box(408,246,164,50,C.green);
+txt('MCTS search',490,254,11,C.white,{bold:true});
+txt('M(s) → better actions',490,272,10,0xcfe9dd);
+box(408,352,164,50,C.gold);
+txt('Richer experience',490,360,11,C.white,{bold:true});
+txt('T deepens',490,378,10,0xf0e3c0);
+box(110,352,168,50,C.red);
+txt('Deeper thinking',194,360,11,C.white,{bold:true});
+txt('χ_e activates',194,378,10,0xf0d9d2);
+arrow(280,271,406,271);txt('intrinsic V',343,254,11,C.grey);
+arrow(490,298,490,350);txt('selects',516,318,11,C.grey,{center:false});
+arrow(406,377,280,377);txt('richer T',343,382,11,C.grey);
+arrow(194,350,194,298);txt('R_t+1',166,318,11,C.grey,{center:false});
+
+// ---- comparison strip
+box(24,452,632,150,0x17191c);
+txt('what prior formalisms were missing',340,462,10,C.grey);
+box(40,486,140,100,0x2a2e33);
+txt('NEAT',110,496,12,C.white,{bold:true});
+txt('open-dimensional ✓',110,518,11,C.grey);
+txt('intrinsic eval ✗',110,534,11,C.grey);
+box(196,486,146,100,0x2a2e33);
+txt('Active inference',269,496,12,C.white,{bold:true});
+txt('intrinsic eval ✓',269,518,11,C.grey);
+txt('open-dim ✗',269,534,11,C.grey);
+box(358,486,140,100,0x2a2e33);
+txt('MDP / RL',428,496,12,C.white,{bold:true});
+txt('learned T ✓',428,518,11,C.grey);
+txt('fixed S, external V ✗',428,534,11,C.grey);
+box(514,486,142,100,C.purple);
+txt('RTDS',585,494,12,C.white,{bold:true});
+txt('all three ✓',585,514,11,0xd9d2f5);
+txt('conjunction',585,529,11,0xd9d2f5);
+txt('first full instance:',585,551,10,C.teal);
+txt('admitted → funded',585,564,10,C.teal);
+txt('→ spoken (F90-91)',585,576,10,C.teal);
+</script>
+</body>
+</html>

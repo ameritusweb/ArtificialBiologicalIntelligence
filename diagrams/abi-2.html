@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>abi-2 — the world & the genome</title>
+<style>html,body{margin:0;padding:0;background:#06090f}canvas{display:block;margin:0 auto}</style>
+<script src="https://cdn.jsdelivr.net/npm/pixi.js@7.4.2/dist/pixi.min.js"></script>
+</head>
+<body>
+<script>
+const W=600,H=700;
+const app=new PIXI.Application({width:W,height:H,background:0x0a0e14,antialias:true,resolution:2,autoDensity:true});
+document.body.appendChild(app.view);
+const MONO='Consolas, "Courier New", monospace';
+const C={red:0xe0564f,teal:0x34d3a6,amber:0xe8b849,purple:0xa78bfa,orange:0xe8834f,blue:0x5fb4e8,grey:0x8b949e,dim:0x6e7d94,white:0xe6edf3,fill:0x11161f};
+
+function txt(s,x,y,size,fill,opts={}){
+  const t=new PIXI.Text(s,{fontFamily:MONO,fontSize:size,fill,letterSpacing:opts.ls||0,fontWeight:opts.bold?'bold':'normal',align:opts.align||'left'});
+  if(opts.center)t.anchor.set(0.5,0);
+  t.x=x;t.y=y;app.stage.addChild(t);return t;}
+function dashRect(x,y,w,h,color,r=10,dash=6,gap=5){
+  const g=new PIXI.Graphics();g.lineStyle(1.2,color,0.8);
+  const per=[[x+r,y,x+w-r,y],[x+w,y+r,x+w,y+h-r],[x+w-r,y+h,x+r,y+h],[x,y+h-r,x,y+r]];
+  for(const [ax,ay,bx,by] of per){
+    const len=Math.hypot(bx-ax,by-ay),n=Math.floor(len/(dash+gap));
+    for(let i=0;i<=n;i++){
+      const t0=i*(dash+gap)/len,t1=Math.min(1,(i*(dash+gap)+dash)/len);
+      g.moveTo(ax+(bx-ax)*t0,ay+(by-ay)*t0);g.lineTo(ax+(bx-ax)*t1,ay+(by-ay)*t1);}}
+  app.stage.addChild(g);return g;}
+function panel(x,y,w,h,color=0x39424e){
+  const g=new PIXI.Graphics();g.lineStyle(1.2,color,1);g.beginFill(C.fill,1);g.drawRoundedRect(x,y,w,h,10);g.endFill();app.stage.addChild(g);return g;}
+function glow(x,y,r,color){
+  for(const [rr,a] of [[r,0.10],[r*0.72,0.14],[r*0.45,0.20]]){
+    const g=new PIXI.Graphics();g.beginFill(color,a);g.drawCircle(x,y,rr);g.endFill();app.stage.addChild(g);}}
+function dashCurve(x1,y1,cx,cy,x2,y2,color){
+  const g=new PIXI.Graphics();g.lineStyle(1.2,color,0.9);
+  const N=34;let pen=false;
+  for(let i=0;i<=N;i++){const t=i/N;
+    const x=(1-t)*(1-t)*x1+2*(1-t)*t*cx+t*t*x2;
+    const y=(1-t)*(1-t)*y1+2*(1-t)*t*cy+t*t*y2;
+    if(i%2===0){g.moveTo(x,y);pen=true;}else if(pen){g.lineTo(x,y);}}
+  const a=Math.atan2(y2-cy,x2-cx);
+  g.beginFill(color,0.9);g.moveTo(x2,y2);
+  g.lineTo(x2-7*Math.cos(a-0.4),y2-7*Math.sin(a-0.4));
+  g.lineTo(x2-7*Math.cos(a+0.4),y2-7*Math.sin(a+0.4));g.closePath();g.endFill();
+  app.stage.addChild(g);}
+
+// ---------------- THE WORLD
+dashRect(30,24,540,260,0x6b7687);
+txt('T H E   W O R L D',52,42,11,C.grey,{ls:2});
+
+glow(170,170,58,C.red); txt('pain',152,190,11,0xc06058);
+glow(392,120,55,0x35c05a); txt('endorphin',362,108,11,0x48b26c);
+// object diamond
+const d=new PIXI.Graphics();d.beginFill(0xb8792e,0.9);d.moveTo(122,110);d.lineTo(138,130);d.lineTo(122,150);d.lineTo(106,130);d.closePath();d.endFill();app.stage.addChild(d);
+txt('object',104,155,10,0xb09058);
+// organism
+glow(278,150,42,0xd9a24a);
+const o=new PIXI.Graphics();o.beginFill(0xd9a24a,1);o.drawCircle(278,150,20);o.endFill();
+for(let i=0;i<6;i++){const a=i*Math.PI/3+0.35;
+  o.lineStyle(2.6,[C.red,C.teal,0x35c05a,C.purple,C.blue,C.amber][i],1);
+  o.moveTo(278+20*Math.cos(a),150+20*Math.sin(a));
+  o.lineTo(278+31*Math.cos(a),150+31*Math.sin(a));}
+app.stage.addChild(o);
+txt('organism',248,186,10,C.orange,{bold:true});
+// other
+glow(452,158,26,C.red);
+const ot=new PIXI.Graphics();ot.beginFill(0xb04a44,1);ot.drawCircle(452,158,12);ot.endFill();app.stage.addChild(ot);
+txt('other',436,176,10,0xb0706a);
+dashCurve(300,140,380,96,440,148,C.blue);
+dashCurve(440,166,372,196,302,162,C.blue);
+
+// ---------------- GENOME PROJECT
+panel(30,304,540,150);
+txt('G E N O M E   P R O J E C T',52,320,11,C.amber,{ls:2});
+txt('24 families · 213 receptors — the periodic table of cognition',52,344,11,C.white,{bold:true});
+txt('52 trunk · 70 branch · 91 canopy · deep chains beyond',52,363,11,C.dim);
+txt('Each receptor specifies what the environment must contain.',52,384,11,C.grey);
+txt('The environment IS the curriculum.',52,400,11,C.grey);
+txt('Living economy: 33 families · 86 live channels · a 432-dim Umwelt',52,424,11,C.teal);
+txt('— and it can now grow coordinates it was not born with.',52,438,11,C.teal);
+
+// ---------------- THESIS
+panel(30,474,540,196);
+txt('"Make these more complex',300,506,13,C.white,{center:true,bold:true});
+txt('and you will get intelligence"',300,526,13,C.white,{center:true,bold:true});
+txt('Current AI is the language center —',300,562,10,C.grey,{center:true});
+txt('evolved last, built first.',300,578,10,C.grey,{center:true});
+txt('ABI is the nervous system —',300,606,10,C.orange,{center:true});
+txt('evolved first, built from scratch.',300,622,10,C.orange,{center:true});
+txt('Its newest sentence: "is the thing at the boundary agency or not-agency?"',300,646,10,C.dim,{center:true});
+</script>
+</body>
+</html>

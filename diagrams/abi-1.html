@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>abi-1 — the cycle</title>
+<style>html,body{margin:0;padding:0;background:#06090f}canvas{display:block;margin:0 auto}</style>
+<script src="https://cdn.jsdelivr.net/npm/pixi.js@7.4.2/dist/pixi.min.js"></script>
+</head>
+<body>
+<script>
+const W=640,H=940;
+const app=new PIXI.Application({width:W,height:H,background:0x0a0e14,antialias:true,resolution:2,autoDensity:true});
+document.body.appendChild(app.view);
+const MONO='Consolas, "Courier New", monospace';
+const C={red:0xe0564f,teal:0x34d3a6,amber:0xe8b849,purple:0xa78bfa,orange:0xe8834f,blue:0x5fb4e8,grey:0x8b949e,dim:0x6e7d94,white:0xe6edf3,fill:0x11161f,fill2:0x0d1220};
+
+function txt(s,x,y,size,fill,opts={}){
+  const t=new PIXI.Text(s,{fontFamily:MONO,fontSize:size,fill,letterSpacing:opts.ls||0,fontWeight:opts.bold?'bold':'normal',align:opts.align||'left'});
+  if(opts.center){t.anchor.set(0.5,0);}
+  t.x=x;t.y=y;if(opts.rot)t.rotation=opts.rot;app.stage.addChild(t);return t;}
+function box(x,y,w,h,color,fill=C.fill){
+  const g=new PIXI.Graphics();g.lineStyle(1.5,color,1);g.beginFill(fill,1);g.drawRoundedRect(x,y,w,h,8);g.endFill();app.stage.addChild(g);return g;}
+function arrow(x1,y1,x2,y2,color=0x8b949e,wd=1.5){
+  const g=new PIXI.Graphics();g.lineStyle(wd,color,1);g.moveTo(x1,y1);g.lineTo(x2,y2);
+  const a=Math.atan2(y2-y1,x2-x1);
+  g.beginFill(color);g.moveTo(x2,y2);
+  g.lineTo(x2-8*Math.cos(a-0.4),y2-8*Math.sin(a-0.4));
+  g.lineTo(x2-8*Math.cos(a+0.4),y2-8*Math.sin(a+0.4));g.closePath();g.endFill();
+  app.stage.addChild(g);return g;}
+function curve(x1,y1,cx,cy,x2,y2,color){
+  const g=new PIXI.Graphics();g.lineStyle(1.5,color,0.85);g.moveTo(x1,y1);g.quadraticCurveTo(cx,cy,x2,y2);
+  const a=Math.atan2(y2-cy,x2-cx);
+  g.beginFill(color,0.85);g.moveTo(x2,y2);
+  g.lineTo(x2-8*Math.cos(a-0.4),y2-8*Math.sin(a-0.4));
+  g.lineTo(x2-8*Math.cos(a+0.4),y2-8*Math.sin(a+0.4));g.closePath();g.endFill();
+  app.stage.addChild(g);}
+function dot(x,y,color,r=4.5,alpha=1){const g=new PIXI.Graphics();g.beginFill(color,alpha);g.drawCircle(x,y,r);g.endFill();app.stage.addChild(g);}
+
+// ---------------- title
+txt('A R T I F I C I A L   B I O L O G I C A L',W/2,26,17,C.white,{center:true,bold:true,ls:2});
+txt('I N T E L L I G E N C E',W/2,50,17,C.white,{center:true,bold:true,ls:2});
+txt('Not designed. Grown.',W/2,80,11,C.grey,{center:true,ls:2});
+
+// ---------------- receptors
+box(120,112,400,96,C.red);
+txt('R E C E P T O R S',W/2,126,12,C.white,{center:true,bold:true,ls:2});
+txt('input — where every cycle begins',W/2,146,11,C.dim,{center:true});
+const fams=[['pain',C.red],['pain',C.red],['endo',0x35c05a],['endo',0x35c05a],['acc',C.teal],['nov',C.orange],['conf',C.purple],['opt',C.amber],['soc',C.blue],['agn',0xffffff]];
+let dx=176;
+for(let i=0;i<fams.length;i++){dot(dx,178,fams[i][1]);dx+=30;}
+for(let i=0;i<3;i++){dot(dx,178,0x39424e);dx+=30;}
+txt('pain',163,188,10,C.red);txt('endo',221,188,10,0x35c05a);txt('acc',288,188,10,C.teal);
+txt('nov',318,188,10,C.orange);txt('conf',344,188,10,C.purple);txt('opt',378,188,10,C.amber,{bold:true});
+txt('soc',408,188,10,C.blue);txt('agn',437,188,10,0xffffff,{bold:true});
+txt('agency: admitted 2026, the first grown coordinate',W/2,199,10,C.dim,{center:true});
+
+arrow(W/2,214,W/2,242);
+
+// ---------------- processing
+box(96,246,448,150,C.teal);
+txt('P R O C E S S I N G',W/2,258,12,C.white,{center:true,bold:true,ls:2});
+txt('inference engine + mental model + the economy',W/2,277,9,C.dim,{center:true});
+box(116,296,122,34,0x35c05a,C.fill2);txt('fast (reflex)',177,306,11,0x35c05a,{center:true});
+box(252,296,138,34,C.purple,C.fill2);txt('slow (deliberate)',321,306,11,C.purple,{center:true});
+box(404,296,120,34,C.orange,C.fill2);txt('mental model',464,306,11,C.orange,{center:true});
+box(116,340,408,44,C.teal,C.fill2);
+txt('constraint web — the SOV economy',W/2,348,10,C.teal,{center:true,bold:true});
+txt('receipts fund · rent evicts · open slots ask · closed slots assert',W/2,365,10,C.dim,{center:true});
+
+arrow(W/2,402,W/2,430);
+
+// ---------------- outputs
+box(96,434,448,120,C.amber);
+txt('O U T P U T S',W/2,446,12,C.white,{center:true,bold:true,ls:2});
+box(112,468,96,42,C.amber,C.fill2);txt('muscle',160,475,11,C.amber,{center:true,bold:true});txt('movements',160,490,10,C.dim,{center:true});
+box(218,468,96,42,0x35c05a,C.fill2);txt('thoughts',266,475,11,0x35c05a,{center:true,bold:true});txt('predictions',266,490,10,C.dim,{center:true});
+box(324,468,102,42,C.purple,C.fill2);txt('analysis of',375,475,11,C.purple,{center:true,bold:true});txt('thoughts',375,490,10,C.dim,{center:true});
+box(436,468,92,42,C.blue,C.fill2);txt('speech',482,475,11,C.blue,{center:true,bold:true});txt('poses questions',482,490,10,C.dim,{center:true});
+txt('all four change the world and the organism\'s internal state',W/2,532,10,C.dim,{center:true});
+
+arrow(W/2,560,W/2,588);
+curve(160,514,120,585,236,610,C.amber);
+curve(266,514,266,570,320,606,0x35c05a);
+curve(375,514,420,575,420,606,C.purple);
+
+// ---------------- what changes
+box(96,592,448,168,C.grey);
+txt('W H A T   C H A N G E S',W/2,604,12,C.white,{center:true,bold:true,ls:2});
+box(112,628,196,44,C.amber,C.fill2);
+txt('world state',210,635,11,C.amber,{center:true,bold:true});
+txt('position, fields, objects, others',210,650,10,C.dim,{center:true});
+box(322,628,206,44,C.purple,C.fill2);
+txt('internal state',425,635,11,C.purple,{center:true,bold:true});
+txt('accuracy, curiosity, conflict, energy',425,650,10,C.dim,{center:true});
+box(112,680,416,38,C.teal,C.fill2);
+txt('the ledger',W/2,686,11,C.teal,{center:true,bold:true});
+txt('receipts append — the arrow of time; nothing learned is unbilled',W/2,701,10,C.dim,{center:true});
+txt('correct prediction → accuracy receptor fires',W/2,726,10,0x35c05a,{center:true});
+txt('incorrect prediction → curiosity receptor fires',W/2,740,10,C.orange,{center:true});
+
+// ---------------- footer
+txt('↑ feeds back into receptors ↑',W/2,778,11,C.teal,{center:true,bold:true});
+txt('not through backpropagation — through the next cycle\'s input',W/2,800,10,C.grey,{center:true});
+txt('the feedback is forward, through the receptor, into the next step',W/2,814,10,C.grey,{center:true});
+txt('a signal becomes a concept by four gates:',W/2,844,10,C.dim,{center:true});
+txt('audibility → solvency → representation → speech',W/2,858,11,C.white,{center:true,ls:1});
+txt('(agency walked all four, 2026-08-15)',W/2,874,10,C.dim,{center:true});
+
+// ---------------- side arrows
+curve(58,760,26,470,58,196,C.teal);
+const lt=txt('new state → new receptor input',40,590,11,C.teal,{rot:-Math.PI/2});
+curve(582,196,614,470,582,760,0xb09058);
+const rt=txt('outputs change the world',596,400,11,0xb09058,{rot:Math.PI/2});
+</script>
+</body>
+</html>

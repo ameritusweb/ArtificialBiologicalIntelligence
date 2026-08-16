@@ -6241,6 +6241,326 @@ and a radius sweep; billed as SURVIVES with that scope.
    sentence the whole program is built around — prediction
    proposes; the world alone funds.
 
+### F102 [W] THE ARRIVAL COORDINATE IS DEMAND-REACHABLE — AND THE PRICE WAS NOT THE CAUSE: an arrival organ (arrival receipts -> running P(arrival|approach), installed into a dead kin port) was admitted by the reward-conditioned scan and funded on own fits at BOTH a presence floor (unify slots, 21-24k fits) and a LEVEL (the nursery's economy-dead epistemic_buf seed slot, dead for its whole life, differentiated at gen 4 into an "arrival-likely" slot, P >= 0.71, 14.8k fits) — identically in PRICED and UNPRICED arms. Verdict REACHABLE-UNPRICED (locked). Rung 1 of T160-O is built and billable; rung 4's pricing hypothesis is not supported as necessary — and the card cannot yet tell "unnecessary" from "inaudible at reward grain"
+
+**Finding (2026-08-15, t160o1_arrival v2 — the Leap Arc's first
+card; F90 protocol, new price, new organ.)** THE VENUE: on the
+certified physics plant every approach epoch became a
+TRAJECTORY — a loom (0.08 pain footprint, identical for both
+kinds) then either ARRIVAL (contact, lattice live, F75 physics)
+or VEER (closes to 3.5 and turns back). Kind drawn per epoch by
+a SECTOR RULE (heading half-plane at onset: P(arrive) 0.9/0.1)
+whose arriving half-plane FLIPS PER WORLD — no fixed cue-concept
+transfers; only an estimate anchored on lived arrivals tracks
+it. THE ORGAN (rung 1): lifelong per arm; observes onset heading
+and OUTCOME (contact/no contact — never the rule); bills one
+ARRIVAL RECEIPT per epoch (240 per arm: 112 arrived, 128
+veered) and updates a per-sector EMA (0.4); its channel = held
+P(arrival) while an approach is felt, installed at 0.70 into
+rv[71] epistemic_strategy (epistemic_buf) — chosen by a 10-gen
+probe as an economy-dead singleton kin port (mean 0.0000; rv[70]
+seq_buf rejected, live at 0.09; agency's rv[4]/[47] held as the
+F90 build). THE PRICE (single factor): PRICED — a reach during
+an arriving contact +0.5 endorphin, a reach during a veering
+approach +0.35 pain (BONUS_WIN 8); UNPRICED — only the F75
+physical contact response (arrivals only). Scan v3 = F90's
+reward-conditioned admission scan with best-separation family
+per slot (C25). GENS 10, nursery web, F90 seeds.
+RESULT: E0 delivered (bonus 1516, tick 2046 events); E0b organ
+valid — held P 0.562 on arrived vs 0.389 on veered, sep 0.173,
+permutation z 4.4 (the estimator's DESIGNED capacity at EMA 0.4
+with ~6 epochs/sector/world and a flip every world is ~0.19 —
+it delivered what it was built to deliver); E2 C16 0.997; E3
+child reward std < parent (21.9/29.6 vs 45.3; 22.2/26.1 vs 39.2)
+— and E1 FAILED BY EQUALITY: arrival-family slots PRICED 5,
+UNPRICED 5, the SAME slots (ids 119/125/126/127/149, fit counts
+within 1%). Both arms admitted epistemic_buf twice at gen 1-2
+(association 13 -> 113/114 at theta 0.012; org_buf 23 ->
+115/116 at theta 0.009 — PRESENCE floors: "an approach is
+felt"); the admitted children archaized by gen 4 but their
+Unify products (119: 23.8k fits, 125: 21.4k) kept the admitted
+family at the presence floor and were composed (149). And the
+LEVEL: nursery slot 28 (epistemic_buf, threshold 0.5, born at
+0, 1327 fits in its whole life, archaized — the starvation of a
+silent class, F82's diagnosis in another family) was
+DIFFERENTIATED at gen 4 (38400) into epistemic_buf_a (slot 126,
+14,844 fits, open) and _b (127, 1,912): the dead seed came
+alive under the arrival channel and carved at 0.5 = 0.7 x P,
+i.e. P(arrival) >= 0.71 — an "arrival-likely" concept, funded.
+Same in both arms. v1 (an earlier model training; archived
+_v1.json) had PRICED 6 vs UNPRICED 1 with epistemic_buf admitted
+in PRICED only — so across two runs the arrival family was
+admitted in 3 of 4 arms and the arm DIFFERENCE is inside run-to-
+run noise (C22: not replicated as a difference). v1's verdict
+was UNTESTED-BY-ORGAN under an E0b (>= 0.25) priced above the
+organ's own capacity (FS-1c v1's error repeated; v2 re-priced
+E0b as a powered permutation test, constants untouched).
+THE GRAIN CAVEAT (C23, found in the receipts): the price is
+0.85 in FIELD units — in band [0.115, 1.9] as F88 — but the
+receipts' REWARD has std ~40; the price is ~2% of the reward
+variance the scan reads. F90's price had the same magnitude;
+its arms differed in the ADMIT factor with the price constant
+across arms, so F90 stands as billed — but here, where the
+price IS the factor, the arms are near-identical. So the card
+separates "reachable" from "price-caused" but NOT "price
+unnecessary" from "price inaudible at reward grain" — the price
+question is OPEN, and the next price must be calibrated at
+REWARD grain, not field grain. Banked: data/t160o1_priced_web.pkl,
+data/t160o1_unpriced_web.pkl (both carry the funded arrival
+slots); results/t160o1_arrival.json (+_v1, probe log).
+
+**Implications (billed 2026-08-15).**
+1. **RUNG 1 IS BUILT: T160's D-term exists as a receipt-anchored
+   organ, and the economy funds it.** P(arrival|approach)
+   estimated from lived arrival receipts, EMA-tracked through a
+   per-world flip, written to a dead port — and within four
+   generations the family's lifelong-dead seed slot carved and
+   funded 14.8k fits at an "arrival-likely" level. Rung 1 was
+   the "nothing for T160 to be ABOUT" rung; there is now
+   something, and it pays rent.
+2. **THE ORGANISM CARVED THE ARRIVAL COORDINATE AT TWO GRAINS
+   WITHOUT BEING TOLD EITHER: presence (the scan's admission)
+   and level (the seed's resurrection).** The scan found "an
+   approach is felt" — epoch vs no-epoch IS the largest fact
+   about reward in this venue, so that is what the D-criterion
+   at family grain returns first; the level came by a different
+   operator: the 0.5 seed that had never fired now did, and
+   Differentiate took it. Two operators, two grains, one
+   channel. For T160-O rung 3: the LEVEL slot is the one a mint
+   over arrivals would need, and it exists in both banked webs.
+3. **RUNG 4's PRICE HYPOTHESIS IS NOT SUPPORTED AS NECESSARY —
+   and the honest reading is narrower still.** The theory said
+   "a venue that PRICES arrival-uncertainty would let the scan
+   demand an arrival-family". The physical arrival asymmetry
+   (arrival = contact = consequence; veer = nothing) already
+   makes the arrival channel the family that separates reward,
+   unpriced. Either the price is unnecessary or it was never
+   audible at the grain the scan reads (2% of reward variance)
+   — this card cannot separate those, and billing either would
+   be a C13 violation. Rung 4's specific claim: UNTESTED-BY-
+   GRAIN. The demand machinery finding the arrival coordinate:
+   billed.
+4. **C23 GAINS A PRICE-GRAIN CLAUSE.** A price must be
+   calibrated at the grain of the channel the SENSOR reads
+   (reward), not the channel the WORLD delivers through (field).
+   E0 measured field events and passed; the price was
+   inaudible where it mattered. Whys-owed: whether F90's
+   "priced" did work, or the trace channel plus physics did it
+   (F90's arms held the price constant, so its verdict is
+   untouched; only the adjective is in question).
+5. **NEXT CARD (T160-O-1b): re-price at REWARD grain.** Same
+   venue, same organ; price = +-1.0 x the reward std measured
+   in-run from the UNPRICED arm's own receipts (C20: measure the
+   band, then price inside it); arms PRICED/UNPRICED; gates
+   unchanged. If the arms still coincide: the price is
+   unnecessary — the physical asymmetry IS the price (T160 in
+   one line: the world already prices arrival; the organism only
+   has to hear it). If PRICED pulls ahead: rung 4 as written.
+   Either result is billable, and only then is rung 4 earned or
+   falsified.
+6. **A METHOD RECEIPT — the organ-capacity check belongs in
+   pre-flight (C20 amendment).** Twice now (FS-1c v1, this v1)
+   a gate on an organ's output was set above what the organ was
+   built to deliver in the venue. C20 gains a sixth check: for
+   any organ whose output a gate reads, compute the organ's
+   designed capacity in the venue and price the gate below it.
+7. **THE ARC'S LOAD MOVED: rung 1 carried what rung 4 was
+   supposed to.** T160-O named the arrival-priced venue "the
+   load-bearing rung". F102 says the load was carried by the
+   ORGAN plus the world's own asymmetry: a receipt-anchored
+   estimate, written to a dead port, was enough for the economy
+   to carve and fund the arrival coordinate. What the organism
+   was GIVEN is a D-term computed from its own receipts (a
+   sense, not a concept); what it was NOT given — and made — is
+   "arrival-likely at 0.71", chosen by Differentiate on a slot
+   that had never fired. For the Leap Arc that is the right
+   division of labor: give organs, not concepts; the leap is
+   what the economy does with a new sense.
+8. **THE RESURRECTION LAW (F82's cure, measured): a silent
+   family is ONE CHANNEL from vocabulary.** The epistemic_buf
+   seed slot was born with the web, fired never, and archaized;
+   fed a channel, it carved and funded 14.8k fits in four
+   generations — before and independently of any admission. So
+   RUN THE ORGANS (T160-O rung 2) inherits a receipt-shaped
+   prediction: each of the 13 dead rv families, when its organ
+   speaks, will resurrect its own seed slot FIRST (the family
+   already has an address at threshold 0.5) and only then need
+   the re-basis move for cross-family children. The atlas's
+   "UNSPOKEN-IN-VENUE" organs are not missing vocabulary; they
+   are vocabulary with no receipts.
+9. **PRESENCE BEFORE LEVEL — the D-criterion returns the
+   biggest fact first, and refinement is a different operator's
+   job.** The admission scan found "an approach is felt" because
+   epoch-vs-no-epoch is the largest reward separation in the
+   venue; the LEVEL (arrival-likely vs not) came by Differentiate
+   on the seed. Read against T168: this is the crossing ladder
+   inside one family — audibility (channel), representation at
+   coarse grain (admission), refinement (Differentiate). Do not
+   ask the admission sensor to find levels; ask it to open the
+   family, and let the economy grade it. Sensor v3 (queued) should
+   NOT try to condition on level.
+10. **A REPLICATION RULE FOR C22: hold the policy model.** v1
+   and v2 differed in which arm admitted the arrival family, and
+   the only uncontrolled factor between runs was the retrained
+   policy model. "Replicated same day" is not enough when the
+   model is re-drawn each run; C22's powered-replication clause
+   should require the SAME banked model across replicates (or
+   the difference is billed as model-noise until shown
+   otherwise). F90's same-day replication used a fresh model each
+   time — its 4-vs-0 held twice, so it stands, but the rule is
+   now written.
+
+### F103 [W] THE WORLD IS THE PRICE: at REWARD grain (1.0 reward-std per step, 20x the field band) the arrival price still adds nothing the physical arrival asymmetry does not — arrival-family slots PRICED 5 == UNPRICED 5 (seed 96000, banked model); a PRICE-SUPPRESSES result at seed 95000 (1 < 4) did NOT replicate and is void as a difference. Pooled over four paired runs at two grains the price effect on arrival vocabulary is zero within seed noise; the arrival family is admitted UNPRICED in 3 of 4 unpriced arms and the level slot resurrects in 5 of 6 arms. Rung 4 of T160-O as a NECESSITY claim is falsified; as a sufficiency claim, not supported. Mechanism found: a price paid in pain is itself a percept, and consequence families (regulatory, repetition) compete with the predictor family for the same conflated slots at best-match — the arrival coordinate is a claim about the FUTURE and the admission sensor reads the PRESENT
+
+**Finding (2026-08-16, t160o1b_reward_price, two seeds, one
+banked policy model — F102 impl. 5 and impl. 10 executed.)**
+Calibration in-run from the UNPRICED arm (C20): reward std over
+the run's own fit receipts 14.85 / 15.07 (n 1.17M / 1.20M);
+field->reward gain at the object during epochs K = 0.730 (sum of
+the contact gaussian over the sensor points, measured by wrapping
+the field query); price per priced step = std/K = 20.35 / 20.64
+field units — 1.00 reward std per step, OUT of the field band
+[0.115, 1.9] by 10x (stated cost: the price is a reward-grain
+consequence, not a physical effect). Delivered: bonus 1804/1774,
+ticks 3186/3232 events. Organ valid both seeds (held P 0.562 vs
+0.389, z 4.4 — the venue is seed-invariant in its epochs).
+SEED 95000: PRICED admitted epistemic_buf NEVER; at the same
+parents (13, 23) that admit epistemic_buf unpriced (sep 16.06,
+12.34), the priced arm admitted REPETITION (sep 15.93, 13.51 — a
+near-tie resolved the other way) and later regulatory /
+regulatory_buf x7 (pain families); arrival slots PRICED 1 (the
+resurrected seed, slot 131 at 0.5) vs UNPRICED 4 (three presence
++ the seed); C16 1.004. Verdict PRICE SUPPRESSES (earned, one
+seed). SEED 96000 (C22 replicate, same banked model): PRICED
+admitted epistemic_buf twice (parents 13, 23), arrival slots 5 ==
+UNPRICED 5, C16 1.124 (the price ADDS 12% standing traffic —
+arousal); level slot in UNPRICED only (127) — verdict THE WORLD
+IS THE PRICE. The suppression did not replicate: void as a
+difference (C22). Pooled with F102's two runs (field grain):
+PRICED-ahead 1/4 (F102 v1, under a failed organ gate), equal 2/4,
+behind 1/4 — a null centred on zero. Unpriced arms admitting the
+arrival family: 3/4. Level-slot resurrection (the family's seed
+at 0.5 coming alive under the channel): 5/6 arms. Banked:
+data/t160o1b_s95000_{priced,unpriced}_web.pkl,
+data/t160o1_{priced,unpriced}_web.pkl (s96000),
+data/t160o_policy_model.pt; results/t160o1b_reward_price*.json.
+THE MECHANISM (read from the admissions): the price is paid in
+PAIN and ENDORPHIN — fields — and fields are percepts; regulatory
+(stress) and repetition (the tick cadence) families rise under
+the price exactly as the arrival family does, and at the
+conflated parents best-match picks among near-ties. The arrival
+channel's advantage is TEMPORAL — it is informative during the
+loom, before contact — but the reward-conditioned scan reads
+SAME-STEP reward, where a consequence family is at least as good
+an explanation as a predictor. F77's temporal hole, at the
+sensor: T160's coordinate is a claim about the future and the
+sensor that must find it looks only at now.
+
+**Implications (billed 2026-08-16).**
+1. **RUNG 4 IS SETTLED IN THE NEGATIVE, HONESTLY: the world
+   already prices arrival.** As necessity: falsified (the arrival
+   family is demanded and funded with no price at all, 3/4
+   unpriced arms; the seed slot resurrects 5/6). As sufficiency:
+   not supported at two grains over four pairs. T160 in one line
+   survives its own first test by being cheaper than its author
+   thought: arrival is priced by the physics of arriving; the
+   organism only has to HEAR it (rung 1) and be allowed to carve
+   in it (F90). The Leap Arc loses a rung and gains a law.
+2. **A PRICE IS A PERCEPT — the price-grain clause (C23) gains its
+   second half.** Any price delivered through the sensory field is
+   also a stimulus that some family will carve; a price meant to
+   favor a PREDICTOR coordinate feeds every CONSEQUENCE family
+   equally. In this architecture there is no un-sensed reward
+   (reward IS the fields), so no venue price can prefer a predictor
+   over a consequence at same-step grain. This is why the seed-
+   95000 suppression happened at all — and why it could not
+   replicate: it was a near-tie among percepts.
+3. **THE ADMISSION SENSOR IS TIME-BLIND, AND T160 IS A CLAIM
+   ABOUT TIME.** The D-criterion at family grain conditions same-
+   step reward on same-step activation. A predictor's whole worth
+   is that its activation NOW separates reward LATER; a same-step
+   sensor cannot see that worth and so cannot prefer arrival to
+   pain. Sensor v3 (queued) gets its specification from this: the
+   LAGGED D-criterion — separate reward over the next k steps by
+   activation now — the "predictable endpoint" criterion made into
+   the admission rule. Prediction: under the lagged sensor, the
+   arrival family is admitted at the LEVEL grain (P >= 0.71 is
+   what predicts contact), not only at presence, and pain families
+   lose their tie.
+4. **THE SEED-RESURRECTION LAW IS NOW THE ROBUST FACT (5/6 arms,
+   two grains, two models, two seeds).** The economy-dead seed slot
+   of a family carves and funds within four generations of the
+   family's channel coming alive — before, and independent of, any
+   admission and any price. F102 impl. 8 stands as the mechanism
+   RUN THE ORGANS will meet first; and it is the ONE arrival-
+   coordinate result that survived every perturbation this arc
+   applied. What survives perturbation is what is real (T169's
+   rule, applied to the arc's own findings).
+5. **C22 EARNED ITS KEEP TWICE IN ONE CARD.** With the model
+   banked (impl. 10 executed) the only free factor between
+   replicates was the seed, and the seed alone flipped a
+   1-vs-4 "suppression" into 5-vs-5. Without the replicate the
+   ledger would carry a surprising, mechanistic, wrong law today.
+   Rule confirmed: no difference claim is billed off one seed, and
+   the model is banked before the first arm runs.
+6. **NEXT CARD (T160-O-1c): the lagged sensor.** Same venue, same
+   organ, UNPRICED only (the price is retired — the world is the
+   price); arms = SAME-STEP scan (F90/1b) vs LAGGED scan (reward
+   summed over the next k = CONTACT_STEPS steps, conditioned on
+   activation now; base rates printed as before); gate = arrival
+   family admitted at LEVEL (theta >= 0.35) and funded on own fits
+   under LAGGED, not under SAME-STEP; C16; the seed slot's own-fit
+   count reported. If LAGGED admits arrival at level: rung 4 is
+   replaced by "rung 4' — the sensor must be able to see the
+   future the coordinate is about," and T160-O's staircase is one
+   step shorter and one step truer.
+7. **THE ECONOMY IS A CONSEQUENCE-ECONOMY, AND T160 NEEDS A
+   PREDICTOR-ECONOMY: fits pay at the step they are made.** A fit
+   receipt settles now; a predictor's worth settles later. The
+   organ built for rung 1 already lives in the right economy — it
+   holds P at loom-time and SETTLES at contact — but the web's
+   ledger does not: a fit against the arrival family during the
+   loom is paid same-step like any other. So the deeper form of
+   the lagged sensor is the lagged RECEIPT: a fit whose sign is a
+   LIEN settled when the trajectory resolves. That is what rung 1
+   originally named ("liens re-signed arrived/veered") and what
+   the experiment organ's bill/expire already does for
+   hypotheses. Bridge-card order holds: 1c prices it with an
+   instrument (the lagged scan); if it pays, the receipt-grain
+   organ follows.
+8. **THE PSYCHOLOGY PIECE OF T160, MEASURED FROM THE OTHER SIDE:
+   biology solved the time-blind sensor by moving reward to
+   PREDICTION time.** Reward prediction error fires when the
+   estimate updates, not when the goods arrive; the felt event is
+   the settlement of the lien, at the moment of prediction. F103
+   shows why that is not a detail: an organism whose reward is
+   only consequence-time cannot prefer predictor coordinates,
+   however the world prices its errors. So T160's claim that
+   arrival-predictability is the primary motivation implies an
+   ANTICIPATORY reward channel — value paid at P(arrival)'s update
+   — and F103 has just shown that without one, no venue can make
+   an organism care about arrival more than about pain. This
+   belongs in T160's math (D-terms) as the schedule ON WHICH the
+   receipts economy pays, not only what it counts.
+9. **EVERY META-COORDINATE OVER TRAJECTORIES IS A TEMPORAL CLAIM
+   — so the tower (rung 5) needs time-indexed receipts.** The Leap
+   Arc's gap (a): frameworks as objects at level n+1. F103 says
+   what those objects must carry: not fit counts but fits with
+   TIME-TO-SETTLEMENT — because any coordinate the organism might
+   mint about its own trajectories (arrival, hazard, "this kind of
+   plan reaches") is a statement about later. The serialization
+   thesis put time on the axis; F103 puts it in the receipt. The
+   tower's per-slot form should be specified with lag as a field
+   from the start (a receipts-only rule for a claim about the
+   future is a lien, always).
+10. **A VENUE-DESIGN LAW FOR THE ORGAN ATLAS: to test a predictor,
+   deliver nothing extra and measure the lag.** Consequences
+   delivered through fields grow consequence families (regulatory,
+   repetition — the arc's own receipts). A predictor family is
+   tested by leaving the world's own asymmetry in place and
+   changing the SENSOR's clock, never by adding stimulus. Written
+   into ORGANS.md's wiring notes as the arrival organ's lesson.
+
 ## Discharged (history)
 
 - **The EGGROLL conjunction → T154** (2026-08-09): the paper (low-rank
